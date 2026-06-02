@@ -48,13 +48,14 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <header>
   <div class="container" style="max-width:1100px;margin:0 auto">
     <h1 style="color:#fff;font-size:2.5rem">Operator Syndicate</h1>
-    <p>設計記憶 · 規格文件 · Roadmap 追蹤 · 最後更新：2026-06-02</p>
+    <p>設計記憶 · 規格文件 · Roadmap 追蹤 · 最後更新：2026-06-02 v3.1</p>
     <p style="margin-top:.75rem"><strong style="color:var(--orange)">網站地址：</strong><a href="https://vincentt-wang.github.io/operator-syndicate/" style="color:#FB923C">https://vincentt-wang.github.io/operator-syndicate/</a></p>
     <p><strong style="color:var(--orange)">本機路徑：</strong><code style="background:rgba(255,255,255,.1);color:#fff">/Users/admin/Downloads/0｜Other/B2B/index.html</code></p>
   </div>
 </header>
 
 <div class="nav-bar">
+  <a href="#memory-arch">記憶架構</a>
   <a href="#project">專案概述</a>
   <a href="#cis">設計系統</a>
   <a href="#sections">頁面結構</a>
@@ -62,12 +63,23 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
   <a href="#rules">設計規則</a>
   <a href="#copy">文案指引</a>
   <a href="#roadmap">Roadmap</a>
-  <a href="#decisions">設計決策</a>
+  <a href="#decisions">決策記錄</a>
 </div>
 
 <div class="container">
 
 <!-- PROJECT -->
+<h2 id="memory-arch">0. 記憶架構（三層）</h2>
+<div class="note">每次對這個專案動工，Claude 必須按以下順序讀取記憶。</div>
+<table>
+<tr><th>層</th><th>檔案</th><th>讀取方式</th><th>更新時機</th></tr>
+<tr><td><strong>L1</strong> 全域記憶</td><td><code>/Users/admin/.claude/projects/-Users-admin/memory/project_operator_syndicate.md</code></td><td>Claude 自動載入（每對話開始）</td><td>遇到新的根本性 bug 或規則</td></tr>
+<tr><td><strong>L2</strong> 工作記憶</td><td><code>/Users/admin/Downloads/0｜Other/B2B/memory.md</code></td><td><code>cat memory.md</code>（手動，工作前）</td><td>每次改動設計規格、新增 section、修 bug</td></tr>
+<tr><td><strong>L3</strong> 視覺文件</td><td><code>/Users/admin/Downloads/0｜Other/B2B/memory.html</code>（本文件）</td><td>瀏覽器打開查看</td><td>重大版本後，在「設計決策記錄」加 entry</td></tr>
+</table>
+<div class="rule"><strong>衝突解決原則：</strong>若三個檔案內容矛盾，以 <code>memory.md</code>（L2）為準，因為它最常更新且是 Claude 的直接工作參考。</div>
+<div class="rule"><strong>Push 提醒：</strong>每次 <code>git push</code> 前，確認 memory.md 和 memory.html 都已同步更新到最新狀態。</div>
+
 <h2 id="project">1. 專案概述</h2>
 <div class="section-grid">
   <div class="card">
@@ -233,28 +245,33 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <h2 id="decisions">8. 設計決策記錄</h2>
 
 <div class="update-log">
-  <div class="date">2026-06-02</div>
-  <p><strong>Nav CSS bug 修復：</strong>把 <code>nav { position:fixed }</code> 改為 <code>#nav { position:fixed }</code>。原因：<code>nav</code> 通用選擇器把 footer 裡的 <code>&lt;nav class="ft-nav"&gt;</code> 也 fixed 到頂部，導致「Deal Quality/Team/FAQ」浮在右上角，且蓋住 nav 連結無法點擊。根本問題：一個 CSS 選擇器影響了兩個不同的 nav 元素。</p>
+  <div class="date">2026-06-02 — v3.1</div>
+  <p><strong>Operator Network 完全重寫為軌道動畫（Starlink 風格）：</strong>原版節點亂飄像蚊子，改為 4 個傾斜橢圓軌道環（Ring 1 外→Ring 4 內），各以不同速度、正反方向公轉，創造立體 Starlink 衛星效果。每圈 5 個節點均勻分布，永不重疊。公司名稱標籤常駐（13px）。滑鼠接觸：節點停轉磁吸，顯示 pravatar 頭像 + 姓名。</p>
 </div>
 
 <div class="update-log">
-  <div class="date">2026-06-02</div>
-  <p><strong>語言切換系統重寫：</strong>原版用 <code>[data-zh]{display:none}</code> CSS 隱藏，導致所有有 data-zh 屬性的元素（包括標題）全部不可見。改為 GVA 的 textContent swap 方式：<code>el.textContent = l==='zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en')</code>，只對沒有子元素的元素執行，避免破壞 SVG 按鈕。</p>
+  <div class="date">2026-06-02 — v3.1</div>
+  <p><strong>Hero Canvas 重設計：</strong>原版 55 個節點移動太快，像蚊子。改為 22 個節點分布在結構化鬆散格子（有抖動），以極慢速度小幅軌道漂移（t+=.004，振幅 28px/18px）。靜止時幾乎看不出移動，形成稀疏網格底紋。滑鼠才是重點：附近節點被吸引，出現橘色放射線 + 光暈。</p>
 </div>
 
 <div class="update-log">
-  <div class="date">2026-06-01</div>
-  <p><strong>Hero 動畫去球形化：</strong>原版複製 GVA 的粒子→球形聚合效果。改為 55 個節點的「流動網路」：有橘色連線、軌跡殘影、滑鼠吸引力，沒有球形收斂。更符合「B2B 連線網路」的概念，且視覺上與 GVA 有明顯差異。</p>
+  <div class="date">2026-06-02 — v3.1</div>
+  <p><strong>Globe 改為琥珀橙熔岩風格：</strong>前版深海軍藍背景被使用者批評太醜（#0A1628→#060F1E）。改為深棕色底（#1C1005→#0A0601）+ 橘色格線（rgba(255,140,30,.18)）+ 橘色大陸輪廓，呈現「熔岩地圖」質感，與 GVA 冷色系形成對比。section 背景同步改為深棕漸層。</p>
 </div>
 
 <div class="update-log">
-  <div class="date">2026-06-01</div>
-  <p><strong>Operator Network 引力系統：</strong>原版節點隨機彈壁，像亂飛的粒子。改為：中心引力（半徑 0.38×min(W,H)），鄰居彈簧連接（每節點 3 個最近鄰），速度阻尼 0.992，速度上限 0.9。節點現在在球形範圍內有秩序地漂移，而非四散。</p>
+  <div class="date">2026-06-02 — v3.1</div>
+  <p><strong>Section 結構精簡：</strong>移除「How It Works（4步驟流程）」和「A4 Brief Demo」兩個 section，現在共 9 個 section。How It Works 的資訊已整合進 Portal Overlay 的 startup 申請流程；A4 Brief 作為第二層功能，未來高管專屬頁面再展示。</p>
 </div>
 
 <div class="update-log">
-  <div class="date">2026-06-01</div>
-  <p><strong>Globe 視覺差異化：</strong>原版直接複製 GVA 的暖白球形 (#FFF7ED → #FCEEE3)，一看就知道抄的。改為深海軍藍背景（#0A1628 → #060F1E），橘色格線和軌跡（rgba(255,140,66,.08)），符合整體深色高管調性。</p>
+  <div class="date">2026-06-02 — v3.0</div>
+  <p><strong>Nav CSS bug 修復：</strong>把 <code>nav { position:fixed }</code> 改為 <code>#nav { position:fixed }</code>。原因：<code>nav</code> 通用選擇器把 footer 裡的 <code>&lt;nav class="ft-nav"&gt;</code> 也 fixed 到頂部，導致「Deal Quality/Team/FAQ」浮在右上角，且蓋住 nav 連結無法點擊。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-02 — v3.0</div>
+  <p><strong>語言切換系統重寫：</strong>原版用 <code>[data-zh]{display:none}</code> CSS 隱藏，導致所有有 data-zh 屬性的元素（包括標題）全部不可見。改為 textContent swap：<code>el.textContent = l==='zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en')</code>，只對無子元素的節點執行。</p>
 </div>
 
 <h2>9. 夥伴 / 生態系合作夥伴（假名）</h2>
