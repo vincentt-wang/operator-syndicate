@@ -486,33 +486,33 @@ footer{background:#060F1E;padding:72px 0 0}
 .p-ico{background:var(--orange-pale)!important}
 .pillar-card:hover .p-ico{background:rgba(255,102,0,.18)!important}
 
-/* Team section — dark bg, glow cards */
+/* Team section — WHITE bg, warm glow cards */
 #team .container{position:relative;z-index:1}
-#team .eyebrow{color:var(--orange-3)!important}
-#team .eyebrow::before{background:var(--orange-3)!important}
-#team .section-h{color:#fff!important}
-#team>div>div>p{color:rgba(255,255,255,.5)!important}
+#team .eyebrow{color:var(--orange)!important}
+#team .eyebrow::before{background:var(--orange)!important}
+#team .section-h{color:var(--text)!important}
+#team>div>div>p{color:var(--text-3)!important}
 
-/* Card base style on dark bg */
-.team-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.1)!important}
-.team-name{color:#fff!important}
-.team-bio{color:rgba(255,255,255,.55)!important}
-.team-avatar{border-color:rgba(255,102,0,.3)!important}
-.team-socials a{border-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.35)!important}
+/* Card base style on white bg */
+.team-card{background:var(--bg)!important;border-color:var(--border)!important}
+.team-name{color:var(--text)!important}
+.team-bio{color:var(--text-3)!important}
+.team-avatar{border-color:rgba(255,102,0,.2)!important}
+.team-socials a{border-color:var(--border)!important;color:var(--text-4)!important}
 .team-socials a:hover{border-color:var(--orange)!important;color:var(--orange)!important}
 
-/* Hover glow */
+/* Hover glow — warm orange on white */
 .team-card:hover{
-  box-shadow:0 0 0 1px rgba(255,102,0,.45),0 0 32px rgba(255,102,0,.22),0 16px 48px rgba(0,0,0,.3)!important;
-  border-color:rgba(255,102,0,.45)!important;
+  box-shadow:0 0 0 1.5px rgba(255,102,0,.3),0 8px 32px rgba(255,102,0,.14),0 16px 48px rgba(0,0,0,.07)!important;
+  border-color:rgba(255,102,0,.3)!important;
   transform:translateY(-6px)!important;
-  background:rgba(255,102,0,.08)!important;
+  background:var(--white)!important;
 }
 
-/* Auto sequential glow — each card pulses in turn */
+/* Auto sequential glow — white-mode warm pulse */
 @keyframes team-pulse{
-  0%,80%,100%{box-shadow:none;border-color:rgba(255,255,255,.1);transform:translateY(0)}
-  10%,70%{box-shadow:0 0 0 1px rgba(255,102,0,.4),0 0 28px rgba(255,102,0,.2);border-color:rgba(255,102,0,.4);transform:translateY(-5px)}
+  0%,80%,100%{box-shadow:var(--shadow-sm);border-color:var(--border);transform:translateY(0);background:var(--bg)}
+  10%,70%{box-shadow:0 0 0 1.5px rgba(255,102,0,.28),0 8px 28px rgba(255,102,0,.12);border-color:rgba(255,102,0,.28);transform:translateY(-5px);background:var(--white)}
 }
 .team-card:nth-child(1){animation:team-pulse 9s ease-in-out infinite 0s}
 .team-card:nth-child(2){animation:team-pulse 9s ease-in-out infinite 1.5s}
@@ -522,18 +522,18 @@ footer{background:#060F1E;padding:72px 0 0}
 .team-card:nth-child(6){animation:team-pulse 9s ease-in-out infinite 7.5s}
 .team-card:hover{animation:none!important}
 
-/* Advisors section on dark bg */
-.advisors-wrap{border-top-color:rgba(255,255,255,.1)!important}
-.advisors-ey{color:rgba(255,255,255,.35)!important}
-.advisor-card{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.1)!important}
-.advisor-card:hover{border-color:rgba(255,102,0,.3)!important;background:rgba(255,102,0,.07)!important}
-.advisor-name{color:rgba(255,255,255,.85)!important}
-.advisor-tag{color:rgba(255,255,255,.4)!important}
+/* Advisors section on white bg */
+.advisors-wrap{border-top-color:var(--border)!important}
+.advisors-ey{color:var(--text-4)!important}
+.advisor-card{background:var(--bg)!important;border-color:var(--border)!important}
+.advisor-card:hover{border-color:rgba(255,102,0,.25)!important;background:var(--white)!important;box-shadow:0 4px 20px rgba(255,102,0,.1)!important}
+.advisor-name{color:var(--text)!important}
+.advisor-tag{color:var(--text-4)!important}
 
-/* Advisor auto pulse */
+/* Advisor auto pulse — light warm glow */
 @keyframes adv-pulse{
-  0%,75%,100%{box-shadow:none;border-color:rgba(255,255,255,.1)}
-  15%,60%{box-shadow:0 0 18px rgba(255,102,0,.18);border-color:rgba(255,102,0,.35)}
+  0%,75%,100%{box-shadow:var(--shadow-sm);border-color:var(--border)}
+  15%,60%{box-shadow:0 0 0 1px rgba(255,102,0,.22),0 6px 20px rgba(255,102,0,.1);border-color:rgba(255,102,0,.25)}
 }
 .advisor-card:nth-child(1){animation:adv-pulse 12s ease-in-out infinite 0s}
 .advisor-card:nth-child(2){animation:adv-pulse 12s ease-in-out infinite 1.5s}
@@ -543,7 +543,7 @@ footer{background:#060F1E;padding:72px 0 0}
 .advisor-card:nth-child(6){animation:adv-pulse 12s ease-in-out infinite 7.5s}
 .advisor-card:nth-child(7){animation:adv-pulse 12s ease-in-out infinite 9s}
 .advisor-card:nth-child(8){animation:adv-pulse 12s ease-in-out infinite 10.5s}
-.advisor-card:hover{animation:none!important;border-color:rgba(255,102,0,.45)!important}
+.advisor-card:hover{animation:none!important;border-color:rgba(255,102,0,.35)!important}
 </style>
 </head>
 <body>
@@ -1050,7 +1050,7 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- PILLARS -->
 <!-- WHY -->
-<section id="team" style="padding:120px 0;background:#0A1628;position:relative;overflow:hidden"><canvas id="team-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
+<section id="team" style="padding:120px 0;background:var(--white);position:relative;overflow:hidden"><canvas id="team-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.35"></canvas>
   <div class="container">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap">
       <div class="reveal" style="flex:1;min-width:240px">
@@ -1326,7 +1326,7 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
         var dx=nd.x-mx,dy=nd.y-my,d2=dx*dx+dy*dy;
         if(d2<170*170){
           var al=((1-d2/(170*170))*.5).toFixed(3);
-          ctx.strokeStyle='rgba(255,102,0,'+al+')';ctx.lineWidth=1;
+          ctx.strokeStyle='rgba(234,88,12,'+al+')';ctx.lineWidth=1;
           ctx.beginPath();ctx.moveTo(nd.x,nd.y);ctx.lineTo(mx,my);ctx.stroke();
         }
       });
@@ -1741,7 +1741,7 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
         var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
         if(d2<CONN_D2){
           var al=((1-d2/CONN_D2)*.07).toFixed(3);
-          ctx.strokeStyle='rgba(255,102,0,'+al+')';
+          ctx.strokeStyle='rgba(234,88,12,'+al+')';
           ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
         }
       }
@@ -1750,7 +1750,7 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
     nodes.forEach(function(nd){
       if(nd.x<-10||nd.x>W+10||nd.y<-10||nd.y>H+10)return;
       var glow=.5+.5*Math.sin(t*1.2+nd.glow);
-      var al=(.04+glow*.08).toFixed(3);
+      var al=(.03+glow*.05).toFixed(3);
       ctx.beginPath();ctx.arc(nd.x,nd.y,1.8+glow*.8,0,Math.PI*2);
       ctx.fillStyle='rgba(255,102,0,'+al+')';ctx.fill();
       // Occasional brighter nodes
