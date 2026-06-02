@@ -1692,7 +1692,7 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
   canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;});
   function checkVis(){var r=canvas.getBoundingClientRect();active=(r.top<window.innerHeight+100&&r.bottom>-100);}
   window.addEventListener('scroll',checkVis,{passive:true});checkVis();
-  var LANE_GAP=80,LINE_LEN=200,N_LANES=20;
+  var LANE_GAP=62,LINE_LEN=280,N_LANES=32;
   var lanes=[];
   function init(){
     lanes=[];
@@ -1700,9 +1700,9 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
       lanes.push({
         offset:i*LANE_GAP+(Math.random()*LANE_GAP*.5),
         phase:Math.random()*800,
-        alpha:.16+Math.random()*.14,
+        alpha:.24+Math.random()*.20,
         speed:.35+Math.random()*.55,
-        width:.7+Math.random()*.9
+        width:1.4+Math.random()*1.6
       });
     }
   }
