@@ -268,19 +268,19 @@ img{max-width:100%;display:block}
 .pillar-card:hover .p-detail{opacity:1;transform:none}
 
 /* GLOBE */
-#global{padding:120px 0;background:linear-gradient(180deg,var(--white) 0%,#F0F4F8 40%,var(--white) 100%);position:relative;overflow:hidden}
+#global{padding:120px 0;background:linear-gradient(180deg,var(--white) 0%,#1A0E04 25%,#0D0602 55%,#1A0E04 80%,var(--white) 100%);position:relative;overflow:hidden}
 #globe-sun-ov{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .55s;background:radial-gradient(circle 480px at var(--gsx,50%) var(--gsy,50%),rgba(255,218,70,.15) 0%,rgba(255,172,35,.08) 30%,rgba(255,130,0,.03) 60%,transparent 100%)}
 #globe-sun-ov.on{opacity:1}
 .global-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
 .globe-wrap{display:flex;justify-content:center;align-items:center;position:relative}
-.globe-glow{position:absolute;inset:-40px;background:radial-gradient(ellipse,rgba(255,102,0,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.globe-glow{position:absolute;inset:-40px;background:radial-gradient(ellipse,rgba(255,140,30,.25) 0%,transparent 65%);border-radius:50%;pointer-events:none}
 #globe-canvas{border-radius:50%;display:block;cursor:grab}
 .globe-tip{position:absolute;pointer-events:none;background:rgba(10,22,40,.92);backdrop-filter:blur(10px);border:1px solid rgba(255,102,0,.35);border-radius:10px;padding:8px 14px;white-space:nowrap;opacity:0;transform:translateY(5px) scale(.95);transition:opacity .18s,transform .18s;z-index:10}
 .globe-tip.vis{opacity:1;transform:translateY(0) scale(1)}
 .gt-name{display:block;font-family:var(--fd);font-size:1rem;font-weight:700;color:#fff}
 .gt-desc{display:block;font-size:.88rem;color:var(--orange-3);margin-top:2px}
 .city-legend{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
-.city-tag{display:inline-flex;align-items:center;gap:6px;font-size:1rem;font-weight:500;color:var(--text-3);background:var(--white);border:1px solid var(--border);border-radius:20px;padding:5px 14px}
+.city-tag{display:inline-flex;align-items:center;gap:6px;font-size:1rem;font-weight:500;color:rgba(255,180,100,.9);background:rgba(255,255,255,.07);border:1px solid rgba(255,140,30,.25);border-radius:20px;padding:5px 14px}
 .city-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
 .city-dot.origin{background:#F59E0B;box-shadow:0 0 6px #F59E0B}
 
@@ -547,9 +547,9 @@ footer{background:#060F1E;padding:72px 0 0}
     <span class="logo-tag">DEMO</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#audience" data-en="For Startups" data-zh="新創適合你嗎">For Startups</a></li>
+    <li><a href="#audience" data-en="For Startups" data-zh="新創適用">For Startups</a></li>
     <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
-    <li><a href="#how" data-en="How It Works" data-zh="如何運作">How It Works</a></li>
+    <li><a href="#tiers" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
   </ul>
   <div class="nav-right">
@@ -640,8 +640,9 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 
 <!-- INVESTMENT TIERS -->
-<section id="tiers" style="padding:100px 0;background:var(--bg)">
-  <div class="container">
+<section id="tiers" style="padding:100px 0;background:var(--bg);position:relative;overflow:hidden">
+  <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
+  <div class="container" style="position:relative;z-index:1">
     <div class="reveal">
       <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
       <h2 class="section-h" data-en="Two tiers. One network." data-zh="兩個層級，一個網絡。">Two tiers. One network.</h2>
@@ -710,42 +711,6 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" style="padding:120px 0;background:var(--bg)">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-      <div class="eyebrow" data-en="The Process" data-zh="運作流程">The Process</div>
-      <h2 class="section-h" data-en="From submission to enterprise deal." data-zh="從提交到大廠訂單。">From submission to enterprise deal.</h2>
-    </div>
-    <div class="steps-flow" style="margin-top:4rem">
-      <div class="step-card reveal d1">
-        <div class="step-num">01</div>
-        <h3 data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</h3>
-        <p data-en="Fill a 10-minute form. Include your deck link and the target enterprise customer you want to reach." data-zh="填寫 10 分鐘表單。附上 Deck 連結與你想觸達的目標大廠。">Fill a 10-minute form. Include your deck link and the target enterprise customer you want to reach.</p>
-        <div class="step-stat" data-en="10 min to complete" data-zh="10 分鐘完成">10 min to complete</div>
-      </div>
-      <div class="step-card reveal d2">
-        <div class="step-num">02</div>
-        <h3 data-en="AI Pre-Screen" data-zh="AI 初篩">AI Pre-Screen</h3>
-        <p data-en="D/V/F methodology screens 30–50 submissions per month. Only 2–3 deals advance to the operator network each cycle." data-zh="D/V/F 方法論每月篩選 30–50 件，每次循環只有 2–3 個案源進入高管網絡。">D/V/F methodology screens 30–50 submissions per month. Only 2–3 deals advance to the operator network each cycle.</p>
-        <div class="step-stat" data-en="48hr response guaranteed" data-zh="48 小時內保證回覆">48hr response guaranteed</div>
-      </div>
-      <div class="step-card reveal d3">
-        <div class="step-num">03</div>
-        <h3 data-en="A4 Decision Brief" data-zh="A4 決策履歷">A4 Decision Brief</h3>
-        <p data-en="Qualified deals get a structured 1-page brief — Elevator Pitch, Cost of Problem, Strategic Hook, Red Flag. Operators decide in 3 minutes." data-zh="通過篩選的案源產出 A4 結構化履歷。高管 3 分鐘做出決定。">Qualified deals get a structured 1-page brief. Operators decide in 3 minutes.</p>
-        <div class="step-stat" data-en="3-minute read" data-zh="3 分鐘閱讀">3-minute read</div>
-      </div>
-      <div class="step-card reveal d4">
-        <div class="step-num">04</div>
-        <h3 data-en="Operator Connect" data-zh="高管直連">Operator Connect</h3>
-        <p data-en="Interested operators co-invest via SPV and make direct enterprise introductions. POC timelines drop from months to weeks." data-zh="有興趣的高管透過 SPV 共同投資並直接進行企業引薦。POC 時程從數月縮短為數週。">Interested operators co-invest via SPV and make direct enterprise introductions. POC timelines drop from months to weeks.</p>
-        <div class="step-stat" data-en="POC in weeks, not months" data-zh="數週而非數月完成 POC">POC in weeks, not months</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PILLARS -->
 <section id="pillars" style="padding:120px 0;background:var(--white)">
   <div class="container">
@@ -786,10 +751,10 @@ footer{background:#060F1E;padding:72px 0 0}
   <div id="globe-sun-ov"></div>
   <div class="container">
     <div class="global-inner">
-      <div class="reveal">
-        <div class="eyebrow" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
-        <h2 class="section-h" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
-        <p class="section-p" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
+      <div class="reveal" style="color:#fff">
+        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
+        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
+        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
         <div class="city-legend" style="margin-top:2.5rem">
           <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
           <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
@@ -808,75 +773,6 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 <div class="divider"></div>
-
-<!-- A4 BRIEF DEMO -->
-<section id="brief" style="padding:120px 0;background:var(--bg)">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-      <div class="eyebrow" data-en="Deal Quality Standard" data-zh="案源品質標準">Deal Quality Standard</div>
-      <h2 class="section-h" data-en="Every deal. 3-minute read." data-zh="每個案源，3 分鐘決策。">Every deal. 3-minute read.</h2>
-      <p class="section-p" style="margin:0 auto" data-en="Every qualified deal generates a structured A4 Decision Brief — four blocks that answer the four questions operators actually care about." data-zh="每個通過篩選的案源都產出結構化 A4 決策履歷，四個區塊回答高管真正在乎的四個問題。">Every qualified deal generates a structured A4 Decision Brief — four blocks that answer the four questions operators actually care about.</p>
-    </div>
-    <div class="brief-inner">
-      <div class="reveal">
-        <h3 style="font-family:var(--fd);font-weight:800;font-size:1.5rem;margin-bottom:1.25rem;letter-spacing:-.02em" data-en="How operators read a deal in 3 minutes" data-zh="高管如何在 3 分鐘內判斷一個案源">How operators read a deal in 3 minutes</h3>
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem">
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">1</div>
-            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Elevator Pitch — 3-second gut check" data-zh="Elevator Pitch — 3 秒直覺判斷">Elevator Pitch — 3-second gut check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Is this my industry?" data-zh="這是不是我的產業？">Is this my industry?</div></div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">2</div>
-            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Cost of Problem — 1-minute pain check" data-zh="Cost of Problem — 1 分鐘痛點判斷">Cost of Problem — 1-minute pain check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Is this pain real enough to justify investment?" data-zh="這個痛點夠真實足以值得投資嗎？">Is this pain real enough to justify investment?</div></div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">3</div>
-            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Strategic Hook — 1-minute value check" data-zh="Strategic Hook — 1 分鐘價值判斷">Strategic Hook — 1-minute value check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Can I personally help accelerate this?" data-zh="我真的能親手加速這個案子嗎？">Can I personally help accelerate this?</div></div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">4</div>
-            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Red Flag — 30-second risk check" data-zh="Red Flag — 30 秒風險判斷">Red Flag — 30-second risk check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Can I live with this risk?" data-zh="這個風險我能接受嗎？">Can I live with this risk?</div></div>
-          </div>
-        </div>
-        <div class="brief-caption" data-en="This is a Demo sample. Live deals are AI-generated and QA'd by Vincent before distribution to the LP network." data-zh="以下為 Demo 範例。實際案源由 AI 產出，經 Vincent 品質把關後分發給高管網絡。">This is a Demo sample. Live deals are AI-generated and QA'd by Vincent before distribution to the LP network.</div>
-      </div>
-      <div class="brief-card reveal d2">
-        <div class="brief-hdr">
-          <div><div class="brief-co">SecureFlow AI</div><div class="brief-meta" data-en="Cloud Security · Seed Stage · May 2026" data-zh="雲端資安 · Seed 階段 · 2026 年 5 月">Cloud Security · Seed Stage · May 2026</div></div>
-          <div class="brief-demo-badge">DEMO</div>
-        </div>
-        <div class="brief-sec open" id="bs-ep">
-          <button class="brief-trigger" onclick="toggleBrief('bs-ep')">
-            <div class="brief-tl"><span class="blabel blabel-ep">Elevator Pitch</span><h4 data-en="What they do in 10 seconds" data-zh="10 秒說清楚他們做什麼">What they do in 10 seconds</h4></div>
-            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="brief-body" style="max-height:200px"><div class="brief-content" data-en="SecureFlow AI — AI-powered real-time detection of anomalous enterprise cloud access. Compresses security incident response from 72 hours to 15 minutes. secureflow.ai · Chen Wei, CEO" data-zh="SecureFlow AI — AI 即時偵測企業雲端環境異常存取，資安事件回應時間從 72 小時壓縮至 15 分鐘。secureflow.ai · Chen Wei, CEO">SecureFlow AI — AI-powered real-time detection of anomalous enterprise cloud access. Compresses security incident response from 72 hours to 15 minutes. secureflow.ai · Chen Wei, CEO</div></div>
-        </div>
-        <div class="brief-sec" id="bs-cop">
-          <button class="brief-trigger" onclick="toggleBrief('bs-cop')">
-            <div class="brief-tl"><span class="blabel blabel-cop">Cost of Problem</span><h4 data-en="The quantified pain" data-zh="量化的痛點">The quantified pain</h4></div>
-            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="brief-body"><div class="brief-content" data-en="Enterprise average incident loss: NT$8M (downtime + compliance fines + churn). Current SIEM requires 3–5 person SOC teams 24/7, annual cost NT$12–18M. SecureFlow claims to replace 60% of manual monitoring capacity." data-zh="企業每次資安事件平均損失 NT$800 萬（停機、法遵罰款、客戶流失）。現行 SIEM 需 3–5 人 SOC 24 小時監控，年成本 NT$1,200–1,800 萬。SecureFlow 主張可替代 60% 的人工監控量能。">Enterprise average incident loss: NT$8M (downtime + compliance fines + churn). Current SIEM requires 3–5 person SOC teams 24/7, annual cost NT$12–18M. SecureFlow claims to replace 60% of manual monitoring capacity.</div></div>
-        </div>
-        <div class="brief-sec" id="bs-sh">
-          <button class="brief-trigger" onclick="toggleBrief('bs-sh')">
-            <div class="brief-tl"><span class="blabel blabel-sh">Strategic Hook</span><h4 data-en="Why operator LPs can help" data-zh="為什麼高管 LP 能幫上">Why operator LPs can help</h4></div>
-            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="brief-body"><div class="brief-content" data-en="Integrates directly with ACS Security Hub and Oracore Sentinel API. ACS/Oracore LPs can introduce as an ecosystem add-on (upsell). With operator intro, POC timeline: 6 months → 6 weeks." data-zh="直接整合 ACS Security Hub 與 Oracore Sentinel API。ACS/Oracore LP 可引薦為雲端安全生態系加值方案（upsell）。有高管引薦，POC 從 6 個月壓縮至 6 週。">Integrates directly with ACS Security Hub and Oracore Sentinel API. ACS/Oracore LPs can introduce as an ecosystem add-on (upsell). With operator intro, POC timeline: 6 months → 6 weeks.</div></div>
-        </div>
-        <div class="brief-sec" id="bs-rf">
-          <button class="brief-trigger" onclick="toggleBrief('bs-rf')">
-            <div class="brief-tl"><span class="blabel blabel-rf">Red Flag</span><h4 data-en="The honest risk" data-zh="誠實的風險">The honest risk</h4></div>
-            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="brief-body"><div class="brief-content" data-en="Only 2 paying clients (SMEs). No enterprise Vendor Security Assessment passed. 4-person team, no ISO 27001 / SOC2. If large enterprise compliance requirements come first, this could stall 6–12 months." data-zh="目前僅 2 家付費客戶（中小企業），尚未通過任何大廠安全審查。4 人團隊，缺 ISO 27001 / SOC2。若大廠合規要求先行，可能卡 6–12 個月。">Only 2 paying clients (SMEs). No enterprise Vendor Security Assessment passed. 4-person team, no ISO 27001 / SOC2. If large enterprise compliance requirements come first, this could stall 6–12 months.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TEAM -->
 <section id="team" style="padding:120px 0;background:var(--white)">
@@ -1103,239 +999,287 @@ function toggleFaq(item){var b=item.querySelector('.fq-body'),open=item.classLis
 /* ── BRIEF ── */
 function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.querySelector('.brief-body'),open=s.classList.contains('open');s.classList.toggle('open');b.style.maxHeight=open?'0':b.scrollHeight+'px';}
 
-/* ── HERO CANVAS (network flow + connection trails) ── */
+/* ── HERO CANVAS (sparse network mesh, mouse = key interaction) ── */
 (function(){
   var canvas=document.getElementById('hero-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),hero=document.getElementById('hero');
   var W=0,H=0,mx=-9999,my=-9999,mouseIn=false,t=0;
-  var TRAIL=8,LD=110,LD2=LD*LD,N=55;
+  var N=22,LD=160,LD2=LD*LD;
   var nodes=[];
-  function buildNodes(){nodes=[];for(var i=0;i<N;i++){var vx=(Math.random()-.5)*.55,vy=(Math.random()-.5)*.55;nodes.push({x:Math.random()*W,y:Math.random()*H,vx:vx,vy:vy,ph:Math.random()*Math.PI*2,sp:.4+Math.random()*.4,trail:[]});}}
+  function buildNodes(){
+    nodes=[];
+    // Distribute nodes in a loose grid with jitter for a structured feel
+    var cols=Math.round(Math.sqrt(N*W/H))||4,rows=Math.ceil(N/cols);
+    var cw=W/cols,rh=H/rows,idx=0;
+    for(var r=0;r<rows&&idx<N;r++){for(var c=0;c<cols&&idx<N;c++){
+      nodes.push({
+        x:(c+.5)*cw+(Math.random()-.5)*cw*.6,
+        y:(r+.5)*rh+(Math.random()-.5)*rh*.6,
+        vx:(Math.random()-.5)*.12, // very slow base speed
+        vy:(Math.random()-.5)*.12,
+        ph:Math.random()*Math.PI*2,
+        sp:.3+Math.random()*.3,
+        ox:0,oy:0 // orbit offset
+      });idx++;
+    }}
+    nodes.forEach(function(nd){nd.ox=nd.x;nd.oy=nd.y;});
+  }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildNodes();}
   hero.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;mouseIn=true;});
   hero.addEventListener('mouseleave',function(){mouseIn=false;mx=-9999;});
   var isMob=matchMedia('(pointer:coarse)').matches;
   function loop(){
-    requestAnimationFrame(loop);
-    ctx.clearRect(0,0,W,H);
-    t+=.008;
-    // Update nodes
+    requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);t+=.004; // very slow
     nodes.forEach(function(nd){
-      // Gentle drift with perlin-like sway
-      nd.vx+=Math.sin(t*nd.sp+nd.ph)*.004;
-      nd.vy+=Math.cos(t*nd.sp*.8+nd.ph+1.2)*.004;
-      // Speed limit
-      var spd=Math.sqrt(nd.vx*nd.vx+nd.vy*nd.vy);if(spd>1.2){nd.vx=nd.vx/spd*1.2;nd.vy=nd.vy/spd*1.2;}
-      // Mouse attraction (gentle pull, no sphere shape)
+      // Extremely gentle orbital drift around home position
+      nd.x=nd.ox+Math.sin(t*nd.sp+nd.ph)*28;
+      nd.y=nd.oy+Math.cos(t*nd.sp*.7+nd.ph+1.1)*18;
+      // Mouse: attract nearby nodes (the KEY interaction)
       if(!isMob&&mouseIn&&mx>-9000){
-        var dx=mx-nd.x,dy=my-nd.y,d2=dx*dx+dy*dy;
-        if(d2<220*220&&d2>1){var d=Math.sqrt(d2);nd.vx+=dx/d*.018*(1-d/220);nd.vy+=dy/d*.018*(1-d/220);}
+        var dx=mx-nd.ox,dy=my-nd.oy,d2=dx*dx+dy*dy,PR=280;
+        if(d2<PR*PR&&d2>1){var d=Math.sqrt(d2),pull=(1-d/PR)*.55;nd.x+=dx/d*pull*d*.018;nd.y+=dy/d*pull*d*.018;}
       }
-      // Store trail
-      nd.trail.push({x:nd.x,y:nd.y});
-      if(nd.trail.length>TRAIL)nd.trail.shift();
-      nd.x+=nd.vx;nd.y+=nd.vy;
-      // Soft wrap at edges
-      if(nd.x<-40)nd.x=W+40;if(nd.x>W+40)nd.x=-40;
-      if(nd.y<-40)nd.y=H+40;if(nd.y>H+40)nd.y=-40;
     });
-    // Draw connection lines between nearby nodes
-    ctx.lineWidth=.9;
+    // Draw connection mesh
     for(var i=0;i<nodes.length;i++){var a=nodes[i];
       for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
         var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
-        if(d2<LD2){var al=(1-d2/LD2)*.12;ctx.strokeStyle='rgba(255,102,0,'+al.toFixed(3)+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+        if(d2<LD2){var alpha=(1-d2/LD2);
+          // Brighten connections near mouse
+          var mFactor=1;
+          if(!isMob&&mouseIn&&mx>-9000){
+            var mdxa=a.x-mx,mdya=a.y-my,md2=mdxa*mdxa+mdya*mdya;
+            if(md2<200*200)mFactor=1+(1-md2/(200*200))*3;
+          }
+          var al=(alpha*.07*mFactor).toFixed(3);
+          ctx.strokeStyle='rgba(255,102,0,'+al+')';
+          ctx.lineWidth=alpha*mFactor*.8;
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+        }
       }
     }
-    // Draw mouse-proximity bright connections
+    // Mouse "web" — bright spokes radiating out from cursor
     if(!isMob&&mouseIn&&mx>-9000){
       nodes.forEach(function(nd){
         var dx=nd.x-mx,dy=nd.y-my,d2=dx*dx+dy*dy;
-        if(d2<160*160){var al=(1-d2/(160*160))*.45;ctx.strokeStyle='rgba(255,102,0,'+al.toFixed(3)+')';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(nd.x,nd.y);ctx.lineTo(mx,my);ctx.stroke();}
+        if(d2<170*170){
+          var al=((1-d2/(170*170))*.5).toFixed(3);
+          ctx.strokeStyle='rgba(255,102,0,'+al+')';ctx.lineWidth=1;
+          ctx.beginPath();ctx.moveTo(nd.x,nd.y);ctx.lineTo(mx,my);ctx.stroke();
+        }
       });
+      // Cursor glow
+      var g=ctx.createRadialGradient(mx,my,0,mx,my,90);
+      g.addColorStop(0,'rgba(255,102,0,.14)');g.addColorStop(1,'rgba(255,102,0,0)');
+      ctx.beginPath();ctx.arc(mx,my,90,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
     }
-    // Draw trail lines (connection history)
-    nodes.forEach(function(nd){
-      var tr=nd.trail;if(tr.length<2)return;
-      for(var k=1;k<tr.length;k++){
-        var al=(k/tr.length)*.06;
-        ctx.strokeStyle='rgba(255,140,66,'+al.toFixed(3)+')';
-        ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(tr[k-1].x,tr[k-1].y);ctx.lineTo(tr[k].x,tr[k].y);ctx.stroke();
-      }
-    });
-    // Draw nodes as tiny dots
-    nodes.forEach(function(nd){
-      ctx.beginPath();ctx.arc(nd.x,nd.y,1.8,0,Math.PI*2);ctx.fillStyle='rgba(255,140,66,.35)';ctx.fill();
-    });
-    // Mouse glow burst
-    if(!isMob&&mouseIn&&mx>-9000){
-      var g=ctx.createRadialGradient(mx,my,0,mx,my,80);g.addColorStop(0,'rgba(255,102,0,.12)');g.addColorStop(1,'rgba(255,102,0,0)');ctx.beginPath();ctx.arc(mx,my,80,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-    }
+    // Tiny node dots
+    nodes.forEach(function(nd){ctx.beginPath();ctx.arc(nd.x,nd.y,2,0,Math.PI*2);ctx.fillStyle='rgba(255,140,66,.3)';ctx.fill();});
   }
   resize();window.addEventListener('resize',resize,{passive:true});loop();
 })();
 
-/* ── OPERATOR CONSTELLATION (idle pulses + hover avatar) ── */
+/* ── OPERATOR NETWORK (Starlink orbital rings) ── */
 (function(){
   var canvas=document.getElementById('network-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0;
-  var CD=175,CD2=CD*CD;
   var OPS=[
-    {i:'JC',n:'James C.',co:'Nexia',cl:'#2563EB',t:'VP, Enterprise Solutions',img:1},
-    {i:'ML',n:'Michelle L.',co:'Nexia',cl:'#2563EB',t:'Director, Global Strategic Accounts',img:5},
-    {i:'SK',n:'Sarah K.',co:'Nexia',cl:'#2563EB',t:'Head of Partnerships, APAC',img:9},
-    {i:'RH',n:'Ryan H.',co:'Nexia',cl:'#2563EB',t:'Senior Manager, Cloud Business',img:13},
-    {i:'AT',n:'Amy T.',co:'Nexia',cl:'#2563EB',t:'VP, Business Development Asia',img:17},
-    {i:'PL',n:'Patrick L.',co:'Oracore',cl:'#DC2626',t:'Regional Sales Director, APAC',img:21},
-    {i:'WC',n:'Wayne C.',co:'Oracore',cl:'#DC2626',t:'VP, Database & Cloud Solutions',img:25},
-    {i:'YM',n:'Yvonne M.',co:'Oracore',cl:'#DC2626',t:'Head of Enterprise Accounts',img:29},
-    {i:'DT',n:'David T.',co:'Oracore',cl:'#DC2626',t:'Director, Channel Partners',img:33},
-    {i:'HC',n:'Henry C.',co:'Globex',cl:'#7C3AED',t:'VP, Cloud Infrastructure',img:37},
-    {i:'EM',n:'Emma M.',co:'Globex',cl:'#7C3AED',t:'Director, B2B Partnerships',img:41},
-    {i:'KW',n:'Kevin W.',co:'Globex',cl:'#7C3AED',t:'Head of Startup Ecosystem',img:45},
-    {i:'LN',n:'Lisa N.',co:'Globex',cl:'#7C3AED',t:'Senior Partner Manager',img:49},
-    {i:'BK',n:'Ben K.',co:'Globex',cl:'#7C3AED',t:'VP, Enterprise Sales APAC',img:53},
-    {i:'TC',n:'Thomas C.',co:'ACS',cl:'#1E3A5F',t:'Head of Startup Programs',img:57},
-    {i:'GS',n:'Grace S.',co:'ACS',cl:'#1E3A5F',t:'Director, Enterprise Architecture',img:61},
-    {i:'MR',n:'Michael R.',co:'ACS',cl:'#1E3A5F',t:'VP, Channel Partnerships',img:65},
-    {i:'NP',n:'Nancy P.',co:'ACS',cl:'#1E3A5F',t:'Regional Manager, Cloud Sales',img:68},
-    {i:'FY',n:'Frank Y.',co:'SalesBridge',cl:'#475569',t:'VP, Digital Transformation',img:3},
-    {i:'AL',n:'Alex L.',co:'Microtek',cl:'#475569',t:'Director, Enterprise APAC',img:7},
+    {i:'JC',n:'James C.',co:'Nexia',cl:'#3B82F6',t:'VP, Enterprise Solutions',img:1},
+    {i:'ML',n:'Michelle L.',co:'Nexia',cl:'#3B82F6',t:'Director, Global Strategic Accounts',img:5},
+    {i:'SK',n:'Sarah K.',co:'Nexia',cl:'#3B82F6',t:'Head of Partnerships, APAC',img:9},
+    {i:'RH',n:'Ryan H.',co:'Nexia',cl:'#3B82F6',t:'Senior Manager, Cloud Business',img:13},
+    {i:'AT',n:'Amy T.',co:'Nexia',cl:'#3B82F6',t:'VP, Business Development Asia',img:17},
+    {i:'PL',n:'Patrick L.',co:'Oracore',cl:'#EF4444',t:'Regional Sales Director, APAC',img:21},
+    {i:'WC',n:'Wayne C.',co:'Oracore',cl:'#EF4444',t:'VP, Database & Cloud Solutions',img:25},
+    {i:'YM',n:'Yvonne M.',co:'Oracore',cl:'#EF4444',t:'Head of Enterprise Accounts',img:29},
+    {i:'DT',n:'David T.',co:'Oracore',cl:'#EF4444',t:'Director, Channel Partners',img:33},
+    {i:'HC',n:'Henry C.',co:'Globex',cl:'#8B5CF6',t:'VP, Cloud Infrastructure',img:37},
+    {i:'EM',n:'Emma M.',co:'Globex',cl:'#8B5CF6',t:'Director, B2B Partnerships',img:41},
+    {i:'KW',n:'Kevin W.',co:'Globex',cl:'#8B5CF6',t:'Head of Startup Ecosystem',img:45},
+    {i:'LN',n:'Lisa N.',co:'Globex',cl:'#8B5CF6',t:'Senior Partner Manager',img:49},
+    {i:'BK',n:'Ben K.',co:'Globex',cl:'#8B5CF6',t:'VP, Enterprise Sales APAC',img:53},
+    {i:'TC',n:'Thomas C.',co:'ACS',cl:'#0EA5E9',t:'Head of Startup Programs',img:57},
+    {i:'GS',n:'Grace S.',co:'ACS',cl:'#0EA5E9',t:'Director, Enterprise Architecture',img:61},
+    {i:'MR',n:'Michael R.',co:'ACS',cl:'#0EA5E9',t:'VP, Channel Partnerships',img:65},
+    {i:'NP',n:'Nancy P.',co:'ACS',cl:'#0EA5E9',t:'Regional Manager, Cloud Sales',img:68},
+    {i:'FY',n:'Frank Y.',co:'SalesBridge',cl:'#10B981',t:'VP, Digital Transformation',img:3},
+    {i:'AL',n:'Alex L.',co:'Microtek',cl:'#6B7280',t:'Director, Enterprise APAC',img:7},
   ];
-  // Preload avatar images
+  // Preload avatars
   OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.imgLoaded=false;op.imgEl.onload=function(){op.imgLoaded=true;};});
-  var nodes=[],pulses=[],actTimer=0,actCluster=[];
-  function hexRGB(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
-  var NR=0; // network sphere radius, computed in resize
+
+  // 4 tilted orbital rings: each holds 5 nodes
+  // Nodes orbit smoothly at different speeds and inclinations
+  var RINGS=[
+    {R:0,speed:0.0006, tilt:0.28, dir: 1},  // outer
+    {R:0,speed:0.0010, tilt:-0.22,dir:-1},  // second (reverse)
+    {R:0,speed:0.0014, tilt:0.32, dir: 1},  // third
+    {R:0,speed:0.0018, tilt:-0.18,dir:-1},  // inner
+  ];
+  var PER_RING=5;
+  var nodes=[],CX=0,CY=0,BASE_R=0;
+  var prevHovI=-1;
+
   function initNodes(){
-    NR=Math.min(W,H)*0.38;
-    var cx=W/2,cy=H/2;
-    nodes=OPS.map(function(op){
-      var angle=Math.random()*Math.PI*2,r=NR*.5*Math.random();
-      return{op:op,x:cx+Math.cos(angle)*r,y:cy+Math.sin(angle)*r,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:24,alpha:0,ph:Math.random()*Math.PI*2,act:0,conns:[]};
-    });
-    // Pre-compute 3 nearest neighbors (spring connections)
-    nodes.forEach(function(nd,i){
-      var sorted=nodes.map(function(o,j){
-        if(i===j)return{j:j,d:Infinity};
-        var dx=nd.x-o.x,dy=nd.y-o.y;return{j:j,d:Math.sqrt(dx*dx+dy*dy)};
-      }).sort(function(a,b){return a.d-b.d;});
-      nd.conns=sorted.slice(0,3).map(function(s){return s.j;});
+    CX=W/2; CY=H/2+20;
+    BASE_R=Math.min(W,H)*0.38;
+    RINGS[0].R=BASE_R*0.92;
+    RINGS[1].R=BASE_R*0.70;
+    RINGS[2].R=BASE_R*0.50;
+    RINGS[3].R=BASE_R*0.28;
+    nodes=OPS.map(function(op,idx){
+      var ring=Math.min(Math.floor(idx/PER_RING),3);
+      var pos=idx-ring*PER_RING;
+      var startAngle=pos*(Math.PI*2/PER_RING)+(ring*0.7);
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null};
     });
   }
-  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);NR=Math.min(W,H)*0.38;if(!nodes.length)initNodes();}
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
+
   canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=(e.clientX-r.left)*(W/r.width);my=(e.clientY-r.top)*(H/r.height);});
-  var prevHovI=-1;
   canvas.addEventListener('mouseleave',function(){
-    // Restore velocity to the stuck node when mouse leaves canvas
-    if(hovI>=0&&nodes[hovI]){var nd=nodes[hovI];nd.vx=(Math.random()-.5)*.55;nd.vy=(Math.random()-.5)*.55;}
+    if(hovI>=0&&nodes[hovI]){nodes[hovI].stickX=null;nodes[hovI].stickY=null;}
     mx=-9999;my=-9999;hovI=-1;prevHovI=-1;
   });
-  var sec=document.getElementById('network');new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(sec||canvas);
+
   var tip=document.getElementById('net-tooltip'),tipCo=document.getElementById('nt-company'),tipTi=document.getElementById('nt-title');
-  function spawnPulse(){for(var t=0;t<20;t++){var a=Math.floor(Math.random()*nodes.length),b=Math.floor(Math.random()*nodes.length);if(a===b)continue;var dx=nodes[a].x-nodes[b].x,dy=nodes[a].y-nodes[b].y;if(dx*dx+dy*dy<CD2){pulses.push({f:a,t:b,p:0,spd:.007+Math.random()*.005,al:1});break;}}}
-  function activateCluster(){var s=Math.floor(Math.random()*nodes.length);actCluster=[s];nodes.forEach(function(nd,i){if(i===s)return;var dx=nodes[s].x-nd.x,dy=nodes[s].y-nd.y;if(dx*dx+dy*dy<CD2*1.8)actCluster.push(i);});actCluster=actCluster.slice(0,6);actCluster.forEach(function(i){nodes[i].act=1;});}
+  var sec=document.getElementById('network');
+  new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(sec||canvas);
+
+  var CD=200; // connection distance
+
   function loop(){
-    requestAnimationFrame(loop);if(!active||!nodes.length)return;
+    requestAnimationFrame(loop);if(!active)return;
     ctx.clearRect(0,0,W,H);frame++;
-    // Restore velocity when hover target changes
+
+    // Find hovered node
+    hovI=-1;var mD=9999;
+    nodes.forEach(function(nd,i){var dx=nd.x-mx,dy=nd.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<nd.r*2.5&&d<mD){mD=d;hovI=i;}});
+
+    // Restore velocity to released node
     if(hovI!==prevHovI){
-      if(prevHovI>=0&&nodes[prevHovI]&&hovI!==prevHovI){
-        var rn=nodes[prevHovI];rn.vx=(Math.random()-.5)*.45;rn.vy=(Math.random()-.5)*.45;
-      }
+      if(prevHovI>=0&&nodes[prevHovI]){nodes[prevHovI].stickX=null;nodes[prevHovI].stickY=null;}
       prevHovI=hovI;
     }
-    var CX=W/2,CY=H/2;
-    // Update nodes with gravity physics
+
+    // Update positions
     nodes.forEach(function(nd,i){
       nd.alpha=Math.min(1,nd.alpha+.012);
-      nd.act=Math.max(0,nd.act-.007);
+      var ring=RINGS[nd.ring];
       if(i===hovI&&mx>-9000){
-        // Sticky: decelerate and lerp toward mouse
-        nd.vx*=.82;nd.vy*=.82;
-        nd.x+=(mx-nd.x)*.1+nd.vx;
-        nd.y+=(my-nd.y)*.1+nd.vy;
+        // Sticky: lerp toward mouse
+        if(nd.stickX===null){nd.stickX=nd.x;nd.stickY=nd.y;}
+        nd.stickX+=(mx-nd.stickX)*.09;nd.stickY+=(my-nd.stickY)*.09;
+        nd.x=nd.stickX;nd.y=nd.stickY;
+        // Angle keeps advancing so return to orbit is smooth
+        nd.angle+=ring.speed*ring.dir*.3;
       } else {
-        // 1. Central containment gravity
-        var dcx=nd.x-CX,dcy=nd.y-CY,dc=Math.sqrt(dcx*dcx+dcy*dcy);
-        if(dc>NR*.8){var pull=(dc-NR*.8)*0.004;nd.vx-=dcx/dc*pull;nd.vy-=dcy/dc*pull;}
-        // Hard boundary: strong pull back if outside sphere
-        if(dc>NR){var hpull=(dc-NR)*0.018;nd.vx-=dcx/dc*hpull;nd.vy-=dcy/dc*hpull;}
-        // 2. Spring connections to neighbors
-        if(nd.conns){nd.conns.forEach(function(j){
-          var o=nodes[j];if(!o)return;
-          var dox=o.x-nd.x,doy=o.y-nd.y,dod=Math.sqrt(dox*dox+doy*doy);
-          var ideal=130;if(dod>ideal+60){var sf=(dod-ideal-60)*0.0006;nd.vx+=dox/dod*sf;nd.vy+=doy/dod*sf;}
-        });}
-        // 3. Damping
-        nd.vx*=.992;nd.vy*=.992;
-        // 4. Speed cap
-        var spd=Math.sqrt(nd.vx*nd.vx+nd.vy*nd.vy);if(spd>0.9){nd.vx=nd.vx/spd*.9;nd.vy=nd.vy/spd*.9;}
-        nd.x+=nd.vx;nd.y+=nd.vy;
+        nd.angle+=ring.speed*ring.dir;
+        // Orbital position with tilt (creates ellipse = tilted ring)
+        nd.x=CX+ring.R*Math.cos(nd.angle);
+        nd.y=CY+ring.R*Math.sin(nd.angle)*Math.cos(ring.tilt);
       }
     });
-    // Find hovered
-    hovI=-1;var mD=9999;nodes.forEach(function(nd,i){var dx=nd.x-mx,dy=nd.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<nd.r*2.8&&d<mD){mD=d;hovI=i;}});
-    // Update pulses
-    pulses=pulses.filter(function(p){return p.al>.02;});pulses.forEach(function(p){p.p=Math.min(1,p.p+p.spd);if(p.p>=1)p.al-=.05;});
-    if(frame%50===0)spawnPulse();actTimer++;if(actTimer>200){actTimer=0;activateCluster();}
-    // Draw connections
-    for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){
-      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d2=dx*dx+dy*dy;if(d2>=CD2)continue;
-      var nH=i===hovI||j===hovI,iC=actCluster.indexOf(i)>=0&&actCluster.indexOf(j)>=0;
-      var al=nH?.55:iC?.3:.07,lw=nH?2:iC?1.2:.7;
-      if(nH){var rgb=hexRGB(nodes[hovI].op.cl);ctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+al+')';}else if(iC){ctx.strokeStyle='rgba(255,102,0,'+al+')';}else{ctx.strokeStyle='rgba(255,255,255,'+al+')';}
-      ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
-    }}
-    // Draw pulse traveling dots
-    pulses.forEach(function(p){if(!nodes[p.f]||!nodes[p.t])return;var x=nodes[p.f].x+(nodes[p.t].x-nodes[p.f].x)*p.p,y=nodes[p.f].y+(nodes[p.t].y-nodes[p.f].y)*p.p;
-      var g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,102,0,'+(p.al*.9).toFixed(2)+')');g.addColorStop(1,'rgba(255,102,0,0)');
-      ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-      ctx.beginPath();ctx.arc(x,y,3.5,0,Math.PI*2);ctx.fillStyle='rgba(255,200,100,'+(p.al*.95).toFixed(2)+')';ctx.fill();
-    });
+
+    // Draw connection lines between nearby nodes
+    for(var i=0;i<nodes.length;i++){
+      for(var j=i+1;j<nodes.length;j++){
+        var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<CD){
+          var near=(i===hovI||j===hovI);
+          var al=near?(1-d/CD)*.6:(1-d/CD)*.08;
+          var col=near?nodes[hovI].op.cl:'rgba(255,255,255,'+(al).toFixed(3)+')';
+          if(near){var rgb=hexToRGB(nodes[hovI].op.cl);col='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+(al).toFixed(3)+')';}
+          ctx.strokeStyle=near?col:'rgba(255,255,255,'+(al).toFixed(3)+')';
+          ctx.lineWidth=near?1.5:.6;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
+        }
+      }
+    }
+
     // Draw nodes
     nodes.forEach(function(nd,i){
-      var isH=i===hovI,brth=1+.06*Math.sin(Date.now()*.0015+nd.ph),rA=nd.r*(isH?1.7:1+nd.act*.4)*brth;
+      var isH=i===hovI;var r=isH?nd.r*1.7:nd.r;
       ctx.save();ctx.globalAlpha=nd.alpha;
-      if(isH){ctx.shadowColor=nd.op.cl;ctx.shadowBlur=28;}else if(nd.act>.1){ctx.shadowColor='#FF6600';ctx.shadowBlur=14*nd.act;}
+      if(isH){ctx.shadowColor=nd.op.cl;ctx.shadowBlur=24;}
+      // Draw avatar on hover, colored circle otherwise
       if(isH&&nd.op.imgLoaded){
-        // Avatar image in circle
-        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.clip();
-        ctx.drawImage(nd.op.imgEl,nd.x-rA,nd.y-rA,rA*2,rA*2);
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.clip();
+        ctx.drawImage(nd.op.imgEl,nd.x-r,nd.y-r,r*2,r*2);
         ctx.restore();
         ctx.save();ctx.globalAlpha=nd.alpha;
-        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.strokeStyle=nd.op.cl;ctx.lineWidth=3;ctx.stroke();
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);
+        ctx.strokeStyle=nd.op.cl;ctx.lineWidth=3;ctx.stroke();
         ctx.restore();
       } else {
-        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
-        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,'+(isH?.55:.18)+')';ctx.lineWidth=isH?2.5:1;ctx.stroke();
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,'+(isH?.5:.15)+')';ctx.lineWidth=isH?2:1;ctx.stroke();
         ctx.restore();
+        // Initials (center)
         ctx.save();ctx.globalAlpha=nd.alpha;
-        ctx.fillStyle='#fff';ctx.font='bold '+Math.round(rA*.55)+'px Inter,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(isH&&nd.op.n?nd.op.n.split(' ')[0]:nd.op.i,nd.x,nd.y);
+        ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px Inter,system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(isH&&nd.op.n?nd.op.n.split(' ')[0]:nd.op.i,nd.x,nd.y);
         ctx.restore();
       }
-    });
-    // Name labels below visible nodes
-    nodes.forEach(function(nd,i){
-      if(nd.alpha<.5)return;
-      var isH=i===hovI;
-      var nameStr=nd.op.n||nd.op.i;
-      ctx.save();
-      ctx.globalAlpha=nd.alpha*(isH?.95:.55);
+      // Company name label below node — larger, always visible
+      ctx.save();ctx.globalAlpha=nd.alpha*(isH?.95:.65);
       ctx.fillStyle=isH?'#fff':nd.op.cl;
-      ctx.font=(isH?'bold ':'')+'11px Inter,system-ui,sans-serif';
+      ctx.font=(isH?'bold ':'')+'13px Inter,system-ui';
       ctx.textAlign='center';ctx.textBaseline='top';
-      ctx.fillText(isH?nameStr:nd.op.co,nd.x,nd.y+nd.r*(isH?1.8:1.5)+4);
+      ctx.fillText(isH?nd.op.n:nd.op.co,nd.x,nd.y+r+8);
       ctx.restore();
     });
+
     // Tooltip
-    if(hovI>=0&&tip){var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
-      tip.style.left=(nd.x*(cr.width/W)+(cr.left-cr2.left)+50)+'px';tip.style.top=(nd.y*(cr.height/H)+(cr.top-cr2.top)-25)+'px';
-      if(tipCo){tipCo.textContent=nd.op.co;tipCo.style.background=nd.op.cl+'25';tipCo.style.color=nd.op.cl;}
-      if(tipTi)tipTi.innerHTML=(nd.op.n?'<strong style="color:#fff;display:block;margin-bottom:4px">'+nd.op.n+'</strong>':'')+nd.op.t;tip.classList.add('vis');
+    if(hovI>=0&&tip){
+      var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
+      tip.style.left=(nd.x*(cr.width/W)+(cr.left-cr2.left)+50)+'px';
+      tip.style.top=(nd.y*(cr.height/H)+(cr.top-cr2.top)-20)+'px';
+      if(tipCo){tipCo.textContent=nd.op.co;tipCo.style.background=nd.op.cl+'22';tipCo.style.color=nd.op.cl;}
+      if(tipTi)tipTi.innerHTML='<strong style="color:#fff;display:block;margin-bottom:3px">'+nd.op.n+'</strong>'+nd.op.t;
+      tip.classList.add('vis');
     }else if(tip)tip.classList.remove('vis');
   }
-  resize();window.addEventListener('resize',function(){NR=Math.min(W,H)*0.38;resize();initNodes();},{passive:true});loop();
+
+  function hexToRGB(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  resize();window.addEventListener('resize',function(){resize();},{passive:true});loop();
+})();
+/* ── TIERS CANVAS (starlink background lines) ── */
+(function(){
+  var canvas=document.getElementById('tiers-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999;
+  var N=35,LD=140,LD2=LD*LD,nodes=[];
+  function build(){
+    nodes=[];
+    for(var i=0;i<N;i++){nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,ph:Math.random()*Math.PI*2,sp:.25+Math.random()*.25});}
+  }
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);build();}
+  canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;});
+  var t=0;
+  function loop(){
+    requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);t+=.003;
+    nodes.forEach(function(nd){
+      nd.x+=nd.vx+Math.sin(t*nd.sp+nd.ph)*.06;
+      nd.y+=nd.vy+Math.cos(t*nd.sp*.8+nd.ph)*.04;
+      if(nd.x<-20)nd.x=W+20;if(nd.x>W+20)nd.x=-20;
+      if(nd.y<-20)nd.y=H+20;if(nd.y>H+20)nd.y=-20;
+      // Mouse attraction toward buttons (subtle)
+      if(mx>-9000){var dx=mx-nd.x,dy=my-nd.y,d2=dx*dx+dy*dy;if(d2<180*180&&d2>1){var d=Math.sqrt(d2);nd.vx+=dx/d*.004;nd.vy+=dy/d*.004;}}
+      nd.vx*=.98;nd.vy*=.98;
+    });
+    for(var i=0;i<nodes.length;i++){var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
+        var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<LD2){
+          var al=((1-d2/LD2)*.09).toFixed(3);
+          ctx.strokeStyle='rgba(255,102,0,'+al+')';ctx.lineWidth=.8;
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+        }
+      }
+      ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(255,120,20,.2)';ctx.fill();
+    }
+  }
+  resize();window.addEventListener('resize',resize,{passive:true});loop();
 })();
 
 /* ── GLOBE ── */
@@ -1352,7 +1296,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   Arc.prototype.update=function(){if(this.prog<1)this.prog=Math.min(1,this.prog+this.spd);else{this.alpha-=.012;if(this.alpha<=0)this.done=true;}};
   Arc.prototype.draw=function(){var steps=80,cur=Math.floor(this.prog*steps);if(cur<2)return;ctx.beginPath();var f=true;for(var i=0;i<=cur;i++){var pt=slerp(this.a,this.b,i/steps),p=proj(pt.lat,pt.lon);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,102,0,'+(.55*this.alpha).toFixed(3)+')';ctx.lineWidth=1.5;ctx.stroke();if(this.prog<1){var pt=slerp(this.a,this.b,this.prog),p=proj(pt.lat,pt.lon);if(p.vis){var x=sx(p),y=sy(p),g=ctx.createRadialGradient(x,y,0,x,y,7);g.addColorStop(0,'rgba(255,102,0,'+(.5*this.alpha).toFixed(3)+')');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(x,y,7,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+this.alpha.toFixed(3)+')';ctx.fill();}}};
   var wF=null;fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(function(r){return r.json();}).then(function(topo){wF=topojson.feature(topo,topo.objects.countries).features;}).catch(function(){});
-  function drawC(){if(!wF)return;ctx.strokeStyle='rgba(255,140,66,.22)';ctx.lineWidth=.7;ctx.fillStyle='rgba(255,102,0,.07)';wF.forEach(function(ft){var g=ft.geometry;if(!g)return;(g.type==='Polygon'?[g.coordinates]:g.coordinates).forEach(function(poly){poly.forEach(function(ring){ctx.beginPath();var f=true;ring.forEach(function(c){var p=proj(c[1],c[0]);if(!p.vis){f=true;return;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();});});});}
+  function drawC(){if(!wF)return;ctx.strokeStyle='rgba(255,130,20,.35)';ctx.lineWidth=.8;ctx.fillStyle='rgba(255,100,10,.12)';wF.forEach(function(ft){var g=ft.geometry;if(!g)return;(g.type==='Polygon'?[g.coordinates]:g.coordinates).forEach(function(poly){poly.forEach(function(ring){ctx.beginPath();var f=true;ring.forEach(function(c){var p=proj(c[1],c[0]);if(!p.vis){f=true;return;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();});});});}
   var arcs=[],frame=0,nT=0,nO=0,csp={},hov=null,isDrag=false,dX=0,dY=0,sunX=W*.72,sunY=H*.22,tSPX=72,tSPY=22,vSPX=72,vSPY=22,tSCX=W*.72,tSCY=H*.22,vSCX=W*.72,vSCY=H*.22,lastDE=0,ret=false,retT=121.5;
   canvas.style.cursor='grab';
   canvas.addEventListener('mousedown',function(e){isDrag=true;ret=false;dX=e.clientX;dY=e.clientY;canvas.style.cursor='grabbing';e.preventDefault();},{passive:false});
@@ -1366,13 +1310,13 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   if(gS){var gM=matchMedia('(pointer:coarse)').matches;function sD(){tSPX=72;tSPY=22;tSCX=W*.72;tSCY=H*.22;if(sO)sO.classList.add('on');}if(gM){tSPX=65;tSPY=28;vSPX=65;vSPY=28;tSCX=W*.65;tSCY=H*.28;vSCX=W*.65;vSCY=H*.28;if(sO)sO.classList.add('on');}else sD();gS.addEventListener('mousemove',function(e){var sr=gS.getBoundingClientRect();tSPX=(e.clientX-sr.left)/sr.width*100;tSPY=(e.clientY-sr.top)/sr.height*100;var cr=canvas.getBoundingClientRect();tSCX=(e.clientX-cr.left)*(W/cr.width);tSCY=(e.clientY-cr.top)*(H/cr.height);if(sO)sO.classList.add('on');},{passive:true});gS.addEventListener('mouseleave',function(){if(!gM)sD();});}
   function drawGlobe(){ctx.clearRect(0,0,W,H);ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.clip();
   // Dark navy globe bg (distinct from GVA's warm cream)
-  var bg=ctx.createRadialGradient(cx,cy,0,cx,cy,R);bg.addColorStop(0,'#0F1E35');bg.addColorStop(.6,'#0A1628');bg.addColorStop(1,'#060F1E');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  var bg=ctx.createRadialGradient(cx,cy,0,cx,cy,R);bg.addColorStop(0,'#1C1005');bg.addColorStop(.5,'#130B03');bg.addColorStop(1,'#0A0601');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
   // Warm glow from sun position
-  if(!isDrag){var il=ctx.createRadialGradient(sunX,sunY,0,sunX,sunY,R*1.4);il.addColorStop(0,'rgba(255,102,0,.18)');il.addColorStop(.3,'rgba(255,140,66,.08)');il.addColorStop(.7,'rgba(255,102,0,.02)');il.addColorStop(1,'transparent');ctx.fillStyle=il;ctx.fillRect(0,0,W,H);}
-  for(var la=-75;la<=75;la+=30){ctx.beginPath();var f=true;for(var lo=-180;lo<=180;lo+=3){var p=proj(la,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,66,.08)';ctx.lineWidth=.6;ctx.stroke();}
-  for(var lo=-180;lo<=180;lo+=30){ctx.beginPath();var f=true;for(var la2=-90;la2<=90;la2+=3){var p=proj(la2,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,66,.08)';ctx.lineWidth=.6;ctx.stroke();}
-  drawC();ctx.restore();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,102,0,.35)';ctx.lineWidth=1.5;ctx.stroke();arcs.forEach(function(a){a.draw();});
-  CITIES.forEach(function(c){var p=proj(c.lat,c.lon);csp[c.name]={vis:p.vis};if(!p.vis)return;var x=sx(p),y=sy(p);csp[c.name]={vis:true,x:x,y:y};var hv=hov===c;if(c.origin){var pu=(Math.sin(frame*.05)+1)/2;ctx.beginPath();ctx.arc(x,y,8+pu*6,0,Math.PI*2);ctx.strokeStyle='rgba(245,158,11,'+(.4-pu*.3).toFixed(3)+')';ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='#F59E0B';ctx.fill();ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();}else{if(hv){var g=ctx.createRadialGradient(x,y,0,x,y,20);g.addColorStop(0,'rgba(255,102,0,.42)');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();}var r=hv?6.5:3.5;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=hv?'#FF8C42':'rgba(255,102,0,.8)';ctx.fill();ctx.beginPath();ctx.arc(x,y,r*.42,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.95)';ctx.fill();}var lb=c.name==='San Francisco'?'SF':c.name==='New York'?'NY':c.name;ctx.font=(hv?'bold ':'')+' 11px Inter,system-ui,sans-serif';ctx.fillStyle=c.origin?'rgba(255,200,80,.95)':hv?'#FF8C42':'rgba(200,200,220,.7)';var an=x>W*.76?'right':'left';ctx.textAlign=an;ctx.fillText(lb,an==='right'?x-9:x+9,y+4);});}
+  if(!isDrag){var il=ctx.createRadialGradient(sunX,sunY,0,sunX,sunY,R*1.4);il.addColorStop(0,'rgba(255,165,30,.35)');il.addColorStop(.3,'rgba(255,120,20,.18)');il.addColorStop(.7,'rgba(200,80,0,.05)');il.addColorStop(1,'transparent');ctx.fillStyle=il;ctx.fillRect(0,0,W,H);}
+  for(var la=-75;la<=75;la+=30){ctx.beginPath();var f=true;for(var lo=-180;lo<=180;lo+=3){var p=proj(la,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,30,.18)';ctx.lineWidth=.7;ctx.stroke();}
+  for(var lo=-180;lo<=180;lo+=30){ctx.beginPath();var f=true;for(var la2=-90;la2<=90;la2+=3){var p=proj(la2,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,30,.18)';ctx.lineWidth=.7;ctx.stroke();}
+  drawC();ctx.restore();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,130,20,.5)';ctx.lineWidth=2;ctx.stroke();arcs.forEach(function(a){a.draw();});
+  CITIES.forEach(function(c){var p=proj(c.lat,c.lon);csp[c.name]={vis:p.vis};if(!p.vis)return;var x=sx(p),y=sy(p);csp[c.name]={vis:true,x:x,y:y};var hv=hov===c;if(c.origin){var pu=(Math.sin(frame*.05)+1)/2;ctx.beginPath();ctx.arc(x,y,8+pu*6,0,Math.PI*2);ctx.strokeStyle='rgba(245,158,11,'+(.4-pu*.3).toFixed(3)+')';ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='#F59E0B';ctx.fill();ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();}else{if(hv){var g=ctx.createRadialGradient(x,y,0,x,y,20);g.addColorStop(0,'rgba(255,102,0,.42)');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();}var r=hv?6.5:3.5;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=hv?'#FF8C42':'rgba(255,102,0,.8)';ctx.fill();ctx.beginPath();ctx.arc(x,y,r*.42,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.95)';ctx.fill();}var lb=c.name==='San Francisco'?'SF':c.name==='New York'?'NY':c.name;ctx.font=(hv?'bold ':'')+' 11px Inter,system-ui,sans-serif';ctx.fillStyle=c.origin?'rgba(255,200,50,.98)':hv?'#FFB347':'rgba(255,180,100,.75)';var an=x>W*.76?'right':'left';ctx.textAlign=an;ctx.fillText(lb,an==='right'?x-9:x+9,y+4);});}
   var tipEl=document.getElementById('globe-tooltip'),pvH=null;
   function loop(){frame++;if(!isDrag){if(ret){rotLon+=(retT-rotLon)*.06;rotLat+=(25-rotLat)*.06;if(Math.abs(rotLon-retT)<.5&&Math.abs(rotLat-25)<.5){rotLon=retT;rotLat=25;ret=false;lastDE=0;}}else if(lastDE>0&&Date.now()-lastDE>2500){ret=true;var tu=Math.round((rotLon-121.5)/360);retT=121.5+360*tu;}else rotLon+=.04;}arcs=arcs.filter(function(a){return!a.done;});arcs.forEach(function(a){a.update();});if(frame%120===0){var p=TARCS[nT++%TARCS.length];arcs.push(new Arc(p[0],p[1]));}if(frame%300===0){var p2=OARCS[nO++%OARCS.length];arcs.push(new Arc(p2[0],p2[1]));}vSPX+=(tSPX-vSPX)*.025;vSPY+=(tSPY-vSPY)*.025;vSCX+=(tSCX-vSCX)*.025;vSCY+=(tSCY-vSCY)*.025;if(gS){gS.style.setProperty('--gsx',vSPX.toFixed(2)+'%');gS.style.setProperty('--gsy',vSPY.toFixed(2)+'%');}sunX=vSCX;sunY=vSCY;drawGlobe();if(hov!==pvH){pvH=hov;if(hov&&tipEl){tipEl.querySelector('.gt-name').textContent=hov.name;tipEl.querySelector('.gt-desc').textContent=hov.desc||'';}}if(tipEl){if(hov){var pos=csp[hov.name];if(pos&&pos.vis){var cr=canvas.getBoundingClientRect(),wr=canvas.parentElement.getBoundingClientRect();tipEl.style.left=(pos.x*(cr.width/W)+(cr.left-wr.left)+16)+'px';tipEl.style.top=(pos.y*(cr.height/H)+(cr.top-wr.top)-42)+'px';tipEl.classList.add('vis');}else tipEl.classList.remove('vis');}else tipEl.classList.remove('vis');}requestAnimationFrame(loop);}
   canvas.addEventListener('mousemove',function(e){var cr=canvas.getBoundingClientRect(),mx2=(e.clientX-cr.left)*(W/cr.width),my2=(e.clientY-cr.top)*(H/cr.height),found=null;CITIES.forEach(function(c){var pos=csp[c.name];if(!pos||!pos.vis)return;var dx=pos.x-mx2,dy=pos.y-my2;if(dx*dx+dy*dy<200)found=c;});hov=found;canvas.style.cursor=isDrag?'grabbing':found?'pointer':'grab';});
