@@ -431,15 +431,7 @@ footer{background:#060F1E;padding:72px 0 0}
 @keyframes ripple-expand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}80%{opacity:.1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
 #why .container{position:relative;z-index:1}
 /* PILLARS: distinct background from why */
-#pillars{background:var(--navy)!important}
-#pillars .section-h{color:#fff}
-#pillars .section-p{color:rgba(255,255,255,.6)}
-.pillar-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important}
-.pillar-card h3{color:#fff!important}
-.pillar-card p{color:rgba(255,255,255,.55)!important}
-.pillar-card:hover{background:rgba(255,102,0,.1)!important;border-color:rgba(255,102,0,.3)!important}
-.p-ico{background:rgba(255,102,0,.18)!important}
-.pillar-card:hover .p-ico{background:rgba(255,102,0,.3)!important}
+
 
 /* Vincent Wang top-right in team grid */
 .team-card.vincent-card{order:-1}
@@ -483,6 +475,18 @@ footer{background:#060F1E;padding:72px 0 0}
 .eco-logo{width:100%;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:1.1rem;letter-spacing:.03em;color:#fff;margin-bottom:.2rem}
 .eco-card-name{font-family:var(--fd);font-weight:700;font-size:.95rem;color:rgba(255,255,255,.85);white-space:nowrap}
 .eco-card-type{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:12px;font-family:var(--fb)}
+
+/* Pillars section: white bg + diagonal canvas */
+#pillars{background:#FFFFFF!important;position:relative;overflow:hidden}
+#pillars .container{position:relative;z-index:1}
+#pillars .section-h{color:var(--text)!important}
+#pillars .section-p{color:var(--text-3)!important}
+.pillar-card{background:var(--bg)!important;border-color:var(--border)!important}
+.pillar-card h3{color:var(--text)!important}
+.pillar-card p{color:var(--text-3)!important}
+.pillar-card:hover{background:var(--white)!important;border-color:rgba(255,102,0,.2)!important}
+.p-ico{background:var(--orange-pale)!important}
+.pillar-card:hover .p-ico{background:rgba(255,102,0,.18)!important}
 </style>
 </head>
 <body>
@@ -899,41 +903,6 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- PILLARS -->
 <!-- WHY -->
-<section id="pillars" style="padding:120px 0;background:var(--white)">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
-      <div class="eyebrow" data-en="What You Get" data-zh="你拿到的是什麼">What You Get</div>
-      <h2 class="section-h" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
-      <p class="section-p" style="margin:0 auto" data-en="Every co-investment comes with three things traditional VC cannot offer." data-zh="每筆共同投資都帶來傳統 VC 無法提供的三樣東西。">Every co-investment comes with three things traditional VC cannot offer.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar-card reveal d1">
-        <div class="p-num">01</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 data-en="Co-Investment" data-zh="共同投資">Co-Investment</h3>
-        <p data-en="Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal." data-zh="每案獨立 SPV 架構。運營者每案自主決定是否參與。無需年度承諾。每案最低 $20K 美元。">Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
-        <div class="p-detail" data-en="→ Per-deal SPV · no lock-up period" data-zh="→ 每案獨立 SPV · 無鎖定期">→ Per-deal SPV · no lock-up period</div>
-      </div>
-      <div class="pillar-card reveal d2">
-        <div class="p-num">02</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 data-en="Enterprise Channel" data-zh="企業通路">Enterprise Channel</h3>
-        <p data-en="Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process." data-zh="直接引薦進入企業供應商審核或 POC。高管 LP 在內部倡議，並運用採購關係加速整個流程。">Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
-        <div class="p-detail" data-en="→ Skip the 12–18 month cold outreach cycle" data-zh="→ 跳過 12–18 個月的冷接觸週期">→ Skip the 12–18 month cold outreach cycle</div>
-      </div>
-      <div class="pillar-card reveal d3">
-        <div class="p-num">03</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 data-en="Revenue Velocity" data-zh="業績加速">Revenue Velocity</h3>
-        <p data-en="Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one." data-zh="高管 LP 在投資後主動協助拿下第一筆企業合約。他們的職銜與關係從第一天起就成為你的通路優勢。">Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one.</p>
-        <div class="p-detail" data-en="→ POC in weeks, not months" data-zh="→ POC 從數月縮短為數週">→ POC in weeks, not months</div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<!-- GALLERY / PROOF SECTION -->
 <section id="gallery" style="padding:100px 0;background:var(--bg)">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem">
@@ -988,6 +957,42 @@ footer{background:#060F1E;padding:72px 0 0}
 
 
 <!-- TEAM -->
+<section id="pillars" style="padding:120px 0;background:var(--white)">
+  <canvas id="pillars-diag" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5"></canvas>
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
+      <div class="eyebrow" data-en="What You Get" data-zh="你拿到的是什麼">What You Get</div>
+      <h2 class="section-h" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
+      <p class="section-p" style="margin:0 auto" data-en="Every co-investment comes with three things traditional VC cannot offer." data-zh="每筆共同投資都帶來傳統 VC 無法提供的三樣東西。">Every co-investment comes with three things traditional VC cannot offer.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal d1">
+        <div class="p-num">01</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3 data-en="Co-Investment" data-zh="共同投資">Co-Investment</h3>
+        <p data-en="Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal." data-zh="每案獨立 SPV 架構。運營者每案自主決定是否參與。無需年度承諾。每案最低 $20K 美元。">Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
+        <div class="p-detail" data-en="→ Per-deal SPV · no lock-up period" data-zh="→ 每案獨立 SPV · 無鎖定期">→ Per-deal SPV · no lock-up period</div>
+      </div>
+      <div class="pillar-card reveal d2">
+        <div class="p-num">02</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 data-en="Enterprise Channel" data-zh="企業通路">Enterprise Channel</h3>
+        <p data-en="Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process." data-zh="直接引薦進入企業供應商審核或 POC。高管 LP 在內部倡議，並運用採購關係加速整個流程。">Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
+        <div class="p-detail" data-en="→ Skip the 12–18 month cold outreach cycle" data-zh="→ 跳過 12–18 個月的冷接觸週期">→ Skip the 12–18 month cold outreach cycle</div>
+      </div>
+      <div class="pillar-card reveal d3">
+        <div class="p-num">03</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 data-en="Revenue Velocity" data-zh="業績加速">Revenue Velocity</h3>
+        <p data-en="Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one." data-zh="高管 LP 在投資後主動協助拿下第一筆企業合約。他們的職銜與關係從第一天起就成為你的通路優勢。">Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one.</p>
+        <div class="p-detail" data-en="→ POC in weeks, not months" data-zh="→ POC 從數月縮短為數週">→ POC in weeks, not months</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- GALLERY / PROOF SECTION -->
 <section id="team" style="padding:120px 0;background:var(--white)">
   <div class="container">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap">
@@ -1585,6 +1590,60 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
   }
   resize();window.addEventListener('resize',resize,{passive:true});loop();
 })();
+/* ── PILLARS CANVAS (diagonal flowing lines, 45° orange-tinted) ── */
+(function(){
+  var canvas=document.getElementById('pillars-diag');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,t=0,active=false;
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(canvas.parentElement||canvas);
+  // Diagonal lines: flow from bottom-left → top-right at 45°
+  // Each "lane" is spaced 80px apart perpendicular to 45°
+  var LANE_GAP=90,SPEED=.4,LINE_LEN=180,N_LANES=18;
+  var lanes=[];
+  function init(){
+    lanes=[];
+    var diag=Math.sqrt(W*W+H*H);
+    for(var i=0;i<N_LANES;i++){
+      lanes.push({
+        offset:i*(LANE_GAP)+(Math.random()*LANE_GAP),
+        phase: Math.random()*diag,
+        alpha: .04+Math.random()*.06,
+        speed: SPEED*(0.7+Math.random()*.6),
+        width: .6+Math.random()*.8
+      });
+    }
+  }
+  function loop(){
+    requestAnimationFrame(loop);if(!active)return;
+    ctx.clearRect(0,0,W,H);t+=1;
+    var diag=Math.sqrt(W*W+H*H);
+    lanes.forEach(function(ln){
+      // Move phase along 45° direction
+      ln.phase=(ln.phase+ln.speed)%(diag+LINE_LEN);
+      // Lane center is perpendicular to 45° direction
+      // Perpendicular to (1,1)/√2 is (1,-1)/√2
+      // Lane position = offset * (1,-1)/√2 from origin
+      var lx=ln.offset/Math.SQRT2;
+      var ly=-ln.offset/Math.SQRT2;
+      // Line travels along (1,1)/√2 direction
+      // Line start = (lx,ly) + phase*(1,1)/√2 - center_offset
+      var px=ln.phase/Math.SQRT2;
+      var py=ln.phase/Math.SQRT2;
+      var x0=lx+px-W*.3;
+      var y0=ly+py-H*.3;
+      var dx=LINE_LEN/Math.SQRT2;
+      var dy=LINE_LEN/Math.SQRT2;
+      ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0+dx,y0+dy);
+      ctx.strokeStyle='rgba(255,102,0,'+ln.alpha.toFixed(3)+')';
+      ctx.lineWidth=ln.width;ctx.stroke();
+      // Glowing leading dot
+      ctx.beginPath();ctx.arc(x0+dx,y0+dy,1.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,102,0,'+(ln.alpha*2.5).toFixed(3)+')';ctx.fill();
+    });
+  }
+  resize();window.addEventListener('resize',function(){resize();init();},{passive:true});init();loop();
+})();
+
 /* ── GLOBE ── */
 (function(){
   var canvas=document.getElementById('globe-canvas');if(!canvas)return;
