@@ -268,7 +268,7 @@ img{max-width:100%;display:block}
 .pillar-card:hover .p-detail{opacity:1;transform:none}
 
 /* GLOBE */
-#global{padding:120px 0;background:linear-gradient(180deg,var(--white) 0%,#1A0E04 25%,#0D0602 55%,#1A0E04 80%,var(--white) 100%);position:relative;overflow:hidden}
+#global{padding:120px 0;background:#0D0602;position:relative;overflow:hidden}
 #globe-sun-ov{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .55s;background:radial-gradient(circle 480px at var(--gsx,50%) var(--gsy,50%),rgba(255,218,70,.15) 0%,rgba(255,172,35,.08) 30%,rgba(255,130,0,.03) 60%,transparent 100%)}
 #globe-sun-ov.on{opacity:1}
 .global-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
@@ -420,6 +420,36 @@ footer{background:#060F1E;padding:72px 0 0}
   .h-stat{padding:0 .85rem}
   .h-stat-l{font-size:.7rem}
 }
+
+/* WHY section wave ripple */
+#why{position:relative;overflow:hidden}
+#why::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none;z-index:0}
+.why-ripple{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(255,102,0,.12);transform:translate(-50%,-50%) scale(0);animation:ripple-expand 6s ease-out infinite;pointer-events:none}
+.why-ripple:nth-child(1){width:200px;height:200px;animation-delay:0s}
+.why-ripple:nth-child(2){width:400px;height:400px;animation-delay:2s}
+.why-ripple:nth-child(3){width:650px;height:650px;animation-delay:4s}
+@keyframes ripple-expand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}80%{opacity:.1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+#why .container{position:relative;z-index:1}
+/* PILLARS: distinct background from why */
+#pillars{background:var(--navy)!important}
+#pillars .section-h{color:#fff}
+#pillars .section-p{color:rgba(255,255,255,.6)}
+.pillar-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important}
+.pillar-card h3{color:#fff!important}
+.pillar-card p{color:rgba(255,255,255,.55)!important}
+.pillar-card:hover{background:rgba(255,102,0,.1)!important;border-color:rgba(255,102,0,.3)!important}
+.p-ico{background:rgba(255,102,0,.18)!important}
+.pillar-card:hover .p-ico{background:rgba(255,102,0,.3)!important}
+
+/* Vincent Wang top-right in team grid */
+.team-card.vincent-card{order:-1}
+@media(min-width:769px){.team-card.vincent-card{order:3;grid-column:3;grid-row:1}}
+
+/* Gallery section */
+@media(max-width:768px){
+  #gallery .container>div{grid-template-columns:1fr!important}
+  #gallery .container>div>div:first-child{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
@@ -547,9 +577,9 @@ footer{background:#060F1E;padding:72px 0 0}
     <span class="logo-tag">DEMO</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#audience" data-en="For Startups" data-zh="新創適用">For Startups</a></li>
     <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
-    <li><a href="#tiers" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</a></li>
+    <li><a href="#why" data-en="The Problem" data-zh="核心問題">The Problem</a></li>
+    <li><a href="#gallery" data-en="Proof" data-zh="案例">Proof</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
   </ul>
   <div class="nav-right">
@@ -567,10 +597,10 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="hero-inner">
       <div class="hero-badge"><span data-en="Launch · June 2026 · Pre-Launch Open" data-zh="Launch · 2026 年 6 月 · Pre-Launch 開放中">Launch · June 2026 · Pre-Launch Open</span></div>
       <h1 class="hero-h1">
-        <span data-en="Enterprise Channel." data-zh="外商高管入股">Enterprise Channel.</span><br>
-        <em><span data-en="Day One." data-zh="大廠通路隨之而來">Day One.</span></em>
+        <span data-en="Enterprise Channel." data-zh="資金已是商品">Enterprise Channel.</span><br>
+        <em><span data-en="Day One." data-zh="通路才是稀缺的">Day One.</span></em>
       </h1>
-      <p class="hero-sub" data-en="20+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors." data-zh="Nexia、Oracore、Globex、ACS 的高層決策者共同投資你的 B2B 新創，並親自打通大廠採購通路，替你跳過 12–18 個月的企業業務開發期">20+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors.</p>
+      <p class="hero-sub" data-en="For B2B founders who can't get into enterprise. For operators who want more than a check. Capital meets channels — in one syndicate." data-zh="投資你的人，同時是大廠採購部門的決策者。他們不只帶資金，也帶通路。讓你直接跳過 12–18 個月的企業業務開發。">20+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors.</p>
       <div class="hero-ctas">
         <button onclick="openPortal('ps-startup')" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
         <button onclick="openPortal('ps-exec')" class="btn-outline" data-en="Join as Operator" data-zh="加入成為高管 LP">Join as Operator</button>
@@ -589,30 +619,6 @@ footer{background:#060F1E;padding:72px 0 0}
 <!-- MARQUEE -->
 <div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
 <div class="divider"></div>
-
-<!-- AUDIENCE SPLIT -->
-<section id="audience" style="padding:100px 0;background:var(--white)">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:3rem">
-      <div class="eyebrow" data-en="Two Audiences" data-zh="兩種受眾">Two Audiences</div>
-      <h2 class="section-h" data-en="Built for builders.<br>Powered by operators." data-zh="為建造者打造。<br>由運營者驅動。">Built for builders.<br>Powered by operators.</h2>
-    </div>
-    <div class="audience-grid">
-      <div class="audience-card startup reveal d1">
-        <div class="audience-tag" data-en="B2B Startup Founders" data-zh="B2B 新創創辦人">B2B Startup Founders</div>
-        <h3 data-en="You have the product. We open the door." data-zh="你有產品。我們開門。">You have the product. We open the door.</h3>
-        <p data-en="Submit your B2B deal. Our AI pre-screens, produces a structured A4 Decision Brief, and distributes to operator LPs who can directly introduce you to their procurement networks. You skip 12–18 months of cold outreach." data-zh="提交你的 B2B 案源。我們的 AI 初篩、產出結構化 A4 決策履歷，並分發給能直接引薦你進入採購網絡的高管 LP。你跳過 12–18 個月的冷接觸。">Submit your B2B deal. Our AI pre-screens, produces a structured A4 Decision Brief, and distributes to operator LPs who can directly introduce you to their procurement networks. You skip 12–18 months of cold outreach.</p>
-        <button onclick="openPortal('ps-startup')" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
-      </div>
-      <div class="audience-card operator reveal d2">
-        <div class="audience-tag" data-en="Enterprise Executives" data-zh="外商高管">Enterprise Executives</div>
-        <h3 style="color:#fff" data-en="Your title and channel — as alpha." data-zh="你的職銜與通路，就是你的 Alpha。">Your title and channel — as alpha.</h3>
-        <p data-en="Co-invest in curated B2B startups where your enterprise relationships directly accelerate their sales. Per-deal SPV. AI-screened briefs. No board seat required. Your expertise is the value add." data-zh="共同投資精選 B2B 新創，你的企業關係直接加速他們的銷售。每案獨立 SPV，AI 篩選履歷，無需擔任董事。你的產業經驗就是最大的加值。">Co-invest in curated B2B startups where your enterprise relationships directly accelerate their sales. Per-deal SPV. AI-screened briefs. No board seat required. Your expertise is the value add.</p>
-        <button onclick="openPortal('ps-exec')" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:700;font-size:1rem;padding:16px 32px;border-radius:var(--r-btn);background:var(--orange);color:#fff;border:none;cursor:pointer;transition:background .2s,transform .2s" onmouseover="this.style.background='#E55A00'" onmouseout="this.style.background='var(--orange)'" data-en="Join as Operator LP →" data-zh="加入成為高管 LP →">Join as Operator LP →</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- OPERATOR NETWORK CONSTELLATION -->
 <section id="network" style="background:var(--navy);padding:80px 0 0;overflow:hidden">
@@ -641,7 +647,7 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- INVESTMENT TIERS -->
 <section id="tiers" style="padding:100px 0;background:var(--bg);position:relative;overflow:hidden">
-  <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
+  <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8"></canvas>
   <div class="container" style="position:relative;z-index:1">
     <div class="reveal">
       <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
@@ -679,8 +685,10 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
+
 <!-- WHY -->
 <section id="why" style="padding:120px 0;background:var(--white)">
+  <div class="why-ripple"></div><div class="why-ripple"></div><div class="why-ripple"></div>
   <div class="container">
     <div class="reveal">
       <div class="eyebrow" data-en="The Problem" data-zh="核心痛點">The Problem</div>
@@ -710,6 +718,33 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="why-quote reveal" data-en="&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;" data-zh="「資金已逐步商品化。通路網絡才是 2026 年的差異化核心。」">&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;</div>
   </div>
 </section>
+
+<section id="global" style="padding:120px 0">
+  <div id="globe-sun-ov"></div>
+  <div class="container">
+    <div class="global-inner">
+      <div class="reveal" style="color:#fff">
+        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
+        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
+        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
+        <div class="city-legend" style="margin-top:2.5rem">
+          <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
+          <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
+          <span class="city-tag"><span class="city-dot"></span>New York</span>
+          <span class="city-tag"><span class="city-dot"></span>Singapore</span>
+          <span class="city-tag"><span class="city-dot"></span>Tokyo</span>
+          <span class="city-tag"><span class="city-dot"></span>London</span>
+        </div>
+      </div>
+      <div class="globe-wrap reveal d2">
+        <div class="globe-glow"></div>
+        <canvas id="globe-canvas" width="500" height="500"></canvas>
+        <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
 
 <!-- PILLARS -->
 <section id="pillars" style="padding:120px 0;background:var(--white)">
@@ -747,32 +782,59 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="divider"></div>
 
 <!-- GLOBE -->
-<section id="global" style="padding:120px 0">
-  <div id="globe-sun-ov"></div>
+<!-- GALLERY / PROOF SECTION -->
+<section id="gallery" style="padding:100px 0;background:var(--bg)">
   <div class="container">
-    <div class="global-inner">
-      <div class="reveal" style="color:#fff">
-        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
-        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
-        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
-        <div class="city-legend" style="margin-top:2.5rem">
-          <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
-          <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
-          <span class="city-tag"><span class="city-dot"></span>New York</span>
-          <span class="city-tag"><span class="city-dot"></span>Singapore</span>
-          <span class="city-tag"><span class="city-dot"></span>Tokyo</span>
-          <span class="city-tag"><span class="city-dot"></span>London</span>
-        </div>
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem">
+      <div class="eyebrow" data-en="Inside the Syndicate" data-zh="飛輪內部">Inside the Syndicate</div>
+      <h2 class="section-h" data-en="Where operators and founders meet." data-zh="運營者與創辦人交匯之處">Where operators and founders meet.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;align-items:start" class="reveal">
+      <!-- Photo grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <img src="https://placehold.co/380x260/0A1628/FF6600?text=Deal+Review" alt="Deal Review Session" style="border-radius:14px;width:100%;display:block;object-fit:cover">
+        <img src="https://placehold.co/380x260/1C1005/FB923C?text=LP+Meeting" alt="LP Meeting" style="border-radius:14px;width:100%;display:block;object-fit:cover">
+        <img src="https://placehold.co/380x260/0F172A/FF6600?text=Enterprise+Intro" alt="Enterprise Intro" style="border-radius:14px;width:100%;display:block;object-fit:cover;grid-column:span 2">
       </div>
-      <div class="globe-wrap reveal d2">
-        <div class="globe-glow"></div>
-        <canvas id="globe-canvas" width="500" height="500"></canvas>
-        <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
+      <!-- Video + quote -->
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <!-- Fake video -->
+        <div style="background:var(--navy);border-radius:14px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer" onclick="showDemoNotice()">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(255,102,0,.2) 0%,transparent 60%)"></div>
+          <div style="width:64px;height:64px;background:rgba(255,102,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div style="position:absolute;bottom:1rem;left:1.25rem;right:1.25rem;display:flex;justify-content:space-between;align-items:center;z-index:2">
+            <span style="color:rgba(255,255,255,.55);font-size:.82rem;font-family:var(--fd);font-weight:600" data-en="Operator Syndicate · Launch Preview" data-zh="Operator Syndicate · Launch 預覽">Operator Syndicate · Launch Preview</span>
+            <span style="color:rgba(255,255,255,.4);font-size:.78rem;background:rgba(0,0,0,.35);padding:3px 8px;border-radius:6px">2:45</span>
+          </div>
+        </div>
+        <!-- Quote cards -->
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem">
+          <div style="font-family:var(--fd);font-size:1rem;color:var(--text-2);line-height:1.65;font-style:italic;margin-bottom:1rem" data-en="&ldquo;Three months after the intro, we closed our first enterprise contract. The operator didn't just open the door — they walked us through it.&rdquo;" data-zh="「引薦後三個月，我們拿下了第一筆企業合約。他不只開了門，還帶我們走進去。」">"Three months after the intro, we closed our first enterprise contract. The operator didn't just open the door — they walked us through it."</div>
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <img src="https://i.pravatar.cc/48?img=22" alt="" style="width:40px;height:40px;border-radius:50%;flex-shrink:0">
+            <div>
+              <div style="font-family:var(--fd);font-weight:700;font-size:.88rem;color:var(--text)">Daniel Huang</div>
+              <div style="font-size:.78rem;color:var(--text-4)" data-en="CEO, SecureFlow AI · Tier 1 Portfolio" data-zh="CEO, SecureFlow AI · Tier 1 投組">CEO, SecureFlow AI · Tier 1 Portfolio</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:14px;padding:1.5rem">
+          <div style="font-family:var(--fd);font-size:1rem;color:var(--text-2);line-height:1.65;font-style:italic;margin-bottom:1rem" data-en="&ldquo;The A4 brief format is the only reason I said yes. I read it in 3 minutes and knew exactly where I could add value.&rdquo;" data-zh="「A4 履歷的格式是我答應的唯一原因。三分鐘讀完，我立刻知道自己能在哪裡加值。」">"The A4 brief format is the only reason I said yes. I read it in 3 minutes and knew exactly where I could add value."</div>
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <img src="https://i.pravatar.cc/48?img=38" alt="" style="width:40px;height:40px;border-radius:50%;flex-shrink:0">
+            <div>
+              <div style="font-family:var(--fd);font-weight:700;font-size:.88rem;color:var(--text)">Sarah K.</div>
+              <div style="font-size:.78rem;color:var(--text-4)" data-en="Head of Partnerships · Nexia LP" data-zh="Head of Partnerships · Nexia LP">Head of Partnerships · Nexia LP</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<div class="divider"></div>
+
 
 <!-- TEAM -->
 <section id="team" style="padding:120px 0;background:var(--white)">
@@ -838,6 +900,9 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=44" alt="" loading="lazy"></div><div><div class="advisor-name">Sophia Chang</div><div class="advisor-tag">TMBA Managing Partner</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=33" alt="" loading="lazy"></div><div><div class="advisor-name">Ray Wu</div><div class="advisor-tag">Taiwan Tech Arena</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=14" alt="" loading="lazy"></div><div><div class="advisor-name">Eric Lai</div><div class="advisor-tag">Meridian Ventures</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=20" alt="" loading="lazy"></div><div><div class="advisor-name">Karen Lin</div><div class="advisor-tag">Cornerstone Capital</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=8" alt="" loading="lazy"></div><div><div class="advisor-name">Brian Chen</div><div class="advisor-tag">Vertex Ventures SEA</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=36" alt="" loading="lazy"></div><div><div class="advisor-name">Nina Chou</div><div class="advisor-tag">Enterprise Strategy</div></div></div>
       </div>
     </div>
   </div>
@@ -859,6 +924,9 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="partner-badge"><div class="partner-logo">Pacific Seed Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
       <div class="partner-badge"><div class="partner-logo">East Horizon Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
       <div class="partner-badge"><div class="partner-logo">GVA</div><div class="partner-cat" data-en="Pre-Accelerator" data-zh="前加速器">Pre-Accelerator</div></div>
+      <div class="partner-badge"><div class="partner-logo">Vertex Ventures</div><div class="partner-cat" data-en="VC Partner" data-zh="創投夥伴">VC Partner</div></div>
+      <div class="partner-badge"><div class="partner-logo">Cornerstone Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
+      <div class="partner-badge"><div class="partner-logo">Skybridge Partners</div><div class="partner-cat" data-en="Strategic LP" data-zh="策略 LP">Strategic LP</div></div>
     </div>
   </div>
 </section>
@@ -1025,11 +1093,14 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     nodes.forEach(function(nd){nd.ox=nd.x;nd.oy=nd.y;});
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildNodes();}
-  hero.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;mouseIn=true;});
+  var mFrames=0,starlinkMode=false;
+hero.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(!mouseIn){mFrames=0;}mouseIn=true;});
+hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMode=false;});
   hero.addEventListener('mouseleave',function(){mouseIn=false;mx=-9999;});
   var isMob=matchMedia('(pointer:coarse)').matches;
   function loop(){
-    requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);t+=.004; // very slow
+    requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);t+=.012; // faster drift
+    if(mouseIn){mFrames++;if(mFrames>150)starlinkMode=true;}else{mFrames=0;starlinkMode=false;}
     nodes.forEach(function(nd){
       // Extremely gentle orbital drift around home position
       nd.x=nd.ox+Math.sin(t*nd.sp+nd.ph)*28;
@@ -1044,16 +1115,17 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     for(var i=0;i<nodes.length;i++){var a=nodes[i];
       for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
         var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
-        if(d2<LD2){var alpha=(1-d2/LD2);
-          // Brighten connections near mouse
+        if(d2<LD2){var alpha=(1-d2/LD2)*.9;
           var mFactor=1;
+          // Starlink mode: all connections become orange and persistent
           if(!isMob&&mouseIn&&mx>-9000){
             var mdxa=a.x-mx,mdya=a.y-my,md2=mdxa*mdxa+mdya*mdya;
             if(md2<200*200)mFactor=1+(1-md2/(200*200))*3;
           }
-          var al=(alpha*.07*mFactor).toFixed(3);
-          ctx.strokeStyle='rgba(255,102,0,'+al+')';
-          ctx.lineWidth=alpha*mFactor*.8;
+          var baseAlpha=starlinkMode?alpha*.55:alpha*.08;
+          var al=(baseAlpha*mFactor).toFixed(3);
+          ctx.strokeStyle=starlinkMode?'rgba(255,102,0,'+al+')':'rgba(255,102,0,'+al+')';
+          ctx.lineWidth=starlinkMode?alpha*mFactor*1.5:alpha*mFactor*.8;
           ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
         }
       }
@@ -1123,10 +1195,10 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   function initNodes(){
     CX=W/2; CY=H/2+20;
     BASE_R=Math.min(W,H)*0.38;
-    RINGS[0].R=BASE_R*0.92;
-    RINGS[1].R=BASE_R*0.70;
-    RINGS[2].R=BASE_R*0.50;
-    RINGS[3].R=BASE_R*0.28;
+    RINGS[0].R=BASE_R*1.05;
+    RINGS[1].R=BASE_R*0.80;
+    RINGS[2].R=BASE_R*0.56;
+    RINGS[3].R=BASE_R*0.30;
     nodes=OPS.map(function(op,idx){
       var ring=Math.min(Math.floor(idx/PER_RING),3);
       var pos=idx-ring*PER_RING;
@@ -1146,7 +1218,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   var sec=document.getElementById('network');
   new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(sec||canvas);
 
-  var CD=200; // connection distance
+  var CD=260; // wider connections
 
   function loop(){
     requestAnimationFrame(loop);if(!active)return;
@@ -1181,20 +1253,45 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       }
     });
 
-    // Draw connection lines between nearby nodes
+    // Draw connection lines: guaranteed 2 per node + pulsing
+    // Build distance matrix & find 2 nearest for each node
+    var nearest={};
     for(var i=0;i<nodes.length;i++){
-      for(var j=i+1;j<nodes.length;j++){
-        var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<CD){
-          var near=(i===hovI||j===hovI);
-          var al=near?(1-d/CD)*.6:(1-d/CD)*.08;
-          var col=near?nodes[hovI].op.cl:'rgba(255,255,255,'+(al).toFixed(3)+')';
-          if(near){var rgb=hexToRGB(nodes[hovI].op.cl);col='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+(al).toFixed(3)+')';}
-          ctx.strokeStyle=near?col:'rgba(255,255,255,'+(al).toFixed(3)+')';
-          ctx.lineWidth=near?1.5:.6;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
-        }
-      }
+      var dists=[];
+      for(var j=0;j<nodes.length;j++){if(i===j)continue;var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;dists.push({j:j,d:Math.sqrt(dx*dx+dy*dy)});}
+      dists.sort(function(a,b){return a.d-b.d;});
+      nearest[i]=dists.slice(0,2).map(function(x){return x.j;});
     }
+    var drawn={};
+    // Draw all "guaranteed" connections
+    for(var i=0;i<nodes.length;i++){
+      nearest[i].forEach(function(j){
+        var key=Math.min(i,j)+'-'+Math.max(i,j);
+        if(drawn[key])return;drawn[key]=true;
+        var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        var near=(i===hovI||j===hovI);
+        // Pulsing: use sin wave per pair to create appear/disappear
+        var pulse=.5+.5*Math.sin(frame*.018+i*.8+j*.5);
+        var al=near?.6:pulse*.12+.04;
+        if(near){var rgb=hexToRGB(nodes[hovI].op.cl);ctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+al.toFixed(3)+')';}
+        else{ctx.strokeStyle='rgba(255,255,255,'+al.toFixed(3)+')';}
+        ctx.lineWidth=near?1.8:.7+pulse*.3;
+        ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
+      });
+    }
+    // Also draw range-based connections
+    for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){
+      var key2=i+'-'+j;if(drawn[key2])continue;
+      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<CD){
+        var near=(i===hovI||j===hovI);
+        var pulse=.5+.5*Math.sin(frame*.018+i*.8+j*.5);
+        var al=near?.6:pulse*.08;
+        if(near){var rgb=hexToRGB(nodes[hovI].op.cl);ctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+al.toFixed(3)+')';}
+        else ctx.strokeStyle='rgba(255,255,255,'+al.toFixed(3)+')';
+        ctx.lineWidth=near?1.8:.6;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
+      }
+    }}
 
     // Draw nodes
     nodes.forEach(function(nd,i){
@@ -1247,7 +1344,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 (function(){
   var canvas=document.getElementById('tiers-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999;
-  var N=35,LD=140,LD2=LD*LD,nodes=[];
+  var N=50,LD=150,LD2=LD*LD,nodes=[];
   function build(){
     nodes=[];
     for(var i=0;i<N;i++){nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,ph:Math.random()*Math.PI*2,sp:.25+Math.random()*.25});}
@@ -1271,7 +1368,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
         var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
         if(d2<LD2){
-          var al=((1-d2/LD2)*.09).toFixed(3);
+          var al=((1-d2/LD2)*.15).toFixed(3);
           ctx.strokeStyle='rgba(255,102,0,'+al+')';ctx.lineWidth=.8;
           ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
         }
