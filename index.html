@@ -465,6 +465,24 @@ footer{background:#060F1E;padding:72px 0 0}
 .tier-card p{color:rgba(255,255,255,.5)!important}
 .tier-list li{color:rgba(255,255,255,.65)!important}
 .tier-list li::before{color:var(--orange-3)!important}
+
+/* Ecosystem Partners — two-row scrolling logo wall */
+#partners{background:var(--navy);padding:80px 0 60px;overflow:hidden}
+#partners .eyebrow{color:var(--orange-3)}
+#partners .eyebrow::before{background:var(--orange-3)}
+#partners .section-h{color:#fff}
+.eco-strip{overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);margin-bottom:1.25rem}
+.eco-track{display:flex;gap:1rem;width:max-content}
+.eco-track:hover{animation-play-state:paused}
+.eco-left{animation:eco-roll-l 36s linear infinite}
+.eco-right{animation:eco-roll-r 44s linear infinite}
+@keyframes eco-roll-l{to{transform:translateX(-50%)}}
+@keyframes eco-roll-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.eco-card{flex-shrink:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1.5rem 1rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;min-width:180px;transition:background .25s,border-color .25s;cursor:default}
+.eco-card:hover{background:rgba(255,102,0,.1);border-color:rgba(255,102,0,.35)}
+.eco-logo{width:100%;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:1.1rem;letter-spacing:.03em;color:#fff;margin-bottom:.2rem}
+.eco-card-name{font-family:var(--fd);font-weight:700;font-size:.95rem;color:rgba(255,255,255,.85);white-space:nowrap}
+.eco-card-type{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:12px;font-family:var(--fb)}
 </style>
 </head>
 <body>
@@ -734,6 +752,124 @@ footer{background:#060F1E;padding:72px 0 0}
 
 
 <!-- GLOBE -->
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="container" style="text-align:center;margin-bottom:3rem">
+    <div class="reveal">
+      <div class="eyebrow" data-en="Ecosystem Partners" data-zh="生態系夥伴">Ecosystem Partners</div>
+      <h2 class="section-h" data-en="Connected to the ecosystem." data-zh="深入台灣與亞太生態系">Connected to the ecosystem.</h2>
+      <p class="section-p" style="max-width:520px;margin:0 auto;color:rgba(255,255,255,.5)" data-en="Accelerators, investors, and communities across Taiwan and Asia-Pacific who share deal flow, co-invest, and amplify network reach." data-zh="跨越台灣與亞太地區的加速器、投資人與社群，共享案流、聯合投資、擴大網絡影響力。">Accelerators, investors, and communities across Taiwan and Asia-Pacific who share deal flow, co-invest, and amplify network reach.</p>
+    </div>
+  </div>
+  <div class="eco-strip reveal">
+    <div class="eco-track eco-left">
+      <div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#EA580C,#EA580CCC)">AW</div>
+  <div class="eco-card-name">AppWorks</div>
+  <span class="eco-card-type" style="background:rgba(234,88,12,.2);color:#FB923C">Accelerator</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0891B2,#0891B2CC)">ITIC</div>
+  <div class="eco-card-name">ITIC</div>
+  <span class="eco-card-type" style="background:rgba(8,145,178,.2);color:#22D3EE">Innovation</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#7C3AED,#7C3AEDCC)">TMBA</div>
+  <div class="eco-card-name">TMBA</div>
+  <span class="eco-card-type" style="background:rgba(124,58,237,.2);color:#A78BFA">Community</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#059669,#059669CC)">TTA</div>
+  <div class="eco-card-name">Taiwan Tech Arena</div>
+  <span class="eco-card-type" style="background:rgba(5,150,105,.2);color:#34D399">Gov. Program</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#EA580C,#EA580CCC)">RX</div>
+  <div class="eco-card-name">Rotarex B2B</div>
+  <span class="eco-card-type" style="background:rgba(234,88,12,.2);color:#FB923C">B2B Network</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">VV</div>
+  <div class="eco-card-name">Vertex Ventures</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">VC Partner</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#EA580C,#EA580CCC)">AW</div>
+  <div class="eco-card-name">AppWorks</div>
+  <span class="eco-card-type" style="background:rgba(234,88,12,.2);color:#FB923C">Accelerator</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0891B2,#0891B2CC)">ITIC</div>
+  <div class="eco-card-name">ITIC</div>
+  <span class="eco-card-type" style="background:rgba(8,145,178,.2);color:#22D3EE">Innovation</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#7C3AED,#7C3AEDCC)">TMBA</div>
+  <div class="eco-card-name">TMBA</div>
+  <span class="eco-card-type" style="background:rgba(124,58,237,.2);color:#A78BFA">Community</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#059669,#059669CC)">TTA</div>
+  <div class="eco-card-name">Taiwan Tech Arena</div>
+  <span class="eco-card-type" style="background:rgba(5,150,105,.2);color:#34D399">Gov. Program</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#EA580C,#EA580CCC)">RX</div>
+  <div class="eco-card-name">Rotarex B2B</div>
+  <span class="eco-card-type" style="background:rgba(234,88,12,.2);color:#FB923C">B2B Network</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">VV</div>
+  <div class="eco-card-name">Vertex Ventures</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">VC Partner</span>
+</div>
+    </div>
+  </div>
+  <div class="eco-strip reveal">
+    <div class="eco-track eco-right">
+      <div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">MV</div>
+  <div class="eco-card-name">Meridian Ventures</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0E7490,#0E7490CC)">PSC</div>
+  <div class="eco-card-name">Pacific Seed Capital</div>
+  <span class="eco-card-type" style="background:rgba(14,116,144,.2);color:#22D3EE">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#065F73,#065F73CC)">EH</div>
+  <div class="eco-card-name">East Horizon Capital</div>
+  <span class="eco-card-type" style="background:rgba(6,95,115,.2);color:#67E8F9">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0891B2,#0891B2CC)">GVA</div>
+  <div class="eco-card-name">GVA</div>
+  <span class="eco-card-type" style="background:rgba(8,145,178,.2);color:#22D3EE">Pre-Accelerator</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">CC</div>
+  <div class="eco-card-name">Cornerstone Capital</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">Strategic LP</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#4F46E5,#4F46E5CC)">SB</div>
+  <div class="eco-card-name">Skybridge Partners</div>
+  <span class="eco-card-type" style="background:rgba(79,70,229,.2);color:#A5B4FC">Strategic LP</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">MV</div>
+  <div class="eco-card-name">Meridian Ventures</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0E7490,#0E7490CC)">PSC</div>
+  <div class="eco-card-name">Pacific Seed Capital</div>
+  <span class="eco-card-type" style="background:rgba(14,116,144,.2);color:#22D3EE">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#065F73,#065F73CC)">EH</div>
+  <div class="eco-card-name">East Horizon Capital</div>
+  <span class="eco-card-type" style="background:rgba(6,95,115,.2);color:#67E8F9">Co-investor</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#0891B2,#0891B2CC)">GVA</div>
+  <div class="eco-card-name">GVA</div>
+  <span class="eco-card-type" style="background:rgba(8,145,178,.2);color:#22D3EE">Pre-Accelerator</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#1E3A5F,#1E3A5FCC)">CC</div>
+  <div class="eco-card-name">Cornerstone Capital</div>
+  <span class="eco-card-type" style="background:rgba(30,58,95,.3);color:#93C5FD">Strategic LP</span>
+</div><div class="eco-card">
+  <div class="eco-logo" style="background:linear-gradient(135deg,#4F46E5,#4F46E5CC)">SB</div>
+  <div class="eco-card-name">Skybridge Partners</div>
+  <span class="eco-card-type" style="background:rgba(79,70,229,.2);color:#A5B4FC">Strategic LP</span>
+</div>
+    </div>
+  </div>
+</section>
+
+
 <section id="global" style="padding:120px 0">
   <div id="globe-sun-ov"></div>
   <div class="container">
@@ -919,29 +1055,6 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=8" alt="" loading="lazy"></div><div><div class="advisor-name">Brian Chen</div><div class="advisor-tag">Vertex Ventures SEA</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=36" alt="" loading="lazy"></div><div><div class="advisor-name">Nina Chou</div><div class="advisor-tag">Enterprise Strategy</div></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section id="partners" style="padding:80px 0;background:var(--bg)">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
-      <div class="eyebrow" data-en="Ecosystem Partners" data-zh="生態系夥伴">Ecosystem Partners</div>
-    </div>
-    <div class="partners-grid reveal">
-      <div class="partner-badge"><div class="partner-logo">AppWorks</div><div class="partner-cat" data-en="Accelerator" data-zh="加速器">Accelerator</div></div>
-      <div class="partner-badge"><div class="partner-logo">ITIC</div><div class="partner-cat" data-en="Innovation" data-zh="創新機構">Innovation</div></div>
-      <div class="partner-badge"><div class="partner-logo">TMBA</div><div class="partner-cat" data-en="Community" data-zh="社群">Community</div></div>
-      <div class="partner-badge"><div class="partner-logo">TTA</div><div class="partner-cat" data-en="Gov. Program" data-zh="政府計畫">Gov. Program</div></div>
-      <div class="partner-badge"><div class="partner-logo" data-en="Rotarex B2B" data-zh="福輪社">Rotarex B2B</div><div class="partner-cat" data-en="B2B Network" data-zh="B2B 網絡">B2B Network</div></div>
-      <div class="partner-badge"><div class="partner-logo">Meridian Ventures</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
-      <div class="partner-badge"><div class="partner-logo">Pacific Seed Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
-      <div class="partner-badge"><div class="partner-logo">East Horizon Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
-      <div class="partner-badge"><div class="partner-logo">GVA</div><div class="partner-cat" data-en="Pre-Accelerator" data-zh="前加速器">Pre-Accelerator</div></div>
-      <div class="partner-badge"><div class="partner-logo">Vertex Ventures</div><div class="partner-cat" data-en="VC Partner" data-zh="創投夥伴">VC Partner</div></div>
-      <div class="partner-badge"><div class="partner-logo">Cornerstone Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
-      <div class="partner-badge"><div class="partner-logo">Skybridge Partners</div><div class="partner-cat" data-en="Strategic LP" data-zh="策略 LP">Strategic LP</div></div>
     </div>
   </div>
 </section>
