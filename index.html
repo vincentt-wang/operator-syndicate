@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>Operator Syndicate | Enterprise Channel. Day One.</title>
+<meta name="description" content="20+ senior operators from top tech companies co-invest in B2B startups and open enterprise procurement doors from day one.">
+<meta property="og:title" content="Operator Syndicate | Enterprise Channel. Day One.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://placehold.co/1200x630/0A1628/FF6600?text=Operator+Syndicate">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF6600;--orange-2:#E55A00;--orange-3:#FF8C42;--orange-pale:#FFF4ED;
+  --navy:#0A1628;--navy-2:#0F1E35;--navy-3:#1a2f4a;
+  --text:#0B1623;--text-2:#2D3748;--text-3:#5A6A7A;--text-4:#94A3B8;
+  --bg:#F7F9FB;--white:#FFFFFF;
+  --border:rgba(11,22,35,.08);--border-2:rgba(11,22,35,.14);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05);
+  --shadow-md:0 2px 8px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.10);
+  --r:20px;--r-btn:12px;--ease:cubic-bezier(.4,0,.2,1);
+  --fd:'Playfair Display','Noto Serif TC',serif;
+  --fb:'DM Sans','Noto Sans TC',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--white);color:var(--text);font-family:var(--fb);font-size:20px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+img{max-width:100%;display:block}
+/* lang: textContent swap via JS — no CSS display toggling */
+
+/* SCROLL PROGRESS */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-3));z-index:9999;transition:width .1s linear}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent;pointer-events:all}
+#nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--border);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lm{display:flex;flex-direction:column;gap:4px}
+.lm-b{height:2px;background:var(--orange);border-radius:2px;transition:all .3s;transform-origin:left}
+.lm-b:nth-child(1){width:14px}.lm-b:nth-child(2){width:22px}.lm-b:nth-child(3){width:14px}
+.logo:hover .lm-b:nth-child(1){width:22px}.logo:hover .lm-b:nth-child(2){width:14px}.logo:hover .lm-b:nth-child(3){width:22px}
+.logo-text{font-family:var(--fd);font-weight:800;font-size:1.1rem;color:var(--text);white-space:nowrap}
+#nav.hero-nav .logo-text{color:#fff}
+#nav.hero-nav .lm-b{background:#fff}
+.logo-tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);background:rgba(255,102,0,.1);border:1px solid rgba(255,102,0,.25);border-radius:4px;padding:3px 9px;white-space:nowrap;font-family:var(--fb)}
+#nav.hero-nav .logo-tag{color:var(--orange-3);background:rgba(255,140,66,.12);border-color:rgba(255,140,66,.3)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:1rem;font-weight:500;color:var(--text-3);transition:color .2s;white-space:nowrap;cursor:pointer}
+.nav-links a:hover{color:var(--orange)}
+#nav.hero-nav .nav-links a{color:rgba(255,255,255,.65)}
+#nav.hero-nav .nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:1rem;flex-shrink:0}
+.btn-lang{font-size:.9rem;font-weight:700;letter-spacing:.04em;color:var(--text-4);border:1px solid var(--border-2);border-radius:20px;padding:6px 16px;transition:all .2s;font-family:var(--fb)}
+.btn-lang:hover{color:var(--orange);border-color:var(--orange)}
+#nav.hero-nav .btn-lang{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.2)}
+#nav.hero-nav .btn-lang:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-nav{font-family:var(--fb);font-weight:700;font-size:1rem;padding:10px 22px;border-radius:var(--r-btn);background:var(--orange);color:#fff;transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.btn-nav:hover{background:var(--orange-2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,102,0,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer}
+.hamburger span{display:block;height:2px;background:var(--text-3);border-radius:2px;transition:all .3s;width:22px}
+#nav.hero-nav .hamburger span{background:rgba(255,255,255,.7)}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--fd);font-size:2rem;font-weight:800;color:rgba(255,255,255,.85);transition:color .2s}
+.mob-menu a:hover{color:var(--orange)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;color:rgba(255,255,255,.4);font-size:1.5rem;background:none;border:none;cursor:pointer;line-height:1}
+.mob-cta{font-family:var(--fb);font-weight:700;font-size:1.05rem;padding:14px 36px;background:var(--orange);color:#fff;border-radius:var(--r-btn);cursor:pointer;border:none}
+
+/* PORTAL */
+.portal-ov{position:fixed;inset:0;z-index:3000;background:linear-gradient(145deg,#04101f,#071828 55%,#030d1c);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s;overflow-y:auto;padding:4rem 2rem}
+.portal-ov.open{opacity:1;pointer-events:all}
+.portal-close{position:absolute;top:1.5rem;right:1.75rem;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.05);transition:all .2s;z-index:2}
+.portal-close:hover{border-color:var(--orange);color:var(--orange-3)}
+.portal-close svg{width:16px;height:16px}
+.portal-lang{position:absolute;top:1.5rem;left:1.75rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:6px 14px;background:rgba(255,255,255,.05);cursor:pointer;z-index:2}
+.portal-lang:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.portal-step{width:100%;max-width:1100px;display:flex;flex-direction:column;align-items:center;gap:3rem;animation:pfade .35s ease both;position:relative;z-index:1}
+.portal-detail{max-width:820px;align-items:flex-start}
+@keyframes pfade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.portal-ov::before{content:'';position:absolute;top:-20%;left:-15%;width:60%;height:90%;background:radial-gradient(ellipse,rgba(255,102,0,.1) 0%,transparent 68%);pointer-events:none}
+.portal-hd{text-align:center;max-width:560px}
+.portal-ey{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-3);margin-bottom:.9rem;font-family:var(--fb)}
+.portal-h{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,3.8vw,3.2rem);color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:.75rem}
+.portal-sub{font-size:1rem;color:rgba(255,255,255,.44);line-height:1.65}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;width:100%;max-width:820px}
+@media(max-width:600px){.role-grid{grid-template-columns:1fr}}
+.role-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:2.25rem 1.5rem 2rem;text-align:center;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center}
+.role-card:hover{background:rgba(255,102,0,.1);border-color:rgba(255,102,0,.45);transform:translateY(-5px);box-shadow:0 14px 36px rgba(255,102,0,.18)}
+.role-ico{width:54px;height:54px;border-radius:14px;background:rgba(255,102,0,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.15rem;transition:background .25s}
+.role-card:hover .role-ico{background:rgba(255,102,0,.28)}
+.role-ico svg{width:24px;height:24px;color:var(--orange-3)}
+.role-label{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:.5rem}
+.role-desc{font-size:1rem;color:rgba(255,255,255,.38);line-height:1.55}
+.portal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:2rem;width:100%}
+@media(max-width:620px){.portal-info-grid{grid-template-columns:1fr}}
+.portal-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.portal-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:1.05rem;color:rgba(255,255,255,.6);line-height:1.65}
+.portal-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange-3);flex-shrink:0;margin-top:.55rem}
+.portal-list li strong{color:rgba(255,255,255,.9);font-weight:600}
+.portal-stats{display:flex;gap:2rem;flex-wrap:wrap;margin:1.4rem 0}
+.portal-stat-n{font-family:var(--fd);font-weight:800;font-size:1.7rem;color:#fff;letter-spacing:-.04em;line-height:1}
+.portal-stat-l{font-size:.9rem;color:rgba(255,255,255,.38);letter-spacing:.04em;margin-top:.22rem}
+.portal-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fb);font-weight:700;font-size:.95rem;padding:14px 26px;border-radius:var(--r-btn);background:var(--orange);color:#fff;transition:all .25s;cursor:pointer;border:none}
+.portal-btn:hover{background:var(--orange-2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,102,0,.38)}
+.portal-btn-out{display:inline-flex;align-items:center;font-family:var(--fb);font-weight:600;font-size:.88rem;padding:13px 22px;border-radius:var(--r-btn);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.55);transition:all .25s;cursor:pointer;background:none}
+.portal-btn-out:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.portal-btns{display:flex;gap:.85rem;flex-wrap:wrap;align-items:center;margin-top:1.75rem}
+.portal-back{display:flex;align-items:center;gap:.45rem;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.32);cursor:pointer;background:none;border:none;transition:color .2s;padding:0;margin-bottom:1.75rem}
+.portal-back:hover{color:rgba(255,255,255,.65)}
+.portal-back svg{width:14px;height:14px}
+.pform{display:flex;flex-direction:column;gap:1.1rem;max-width:480px;width:100%}
+.pform-label{font-size:.88rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.35);margin-bottom:.3rem;font-family:var(--fb)}
+.pinput,.pselect{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:13px 15px;font-size:1.05rem;color:#fff;font-family:var(--fb);transition:border-color .2s;outline:none;width:100%}
+.pselect option{background:#0F1E35}
+.pinput::placeholder{color:rgba(255,255,255,.22)}
+.pinput:focus,.pselect:focus{border-color:rgba(255,102,0,.55)}
+.portal-notice{background:rgba(255,102,0,.09);border:1px solid rgba(255,102,0,.22);border-radius:12px;padding:1rem 1.25rem;font-size:1rem;color:rgba(255,255,255,.6);line-height:1.65;margin-top:1.5rem;max-width:460px;width:100%}
+.portal-notice strong{color:var(--orange-3)}
+
+/* TOAST */
+#demoToast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:#0c1e33;border:1px solid rgba(255,102,0,.45);border-radius:12px;padding:.9rem 1.6rem;color:#fff;font-size:.9rem;z-index:9000;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap}
+
+/* CONTAINERS */
+.container{max-width:1180px;margin:0 auto;padding:0 2rem}
+.will-animate .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.will-animate .reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.4s}
+
+/* COMMON */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--orange);border-radius:2px;flex-shrink:0}
+.section-h{font-family:var(--fd);font-weight:800;font-size:clamp(2.4rem,4.5vw,4rem);line-height:1.06;letter-spacing:-.02em;color:var(--text);margin-bottom:1.25rem}
+.section-p{font-size:1.1rem;color:var(--text-3);line-height:1.75;max-width:580px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:700;font-size:1rem;padding:16px 32px;border-radius:var(--r-btn);background:var(--orange);color:#fff;transition:background .25s,transform .25s,box-shadow .25s;border:none;cursor:pointer;position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.2) 50%,transparent 64%);transform:translateX(-100%);transition:transform .5s}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-primary:hover{background:var(--orange-2);transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,102,0,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:600;font-size:1rem;padding:16px 32px;border-radius:var(--r-btn);border:1.5px solid var(--border-2);color:var(--text);transition:all .25s;cursor:pointer;background:none}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,102,0,.2) 30%,rgba(255,140,66,.15) 65%,transparent);opacity:.7}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;position:relative;overflow:hidden;background:var(--navy)}
+.hero-glow-1{position:absolute;top:-15%;right:-8%;width:70vw;height:70vw;background:radial-gradient(ellipse,rgba(255,102,0,.1) 0%,transparent 62%);pointer-events:none;animation:gpulse 10s ease-in-out infinite}
+.hero-glow-2{position:absolute;bottom:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(ellipse,rgba(255,140,66,.07) 0%,transparent 62%);pointer-events:none;animation:gpulse 14s ease-in-out infinite reverse}
+@keyframes gpulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.hero-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+#hero-canvas{width:100%;height:100%;display:block;pointer-events:none;mask-image:radial-gradient(ellipse 90% 80% at 50% 46%,black 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 46%,black 40%,transparent 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-3);border:1px solid rgba(255,140,66,.3);border-radius:24px;padding:7px 18px;background:rgba(255,102,0,.08);margin-bottom:2.5rem}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange-3);box-shadow:0 0 8px var(--orange-3);animation:dpulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes dpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero-h1{font-family:var(--fd);font-weight:900;font-size:clamp(3.5rem,8.5vw,8.5rem);line-height:1.0;letter-spacing:-.025em;color:#fff;margin-bottom:2rem}
+.hero-h1 em{font-style:normal;color:var(--orange-3)}
+.hero-sub{font-size:clamp(1.1rem,2vw,1.35rem);color:rgba(255,255,255,.62);max-width:640px;margin:0 auto 3rem;line-height:1.7;font-weight:400}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem}
+.hero-ctas .btn-outline{border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.75)}
+.hero-ctas .btn-outline:hover{border-color:var(--orange-3);color:#fff}
+.hero-stats{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
+.h-stat{padding:0 2.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.h-stat:last-child{border-right:none}
+.h-stat-n{font-family:var(--fd);font-weight:800;font-size:2rem;line-height:1;color:#fff;letter-spacing:-.03em}
+.h-stat-l{font-size:.95rem;color:rgba(255,255,255,.38);margin-top:5px;white-space:nowrap;letter-spacing:.02em}
+.scroll-cue{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;animation:cue-b 2.5s ease-in-out infinite;z-index:2;transition:opacity .4s}
+.scroll-cue-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--orange),transparent)}
+.scroll-cue-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid var(--orange-3)}
+@keyframes cue-b{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
+
+/* MARQUEE */
+#marquee{padding:26px 0;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.mq-track{display:flex;white-space:nowrap;animation:mqscroll 32s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:2rem;padding:0 3rem;font-family:var(--fd);font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-4)}
+.mq-sep{width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.5;flex-shrink:0}
+@keyframes mqscroll{to{transform:translateX(-50%)}}
+
+/* AUDIENCE SPLIT */
+#audience{padding:100px 0;background:var(--white)}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.audience-card{border-radius:var(--r);padding:3rem 2.5rem;position:relative;overflow:hidden}
+.audience-card.startup{background:var(--orange-pale);border:2px solid rgba(255,102,0,.2)}
+.audience-card.operator{background:var(--navy);border:2px solid rgba(255,140,66,.15)}
+.audience-card h3{font-family:var(--fd);font-weight:800;font-size:1.75rem;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.15}
+.audience-card.startup h3{color:var(--text)}
+.audience-card.operator h3{color:#fff}
+.audience-card p{font-size:1rem;line-height:1.75;margin-bottom:1.75rem}
+.audience-card.startup p{color:var(--text-3)}
+.audience-card.operator p{color:rgba(255,255,255,.55)}
+.audience-tag{font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:1.25rem;font-family:var(--fb)}
+.audience-card.startup .audience-tag{background:rgba(255,102,0,.12);color:var(--orange)}
+.audience-card.operator .audience-tag{background:rgba(255,140,66,.15);color:var(--orange-3)}
+
+/* TIERS */
+#tiers{padding:100px 0;background:var(--bg)}
+.tiers-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.tier-card{background:var(--white);border:2px solid var(--border);border-radius:var(--r);padding:2.5rem 2rem;transition:all .3s;position:relative}
+.tier-card:hover{border-color:rgba(255,102,0,.3);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.tier-label{font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:6px;padding:4px 12px;display:inline-block;margin-bottom:1.25rem;font-family:var(--fb)}
+.tier-card h3{font-family:var(--fd);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.2}
+.tier-range{font-family:var(--fd);font-weight:700;font-size:2.5rem;color:var(--orange);letter-spacing:-.03em;line-height:1;margin-bottom:.5rem}
+.tier-sub{font-size:1rem;color:var(--text-4);margin-bottom:1.25rem;letter-spacing:.02em}
+.tier-card p{font-size:1rem;color:var(--text-3);line-height:1.7;margin-bottom:1.5rem}
+.tier-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.tier-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:1.05rem;color:var(--text-2);line-height:1.6}
+.tier-list li::before{content:'→';color:var(--orange);font-size:.85rem;flex-shrink:0;margin-top:.12rem}
+
+/* WHY */
+#why{padding:120px 0;background:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;counter-reset:why}
+.why-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem 2rem 2rem;transition:all .4s;position:relative;overflow:hidden;counter-increment:why;cursor:default}
+.why-card::after{content:counter(why,decimal-leading-zero);position:absolute;top:.5rem;right:1.25rem;font-family:var(--fd);font-size:4rem;font-weight:900;line-height:1;color:rgba(255,102,0,.07);pointer-events:none}
+.why-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-3));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.why-card:hover::before{transform:scaleX(1)}
+.why-card:hover{box-shadow:var(--shadow-md);transform:translateY(-6px);border-color:rgba(255,102,0,.2)}
+.why-ico{width:52px;height:52px;background:var(--orange-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;transition:all .3s}
+.why-card:hover .why-ico{background:rgba(255,102,0,.18)}
+.why-ico svg{width:26px;height:26px;color:var(--orange)}
+.why-card h3{font-family:var(--fd);font-weight:700;font-size:1.2rem;margin-bottom:.85rem;letter-spacing:-.01em;line-height:1.25}
+.why-card p{font-size:1rem;color:var(--text-3);line-height:1.72}
+.why-stat{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);font-size:1rem;font-weight:700;color:var(--orange);letter-spacing:.03em;font-family:var(--fb)}
+.why-quote{background:var(--orange-pale);border-left:4px solid var(--orange);padding:1.5rem 2rem;border-radius:0 12px 12px 0;margin-top:4rem;font-family:var(--fd);font-size:1.25rem;color:var(--text-2);line-height:1.6;font-style:italic;max-width:800px}
+
+/* HOW */
+#how{padding:120px 0;background:var(--bg)}
+.steps-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;position:relative}
+.steps-flow::before{content:'';position:absolute;top:38px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--orange),var(--orange-3),var(--orange),transparent);opacity:.25}
+.step-card{padding:0 1rem;text-align:center}
+.step-num{width:76px;height:76px;border-radius:50%;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:900;font-size:1.6rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;box-shadow:0 8px 24px rgba(255,102,0,.3);transition:transform .3s,box-shadow .3s}
+.step-card:hover .step-num{transform:scale(1.1);box-shadow:0 12px 32px rgba(255,102,0,.45)}
+.step-card h3{font-family:var(--fd);font-weight:700;font-size:1.1rem;margin-bottom:.75rem;letter-spacing:-.01em}
+.step-card p{font-size:1.05rem;color:var(--text-3);line-height:1.7;margin-bottom:.75rem}
+.step-stat{font-size:1rem;font-weight:700;color:var(--orange);letter-spacing:.04em;font-family:var(--fb)}
+
+/* OPERATOR NETWORK */
+#network{padding:0;background:var(--navy);min-height:600px;position:relative;overflow:hidden}
+#network-canvas{width:100%;height:600px;display:block;cursor:crosshair}
+.network-hd{position:absolute;top:60px;left:50%;transform:translateX(-50%);text-align:center;z-index:2;pointer-events:none;white-space:nowrap}
+.network-hd .eyebrow{color:var(--orange-3)}
+.network-hd .eyebrow::before{background:var(--orange-3)}
+.network-hd h2{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4vw,3.2rem);color:#fff;letter-spacing:-.02em;line-height:1.1}
+.network-tooltip{position:absolute;background:rgba(10,22,40,.95);backdrop-filter:blur(12px);border:1px solid rgba(255,102,0,.35);border-radius:12px;padding:12px 16px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10;min-width:180px}
+.network-tooltip.vis{opacity:1}
+.nt-company{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;display:inline-block;margin-bottom:.5rem;font-family:var(--fb)}
+.nt-title{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.45}
+.network-footer{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:3rem;z-index:2;pointer-events:none}
+.nf-stat{text-align:center}
+.nf-n{font-family:var(--fd);font-weight:800;font-size:1.75rem;color:#fff;line-height:1}
+.nf-l{font-size:.95rem;color:rgba(255,255,255,.35);margin-top:.2rem;letter-spacing:.04em}
+
+/* PILLARS */
+#pillars{padding:120px 0;background:var(--white)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.pillar-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem 2rem;transition:all .3s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-3));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.pillar-card:hover{background:var(--white);box-shadow:var(--shadow-md);transform:translateY(-6px);border-color:rgba(255,102,0,.2)}
+.pillar-card:hover::before{transform:scaleX(1)}
+.p-num{font-family:var(--fd);font-size:3.5rem;font-weight:900;line-height:1;color:rgba(255,102,0,.1);margin-bottom:1.5rem}
+.p-ico{width:52px;height:52px;background:var(--orange-pale);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;transition:background .3s}
+.pillar-card:hover .p-ico{background:rgba(255,102,0,.18)}
+.p-ico svg{width:26px;height:26px;color:var(--orange)}
+.pillar-card h3{font-family:var(--fd);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;margin-bottom:.85rem;line-height:1.2}
+.pillar-card p{font-size:1rem;color:var(--text-3);line-height:1.7}
+.p-detail{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:1rem;color:var(--orange);font-weight:600;opacity:0;transform:translateY(6px);transition:all .3s;font-family:var(--fb)}
+.pillar-card:hover .p-detail{opacity:1;transform:none}
+
+/* GLOBE */
+#global{padding:120px 0;background:linear-gradient(180deg,var(--white) 0%,#F0F4F8 40%,var(--white) 100%);position:relative;overflow:hidden}
+#globe-sun-ov{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .55s;background:radial-gradient(circle 480px at var(--gsx,50%) var(--gsy,50%),rgba(255,218,70,.15) 0%,rgba(255,172,35,.08) 30%,rgba(255,130,0,.03) 60%,transparent 100%)}
+#globe-sun-ov.on{opacity:1}
+.global-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
+.globe-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.globe-glow{position:absolute;inset:-40px;background:radial-gradient(ellipse,rgba(255,102,0,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+#globe-canvas{border-radius:50%;display:block;cursor:grab}
+.globe-tip{position:absolute;pointer-events:none;background:rgba(10,22,40,.92);backdrop-filter:blur(10px);border:1px solid rgba(255,102,0,.35);border-radius:10px;padding:8px 14px;white-space:nowrap;opacity:0;transform:translateY(5px) scale(.95);transition:opacity .18s,transform .18s;z-index:10}
+.globe-tip.vis{opacity:1;transform:translateY(0) scale(1)}
+.gt-name{display:block;font-family:var(--fd);font-size:1rem;font-weight:700;color:#fff}
+.gt-desc{display:block;font-size:.88rem;color:var(--orange-3);margin-top:2px}
+.city-legend{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.city-tag{display:inline-flex;align-items:center;gap:6px;font-size:1rem;font-weight:500;color:var(--text-3);background:var(--white);border:1px solid var(--border);border-radius:20px;padding:5px 14px}
+.city-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.city-dot.origin{background:#F59E0B;box-shadow:0 0 6px #F59E0B}
+
+/* BRIEF */
+#brief{padding:120px 0;background:var(--bg)}
+.brief-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3.5rem}
+.brief-card{background:var(--white);border:1px solid var(--border-2);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md)}
+.brief-hdr{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.brief-co{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:#fff}
+.brief-meta{font-size:.9rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+.brief-demo-badge{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-3);background:rgba(255,102,0,.18);border:1px solid rgba(255,102,0,.3);border-radius:4px;padding:4px 10px;flex-shrink:0;font-family:var(--fb)}
+.brief-sec{border-bottom:1px solid var(--border)}
+.brief-sec:last-child{border-bottom:none}
+.brief-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:none;text-align:left;cursor:pointer;transition:background .2s;gap:1rem}
+.brief-trigger:hover{background:var(--bg)}
+.brief-tl{display:flex;align-items:center;gap:.75rem}
+.blabel{font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:5px;white-space:nowrap}
+.blabel-ep{background:rgba(71,85,105,.1);color:#475569}
+.blabel-cop{background:rgba(255,102,0,.12);color:var(--orange)}
+.blabel-sh{background:rgba(8,145,178,.1);color:#0891B2}
+.blabel-rf{background:rgba(220,38,38,.1);color:#DC2626}
+.brief-trigger h4{font-family:var(--fb);font-weight:600;font-size:1.05rem;color:var(--text-2)}
+.brief-chev{width:16px;height:16px;color:var(--text-4);flex-shrink:0;transition:transform .3s}
+.brief-sec.open .brief-chev{transform:rotate(180deg)}
+.brief-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.brief-content{padding:.25rem 1.5rem 1.25rem;font-size:1.05rem;color:var(--text-3);line-height:1.75}
+.brief-caption{margin-top:2rem;padding:1.25rem 1.5rem;background:var(--orange-pale);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;font-size:1.05rem;color:var(--text-3);line-height:1.65}
+
+/* TEAM */
+#team{padding:120px 0;background:var(--white)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.75rem;transition:all .3s}
+.team-card:hover{box-shadow:var(--shadow-md);transform:translateY(-5px);border-color:rgba(255,102,0,.2)}
+.team-avatar{width:72px;height:72px;border-radius:50%;overflow:hidden;margin-bottom:1.25rem;border:3px solid rgba(255,102,0,.2);flex-shrink:0}
+.team-avatar img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:var(--fd);font-weight:800;font-size:1.1rem;color:var(--text);letter-spacing:-.01em;margin-bottom:.2rem}
+.team-role{font-size:.88rem;color:var(--orange);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem;font-family:var(--fb)}
+.team-bio{font-size:1.05rem;color:var(--text-3);line-height:1.72}
+.team-socials{display:flex;gap:.45rem;margin-top:1.1rem}
+.team-socials a{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-4);transition:all .2s}
+.team-socials a:hover{border-color:var(--orange);color:var(--orange)}
+.team-socials a svg{width:14px;height:14px}
+.advisors-wrap{margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
+.advisors-ey{font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);margin-bottom:1.4rem}
+.advisor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.85rem}
+.advisor-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1rem 1.15rem;display:flex;align-items:center;gap:.85rem;transition:all .25s}
+.advisor-card:hover{border-color:rgba(255,102,0,.22);box-shadow:var(--shadow-sm)}
+.advisor-av{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.advisor-av img{width:100%;height:100%;object-fit:cover}
+.advisor-name{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:var(--text)}
+.advisor-tag{font-size:.9rem;color:var(--text-4);margin-top:.1rem}
+
+/* PARTNERS */
+#partners{padding:80px 0;background:var(--bg)}
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.85rem;margin-top:2.5rem}
+.partner-badge{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.25rem;text-align:center;transition:all .25s;cursor:default}
+.partner-badge:hover{border-color:rgba(255,102,0,.25);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.partner-logo{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:var(--text-3)}
+.partner-cat{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-4);margin-top:.3rem;font-family:var(--fb)}
+
+/* SUBMIT */
+#submit{padding:140px 0 160px;background:var(--navy);position:relative;overflow:hidden;text-align:center}
+.submit-orb{position:absolute;width:80vw;height:80vw;max-width:900px;max-height:900px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,102,0,.12) 0%,rgba(255,102,0,.04) 40%,transparent 70%);pointer-events:none}
+.submit-inner{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:0 1.5rem}
+.submit-ey{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-3);margin-bottom:1.5rem}
+.submit-h{font-family:var(--fd);font-weight:900;font-size:clamp(2.5rem,5.5vw,4.2rem);line-height:1.06;color:#fff;margin-bottom:1.25rem}
+.submit-sub{font-size:1.1rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-submit{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fd);font-weight:800;font-size:1.25rem;color:#fff;background:var(--orange);border-radius:56px;padding:22px 56px;white-space:nowrap;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 32px rgba(255,102,0,.35);animation:subpulse 2.6s ease-in-out infinite;border:none;cursor:pointer}
+.btn-submit:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(255,102,0,.5);animation:none}
+@keyframes subpulse{0%,100%{box-shadow:0 8px 32px rgba(255,102,0,.35)}50%{box-shadow:0 8px 32px rgba(255,102,0,.35),0 0 0 18px rgba(255,102,0,0)}}
+.btn-submit svg{width:22px;height:22px;flex-shrink:0;transition:transform .3s}
+.btn-submit:hover svg{transform:translateX(4px)}
+.submit-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:3.5rem}
+.ss-stat{text-align:center}
+.ss-n{font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff}
+.ss-l{font-size:.95rem;color:rgba(255,255,255,.35);letter-spacing:.04em;font-family:var(--fb)}
+.ss-div{width:1px;height:44px;background:rgba(255,255,255,.1);align-self:center}
+
+/* FAQ */
+#faq{padding:120px 0;background:var(--bg)}
+.faq-wrap{max-width:800px;margin:3.5rem auto 0}
+.fq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);margin-bottom:.75rem;overflow:hidden;transition:border-color .25s}
+.fq-item:hover{border-color:rgba(255,102,0,.2)}
+.fq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.35rem 1.75rem;gap:1rem;background:none;text-align:left;cursor:pointer}
+.fq-trigger h4{font-family:var(--fd);font-weight:700;font-size:1.05rem;letter-spacing:-.01em;color:var(--text)}
+.fq-chev{width:18px;height:18px;color:var(--text-4);flex-shrink:0;transition:transform .35s}
+.fq-item.open .fq-chev{transform:rotate(180deg);color:var(--orange)}
+.fq-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.fq-inner{padding:.25rem 1.75rem 1.35rem;font-size:1.1rem;color:var(--text-3);line-height:1.75}
+
+/* FOOTER */
+footer{background:#060F1E;padding:72px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:.9rem}
+.ft-logo .lm-b{background:rgba(255,255,255,.4)}
+.ft-logo-text{font-family:var(--fd);font-weight:800;font-size:.95rem;color:rgba(255,255,255,.85)}
+.ft-tagline{font-size:1rem;color:rgba(255,255,255,.3);line-height:1.65;max-width:260px;margin-bottom:1.5rem}
+.ft-email{font-size:1rem;color:var(--orange-3)}
+.ft-nav h5{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.25rem}
+.ft-nav ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.ft-nav a{font-size:1rem;color:rgba(255,255,255,.4);transition:color .2s}
+.ft-nav a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:.8rem;color:rgba(255,255,255,.2)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.op-grid-css{columns:3}}
+@media(max-width:900px){
+  .global-inner,.brief-inner{grid-template-columns:1fr;gap:2.5rem}
+  .pillars-grid,.audience-grid,.tiers-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .steps-flow{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps-flow::before{display:none}
+}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:768px){
+  body{font-size:18px}
+  .nav-right{display:none}
+  .footer-grid{grid-template-columns:1fr}
+  .h-stat{padding:0 1.25rem}
+  #hero{padding:96px 0 56px}
+  .why-grid,.pillars-grid,.audience-grid,.tiers-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  #network-canvas{height:480px}
+}
+@media(max-width:600px){
+  body{font-size:17px}
+  .steps-flow{grid-template-columns:1fr}
+  .submit-stats{gap:1.5rem}
+  .ss-div{display:none}
+  .globe-wrap{max-width:min(100%,320px);margin:0 auto}
+  #globe-canvas{width:100%;height:auto;aspect-ratio:1/1}
+  .globe-glow{inset:-12px}
+  .h-stat{padding:0 .85rem}
+  .h-stat-l{font-size:.7rem}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- PORTAL OVERLAY -->
+<div class="portal-ov" id="portalOv">
+  <button class="portal-lang" onclick="toggleLang()">中文</button>
+  <button class="portal-close" onclick="closePortal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <!-- ROLE SELECT -->
+  <div class="portal-step" id="ps-select">
+    <div class="portal-hd">
+      <div class="portal-ey" data-en="Operator Syndicate Portal" data-zh="入口">Operator Syndicate Portal</div>
+      <h2 class="portal-h" data-en="Who are you?" data-zh="你的身份是？">Who are you?</h2>
+      <p class="portal-sub" data-en="Select your role to access the right resources." data-zh="選擇你的身份，查看專屬資源。">Select your role to access the right resources.</p>
+    </div>
+    <div class="role-grid">
+      <div class="role-card" onclick="showStep('ps-startup')">
+        <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="role-label" data-en="B2B Startup" data-zh="B2B 新創">B2B Startup</div>
+        <div class="role-desc" data-en="Submit your deal for review" data-zh="提交案源申請">Submit your deal for review</div>
+      </div>
+      <div class="role-card" onclick="showStep('ps-exec')">
+        <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="role-label" data-en="Enterprise Executive" data-zh="外商高管">Enterprise Executive</div>
+        <div class="role-desc" data-en="Join as an operator LP" data-zh="加入成為 LP">Join as an operator LP</div>
+      </div>
+      <div class="role-card" onclick="showStep('ps-partner')">
+        <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="role-label" data-en="Venture Partner" data-zh="創投夥伴">Venture Partner</div>
+        <div class="role-desc" data-en="Co-investment opportunities" data-zh="共同投資機會">Co-investment opportunities</div>
+      </div>
+    </div>
+  </div>
+  <!-- STARTUP -->
+  <div class="portal-step portal-detail" id="ps-startup" style="display:none">
+    <button class="portal-back" onclick="showStep('ps-select')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back" data-zh="返回">Back</span></button>
+    <div class="portal-ey" data-en="Deal Submission" data-zh="案源申請">Deal Submission</div>
+    <h2 class="portal-h" data-en="Submit your deal." data-zh="提交你的案源。">Submit your deal.</h2>
+    <div class="portal-info-grid">
+      <div>
+        <p class="portal-sub" style="margin-bottom:1.4rem" data-en="We review every submission personally within 48 hours. We look for:" data-zh="每份申請均由團隊在 48 小時內親自審閱。我們看的是：">We review every submission personally within 48 hours. We look for:</p>
+        <ul class="portal-list">
+          <li><strong data-en="B2B product targeting enterprise" data-zh="以企業端為目標的 B2B 產品">B2B product targeting enterprise</strong></li>
+          <li><strong data-en="A named target customer" data-zh="明確的目標大廠">A named target customer</strong>&nbsp;<span data-en="(Nexia, Oracore, Globex, ACS…)" data-zh="（Nexia、Oracore、Globex、ACS…）">(Nexia, Oracore, Globex, ACS…)</span></li>
+          <li><strong data-en="Early traction or clear differentiation" data-zh="早期牽引力或清晰的差異化">Early traction or clear differentiation</strong></li>
+          <li><strong data-en="Founder who moves fast" data-zh="能快速行動的創辦人">Founder who moves fast</strong></li>
+        </ul>
+        <div class="portal-stats">
+          <div><div class="portal-stat-n">48h</div><div class="portal-stat-l" data-en="Response Time" data-zh="回覆時間">Response Time</div></div>
+          <div><div class="portal-stat-n">100%</div><div class="portal-stat-l" data-en="Confidential" data-zh="嚴格保密">Confidential</div></div>
+        </div>
+      </div>
+      <form class="pform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="pSubmit(event)">
+        <div><div class="pform-label" data-en="Company Name" data-zh="公司名稱">Company Name</div><input class="pinput" name="company" type="text" required placeholder="Acme Corp"></div>
+        <div><div class="pform-label" data-en="Email" data-zh="Email">Email</div><input class="pinput" name="email" type="email" required placeholder="founder@company.com"></div>
+        <div><div class="pform-label" data-en="One-Line Pitch" data-zh="一句話描述">One-Line Pitch</div><input class="pinput" name="pitch" type="text" required maxlength="140" placeholder="We help [enterprise] do [outcome] via [method]"></div>
+        <div><div class="pform-label" data-en="Target Enterprise" data-zh="目標大廠">Target Enterprise</div><input class="pinput" name="target" type="text" placeholder="e.g. Globex Taiwan, ACS APAC..."></div>
+        <div><div class="pform-label" data-en="Deck Link" data-zh="Deck 連結">Deck Link</div><input class="pinput" name="deck" type="url" placeholder="https://..."></div>
+        <div><div class="pform-label" data-en="Monthly Revenue" data-zh="月營收">Monthly Revenue</div>
+          <select class="pselect" name="revenue"><option value="pre" data-en="Pre-revenue" data-zh="尚未有營收">Pre-revenue</option><option value="<100k">&#60; NT$100K/mo</option><option value="100-500k">NT$100K–500K/mo</option><option value="500k+">NT$500K+/mo</option></select></div>
+        <div class="portal-btns"><button type="submit" class="portal-btn" data-en="Submit Deal →" data-zh="送出申請 →">Submit Deal →</button><button type="button" class="portal-btn-out" onclick="closePortal()" data-en="Not ready" data-zh="尚未準備好">Not ready</button></div>
+        <div class="portal-notice" id="pSuccessMsg" style="display:none"><strong data-en="Submitted." data-zh="已送出。">Submitted.</strong> <span data-en="We'll respond within 48 hours." data-zh="我們將在 48 小時內回覆。">We'll respond within 48 hours.</span></div>
+      </form>
+    </div>
+  </div>
+  <!-- EXEC -->
+  <div class="portal-step portal-detail" id="ps-exec" style="display:none">
+    <button class="portal-back" onclick="showStep('ps-select')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back" data-zh="返回">Back</span></button>
+    <div class="portal-ey" data-en="Operator LP" data-zh="運營者 LP">Operator LP</div>
+    <h2 class="portal-h" data-en="Join the syndicate." data-zh="加入這個飛輪。">Join the syndicate.</h2>
+    <div class="portal-info-grid">
+      <div>
+        <p class="portal-sub" style="margin-bottom:1.4rem" data-en="As an operator LP, you co-invest in curated B2B deals and use your enterprise relationships to help portfolio companies close their first major contracts." data-zh="作為運營者 LP，你共同投資精選 B2B 案源，並運用企業關係協助投組公司拿下第一筆大單。">As an operator LP, you co-invest in curated B2B deals and use your enterprise relationships to help portfolio companies close their first major contracts.</p>
+        <ul class="portal-list">
+          <li><span data-en="Per-deal SPV — invest only when you want to" data-zh="每案獨立 SPV，只在你想時才參與">Per-deal SPV — invest only when you want to</span></li>
+          <li><span data-en="AI-screened A4 Decision Briefs before every deal" data-zh="每案附 AI 篩選的 A4 決策履歷">AI-screened A4 Decision Briefs before every deal</span></li>
+          <li><span data-en="Your enterprise channel = your value add" data-zh="你的企業通路就是你的加值能力">Your enterprise channel = your value add</span></li>
+          <li><span data-en="No board seats, no ongoing time commitment" data-zh="無需董事席位或固定時間投入">No board seats, no ongoing time commitment</span></li>
+        </ul>
+        <div class="portal-stats"><div><div class="portal-stat-n">$20K</div><div class="portal-stat-l" data-en="USD Min / Deal" data-zh="美元最低 / 案">USD Min / Deal</div></div><div><div class="portal-stat-n">2–3</div><div class="portal-stat-l" data-en="Deals / Month" data-zh="案源 / 月">Deals / Month</div></div></div>
+      </div>
+      <form class="pform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="pSubmit(event, 'eSuccessMsg')">
+        <div><div class="pform-label" data-en="Your Name" data-zh="姓名">Your Name</div><input class="pinput" name="name" type="text" required placeholder="Jane Chen"></div>
+        <div><div class="pform-label" data-en="Work Email" data-zh="工作信箱">Work Email</div><input class="pinput" name="email" type="email" required placeholder="jane@company.com"></div>
+        <div><div class="pform-label" data-en="Company & Title" data-zh="公司與職銜">Company & Title</div><input class="pinput" name="title" type="text" placeholder="VP Engineering, Globex"></div>
+        <div class="portal-btns"><button type="submit" class="portal-btn" data-en="Express Interest →" data-zh="表達興趣 →">Express Interest →</button></div>
+        <div class="portal-notice" id="eSuccessMsg" style="display:none"><strong data-en="Noted." data-zh="已收到。">Noted.</strong> <span data-en="Boice will reach out within 3 business days." data-zh="Boice 將在 3 個工作日內與你聯繫。">Boice will reach out within 3 business days.</span></div>
+        <div class="portal-notice" style="margin-top:1rem"><strong data-en="Pre-Launch only." data-zh="僅限 Launch 前。">Pre-Launch only.</strong> <span data-en="Selectively adding operators before June 2026 Launch." data-zh="2026 年 6 月 Launch 前選擇性招募運營者。">Selectively adding operators before June 2026 Launch.</span></div>
+      </form>
+    </div>
+  </div>
+  <!-- PARTNER -->
+  <div class="portal-step portal-detail" id="ps-partner" style="display:none">
+    <button class="portal-back" onclick="showStep('ps-select')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back" data-zh="返回">Back</span></button>
+    <div class="portal-ey" data-en="Venture Partner" data-zh="創投夥伴">Venture Partner</div>
+    <h2 class="portal-h" data-en="Co-invest with operators." data-zh="與運營者共同投資。">Co-invest with operators.</h2>
+    <p class="portal-sub" style="margin-bottom:2rem;max-width:560px" data-en="GPs and VCs partner with Operator Syndicate to access operator-vetted B2B deal flow and co-invest alongside enterprise decision-makers." data-zh="GP 與 VC 與 Operator Syndicate 合作，獲取運營者審核的 B2B 案流，與企業決策者共同投資。">GPs and VCs partner with Operator Syndicate to access operator-vetted B2B deal flow and co-invest alongside enterprise decision-makers.</p>
+    <ul class="portal-list" style="margin-bottom:2rem;max-width:520px">
+      <li><span data-en="Early access to A4 Decision Briefs for every screened deal" data-zh="每個篩選案源都可提前獲得 A4 決策履歷">Early access to A4 Decision Briefs for every screened deal</span></li>
+      <li><span data-en="Warm intro to founders via the operator network" data-zh="透過運營者網絡直接引薦給創辦人">Warm intro to founders via the operator network</span></li>
+    </ul>
+    <div class="portal-btns"><button class="portal-btn" onclick="pCooldown(this)" data-en="Request Partnership Deck →" data-zh="索取合作說明書 →">Request Partnership Deck →</button></div>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="#audience" onclick="closeMob()" data-en="Who Is This For" data-zh="適合誰">Who Is This For</a>
+  <a href="#network" onclick="closeMob()" data-en="Operators" data-zh="高管網絡">Operators</a>
+  <a href="#how" onclick="closeMob()" data-en="How It Works" data-zh="如何運作">How It Works</a>
+  <a href="#brief" onclick="closeMob()" data-en="Deal Quality" data-zh="案源品質">Deal Quality</a>
+  <a href="#team" onclick="closeMob()" data-en="Team" data-zh="團隊">Team</a>
+  <a href="#faq" onclick="closeMob()" data-en="FAQ" data-zh="FAQ">FAQ</a>
+  <button class="mob-cta" onclick="closeMob();openPortal('ps-startup')" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
+  <button class="btn-lang" onclick="toggleLang();closeMob()" id="mobLangBtn">中文</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="hero-nav">
+  <a class="logo" href="#">
+    <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
+    <span class="logo-text">Operator Syndicate</span>
+    <span class="logo-tag">DEMO</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#audience" data-en="For Startups" data-zh="新創適合你嗎">For Startups</a></li>
+    <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
+    <li><a href="#how" data-en="How It Works" data-zh="如何運作">How It Works</a></li>
+    <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-lang" onclick="toggleLang()" id="langBtn">中文</button>
+    <button onclick="openPortal('ps-startup')" class="btn-nav" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
+  </div>
+  <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow-1"></div><div class="hero-glow-2"></div>
+  <div class="hero-grid"><canvas id="hero-canvas"></canvas></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-badge"><span data-en="Launch · June 2026 · Pre-Launch Open" data-zh="Launch · 2026 年 6 月 · Pre-Launch 開放中">Launch · June 2026 · Pre-Launch Open</span></div>
+      <h1 class="hero-h1">
+        <span data-en="Enterprise Channel." data-zh="外商高管入股">Enterprise Channel.</span><br>
+        <em><span data-en="Day One." data-zh="大廠通路隨之而來">Day One.</span></em>
+      </h1>
+      <p class="hero-sub" data-en="20+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors." data-zh="Nexia、Oracore、Globex、ACS 的高層決策者共同投資你的 B2B 新創，並親自打通大廠採購通路，替你跳過 12–18 個月的企業業務開發期">20+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors.</p>
+      <div class="hero-ctas">
+        <button onclick="openPortal('ps-startup')" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
+        <button onclick="openPortal('ps-exec')" class="btn-outline" data-en="Join as Operator" data-zh="加入成為高管 LP">Join as Operator</button>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-n">20<span style="font-size:.75em">+</span></div><div class="h-stat-l" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
+        <div class="h-stat"><div class="h-stat-n">48<span style="font-size:.65em;font-family:var(--fb)">hr</span></div><div class="h-stat-l" data-en="First Response" data-zh="初步回覆">First Response</div></div>
+        <div class="h-stat"><div class="h-stat-n">2</div><div class="h-stat-l" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div></div>
+        <div class="h-stat"><div class="h-stat-n">12–18<span style="font-size:.5em;font-family:var(--fb)">mo</span></div><div class="h-stat-l" data-en="Enterprise Cycle Cut" data-zh="縮短的銷售週期">Enterprise Cycle Cut</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scrollCue"><div class="scroll-cue-line"></div><div class="scroll-cue-dot"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
+<div class="divider"></div>
+
+<!-- AUDIENCE SPLIT -->
+<section id="audience" style="padding:100px 0;background:var(--white)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem">
+      <div class="eyebrow" data-en="Two Audiences" data-zh="兩種受眾">Two Audiences</div>
+      <h2 class="section-h" data-en="Built for builders.<br>Powered by operators." data-zh="為建造者打造。<br>由運營者驅動。">Built for builders.<br>Powered by operators.</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card startup reveal d1">
+        <div class="audience-tag" data-en="B2B Startup Founders" data-zh="B2B 新創創辦人">B2B Startup Founders</div>
+        <h3 data-en="You have the product. We open the door." data-zh="你有產品。我們開門。">You have the product. We open the door.</h3>
+        <p data-en="Submit your B2B deal. Our AI pre-screens, produces a structured A4 Decision Brief, and distributes to operator LPs who can directly introduce you to their procurement networks. You skip 12–18 months of cold outreach." data-zh="提交你的 B2B 案源。我們的 AI 初篩、產出結構化 A4 決策履歷，並分發給能直接引薦你進入採購網絡的高管 LP。你跳過 12–18 個月的冷接觸。">Submit your B2B deal. Our AI pre-screens, produces a structured A4 Decision Brief, and distributes to operator LPs who can directly introduce you to their procurement networks. You skip 12–18 months of cold outreach.</p>
+        <button onclick="openPortal('ps-startup')" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
+      </div>
+      <div class="audience-card operator reveal d2">
+        <div class="audience-tag" data-en="Enterprise Executives" data-zh="外商高管">Enterprise Executives</div>
+        <h3 style="color:#fff" data-en="Your title and channel — as alpha." data-zh="你的職銜與通路，就是你的 Alpha。">Your title and channel — as alpha.</h3>
+        <p data-en="Co-invest in curated B2B startups where your enterprise relationships directly accelerate their sales. Per-deal SPV. AI-screened briefs. No board seat required. Your expertise is the value add." data-zh="共同投資精選 B2B 新創，你的企業關係直接加速他們的銷售。每案獨立 SPV，AI 篩選履歷，無需擔任董事。你的產業經驗就是最大的加值。">Co-invest in curated B2B startups where your enterprise relationships directly accelerate their sales. Per-deal SPV. AI-screened briefs. No board seat required. Your expertise is the value add.</p>
+        <button onclick="openPortal('ps-exec')" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:700;font-size:1rem;padding:16px 32px;border-radius:var(--r-btn);background:var(--orange);color:#fff;border:none;cursor:pointer;transition:background .2s,transform .2s" onmouseover="this.style.background='#E55A00'" onmouseout="this.style.background='var(--orange)'" data-en="Join as Operator LP →" data-zh="加入成為高管 LP →">Join as Operator LP →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATOR NETWORK CONSTELLATION -->
+<section id="network" style="background:var(--navy);padding:80px 0 0;overflow:hidden">
+  <div class="container" style="text-align:center;padding-bottom:3rem">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
+      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:nowrap;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="VP and Director-level executives from Nexia, Oracore, Globex and ACS — each bringing direct enterprise procurement access, not just capital." data-zh="來自 Nexia、Oracore、Globex 與 ACS 的 VP 與 Director 級高管，帶來的不只是資金，而是直接的企業採購通路">VP and Director-level executives from Nexia, Oracore, Globex and ACS — each bringing direct enterprise procurement access, not just capital.</p>
+    </div>
+  </div>
+  <div style="position:relative">
+    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
+    <div id="net-tooltip" class="network-tooltip">
+      <div id="nt-company" class="nt-company"></div>
+      <div id="nt-title" class="nt-title"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div style="display:flex;justify-content:center;gap:4rem;padding:2.5rem 0 3rem;flex-wrap:wrap">
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff">Nexia · Oracore</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)">Social &amp; Data Giants</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff">Globex · ACS</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)">Search &amp; Cloud Leaders</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff">$20K USD</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)">Minimum per deal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT TIERS -->
+<section id="tiers" style="padding:100px 0;background:var(--bg)">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
+      <h2 class="section-h" data-en="Two tiers. One network." data-zh="兩個層級，一個網絡。">Two tiers. One network.</h2>
+      <p class="section-p" data-en="We invest across two distinct stages of B2B growth, each with different operator value-add and deal structure." data-zh="我們投資 B2B 成長的兩個不同階段，各有不同的高管加值方式與交易結構。">We invest across two distinct stages of B2B growth, each with different operator value-add and deal structure.</p>
+    </div>
+    <div class="tiers-grid" style="margin-top:3rem">
+      <div class="tier-card reveal d1">
+        <div class="tier-label" data-en="Tier 1 — Early Stage" data-zh="Tier 1 — 早期階段">Tier 1 — Early Stage</div>
+        <div class="tier-range" data-en="$100K–$1M ARR" data-zh="NT$300萬–3,000萬 ARR">$100K–$1M ARR</div>
+        <div class="tier-sub" data-en="Annual Recurring Revenue" data-zh="年度經常性收入">Annual Recurring Revenue</div>
+        <h3 data-en="Seed to Series A" data-zh="種子輪至 A 輪">Seed to Series A</h3>
+        <p data-en="B2B startups with early traction that need enterprise channel access to cross the valley from $100K to $1M ARR. Operator LPs provide direct introductions to enterprise procurement — the fastest path to first major contracts." data-zh="有早期牽引力的 B2B 新創，需要企業通路跨越從 NT$300萬到 NT$3,000萬 ARR 的死亡谷。高管 LP 直接引薦進入企業採購，是拿下第一筆大單最快的路徑。">B2B startups with early traction that need enterprise channel access to cross the valley from $100K to $1M ARR. Operator LPs provide direct introductions to enterprise procurement — the fastest path to first major contracts.</p>
+        <ul class="tier-list">
+          <li data-en="Per-deal SPV · minimum $20K USD" data-zh="每案獨立 SPV · 最低 $20K 美元">Per-deal SPV · minimum $20K USD</li>
+          <li data-en="48-hour deal review turnaround" data-zh="48 小時案源審閱回覆">48-hour deal review turnaround</li>
+          <li data-en="Direct enterprise intro within 2 weeks of investment" data-zh="投資後 2 週內直接企業引薦">Direct enterprise intro within 2 weeks of investment</li>
+          <li data-en="POC timeline compressed from months to weeks" data-zh="POC 時程從數月壓縮為數週">POC timeline compressed from months to weeks</li>
+        </ul>
+      </div>
+      <div class="tier-card reveal d2">
+        <div class="tier-label" data-en="Tier 2 — Pre-IPO" data-zh="Tier 2 — 上市前">Tier 2 — Pre-IPO</div>
+        <div class="tier-range" data-en="$2M–$20M ARR" data-zh="NT$6,000萬–6億 ARR">$2M–$20M ARR</div>
+        <div class="tier-sub" data-en="Revenue · 3–5 Years Pre-IPO" data-zh="營收 · 上市前 3–5 年">Revenue · 3–5 Years Pre-IPO</div>
+        <h3 data-en="Growth to Pre-IPO" data-zh="成長期至上市前">Growth to Pre-IPO</h3>
+        <p data-en="Established B2B companies preparing for IPO or strategic exit. Operator LPs provide enterprise validation, executive references, and strategic procurement partnerships that strengthen the IPO narrative and accelerate the path to public markets." data-zh="準備 IPO 或策略性出場的成熟 B2B 公司。高管 LP 提供企業驗證、高管背書與策略採購夥伴關係，強化 IPO 敘事，加速進入公開市場的路徑。">Established B2B companies preparing for IPO or strategic exit. Operator LPs provide enterprise validation, executive references, and strategic procurement partnerships that strengthen the IPO narrative.</p>
+        <ul class="tier-list">
+          <li data-en="Strategic co-investment with enterprise validation" data-zh="具企業驗證的策略性共同投資">Strategic co-investment with enterprise validation</li>
+          <li data-en="C-suite references and enterprise endorsements" data-zh="高管推薦信與企業背書">C-suite references and enterprise endorsements</li>
+          <li data-en="Procurement partnerships that strengthen IPO narrative" data-zh="強化 IPO 敘事的採購夥伴關係">Procurement partnerships that strengthen IPO narrative</li>
+          <li data-en="Board advisory from seasoned enterprise operators" data-zh="資深企業運營者的董事顧問服務">Board advisory from seasoned enterprise operators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" style="padding:120px 0;background:var(--white)">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" data-en="The Problem" data-zh="核心痛點">The Problem</div>
+      <h2 class="section-h" data-en="Enterprise channels are the<br>hardest problem in B2B." data-zh="企業通路是 B2B<br>最難解的問題。">Enterprise channels are the<br>hardest problem in B2B.</h2>
+      <p class="section-p" data-en="Great products fail not because of technology — but because they can't get in front of the right enterprise buyers at the right time." data-zh="優秀的產品失敗，不是因為技術，而是因為無法在正確時間接觸到正確的企業買家。">Great products fail not because of technology — but because they can't get in front of the right enterprise buyers at the right time.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3 data-en="Great product. Wrong door." data-zh="產品夠強，卻敲不開門。">Great product. Wrong door.</h3>
+        <p data-en="Enterprise procurement runs on trust chains. Without a warm intro from inside the organization, your pitch never reaches the decision-maker — no matter how strong the product." data-zh="企業採購靠信任鏈運作。沒有來自組織內部的引薦，你的 pitch 永遠到不了決策者，無論產品多強。">Enterprise procurement runs on trust chains. Without a warm intro from inside the organization, your pitch never reaches the decision-maker — no matter how strong the product.</p>
+        <div class="why-stat" data-en="12–18 months avg. enterprise sales cycle" data-zh="平均企業銷售週期 12–18 個月">12–18 months avg. enterprise sales cycle</div>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3 data-en="Capital raised. Channels missing." data-zh="融資到位了，通路還是空的。">Capital raised. Channels missing.</h3>
+        <p data-en="Hiring senior enterprise sales costs NT$200–500K per year — before you've proven the channel works. Most startups exhaust their runway before finding product-channel fit at the enterprise level." data-zh="自聘資深企業業務年成本 NT$200–500萬，還沒確認通路可行性之前。多數新創在找到企業端產品通路契合前就燒完了跑道。">Hiring senior enterprise sales costs NT$200–500K per year — before you've proven the channel works. Most startups exhaust their runway before finding product-channel fit at the enterprise level.</p>
+        <div class="why-stat" data-en="NT$200–500K/yr on unproven enterprise channels" data-zh="每年 NT$200–500 萬花在未驗證的通路上">NT$200–500K/yr on unproven enterprise channels</div>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 data-en="Enterprise cycles kill momentum." data-zh="企業採購週期扼殺動能。">Enterprise cycles kill momentum.</h3>
+        <p data-en="Vendor security reviews, procurement committees, compliance checklists — without a champion inside the organization, each step adds months. Startups run out of time waiting." data-zh="供應商安全審查、採購委員會、合規清單，沒有組織內的支持者，每個步驟都增加數月。新創在等待中耗盡時間。">Vendor security reviews, procurement committees, compliance checklists — without a champion inside the organization, each step adds months. Startups run out of time waiting.</p>
+        <div class="why-stat" data-en="80% of B2B startups stall at enterprise entry" data-zh="80% 的 B2B 新創卡在企業准入關">80% of B2B startups stall at enterprise entry</div>
+      </div>
+    </div>
+    <div class="why-quote reveal" data-en="&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;" data-zh="「資金已逐步商品化。通路網絡才是 2026 年的差異化核心。」">&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding:120px 0;background:var(--bg)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <div class="eyebrow" data-en="The Process" data-zh="運作流程">The Process</div>
+      <h2 class="section-h" data-en="From submission to enterprise deal." data-zh="從提交到大廠訂單。">From submission to enterprise deal.</h2>
+    </div>
+    <div class="steps-flow" style="margin-top:4rem">
+      <div class="step-card reveal d1">
+        <div class="step-num">01</div>
+        <h3 data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</h3>
+        <p data-en="Fill a 10-minute form. Include your deck link and the target enterprise customer you want to reach." data-zh="填寫 10 分鐘表單。附上 Deck 連結與你想觸達的目標大廠。">Fill a 10-minute form. Include your deck link and the target enterprise customer you want to reach.</p>
+        <div class="step-stat" data-en="10 min to complete" data-zh="10 分鐘完成">10 min to complete</div>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num">02</div>
+        <h3 data-en="AI Pre-Screen" data-zh="AI 初篩">AI Pre-Screen</h3>
+        <p data-en="D/V/F methodology screens 30–50 submissions per month. Only 2–3 deals advance to the operator network each cycle." data-zh="D/V/F 方法論每月篩選 30–50 件，每次循環只有 2–3 個案源進入高管網絡。">D/V/F methodology screens 30–50 submissions per month. Only 2–3 deals advance to the operator network each cycle.</p>
+        <div class="step-stat" data-en="48hr response guaranteed" data-zh="48 小時內保證回覆">48hr response guaranteed</div>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num">03</div>
+        <h3 data-en="A4 Decision Brief" data-zh="A4 決策履歷">A4 Decision Brief</h3>
+        <p data-en="Qualified deals get a structured 1-page brief — Elevator Pitch, Cost of Problem, Strategic Hook, Red Flag. Operators decide in 3 minutes." data-zh="通過篩選的案源產出 A4 結構化履歷。高管 3 分鐘做出決定。">Qualified deals get a structured 1-page brief. Operators decide in 3 minutes.</p>
+        <div class="step-stat" data-en="3-minute read" data-zh="3 分鐘閱讀">3-minute read</div>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num">04</div>
+        <h3 data-en="Operator Connect" data-zh="高管直連">Operator Connect</h3>
+        <p data-en="Interested operators co-invest via SPV and make direct enterprise introductions. POC timelines drop from months to weeks." data-zh="有興趣的高管透過 SPV 共同投資並直接進行企業引薦。POC 時程從數月縮短為數週。">Interested operators co-invest via SPV and make direct enterprise introductions. POC timelines drop from months to weeks.</p>
+        <div class="step-stat" data-en="POC in weeks, not months" data-zh="數週而非數月完成 POC">POC in weeks, not months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars" style="padding:120px 0;background:var(--white)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
+      <div class="eyebrow" data-en="What You Get" data-zh="你拿到的是什麼">What You Get</div>
+      <h2 class="section-h" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
+      <p class="section-p" style="margin:0 auto" data-en="Every co-investment comes with three things traditional VC cannot offer." data-zh="每筆共同投資都帶來傳統 VC 無法提供的三樣東西。">Every co-investment comes with three things traditional VC cannot offer.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal d1">
+        <div class="p-num">01</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3 data-en="Co-Investment" data-zh="共同投資">Co-Investment</h3>
+        <p data-en="Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal." data-zh="每案獨立 SPV 架構。運營者每案自主決定是否參與。無需年度承諾。每案最低 $20K 美元。">Per-deal SPV structure. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
+        <div class="p-detail" data-en="→ Per-deal SPV · no lock-up period" data-zh="→ 每案獨立 SPV · 無鎖定期">→ Per-deal SPV · no lock-up period</div>
+      </div>
+      <div class="pillar-card reveal d2">
+        <div class="p-num">02</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 data-en="Enterprise Channel" data-zh="企業通路">Enterprise Channel</h3>
+        <p data-en="Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process." data-zh="直接引薦進入企業供應商審核或 POC。高管 LP 在內部倡議，並運用採購關係加速整個流程。">Direct introductions to enterprise vendor evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
+        <div class="p-detail" data-en="→ Skip the 12–18 month cold outreach cycle" data-zh="→ 跳過 12–18 個月的冷接觸週期">→ Skip the 12–18 month cold outreach cycle</div>
+      </div>
+      <div class="pillar-card reveal d3">
+        <div class="p-num">03</div>
+        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 data-en="Revenue Velocity" data-zh="業績加速">Revenue Velocity</h3>
+        <p data-en="Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one." data-zh="高管 LP 在投資後主動協助拿下第一筆企業合約。他們的職銜與關係從第一天起就成為你的通路優勢。">Operator LPs actively help close the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one.</p>
+        <div class="p-detail" data-en="→ POC in weeks, not months" data-zh="→ POC 從數月縮短為數週">→ POC in weeks, not months</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- GLOBE -->
+<section id="global" style="padding:120px 0">
+  <div id="globe-sun-ov"></div>
+  <div class="container">
+    <div class="global-inner">
+      <div class="reveal">
+        <div class="eyebrow" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
+        <h2 class="section-h" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
+        <p class="section-p" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
+        <div class="city-legend" style="margin-top:2.5rem">
+          <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
+          <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
+          <span class="city-tag"><span class="city-dot"></span>New York</span>
+          <span class="city-tag"><span class="city-dot"></span>Singapore</span>
+          <span class="city-tag"><span class="city-dot"></span>Tokyo</span>
+          <span class="city-tag"><span class="city-dot"></span>London</span>
+        </div>
+      </div>
+      <div class="globe-wrap reveal d2">
+        <div class="globe-glow"></div>
+        <canvas id="globe-canvas" width="500" height="500"></canvas>
+        <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- A4 BRIEF DEMO -->
+<section id="brief" style="padding:120px 0;background:var(--bg)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <div class="eyebrow" data-en="Deal Quality Standard" data-zh="案源品質標準">Deal Quality Standard</div>
+      <h2 class="section-h" data-en="Every deal. 3-minute read." data-zh="每個案源，3 分鐘決策。">Every deal. 3-minute read.</h2>
+      <p class="section-p" style="margin:0 auto" data-en="Every qualified deal generates a structured A4 Decision Brief — four blocks that answer the four questions operators actually care about." data-zh="每個通過篩選的案源都產出結構化 A4 決策履歷，四個區塊回答高管真正在乎的四個問題。">Every qualified deal generates a structured A4 Decision Brief — four blocks that answer the four questions operators actually care about.</p>
+    </div>
+    <div class="brief-inner">
+      <div class="reveal">
+        <h3 style="font-family:var(--fd);font-weight:800;font-size:1.5rem;margin-bottom:1.25rem;letter-spacing:-.02em" data-en="How operators read a deal in 3 minutes" data-zh="高管如何在 3 分鐘內判斷一個案源">How operators read a deal in 3 minutes</h3>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">1</div>
+            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Elevator Pitch — 3-second gut check" data-zh="Elevator Pitch — 3 秒直覺判斷">Elevator Pitch — 3-second gut check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Is this my industry?" data-zh="這是不是我的產業？">Is this my industry?</div></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">2</div>
+            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Cost of Problem — 1-minute pain check" data-zh="Cost of Problem — 1 分鐘痛點判斷">Cost of Problem — 1-minute pain check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Is this pain real enough to justify investment?" data-zh="這個痛點夠真實足以值得投資嗎？">Is this pain real enough to justify investment?</div></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">3</div>
+            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Strategic Hook — 1-minute value check" data-zh="Strategic Hook — 1 分鐘價值判斷">Strategic Hook — 1-minute value check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Can I personally help accelerate this?" data-zh="我真的能親手加速這個案子嗎？">Can I personally help accelerate this?</div></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:.85rem;flex-shrink:0">4</div>
+            <div><div style="font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.25rem" data-en="Red Flag — 30-second risk check" data-zh="Red Flag — 30 秒風險判斷">Red Flag — 30-second risk check</div><div style="font-size:.95rem;color:var(--text-3)" data-en="Can I live with this risk?" data-zh="這個風險我能接受嗎？">Can I live with this risk?</div></div>
+          </div>
+        </div>
+        <div class="brief-caption" data-en="This is a Demo sample. Live deals are AI-generated and QA'd by Vincent before distribution to the LP network." data-zh="以下為 Demo 範例。實際案源由 AI 產出，經 Vincent 品質把關後分發給高管網絡。">This is a Demo sample. Live deals are AI-generated and QA'd by Vincent before distribution to the LP network.</div>
+      </div>
+      <div class="brief-card reveal d2">
+        <div class="brief-hdr">
+          <div><div class="brief-co">SecureFlow AI</div><div class="brief-meta" data-en="Cloud Security · Seed Stage · May 2026" data-zh="雲端資安 · Seed 階段 · 2026 年 5 月">Cloud Security · Seed Stage · May 2026</div></div>
+          <div class="brief-demo-badge">DEMO</div>
+        </div>
+        <div class="brief-sec open" id="bs-ep">
+          <button class="brief-trigger" onclick="toggleBrief('bs-ep')">
+            <div class="brief-tl"><span class="blabel blabel-ep">Elevator Pitch</span><h4 data-en="What they do in 10 seconds" data-zh="10 秒說清楚他們做什麼">What they do in 10 seconds</h4></div>
+            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="brief-body" style="max-height:200px"><div class="brief-content" data-en="SecureFlow AI — AI-powered real-time detection of anomalous enterprise cloud access. Compresses security incident response from 72 hours to 15 minutes. secureflow.ai · Chen Wei, CEO" data-zh="SecureFlow AI — AI 即時偵測企業雲端環境異常存取，資安事件回應時間從 72 小時壓縮至 15 分鐘。secureflow.ai · Chen Wei, CEO">SecureFlow AI — AI-powered real-time detection of anomalous enterprise cloud access. Compresses security incident response from 72 hours to 15 minutes. secureflow.ai · Chen Wei, CEO</div></div>
+        </div>
+        <div class="brief-sec" id="bs-cop">
+          <button class="brief-trigger" onclick="toggleBrief('bs-cop')">
+            <div class="brief-tl"><span class="blabel blabel-cop">Cost of Problem</span><h4 data-en="The quantified pain" data-zh="量化的痛點">The quantified pain</h4></div>
+            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="brief-body"><div class="brief-content" data-en="Enterprise average incident loss: NT$8M (downtime + compliance fines + churn). Current SIEM requires 3–5 person SOC teams 24/7, annual cost NT$12–18M. SecureFlow claims to replace 60% of manual monitoring capacity." data-zh="企業每次資安事件平均損失 NT$800 萬（停機、法遵罰款、客戶流失）。現行 SIEM 需 3–5 人 SOC 24 小時監控，年成本 NT$1,200–1,800 萬。SecureFlow 主張可替代 60% 的人工監控量能。">Enterprise average incident loss: NT$8M (downtime + compliance fines + churn). Current SIEM requires 3–5 person SOC teams 24/7, annual cost NT$12–18M. SecureFlow claims to replace 60% of manual monitoring capacity.</div></div>
+        </div>
+        <div class="brief-sec" id="bs-sh">
+          <button class="brief-trigger" onclick="toggleBrief('bs-sh')">
+            <div class="brief-tl"><span class="blabel blabel-sh">Strategic Hook</span><h4 data-en="Why operator LPs can help" data-zh="為什麼高管 LP 能幫上">Why operator LPs can help</h4></div>
+            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="brief-body"><div class="brief-content" data-en="Integrates directly with ACS Security Hub and Oracore Sentinel API. ACS/Oracore LPs can introduce as an ecosystem add-on (upsell). With operator intro, POC timeline: 6 months → 6 weeks." data-zh="直接整合 ACS Security Hub 與 Oracore Sentinel API。ACS/Oracore LP 可引薦為雲端安全生態系加值方案（upsell）。有高管引薦，POC 從 6 個月壓縮至 6 週。">Integrates directly with ACS Security Hub and Oracore Sentinel API. ACS/Oracore LPs can introduce as an ecosystem add-on (upsell). With operator intro, POC timeline: 6 months → 6 weeks.</div></div>
+        </div>
+        <div class="brief-sec" id="bs-rf">
+          <button class="brief-trigger" onclick="toggleBrief('bs-rf')">
+            <div class="brief-tl"><span class="blabel blabel-rf">Red Flag</span><h4 data-en="The honest risk" data-zh="誠實的風險">The honest risk</h4></div>
+            <svg class="brief-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="brief-body"><div class="brief-content" data-en="Only 2 paying clients (SMEs). No enterprise Vendor Security Assessment passed. 4-person team, no ISO 27001 / SOC2. If large enterprise compliance requirements come first, this could stall 6–12 months." data-zh="目前僅 2 家付費客戶（中小企業），尚未通過任何大廠安全審查。4 人團隊，缺 ISO 27001 / SOC2。若大廠合規要求先行，可能卡 6–12 個月。">Only 2 paying clients (SMEs). No enterprise Vendor Security Assessment passed. 4-person team, no ISO 27001 / SOC2. If large enterprise compliance requirements come first, this could stall 6–12 months.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="padding:120px 0;background:var(--white)">
+  <div class="container">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap">
+      <div class="reveal" style="flex:1;min-width:240px">
+        <div class="eyebrow" data-en="Core Team" data-zh="核心團隊">Core Team</div>
+        <h2 class="section-h" style="margin-bottom:0" data-en="The people building this." data-zh="打造這個局的人">The people building this.</h2>
+      </div>
+      <div class="reveal d1" style="text-align:right;flex-shrink:0;padding-top:.5rem">
+        <p style="font-size:1.05rem;color:var(--text-3);max-width:320px;line-height:1.65;text-align:right" data-en="A small, focused team with direct experience in enterprise sales, AI systems, and operator LP relations." data-zh="精簡的核心團隊，在企業銷售、AI 系統與高管 LP 關係管理上有第一線實戰經驗">A small, focused team with direct experience in enterprise sales, AI systems, and operator LP relations.</p>
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal d1">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=57" alt="Boice Chen" loading="lazy"></div>
+        <div class="team-name">Boice Chen</div>
+        <div class="team-role" data-en="Founder / General Partner" data-zh="發起人 / 總合夥人">Founder / General Partner</div>
+        <div class="team-bio" data-en="Aggregated 20+ senior tech operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event." data-zh="聚攏 20+ 位外商高管組成 LP 網絡。負責 Syndicate 架構、LP 關係維護與 2026 年 6 月 Launch 大會。">Aggregated 20+ senior tech operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Vincent Wang" loading="lazy"></div>
+        <div class="team-name">Vincent Wang</div>
+        <div class="team-role" data-en="Deal Flow Architect / AO" data-zh="案源門閘 / AO">Deal Flow Architect / AO</div>
+        <div class="team-bio" data-en="Methodology designer and deal gatekeeper. Runs AI screening system, produces A4 Decision Briefs, and translates startup technology into executive-language ROI." data-zh="方法論設計師與案源門閘。運行 AI 篩選系統、產出 A4 決策履歷，並把新創技術語言轉譯成高管看得懂的 ROI 語言。">Methodology designer and deal gatekeeper. Runs AI screening system, produces A4 Decision Briefs, and translates startup technology into executive-language ROI.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+      <div class="team-card reveal d3">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=32" alt="Alice Liu" loading="lazy"></div>
+        <div class="team-name">Alice Liu</div>
+        <div class="team-role" data-en="Enterprise Partnerships" data-zh="企業夥伴關係">Enterprise Partnerships</div>
+        <div class="team-bio" data-en="Ex-Oracore enterprise accounts. Specialist in manufacturing and financial sector procurement channels across Taiwan and Southeast Asia." data-zh="前 Oracore 企業客戶事業部。專精台灣與東南亞製造業、金融業供應鏈採購流程。">Ex-Oracore enterprise accounts. Specialist in manufacturing and financial sector procurement channels across Taiwan and Southeast Asia.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+      <div class="team-card reveal d1">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=25" alt="Jason Lin" loading="lazy"></div>
+        <div class="team-name">Jason Lin</div>
+        <div class="team-role" data-en="AI Research &amp; Analysis" data-zh="AI 研究與分析">AI Research &amp; Analysis</div>
+        <div class="team-bio" data-en="Designs AI screening models and iterates on A4 brief quality. Former deep learning research engineer with focus on enterprise NLP applications." data-zh="負責 AI 篩選模型設計與 A4 系統品質迭代。前深度學習研究工程師，專注企業 NLP 應用。">Designs AI screening models and iterates on A4 brief quality. Former deep learning research engineer with focus on enterprise NLP applications.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=45" alt="Tina Su" loading="lazy"></div>
+        <div class="team-name">Tina Su</div>
+        <div class="team-role" data-en="LP Relations" data-zh="LP 關係管理">LP Relations</div>
+        <div class="team-bio" data-en="Ex-Globex Taiwan key accounts. Manages operator LP onboarding, ongoing relations, and pre-launch operator network expansion." data-zh="前 Globex Taiwan 大客戶業務。負責運營者 LP 入職流程、持續關係維護與 Launch 前的高管網絡擴展。">Ex-Globex Taiwan key accounts. Manages operator LP onboarding, ongoing relations, and pre-launch operator network expansion.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+      <div class="team-card reveal d3">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=68" alt="David Ko" loading="lazy"></div>
+        <div class="team-name">David Ko</div>
+        <div class="team-role" data-en="Portfolio Operations" data-zh="投組作業">Portfolio Operations</div>
+        <div class="team-bio" data-en="Handles SPV administration, post-investment milestone tracking, and startup communication. Keeps the operational layer running cleanly." data-zh="負責 SPV 行政、投後里程碑追蹤與新創溝通。讓整個運作層保持順暢。">Handles SPV administration, post-investment milestone tracking, and startup communication. Keeps the operational layer running cleanly.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
+    </div>
+    <div class="advisors-wrap reveal">
+      <div class="advisors-ey" data-en="Ecosystem Advisors" data-zh="生態系顧問">Ecosystem Advisors</div>
+      <div class="advisor-grid">
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=47" alt="" loading="lazy"></div><div><div class="advisor-name">Cindy Ho</div><div class="advisor-tag">AppWorks Partner</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=53" alt="" loading="lazy"></div><div><div class="advisor-name">Max Tseng</div><div class="advisor-tag">ITIC Director</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=44" alt="" loading="lazy"></div><div><div class="advisor-name">Sophia Chang</div><div class="advisor-tag">TMBA Managing Partner</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=33" alt="" loading="lazy"></div><div><div class="advisor-name">Ray Wu</div><div class="advisor-tag">Taiwan Tech Arena</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=14" alt="" loading="lazy"></div><div><div class="advisor-name">Eric Lai</div><div class="advisor-tag">Meridian Ventures</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners" style="padding:80px 0;background:var(--bg)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+      <div class="eyebrow" data-en="Ecosystem Partners" data-zh="生態系夥伴">Ecosystem Partners</div>
+    </div>
+    <div class="partners-grid reveal">
+      <div class="partner-badge"><div class="partner-logo">AppWorks</div><div class="partner-cat" data-en="Accelerator" data-zh="加速器">Accelerator</div></div>
+      <div class="partner-badge"><div class="partner-logo">ITIC</div><div class="partner-cat" data-en="Innovation" data-zh="創新機構">Innovation</div></div>
+      <div class="partner-badge"><div class="partner-logo">TMBA</div><div class="partner-cat" data-en="Community" data-zh="社群">Community</div></div>
+      <div class="partner-badge"><div class="partner-logo">TTA</div><div class="partner-cat" data-en="Gov. Program" data-zh="政府計畫">Gov. Program</div></div>
+      <div class="partner-badge"><div class="partner-logo" data-en="Rotarex B2B" data-zh="福輪社">Rotarex B2B</div><div class="partner-cat" data-en="B2B Network" data-zh="B2B 網絡">B2B Network</div></div>
+      <div class="partner-badge"><div class="partner-logo">Meridian Ventures</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
+      <div class="partner-badge"><div class="partner-logo">Pacific Seed Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
+      <div class="partner-badge"><div class="partner-logo">East Horizon Capital</div><div class="partner-cat" data-en="Co-investor" data-zh="共同投資人">Co-investor</div></div>
+      <div class="partner-badge"><div class="partner-logo">GVA</div><div class="partner-cat" data-en="Pre-Accelerator" data-zh="前加速器">Pre-Accelerator</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT CTA -->
+<section id="submit" style="padding:140px 0 160px">
+  <div class="submit-orb"></div>
+  <div class="submit-inner">
+    <div class="submit-ey reveal" data-en="Ready to move?" data-zh="準備好了嗎？">Ready to move?</div>
+    <h2 class="submit-h reveal" data-en="Submit your deal." data-zh="提交你的案源。">Submit your deal.</h2>
+    <p class="submit-sub reveal" data-en="If you're building B2B with serious enterprise ambitions — this might be your shortest path to the first major contract." data-zh="如果你正在打造 B2B 產品並有明確的企業端野心，這裡可能是你拿下第一張大單的最短路徑。">If you're building B2B with serious enterprise ambitions — this might be your shortest path to the first major contract.</p>
+    <div style="display:flex;justify-content:center;margin-bottom:3rem" class="reveal">
+      <button onclick="openPortal('ps-startup')" class="btn-submit">
+        <span data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div class="submit-stats reveal">
+      <div class="ss-stat"><div class="ss-n">48h</div><div class="ss-l" data-en="RESPONSE TIME" data-zh="回覆時間">RESPONSE TIME</div></div>
+      <div class="ss-div"></div>
+      <div class="ss-stat"><div class="ss-n">100%</div><div class="ss-l" data-en="CONFIDENTIAL" data-zh="嚴格保密">CONFIDENTIAL</div></div>
+      <div class="ss-div"></div>
+      <div class="ss-stat"><div class="ss-n">2–3</div><div class="ss-l" data-en="DEALS / MONTH" data-zh="案源 / 月">DEALS / MONTH</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:120px 0;background:var(--bg)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-h" data-en="Common questions." data-zh="常見問題。">Common questions.</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What B2B startups are a good fit?" data-zh="什麼樣的 B2B 新創適合申請？">What B2B startups are a good fit?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction (paying customers or LOIs), and a founder who moves fast. Pre-revenue teams with clear differentiation and a named target customer are also considered. Both Tier 1 (seed/early stage) and Tier 2 (pre-IPO) companies may apply." data-zh="高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力（付費客戶或意向書），以及能快速行動的創辦人。有清晰差異化技術且有具名目標客戶的種子前團隊也會納入考慮。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。">B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction (paying customers or LOIs), and a founder who moves fast. Pre-revenue teams with clear differentiation and a named target customer are also considered. Both Tier 1 (seed/early stage) and Tier 2 (pre-IPO) companies may apply.</div></div></div>
+      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="How is this different from traditional VC?" data-zh="這跟傳統創投有什麼不同？">How is this different from traditional VC?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are not advisors — they are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B doesn't come from reading financials. It comes from changing the odds by putting you in the room." data-zh="傳統創投提供資金與建議。Operator Syndicate 提供資金加上直接的企業通路。這些運營者不是顧問，他們是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 不來自閱讀財務報告，而是來自把你直接送進那個房間。">Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are not advisors — they are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B doesn't come from reading financials. It comes from changing the odds by putting you in the room.</div></div></div>
+      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What happens after I submit?" data-zh="提交之後會發生什麼？">What happens after I submit?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Vincent reviews your submission within 48 hours. If there's initial fit, he'll schedule a 30-minute call. Qualified deals receive an A4 Decision Brief and are distributed to relevant operator LPs. You'll know within 2 weeks whether there's operator interest. All submissions are strictly confidential." data-zh="Vincent 在 48 小時內審閱。若有初步契合度，會安排 30 分鐘通話。通過篩選的案源產出 A4 決策履歷並分發給相關高管 LP。2 週內得知是否有高管感興趣。所有申請嚴格保密。">Vincent reviews your submission within 48 hours. If there's initial fit, he'll schedule a 30-minute call. Qualified deals receive an A4 Decision Brief and are distributed to relevant operator LPs. You'll know within 2 weeks whether there's operator interest. All submissions are strictly confidential.</div></div></div>
+      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What is an A4 Decision Brief?" data-zh="什麼是 A4 決策履歷？">What is an A4 Decision Brief?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="A structured one-page summary designed for a busy executive to read in under 3 minutes. Four blocks: Elevator Pitch (what the company does), Cost of Problem (quantified pain), Strategic Hook (why the operator network is specifically positioned to help), and Red Flag (the most significant business risk, stated honestly). No fluff — just decision-grade information." data-zh="一份為忙碌高管設計、3 分鐘內可讀完的結構化單頁摘要。四個區塊：Elevator Pitch（公司做什麼）、Cost of Problem（量化痛點）、Strategic Hook（為什麼高管網絡特別有能力協助）、Red Flag（最重要的商業風險，誠實陳述）。沒有廢話，只有決策級別的資訊。">A structured one-page summary designed for a busy executive to read in under 3 minutes. Four blocks: Elevator Pitch (what the company does), Cost of Problem (quantified pain), Strategic Hook (why the operator network is specifically positioned to help), and Red Flag (the most significant business risk, stated honestly). No fluff — just decision-grade information.</div></div></div>
+      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What stage is Operator Syndicate at right now?" data-zh="Operator Syndicate 目前處於什麼階段？">What stage is Operator Syndicate at right now?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Pre-launch. The operator LP network is being finalized, and the first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review and the earliest access to the operator network. This is the best time to be early." data-zh="Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格，並能最早接觸高管網絡。現在是最好的時機。">Pre-launch. The operator LP network is being finalized, and the first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review and the earliest access to the operator network. This is the best time to be early.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="ft-logo"><div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div><span class="ft-logo-text">Operator Syndicate</span></div>
+        <div class="ft-tagline" data-en="Enterprise Channel. Day One. Co-invest with operators who open procurement doors." data-zh="企業通路，第一天起。與打開採購大門的高管共同投資。">Enterprise Channel. Day One. Co-invest with operators who open procurement doors.</div>
+        <a class="ft-email" href="mailto:contact@operatorsyndicate.com">contact@operatorsyndicate.com</a>
+      </div>
+      <nav class="ft-nav"><h5 data-en="Navigate" data-zh="導覽">Navigate</h5><ul>
+        <li><a href="#audience" data-en="Who Is This For" data-zh="適合誰">Who Is This For</a></li>
+        <li><a href="#tiers" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</a></li>
+        <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
+        <li><a href="#how" data-en="How It Works" data-zh="如何運作">How It Works</a></li>
+        <li><a href="#brief" data-en="Deal Quality" data-zh="案源品質">Deal Quality</a></li>
+        <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
+        <li><a href="#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
+      </ul></nav>
+      <div class="ft-nav"><h5 data-en="Launch" data-zh="Launch">Launch</h5>
+        <div style="font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.5rem" data-en="Formal Launch: June 2026. Building in public, learning from the first real deal." data-zh="正式 Launch：2026 年 6 月。邊走邊做，用第一場真實的局定型模式。">Formal Launch: June 2026. Building in public, learning from the first real deal.</div>
+        <button onclick="openPortal('ps-startup')" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:var(--orange);color:#fff;border-radius:var(--r-btn);cursor:pointer;border:none" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2026 Operator Syndicate · Confidential — For Internal Use Only" data-zh="© 2026 Operator Syndicate · 保密文件 — 僅供內部使用">© 2026 Operator Syndicate · Confidential — For Internal Use Only</span>
+      <span>Boice Chen × Vincent Wang</span>
+    </div>
+  </div>
+</footer>
+<div id="demoToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+/* ── LANG (textContent swap, same as GVA) ── */
+var lang=localStorage.getItem('os-lang')||'en';
+function applyLang(l){
+  lang=l;
+  localStorage.setItem('os-lang',l);
+  document.documentElement.lang=l==='zh'?'zh-Hant':'en';
+  // Swap textContent of all elements with data-en / data-zh
+  document.querySelectorAll('[data-en],[data-zh]').forEach(function(el){
+    if(el.children.length>0)return; // skip elements with child nodes (SVGs etc.)
+    var val=l==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    if(val!==null&&val!=='')el.textContent=val;
+  });
+  // Update lang toggle buttons
+  var b=document.getElementById('langBtn'),m=document.getElementById('mobLangBtn'),p=document.querySelector('.portal-lang');
+  if(b)b.textContent=l==='en'?'中文':'EN';
+  if(m)m.textContent=l==='en'?'中文':'EN';
+  if(p)p.textContent=l==='en'?'中文':'EN';
+}
+function toggleLang(){applyLang(lang==='en'?'zh':'en');}
+applyLang(lang);
+
+/* ── NAV + SCROLL ── */
+var bar=document.getElementById('bar'),navEl=document.getElementById('nav'),heroEl=document.getElementById('hero'),cue=document.getElementById('scrollCue');
+function onScroll(){var s=document.documentElement.scrollTop,tot=document.documentElement.scrollHeight-document.documentElement.clientHeight;if(bar)bar.style.width=(s/tot*100)+'%';var hh=heroEl?heroEl.offsetHeight:400;if(s>60){navEl.classList.remove('hero-nav');navEl.classList.add('scrolled');}else{navEl.classList.add('hero-nav');navEl.classList.remove('scrolled');}if(cue)cue.style.opacity=s>80?'0':'1';}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ── REVEAL (scroll-based, immediate + on scroll) ── */
+document.body.classList.add('will-animate');
+function checkReveal(){
+  var vh=window.innerHeight;
+  document.querySelectorAll('.reveal:not(.vis)').forEach(function(el){
+    var r=el.getBoundingClientRect();
+    if(r.top<vh+120){el.classList.add('vis');}
+  });
+}
+// Immediate check + scroll listener
+setTimeout(checkReveal,30);
+window.addEventListener('scroll',checkReveal,{passive:true});
+window.addEventListener('resize',checkReveal,{passive:true});
+
+/* ── MARQUEE ── */
+(function(){var items=['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','B2B Channels','AI-Screened','Operator Alpha','Enterprise Sales','Taiwan-to-Global','Operator LP','Pre-IPO','Seed Stage'];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){h+='<div class="mq-item"><span class="mq-sep"></span>'+it+'</div>';});t.innerHTML=h;})();
+
+/* ── PORTAL ── */
+function openPortal(id){var ov=document.getElementById('portalOv');ov.classList.add('open');document.body.style.overflow='hidden';showStep(id||'ps-select');}
+function closePortal(){document.getElementById('portalOv').classList.remove('open');document.body.style.overflow='';}
+function showStep(id){document.querySelectorAll('.portal-step').forEach(function(el){el.style.display='none';});var t=document.getElementById(id);if(t)t.style.display='flex';applyLang(lang);}
+function pSubmit(e,msgId){e.preventDefault();var f=e.target,m=document.getElementById(msgId||'pSuccessMsg');if(m){m.style.display='block';applyLang(lang);}var btn=f.querySelector('button[type="submit"]');if(btn){btn.disabled=true;btn.style.opacity='.6';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).catch(function(){});}
+function pCooldown(btn){var o=btn.getAttribute('data-en');btn.textContent='Coming Soon';btn.disabled=true;setTimeout(function(){btn.textContent=o;btn.disabled=false;},2400);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('portalOv').classList.contains('open'))closePortal();});
+
+/* ── MOB MENU ── */
+function openMob(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow='';}
+
+/* ── TOAST ── */
+function showDemoNotice(){var m=lang==='zh'?'此為 Demo 展示網站，功能持續建置中。':'This is a demo site. Features are under development.';var el=document.getElementById('demoToast');el.textContent=m;el.style.opacity='0';el.style.transform='translateX(-50%) translateY(20px)';clearTimeout(el._t);requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='translateX(-50%) translateY(0)';});});el._t=setTimeout(function(){el.style.opacity='0';el.style.transform='translateX(-50%) translateY(20px)';},3000);}
+
+/* ── FAQ ── */
+function toggleFaq(item){var b=item.querySelector('.fq-body'),open=item.classList.contains('open');document.querySelectorAll('.fq-item.open').forEach(function(el){el.classList.remove('open');el.querySelector('.fq-body').style.maxHeight='0';});if(!open){item.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}}
+
+/* ── BRIEF ── */
+function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.querySelector('.brief-body'),open=s.classList.contains('open');s.classList.toggle('open');b.style.maxHeight=open?'0':b.scrollHeight+'px';}
+
+/* ── HERO CANVAS (network flow + connection trails) ── */
+(function(){
+  var canvas=document.getElementById('hero-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),hero=document.getElementById('hero');
+  var W=0,H=0,mx=-9999,my=-9999,mouseIn=false,t=0;
+  var TRAIL=8,LD=110,LD2=LD*LD,N=55;
+  var nodes=[];
+  function buildNodes(){nodes=[];for(var i=0;i<N;i++){var vx=(Math.random()-.5)*.55,vy=(Math.random()-.5)*.55;nodes.push({x:Math.random()*W,y:Math.random()*H,vx:vx,vy:vy,ph:Math.random()*Math.PI*2,sp:.4+Math.random()*.4,trail:[]});}}
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildNodes();}
+  hero.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;mouseIn=true;});
+  hero.addEventListener('mouseleave',function(){mouseIn=false;mx=-9999;});
+  var isMob=matchMedia('(pointer:coarse)').matches;
+  function loop(){
+    requestAnimationFrame(loop);
+    ctx.clearRect(0,0,W,H);
+    t+=.008;
+    // Update nodes
+    nodes.forEach(function(nd){
+      // Gentle drift with perlin-like sway
+      nd.vx+=Math.sin(t*nd.sp+nd.ph)*.004;
+      nd.vy+=Math.cos(t*nd.sp*.8+nd.ph+1.2)*.004;
+      // Speed limit
+      var spd=Math.sqrt(nd.vx*nd.vx+nd.vy*nd.vy);if(spd>1.2){nd.vx=nd.vx/spd*1.2;nd.vy=nd.vy/spd*1.2;}
+      // Mouse attraction (gentle pull, no sphere shape)
+      if(!isMob&&mouseIn&&mx>-9000){
+        var dx=mx-nd.x,dy=my-nd.y,d2=dx*dx+dy*dy;
+        if(d2<220*220&&d2>1){var d=Math.sqrt(d2);nd.vx+=dx/d*.018*(1-d/220);nd.vy+=dy/d*.018*(1-d/220);}
+      }
+      // Store trail
+      nd.trail.push({x:nd.x,y:nd.y});
+      if(nd.trail.length>TRAIL)nd.trail.shift();
+      nd.x+=nd.vx;nd.y+=nd.vy;
+      // Soft wrap at edges
+      if(nd.x<-40)nd.x=W+40;if(nd.x>W+40)nd.x=-40;
+      if(nd.y<-40)nd.y=H+40;if(nd.y>H+40)nd.y=-40;
+    });
+    // Draw connection lines between nearby nodes
+    ctx.lineWidth=.9;
+    for(var i=0;i<nodes.length;i++){var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
+        var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<LD2){var al=(1-d2/LD2)*.12;ctx.strokeStyle='rgba(255,102,0,'+al.toFixed(3)+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+      }
+    }
+    // Draw mouse-proximity bright connections
+    if(!isMob&&mouseIn&&mx>-9000){
+      nodes.forEach(function(nd){
+        var dx=nd.x-mx,dy=nd.y-my,d2=dx*dx+dy*dy;
+        if(d2<160*160){var al=(1-d2/(160*160))*.45;ctx.strokeStyle='rgba(255,102,0,'+al.toFixed(3)+')';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(nd.x,nd.y);ctx.lineTo(mx,my);ctx.stroke();}
+      });
+    }
+    // Draw trail lines (connection history)
+    nodes.forEach(function(nd){
+      var tr=nd.trail;if(tr.length<2)return;
+      for(var k=1;k<tr.length;k++){
+        var al=(k/tr.length)*.06;
+        ctx.strokeStyle='rgba(255,140,66,'+al.toFixed(3)+')';
+        ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(tr[k-1].x,tr[k-1].y);ctx.lineTo(tr[k].x,tr[k].y);ctx.stroke();
+      }
+    });
+    // Draw nodes as tiny dots
+    nodes.forEach(function(nd){
+      ctx.beginPath();ctx.arc(nd.x,nd.y,1.8,0,Math.PI*2);ctx.fillStyle='rgba(255,140,66,.35)';ctx.fill();
+    });
+    // Mouse glow burst
+    if(!isMob&&mouseIn&&mx>-9000){
+      var g=ctx.createRadialGradient(mx,my,0,mx,my,80);g.addColorStop(0,'rgba(255,102,0,.12)');g.addColorStop(1,'rgba(255,102,0,0)');ctx.beginPath();ctx.arc(mx,my,80,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    }
+  }
+  resize();window.addEventListener('resize',resize,{passive:true});loop();
+})();
+
+/* ── OPERATOR CONSTELLATION (idle pulses + hover avatar) ── */
+(function(){
+  var canvas=document.getElementById('network-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0;
+  var CD=175,CD2=CD*CD;
+  var OPS=[
+    {i:'JC',n:'James C.',co:'Nexia',cl:'#2563EB',t:'VP, Enterprise Solutions',img:1},
+    {i:'ML',n:'Michelle L.',co:'Nexia',cl:'#2563EB',t:'Director, Global Strategic Accounts',img:5},
+    {i:'SK',n:'Sarah K.',co:'Nexia',cl:'#2563EB',t:'Head of Partnerships, APAC',img:9},
+    {i:'RH',n:'Ryan H.',co:'Nexia',cl:'#2563EB',t:'Senior Manager, Cloud Business',img:13},
+    {i:'AT',n:'Amy T.',co:'Nexia',cl:'#2563EB',t:'VP, Business Development Asia',img:17},
+    {i:'PL',n:'Patrick L.',co:'Oracore',cl:'#DC2626',t:'Regional Sales Director, APAC',img:21},
+    {i:'WC',n:'Wayne C.',co:'Oracore',cl:'#DC2626',t:'VP, Database & Cloud Solutions',img:25},
+    {i:'YM',n:'Yvonne M.',co:'Oracore',cl:'#DC2626',t:'Head of Enterprise Accounts',img:29},
+    {i:'DT',n:'David T.',co:'Oracore',cl:'#DC2626',t:'Director, Channel Partners',img:33},
+    {i:'HC',n:'Henry C.',co:'Globex',cl:'#7C3AED',t:'VP, Cloud Infrastructure',img:37},
+    {i:'EM',n:'Emma M.',co:'Globex',cl:'#7C3AED',t:'Director, B2B Partnerships',img:41},
+    {i:'KW',n:'Kevin W.',co:'Globex',cl:'#7C3AED',t:'Head of Startup Ecosystem',img:45},
+    {i:'LN',n:'Lisa N.',co:'Globex',cl:'#7C3AED',t:'Senior Partner Manager',img:49},
+    {i:'BK',n:'Ben K.',co:'Globex',cl:'#7C3AED',t:'VP, Enterprise Sales APAC',img:53},
+    {i:'TC',n:'Thomas C.',co:'ACS',cl:'#1E3A5F',t:'Head of Startup Programs',img:57},
+    {i:'GS',n:'Grace S.',co:'ACS',cl:'#1E3A5F',t:'Director, Enterprise Architecture',img:61},
+    {i:'MR',n:'Michael R.',co:'ACS',cl:'#1E3A5F',t:'VP, Channel Partnerships',img:65},
+    {i:'NP',n:'Nancy P.',co:'ACS',cl:'#1E3A5F',t:'Regional Manager, Cloud Sales',img:68},
+    {i:'FY',n:'Frank Y.',co:'SalesBridge',cl:'#475569',t:'VP, Digital Transformation',img:3},
+    {i:'AL',n:'Alex L.',co:'Microtek',cl:'#475569',t:'Director, Enterprise APAC',img:7},
+  ];
+  // Preload avatar images
+  OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.imgLoaded=false;op.imgEl.onload=function(){op.imgLoaded=true;};});
+  var nodes=[],pulses=[],actTimer=0,actCluster=[];
+  function hexRGB(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  var NR=0; // network sphere radius, computed in resize
+  function initNodes(){
+    NR=Math.min(W,H)*0.38;
+    var cx=W/2,cy=H/2;
+    nodes=OPS.map(function(op){
+      var angle=Math.random()*Math.PI*2,r=NR*.5*Math.random();
+      return{op:op,x:cx+Math.cos(angle)*r,y:cy+Math.sin(angle)*r,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:24,alpha:0,ph:Math.random()*Math.PI*2,act:0,conns:[]};
+    });
+    // Pre-compute 3 nearest neighbors (spring connections)
+    nodes.forEach(function(nd,i){
+      var sorted=nodes.map(function(o,j){
+        if(i===j)return{j:j,d:Infinity};
+        var dx=nd.x-o.x,dy=nd.y-o.y;return{j:j,d:Math.sqrt(dx*dx+dy*dy)};
+      }).sort(function(a,b){return a.d-b.d;});
+      nd.conns=sorted.slice(0,3).map(function(s){return s.j;});
+    });
+  }
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);NR=Math.min(W,H)*0.38;if(!nodes.length)initNodes();}
+  canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=(e.clientX-r.left)*(W/r.width);my=(e.clientY-r.top)*(H/r.height);});
+  var prevHovI=-1;
+  canvas.addEventListener('mouseleave',function(){
+    // Restore velocity to the stuck node when mouse leaves canvas
+    if(hovI>=0&&nodes[hovI]){var nd=nodes[hovI];nd.vx=(Math.random()-.5)*.55;nd.vy=(Math.random()-.5)*.55;}
+    mx=-9999;my=-9999;hovI=-1;prevHovI=-1;
+  });
+  var sec=document.getElementById('network');new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(sec||canvas);
+  var tip=document.getElementById('net-tooltip'),tipCo=document.getElementById('nt-company'),tipTi=document.getElementById('nt-title');
+  function spawnPulse(){for(var t=0;t<20;t++){var a=Math.floor(Math.random()*nodes.length),b=Math.floor(Math.random()*nodes.length);if(a===b)continue;var dx=nodes[a].x-nodes[b].x,dy=nodes[a].y-nodes[b].y;if(dx*dx+dy*dy<CD2){pulses.push({f:a,t:b,p:0,spd:.007+Math.random()*.005,al:1});break;}}}
+  function activateCluster(){var s=Math.floor(Math.random()*nodes.length);actCluster=[s];nodes.forEach(function(nd,i){if(i===s)return;var dx=nodes[s].x-nd.x,dy=nodes[s].y-nd.y;if(dx*dx+dy*dy<CD2*1.8)actCluster.push(i);});actCluster=actCluster.slice(0,6);actCluster.forEach(function(i){nodes[i].act=1;});}
+  function loop(){
+    requestAnimationFrame(loop);if(!active||!nodes.length)return;
+    ctx.clearRect(0,0,W,H);frame++;
+    // Restore velocity when hover target changes
+    if(hovI!==prevHovI){
+      if(prevHovI>=0&&nodes[prevHovI]&&hovI!==prevHovI){
+        var rn=nodes[prevHovI];rn.vx=(Math.random()-.5)*.45;rn.vy=(Math.random()-.5)*.45;
+      }
+      prevHovI=hovI;
+    }
+    var CX=W/2,CY=H/2;
+    // Update nodes with gravity physics
+    nodes.forEach(function(nd,i){
+      nd.alpha=Math.min(1,nd.alpha+.012);
+      nd.act=Math.max(0,nd.act-.007);
+      if(i===hovI&&mx>-9000){
+        // Sticky: decelerate and lerp toward mouse
+        nd.vx*=.82;nd.vy*=.82;
+        nd.x+=(mx-nd.x)*.1+nd.vx;
+        nd.y+=(my-nd.y)*.1+nd.vy;
+      } else {
+        // 1. Central containment gravity
+        var dcx=nd.x-CX,dcy=nd.y-CY,dc=Math.sqrt(dcx*dcx+dcy*dcy);
+        if(dc>NR*.8){var pull=(dc-NR*.8)*0.004;nd.vx-=dcx/dc*pull;nd.vy-=dcy/dc*pull;}
+        // Hard boundary: strong pull back if outside sphere
+        if(dc>NR){var hpull=(dc-NR)*0.018;nd.vx-=dcx/dc*hpull;nd.vy-=dcy/dc*hpull;}
+        // 2. Spring connections to neighbors
+        if(nd.conns){nd.conns.forEach(function(j){
+          var o=nodes[j];if(!o)return;
+          var dox=o.x-nd.x,doy=o.y-nd.y,dod=Math.sqrt(dox*dox+doy*doy);
+          var ideal=130;if(dod>ideal+60){var sf=(dod-ideal-60)*0.0006;nd.vx+=dox/dod*sf;nd.vy+=doy/dod*sf;}
+        });}
+        // 3. Damping
+        nd.vx*=.992;nd.vy*=.992;
+        // 4. Speed cap
+        var spd=Math.sqrt(nd.vx*nd.vx+nd.vy*nd.vy);if(spd>0.9){nd.vx=nd.vx/spd*.9;nd.vy=nd.vy/spd*.9;}
+        nd.x+=nd.vx;nd.y+=nd.vy;
+      }
+    });
+    // Find hovered
+    hovI=-1;var mD=9999;nodes.forEach(function(nd,i){var dx=nd.x-mx,dy=nd.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<nd.r*2.8&&d<mD){mD=d;hovI=i;}});
+    // Update pulses
+    pulses=pulses.filter(function(p){return p.al>.02;});pulses.forEach(function(p){p.p=Math.min(1,p.p+p.spd);if(p.p>=1)p.al-=.05;});
+    if(frame%50===0)spawnPulse();actTimer++;if(actTimer>200){actTimer=0;activateCluster();}
+    // Draw connections
+    for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){
+      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d2=dx*dx+dy*dy;if(d2>=CD2)continue;
+      var nH=i===hovI||j===hovI,iC=actCluster.indexOf(i)>=0&&actCluster.indexOf(j)>=0;
+      var al=nH?.55:iC?.3:.07,lw=nH?2:iC?1.2:.7;
+      if(nH){var rgb=hexRGB(nodes[hovI].op.cl);ctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+al+')';}else if(iC){ctx.strokeStyle='rgba(255,102,0,'+al+')';}else{ctx.strokeStyle='rgba(255,255,255,'+al+')';}
+      ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
+    }}
+    // Draw pulse traveling dots
+    pulses.forEach(function(p){if(!nodes[p.f]||!nodes[p.t])return;var x=nodes[p.f].x+(nodes[p.t].x-nodes[p.f].x)*p.p,y=nodes[p.f].y+(nodes[p.t].y-nodes[p.f].y)*p.p;
+      var g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,'rgba(255,102,0,'+(p.al*.9).toFixed(2)+')');g.addColorStop(1,'rgba(255,102,0,0)');
+      ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      ctx.beginPath();ctx.arc(x,y,3.5,0,Math.PI*2);ctx.fillStyle='rgba(255,200,100,'+(p.al*.95).toFixed(2)+')';ctx.fill();
+    });
+    // Draw nodes
+    nodes.forEach(function(nd,i){
+      var isH=i===hovI,brth=1+.06*Math.sin(Date.now()*.0015+nd.ph),rA=nd.r*(isH?1.7:1+nd.act*.4)*brth;
+      ctx.save();ctx.globalAlpha=nd.alpha;
+      if(isH){ctx.shadowColor=nd.op.cl;ctx.shadowBlur=28;}else if(nd.act>.1){ctx.shadowColor='#FF6600';ctx.shadowBlur=14*nd.act;}
+      if(isH&&nd.op.imgLoaded){
+        // Avatar image in circle
+        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.clip();
+        ctx.drawImage(nd.op.imgEl,nd.x-rA,nd.y-rA,rA*2,rA*2);
+        ctx.restore();
+        ctx.save();ctx.globalAlpha=nd.alpha;
+        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.strokeStyle=nd.op.cl;ctx.lineWidth=3;ctx.stroke();
+        ctx.restore();
+      } else {
+        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
+        ctx.beginPath();ctx.arc(nd.x,nd.y,rA,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,'+(isH?.55:.18)+')';ctx.lineWidth=isH?2.5:1;ctx.stroke();
+        ctx.restore();
+        ctx.save();ctx.globalAlpha=nd.alpha;
+        ctx.fillStyle='#fff';ctx.font='bold '+Math.round(rA*.55)+'px Inter,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(isH&&nd.op.n?nd.op.n.split(' ')[0]:nd.op.i,nd.x,nd.y);
+        ctx.restore();
+      }
+    });
+    // Name labels below visible nodes
+    nodes.forEach(function(nd,i){
+      if(nd.alpha<.5)return;
+      var isH=i===hovI;
+      var nameStr=nd.op.n||nd.op.i;
+      ctx.save();
+      ctx.globalAlpha=nd.alpha*(isH?.95:.55);
+      ctx.fillStyle=isH?'#fff':nd.op.cl;
+      ctx.font=(isH?'bold ':'')+'11px Inter,system-ui,sans-serif';
+      ctx.textAlign='center';ctx.textBaseline='top';
+      ctx.fillText(isH?nameStr:nd.op.co,nd.x,nd.y+nd.r*(isH?1.8:1.5)+4);
+      ctx.restore();
+    });
+    // Tooltip
+    if(hovI>=0&&tip){var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
+      tip.style.left=(nd.x*(cr.width/W)+(cr.left-cr2.left)+50)+'px';tip.style.top=(nd.y*(cr.height/H)+(cr.top-cr2.top)-25)+'px';
+      if(tipCo){tipCo.textContent=nd.op.co;tipCo.style.background=nd.op.cl+'25';tipCo.style.color=nd.op.cl;}
+      if(tipTi)tipTi.innerHTML=(nd.op.n?'<strong style="color:#fff;display:block;margin-bottom:4px">'+nd.op.n+'</strong>':'')+nd.op.t;tip.classList.add('vis');
+    }else if(tip)tip.classList.remove('vis');
+  }
+  resize();window.addEventListener('resize',function(){NR=Math.min(W,H)*0.38;resize();initNodes();},{passive:true});loop();
+})();
+
+/* ── GLOBE ── */
+(function(){
+  var canvas=document.getElementById('globe-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),DEG=Math.PI/180;
+  var W=500,H=500,R=210,cx=250,cy=250,rotLon=115,rotLat=20;
+  var CITIES=[{name:'Taipei',lat:25.0,lon:121.5,origin:true,desc:'Syndicate HQ · Deal Flow Origin'},{name:'San Francisco',lat:37.8,lon:-122.4,desc:'Silicon Valley · Nexia & ACS HQ'},{name:'New York',lat:40.7,lon:-74.0,desc:'East Coast · Enterprise Finance'},{name:'Singapore',lat:1.3,lon:103.8,desc:'Southeast Asia · Regional Hub'},{name:'London',lat:51.5,lon:-0.1,desc:'Europe · Global Procurement'},{name:'Tokyo',lat:35.7,lon:139.7,desc:'East Asia · Manufacturing & SaaS'},{name:'Dubai',lat:25.2,lon:55.3,desc:'Middle East · Sovereign Enterprise'},{name:'Sydney',lat:-33.9,lon:151.2,desc:'Asia-Pacific · Enterprise Market'}];
+  var TARCS=[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7]],OARCS=[[1,2],[3,5],[1,4]];
+  function proj(la,lo){var φ=la*DEG,λ=(lo-rotLon)*DEG,φ0=rotLat*DEG,cφ=Math.cos(φ),sφ=Math.sin(φ),cφ0=Math.cos(φ0),sφ0=Math.sin(φ0),cλ=Math.cos(λ),sλ=Math.sin(λ);return{x:cφ*sλ,y:cφ0*sφ-sφ0*cφ*cλ,vis:cφ0*cφ*cλ+sφ0*sφ>=0};}
+  function sx(p){return cx+R*p.x}function sy(p){return cy-R*p.y}
+  function slerp(a,b,t){var v1={x:Math.cos(a.lat*DEG)*Math.cos(a.lon*DEG),y:Math.cos(a.lat*DEG)*Math.sin(a.lon*DEG),z:Math.sin(a.lat*DEG)},v2={x:Math.cos(b.lat*DEG)*Math.cos(b.lon*DEG),y:Math.cos(b.lat*DEG)*Math.sin(b.lon*DEG),z:Math.sin(b.lat*DEG)};var dot=Math.max(-1,Math.min(1,v1.x*v2.x+v1.y*v2.y+v1.z*v2.z)),om=Math.acos(dot);if(om<.001)return a;var so=Math.sin(om),w1=Math.sin((1-t)*om)/so,w2=Math.sin(t*om)/so,vt={x:w1*v1.x+w2*v2.x,y:w1*v1.y+w2*v2.y,z:w1*v1.z+w2*v2.z};return{lat:Math.atan2(vt.z,Math.sqrt(vt.x*vt.x+vt.y*vt.y))/DEG,lon:Math.atan2(vt.y,vt.x)/DEG};}
+  function Arc(ai,bi){this.a=CITIES[ai];this.b=CITIES[bi];this.prog=0;this.alpha=1;this.done=false;this.spd=.0028+Math.random()*.001;}
+  Arc.prototype.update=function(){if(this.prog<1)this.prog=Math.min(1,this.prog+this.spd);else{this.alpha-=.012;if(this.alpha<=0)this.done=true;}};
+  Arc.prototype.draw=function(){var steps=80,cur=Math.floor(this.prog*steps);if(cur<2)return;ctx.beginPath();var f=true;for(var i=0;i<=cur;i++){var pt=slerp(this.a,this.b,i/steps),p=proj(pt.lat,pt.lon);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,102,0,'+(.55*this.alpha).toFixed(3)+')';ctx.lineWidth=1.5;ctx.stroke();if(this.prog<1){var pt=slerp(this.a,this.b,this.prog),p=proj(pt.lat,pt.lon);if(p.vis){var x=sx(p),y=sy(p),g=ctx.createRadialGradient(x,y,0,x,y,7);g.addColorStop(0,'rgba(255,102,0,'+(.5*this.alpha).toFixed(3)+')');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(x,y,7,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+this.alpha.toFixed(3)+')';ctx.fill();}}};
+  var wF=null;fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(function(r){return r.json();}).then(function(topo){wF=topojson.feature(topo,topo.objects.countries).features;}).catch(function(){});
+  function drawC(){if(!wF)return;ctx.strokeStyle='rgba(255,140,66,.22)';ctx.lineWidth=.7;ctx.fillStyle='rgba(255,102,0,.07)';wF.forEach(function(ft){var g=ft.geometry;if(!g)return;(g.type==='Polygon'?[g.coordinates]:g.coordinates).forEach(function(poly){poly.forEach(function(ring){ctx.beginPath();var f=true;ring.forEach(function(c){var p=proj(c[1],c[0]);if(!p.vis){f=true;return;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();});});});}
+  var arcs=[],frame=0,nT=0,nO=0,csp={},hov=null,isDrag=false,dX=0,dY=0,sunX=W*.72,sunY=H*.22,tSPX=72,tSPY=22,vSPX=72,vSPY=22,tSCX=W*.72,tSCY=H*.22,vSCX=W*.72,vSCY=H*.22,lastDE=0,ret=false,retT=121.5;
+  canvas.style.cursor='grab';
+  canvas.addEventListener('mousedown',function(e){isDrag=true;ret=false;dX=e.clientX;dY=e.clientY;canvas.style.cursor='grabbing';e.preventDefault();},{passive:false});
+  window.addEventListener('mousemove',function(e){if(!isDrag)return;rotLon-=(e.clientX-dX)*.35;rotLat=Math.max(-70,Math.min(70,rotLat+(e.clientY-dY)*.2));dX=e.clientX;dY=e.clientY;});
+  window.addEventListener('mouseup',function(){isDrag=false;lastDE=Date.now();canvas.style.cursor=hov?'pointer':'grab';});
+  canvas.addEventListener('touchstart',function(e){isDrag=true;ret=false;dX=e.touches[0].clientX;dY=e.touches[0].clientY;e.preventDefault();},{passive:false});
+  canvas.addEventListener('touchmove',function(e){if(!isDrag)return;rotLon-=(e.touches[0].clientX-dX)*.35;rotLat=Math.max(-70,Math.min(70,rotLat+(e.touches[0].clientY-dY)*.2));dX=e.touches[0].clientX;dY=e.touches[0].clientY;e.preventDefault();},{passive:false});
+  canvas.addEventListener('touchend',function(){isDrag=false;lastDE=Date.now();});
+  TARCS.forEach(function(_,i){setTimeout(function(){arcs.push(new Arc(TARCS[i][0],TARCS[i][1]));},i*400);});
+  var gS=document.getElementById('global'),sO=document.getElementById('globe-sun-ov');
+  if(gS){var gM=matchMedia('(pointer:coarse)').matches;function sD(){tSPX=72;tSPY=22;tSCX=W*.72;tSCY=H*.22;if(sO)sO.classList.add('on');}if(gM){tSPX=65;tSPY=28;vSPX=65;vSPY=28;tSCX=W*.65;tSCY=H*.28;vSCX=W*.65;vSCY=H*.28;if(sO)sO.classList.add('on');}else sD();gS.addEventListener('mousemove',function(e){var sr=gS.getBoundingClientRect();tSPX=(e.clientX-sr.left)/sr.width*100;tSPY=(e.clientY-sr.top)/sr.height*100;var cr=canvas.getBoundingClientRect();tSCX=(e.clientX-cr.left)*(W/cr.width);tSCY=(e.clientY-cr.top)*(H/cr.height);if(sO)sO.classList.add('on');},{passive:true});gS.addEventListener('mouseleave',function(){if(!gM)sD();});}
+  function drawGlobe(){ctx.clearRect(0,0,W,H);ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.clip();
+  // Dark navy globe bg (distinct from GVA's warm cream)
+  var bg=ctx.createRadialGradient(cx,cy,0,cx,cy,R);bg.addColorStop(0,'#0F1E35');bg.addColorStop(.6,'#0A1628');bg.addColorStop(1,'#060F1E');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  // Warm glow from sun position
+  if(!isDrag){var il=ctx.createRadialGradient(sunX,sunY,0,sunX,sunY,R*1.4);il.addColorStop(0,'rgba(255,102,0,.18)');il.addColorStop(.3,'rgba(255,140,66,.08)');il.addColorStop(.7,'rgba(255,102,0,.02)');il.addColorStop(1,'transparent');ctx.fillStyle=il;ctx.fillRect(0,0,W,H);}
+  for(var la=-75;la<=75;la+=30){ctx.beginPath();var f=true;for(var lo=-180;lo<=180;lo+=3){var p=proj(la,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,66,.08)';ctx.lineWidth=.6;ctx.stroke();}
+  for(var lo=-180;lo<=180;lo+=30){ctx.beginPath();var f=true;for(var la2=-90;la2<=90;la2+=3){var p=proj(la2,lo);if(!p.vis){f=true;continue;}var x=sx(p),y=sy(p);if(f){ctx.moveTo(x,y);f=false;}else ctx.lineTo(x,y);}ctx.strokeStyle='rgba(255,140,66,.08)';ctx.lineWidth=.6;ctx.stroke();}
+  drawC();ctx.restore();ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,102,0,.35)';ctx.lineWidth=1.5;ctx.stroke();arcs.forEach(function(a){a.draw();});
+  CITIES.forEach(function(c){var p=proj(c.lat,c.lon);csp[c.name]={vis:p.vis};if(!p.vis)return;var x=sx(p),y=sy(p);csp[c.name]={vis:true,x:x,y:y};var hv=hov===c;if(c.origin){var pu=(Math.sin(frame*.05)+1)/2;ctx.beginPath();ctx.arc(x,y,8+pu*6,0,Math.PI*2);ctx.strokeStyle='rgba(245,158,11,'+(.4-pu*.3).toFixed(3)+')';ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='#F59E0B';ctx.fill();ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();}else{if(hv){var g=ctx.createRadialGradient(x,y,0,x,y,20);g.addColorStop(0,'rgba(255,102,0,.42)');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();}var r=hv?6.5:3.5;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=hv?'#FF8C42':'rgba(255,102,0,.8)';ctx.fill();ctx.beginPath();ctx.arc(x,y,r*.42,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.95)';ctx.fill();}var lb=c.name==='San Francisco'?'SF':c.name==='New York'?'NY':c.name;ctx.font=(hv?'bold ':'')+' 11px Inter,system-ui,sans-serif';ctx.fillStyle=c.origin?'rgba(255,200,80,.95)':hv?'#FF8C42':'rgba(200,200,220,.7)';var an=x>W*.76?'right':'left';ctx.textAlign=an;ctx.fillText(lb,an==='right'?x-9:x+9,y+4);});}
+  var tipEl=document.getElementById('globe-tooltip'),pvH=null;
+  function loop(){frame++;if(!isDrag){if(ret){rotLon+=(retT-rotLon)*.06;rotLat+=(25-rotLat)*.06;if(Math.abs(rotLon-retT)<.5&&Math.abs(rotLat-25)<.5){rotLon=retT;rotLat=25;ret=false;lastDE=0;}}else if(lastDE>0&&Date.now()-lastDE>2500){ret=true;var tu=Math.round((rotLon-121.5)/360);retT=121.5+360*tu;}else rotLon+=.04;}arcs=arcs.filter(function(a){return!a.done;});arcs.forEach(function(a){a.update();});if(frame%120===0){var p=TARCS[nT++%TARCS.length];arcs.push(new Arc(p[0],p[1]));}if(frame%300===0){var p2=OARCS[nO++%OARCS.length];arcs.push(new Arc(p2[0],p2[1]));}vSPX+=(tSPX-vSPX)*.025;vSPY+=(tSPY-vSPY)*.025;vSCX+=(tSCX-vSCX)*.025;vSCY+=(tSCY-vSCY)*.025;if(gS){gS.style.setProperty('--gsx',vSPX.toFixed(2)+'%');gS.style.setProperty('--gsy',vSPY.toFixed(2)+'%');}sunX=vSCX;sunY=vSCY;drawGlobe();if(hov!==pvH){pvH=hov;if(hov&&tipEl){tipEl.querySelector('.gt-name').textContent=hov.name;tipEl.querySelector('.gt-desc').textContent=hov.desc||'';}}if(tipEl){if(hov){var pos=csp[hov.name];if(pos&&pos.vis){var cr=canvas.getBoundingClientRect(),wr=canvas.parentElement.getBoundingClientRect();tipEl.style.left=(pos.x*(cr.width/W)+(cr.left-wr.left)+16)+'px';tipEl.style.top=(pos.y*(cr.height/H)+(cr.top-wr.top)-42)+'px';tipEl.classList.add('vis');}else tipEl.classList.remove('vis');}else tipEl.classList.remove('vis');}requestAnimationFrame(loop);}
+  canvas.addEventListener('mousemove',function(e){var cr=canvas.getBoundingClientRect(),mx2=(e.clientX-cr.left)*(W/cr.width),my2=(e.clientY-cr.top)*(H/cr.height),found=null;CITIES.forEach(function(c){var pos=csp[c.name];if(!pos||!pos.vis)return;var dx=pos.x-mx2,dy=pos.y-my2;if(dx*dx+dy*dy<200)found=c;});hov=found;canvas.style.cursor=isDrag?'grabbing':found?'pointer':'grab';});
+  canvas.addEventListener('mouseleave',function(){hov=null;});
+  loop();
+})();
+</script>
+</body>
+</html>
