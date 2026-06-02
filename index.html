@@ -450,6 +450,21 @@ footer{background:#060F1E;padding:72px 0 0}
   #gallery .container>div{grid-template-columns:1fr!important}
   #gallery .container>div>div:first-child{grid-template-columns:1fr 1fr}
 }
+
+/* Tiers dark bg text fixes */
+#tiers .eyebrow{color:var(--orange-3)!important}
+#tiers .eyebrow::before{background:var(--orange-3)!important}
+#tiers .section-h{color:#fff!important}
+#tiers .section-p{color:rgba(255,255,255,.55)!important}
+.tier-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.1)!important}
+.tier-card:hover{background:rgba(255,102,0,.1)!important;border-color:rgba(255,102,0,.3)!important;transform:translateY(-4px)!important}
+.tier-label{background:rgba(255,102,0,.15)!important;color:var(--orange-3)!important;border-color:rgba(255,102,0,.3)!important}
+.tier-range{color:var(--orange-3)!important}
+.tier-sub{color:rgba(255,255,255,.4)!important}
+.tier-card h3{color:#fff!important}
+.tier-card p{color:rgba(255,255,255,.5)!important}
+.tier-list li{color:rgba(255,255,255,.65)!important}
+.tier-list li::before{color:var(--orange-3)!important}
 </style>
 </head>
 <body>
@@ -646,7 +661,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 
 <!-- INVESTMENT TIERS -->
-<section id="tiers" style="padding:100px 0;background:var(--bg);position:relative;overflow:hidden">
+<section id="tiers" style="padding:100px 0;background:#111827;position:relative;overflow:hidden">
   <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8"></canvas>
   <div class="container" style="position:relative;z-index:1">
     <div class="reveal">
@@ -686,8 +701,37 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 
 
+<!-- GLOBE -->
+<section id="global" style="padding:120px 0">
+  <div id="globe-sun-ov"></div>
+  <div class="container">
+    <div class="global-inner">
+      <div class="reveal" style="color:#fff">
+        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
+        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
+        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
+        <div class="city-legend" style="margin-top:2.5rem">
+          <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
+          <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
+          <span class="city-tag"><span class="city-dot"></span>New York</span>
+          <span class="city-tag"><span class="city-dot"></span>Singapore</span>
+          <span class="city-tag"><span class="city-dot"></span>Tokyo</span>
+          <span class="city-tag"><span class="city-dot"></span>London</span>
+        </div>
+      </div>
+      <div class="globe-wrap reveal d2">
+        <div class="globe-glow"></div>
+        <canvas id="globe-canvas" width="500" height="500"></canvas>
+        <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- PILLARS -->
 <!-- WHY -->
-<section id="why" style="padding:120px 0;background:var(--white)">
+<section id="why" style="padding:120px 0;background:#FAFBFF;position:relative;overflow:hidden"><canvas id="why-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.6"></canvas>
   <div class="why-ripple"></div><div class="why-ripple"></div><div class="why-ripple"></div>
   <div class="container">
     <div class="reveal">
@@ -719,34 +763,6 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-<section id="global" style="padding:120px 0">
-  <div id="globe-sun-ov"></div>
-  <div class="container">
-    <div class="global-inner">
-      <div class="reveal" style="color:#fff">
-        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
-        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
-        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
-        <div class="city-legend" style="margin-top:2.5rem">
-          <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
-          <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
-          <span class="city-tag"><span class="city-dot"></span>New York</span>
-          <span class="city-tag"><span class="city-dot"></span>Singapore</span>
-          <span class="city-tag"><span class="city-dot"></span>Tokyo</span>
-          <span class="city-tag"><span class="city-dot"></span>London</span>
-        </div>
-      </div>
-      <div class="globe-wrap reveal d2">
-        <div class="globe-glow"></div>
-        <canvas id="globe-canvas" width="500" height="500"></canvas>
-        <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<!-- PILLARS -->
 <section id="pillars" style="padding:120px 0;background:var(--white)">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
@@ -781,7 +797,6 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 <div class="divider"></div>
 
-<!-- GLOBE -->
 <!-- GALLERY / PROOF SECTION -->
 <section id="gallery" style="padding:100px 0;background:var(--bg)">
   <div class="container">
@@ -1203,14 +1218,14 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
       var ring=Math.min(Math.floor(idx/PER_RING),3);
       var pos=idx-ring*PER_RING;
       var startAngle=pos*(Math.PI*2/PER_RING)+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null};
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
 
   canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=(e.clientX-r.left)*(W/r.width);my=(e.clientY-r.top)*(H/r.height);});
   canvas.addEventListener('mouseleave',function(){
-    if(hovI>=0&&nodes[hovI]){nodes[hovI].stickX=null;nodes[hovI].stickY=null;}
+    if(hovI>=0&&nodes[hovI]){var rn=nodes[hovI];rn.ret=true;rn.retFromX=rn.x;rn.retFromY=rn.y;rn.retF=0;rn.stickX=null;rn.stickY=null;}
     mx=-9999;my=-9999;hovI=-1;prevHovI=-1;
   });
 
@@ -1230,7 +1245,7 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
 
     // Restore velocity to released node
     if(hovI!==prevHovI){
-      if(prevHovI>=0&&nodes[prevHovI]){nodes[prevHovI].stickX=null;nodes[prevHovI].stickY=null;}
+      if(prevHovI>=0&&nodes[prevHovI]){var rn=nodes[prevHovI];rn.ret=true;rn.retFromX=rn.x;rn.retFromY=rn.y;rn.retF=0;rn.stickX=null;rn.stickY=null;}
       prevHovI=hovI;
     }
 
@@ -1240,14 +1255,23 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
       var ring=RINGS[nd.ring];
       if(i===hovI&&mx>-9000){
         // Sticky: lerp toward mouse
+        nd.ret=false;
         if(nd.stickX===null){nd.stickX=nd.x;nd.stickY=nd.y;}
         nd.stickX+=(mx-nd.stickX)*.09;nd.stickY+=(my-nd.stickY)*.09;
         nd.x=nd.stickX;nd.y=nd.stickY;
-        // Angle keeps advancing so return to orbit is smooth
         nd.angle+=ring.speed*ring.dir*.3;
+      } else if(nd.ret){
+        // Slowly drift back to orbit over 150 frames (≈2.5s)
+        nd.retF=Math.min(150,nd.retF+1);
+        var p=nd.retF/150;var e=1-Math.pow(1-p,3); // ease-out cubic
+        nd.angle+=ring.speed*ring.dir;
+        var tx=CX+ring.R*Math.cos(nd.angle);
+        var ty=CY+ring.R*Math.sin(nd.angle)*Math.cos(ring.tilt);
+        nd.x=nd.retFromX+(tx-nd.retFromX)*e;
+        nd.y=nd.retFromY+(ty-nd.retFromY)*e;
+        if(nd.retF>=150){nd.ret=false;nd.stickX=null;nd.stickY=null;}
       } else {
         nd.angle+=ring.speed*ring.dir;
-        // Orbital position with tilt (creates ellipse = tilted ring)
         nd.x=CX+ring.R*Math.cos(nd.angle);
         nd.y=CY+ring.R*Math.sin(nd.angle)*Math.cos(ring.tilt);
       }
@@ -1298,23 +1322,43 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
       var isH=i===hovI;var r=isH?nd.r*1.7:nd.r;
       ctx.save();ctx.globalAlpha=nd.alpha;
       if(isH){ctx.shadowColor=nd.op.cl;ctx.shadowBlur=24;}
-      // Draw avatar on hover, colored circle otherwise
-      if(isH&&nd.op.imgLoaded){
-        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.clip();
-        ctx.drawImage(nd.op.imgEl,nd.x-r,nd.y-r,r*2,r*2);
+      // Draw hover: gradient bg + attempt photo overlay + ring
+      if(isH){
+        // 1. Gradient background for hover circle
+        var bg=ctx.createRadialGradient(nd.x,nd.y*0.95,0,nd.x,nd.y,r);
+        bg.addColorStop(0,nd.op.cl);bg.addColorStop(1,nd.op.cl+'88');
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();
         ctx.restore();
+        // 2. Photo on top (clipped circle)
+        if(nd.op.imgLoaded){
+          ctx.save();ctx.globalAlpha=nd.alpha;
+          ctx.beginPath();ctx.arc(nd.x,nd.y,r*.96,0,Math.PI*2);ctx.clip();
+          ctx.drawImage(nd.op.imgEl,nd.x-r*.96,nd.y-r*.96,r*1.92,r*1.92);
+          ctx.restore();
+        } else {
+          // Fallback: large initials
+          ctx.save();ctx.globalAlpha=nd.alpha;
+          ctx.fillStyle='rgba(255,255,255,.9)';ctx.font='bold '+Math.round(r*.62)+'px Inter,system-ui';
+          ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(nd.op.i,nd.x,nd.y);
+          ctx.restore();
+        }
+        // 3. Colored ring
         ctx.save();ctx.globalAlpha=nd.alpha;
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);
         ctx.strokeStyle=nd.op.cl;ctx.lineWidth=3;ctx.stroke();
+        // Outer pulse ring
+        var pRing=.5+.5*Math.sin(frame*.06);
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r+8+pRing*6,0,Math.PI*2);
+        ctx.strokeStyle=nd.op.cl.replace('#','rgba(').slice(0,-1)+','+(.25*pRing).toFixed(2)+')';
+        ctx.lineWidth=1.5;ctx.stroke();
         ctx.restore();
       } else {
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
-        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,'+(isH?.5:.15)+')';ctx.lineWidth=isH?2:1;ctx.stroke();
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,.15)';ctx.lineWidth=1;ctx.stroke();
         ctx.restore();
-        // Initials (center)
         ctx.save();ctx.globalAlpha=nd.alpha;
         ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px Inter,system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
-        ctx.fillText(isH&&nd.op.n?nd.op.n.split(' ')[0]:nd.op.i,nd.x,nd.y);
+        ctx.fillText(nd.op.i,nd.x,nd.y);
         ctx.restore();
       }
       // Company name label below node — larger, always visible
@@ -1340,45 +1384,94 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
   function hexToRGB(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
   resize();window.addEventListener('resize',function(){resize();},{passive:true});loop();
 })();
-/* ── TIERS CANVAS (starlink background lines) ── */
+/* ── TIERS CANVAS (flowing mountain + sea wave lines, orange) ── */
 (function(){
   var canvas=document.getElementById('tiers-canvas');if(!canvas)return;
-  var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999;
-  var N=50,LD=150,LD2=LD*LD,nodes=[];
-  function build(){
-    nodes=[];
-    for(var i=0;i<N;i++){nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,ph:Math.random()*Math.PI*2,sp:.25+Math.random()*.25});}
-  }
-  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);build();}
+  var ctx=canvas.getContext('2d'),W=0,H=0,t=0;
+  var active=false,mx=-9999,my=-9999;
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
   canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
   canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;});
-  var t=0;
+  new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(canvas.parentElement||canvas);
+  var smx=-9999,smy=0;
+  var LAYERS=[
+    {m:'mtn',base:.28,p0:0,  spd:.18,a:.18,g:.45},
+    {m:'mtn',base:.40,p0:1.8,spd:.13,a:.26,g:.62},
+    {m:'mtn',base:.52,p0:3.5,spd:.09,a:.34,g:.78},
+    {m:'sea',base:.68,p0:0,  spd:.72,a:.14,g:.38},
+    {m:'sea',base:.78,p0:2.1,spd:.92,a:.20,g:.55},
+    {m:'sea',base:.88,p0:4.2,spd:1.15,a:.28,g:.68},
+  ];
+  function mtnY(x,base,phase,li){
+    var y=base-Math.abs(Math.sin(x*.004+phase+li*1.3))*H*.1
+         -Math.abs(Math.sin(x*.009+phase*1.4+li*.8))*H*.055
+         -Math.abs(Math.sin(x*.02+phase*.7+li*1.6))*H*.026;
+    if(smx>-9999){var dx=x-smx,lf=Math.exp(-(dx*dx)/12000);y+=(smy-y)*lf*.6+Math.exp(-(dx*dx)/(W*W*.45))*Math.cos(dx*.021+t*3.8)*22;}
+    return y;
+  }
+  function seaY(x,base,phase){
+    var y=base+Math.sin(x*.008+phase)*H*.018+Math.sin(x*.014-phase*.65)*H*.011+Math.sin(x*.024+phase*1.3)*H*.005;
+    if(smx>-9999){var dx=x-smx,lf=Math.exp(-(dx*dx)/12000);y+=(smy-y)*lf*.5+Math.exp(-(dx*dx)/(W*W*.45))*Math.sin(dx*.019-t*4.5)*16;}
+    return y;
+  }
+  function drawLine(pts,step,smooth,a,ga){
+    ctx.beginPath();ctx.moveTo(0,pts[0]);
+    if(smooth){for(var i=0;i<pts.length-1;i++){var x0=i*step,x1=(i+1)*step;ctx.quadraticCurveTo(x0,pts[i],(x0+x1)/2,(pts[i]+pts[i+1])/2);}ctx.lineTo((pts.length-1)*step,pts[pts.length-1]);}
+    else{for(var i=1;i<pts.length;i++)ctx.lineTo(i*step,pts[i]);}
+    ctx.lineWidth=1.4;ctx.strokeStyle='rgba(255,120,30,'+a+')';ctx.shadowBlur=12;ctx.shadowColor='rgba(255,100,20,'+ga+')';ctx.stroke();ctx.shadowBlur=0;
+  }
   function loop(){
-    requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);t+=.003;
-    nodes.forEach(function(nd){
-      nd.x+=nd.vx+Math.sin(t*nd.sp+nd.ph)*.06;
-      nd.y+=nd.vy+Math.cos(t*nd.sp*.8+nd.ph)*.04;
-      if(nd.x<-20)nd.x=W+20;if(nd.x>W+20)nd.x=-20;
-      if(nd.y<-20)nd.y=H+20;if(nd.y>H+20)nd.y=-20;
-      // Mouse attraction toward buttons (subtle)
-      if(mx>-9000){var dx=mx-nd.x,dy=my-nd.y,d2=dx*dx+dy*dy;if(d2<180*180&&d2>1){var d=Math.sqrt(d2);nd.vx+=dx/d*.004;nd.vy+=dy/d*.004;}}
-      nd.vx*=.98;nd.vy*=.98;
+    requestAnimationFrame(loop);if(!active)return;
+    ctx.clearRect(0,0,W,H);t+=.012;
+    if(mx>-9999){if(smx<-9000){smx=mx;smy=my;}smx+=(mx-smx)*.007;smy+=(my-smy)*.007;}else smx=-9999;
+    LAYERS.forEach(function(L,li){
+      var isSea=L.m==='sea',step=isSea?7:5,count=Math.ceil(W/step)+2,phase=L.p0+t*L.spd,base=L.base*H;
+      var pts=Array.from({length:count},function(_,i){return isSea?seaY(i*step,base,phase):mtnY(i*step,base,phase,li);});
+      drawLine(pts,step,isSea,L.a,L.g);
     });
-    for(var i=0;i<nodes.length;i++){var a=nodes[i];
-      for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
-        var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
-        if(d2<LD2){
-          var al=((1-d2/LD2)*.15).toFixed(3);
-          ctx.strokeStyle='rgba(255,102,0,'+al+')';ctx.lineWidth=.8;
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
-        }
+  }
+  resize();window.addEventListener('resize',resize,{passive:true});loop();
+})();
+/* ── WHY CANVAS (soft ripple + ocean lines, blue-grey) ── */
+(function(){
+  var canvas=document.getElementById('why-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,t=0,active=false,mx=-9999,my=-9999;
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;});
+  new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(canvas.parentElement||canvas);
+  // Soft horizontal ripple lines
+  var LINES=6;
+  function loop(){
+    requestAnimationFrame(loop);if(!active)return;
+    ctx.clearRect(0,0,W,H);t+=.007;
+    for(var l=0;l<LINES;l++){
+      var baseY=(l+.5)*(H/LINES);
+      ctx.beginPath();
+      var step=8,count=Math.ceil(W/step)+2;
+      for(var i=0;i<count;i++){
+        var x=i*step;
+        var y=baseY+Math.sin(x*.006+(l*.9)+t*(1+l*.12))*22+Math.sin(x*.012-t*(1.3+l*.08)+l)*10;
+        if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
       }
-      ctx.beginPath();ctx.arc(a.x,a.y,1.5,0,Math.PI*2);ctx.fillStyle='rgba(255,120,20,.2)';ctx.fill();
+      // Mouse influence: warp lines near cursor
+      if(mx>-9999){var distToLine=Math.abs(baseY-my);if(distToLine<90){var inflW=1+(1-distToLine/90)*2.5;ctx.lineWidth=.9*inflW;}else ctx.lineWidth=.7;}
+      else ctx.lineWidth=.7;
+      var al=(.06+l*.012).toFixed(3);
+      ctx.strokeStyle='rgba(99,102,241,'+al+')'; // indigo blue-purple tint
+      ctx.stroke();
+    }
+    // Circular ripples at mouse
+    if(mx>-9999){
+      for(var r2=1;r2<=3;r2++){
+        var rSize=40+r2*55+Math.sin(t*2+r2)*12;
+        ctx.beginPath();ctx.arc(mx,my,rSize,0,Math.PI*2);
+        ctx.strokeStyle='rgba(99,102,241,'+(.08-(r2*.02)).toFixed(3)+')';ctx.lineWidth=.8;ctx.stroke();
+      }
     }
   }
   resize();window.addEventListener('resize',resize,{passive:true});loop();
 })();
-
 /* ── GLOBE ── */
 (function(){
   var canvas=document.getElementById('globe-canvas');if(!canvas)return;
