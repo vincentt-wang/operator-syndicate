@@ -433,9 +433,7 @@ footer{background:#060F1E;padding:72px 0 0}
 /* PILLARS: distinct background from why */
 
 
-/* Vincent Wang top-right in team grid */
-.team-card.vincent-card{order:-1}
-@media(min-width:769px){.team-card.vincent-card{order:3;grid-column:3;grid-row:1}}
+/* Vincent position removed — swap used instead */
 
 /* Gallery section */
 @media(max-width:768px){
@@ -487,6 +485,65 @@ footer{background:#060F1E;padding:72px 0 0}
 .pillar-card:hover{background:var(--white)!important;border-color:rgba(255,102,0,.2)!important}
 .p-ico{background:var(--orange-pale)!important}
 .pillar-card:hover .p-ico{background:rgba(255,102,0,.18)!important}
+
+/* Team section — dark bg, glow cards */
+#team .container{position:relative;z-index:1}
+#team .eyebrow{color:var(--orange-3)!important}
+#team .eyebrow::before{background:var(--orange-3)!important}
+#team .section-h{color:#fff!important}
+#team>div>div>p{color:rgba(255,255,255,.5)!important}
+
+/* Card base style on dark bg */
+.team-card{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.1)!important}
+.team-name{color:#fff!important}
+.team-bio{color:rgba(255,255,255,.55)!important}
+.team-avatar{border-color:rgba(255,102,0,.3)!important}
+.team-socials a{border-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.35)!important}
+.team-socials a:hover{border-color:var(--orange)!important;color:var(--orange)!important}
+
+/* Hover glow */
+.team-card:hover{
+  box-shadow:0 0 0 1px rgba(255,102,0,.45),0 0 32px rgba(255,102,0,.22),0 16px 48px rgba(0,0,0,.3)!important;
+  border-color:rgba(255,102,0,.45)!important;
+  transform:translateY(-6px)!important;
+  background:rgba(255,102,0,.08)!important;
+}
+
+/* Auto sequential glow — each card pulses in turn */
+@keyframes team-pulse{
+  0%,80%,100%{box-shadow:none;border-color:rgba(255,255,255,.1);transform:translateY(0)}
+  10%,70%{box-shadow:0 0 0 1px rgba(255,102,0,.4),0 0 28px rgba(255,102,0,.2);border-color:rgba(255,102,0,.4);transform:translateY(-5px)}
+}
+.team-card:nth-child(1){animation:team-pulse 9s ease-in-out infinite 0s}
+.team-card:nth-child(2){animation:team-pulse 9s ease-in-out infinite 1.5s}
+.team-card:nth-child(3){animation:team-pulse 9s ease-in-out infinite 3s}
+.team-card:nth-child(4){animation:team-pulse 9s ease-in-out infinite 4.5s}
+.team-card:nth-child(5){animation:team-pulse 9s ease-in-out infinite 6s}
+.team-card:nth-child(6){animation:team-pulse 9s ease-in-out infinite 7.5s}
+.team-card:hover{animation:none!important}
+
+/* Advisors section on dark bg */
+.advisors-wrap{border-top-color:rgba(255,255,255,.1)!important}
+.advisors-ey{color:rgba(255,255,255,.35)!important}
+.advisor-card{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.1)!important}
+.advisor-card:hover{border-color:rgba(255,102,0,.3)!important;background:rgba(255,102,0,.07)!important}
+.advisor-name{color:rgba(255,255,255,.85)!important}
+.advisor-tag{color:rgba(255,255,255,.4)!important}
+
+/* Advisor auto pulse */
+@keyframes adv-pulse{
+  0%,75%,100%{box-shadow:none;border-color:rgba(255,255,255,.1)}
+  15%,60%{box-shadow:0 0 18px rgba(255,102,0,.18);border-color:rgba(255,102,0,.35)}
+}
+.advisor-card:nth-child(1){animation:adv-pulse 12s ease-in-out infinite 0s}
+.advisor-card:nth-child(2){animation:adv-pulse 12s ease-in-out infinite 1.5s}
+.advisor-card:nth-child(3){animation:adv-pulse 12s ease-in-out infinite 3s}
+.advisor-card:nth-child(4){animation:adv-pulse 12s ease-in-out infinite 4.5s}
+.advisor-card:nth-child(5){animation:adv-pulse 12s ease-in-out infinite 6s}
+.advisor-card:nth-child(6){animation:adv-pulse 12s ease-in-out infinite 7.5s}
+.advisor-card:nth-child(7){animation:adv-pulse 12s ease-in-out infinite 9s}
+.advisor-card:nth-child(8){animation:adv-pulse 12s ease-in-out infinite 10.5s}
+.advisor-card:hover{animation:none!important;border-color:rgba(255,102,0,.45)!important}
 </style>
 </head>
 <body>
@@ -993,7 +1050,7 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="divider"></div>
 
 <!-- GALLERY / PROOF SECTION -->
-<section id="team" style="padding:120px 0;background:var(--white)">
+<section id="team" style="padding:120px 0;background:#0A1628;position:relative;overflow:hidden"><canvas id="team-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55"></canvas>
   <div class="container">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap">
       <div class="reveal" style="flex:1;min-width:240px">
@@ -1012,7 +1069,7 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="team-bio" data-en="Aggregated 20+ senior tech operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event." data-zh="聚攏 20+ 位外商高管組成 LP 網絡。負責 Syndicate 架構、LP 關係維護與 2026 年 6 月 Launch 大會。">Aggregated 20+ senior tech operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event.</div>
         <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
-      <div class="team-card reveal d2">
+      <div class="team-card reveal d3">
         <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Vincent Wang" loading="lazy"></div>
         <div class="team-name">Vincent Wang</div>
         <div class="team-role" data-en="Deal Flow Architect / AO" data-zh="案源門閘 / AO">Deal Flow Architect / AO</div>
@@ -1642,6 +1699,69 @@ hero.addEventListener('mouseleave',function(){mouseIn=false;mFrames=0;starlinkMo
     });
   }
   resize();window.addEventListener('resize',function(){resize();init();},{passive:true});init();loop();
+})();
+
+/* ── TEAM CANVAS (slow hexagonal grid drift, soft orange glow nodes) ── */
+(function(){
+  var canvas=document.getElementById('team-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,t=0,active=false;
+  var HEX=85,nodes=[]; // hexagonal grid spacing
+  function buildGrid(){
+    nodes=[];
+    var rows=Math.ceil(H/HEX)+2,cols=Math.ceil(W/(HEX*Math.SQRT2*0.5))+2;
+    for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){
+      var x=(c+((r%2)*.5))*(HEX*1.1);
+      var y=r*(HEX*.9);
+      nodes.push({
+        ox:x-HEX,oy:y-HEX,
+        x:x-HEX,y:y-HEX,
+        ph:Math.random()*Math.PI*2,
+        sp:.2+Math.random()*.25,
+        am:8+Math.random()*14,
+        glow:Math.random()*Math.PI*2 // phase for glow pulse
+      });
+    }}
+  }
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);buildGrid();}
+  new IntersectionObserver(function(en){active=en[0].isIntersecting;},{threshold:0}).observe(canvas.parentElement||canvas);
+  var CONN_D=HEX*1.65,CONN_D2=CONN_D*CONN_D;
+  function loop(){
+    requestAnimationFrame(loop);if(!active)return;
+    ctx.clearRect(0,0,W,H);t+=.006;
+    // Update positions (very slow orbital drift)
+    nodes.forEach(function(nd){
+      nd.x=nd.ox+Math.sin(t*nd.sp+nd.ph)*nd.am;
+      nd.y=nd.oy+Math.cos(t*nd.sp*.7+nd.ph+1.3)*nd.am*.65;
+    });
+    // Draw connections
+    ctx.lineWidth=.7;
+    for(var i=0;i<nodes.length;i++){var a=nodes[i];
+      if(a.x<-CONN_D||a.x>W+CONN_D||a.y<-CONN_D||a.y>H+CONN_D)continue;
+      for(var j=i+1;j<nodes.length;j++){var b=nodes[j];
+        var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<CONN_D2){
+          var al=((1-d2/CONN_D2)*.07).toFixed(3);
+          ctx.strokeStyle='rgba(255,102,0,'+al+')';
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+        }
+      }
+    }
+    // Draw nodes with glow pulse
+    nodes.forEach(function(nd){
+      if(nd.x<-10||nd.x>W+10||nd.y<-10||nd.y>H+10)return;
+      var glow=.5+.5*Math.sin(t*1.2+nd.glow);
+      var al=(.04+glow*.08).toFixed(3);
+      ctx.beginPath();ctx.arc(nd.x,nd.y,1.8+glow*.8,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,102,0,'+al+')';ctx.fill();
+      // Occasional brighter nodes
+      if(glow>.88){
+        var g=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,12);
+        g.addColorStop(0,'rgba(255,102,0,'+(.2*glow).toFixed(3)+')');g.addColorStop(1,'rgba(255,102,0,0)');
+        ctx.beginPath();ctx.arc(nd.x,nd.y,12,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      }
+    });
+  }
+  resize();window.addEventListener('resize',function(){resize();buildGrid();},{passive:true});loop();
 })();
 
 /* ── GLOBE ── */
