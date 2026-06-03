@@ -407,7 +407,7 @@ footer{background:#060F1E;padding:72px 0 0}
   #hero{padding:96px 0 56px}
   .why-grid,.pillars-grid,.audience-grid,.tiers-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr}
-  #network-canvas{height:420px}
+  #network-canvas{height:560px}
 }
 @media(max-width:600px){
   body{font-size:17px}
@@ -780,7 +780,7 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="divider"></div>
 
 <!-- OPERATOR NETWORK CONSTELLATION -->
-<section id="network" style="background:var(--navy);padding:80px 0 0;overflow:hidden">
+<section id="network" style="background:var(--navy);padding:60px 0 0;overflow:hidden">
   <div class="container" style="text-align:center;padding-bottom:3rem">
     <div class="reveal">
       <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
@@ -1597,18 +1597,21 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   var prevHovI=-1;
 
   function initNodes(){
-    CX=W/2; CY=H/2+20;
+    CX=W/2; CY=H/2+(W<600?-10:20);
     var isMobNet=(W<600);
-    BASE_R=Math.min(W,H)*(isMobNet?0.38:0.38);
+    BASE_R=Math.min(W,H)*(isMobNet?0.36:0.38);
     RINGS[0].R=BASE_R*(isMobNet?1.08:1.05);
     RINGS[1].R=BASE_R*(isMobNet?0.80:0.80);
     RINGS[2].R=BASE_R*(isMobNet?0.55:0.56);
     RINGS[3].R=BASE_R*(isMobNet?0.28:0.30);
+    // Elliptical Ry: stretch rings vertically on mobile to fill tall canvas
+    var mobVScale=isMobNet?Math.min(H/W,1.65)*0.82:1.0;
+    RINGS.forEach(function(r){r.Ry=r.R*mobVScale;});
     nodes=OPS.map(function(op,idx){
       var ring=Math.min(Math.floor(idx/PER_RING),3);
       var pos=idx-ring*PER_RING;
       var startAngle=pos*(Math.PI*2/PER_RING)+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?23:26),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
@@ -1656,14 +1659,16 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
         var p=nd.retF/150;var e=1-Math.pow(1-p,3); // ease-out cubic
         nd.angle+=ring.speed*ring.dir;
         var tx=CX+ring.R*Math.cos(nd.angle);
-        var ty=CY+ring.R*Math.sin(nd.angle)*Math.cos(ring.tilt);
+        var ry2=ring.Ry||ring.R;
+        var ty=CY+ry2*Math.sin(nd.angle)*Math.cos(ring.tilt);
         nd.x=nd.retFromX+(tx-nd.retFromX)*e;
         nd.y=nd.retFromY+(ty-nd.retFromY)*e;
         if(nd.retF>=150){nd.ret=false;nd.stickX=null;nd.stickY=null;}
       } else {
         nd.angle+=ring.speed*ring.dir;
         nd.x=CX+ring.R*Math.cos(nd.angle);
-        nd.y=CY+ring.R*Math.sin(nd.angle)*Math.cos(ring.tilt);
+        var ry=ring.Ry||ring.R;
+        nd.y=CY+ry*Math.sin(nd.angle)*Math.cos(ring.tilt);
       }
     });
 
