@@ -1415,40 +1415,27 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       }
     }}
 
-    // Always draw faint lines to 3 nearest neighbors (base layer)
-    for(var bi=0;bi<nodes.length;bi++){
-      var dists2=[];
-      for(var bj=0;bj<nodes.length;bj++){if(bi===bj)continue;var bx=nodes[bi].x-nodes[bj].x,by=nodes[bi].y-nodes[bj].y;dists2.push({j:bj,d:bx*bx+by*by});}
-      dists2.sort(function(a,b){return a.d-b.d;});
-      dists2.slice(0,3).forEach(function(nb){
-        if(nb.j>bi){// draw once per pair
-          ctx.beginPath();ctx.moveTo(nodes[bi].x,nodes[bi].y);ctx.lineTo(nodes[nb.j].x,nodes[nb.j].y);
-          ctx.strokeStyle='rgba(200,70,0,.09)';ctx.lineWidth=.7;ctx.stroke();
-        }
+    // Operator Network style: guaranteed 3 nearest connections with sin-wave pulse
+    // Build nearest neighbor pairs (drawn once per pair)
+    var drawn2={};
+    for(var ni2=0;ni2<nodes.length;ni2++){
+      var nd2=nodes[ni2],dists3=[];
+      for(var nj2=0;nj2<nodes.length;nj2++){if(ni2===nj2)continue;var ddx2=nd2.x-nodes[nj2].x,ddy2=nd2.y-nodes[nj2].y;dists3.push({j:nj2,d:ddx2*ddx2+ddy2*ddy2});}
+      dists3.sort(function(a,b){return a.d-b.d;});
+      dists3.slice(0,3).forEach(function(nb){
+        var key2=Math.min(ni2,nb.j)+'-'+Math.max(ni2,nb.j);
+        if(drawn2[key2])return;drawn2[key2]=true;
+        // Sin-wave pulse per pair — same pattern as Operator Network
+        var pulse=.5+.5*Math.sin(t*1.8+ni2*.9+nb.j*.6);
+        // Boost near cursor
+        var boost=1;
+        if(cx>-9000){var midX=(nd2.x+nodes[nb.j].x)/2,midY=(nd2.y+nodes[nb.j].y)/2;var md2=(midX-cx)*(midX-cx)+(midY-cy)*(midY-cy);if(md2<200*200)boost=1+(1-Math.sqrt(md2)/200)*3.5;}
+        var al=(pulse*.10*boost).toFixed(3); // subtle on white
+        ctx.strokeStyle='rgba(180,55,0,'+al+')';
+        ctx.lineWidth=(.5+pulse*.4)*Math.min(boost,2);
+        ctx.beginPath();ctx.moveTo(nd2.x,nd2.y);ctx.lineTo(nodes[nb.j].x,nodes[nb.j].y);ctx.stroke();
       });
     }
-    // Draw persistent connections
-    Object.keys(conns).forEach(function(key){
-      var c=conns[key];
-      var parts=key.split('-'),i=+parts[0],j=+parts[1];
-      // Alpha based on life: fast fade-in, long hold, slow fade-out
-      var lifeRatio=c.life/CONN_LIFE;
-      var alpha;
-      if(lifeRatio>0.9){alpha=(1-lifeRatio)/0.1;}       // fade in (0→10% of life)
-      else if(lifeRatio<0.2){alpha=lifeRatio/0.2;}       // fade out (last 20%)
-      else{alpha=1;}                                      // full strength
-      // Boost near cursor
-      var boost=1;
-      if(cx>-9000){
-        var midX=(nodes[i].x+nodes[j].x)/2,midY=(nodes[i].y+nodes[j].y)/2;
-        var md2=(midX-cx)*(midX-cx)+(midY-cy)*(midY-cy);
-        if(md2<220*220)boost=1+(1-Math.sqrt(md2)/220)*2.5;
-      }
-      var pulse=.7+.3*Math.sin(t*1.2+i*.5+j*.7);var al=(alpha*.22*boost*pulse).toFixed(3);
-      ctx.strokeStyle='rgba(180,55,0,'+al+')';
-      ctx.lineWidth=(0.6+alpha*.3)*Math.min(boost,1.8);
-      ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
-    });
 
     // Cursor web spokes
     if(cx>-9000){
@@ -1471,19 +1458,19 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       var isHub=ni<6; // first 6 are hub nodes (larger glow)
       var r=isHub?18:12;
       var g2=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,r);
-      g2.addColorStop(0,'rgba(255,120,0,.15)');
+      g2.addColorStop(0,'rgba(255,120,0,.10)');
       g2.addColorStop(.5,'rgba(255,80,0,.06)');
       g2.addColorStop(1,'rgba(255,80,0,0)');
       ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=g2;ctx.fill();
       // Mid ring
       var g3=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,5);
-      g3.addColorStop(0,'rgba(255,180,80,.85)');
-      g3.addColorStop(1,'rgba(255,100,0,.3)');
+      g3.addColorStop(0,'rgba(255,180,80,.55)');
+      g3.addColorStop(1,'rgba(255,100,0,.15)');
       ctx.beginPath();ctx.arc(nd.x,nd.y,5,0,Math.PI*2);ctx.fillStyle=g3;ctx.fill();
       // Bright core
       var pulse=.7+.3*Math.sin(t*2.5+ni*.8);
       ctx.beginPath();ctx.arc(nd.x,nd.y,2.2*pulse,0,Math.PI*2);
-      ctx.fillStyle='rgba(255,220,150,.95)';ctx.fill();
+      ctx.fillStyle='rgba(255,200,120,.65)';ctx.fill();
     });
   }
   resize();window.addEventListener('resize',resize,{passive:true});loop();
