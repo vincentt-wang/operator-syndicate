@@ -1343,10 +1343,18 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   var rPhase=1,rFrame=0; // phase 0=travel-in, 1=full, 2=fade+travel-out
   var rCurr=0,rPrev=-1,rNext=-1; // relay indices
   var mouseHeld=false,mouseHeldF=0; // track 2.5s mouse hold
+  var rLastFrom=-1; // avoid going back to previous node
   function pickNearest(idx){
-    var best=-1,bd=Infinity;
-    nodes.forEach(function(nd,i){if(i===idx)return;var dx=nodes[idx].x-nd.x,dy=nodes[idx].y-nd.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i;}});
-    return best<0?((idx+1)%nodes.length):best;
+    var best=-1,bd=Infinity,best2=-1,bd2=Infinity;
+    nodes.forEach(function(nd,i){
+      if(i===idx)return;
+      var dx=nodes[idx].x-nd.x,dy=nodes[idx].y-nd.y,d=dx*dx+dy*dy;
+      if(d<bd){bd2=bd;best2=best;bd=d;best=i;}
+      else if(d<bd2){bd2=d;best2=i;}
+    });
+    // If nearest is where we came from, pick 2nd nearest
+    if(best===rLastFrom&&best2>=0)return best2;
+    return best>=0?best:((idx+1)%nodes.length);
   }
   var FORM_D=220,HOLD_D=340; // form at 220px, hold up to 340px
   var CONN_LIFE=260; // ~4.3s — faster turnover for dynamic feel
@@ -1412,15 +1420,17 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       rFrame++;
       if(rFrame>=PHASE){
         rFrame=0;
-        rPhase=(rPhase+1)%3;
-        if(rPhase===0){
-          // Phase 0 start: advance relay to next node
+        if(rPhase===1){
+          // Full → Fade+Travel: precompute next
+          rNext=pickNearest(rCurr);
           rPrev=rCurr;
+          rPhase=2;
+        } else {
+          // Fade+Travel done → jump to next node, immediately full bright
+          rLastFrom=rCurr;
           rCurr=rNext>=0?rNext:pickNearest(rCurr);
           rNext=pickNearest(rCurr);
-        } else if(rPhase===2){
-          // Phase 2 start: precompute where we'll travel to
-          rNext=pickNearest(rCurr);
+          rPhase=1; // skip phase 0 entirely
         }
       }
       // Init rNext if not set
@@ -1499,14 +1509,13 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 
     // Sun-glow nodes with relay spotlight
     nodes.forEach(function(nd,ni){
-      // Compute this node's brightness based on relay phase
-      var bright=.15; // default dim
+      // Compute this node's brightness (2-phase: 1=full, 2=fade)
+      var e=tProg<.5?2*tProg*tProg:-1+(4-2*tProg)*tProg; // ease in-out
+      var bright=.14; // default dim
       if(ni===rCurr){
-        bright=rPhase===1?1:(rPhase===0?tProg:(1-tProg));
+        bright=rPhase===1?1:(1-e); // full OR fading out with ease
       } else if(ni===rNext&&rPhase===2){
-        bright=tProg*.35; // next node starts faintly glowing as it receives
-      } else if(ni===rPrev&&rPhase===0){
-        bright=Math.max(.15,(1-tProg)*.35); // previous fades out
+        bright=e*.3; // next node pre-glows faintly (eased in)
       }
       var isActive=bright>0.4;
       var r=isActive?(10+bright*12):10;
@@ -1524,10 +1533,12 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       ctx.beginPath();ctx.arc(nd.x,nd.y,coreR,0,Math.PI*2);ctx.fillStyle=g3;ctx.fill();
     });
 
-    // Travel dot — the "signal" traveling between nodes
+    // Travel dot — ONLY during Phase 2 (one dot at a time, no duplication)
     var travelFrom=null,travelTo=null,travelAlpha=0;
-    if(rPhase===0&&rPrev>=0){travelFrom=nodes[rPrev];travelTo=nodes[rCurr];travelAlpha=tProg;}
-    if(rPhase===2&&rNext>=0){travelFrom=nodes[rCurr];travelTo=nodes[rNext];travelAlpha=tProg;}
+    if(rPhase===2&&rNext>=0&&nodes[rCurr]&&nodes[rNext]){
+      var e2=tProg<.5?2*tProg*tProg:-1+(4-2*tProg)*tProg;
+      travelFrom=nodes[rCurr];travelTo=nodes[rNext];travelAlpha=e2;
+    }
     if(travelFrom&&travelTo){
       var tx=travelFrom.x+(travelTo.x-travelFrom.x)*travelAlpha;
       var ty=travelFrom.y+(travelTo.y-travelFrom.y)*travelAlpha;
