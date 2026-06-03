@@ -48,7 +48,7 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <header>
   <div class="container" style="max-width:1100px;margin:0 auto">
     <h1 style="color:#fff;font-size:2.5rem">Operator Syndicate</h1>
-    <p>設計記憶 · 規格文件 · Roadmap 追蹤 · 最後更新：2026-06-03 v3.5</p>
+    <p>設計記憶 · 規格文件 · Roadmap 追蹤 · 最後更新：2026-06-03 v3.6</p>
     <p style="margin-top:.75rem"><strong style="color:var(--orange)">網站地址：</strong><a href="https://vincentt-wang.github.io/operator-syndicate/" style="color:#FB923C">https://vincentt-wang.github.io/operator-syndicate/</a></p>
     <p><strong style="color:var(--orange)">本機路徑：</strong><code style="background:rgba(255,255,255,.1);color:#fff">/Users/admin/Downloads/0｜Other/B2B/index.html</code></p>
   </div>
@@ -268,20 +268,116 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <div class="update-log">
 
 <div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
+<div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>Operator Network 頭像改 DOM overlay：</strong>原本用 canvas <code>drawImage()</code> 顯示頭像，在 <code>file://</code> 協議下 CORS 被阻擋導致無法顯示。改用 <code>#op-av-ov</code> DOM img 元素覆蓋在 canvas 上，JS 直接更新 <code>img.src</code> 即可，完全繞開 CORS 問題。未來新增成員只需在 OPS 陣列加一筆 <code>{i:'縮寫',n:'姓名',co:'公司',cl:'#顏色碼',t:'職銜',img:pravatar_id}</code>。</p>
 </div>
 
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
 <div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>頁面重複內容 bug 修復：</strong>某次 Python replace 操作後檔案從 ~1910 行變成 3819 行（整個頁面被複製一遍）。根本原因：之前的 Vincent/Alice 卡片交換腳本輸出時未完整截斷。修法：直接找第一個 <code>&lt;/html&gt;</code> 的位置截斷。此後每次大規模 Python 操作後必須用 <code>grep -c "&lt;/html&gt;"</code> 確認只有 1 個。</p>
 </div>
 
 <div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
+<div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>Hero Canvas 持久連線系統：</strong>原本連線每幀重算距離，節點飄遠就立刻消失。改為 <code>conns{}</code> 登記表：節點靠近 170px 就登記連線，life 計時器 420 幀（≈7秒），mouse 在場時衰減速度減半。節點 <code>buildNodes()</code> 完成後 50ms 內預建 2 條連線，讓頁面載入即有衛星串聯感。手機用自動遊走 ghost cursor 替代滑鼠。</p>
 </div>
 
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
 <div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>全站移除「A4 履歷」字樣：</strong>改為模糊表述「rapid deal assessment」/「快速評估摘要」/「快速決策流程」。原因：A4 是粗淺/具體的內部術語，不適合對外。FAQ 問題從「What is an A4 Decision Brief?」改為「How does the deal review process work?」，答案強調流程而非格式。</p>
@@ -305,20 +401,116 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <div class="update-log">
 
 <div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
+<div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>Operator Network 頭像改 DOM overlay：</strong>原本用 canvas <code>drawImage()</code> 顯示頭像，在 <code>file://</code> 協議下 CORS 被阻擋導致無法顯示。改用 <code>#op-av-ov</code> DOM img 元素覆蓋在 canvas 上，JS 直接更新 <code>img.src</code> 即可，完全繞開 CORS 問題。未來新增成員只需在 OPS 陣列加一筆 <code>{i:'縮寫',n:'姓名',co:'公司',cl:'#顏色碼',t:'職銜',img:pravatar_id}</code>。</p>
 </div>
 
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
 <div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>頁面重複內容 bug 修復：</strong>某次 Python replace 操作後檔案從 ~1910 行變成 3819 行（整個頁面被複製一遍）。根本原因：之前的 Vincent/Alice 卡片交換腳本輸出時未完整截斷。修法：直接找第一個 <code>&lt;/html&gt;</code> 的位置截斷。此後每次大規模 Python 操作後必須用 <code>grep -c "&lt;/html&gt;"</code> 確認只有 1 個。</p>
 </div>
 
 <div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
+<div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>Hero Canvas 持久連線系統：</strong>原本連線每幀重算距離，節點飄遠就立刻消失。改為 <code>conns{}</code> 登記表：節點靠近 170px 就登記連線，life 計時器 420 幀（≈7秒），mouse 在場時衰減速度減半。節點 <code>buildNodes()</code> 完成後 50ms 內預建 2 條連線，讓頁面載入即有衛星串聯感。手機用自動遊走 ghost cursor 替代滑鼠。</p>
 </div>
 
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>部署規則：每次改動後必須 git push：</strong>所有修改完成後必須執行 <code>git add index.html && git commit -m "..." && git push</code>。GitHub Pages 通常 1-3 分鐘後生效，用戶直接重整 <code>https://vincentt-wang.github.io/operator-syndicate/</code> 即可看到最新版本。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Relay Transmission Spotlight 系統：</strong>取代原本的隨機輪換 spotlight，改為 2-phase relay 系統。Phase 1（2.5s）：當前節點全亮。Phase 2（2.5s）：當前節點漸暗，travel dot 沿線條旅行到下一個節點。<code>pickNearest()</code> 記憶上一個節點避免走回頭路（<code>rLastFrom</code>）。亮度變化加 ease-in-out 曲線。滑鼠進入持續 2.5 秒後鎖定最近節點為 spotlight。只在 Phase 2 顯示 travel dot（避免出現兩次傳遞的視覺 bug）。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero Canvas：Sun Glow 節點 + 連線優化：</strong>節點改為三層同心發光（外暈→中圈→亮核），FORM_D=220px，HOLD_D=340px，預建 3 條連線（setTimeout 50ms 後）。連線採 Operator Network 風格的 sin 脈衝，每幀強制畫最近 3 個鄰居。節點數 30 個。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Operator Network 手機版排版修正：</strong>節點半徑 26→23px（手機版），canvas 高度 420→660px，軌道改為橢圓形（垂直方向乘以 <code>H/W × 0.96</code>），讓節點在直向螢幕上充分使用垂直空間。標籤在手機版隱藏（只 hover 才顯示）。Section 頂部 padding 收緊為 50px。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-03 — v3.6</div>
+  <p><strong>Hero 白底適配：</strong>Hero 背景從 navy #0A1628 改為白色。nav 在白底 hero 時自動換深色文字。Canvas 移除 mask 遮罩。連線顏色改為深橘 rgba(180,55,0) 在白底上可見。新增 hero 按鈕輪流發光效果（5秒週期，Submit/Join 錯開 2.5s）。</p>
+</div>
 <div class="update-log">
   <div class="date">2026-06-03 — v3.5</div>
   <p><strong>全站移除「A4 履歷」字樣：</strong>改為模糊表述「rapid deal assessment」/「快速評估摘要」/「快速決策流程」。原因：A4 是粗淺/具體的內部術語，不適合對外。FAQ 問題從「What is an A4 Decision Brief?」改為「How does the deal review process work?」，答案強調流程而非格式。</p>
