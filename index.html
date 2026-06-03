@@ -407,7 +407,7 @@ footer{background:#060F1E;padding:72px 0 0}
   #hero{padding:96px 0 56px}
   .why-grid,.pillars-grid,.audience-grid,.tiers-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr}
-  #network-canvas{height:480px}
+  #network-canvas{height:420px}
 }
 @media(max-width:600px){
   body{font-size:17px}
@@ -784,7 +784,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="container" style="text-align:center;padding-bottom:3rem">
     <div class="reveal">
       <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
-      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:nowrap;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
+      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
       <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="VP and Director-level executives from Nexia, Oracore, Globex and ACS — each bringing direct enterprise procurement access, not just capital." data-zh="來自 Nexia、Oracore、Globex 與 ACS 的 VP 與 Director 級高管，帶來的不只是資金，而是直接的企業採購通路">VP and Director-level executives from Nexia, Oracore, Globex and ACS — each bringing direct enterprise procurement access, not just capital.</p>
     </div>
   </div>
@@ -1539,16 +1539,17 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 
   function initNodes(){
     CX=W/2; CY=H/2+20;
-    BASE_R=Math.min(W,H)*0.38;
-    RINGS[0].R=BASE_R*1.05;
-    RINGS[1].R=BASE_R*0.80;
-    RINGS[2].R=BASE_R*0.56;
-    RINGS[3].R=BASE_R*0.30;
+    var isMobNet=(W<600);
+    BASE_R=Math.min(W,H)*(isMobNet?0.28:0.38);
+    RINGS[0].R=BASE_R*(isMobNet?1.0:1.05);
+    RINGS[1].R=BASE_R*(isMobNet?0.75:0.80);
+    RINGS[2].R=BASE_R*(isMobNet?0.50:0.56);
+    RINGS[3].R=BASE_R*(isMobNet?0.26:0.30);
     nodes=OPS.map(function(op,idx){
       var ring=Math.min(Math.floor(idx/PER_RING),3);
       var pos=idx-ring*PER_RING;
       var startAngle=pos*(Math.PI*2/PER_RING)+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?16:26),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
@@ -1670,13 +1671,15 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
         ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(nd.op.i,nd.x,nd.y);
       }
       ctx.restore();
-      // Company name label
-      ctx.save();ctx.globalAlpha=nd.alpha*(isH?.95:.65);
-      ctx.fillStyle=isH?'#fff':nd.op.cl;
-      ctx.font=(isH?'bold ':'')+'13px Inter,system-ui';
-      ctx.textAlign='center';ctx.textBaseline='top';
-      ctx.fillText(isH?nd.op.n:nd.op.co,nd.x,nd.y+r+8);
-      ctx.restore();
+      // Company name label — hide on mobile to prevent overlap
+      if(W>=600||isH){
+        ctx.save();ctx.globalAlpha=nd.alpha*(isH?.95:.65);
+        ctx.fillStyle=isH?'#fff':nd.op.cl;
+        ctx.font=(isH?'bold ':'')+(W<600?'11':'13')+'px Inter,system-ui';
+        ctx.textAlign='center';ctx.textBaseline='top';
+        ctx.fillText(isH?nd.op.n:nd.op.co,nd.x,nd.y+r+6);
+        ctx.restore();
+      }
     });
 
     // DOM avatar overlay
