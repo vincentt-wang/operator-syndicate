@@ -407,7 +407,7 @@ footer{background:#060F1E;padding:72px 0 0}
   #hero{padding:96px 0 56px}
   .why-grid,.pillars-grid,.audience-grid,.tiers-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr}
-  #network-canvas{height:560px}
+  #network-canvas{height:660px}
 }
 @media(max-width:600px){
   body{font-size:17px}
@@ -609,7 +609,11 @@ footer{background:#060F1E;padding:72px 0 0}
 #hero .btn-primary{animation:hero-glow-a 5s ease-in-out infinite 0s}
 #hero .btn-outline{animation:hero-glow-b 5s ease-in-out infinite 2.5s}
 #hero .btn-primary:hover,#hero .btn-outline:hover{animation:none!important}
-</style>
+
+@media(max-width:600px){
+  #network{padding:50px 0 0!important}
+  #network .container:first-child{padding-bottom:1.5rem}
+}</style>
 </head>
 <body>
 <div id="bar"></div>
@@ -1605,7 +1609,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     RINGS[2].R=BASE_R*(isMobNet?0.55:0.56);
     RINGS[3].R=BASE_R*(isMobNet?0.28:0.30);
     // Elliptical Ry: stretch rings vertically on mobile to fill tall canvas
-    var mobVScale=isMobNet?Math.min(H/W,1.65)*0.82:1.0;
+    var mobVScale=isMobNet?(H/W)*0.96:1.0;
     RINGS.forEach(function(r){r.Ry=r.R*mobVScale;});
     nodes=OPS.map(function(op,idx){
       var ring=Math.min(Math.floor(idx/PER_RING),3);
