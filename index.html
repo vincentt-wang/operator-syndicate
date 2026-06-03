@@ -1338,7 +1338,16 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   var W=0,H=0,mx=-9999,my=-9999,mouseIn=false,t=0;
   var N=30; // slightly more nodes for denser network
   var nodes=[],conns={}; // conns = connection registry
-  var spotIdx=0,spotFrame=0,SPOT_INTERVAL=150; // spotlight: cycle every 2.5s
+  // Relay spotlight: 3 phases × 150 frames = 7.5s per node
+  var PHASE=150; // 2.5s per phase at 60fps
+  var rPhase=1,rFrame=0; // phase 0=travel-in, 1=full, 2=fade+travel-out
+  var rCurr=0,rPrev=-1,rNext=-1; // relay indices
+  var mouseHeld=false,mouseHeldF=0; // track 2.5s mouse hold
+  function pickNearest(idx){
+    var best=-1,bd=Infinity;
+    nodes.forEach(function(nd,i){if(i===idx)return;var dx=nodes[idx].x-nd.x,dy=nodes[idx].y-nd.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=i;}});
+    return best<0?((idx+1)%nodes.length):best;
+  }
   var FORM_D=220,HOLD_D=340; // form at 220px, hold up to 340px
   var CONN_LIFE=260; // ~4.3s — faster turnover for dynamic feel
 
@@ -1386,15 +1395,38 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     var cx=isMob?ghostX:(mouseIn&&mx>-9000?mx:-9999);
     var cy=isMob?ghostY:(mouseIn&&my>-9000?my:-9999);
 
-    // Spotlight: cycle every 2.5s, or follow nearest node when mouse is in
+    // Relay spotlight: transmission chain with 3 phases
     if(mouseIn&&cx>-9000){
-      var mD3=9999;
-      nodes.forEach(function(nd,i){var dx=nd.x-cx,dy=nd.y-cy,d=Math.sqrt(dx*dx+dy*dy);if(d<mD3){mD3=d;spotIdx=i;}});
-      spotFrame=0;
+      // Find nearest node to cursor
+      var mD3=9999,nearI=0;
+      nodes.forEach(function(nd,i){var dx=nd.x-cx,dy=nd.y-cy,d=Math.sqrt(dx*dx+dy*dy);if(d<mD3){mD3=d;nearI=i;}});
+      mouseHeldF++;
+      if(!mouseHeld&&mouseHeldF>PHASE){
+        mouseHeld=true; // after 2.5s, lock node to cursor
+      }
+      if(mouseHeld){
+        rCurr=nearI;rPhase=1;rFrame=0; // hold at full bright
+      }
     } else {
-      spotFrame++;
-      if(spotFrame>=SPOT_INTERVAL){spotFrame=0;spotIdx=(spotIdx+1)%nodes.length;}
+      mouseHeld=false;mouseHeldF=0;
+      rFrame++;
+      if(rFrame>=PHASE){
+        rFrame=0;
+        rPhase=(rPhase+1)%3;
+        if(rPhase===0){
+          // Phase 0 start: advance relay to next node
+          rPrev=rCurr;
+          rCurr=rNext>=0?rNext:pickNearest(rCurr);
+          rNext=pickNearest(rCurr);
+        } else if(rPhase===2){
+          // Phase 2 start: precompute where we'll travel to
+          rNext=pickNearest(rCurr);
+        }
+      }
+      // Init rNext if not set
+      if(rNext<0&&nodes.length>0)rNext=pickNearest(rCurr);
     }
+    var tProg=rFrame/PHASE; // 0→1 within current phase
 
     // Update node positions
     nodes.forEach(function(nd){
@@ -1441,8 +1473,9 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
         // Boost near cursor
         var boost=1;
         if(cx>-9000){var midX=(nd2.x+nodes[nb.j].x)/2,midY=(nd2.y+nodes[nb.j].y)/2;var md2=(midX-cx)*(midX-cx)+(midY-cy)*(midY-cy);if(md2<200*200)boost=1+(1-Math.sqrt(md2)/200)*3.5;}
-        var isSpotConn=(ni2===spotIdx||nb.j===spotIdx);
-        var al=(pulse*(isSpotConn?.18:.04)*boost).toFixed(3);
+        var isSpotConn=(ni2===rCurr||nb.j===rCurr);
+        var spotBright=rPhase===1?1:(rPhase===0?tProg:(1-tProg));
+        var al=(pulse*(isSpotConn?.18*spotBright:.04)*boost).toFixed(3);
         ctx.strokeStyle='rgba(180,55,0,'+al+')';
         ctx.lineWidth=(.5+pulse*.4)*Math.min(boost,2);
         ctx.beginPath();ctx.moveTo(nd2.x,nd2.y);ctx.lineTo(nodes[nb.j].x,nodes[nb.j].y);ctx.stroke();
@@ -1464,34 +1497,49 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       ctx.beginPath();ctx.arc(cx,cy,80,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
     }
 
-    // Sun-glow nodes with spotlight
+    // Sun-glow nodes with relay spotlight
     nodes.forEach(function(nd,ni){
-      var isSpot=(ni===spotIdx);
-      var dimFactor=isSpot?1:.15; // non-spotlight nodes at 15% brightness
+      // Compute this node's brightness based on relay phase
+      var bright=.15; // default dim
+      if(ni===rCurr){
+        bright=rPhase===1?1:(rPhase===0?tProg:(1-tProg));
+      } else if(ni===rNext&&rPhase===2){
+        bright=tProg*.35; // next node starts faintly glowing as it receives
+      } else if(ni===rPrev&&rPhase===0){
+        bright=Math.max(.15,(1-tProg)*.35); // previous fades out
+      }
+      var isActive=bright>0.4;
+      var r=isActive?(10+bright*12):10;
       // Outer corona glow
-      var r=isSpot?22:10;
       var g2=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,r);
-      g2.addColorStop(0,'rgba(255,120,0,'+(isSpot?.28:.04)+')');
-      g2.addColorStop(.5,'rgba(255,80,0,'+(isSpot?.12:.02)+')');
+      g2.addColorStop(0,'rgba(255,120,0,'+(bright*.28).toFixed(3)+')');
+      g2.addColorStop(.5,'rgba(255,80,0,'+(bright*.10).toFixed(3)+')');
       g2.addColorStop(1,'rgba(255,80,0,0)');
       ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=g2;ctx.fill();
-      // Mid ring
-      var g3=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,isSpot?6:3.5);
-      g3.addColorStop(0,'rgba(255,180,80,'+(isSpot?.80:.18)+')');
-      g3.addColorStop(1,'rgba(255,100,0,'+(isSpot?.25:.05)+')');
-      ctx.beginPath();ctx.arc(nd.x,nd.y,isSpot?6:3.5,0,Math.PI*2);ctx.fillStyle=g3;ctx.fill();
-      // Bright core
-      var pulse=isSpot?(.7+.3*Math.sin(t*2.5+ni*.8)):1;
-      var coreR=isSpot?2.8*pulse:1.5;
-      ctx.beginPath();ctx.arc(nd.x,nd.y,coreR,0,Math.PI*2);
-      ctx.fillStyle='rgba(255,200,120,'+(isSpot?.80:.12)+')';ctx.fill();
-      // Spotlight: extra outer glow ring
-      if(isSpot){
-        var gS=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,36);
-        gS.addColorStop(0,'rgba(255,100,0,.12)');gS.addColorStop(1,'rgba(255,100,0,0)');
-        ctx.beginPath();ctx.arc(nd.x,nd.y,36,0,Math.PI*2);ctx.fillStyle=gS;ctx.fill();
-      }
+      // Core dot
+      var coreR=3.5+bright*2.5;
+      var g3=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,coreR);
+      g3.addColorStop(0,'rgba(255,200,120,'+(bright*.85+.12).toFixed(3)+')');
+      g3.addColorStop(1,'rgba(255,100,0,'+(bright*.20+.03).toFixed(3)+')');
+      ctx.beginPath();ctx.arc(nd.x,nd.y,coreR,0,Math.PI*2);ctx.fillStyle=g3;ctx.fill();
     });
+
+    // Travel dot — the "signal" traveling between nodes
+    var travelFrom=null,travelTo=null,travelAlpha=0;
+    if(rPhase===0&&rPrev>=0){travelFrom=nodes[rPrev];travelTo=nodes[rCurr];travelAlpha=tProg;}
+    if(rPhase===2&&rNext>=0){travelFrom=nodes[rCurr];travelTo=nodes[rNext];travelAlpha=tProg;}
+    if(travelFrom&&travelTo){
+      var tx=travelFrom.x+(travelTo.x-travelFrom.x)*travelAlpha;
+      var ty=travelFrom.y+(travelTo.y-travelFrom.y)*travelAlpha;
+      // Traveling dot glow
+      var tg=ctx.createRadialGradient(tx,ty,0,tx,ty,20);
+      tg.addColorStop(0,'rgba(255,150,50,.55)');tg.addColorStop(1,'rgba(255,100,0,0)');
+      ctx.beginPath();ctx.arc(tx,ty,20,0,Math.PI*2);ctx.fillStyle=tg;ctx.fill();
+      ctx.beginPath();ctx.arc(tx,ty,4,0,Math.PI*2);ctx.fillStyle='rgba(255,220,120,.90)';ctx.fill();
+      // Trailing line from source to dot
+      ctx.beginPath();ctx.moveTo(travelFrom.x,travelFrom.y);ctx.lineTo(tx,ty);
+      ctx.strokeStyle='rgba(200,80,0,'+(travelAlpha*.22).toFixed(3)+')';ctx.lineWidth=1.2;ctx.stroke();
+    }
   }
   resize();window.addEventListener('resize',resize,{passive:true});loop();
 })();
