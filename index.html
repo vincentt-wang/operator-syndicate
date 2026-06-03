@@ -790,6 +790,9 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
   <div style="position:relative">
     <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
+    <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
+      <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
+    </div>
     <div id="net-tooltip" class="network-tooltip">
       <div id="nt-company" class="nt-company"></div>
       <div id="nt-title" class="nt-title"></div>
@@ -1615,20 +1618,20 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       var isH=i===hovI;var r=isH?nd.r*1.7:nd.r;
       ctx.save();ctx.globalAlpha=nd.alpha;
       if(isH){ctx.shadowColor=nd.op.cl;ctx.shadowBlur=24;}
-      // Draw hover: gradient bg + attempt photo overlay + ring
+      // Draw hover: canvas just draws ring glow — DOM overlay handles photo
       if(isH){
-        // 1. Gradient background for hover circle
-        var bg=ctx.createRadialGradient(nd.x,nd.y*0.95,0,nd.x,nd.y,r);
-        bg.addColorStop(0,nd.op.cl);bg.addColorStop(1,nd.op.cl+'88');
+        var bg=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,r);
+        bg.addColorStop(0,nd.op.cl+'66');bg.addColorStop(1,nd.op.cl+'11');
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();
         ctx.restore();
-        // 2. Photo on top (clipped circle)
-        if(nd.op.imgLoaded){
-          ctx.save();ctx.globalAlpha=nd.alpha;
-          ctx.beginPath();ctx.arc(nd.x,nd.y,r*.96,0,Math.PI*2);ctx.clip();
-          ctx.drawImage(nd.op.imgEl,nd.x-r*.96,nd.y-r*.96,r*1.92,r*1.92);
-          ctx.restore();
-        } else {
+        ctx.save();ctx.globalAlpha=nd.alpha;
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);
+        ctx.strokeStyle=nd.op.cl;ctx.lineWidth=3;ctx.stroke();
+        var pRing=.5+.5*Math.sin(frame*.06);
+        ctx.beginPath();ctx.arc(nd.x,nd.y,r+8+pRing*6,0,Math.PI*2);
+        ctx.strokeStyle='rgba(255,255,255,'+(.18*pRing).toFixed(2)+')';ctx.lineWidth=1.5;ctx.stroke();
+        ctx.restore();
+            } else {
           // Fallback: large initials
           ctx.save();ctx.globalAlpha=nd.alpha;
           ctx.fillStyle='rgba(255,255,255,.9)';ctx.font='bold '+Math.round(r*.62)+'px Inter,system-ui';
@@ -1663,11 +1666,26 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       ctx.restore();
     });
 
-    // Tooltip
+    // DOM avatar overlay
+    var avOv=document.getElementById('op-av-ov'),avImg=document.getElementById('op-av-img');
+    if(hovI>=0&&avOv){
+      var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
+      var r=nd.r*1.7,px=nd.x*(cr.width/W)+(cr.left-cr2.left),py=nd.y*(cr.height/H)+(cr.top-cr2.top);
+      avOv.style.left=(px-r)+'px';avOv.style.top=(py-r)+'px';
+      avOv.style.width=(r*2)+'px';avOv.style.height=(r*2)+'px';
+      avOv.style.opacity='1';avOv.style.transform='scale(1)';
+      if(avImg){
+        avImg.style.width=(r*2)+'px';avImg.style.height=(r*2)+'px';
+        var ns='https://i.pravatar.cc/100?img='+nd.op.img;
+        if(!avImg.src.endsWith('img='+nd.op.img))avImg.src=ns;
+        avImg.style.borderColor=nd.op.cl;
+      }
+    }else if(avOv){avOv.style.opacity='0';avOv.style.transform='scale(.75)';}
+    // Tooltip (name + title, offset to side)
     if(hovI>=0&&tip){
       var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
-      tip.style.left=(nd.x*(cr.width/W)+(cr.left-cr2.left)+50)+'px';
-      tip.style.top=(nd.y*(cr.height/H)+(cr.top-cr2.top)-20)+'px';
+      var r=nd.r*1.7,px=nd.x*(cr.width/W)+(cr.left-cr2.left),py=nd.y*(cr.height/H)+(cr.top-cr2.top);
+      tip.style.left=(px+r+12)+'px';tip.style.top=(py-24)+'px';
       if(tipCo){tipCo.textContent=nd.op.co;tipCo.style.background=nd.op.cl+'22';tipCo.style.color=nd.op.cl;}
       if(tipTi)tipTi.innerHTML='<strong style="color:#fff;display:block;margin-bottom:3px">'+nd.op.n+'</strong>'+nd.op.t;
       tip.classList.add('vis');
