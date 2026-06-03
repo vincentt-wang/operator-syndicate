@@ -1588,16 +1588,16 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   function initNodes(){
     CX=W/2; CY=H/2+20;
     var isMobNet=(W<600);
-    BASE_R=Math.min(W,H)*(isMobNet?0.28:0.38);
-    RINGS[0].R=BASE_R*(isMobNet?1.0:1.05);
-    RINGS[1].R=BASE_R*(isMobNet?0.75:0.80);
-    RINGS[2].R=BASE_R*(isMobNet?0.50:0.56);
-    RINGS[3].R=BASE_R*(isMobNet?0.26:0.30);
+    BASE_R=Math.min(W,H)*(isMobNet?0.38:0.38);
+    RINGS[0].R=BASE_R*(isMobNet?1.08:1.05);
+    RINGS[1].R=BASE_R*(isMobNet?0.80:0.80);
+    RINGS[2].R=BASE_R*(isMobNet?0.55:0.56);
+    RINGS[3].R=BASE_R*(isMobNet?0.28:0.30);
     nodes=OPS.map(function(op,idx){
       var ring=Math.min(Math.floor(idx/PER_RING),3);
       var pos=idx-ring*PER_RING;
       var startAngle=pos*(Math.PI*2/PER_RING)+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?16:26),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:26,alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
