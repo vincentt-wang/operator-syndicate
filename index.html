@@ -840,6 +840,9 @@ footer{background:#060F1E;padding:72px 0 0}
       <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff">$20K USD</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)">Minimum per deal</div></div>
     </div>
   </div>
+    <div style="text-align:center;padding:.5rem 0 2.5rem">
+      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
+    </div>
 </section>
 
 <!-- INVESTMENT TIERS -->
@@ -1216,6 +1219,9 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="eco-photo-item"><img src="https://picsum.photos/seed/nexia-corp/300/190" alt="Nexia" loading="lazy"><div class="eco-photo-label">Nexia</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/oracore-hq/300/190" alt="Oracore" loading="lazy"><div class="eco-photo-label">Oracore</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/globex-office/300/190" alt="Globex" loading="lazy"><div class="eco-photo-label">Globex</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/acs-campus/300/190" alt="ACS" loading="lazy"><div class="eco-photo-label">ACS</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/salesbridge/300/190" alt="SalesBridge" loading="lazy"><div class="eco-photo-label">SalesBridge</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/microtek-lab/300/190" alt="Microtek" loading="lazy"><div class="eco-photo-label">Microtek</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/appworks-tw/300/190" alt="AppWorks" loading="lazy"><div class="eco-photo-label">AppWorks</div></div>
       <div class="eco-photo-item"><img src="https://picsum.photos/seed/nexia-corp/300/190" alt="Nexia" loading="lazy"><div class="eco-photo-label">Nexia</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/oracore-hq/300/190" alt="Oracore" loading="lazy"><div class="eco-photo-label">Oracore</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/globex-office/300/190" alt="Globex" loading="lazy"><div class="eco-photo-label">Globex</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/acs-campus/300/190" alt="ACS" loading="lazy"><div class="eco-photo-label">ACS</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/salesbridge/300/190" alt="SalesBridge" loading="lazy"><div class="eco-photo-label">SalesBridge</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/microtek-lab/300/190" alt="Microtek" loading="lazy"><div class="eco-photo-label">Microtek</div></div><div class="eco-photo-item"><img src="https://picsum.photos/seed/appworks-tw/300/190" alt="AppWorks" loading="lazy"><div class="eco-photo-label">AppWorks</div></div>
     </div>
+  </div>
+  <div style="text-align:center;padding:1.5rem 0 .5rem">
+    <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">Meet All Operators →</a>
   </div>
 </section>
 
@@ -1758,6 +1764,13 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     if(hovI>=0&&nodes[hovI]){var rn=nodes[hovI];rn.ret=true;rn.retFromX=rn.x;rn.retFromY=rn.y;rn.retF=0;rn.stickX=null;rn.stickY=null;}
     mx=-9999;my=-9999;hovI=-1;prevHovI=-1;
   });
+  // Click on hovered node → open operators.html at that person's card
+  canvas.addEventListener('click',function(){
+    if(hovI>=0&&nodes[hovI]){
+      window.location.href='operators.html#op-'+(hovI+1);
+    }
+  });
+  canvas.style.cursor='default';
 
   var tip=document.getElementById('net-tooltip'),tipCo=document.getElementById('nt-company'),tipTi=document.getElementById('nt-title');
   var sec=document.getElementById('network');

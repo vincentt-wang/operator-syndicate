@@ -213,7 +213,7 @@ function renderCard(op){
     ? 'https://i.pravatar.cc/150?img='+op.img
     : 'https://placehold.co/150x150/'+op.companyColor.slice(1)+'/FFFFFF?text=LP';
 
-  return '<div class="op-card" data-company="'+op.companyKey+'" data-name="'+nameDisplay.toLowerCase()+'" data-title="'+op.title.toLowerCase()+'">'
+  return '<div class="op-card" id="op-'+op.id+'" data-company="'+op.companyKey+'" data-name="'+nameDisplay.toLowerCase()+'" data-title="'+op.title.toLowerCase()+'">' 
     +'<div class="op-card-top">'
     +'<img class="op-avatar" src="'+avatarUrl+'" alt="'+nameDisplay+'" style="border-color:'+op.companyColor+'44" loading="lazy">'
     +'<div>'
