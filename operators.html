@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operator Network — Operator Syndicate</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF6600;--orange-2:#E55A00;--orange-pale:#FFF7ED;
+  --navy:#0A1628;--text:#0F172A;--text-2:#1E293B;--text-3:#475569;--text-4:#94A3B8;
+  --bg:#F8FAFC;--white:#FFFFFF;--border:rgba(15,23,42,.08);--border-2:rgba(15,23,42,.14);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);
+  --shadow-md:0 2px 8px rgba(0,0,0,.06),0 16px 40px rgba(0,0,0,.10);
+  --r:16px;--ease:cubic-bezier(.4,0,.2,1);
+  --fd:'Playfair Display','Noto Serif TC',serif;
+  --fb:'DM Sans','Noto Sans TC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* Header */
+.site-header{background:var(--navy);padding:2rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.header-logo{display:flex;align-items:center;gap:10px}
+.lm{display:flex;flex-direction:column;gap:4px}
+.lm-b{height:2px;background:var(--orange);border-radius:2px}
+.lm-b:nth-child(1){width:14px}.lm-b:nth-child(2){width:22px}.lm-b:nth-child(3){width:14px}
+.logo-text{font-family:var(--fd);font-weight:800;font-size:.95rem;color:#fff}
+.logo-tag{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);background:rgba(255,102,0,.12);border:1px solid rgba(255,102,0,.25);border-radius:4px;padding:2px 7px}
+.back-link{font-size:.88rem;color:rgba(255,255,255,.55);transition:color .2s;display:flex;align-items:center;gap:.4rem}
+.back-link:hover{color:#fff}
+.back-link svg{width:14px;height:14px}
+.confidential-badge{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,102,0,.8);background:rgba(255,102,0,.1);border:1px solid rgba(255,102,0,.2);border-radius:4px;padding:4px 10px}
+
+/* Hero */
+.page-hero{background:var(--navy);padding:4rem 0 3rem;text-align:center}
+.page-hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4vw,3rem);color:#fff;letter-spacing:-.02em;margin-bottom:.75rem}
+.page-hero p{font-size:1.05rem;color:rgba(255,255,255,.5);max-width:520px;margin:0 auto 2.5rem}
+.stats-row{display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.stat-item{padding:0 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff;line-height:1}
+.stat-l{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.3rem;letter-spacing:.04em}
+
+/* Container */
+.container{max-width:1180px;margin:0 auto;padding:0 2rem}
+
+/* Filter */
+.filter-bar{padding:2rem 0 1.5rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.filter-btn{font-family:var(--fb);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:20px;border:1.5px solid var(--border-2);color:var(--text-3);background:var(--white);cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--orange);color:var(--orange)}
+.filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+/* Search */
+.search-wrap{padding:0 0 2rem;position:relative}
+.search-input{width:100%;max-width:360px;padding:11px 16px 11px 40px;border:1.5px solid var(--border-2);border-radius:10px;font-family:var(--fb);font-size:.95rem;outline:none;transition:border-color .2s;background:var(--white)}
+.search-input:focus{border-color:var(--orange)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-4);width:16px;height:16px}
+
+/* Grid */
+.ops-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;padding-bottom:4rem}
+
+/* Card */
+.op-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .3s var(--ease);cursor:default;position:relative}
+.op-card:hover{box-shadow:var(--shadow-md);transform:translateY(-5px);border-color:rgba(255,102,0,.25)}
+.op-card-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+.op-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2.5px solid;flex-shrink:0}
+.op-name{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-.01em;margin-bottom:.2rem}
+.op-company{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:12px;display:inline-block}
+.op-title{font-size:.9rem;color:var(--text-3);line-height:1.5;margin-bottom:1rem}
+.op-meta{display:flex;gap:.5rem;flex-wrap:wrap}
+.op-tag{font-size:.72rem;font-weight:600;color:var(--text-4);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:2px 9px}
+.op-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.op-years{font-size:.78rem;color:var(--text-4)}
+.op-linkedin{width:28px;height:28px;border-radius:7px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-4);transition:all .2s;opacity:0}
+.op-card:hover .op-linkedin{opacity:1}
+.op-linkedin:hover{border-color:#0077B5;color:#0077B5}
+.op-linkedin svg{width:13px;height:13px}
+/* Placeholder card for pending members */
+.op-card.pending{background:var(--bg);border-style:dashed;border-color:var(--border)}
+.op-card.pending .op-name{color:var(--text-4)}
+.pending-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-4);margin-bottom:.5rem}
+
+/* Section label */
+.section-label{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-4);padding:2rem 0 1rem;display:flex;align-items:center;gap:.75rem}
+.section-label::before{content:'';height:1px;flex:1;background:var(--border)}
+.section-label::after{content:'';height:1px;flex:1;background:var(--border)}
+
+/* Footer */
+.page-footer{background:var(--navy);padding:2rem;text-align:center;font-size:.82rem;color:rgba(255,255,255,.3)}
+
+/* Responsive */
+@media(max-width:600px){
+  .stats-row .stat-item{padding:0 1.25rem}
+  .ops-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:420px){
+  .ops-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
+      <span class="logo-text">Operator Syndicate</span>
+      <span class="logo-tag">DEMO</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span class="confidential-badge">Confidential</span>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to main site
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem">The Operator Network</div>
+    <h1>50+ Senior Operators.<br>One Syndicate.</h1>
+    <p>VP and Director-level executives across five enterprise companies — each bringing direct procurement access.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-n" id="total-count">20</div><div class="stat-l">OPERATORS</div></div>
+      <div class="stat-item"><div class="stat-n">5</div><div class="stat-l">COMPANIES</div></div>
+      <div class="stat-item"><div class="stat-n">$20K</div><div class="stat-l">USD MIN / DEAL</div></div>
+      <div class="stat-item"><div class="stat-n">TW · SEA · JP</div><div class="stat-l">MARKETS</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="nexia">Nexia</button>
+    <button class="filter-btn" data-filter="oracore">Oracore</button>
+    <button class="filter-btn" data-filter="globex">Globex</button>
+    <button class="filter-btn" data-filter="acs">ACS</button>
+    <button class="filter-btn" data-filter="others">Others</button>
+  </div>
+
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input class="search-input" id="searchInput" type="text" placeholder="Search by name or title...">
+  </div>
+
+  <div class="ops-grid" id="opsGrid"></div>
+</div>
+
+<footer class="page-footer">
+  Operator Syndicate · Confidential — For Internal Use Only · All data subject to LP consent ·
+  <a href="mailto:contact@operatorsyndicate.com" style="color:var(--orange);opacity:.7">contact@operatorsyndicate.com</a>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   OPERATOR DATA — edit this array to add/update members
+
+   Required fields: id, name, company, companyKey, companyColor, title, img
+   Optional fields: linkedin, years, focus, visible, fullName
+
+   companyKey: 'nexia' | 'oracore' | 'globex' | 'acs' | 'others'
+   img: number from https://i.pravatar.cc/150?img=N (1–70)
+   visible: true = show name; false = show as "Anonymous LP"
+═══════════════════════════════════════════════ */
+var OPERATORS = [
+  // ── NEXIA ──────────────────────────────────────────
+  {id:1, name:'James C.',      company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'VP, Enterprise Solutions',          img:1,  linkedin:'', years:8,  focus:'Cloud · Enterprise SaaS',    visible:true},
+  {id:2, name:'Michelle L.',   company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Director, Global Strategic Accounts',img:5,  linkedin:'', years:6,  focus:'Strategic Partnerships',     visible:true},
+  {id:3, name:'Sarah K.',      company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Head of Partnerships, APAC',         img:9,  linkedin:'', years:5,  focus:'APAC · B2B SaaS',            visible:true},
+  {id:4, name:'Ryan H.',       company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Senior Manager, Cloud Business',     img:13, linkedin:'', years:4,  focus:'Cloud Infrastructure',       visible:true},
+  {id:5, name:'Amy T.',        company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'VP, Business Development Asia',      img:17, linkedin:'', years:7,  focus:'Market Expansion · Asia',    visible:true},
+  // ── ORACORE ────────────────────────────────────────
+  {id:6, name:'Patrick L.',    company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Regional Sales Director, APAC',      img:21, linkedin:'', years:9,  focus:'Database · Enterprise',      visible:true},
+  {id:7, name:'Wayne C.',      company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'VP, Database & Cloud Solutions',     img:25, linkedin:'', years:11, focus:'Cloud Migration · SaaS',     visible:true},
+  {id:8, name:'Yvonne M.',     company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Head of Enterprise Accounts',        img:29, linkedin:'', years:7,  focus:'Enterprise Accounts',        visible:true},
+  {id:9, name:'David T.',      company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Director, Channel Partners',         img:33, linkedin:'', years:6,  focus:'Channel · Resellers',        visible:true},
+  // ── GLOBEX ─────────────────────────────────────────
+  {id:10,name:'Henry C.',      company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'VP, Cloud Infrastructure',           img:37, linkedin:'', years:8,  focus:'Cloud · AI/ML',              visible:true},
+  {id:11,name:'Emma M.',       company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Director, B2B Partnerships',         img:41, linkedin:'', years:5,  focus:'B2B · Developer Tools',      visible:true},
+  {id:12,name:'Kevin W.',      company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Head of Startup Ecosystem',          img:45, linkedin:'', years:4,  focus:'Startups · GTM',             visible:true},
+  {id:13,name:'Lisa N.',       company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Senior Partner Manager',             img:49, linkedin:'', years:6,  focus:'Partner Ecosystem',          visible:true},
+  {id:14,name:'Ben K.',        company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'VP, Enterprise Sales APAC',          img:53, linkedin:'', years:10, focus:'Enterprise Sales · APAC',    visible:true},
+  // ── ACS ────────────────────────────────────────────
+  {id:15,name:'Thomas C.',     company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Head of Startup Programs',           img:57, linkedin:'', years:5,  focus:'Startups · Cloud Credits',   visible:true},
+  {id:16,name:'Grace S.',      company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Director, Enterprise Architecture',  img:61, linkedin:'', years:7,  focus:'Enterprise Architecture',    visible:true},
+  {id:17,name:'Michael R.',    company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'VP, Channel Partnerships',           img:65, linkedin:'', years:9,  focus:'Channel · ISV',              visible:true},
+  {id:18,name:'Nancy P.',      company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Regional Manager, Cloud Sales',      img:68, linkedin:'', years:4,  focus:'Cloud Sales · APAC',         visible:true},
+  // ── OTHERS ─────────────────────────────────────────
+  {id:19,name:'Frank Y.',      company:'SalesBridge',companyKey:'others',companyColor:'#10B981', title:'VP, Digital Transformation',         img:3,  linkedin:'', years:8,  focus:'Digital Transformation',     visible:true},
+  {id:20,name:'Alex L.',       company:'Microtek', companyKey:'others', companyColor:'#6B7280', title:'Director, Enterprise APAC',          img:7,  linkedin:'', years:6,  focus:'Enterprise Sales',           visible:true},
+];
+
+/* ════════════ RENDER ════════════ */
+var currentFilter = 'all';
+var searchTerm    = '';
+
+function companyBg(color){ return color+'18'; }
+
+function renderCard(op){
+  var nameDisplay = op.visible ? op.name : 'Anonymous LP';
+  var avatarUrl   = op.visible
+    ? 'https://i.pravatar.cc/150?img='+op.img
+    : 'https://placehold.co/150x150/'+op.companyColor.slice(1)+'/FFFFFF?text=LP';
+
+  return '<div class="op-card" data-company="'+op.companyKey+'" data-name="'+nameDisplay.toLowerCase()+'" data-title="'+op.title.toLowerCase()+'">'
+    +'<div class="op-card-top">'
+    +'<img class="op-avatar" src="'+avatarUrl+'" alt="'+nameDisplay+'" style="border-color:'+op.companyColor+'44" loading="lazy">'
+    +'<div>'
+    +'<div class="op-name">'+nameDisplay+'</div>'
+    +'<span class="op-company" style="background:'+companyBg(op.companyColor)+';color:'+op.companyColor+'">'+op.company+'</span>'
+    +'</div>'
+    +'</div>'
+    +'<div class="op-title">'+op.title+'</div>'
+    +'<div class="op-meta">'
+    +op.focus.split('·').map(function(f){return '<span class="op-tag">'+f.trim()+'</span>';}).join('')
+    +'</div>'
+    +'<div class="op-footer">'
+    +'<span class="op-years">'+op.years+'+ yrs at '+op.company+'</span>'
+    +(op.linkedin
+      ? '<a class="op-linkedin" href="'+op.linkedin+'" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>'
+      : '<span class="op-linkedin" style="opacity:0;pointer-events:none"></span>'
+    )
+    +'</div>'
+    +'</div>';
+}
+
+function renderAll(){
+  var filtered = OPERATORS.filter(function(op){
+    var matchFilter = currentFilter==='all'||op.companyKey===currentFilter;
+    var matchSearch = !searchTerm||op.name.toLowerCase().includes(searchTerm)||op.title.toLowerCase().includes(searchTerm)||op.company.toLowerCase().includes(searchTerm);
+    return matchFilter&&matchSearch;
+  });
+  var grid = document.getElementById('opsGrid');
+  grid.innerHTML = filtered.map(renderCard).join('');
+  document.getElementById('total-count').textContent = OPERATORS.length+'+';
+}
+
+// Filter buttons
+document.getElementById('filterBar').addEventListener('click',function(e){
+  var btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  currentFilter=btn.dataset.filter;
+  renderAll();
+});
+
+// Search
+document.getElementById('searchInput').addEventListener('input',function(e){
+  searchTerm=e.target.value.toLowerCase();
+  renderAll();
+});
+
+renderAll();
+</script>
+</body>
+</html>
