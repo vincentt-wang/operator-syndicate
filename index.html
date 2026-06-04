@@ -468,7 +468,7 @@ footer{background:#060F1E;padding:72px 0 0}
 .eco-right{animation:eco-roll-r 44s linear infinite}
 @keyframes eco-roll-l{to{transform:translateX(-50%)}}
 @keyframes eco-roll-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.eco-card{flex-shrink:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1.5rem 1rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;min-width:180px;transition:background .25s,border-color .25s;cursor:default}
+.eco-card{flex-shrink:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1.5rem 1rem;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;min-width:180px;transition:background .25s,border-color .25s;cursor:pointer}
 .eco-card:hover{background:rgba(255,102,0,.1);border-color:rgba(255,102,0,.35)}
 .eco-logo{width:100%;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:1.1rem;letter-spacing:.03em;color:#fff;margin-bottom:.2rem}
 .eco-card-name{font-family:var(--fd);font-weight:700;font-size:.95rem;color:rgba(255,255,255,.85);white-space:nowrap}
@@ -569,7 +569,7 @@ footer{background:#060F1E;padding:72px 0 0}
 .eco-photo-strip{overflow:hidden;margin-top:2.5rem;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
 .eco-photo-track{display:flex;gap:1.25rem;width:max-content;animation:eco-roll-l 45s linear infinite}
 .eco-photo-track:hover{animation-play-state:running}
-.eco-photo-item{flex-shrink:0;position:relative;border-radius:14px;overflow:hidden;cursor:default}
+.eco-photo-item{flex-shrink:0;position:relative;border-radius:14px;overflow:hidden;cursor:pointer}
 .eco-photo-item img{width:300px;height:190px;object-fit:cover;display:block;transition:transform .4s var(--ease)}
 .eco-photo-item:hover img{transform:scale(1.05)}
 .eco-photo-label{position:absolute;bottom:0;left:0;right:0;padding:.6rem .9rem;background:linear-gradient(to top,rgba(10,22,40,.8),transparent);font-family:var(--fd);font-weight:700;font-size:.88rem;color:#fff;letter-spacing:.02em}
@@ -1430,6 +1430,31 @@ function applyLang(l){
 }
 function toggleLang(){applyLang(lang==='en'?'zh':'en');}
 applyLang(lang);
+
+/* ── ECO CARD CLICK: navigate to operators.html with company filter ── */
+(function(){
+  var companyMap={
+    'nexia':'nexia','oracore':'oracore','globex':'globex','acs':'acs',
+    'salesbridge':'others','microtek':'others','vertex ventures':'others',
+    'appworks':'','itic':'','tmba':'','tta':'','rotarex b2b':'','gva':'',
+    'meridian ventures':'others','pacific seed capital':'others',
+    'east horizon capital':'others','cornerstone capital':'others','skybridge partners':'others'
+  };
+  document.addEventListener('click',function(e){
+    var card=e.target.closest('.eco-card');
+    if(!card)return;
+    var nameEl=card.querySelector('.eco-card-name');
+    if(!nameEl)return;
+    var co=(nameEl.textContent||'').toLowerCase().trim();
+    var filter=companyMap[co];
+    if(filter===undefined)return; // not in map
+    if(filter){
+      window.location.href='operators.html?company='+filter;
+    } else {
+      window.location.href='operators.html';
+    }
+  });
+})();
 
 /* ── NAV + SCROLL ── */
 var bar=document.getElementById('bar'),navEl=document.getElementById('nav'),heroEl=document.getElementById('hero'),cue=document.getElementById('scrollCue');

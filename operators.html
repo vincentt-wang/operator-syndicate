@@ -204,6 +204,16 @@ var OPERATORS = [
 /* ════════════ RENDER ════════════ */
 var currentFilter = 'all';
 var searchTerm    = '';
+// Read URL parameter and apply filter on load
+(function(){
+  try{
+    var params=new URLSearchParams(window.location.search);
+    var co=params.get('company');
+    if(co&&['nexia','oracore','globex','acs','others'].indexOf(co)>=0){
+      currentFilter=co;
+    }
+  }catch(e){}
+})();
 
 function companyBg(color){ return color+'18'; }
 
@@ -253,7 +263,20 @@ document.getElementById('filterBar').addEventListener('click',function(e){
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   currentFilter=btn.dataset.filter;
-  renderAll();
+  // Sync filter button states with currentFilter
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.classList.toggle('active', btn.dataset.filter===currentFilter);
+});
+renderAll();
+// Scroll to highlighted card if #op-N in URL
+if(window.location.hash){
+  setTimeout(function(){
+    var el=document.querySelector(window.location.hash);
+    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.boxShadow='0 0 0 3px rgba(255,102,0,.5),0 8px 32px rgba(255,102,0,.2)';
+      setTimeout(function(){el.style.boxShadow='';},2500);}
+  },300);
+}
 });
 
 // Search
