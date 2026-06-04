@@ -666,7 +666,7 @@ footer{background:#060F1E;padding:72px 0 0}
           <div><div class="portal-stat-n">100%</div><div class="portal-stat-l" data-en="Confidential" data-zh="嚴格保密">Confidential</div></div>
         </div>
       </div>
-      <form class="pform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="pSubmit(event)">
+      <form class="pform" action="https://formsubmit.co/vincent@easeai.com.tw" method="POST" onsubmit="pSubmit(event)">
         <div><div class="pform-label" data-en="Company Name" data-zh="公司名稱">Company Name</div><input class="pinput" name="company" type="text" required placeholder="Acme Corp"></div>
         <div><div class="pform-label" data-en="Email" data-zh="Email">Email</div><input class="pinput" name="email" type="email" required placeholder="founder@company.com"></div>
         <div><div class="pform-label" data-en="One-Line Pitch" data-zh="一句話描述">One-Line Pitch</div><input class="pinput" name="pitch" type="text" required maxlength="140" placeholder="We help [enterprise] do [outcome] via [method]"></div>
@@ -695,7 +695,7 @@ footer{background:#060F1E;padding:72px 0 0}
         </ul>
         <div class="portal-stats"><div><div class="portal-stat-n">$20K</div><div class="portal-stat-l" data-en="USD Min / Deal" data-zh="美元最低 / 案">USD Min / Deal</div></div><div><div class="portal-stat-n">2–3</div><div class="portal-stat-l" data-en="Deals / Month" data-zh="案源 / 月">Deals / Month</div></div></div>
       </div>
-      <form class="pform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="pSubmit(event, 'eSuccessMsg')">
+      <form class="pform" action="https://formsubmit.co/vincent@easeai.com.tw" method="POST" onsubmit="pSubmit(event, 'eSuccessMsg')">
         <div><div class="pform-label" data-en="Your Name" data-zh="姓名">Your Name</div><input class="pinput" name="name" type="text" required placeholder="Jane Chen"></div>
         <div><div class="pform-label" data-en="Work Email" data-zh="工作信箱">Work Email</div><input class="pinput" name="email" type="email" required placeholder="jane@company.com"></div>
         <div><div class="pform-label" data-en="Company & Title" data-zh="公司與職銜">Company & Title</div><input class="pinput" name="title" type="text" placeholder="VP Engineering, Globex"></div>
@@ -1014,7 +1014,7 @@ footer{background:#060F1E;padding:72px 0 0}
         </div>
       </div>
       <!-- Video + quote -->
-      <div style="display:flex;flex-direction:column;gap:1rem">
+      <div style="display:flex;flex-direction:column;gap:.85rem">
         <!-- Fake video -->
         <div style="background:var(--navy);border-radius:14px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer" onclick="showDemoNotice()">
           <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(255,102,0,.2) 0%,transparent 60%)"></div>
@@ -1048,16 +1048,7 @@ footer{background:#060F1E;padding:72px 0 0}
             </div>
           </div>
         </div>
-        <div style="background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:14px;padding:1.5rem">
-          <div style="font-family:var(--fd);font-size:1rem;color:var(--text-2);line-height:1.65;font-style:italic;margin-bottom:1rem" data-en="&ldquo;The deal assessment they sent was unlike anything I'd seen &mdash; clean, direct, no fluff. I knew in minutes exactly where I could add value.&rdquo;" data-zh="「他們的評估文件乾淨、直接、沒有廢話。幾分鐘內我就知道自己能在哪裡加值。」">"The deal assessment they sent was unlike anything I'd seen — clean, direct, no fluff. I knew in minutes exactly where I could add value."</div>
-          <div style="display:flex;align-items:center;gap:.75rem">
-            <img src="https://i.pravatar.cc/48?img=38" alt="" style="width:40px;height:40px;border-radius:50%;flex-shrink:0">
-            <div>
-              <div style="font-family:var(--fd);font-weight:700;font-size:.88rem;color:var(--text)">Sarah K.</div>
-              <div style="font-size:.78rem;color:var(--text-4)" data-en="Head of Partnerships · Nexia LP" data-zh="Head of Partnerships · Nexia LP">Head of Partnerships · Nexia LP</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -1288,7 +1279,10 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="eyebrow" data-en="Stay Updated" data-zh="訂閱更新">Stay Updated</div>
       <h2 style="font-family:var(--fd);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--text);letter-spacing:-.02em;margin-bottom:.75rem" data-en="Not ready to apply yet?" data-zh="還沒準備好提交案源？">Not ready to apply yet?</h2>
       <p style="font-size:1.05rem;color:var(--text-3);margin-bottom:2.5rem" data-en="Leave your email — we'll notify you when we launch and when new operator spots open." data-zh="留下 email，我們 Launch 時第一時間通知你，高管名額開放時也會告訴你。">Leave your email — we'll notify you when we launch and when new operator spots open.</p>
-      <form action="https://formspree.io/f/vincent@easeai.com.tw" method="POST" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center" onsubmit="this.querySelector('button').textContent='Sent ✓';this.querySelector('button').disabled=true;">
+      <form action="https://formsubmit.co/vincent@easeai.com.tw" method="POST" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center" onsubmit="this.querySelector('button').textContent='Sent ✓';this.querySelector('button').disabled=true;">
+        <input type="hidden" name="_subject" value="Operator Syndicate — Launch Notification Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://vincentt-wang.github.io/operator-syndicate/#faq">
         <input type="email" name="email" required placeholder="your@email.com" style="flex:1;min-width:240px;padding:14px 18px;border:1.5px solid var(--border-2);border-radius:var(--r-btn);font-size:1rem;font-family:var(--fb);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--border-2)'">
         <button type="submit" style="padding:14px 28px;background:var(--orange);color:#fff;border:none;border-radius:var(--r-btn);font-family:var(--fb);font-weight:700;font-size:1rem;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--orange-2)'" onmouseout="this.style.background='var(--orange)'" data-en="Notify Me" data-zh="訂閱通知">Notify Me</button>
       </form>
