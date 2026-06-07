@@ -644,6 +644,17 @@ footer{background:#060F1E;padding:72px 0 0}
 }
 .quote-card-boice.reveal.vis{animation-delay:.1s}
 .quote-card-daniel.reveal.vis{animation-delay:.3s}
+
+/* Why comparison table — mobile optimization */
+@media(max-width:600px){
+  #why table{font-size:.78rem!important}
+  #why table th,#why table td{padding:.6rem .5rem!important}
+  #why table th:first-child,#why table td:first-child{padding-left:.6rem!important}
+}
+@media(max-width:420px){
+  #why table{font-size:.7rem!important}
+  #why table th,#why table td{padding:.5rem .3rem!important}
+}
 </style>
 </head>
 <body>
@@ -1476,7 +1487,7 @@ window.addEventListener('scroll',checkReveal,{passive:true});
 window.addEventListener('resize',checkReveal,{passive:true});
 
 /* ── MARQUEE ── */
-(function(){var items=['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','B2B Channels','AI-Screened','Operator Alpha','Enterprise Sales','Taiwan-to-Global','Operator LP','Pre-IPO','Seed Stage'];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){h+='<div class="mq-item"><span class="mq-sep"></span>'+it+'</div>';});t.innerHTML=h;})();
+(function(){var items=['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){h+='<div class="mq-item"><span class="mq-sep"></span>'+it+'</div>';});t.innerHTML=h;})();
 
 /* ── PORTAL ── */
 function openPortal(id){var ov=document.getElementById('portalOv');ov.classList.add('open');document.body.style.overflow='hidden';showStep(id||'ps-select');}
