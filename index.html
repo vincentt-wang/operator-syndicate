@@ -319,6 +319,8 @@ img{max-width:100%;display:block}
 .team-avatar img{width:100%;height:100%;object-fit:cover}
 .team-name{font-family:var(--fd);font-weight:800;font-size:1.1rem;color:var(--text);letter-spacing:-.01em;margin-bottom:.2rem}
 .team-role{font-size:.88rem;color:var(--orange);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem;font-family:var(--fb)}
+.cred-row{display:flex;flex-wrap:wrap;gap:.4rem;margin:.15rem 0 .9rem}
+.cred-chip{font-size:.8rem;font-weight:600;color:var(--orange);background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:6px;padding:.24rem .55rem;font-family:var(--fb);white-space:nowrap;line-height:1.4}
 .team-bio{font-size:1.05rem;color:var(--text-3);line-height:1.72}
 .team-socials{display:flex;gap:.45rem;margin-top:1.1rem}
 .team-socials a{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-4);transition:all .2s}
@@ -432,7 +434,6 @@ footer{background:#060F1E;padding:72px 0 0}
 @keyframes ripple-expand{0%{transform:translate(-50%,-50%) scale(0);opacity:.6}80%{opacity:.1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
 #why .container{position:relative;z-index:1}
 /* PILLARS: distinct background from why */
-
 
 /* Vincent position removed — swap used instead */
 
@@ -933,7 +934,6 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- INVESTMENT TIERS -->
 
-
 <section id="tiers" style="padding:100px 0;background:#111827;position:relative;overflow:hidden">
   <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8"></canvas>
   <div class="container" style="position:relative;z-index:1">
@@ -971,10 +971,8 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-
 <!-- GLOBE -->
 <!-- PARTNERS -->
-
 
 <!-- GALLERY / PROOF SECTION -->
 <section id="global" style="padding:120px 0">
@@ -1216,34 +1214,18 @@ footer{background:#060F1E;padding:72px 0 0}
         <p style="font-size:1.05rem;color:var(--text-3);max-width:320px;line-height:1.65;text-align:right" data-en="A small, focused team with direct experience in enterprise sales, AI systems, and operator LP relations." data-zh="精簡的核心團隊，在企業銷售、AI 系統與高管 LP 關係管理上有第一線實戰經驗">A small, focused team with direct experience in enterprise sales, AI systems, and operator LP relations.</p>
       </div>
     </div>
-    <!-- Track Record Bar -->
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:3rem;padding:1.5rem 2rem;background:var(--orange-pale);border-radius:var(--r);border:1px solid rgba(255,102,0,.15)">
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        <span data-bind-en="trackRecord.0.en" data-bind-zh="trackRecord.0.zh" data-en="Gogolook · TSE Listed" data-zh="Gogolook · 台股上市">Gogolook · TSE Listed</span>
-      </div>
-      <span style="color:var(--border-2)">·</span>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        <span data-bind-en="trackRecord.1.en" data-bind-zh="trackRecord.1.zh" data-en="Appier · JPX Listed" data-zh="Appier · 東証上場">Appier · JPX Listed</span>
-      </div>
-      <span style="color:var(--border-2)">·</span>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span data-bind-en="trackRecord.2.en" data-bind-zh="trackRecord.2.zh" data-en="3 Growth-Stage Exits" data-zh="3 間增長期新創出場">3 Growth-Stage Exits</span>
-      </div>
-      <span style="color:var(--border-2)">·</span>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span data-bind-en="trackRecord.3.en" data-bind-zh="trackRecord.3.zh" data-en="20+ Years · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Years · TW · SEA · Japan</span>
-      </div>
-    </div>
     <div class="team-grid">
       <div class="team-card reveal d1">
         <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=57" alt="Boice Lin" loading="lazy"></div>
         <div class="team-name">Boice Lin</div>
         <div class="team-role" data-en="Founder &amp; Managing Partner" data-zh="創辦人暨執行合夥人">Founder &amp; Managing Partner</div>
         <div class="team-bio" data-en="Aggregated 50+ senior sales operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event." data-zh="聚攏 50+ 位外商高管組成 LP 網絡。負責 Syndicate 架構、LP 關係維護與 2026 年 6 月 Launch 大會。">Aggregated 50+ senior sales operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event.</div>
+        <div class="cred-row">
+          <span class="cred-chip" data-en="Gogolook · TSE Listed" data-zh="Gogolook · 台股上市">Gogolook · TSE Listed</span>
+          <span class="cred-chip" data-en="Appier · JPX Listed" data-zh="Appier · 日股上市">Appier · JPX Listed</span>
+          <span class="cred-chip" data-en="3 Growth-Stage Exits" data-zh="3 次成長期出場">3 Growth-Stage Exits</span>
+          <span class="cred-chip" data-en="20+ Years · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Years · TW · SEA · Japan</span>
+        </div>
         <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
       <div class="team-card reveal d3">
@@ -1260,39 +1242,18 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="team-bio" data-en="Methodology designer and deal gatekeeper. Runs the AI screening system, oversees the rapid deal assessment process, and translates startup technology into executive-language ROI." data-zh="方法論設計師與案源門閘。運行 AI 篩選系統、主導快速決策評估流程，並把新創技術語言轉譯成高管看得懂的 ROI 語言。">Methodology designer and deal gatekeeper. Runs the AI screening system, oversees the rapid deal assessment process, and translates startup technology into executive-language ROI.</div>
         <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
-      <div class="team-card reveal d1">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=25" alt="Jason Lin" loading="lazy"></div>
-        <div class="team-name">Jason Lin</div>
-        <div class="team-role" data-en="AI Research &amp; Analysis" data-zh="AI 研究與分析">AI Research &amp; Analysis</div>
-        <div class="team-bio" data-en="Designs AI screening models and iterates on the deal assessment system. Former deep learning research engineer with focus on enterprise NLP applications." data-zh="負責 AI 篩選模型設計與評估系統品質迭代。前深度學習研究工程師，專注企業 NLP 應用。">Designs AI screening models and iterates on the deal assessment system. Former deep learning research engineer with focus on enterprise NLP applications.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
-      </div>
-      <div class="team-card reveal d2">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=45" alt="Tina Su" loading="lazy"></div>
-        <div class="team-name">Tina Su</div>
-        <div class="team-role" data-en="LP Relations" data-zh="LP 關係管理">LP Relations</div>
-        <div class="team-bio" data-en="Ex-Google Taiwan key accounts. Manages operator LP onboarding, ongoing relations, and pre-launch operator network expansion." data-zh="前 Google Taiwan 大客戶業務。負責運營者 LP 入職流程、持續關係維護與 Launch 前的高管網絡擴展。">Ex-Google Taiwan key accounts. Manages operator LP onboarding, ongoing relations, and pre-launch operator network expansion.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
-      </div>
-      <div class="team-card reveal d3">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=68" alt="David Ko" loading="lazy"></div>
-        <div class="team-name">David Ko</div>
-        <div class="team-role" data-en="Portfolio Operations" data-zh="投組作業">Portfolio Operations</div>
-        <div class="team-bio" data-en="Handles SPV administration, post-investment milestone tracking, and startup communication. Keeps the operational layer running cleanly." data-zh="負責 SPV 行政、投後里程碑追蹤與新創溝通。讓整個運作層保持順暢。">Handles SPV administration, post-investment milestone tracking, and startup communication. Keeps the operational layer running cleanly.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
-      </div>
+
+      
     </div>
     <div class="advisors-wrap reveal">
       <div class="advisors-ey" data-en="Ecosystem Advisors" data-zh="生態系顧問">Ecosystem Advisors</div>
       <div class="advisor-grid">
-        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=47" alt="" loading="lazy"></div><div><div class="advisor-name">Cindy Ho</div><div class="advisor-tag">AppWorks Partner</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=53" alt="" loading="lazy"></div><div><div class="advisor-name">Max Tseng</div><div class="advisor-tag">ITIC Director</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=44" alt="" loading="lazy"></div><div><div class="advisor-name">Sophia Chang</div><div class="advisor-tag">TMBA Managing Partner</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=33" alt="" loading="lazy"></div><div><div class="advisor-name">Ray Wu</div><div class="advisor-tag">Taiwan Tech Arena</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=14" alt="" loading="lazy"></div><div><div class="advisor-name">Eric Lai</div><div class="advisor-tag">Meridian Ventures</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=20" alt="" loading="lazy"></div><div><div class="advisor-name">Karen Lin</div><div class="advisor-tag">Cornerstone Capital</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=8" alt="" loading="lazy"></div><div><div class="advisor-name">Brian Chen</div><div class="advisor-tag">Vertex Ventures SEA</div></div></div>
-        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=36" alt="" loading="lazy"></div><div><div class="advisor-name">Nina Chou</div><div class="advisor-tag">Enterprise Strategy</div></div></div>
       </div>
     </div>
   </div>
@@ -1305,7 +1266,7 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="eyebrow" data-en="Stay Updated" data-zh="訂閱更新">Stay Updated</div>
       <h2 style="font-family:var(--fd);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--text);letter-spacing:-.02em;margin-bottom:.75rem" data-en="Not ready to apply yet?" data-zh="還沒準備好提交案源？">Not ready to apply yet?</h2>
       <p style="font-size:1.05rem;color:var(--text-3);margin-bottom:2.5rem" data-en="Leave your email — we'll notify you when we launch and when new operator spots open." data-zh="留下 email，我們 Launch 時第一時間通知你，高管名額開放時也會告訴你。">Leave your email — we'll notify you when we launch and when new operator spots open.</p>
-      <form action="https://formsubmit.co/vincent@easeai.com.tw" method="POST" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center" onsubmit="this.querySelector('button').textContent='Sent ✓';this.querySelector('button').disabled=true;">
+      <form action="https://formsubmit.co/boicegun@gmail.com" method="POST" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center" onsubmit="this.querySelector('button').textContent='Sent ✓';this.querySelector('button').disabled=true;">
         <input type="hidden" name="_subject" value="EvoScale Capital — Launch Notification Request">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://vincentt-wang.github.io/operator-syndicate/#faq">
@@ -1316,7 +1277,6 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
   </div>
 </section>
-
 
 <!-- SUBMIT CTA -->
 <section id="submit" style="padding:140px 0 160px">
