@@ -802,10 +802,10 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="hero-inner">
       <div class="hero-badge"><span data-en="Taiwan's First Sales-Driven Fund · Launching June 2026" data-zh="全台首創 Sales-Driven 基金 · 2026 年 6 月 Launch">Taiwan's First Sales-Driven Fund · Launching June 2026</span></div>
       <h1 class="hero-h1">
-        <span data-en="We Don't Just Invest," data-zh="不只是投資">We Don't Just Invest,</span><br>
-        <em><span data-en="We Scale." data-zh="我們帶你做大">We Scale.</span></em>
+        <span data-bind-en="brand.tagline_en_1" data-bind-zh="brand.tagline_zh_1" data-en="We Don't Just Invest," data-zh="不只是投資">We Don't Just Invest,</span><br>
+        <em><span data-bind-en="brand.tagline_en_2" data-bind-zh="brand.tagline_zh_2" data-en="We Scale." data-zh="我們帶你做大">We Scale.</span></em>
       </h1>
-      <p class="hero-sub" data-en="Taiwan's first Sales-Driven syndicate. 50+ senior operators turning personal influence into enterprise deals — and capital returns." data-zh="全台首創 Sales-Driven 投資模式。50+ 位業務高管把個人影響力轉化為高槓桿資本報酬，帶你從個位數客戶走向億級規模">50+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors.</p>
+      <p class="hero-sub" data-bind-en="brand.positioning_en" data-bind-zh="brand.positioning_zh" data-en="Taiwan's first Sales-Driven syndicate. 50+ senior operators turning personal influence into enterprise deals — and capital returns." data-zh="全台首創 Sales-Driven 投資模式。50+ 位業務高管把個人影響力轉化為高槓桿資本報酬，帶你從個位數客戶走向億級規模">50+ senior operators from Nexia, Oracore, Globex and ACS co-invest in B2B startups. They don't just write checks — they open procurement doors.</p>
       <div class="hero-ctas">
         <button onclick="openPortal('ps-startup')" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
         <button onclick="openPortal('ps-exec')" class="btn-outline" data-en="Join as Operator" data-zh="加入成為高管 LP">Join as Operator</button>
@@ -940,7 +940,7 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="tiers-grid" style="margin-top:3rem">
       <div class="tier-card reveal d1">
         <div class="tier-label" data-en="Tier 1 — Early Stage" data-zh="Tier 1 — 早期階段">Tier 1 — Early Stage</div>
-        <div class="tier-range" data-en="$100K–$1M ARR" data-zh="NT$300萬–3,000萬 ARR">$100K–$1M ARR</div>
+        <div class="tier-range" data-bind-en="tiers.0.range_en" data-bind-zh="tiers.0.range_zh" data-en="$100K–$1M ARR" data-zh="NT$300萬–3,000萬 ARR">$100K–$1M ARR</div>
         <div class="tier-sub" data-en="Annual Recurring Revenue" data-zh="年度經常性收入">Annual Recurring Revenue</div>
         <h3 data-en="Seed to Series A" data-zh="種子輪至 A 輪">Seed to Series A</h3>
         <p data-en="B2B startups with early traction that need enterprise channel access to cross the valley from $100K to $1M ARR. Operator LPs provide direct introductions to enterprise procurement — the fastest path to first major contracts." data-zh="有早期牽引力的 B2B 新創，需要企業通路跨越從 NT$300萬到 NT$3,000萬 ARR 的死亡谷。高管 LP 直接引薦進入企業採購，是拿下第一筆大單最快的路徑。">B2B startups with early traction that need enterprise channel access to cross the valley from $100K to $1M ARR. Operator LPs provide direct introductions to enterprise procurement — the fastest path to first major contracts.</p>
@@ -953,7 +953,7 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="tier-card reveal d2">
         <div class="tier-label" data-en="Tier 2 — Pre-IPO" data-zh="Tier 2 — 上市前">Tier 2 — Pre-IPO</div>
-        <div class="tier-range" data-en="$2M–$20M ARR" data-zh="NT$6,000萬–6億 ARR">$2M–$20M ARR</div>
+        <div class="tier-range" data-bind-en="tiers.1.range_en" data-bind-zh="tiers.1.range_zh" data-en="$2M–$20M ARR" data-zh="NT$6,000萬–6億 ARR">$2M–$20M ARR</div>
         <div class="tier-sub" data-en="Revenue · 3–5 Years Pre-IPO" data-zh="營收 · 上市前 3–5 年">Revenue · 3–5 Years Pre-IPO</div>
         <h3 data-en="Growth to Pre-IPO" data-zh="成長期至上市前">Growth to Pre-IPO</h3>
         <p data-en="Established B2B companies preparing for IPO or strategic exit. Operator LPs provide enterprise validation, executive references, and strategic procurement partnerships that strengthen the IPO narrative and accelerate the path to public markets." data-zh="準備 IPO 或策略性出場的成熟 B2B 公司。高管 LP 提供企業驗證、高管背書與策略採購夥伴關係，強化 IPO 敘事，加速進入公開市場的路徑。">Established B2B companies preparing for IPO or strategic exit. Operator LPs provide enterprise validation, executive references, and strategic procurement partnerships that strengthen the IPO narrative.</p>
@@ -983,21 +983,21 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="pillar-card reveal d1">
         <div class="p-num">01</div>
         <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 data-en="Network Alpha" data-zh="Network Alpha">Network Alpha</h3>
-        <p data-en="Your enterprise relationships are your alpha. We build systems to measure, deploy, and monetize operator network value — creating returns that financial VCs simply cannot access." data-zh="你的企業關係就是你的 Alpha。我們建立系統來衡量、部署並變現高管網絡價值，創造財務型 VC 無法觸及的報酬。">Your enterprise relationships are your alpha. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
+        <h3 data-bind-en="pillars.0.title_en" data-bind-zh="pillars.0.title_zh" data-en="Network Alpha" data-zh="Network Alpha">Network Alpha</h3>
+        <p data-bind-en="pillars.0.desc_en" data-bind-zh="pillars.0.desc_zh" data-en="Your enterprise relationships are your alpha. We build systems to measure, deploy, and monetize operator network value — creating returns that financial VCs simply cannot access." data-zh="你的企業關係就是你的 Alpha。我們建立系統來衡量、部署並變現高管網絡價值，創造財務型 VC 無法觸及的報酬。">Your enterprise relationships are your alpha. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
         <div class="p-detail" data-en="→ Warm intros · Enterprise POC in weeks · RaaS" data-zh="→ 企業引薦 · 數週內 POC · 營收即服務">→ Warm intros · Enterprise POC in weeks · RaaS</div>
       </div>
       <div class="pillar-card reveal d2">
         <div class="p-num">02</div>
         <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 data-en="Science of Scaling" data-zh="科學賦能">Science of Scaling</h3>
-        <p data-en="A repeatable playbook for B2B revenue growth — enterprise sales strategy, procurement navigation, and AI-augmented coaching systems built by operators who have done it at scale." data-zh="可複製的 B2B 業績成長劇本：企業業務策略、採購決策引導，以及由實戰高管打造的 AI 輔助教練系統。">A repeatable playbook for B2B revenue growth evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
+        <h3 data-bind-en="pillars.1.title_en" data-bind-zh="pillars.1.title_zh" data-en="Science of Scaling" data-zh="科學賦能">Science of Scaling</h3>
+        <p data-bind-en="pillars.1.desc_en" data-bind-zh="pillars.1.desc_zh" data-en="A repeatable playbook for B2B revenue growth — enterprise sales strategy, procurement navigation, and AI-augmented coaching systems built by operators who have done it at scale." data-zh="可複製的 B2B 業績成長劇本：企業業務策略、採購決策引導，以及由實戰高管打造的 AI 輔助教練系統。">A repeatable playbook for B2B revenue growth evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
         <div class="p-detail" data-en="→ AI Coach · Sales playbook · GTM co-design" data-zh="→ AI Coach · 業務劇本 · GTM 共同設計">→ AI Coach · Sales playbook · GTM co-design</div>
       </div>
       <div class="pillar-card reveal d3">
         <div class="p-num">03</div>
         <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 data-en="Operator-Led Community" data-zh="高管社群">Operator-Led Community</h3>
+        <h3 data-bind-en="pillars.2.title_en" data-bind-zh="pillars.2.title_zh" data-en="Operator-Led Community" data-zh="高管社群">Operator-Led Community</h3>
         <p data-en="Taiwan's highest-density community of senior sales executives who love tech and investing. A curated circle of operators who want to put their influence to work — together." data-zh="台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子，把影響力轉化為集體行動。">Taiwan's highest-density community the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one.</p>
         <div class="p-detail" data-en="→ 50+ operators · Exclusive dealflow · Annual Summit" data-zh="→ 50+ 位高管 · 獨家案流 · 年度峰會">→ 50+ operators · Exclusive dealflow · Annual Summit</div>
       </div>
@@ -1083,7 +1083,7 @@ footer{background:#060F1E;padding:72px 0 0}
       <!-- Boice founder quote -->
       <div class="quote-card-boice reveal d1" style="background:linear-gradient(135deg,#FFF7ED 0%,#FEF3E2 100%);border-radius:14px;padding:1.75rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;border:1.5px solid rgba(255,102,0,.25)">
         <div style="position:absolute;top:-15px;right:0;font-family:var(--fd);font-size:5rem;color:rgba(255,102,0,.1);line-height:1;pointer-events:none">&ldquo;</div>
-        <p style="font-family:var(--fd);font-size:.95rem;color:#3D2000;line-height:1.7;font-style:italic;margin-bottom:1.25rem;position:relative;z-index:1" data-en="&ldquo;I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That&rsquo;s Operator Syndicate.&rdquo;" data-zh="「我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 Operator Syndicate。」">"I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's Operator Syndicate."</p>
+        <p style="font-family:var(--fd);font-size:.95rem;color:#3D2000;line-height:1.7;font-style:italic;margin-bottom:1.25rem;position:relative;z-index:1" data-bind-en="founderQuote.en" data-bind-zh="founderQuote.zh" data-bind-wrap="quote" data-en="&ldquo;I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That&rsquo;s Operator Syndicate.&rdquo;" data-zh="「我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 Operator Syndicate。」">"I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's Operator Syndicate."</p>
         <div style="display:flex;align-items:center;gap:.75rem">
           <img src="https://i.pravatar.cc/48?img=57" alt="Boice Chen" style="width:44px;height:44px;border-radius:50%;flex-shrink:0;border:2px solid rgba(255,102,0,.5)">
           <div>
@@ -1251,22 +1251,22 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:3rem;padding:1.5rem 2rem;background:var(--orange-pale);border-radius:var(--r);border:1px solid rgba(255,102,0,.15)">
       <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        <span data-en="Gogolook · TSE Listed" data-zh="Gogolook · 台股上市">Gogolook · TSE Listed</span>
+        <span data-bind-en="trackRecord.0.en" data-bind-zh="trackRecord.0.zh" data-en="Gogolook · TSE Listed" data-zh="Gogolook · 台股上市">Gogolook · TSE Listed</span>
       </div>
       <span style="color:var(--border-2)">·</span>
       <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        <span data-en="Appier · JPX Listed" data-zh="Appier · 東証上場">Appier · JPX Listed</span>
+        <span data-bind-en="trackRecord.1.en" data-bind-zh="trackRecord.1.zh" data-en="Appier · JPX Listed" data-zh="Appier · 東証上場">Appier · JPX Listed</span>
       </div>
       <span style="color:var(--border-2)">·</span>
       <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span data-en="3 Growth-Stage Exits" data-zh="3 間增長期新創出場">3 Growth-Stage Exits</span>
+        <span data-bind-en="trackRecord.2.en" data-bind-zh="trackRecord.2.zh" data-en="3 Growth-Stage Exits" data-zh="3 間增長期新創出場">3 Growth-Stage Exits</span>
       </div>
       <span style="color:var(--border-2)">·</span>
       <div style="display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--text-2)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span data-en="20+ Years · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Years · TW · SEA · Japan</span>
+        <span data-bind-en="trackRecord.3.en" data-bind-zh="trackRecord.3.zh" data-en="20+ Years · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Years · TW · SEA · Japan</span>
       </div>
     </div>
     <div class="team-grid">
@@ -1420,7 +1420,24 @@ footer{background:#060F1E;padding:72px 0 0}
 </footer>
 <div id="demoToast"></div>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="shared-content.js"></script>
 <script>
+/* ── HYDRATE from shared-content.js (single source of truth) ── */
+function getPath(o,p){return p.split('.').reduce(function(a,k){return a&&a[k];},o);}
+function hydrate(){
+  if(!window.OS_CONTENT)return;
+  var C=window.OS_CONTENT;
+  document.querySelectorAll('[data-bind-en]').forEach(function(el){
+    var en=getPath(C,el.getAttribute('data-bind-en'));
+    var zh=getPath(C,el.getAttribute('data-bind-zh'));
+    var wrap=el.getAttribute('data-bind-wrap');
+    if(wrap==='quote'){if(en!=null)en='\u201c'+en+'\u201d';if(zh!=null)zh='\u300c'+zh+'\u300d';}
+    if(en!=null)el.setAttribute('data-en',en);
+    if(zh!=null)el.setAttribute('data-zh',zh);
+  });
+}
+hydrate();
+
 /* ── LANG (textContent swap, same as GVA) ── */
 var lang=localStorage.getItem('os-lang')||'en';
 function applyLang(l){
@@ -1738,28 +1755,10 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 (function(){
   var canvas=document.getElementById('network-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0;
-  var OPS=[
-    {i:'JC',n:'James C.',co:'Nexia',cl:'#3B82F6',t:'VP, Enterprise Solutions',img:1},
-    {i:'ML',n:'Michelle L.',co:'Nexia',cl:'#3B82F6',t:'Director, Global Strategic Accounts',img:5},
-    {i:'SK',n:'Sarah K.',co:'Nexia',cl:'#3B82F6',t:'Head of Partnerships, APAC',img:9},
-    {i:'RH',n:'Ryan H.',co:'Nexia',cl:'#3B82F6',t:'Senior Manager, Cloud Business',img:13},
-    {i:'AT',n:'Amy T.',co:'Nexia',cl:'#3B82F6',t:'VP, Business Development Asia',img:17},
-    {i:'PL',n:'Patrick L.',co:'Oracore',cl:'#EF4444',t:'Regional Sales Director, APAC',img:21},
-    {i:'WC',n:'Wayne C.',co:'Oracore',cl:'#EF4444',t:'VP, Database & Cloud Solutions',img:25},
-    {i:'YM',n:'Yvonne M.',co:'Oracore',cl:'#EF4444',t:'Head of Enterprise Accounts',img:29},
-    {i:'DT',n:'David T.',co:'Oracore',cl:'#EF4444',t:'Director, Channel Partners',img:33},
-    {i:'HC',n:'Henry C.',co:'Globex',cl:'#8B5CF6',t:'VP, Cloud Infrastructure',img:37},
-    {i:'EM',n:'Emma M.',co:'Globex',cl:'#8B5CF6',t:'Director, B2B Partnerships',img:41},
-    {i:'KW',n:'Kevin W.',co:'Globex',cl:'#8B5CF6',t:'Head of Startup Ecosystem',img:45},
-    {i:'LN',n:'Lisa N.',co:'Globex',cl:'#8B5CF6',t:'Senior Partner Manager',img:49},
-    {i:'BK',n:'Ben K.',co:'Globex',cl:'#8B5CF6',t:'VP, Enterprise Sales APAC',img:53},
-    {i:'TC',n:'Thomas C.',co:'ACS',cl:'#0EA5E9',t:'Head of Startup Programs',img:57},
-    {i:'GS',n:'Grace S.',co:'ACS',cl:'#0EA5E9',t:'Director, Enterprise Architecture',img:61},
-    {i:'MR',n:'Michael R.',co:'ACS',cl:'#0EA5E9',t:'VP, Channel Partnerships',img:65},
-    {i:'NP',n:'Nancy P.',co:'ACS',cl:'#0EA5E9',t:'Regional Manager, Cloud Sales',img:68},
-    {i:'FY',n:'Frank Y.',co:'SalesBridge',cl:'#10B981',t:'VP, Digital Transformation',img:3},
-    {i:'AL',n:'Alex L.',co:'Microtek',cl:'#6B7280',t:'Director, Enterprise APAC',img:7},
-  ];
+  var OPS=(window.OS_CONTENT&&window.OS_CONTENT.operators?window.OS_CONTENT.operators:[]).map(function(o){
+    var initials=(o.name.match(/[A-Z]/g)||[]).slice(0,2).join('')||o.name.slice(0,2).toUpperCase();
+    return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img};
+  });
   // Preload avatars
   OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.imgLoaded=false;op.imgEl.onload=function(){op.imgLoaded=true;};});
 
