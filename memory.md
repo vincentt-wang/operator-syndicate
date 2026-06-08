@@ -23,12 +23,12 @@
 
 ## 專案基本資訊
 
-- 網站名稱：Operator Syndicate
+- 網站名稱：EvoScale Capital（原 Operator Syndicate，2026-06 更名；GitHub repo 仍為 operator-syndicate）
 - 類型：靜態單頁 Demo 網站（純 HTML/CSS/JS）
 - 上線網址：https://vincentt-wang.github.io/operator-syndicate/
 - 本機路徑：/Users/admin/Downloads/0｜Other/B2B/index.html
 - GitHub：https://github.com/vincentt-wang/operator-syndicate
-- 版本：v3.0（2026-06-02）
+- 版本：v4.0（2026-06-08）— 大幅改版，最新逐項決策見 memory.html 第 8 節
 
 ---
 
@@ -37,9 +37,10 @@
 ### 是什麼
 由外商高管（Nexia/Oracore/Globex/ACS 等公司的 VP/Director 層）組成的天使投資飛輪。入股 B2B 新創，同時打通大廠採購通路。
 
-### 發起人
-- Boice Chen — GP，聚攏高管網絡
-- Vincent Wang — Deal Flow Architect / AO，AI 篩選、A4 系統、方法論
+### Core Team（3 人）
+- Boice Lin — Founder & Managing Partner。Gogolook 商務長(CBO)、前 Appier 全球業務資深副總(SVP Global Sales)、TutorABC 併購出場；20+ 年企業營收橫跨台灣/東南亞/日本。FB/email: boicegun。照片 Team/Boice.jpg。
+- Vincent Wang — AI Content & Funding AO。AI 案源篩選方法論、內容、募資端 anchor；史丹佛/柏克萊、設計思考全國冠軍、創業大聯盟前 300。照片 Team/Vincent.jpg（橫式 4500x3000，臉部對位待確認）。
+- Tina Li（李婷婷）— Community & Creator。AI 伴侶產品創作者，IG/Threads 10 萬+ 社群；頭像仍為 pravatar 佔位，待補真實照片/LinkedIn。
 
 ### 兩個受眾
 - B2B 新創創辦人：提交案源，跳過 12-18 個月企業冷開發期
@@ -76,7 +77,7 @@
 
 ---
 
-## 假公司名稱對照
+## 假公司名稱對照（v4.0 已停用，改用真實品牌名 Meta/Oracle/Google/AWS/Salesforce/Microsoft；以下僅供歷史參考）
 
 | 網站顯示名 | 對應真實公司 | 顏色碼 |
 |---|---|---|
@@ -222,6 +223,7 @@ Others：Frank Y. (SalesBridge) / Alex L. (Microtek)
 | 2026-06-02 | cbca662 | 初始部署 |
 | 2026-06-02 | 1eab1d3 | 加假名、引力系統、hero 連線動畫、amber globe |
 | 2026-06-02 | 47e0a7a | 軌道網絡、移除 How+Brief、Tiers 星鏈、amber globe 重設計 |
+| 2026-06-08 | v4.0 | 更名 EvoScale；真實品牌名；Boice Lin；About 合併(why+pillars)；network 上移；team 3人+真實照片+真實事蹟；advisor 8 等寬；隱藏 partners/gallery。詳見 memory.html 第 8 節 |
 
 ---
 

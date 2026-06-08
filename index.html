@@ -319,8 +319,9 @@ img{max-width:100%;display:block}
 .team-avatar img{width:100%;height:100%;object-fit:cover}
 .team-name{font-family:var(--fd);font-weight:800;font-size:1.1rem;color:var(--text);letter-spacing:-.01em;margin-bottom:.2rem}
 .team-role{font-size:.88rem;color:var(--orange);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem;font-family:var(--fb)}
-.cred-row{display:flex;flex-wrap:wrap;gap:.4rem;margin:.15rem 0 .9rem}
-.cred-chip{font-size:.8rem;font-weight:600;color:var(--orange);background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:6px;padding:.24rem .55rem;font-family:var(--fb);white-space:nowrap;line-height:1.4}
+.cred-row{display:flex;flex-direction:column;gap:.5rem;margin:.45rem 0 .3rem;align-items:flex-start}
+.cred-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--text-2);font-family:var(--fb);line-height:1.35}
+.cred-item svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
 .team-bio{font-size:1.05rem;color:var(--text-3);line-height:1.72}
 .team-socials{display:flex;gap:.45rem;margin-top:1.1rem}
 .team-socials a{width:30px;height:30px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-4);transition:all .2s}
@@ -1213,34 +1214,41 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
     <div class="team-grid">
       <div class="team-card reveal d1">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=57" alt="Boice Lin" loading="lazy"></div>
+        <div class="team-avatar"><img src="Team/Boice.jpg" alt="Boice Lin" loading="lazy"></div>
         <div class="team-name">Boice Lin</div>
         <div class="team-role" data-en="Founder &amp; Managing Partner" data-zh="創辦人暨執行合夥人">Founder &amp; Managing Partner</div>
-        <div class="team-bio" data-en="Aggregated 50+ senior sales operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event." data-zh="聚攏 50+ 位外商高管組成 LP 網絡。負責 Syndicate 架構、LP 關係維護與 2026 年 6 月 Launch 大會。">Aggregated 50+ senior sales operators as LP network. Responsible for syndicate structure, LP relations, and the June 2026 Launch event.</div>
+        <div class="team-bio" data-en="Chief Business Officer at Gogolook and former SVP of Global Sales at Appier. Two decades building enterprise revenue across Taiwan, SEA and Japan." data-zh="Gogolook 商務長，前 Appier 全球業務資深副總。二十年深耕台灣、東南亞與日本的企業營收。">Chief Business Officer at Gogolook and former SVP of Global Sales at Appier. Two decades building enterprise revenue across Taiwan, SEA and Japan.</div>
         <div class="cred-row">
-          <span class="cred-chip" data-en="Gogolook · TSE Listed" data-zh="Gogolook · 台股上市">Gogolook · TSE Listed</span>
-          <span class="cred-chip" data-en="Appier · JPX Listed" data-zh="Appier · 日股上市">Appier · JPX Listed</span>
-          <span class="cred-chip" data-en="3 Growth-Stage Exits" data-zh="3 次成長期出場">3 Growth-Stage Exits</span>
-          <span class="cred-chip" data-en="20+ Years · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Years · TW · SEA · Japan</span>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Gogolook · CBO · TSE Listed" data-zh="Gogolook · 商務長 · 台股上市">Gogolook · CBO · TSE Listed</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Appier · SVP Sales · JPX Listed" data-zh="Appier · 全球業務資深副總 · 日股上市">Appier · SVP Sales · JPX Listed</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="TutorABC · Acquired" data-zh="TutorABC · 成功併購出場">TutorABC · Acquired</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="20+ Yrs · TW · SEA · Japan" data-zh="20+ 年 · 台灣 · 東南亞 · 日本">20+ Yrs · TW · SEA · Japan</span></div>
         </div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
-
       <div class="team-card reveal d2">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Vincent Wang" loading="lazy"></div>
+        <div class="team-avatar"><img src="Team/Vincent.jpg" alt="Vincent Wang" loading="lazy"></div>
         <div class="team-name">Vincent Wang</div>
-        <div class="team-role" data-en="Funding & Community Manager" data-zh="募資與社群經營">Funding &amp; Community Manager</div>
-        <div class="team-bio" data-en="Builds and runs the operator community: onboarding, events, and the annual summit. Coordinates the funding side across the syndicate." data-zh="建立並經營高管社群：成員招募、活動與年度峰會，並統籌 Syndicate 的募資端營運。">Builds and runs the operator community: onboarding, events, and the annual summit. Coordinates the funding side across the syndicate.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+        <div class="team-role" data-en="AI Content &amp; Funding AO" data-zh="AI 內容與募資 AO">AI Content &amp; Funding AO</div>
+        <div class="team-bio" data-en="Methodology designer behind EvoScale's AI deal-screening system. Stanford- and Berkeley-trained AI product builder. Runs content and the funding-side anchor operations." data-zh="EvoScale AI 案源篩選系統的方法論設計者。史丹佛與柏克萊受訓的 AI 產品開發者，負責內容與募資端的 anchor 營運。">Methodology designer behind EvoScale's AI deal-screening system. Stanford- and Berkeley-trained AI product builder. Runs content and the funding-side anchor operations.</div>
+        <div class="cred-row">
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Stanford · UC Berkeley" data-zh="史丹佛 · 柏克萊">Stanford · UC Berkeley</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Design Thinking · 1st Place" data-zh="設計思考 · 全國冠軍">Design Thinking · 1st Place</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Startup League · Top 300" data-zh="創業大聯盟 · 前 300 強">Startup League · Top 300</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="AI Builder · EmoTree" data-zh="AI 產品開發 · EmoTree">AI Builder · EmoTree</span></div>
+        </div>
       </div>
       <div class="team-card reveal d3">
         <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=49" alt="Tina Li" loading="lazy"></div>
         <div class="team-name">Tina Li</div>
-        <div class="team-role" data-en="AI Content &amp; Community" data-zh="AI 內容與社群">AI Content &amp; Community</div>
-        <div class="team-bio" data-en="Software engineer and creator behind one of Taiwan&rsquo;s most-followed AI companion projects. Grows a 100K+ community across Instagram and Threads, bringing content reach and creator-economy insight to the network." data-zh="工程師出身的創作者，打造台灣最具人氣的 AI 伴侶專案之一。在 Instagram 與 Threads 經營破 10 萬人的社群，為網絡帶來內容聲量與創作者經濟的洞察。">Software engineer and creator behind one of Taiwan&rsquo;s most-followed AI companion projects. Grows a 100K+ community across Instagram and Threads, bringing content reach and creator-economy insight to the network.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+        <div class="team-role" data-en="Community &amp; Creator" data-zh="社群與創作者">Community &amp; Creator</div>
+        <div class="team-bio" data-en="Software engineer and creator behind one of Taiwan's most-followed AI companion projects, bringing content reach and creator-economy insight to the network." data-zh="工程師出身的創作者，打造台灣最具人氣的 AI 伴侶專案之一，為網絡帶來內容聲量與創作者經濟的洞察。">Software engineer and creator behind one of Taiwan's most-followed AI companion projects, bringing content reach and creator-economy insight to the network.</div>
+        <div class="cred-row">
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Software Engineer" data-zh="軟體工程師">Software Engineer</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="AI Companion Creator" data-zh="AI 伴侶產品創作者">AI Companion Creator</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="100K+ Community" data-zh="10 萬+ 社群">100K+ Community</span></div>
+          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="IG · Threads · YouTube" data-zh="IG · Threads · YouTube">IG · Threads · YouTube</span></div>
+        </div>
       </div>
-
     </div>
     <div class="advisors-wrap reveal">
       <div class="advisors-ey" data-en="Ecosystem Advisors" data-zh="生態系顧問">Ecosystem Advisors</div>

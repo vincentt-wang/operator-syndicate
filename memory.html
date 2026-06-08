@@ -246,6 +246,31 @@ header p{color:rgba(255,255,255,.6);margin-bottom:0}
 <h2 id="decisions">8. 設計決策記錄</h2>
 
 <div class="update-log">
+  <div class="date">2026-06-08 — v4.0 品牌正名與真實化</div>
+  <p><strong>Operator Syndicate → <code>EvoScale Capital</code>（ES 雙字 logo）。</strong>Canvas 與全站文案改用真實品牌名（Meta / Oracle / Google / AWS / Salesforce / Microsoft），不再用 Nexia/Oracore 等假名。高管頭銜統一 VP / Director / GM 級。發起人 Boice Chen 正名為 <code>Boice Lin</code>，職稱 General Partner → Founder &amp; Managing Partner（index / pitch.html / shared-content.js 同步）。訂閱表單 Stay Updated 收件改 <code>boicegun@gmail.com</code>（案源/高管表單仍寄 Vincent）。Science of Scaling → <code>Revenue Intelligence Architecture</code>。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-08 — v4.0 Section 重組（黑白黑白節奏）</div>
+  <p><strong>順序：hero(白) → <code>network</code>(黑) → <code>about</code>(白) → tiers(黑) → global → team。</strong>① 原 The Problem(why) + What You Get(pillars) 合併為單一 <code>About</code> 段（pillars 三卡取代 why 三卡，保留 quote + 對比表），pillars 段刪除。② Operator Network 段整個上移到 About 之前，讓深淺背景交替。③ menu 順序跟隨捲動順序（Operators 在 About 前，desktop + mobile）。④ 曾把「100%」involvement block 移到 About 頂端，後因突兀而移除。⑤ Global Reach → Global Expansion：弱化「採購決策權」，主打「10+ 位高管 LP 帶台灣新創出海」的關係與電信/金融/壽險經驗。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-08 — v4.0 Core Team 精簡為 3 人</div>
+  <p><strong>三張卡：Boice Lin（Founder &amp; Managing Partner，卡內 track record chips：Gogolook·TSE / Appier·JPX / 3 Growth-Stage Exits / 20+ Years）／ Vincent Wang（Funding &amp; Community Manager，第 2 張）／ Tina Li（AI Content &amp; Community）。</strong>移除 Alice Liu 與重複的 Vincent(Deal Flow)；原頂部 Track Record 橫條移入 Boice 卡片。Tina Li 依公開資料建卡（AI 工程師＋AI 伴侶創作者，IG/Threads 10 萬+ 社群），<em>待補真實頭像/LinkedIn</em>。advisor 名單仍為 placeholder 假名。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-08 — v4.0 Operator Network 節點 + Advisors</div>
+  <p><strong>Network 節點回到 20–25 原則：</strong>OPS 過濾掉 <code>companyKey==='team'</code> 的 6 個自家節點（中間不再有點簇），約 20 點。RINGS 改動態平均分配 4 環（根因：原 <code>Math.min(floor(idx/5),3)</code> 把溢出節點全塞內圈造成重疊）。<strong>Ecosystem Advisors：</strong>8 張卡，grid 固定 4 欄等寬（修正 auto-fit 末行被拉伸）；非創投顧問升董事長級（Chairman, ITIC / TMBA / Taiwan Tech Arena），創投保留 firm 級。</p>
+</div>
+
+<div class="update-log">
+  <div class="date">2026-06-08 — v4.0 隱藏段落（可復原）＋卡片優化</div>
+  <p><strong>Ecosystem Partners 與 Proof/gallery 兩段以 <code>display:none</code> 隱藏</strong>（皆 placeholder：生態系 logo、SecureFlow/DataPulse/LogiQ 案例、Daniel Huang testimonial、launch preview 影片，需補真實內容才重用）。做法：section 加 <code>display:none</code> + HTML 註解標日期與復原方式，對應 menu 連結一併註解。<strong>原則：用戶說「藏起來備用」時用 display:none，不刪除，復原只需移除 style。</strong>About 三卡 stat 貼底對齊（.why-card flex column + .why-stat margin-top:auto）。對比表移除「First enterprise deal → Weeks」難承諾列。</p>
+</div>
+
+<div class="update-log">
   <div class="date">2026-06-02 — v3.1</div>
   <p><strong>Operator Network 完全重寫為軌道動畫（Starlink 風格）：</strong>原版節點亂飄像蚊子，改為 4 個傾斜橢圓軌道環（Ring 1 外→Ring 4 內），各以不同速度、正反方向公轉，創造立體 Starlink 衛星效果。每圈 5 個節點均勻分布，永不重疊。公司名稱標籤常駐（13px）。滑鼠接觸：節點停轉磁吸，顯示 pravatar 頭像 + 姓名。</p>
 </div>
