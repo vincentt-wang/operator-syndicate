@@ -11,7 +11,7 @@ window.OS_CONTENT = {
 
   // ── 品牌核心 ──────────────────────────────────────
   brand: {
-    name: "Evolve Scale Capital",
+    name: "EvoScale Capital",
     tagline_en_1: "We Don't Just Invest,",
     tagline_en_2: "We Scale.",
     tagline_zh_1: "不只是投資",
@@ -20,6 +20,16 @@ window.OS_CONTENT = {
     positioning_zh: "全台首創 Operator-Led 投資飛輪。50+ 位資深營運者不只是寫支票，更親自陪你銷售，把企業影響力轉化為實際業績。",
     launch_en: "Launching June 2026",
     launch_zh: "2026 年 6 月 Launch",
+  },
+
+
+  // ── 100% 網絡參與（Stage2 風格的核心承諾） ──────────
+  involvement: {
+    stat: "100%",
+    headline_en: "Every deal. Every time.",
+    headline_zh: "每一筆投資，每一次都動用網絡",
+    body_en: "We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check.",
+    body_zh: "我們把資深 go-to-market 營運者，精準對接每家投組公司的策略與營運需求——以顧問、董事或實際操盤的高管身分加入。100% 的投資都有網絡參與，不只是一張支票。",
   },
 
   // ── 關鍵數字 ──────────────────────────────────────
@@ -93,11 +103,11 @@ window.OS_CONTENT = {
 
   // ── Boice 引言 ────────────────────────────────────
   founderQuote: {
-    en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's Evolve Scale Capital.",
-    zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 Evolve Scale Capital。",
+    en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's EvoScale Capital.",
+    zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 EvoScale Capital。",
     name: "Boice Chen",
-    role_en: "Founder · Gogolook · Appier · Evolve Scale Capital",
-    role_zh: "發起人 · Gogolook · Appier · Evolve Scale Capital",
+    role_en: "Founder · Gogolook · Appier · EvoScale Capital",
+    role_zh: "發起人 · Gogolook · Appier · EvoScale Capital",
   },
   // ── Stats 標籤 ────────────────────────────────────
   statLabels: {
@@ -118,8 +128,8 @@ window.OS_CONTENT = {
       a_zh: "高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力，以及能快速行動的創辦人。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。" },
     { q_en: "How is this different from traditional VC?",
       q_zh: "這跟傳統創投有什麼不同？",
-      a_en: "Traditional VCs provide capital and advice. Evolve Scale Capital provides capital plus direct enterprise channel access. The operators are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B comes from changing the odds by putting you in the room.",
-      a_zh: "傳統創投提供資金與建議。Evolve Scale Capital 提供資金加上直接的企業通路。這些運營者是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 來自把你直接送進那個房間。" },
+      a_en: "Traditional VCs provide capital and advice. EvoScale Capital provides capital plus direct enterprise channel access. The operators are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B comes from changing the odds by putting you in the room.",
+      a_zh: "傳統創投提供資金與建議。EvoScale Capital 提供資金加上直接的企業通路。這些運營者是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 來自把你直接送進那個房間。" },
     { q_en: "What happens after I submit?",
       q_zh: "提交之後會發生什麼？",
       a_en: "Vincent reviews within 48 hours. If there's initial fit, a 30-minute call follows. Qualified deals enter our rapid assessment and are matched to relevant operator LPs. You'll hear back within 2 weeks. All submissions confidential.",
@@ -128,8 +138,8 @@ window.OS_CONTENT = {
       q_zh: "案源審核流程是什麼樣子？",
       a_en: "Every qualified deal goes through a proprietary rapid assessment — a structured review that gives operator LPs the key signals they need to decide in minutes, not days. It eliminates noise and surfaces only what matters: the problem, the opportunity, the strategic fit, and the honest risk.",
       a_zh: "每個通過篩選的案源都會經過一套專屬的快速決策流程，讓高管 LP 在幾分鐘內掌握關鍵信號。它去除噪音，只留下真正重要的：問題、機會、策略契合度、以及誠實的風險評估。" },
-    { q_en: "What stage is Evolve Scale Capital at right now?",
-      q_zh: "Evolve Scale Capital 目前處於什麼階段？",
+    { q_en: "What stage is EvoScale Capital at right now?",
+      q_zh: "EvoScale Capital 目前處於什麼階段？",
       a_en: "Pre-launch. The operator LP network is being finalized and first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review.",
       a_zh: "Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格。" },
   ],
