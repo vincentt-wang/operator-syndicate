@@ -150,7 +150,7 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 <div id="progress"></div>
 <div id="deck"></div>
 
-<button id="lang-toggle" onclick="toggleLang()">中文</button>
+<button id="lang-toggle" onclick="toggleLang()">CH</button>
 <div id="nav-arrows">
   <div class="nav-arrow" onclick="go(cur-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></div>
   <div class="nav-arrow" onclick="go(cur+1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
@@ -169,10 +169,10 @@ function slidesHTML(){
   var s = C.stats, b = C.brand;
   return [
 
-  // 01 — HERO
+  // 01 — HERO / POSITIONING
   `<section class="slide hero-slide dark">
     <canvas id="hero-canvas"></canvas>
-    <div class="hero-badge"><span data-en="Taiwan's First Sales-Driven Fund · ${b.launch_en}" data-zh="全台首創 Sales-Driven 基金 · ${b.launch_zh}">Taiwan's First Sales-Driven Fund · ${b.launch_en}</span></div>
+    <div class="hero-badge"><span data-en="Taiwan's First Operator-Led Syndicate · ${b.launch_en}" data-zh="全台首創 Operator-Led 投資飛輪 · ${b.launch_zh}">Taiwan's First Operator-Led Syndicate · ${b.launch_en}</span></div>
     <h1 class="hero-h1"><span data-en="${b.tagline_en_1}" data-zh="${b.tagline_zh_1}">${b.tagline_en_1}</span><br><span class="o" data-en="${b.tagline_en_2}" data-zh="${b.tagline_zh_2}">${b.tagline_en_2}</span></h1>
     <p class="hero-tag" data-en="${b.positioning_en}" data-zh="${b.positioning_zh}">${b.positioning_en}</p>
     <div class="stats-row">
@@ -183,32 +183,16 @@ function slidesHTML(){
     </div>
   </section>`,
 
-  // 02 — THE PROBLEM
+  // 02 — THE OPPORTUNITY (problem + why now + solution)
   `<section class="slide light">
-    <div class="page-badge">01 · The Problem</div>
-    <div class="eyebrow" data-en="The Problem" data-zh="核心痛點">The Problem</div>
+    <div class="page-badge">01 · The Opportunity</div>
+    <div class="eyebrow" data-en="The Opportunity" data-zh="市場機會">The Opportunity</div>
     <h2 class="s-title" data-en="Capital is everywhere.<br><em>Operators are rare.</em>" data-zh="資金到處都是。<br><em>懂業務的投資人沒幾個。</em>">Capital is everywhere.<br><em>Operators are rare.</em></h2>
-    <p class="s-sub" data-en="Traditional VCs write checks and wait. B2B founders raise capital — then discover that breaking into enterprise is the real bottleneck. 80% stall at enterprise entry." data-zh="傳統 VC 給錢然後等待。B2B 創辦人融到資後才發現，敲開大廠的門才是真正的瓶頸。80% 卡在企業准入關。">Traditional VCs write checks and wait. B2B founders raise capital — then discover that breaking into enterprise is the real bottleneck. 80% stall at enterprise entry.</p>
+    <p class="s-sub" data-en="80% of B2B startups stall at enterprise entry. The bottleneck was never capital; it is access. AI is reshaping how enterprises buy, and operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model beats financial VCs. Taiwan has the sales talent; no one had organized it, until now." data-zh="80% 的 B2B 新創卡在企業准入。瓶頸從來不是資金，而是門路。AI 正在重塑企業採購，${C.benchmarks[0]} 與 ${C.benchmarks[1]} 等 operator-led 基金已證明模式優於財務型 VC。台灣有業務人才，只是沒人組織起來，直到現在。">80% of B2B startups stall at enterprise entry. The bottleneck was never capital; it is access. AI is reshaping how enterprises buy, and operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model beats financial VCs. Taiwan has the sales talent; no one had organized it, until now.</p>
+    <p class="s-sub" style="margin-top:2.4vh;font-weight:700;color:#FF6600" data-en="Our answer: ${s.operators} senior operators co-invest, and sell alongside you." data-zh="我們的解法：${s.operators} 位資深高管共同投資，並親自陪你銷售。">Our answer: ${s.operators} senior operators co-invest, and sell alongside you.</p>
   </section>`,
 
-  // 03 — WHY NOW
-  `<section class="slide dark">
-    <div class="page-badge">02 · Why Now</div>
-    <div class="eyebrow" data-en="Why Now" data-zh="為什麼是現在">Why Now</div>
-    <h2 class="s-title" data-en="The best time was 2015.<br><em>The next best is now.</em>" data-zh="最好的時機是 2015 年。<br><em>其次就是現在。</em>">The best time was 2015.<br><em>The next best is now.</em></h2>
-    <p class="s-sub" data-en="AI is reshaping enterprise software buying. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model outperforms financial VCs. Taiwan has the sales talent — no one has organized it. Until now." data-zh="AI 正在重塑企業軟體採購。${C.benchmarks[0]} 與 ${C.benchmarks[1]} 等 Operator-led 基金已證明模式優於財務型 VC。台灣有業務人才，只是沒人組織起來。直到現在。">AI is reshaping enterprise software buying. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model outperforms financial VCs. Taiwan has the sales talent — no one has organized it. Until now.</p>
-  </section>`,
-
-  // 04 — THE SOLUTION
-  `<section class="slide amber">
-    <div class="page-badge">03 · The Solution</div>
-    <div class="eyebrow" data-en="The Solution" data-zh="解法">The Solution</div>
-    <h2 class="s-title" data-en="A Sales-Driven<br>investment syndicate." data-zh="Sales-Driven<br>投資飛輪。">A Sales-Driven<br>investment syndicate.</h2>
-    <p class="s-sub" data-en="${s.operators} senior sales operators co-invest in B2B startups — and personally sell alongside them. Capital plus channels. Investors who are also your enterprise sales network." data-zh="${s.operators} 位頂尖業務高管共同投資 B2B 新創，並親自陪他們衝業績。資金加通路。投資人就是你的企業業務網絡。">${s.operators} senior sales operators co-invest in B2B startups — and personally sell alongside them. Capital plus channels. Investors who are also your enterprise sales network.</p>
-    <p class="s-sub" style="margin-top:2.4vh;font-weight:700;color:#FF6600" data-en="For operators: monetize your influence — back the startups that grow our capital, and compound wealth together." data-zh="對高管而言：把你的影響力變現，扶植能壯大我們資本的新創團隊，一起累積財富。">For operators: monetize your influence — back the startups that grow our capital, and compound wealth together.</p>
-  </section>`,
-
-  // 05 — OPERATOR NETWORK (live canvas)
+  // 03 — THE OPERATOR NETWORK (live canvas)
   `<section class="slide net-slide dark">
     <div class="net-overlay">
       <div class="eyebrow" style="justify-content:center" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
@@ -219,80 +203,41 @@ function slidesHTML(){
     <div id="net-tip" class="net-tooltip"><div id="nt-co" class="nt-co"></div><div id="nt-t" class="nt-t"></div></div>
   </section>`,
 
-  // 06 — COMPARISON
-  `<section class="slide white">
-    <div class="page-badge">05 · The Edge</div>
-    <div class="eyebrow" data-en="Why We Win" data-zh="為什麼我們贏">Why We Win</div>
-    <h2 class="s-title" style="font-size:clamp(2rem,4vw,3.5rem)" data-en="Not another VC.<br>Not an accelerator." data-zh="不是又一家 VC。<br>不是加速器。">Not another VC.<br>Not an accelerator.</h2>
-    <table class="cmp-table">
-      <thead><tr><th></th><th data-en="Traditional VC" data-zh="傳統創投">Traditional VC</th><th data-en="Accelerator" data-zh="加速器">Accelerator</th><th class="us">EvoScale Capital</th></tr></thead>
-      <tbody>
-        <tr><td data-en="What they bring" data-zh="帶來什麼">What they bring</td><td data-en="Capital only" data-zh="只有資金">Capital only</td><td data-en="Capital + training" data-zh="資金+課程">Capital + training</td><td class="us-col" data-en="Capital + active selling" data-zh="資金+親自幫你賣">Capital + active selling</td></tr>
-        <tr><td data-en="Post-investment" data-zh="投後支持">Post-investment</td><td data-en="Quarterly board" data-zh="每季董事會">Quarterly board</td><td data-en="Demo Day" data-zh="Demo Day">Demo Day</td><td class="us-col" data-en="Operators sell with you" data-zh="高管陪你衝業績">Operators sell with you</td></tr>
-        <tr><td data-en="Comparable funds" data-zh="對標機構">Comparable funds</td><td>&mdash;</td><td>&mdash;</td><td class="us-col">${C.benchmarks[0]} &middot; ${C.benchmarks[1]}</td></tr>
-      </tbody>
-    </table>
-  </section>`,
-
-  // 07 — RAAS PILLARS
-  `<section class="slide dark">
-    <div class="page-badge">06 · What You Get</div>
-    <div class="eyebrow" data-en="Revenue-as-a-Service" data-zh="營收即服務">Revenue-as-a-Service</div>
-    <h2 class="s-title" style="margin-bottom:1vh" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
+  // 04 — THE MODEL (pillars + comparison)
+  `<section class="slide light">
+    <div class="page-badge">02 · The Model</div>
+    <div class="eyebrow" data-en="The Model" data-zh="運作模式">The Model</div>
+    <h2 class="s-title" style="margin-bottom:2vh" data-en="More than capital." data-zh="不只是資金。">More than capital.</h2>
     <div class="cards-3">
       ${C.pillars.map(function(p,i){return `<div class="p-card"><div class="p-card-num">0${i+1}</div><h3 data-en="${p.title_en}" data-zh="${p.title_zh}">${p.title_en}</h3><p data-en="${p.desc_en}" data-zh="${p.desc_zh}">${p.desc_en}</p></div>`}).join('')}
     </div>
+    <p class="s-sub" style="margin-top:3.5vh;text-align:center;max-width:900px;margin-left:auto;margin-right:auto" data-en="Unlike VCs who only write checks or accelerators who run demo days, our operators co-invest and sell alongside you." data-zh="不像只開支票的 VC，也不像辦 Demo Day 的加速器，我們的高管親自共同投資、陪你銷售。">Unlike VCs who only write checks or accelerators who run demo days, our operators co-invest and sell alongside you.</p>
   </section>`,
 
-  // 08 — HOW IT WORKS
-  `<section class="slide light">
-    <div class="page-badge">07 · How It Works</div>
-    <div class="eyebrow" data-en="The Process" data-zh="運作流程">The Process</div>
-    <h2 class="s-title" data-en="From submission<br>to enterprise deal." data-zh="從提交<br>到大廠訂單。">From submission<br>to enterprise deal.</h2>
-    <div class="cards-3" style="margin-top:4vh">
-      <div class="p-card"><div class="p-card-num">01</div><h3 data-en="Submit & Screen" data-zh="提交與篩選">Submit & Screen</h3><p data-en="AI pre-screens 30–50 deals/month. 48hr response. Only 2–3 advance." data-zh="AI 每月初篩 30–50 案，48 小時回覆，只有 2–3 個晉級。">AI pre-screens 30–50 deals/month. 48hr response. Only 2–3 advance.</p></div>
-      <div class="p-card"><div class="p-card-num">02</div><h3 data-en="Rapid Assessment" data-zh="快速評估">Rapid Assessment</h3><p data-en="Structured review gives operators the signals to decide in minutes." data-zh="結構化評估讓高管幾分鐘內做出決定。">Structured review gives operators the signals to decide in minutes.</p></div>
-      <div class="p-card"><div class="p-card-num">03</div><h3 data-en="Operator Connect" data-zh="高管直連">Operator Connect</h3><p data-en="Operators co-invest and make direct enterprise introductions." data-zh="高管共同投資並直接進行企業引薦。">Operators co-invest and make direct enterprise introductions.</p></div>
-    </div>
-  </section>`,
-
-  // 09 — TWO TIERS
+  // 05 — INVESTMENT (tiers + operator value)
   `<section class="slide dark">
-    <div class="page-badge">08 · Investment Tiers</div>
+    <div class="page-badge">03 · Investment</div>
     <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
-    <h2 class="s-title" style="margin-bottom:1vh" data-en="Two tiers. One network." data-zh="兩個層級，一個網絡。">Two tiers. One network.</h2>
+    <h2 class="s-title" style="margin-bottom:2vh" data-en="Two tiers. One network." data-zh="兩個層級，一個網絡。">Two tiers. One network.</h2>
     <div class="tiers-2">
       ${C.tiers.map(function(t){return `<div class="tier-card"><div class="tier-label" data-en="${t.label_en}" data-zh="${t.label_zh}">${t.label_en}</div><div class="tier-range" data-en="${t.range_en}" data-zh="${t.range_zh}">${t.range_en}</div><div class="tier-sub" data-en="${t.sub_en}" data-zh="${t.sub_zh}">${t.sub_en}</div></div>`}).join('')}
     </div>
-    <p class="s-sub" style="margin-top:4vh" data-en="LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up." data-zh="高管共投：每案最低 ${s.minDeal} 美元。每案獨立 SPV，無年度鎖定。">LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up.</p>
+    <p class="s-sub" style="margin-top:3vh" data-en="LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up." data-zh="高管共投：每案最低 ${s.minDeal} 美元。每案獨立 SPV，無年度鎖定。">LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up.</p>
+    <p class="s-sub" style="margin-top:1.5vh;font-weight:700;color:#FF6600" data-en="Monetize your influence: back the startups that grow our capital, and compound wealth together." data-zh="把你的影響力變現，扶植能壯大我們資本的新創團隊，一起累積財富。">Monetize your influence: back the startups that grow our capital, and compound wealth together.</p>
   </section>`,
 
-  // 10 — TRACK RECORD
+  // 06 — VISION & CTA (founder + track record + cta)
   `<section class="slide amber">
-    <div class="page-badge">09 · Track Record</div>
-    <div class="eyebrow" data-en="Track Record" data-zh="實戰戰績">Track Record</div>
-    <h2 class="s-title" data-en="Built by operators<br>who have <em>done it.</em>" data-zh="由真正<em>做過的人</em><br>打造。">Built by operators<br>who have <em>done it.</em></h2>
-    <div class="tr-grid">
-      ${C.trackRecord.map(function(t){return `<div class="tr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span data-en="${t.en}" data-zh="${t.zh}">${t.en}</span></div>`}).join('')}
-    </div>
-  </section>`,
-
-  // 11 — FOUNDER QUOTE
-  `<section class="slide dark">
-    <div class="page-badge">10 · The Vision</div>
-    <p class="quote-big" data-en="&ldquo;${C.founderQuote.en}&rdquo;" data-zh="「${C.founderQuote.zh}」">&ldquo;${C.founderQuote.en}&rdquo;</p>
+    <div class="page-badge">04 · The Vision</div>
+    <p class="quote-big" style="font-size:clamp(1.15rem,2.1vw,1.75rem);line-height:1.4" data-en="&ldquo;${C.founderQuote.en}&rdquo;" data-zh="「${C.founderQuote.zh}」">&ldquo;${C.founderQuote.en}&rdquo;</p>
     <div class="quote-author">
       <img src="Team/Boice.jpg" alt="${C.founderQuote.name}" style="object-fit:cover;object-position:52% 16%">
       <div><div class="qa-name">${C.founderQuote.name}</div><div class="qa-role" data-en="${C.founderQuote.role_en}" data-zh="${C.founderQuote.role_zh}">${C.founderQuote.role_en}</div></div>
     </div>
-  </section>`,
-
-  // 12 — CTA
-  `<section class="slide cta-slide amber">
-    <div class="eyebrow" style="justify-content:center" data-en="${b.launch_en}" data-zh="${b.launch_zh}">${b.launch_en}</div>
-    <h2 class="cta-h"><span data-en="Don't just invest." data-zh="不只是投資。">Don't just invest.</span><br><span class="o" data-en="Scale." data-zh="一起做大。">Scale.</span></h2>
-    <p class="cta-sub" data-en="Join Taiwan's first Sales-Driven syndicate." data-zh="加入全台首創 Sales-Driven 投資飛輪。">Join Taiwan's first Sales-Driven syndicate.</p>
-    <a class="cta-link" href="https://vincentt-wang.github.io/operator-syndicate/" target="_blank"><span data-en="Visit EvoScale Capital →" data-zh="造訪官網 →">Visit EvoScale Capital →</span></a>
+    <div class="tr-grid" style="margin-top:2vh;margin-bottom:2.5vh">
+      ${C.trackRecord.map(function(t){return `<div class="tr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span data-en="${t.en}" data-zh="${t.zh}">${t.en}</span></div>`}).join('')}
+    </div>
+    <a class="cta-link" href="https://vincentt-wang.github.io/operator-syndicate/" target="_blank"><span data-en="Don't just invest. Scale. Visit EvoScale Capital →" data-zh="不只是投資，一起做大。造訪官網 →">Don't just invest. Scale. Visit EvoScale Capital →</span></a>
   </section>`,
 
   ];
@@ -362,7 +307,7 @@ function applyLang(l){
     var v=l==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
     if(v!==null&&v!=='')el.innerHTML=v;
   });
-  document.getElementById('lang-toggle').textContent = l==='en'?'中文':'EN';
+  document.getElementById('lang-toggle').textContent = l==='en'?'CH':'EN';
 }
 function toggleLang(){applyLang(lang==='en'?'zh':'en');}
 
