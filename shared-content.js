@@ -11,13 +11,13 @@ window.OS_CONTENT = {
 
   // ── 品牌核心 ──────────────────────────────────────
   brand: {
-    name: "Operator Syndicate",
+    name: "Evolve Scale Capital",
     tagline_en_1: "We Don't Just Invest,",
     tagline_en_2: "We Scale.",
     tagline_zh_1: "不只是投資",
     tagline_zh_2: "我們帶你做大",
-    positioning_en: "Taiwan's first Sales-Driven syndicate. 50+ senior operators turning personal influence into enterprise deals — and capital returns.",
-    positioning_zh: "全台首創 Sales-Driven 投資模式。50+ 位業務高管把個人影響力轉化為高槓桿資本報酬，帶你從個位數客戶走向億級規模。",
+    positioning_en: "Taiwan's first operator-led syndicate. 50+ senior operators who don't just write checks — they sell alongside you, turning enterprise influence into revenue.",
+    positioning_zh: "全台首創 Operator-Led 投資飛輪。50+ 位資深營運者不只是寫支票，更親自陪你銷售，把企業影響力轉化為實際業績。",
     launch_en: "Launching June 2026",
     launch_zh: "2026 年 6 月 Launch",
   },
@@ -69,35 +69,35 @@ window.OS_CONTENT = {
   // ── 假公司 / 高管網絡（官網星座 + 名錄頁共用） ──────
   // 之後有真實名單，改這裡即可。companyKey: nexia|oracore|globex|acs|others
   operators: [
-    {id:1, name:'James C.',    company:'Nexia',   companyKey:'nexia',   color:'#3B82F6', title:'VP, Enterprise Solutions',          img:1},
-    {id:2, name:'Michelle L.', company:'Nexia',   companyKey:'nexia',   color:'#3B82F6', title:'Director, Global Strategic Accounts', img:5},
-    {id:3, name:'Sarah K.',    company:'Nexia',   companyKey:'nexia',   color:'#3B82F6', title:'Head of Partnerships, APAC',         img:9},
-    {id:4, name:'Ryan H.',     company:'Nexia',   companyKey:'nexia',   color:'#3B82F6', title:'Senior Manager, Cloud Business',     img:13},
-    {id:5, name:'Amy T.',      company:'Nexia',   companyKey:'nexia',   color:'#3B82F6', title:'VP, Business Development Asia',      img:17},
-    {id:6, name:'Patrick L.',  company:'Oracore', companyKey:'oracore', color:'#EF4444', title:'Regional Sales Director, APAC',      img:21},
-    {id:7, name:'Wayne C.',    company:'Oracore', companyKey:'oracore', color:'#EF4444', title:'VP, Database & Cloud Solutions',     img:25},
-    {id:8, name:'Yvonne M.',   company:'Oracore', companyKey:'oracore', color:'#EF4444', title:'Head of Enterprise Accounts',        img:29},
-    {id:9, name:'David T.',    company:'Oracore', companyKey:'oracore', color:'#EF4444', title:'Director, Channel Partners',         img:33},
-    {id:10,name:'Henry C.',    company:'Globex',  companyKey:'globex',  color:'#8B5CF6', title:'VP, Cloud Infrastructure',           img:37},
-    {id:11,name:'Emma M.',     company:'Globex',  companyKey:'globex',  color:'#8B5CF6', title:'Director, B2B Partnerships',         img:41},
-    {id:12,name:'Kevin W.',    company:'Globex',  companyKey:'globex',  color:'#8B5CF6', title:'Head of Startup Ecosystem',          img:45},
-    {id:13,name:'Lisa N.',     company:'Globex',  companyKey:'globex',  color:'#8B5CF6', title:'Senior Partner Manager',             img:49},
-    {id:14,name:'Ben K.',      company:'Globex',  companyKey:'globex',  color:'#8B5CF6', title:'VP, Enterprise Sales APAC',          img:53},
-    {id:15,name:'Thomas C.',   company:'ACS',     companyKey:'acs',     color:'#0EA5E9', title:'Head of Startup Programs',           img:57},
-    {id:16,name:'Grace S.',    company:'ACS',     companyKey:'acs',     color:'#0EA5E9', title:'Director, Enterprise Architecture',  img:61},
-    {id:17,name:'Michael R.',  company:'ACS',     companyKey:'acs',     color:'#0EA5E9', title:'VP, Channel Partnerships',           img:65},
-    {id:18,name:'Nancy P.',    company:'ACS',     companyKey:'acs',     color:'#0EA5E9', title:'Regional Manager, Cloud Sales',      img:68},
-    {id:19,name:'Frank Y.',    company:'SalesBridge',companyKey:'others',color:'#10B981',title:'VP, Digital Transformation',         img:3},
-    {id:20,name:'Alex L.',     company:'Microtek',companyKey:'others', color:'#6B7280', title:'Director, Enterprise APAC',          img:7},
+    {id:1, name:'James C.',    company:'Meta',      companyKey:'nexia',   color:'#3B82F6', title:'VP, Enterprise Solutions',        years:8,  focus:'Cloud · Enterprise SaaS', linkedin:'', visible:true},
+    {id:2, name:'Michelle L.', company:'Meta',      companyKey:'nexia',   color:'#3B82F6', title:'Director, Global Strategic Accounts', years:6, focus:'Strategic Partnerships', linkedin:'', visible:true},
+    {id:3, name:'Sarah K.',    company:'Meta',      companyKey:'nexia',   color:'#3B82F6', title:'VP, Strategic Partnerships APAC', years:7,  focus:'APAC · B2B SaaS', linkedin:'', visible:true},
+    {id:4, name:'Ryan H.',     company:'Meta',      companyKey:'nexia',   color:'#3B82F6', title:'Director, Cloud Business',        years:5,  focus:'Cloud Infrastructure', linkedin:'', visible:true},
+    {id:5, name:'Amy T.',      company:'Meta',      companyKey:'nexia',   color:'#3B82F6', title:'VP, Business Development Asia',   years:9,  focus:'Market Expansion · Asia', linkedin:'', visible:true},
+    {id:6, name:'Patrick L.',  company:'Oracle',    companyKey:'oracore', color:'#EF4444', title:'Director, Regional Sales APAC',   years:9,  focus:'Database · Enterprise', linkedin:'', visible:true},
+    {id:7, name:'Wayne C.',    company:'Oracle',    companyKey:'oracore', color:'#EF4444', title:'VP, Database & Cloud Solutions',  years:11, focus:'Cloud Migration · SaaS', linkedin:'', visible:true},
+    {id:8, name:'Yvonne M.',   company:'Oracle',    companyKey:'oracore', color:'#EF4444', title:'VP, Enterprise Accounts',         years:8,  focus:'Enterprise Accounts', linkedin:'', visible:true},
+    {id:9, name:'David T.',    company:'Oracle',    companyKey:'oracore', color:'#EF4444', title:'Director, Channel Partners',      years:6,  focus:'Channel · Resellers', linkedin:'', visible:true},
+    {id:10,name:'Henry C.',    company:'Google',    companyKey:'globex',  color:'#8B5CF6', title:'VP, Cloud Infrastructure',        years:10, focus:'Cloud · AI/ML', linkedin:'', visible:true},
+    {id:11,name:'Emma M.',     company:'Google',    companyKey:'globex',  color:'#8B5CF6', title:'Director, B2B Partnerships',      years:5,  focus:'B2B · Developer Tools', linkedin:'', visible:true},
+    {id:12,name:'Kevin W.',    company:'Google',    companyKey:'globex',  color:'#8B5CF6', title:'Director, Startup Ecosystem',     years:6,  focus:'Startups · GTM', linkedin:'', visible:true},
+    {id:13,name:'Lisa N.',     company:'Google',    companyKey:'globex',  color:'#8B5CF6', title:'Director, Partner Strategy',      years:7,  focus:'Partner Ecosystem', linkedin:'', visible:true},
+    {id:14,name:'Ben K.',      company:'Google',    companyKey:'globex',  color:'#8B5CF6', title:'VP, Enterprise Sales APAC',       years:12, focus:'Enterprise Sales · APAC', linkedin:'', visible:true},
+    {id:15,name:'Thomas C.',   company:'AWS',       companyKey:'acs',     color:'#0EA5E9', title:'VP, Startup Programs',            years:7,  focus:'Startups · Cloud Credits', linkedin:'', visible:true},
+    {id:16,name:'Grace S.',    company:'AWS',       companyKey:'acs',     color:'#0EA5E9', title:'Director, Enterprise Solutions',  years:8,  focus:'Enterprise Solutions', linkedin:'', visible:true},
+    {id:17,name:'Michael R.',  company:'AWS',       companyKey:'acs',     color:'#0EA5E9', title:'VP, Channel Partnerships',        years:10, focus:'Channel · ISV', linkedin:'', visible:true},
+    {id:18,name:'Nancy P.',    company:'AWS',       companyKey:'acs',     color:'#0EA5E9', title:'Director, Cloud Sales APAC',      years:6,  focus:'Cloud Sales · APAC', linkedin:'', visible:true},
+    {id:19,name:'Frank Y.',    company:'Salesforce',companyKey:'others',  color:'#10B981', title:'VP, Digital Transformation',     years:9,  focus:'Digital Transformation', linkedin:'', visible:true},
+    {id:20,name:'Alex L.',     company:'Microsoft', companyKey:'others',  color:'#6B7280', title:'Director, Enterprise APAC',       years:8,  focus:'Enterprise Sales', linkedin:'', visible:true},
   ],
 
   // ── Boice 引言 ────────────────────────────────────
   founderQuote: {
-    en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's Operator Syndicate.",
-    zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 Operator Syndicate。",
+    en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's Evolve Scale Capital.",
+    zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 Evolve Scale Capital。",
     name: "Boice Chen",
-    role_en: "Founder · Gogolook · Appier · Operator Syndicate",
-    role_zh: "發起人 · Gogolook · Appier · Operator Syndicate",
+    role_en: "Founder · Gogolook · Appier · Evolve Scale Capital",
+    role_zh: "發起人 · Gogolook · Appier · Evolve Scale Capital",
   },
   // ── Stats 標籤 ────────────────────────────────────
   statLabels: {
@@ -108,7 +108,7 @@ window.OS_CONTENT = {
   },
 
   // ── 跑馬燈內容 ────────────────────────────────────
-  marquee: ['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'],
+  marquee: ['Meta','Oracle','Google','AWS','Salesforce','Microsoft','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'],
 
   // ── FAQ ───────────────────────────────────────────
   faq: [
@@ -118,8 +118,8 @@ window.OS_CONTENT = {
       a_zh: "高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力，以及能快速行動的創辦人。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。" },
     { q_en: "How is this different from traditional VC?",
       q_zh: "這跟傳統創投有什麼不同？",
-      a_en: "Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B comes from changing the odds by putting you in the room.",
-      a_zh: "傳統創投提供資金與建議。Operator Syndicate 提供資金加上直接的企業通路。這些運營者是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 來自把你直接送進那個房間。" },
+      a_en: "Traditional VCs provide capital and advice. Evolve Scale Capital provides capital plus direct enterprise channel access. The operators are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B comes from changing the odds by putting you in the room.",
+      a_zh: "傳統創投提供資金與建議。Evolve Scale Capital 提供資金加上直接的企業通路。這些運營者是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 來自把你直接送進那個房間。" },
     { q_en: "What happens after I submit?",
       q_zh: "提交之後會發生什麼？",
       a_en: "Vincent reviews within 48 hours. If there's initial fit, a 30-minute call follows. Qualified deals enter our rapid assessment and are matched to relevant operator LPs. You'll hear back within 2 weeks. All submissions confidential.",
@@ -128,8 +128,8 @@ window.OS_CONTENT = {
       q_zh: "案源審核流程是什麼樣子？",
       a_en: "Every qualified deal goes through a proprietary rapid assessment — a structured review that gives operator LPs the key signals they need to decide in minutes, not days. It eliminates noise and surfaces only what matters: the problem, the opportunity, the strategic fit, and the honest risk.",
       a_zh: "每個通過篩選的案源都會經過一套專屬的快速決策流程，讓高管 LP 在幾分鐘內掌握關鍵信號。它去除噪音，只留下真正重要的：問題、機會、策略契合度、以及誠實的風險評估。" },
-    { q_en: "What stage is Operator Syndicate at right now?",
-      q_zh: "Operator Syndicate 目前處於什麼階段？",
+    { q_en: "What stage is Evolve Scale Capital at right now?",
+      q_zh: "Evolve Scale Capital 目前處於什麼階段？",
       a_en: "Pre-launch. The operator LP network is being finalized and first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review.",
       a_zh: "Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格。" },
   ],

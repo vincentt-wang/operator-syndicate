@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Operator Network — Operator Syndicate</title>
+<title>Operator Network — Evolve Scale Capital</title>
 <meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -112,7 +113,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <div class="header-inner">
     <div class="header-logo">
       <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
-      <span class="logo-text">Operator Syndicate</span>
+      <span class="logo-text">Evolve Scale Capital</span>
       <span class="logo-tag">DEMO</span>
     </div>
     <div style="display:flex;align-items:center;gap:1rem">
@@ -142,10 +143,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 <div class="container">
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="nexia">Nexia</button>
-    <button class="filter-btn" data-filter="oracore">Oracore</button>
-    <button class="filter-btn" data-filter="globex">Globex</button>
-    <button class="filter-btn" data-filter="acs">ACS</button>
+    <button class="filter-btn" data-filter="nexia">Meta</button>
+    <button class="filter-btn" data-filter="oracore">Oracle</button>
+    <button class="filter-btn" data-filter="globex">Google</button>
+    <button class="filter-btn" data-filter="acs">AWS</button>
     <button class="filter-btn" data-filter="others">Others</button>
   </div>
 
@@ -158,10 +159,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </div>
 
 <footer class="page-footer">
-  Operator Syndicate · Confidential — For Internal Use Only · All data subject to LP consent ·
+  Evolve Scale Capital · Confidential — For Internal Use Only · All data subject to LP consent ·
   <a href="mailto:contact@operatorsyndicate.com" style="color:var(--orange);opacity:.7">contact@operatorsyndicate.com</a>
 </footer>
 
+<script src="shared-content.js"></script>
 <script>
 /* ═══════════════════════════════════════════════
    OPERATOR DATA — edit this array to add/update members
@@ -173,33 +175,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    img: number from https://i.pravatar.cc/150?img=N (1–70)
    visible: true = show name; false = show as "Anonymous LP"
 ═══════════════════════════════════════════════ */
-var OPERATORS = [
-  // ── NEXIA ──────────────────────────────────────────
-  {id:1, name:'James C.',      company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'VP, Enterprise Solutions',          img:1,  linkedin:'', years:8,  focus:'Cloud · Enterprise SaaS',    visible:true},
-  {id:2, name:'Michelle L.',   company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Director, Global Strategic Accounts',img:5,  linkedin:'', years:6,  focus:'Strategic Partnerships',     visible:true},
-  {id:3, name:'Sarah K.',      company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Head of Partnerships, APAC',         img:9,  linkedin:'', years:5,  focus:'APAC · B2B SaaS',            visible:true},
-  {id:4, name:'Ryan H.',       company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'Senior Manager, Cloud Business',     img:13, linkedin:'', years:4,  focus:'Cloud Infrastructure',       visible:true},
-  {id:5, name:'Amy T.',        company:'Nexia',   companyKey:'nexia',   companyColor:'#2563EB', title:'VP, Business Development Asia',      img:17, linkedin:'', years:7,  focus:'Market Expansion · Asia',    visible:true},
-  // ── ORACORE ────────────────────────────────────────
-  {id:6, name:'Patrick L.',    company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Regional Sales Director, APAC',      img:21, linkedin:'', years:9,  focus:'Database · Enterprise',      visible:true},
-  {id:7, name:'Wayne C.',      company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'VP, Database & Cloud Solutions',     img:25, linkedin:'', years:11, focus:'Cloud Migration · SaaS',     visible:true},
-  {id:8, name:'Yvonne M.',     company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Head of Enterprise Accounts',        img:29, linkedin:'', years:7,  focus:'Enterprise Accounts',        visible:true},
-  {id:9, name:'David T.',      company:'Oracore', companyKey:'oracore', companyColor:'#EF4444', title:'Director, Channel Partners',         img:33, linkedin:'', years:6,  focus:'Channel · Resellers',        visible:true},
-  // ── GLOBEX ─────────────────────────────────────────
-  {id:10,name:'Henry C.',      company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'VP, Cloud Infrastructure',           img:37, linkedin:'', years:8,  focus:'Cloud · AI/ML',              visible:true},
-  {id:11,name:'Emma M.',       company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Director, B2B Partnerships',         img:41, linkedin:'', years:5,  focus:'B2B · Developer Tools',      visible:true},
-  {id:12,name:'Kevin W.',      company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Head of Startup Ecosystem',          img:45, linkedin:'', years:4,  focus:'Startups · GTM',             visible:true},
-  {id:13,name:'Lisa N.',       company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'Senior Partner Manager',             img:49, linkedin:'', years:6,  focus:'Partner Ecosystem',          visible:true},
-  {id:14,name:'Ben K.',        company:'Globex',  companyKey:'globex',  companyColor:'#8B5CF6', title:'VP, Enterprise Sales APAC',          img:53, linkedin:'', years:10, focus:'Enterprise Sales · APAC',    visible:true},
-  // ── ACS ────────────────────────────────────────────
-  {id:15,name:'Thomas C.',     company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Head of Startup Programs',           img:57, linkedin:'', years:5,  focus:'Startups · Cloud Credits',   visible:true},
-  {id:16,name:'Grace S.',      company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Director, Enterprise Architecture',  img:61, linkedin:'', years:7,  focus:'Enterprise Architecture',    visible:true},
-  {id:17,name:'Michael R.',    company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'VP, Channel Partnerships',           img:65, linkedin:'', years:9,  focus:'Channel · ISV',              visible:true},
-  {id:18,name:'Nancy P.',      company:'ACS',     companyKey:'acs',     companyColor:'#0EA5E9', title:'Regional Manager, Cloud Sales',      img:68, linkedin:'', years:4,  focus:'Cloud Sales · APAC',         visible:true},
-  // ── OTHERS ─────────────────────────────────────────
-  {id:19,name:'Frank Y.',      company:'SalesBridge',companyKey:'others',companyColor:'#10B981', title:'VP, Digital Transformation',         img:3,  linkedin:'', years:8,  focus:'Digital Transformation',     visible:true},
-  {id:20,name:'Alex L.',       company:'Microtek', companyKey:'others', companyColor:'#6B7280', title:'Director, Enterprise APAC',          img:7,  linkedin:'', years:6,  focus:'Enterprise Sales',           visible:true},
-];
+var OPERATORS = (window.OS_CONTENT && window.OS_CONTENT.operators ? window.OS_CONTENT.operators : []).map(function(o){
+  return { id:o.id, name:o.name, company:o.company, companyKey:o.companyKey,
+    companyColor:o.color, title:o.title, img:o.img,
+    linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise',
+    visible:o.visible!==false };
+});
 
 /* ════════════ RENDER ════════════ */
 var currentFilter = 'all';
