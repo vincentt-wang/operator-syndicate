@@ -389,7 +389,7 @@ go(0);
 (function(){
   var canvas=document.getElementById('net-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,frame=0;
-  var OPS=C.operators;
+  var OPS=C.operators.filter(function(o){return o.companyKey!=='team';});
   OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.loaded=false;op.imgEl.onload=function(){op.loaded=true;};});
   var RINGS=[{R:0,sp:.0006,tilt:.28,dir:1},{R:0,sp:.001,tilt:-.22,dir:-1},{R:0,sp:.0014,tilt:.32,dir:1},{R:0,sp:.0018,tilt:-.18,dir:-1}];
   var nodes=[],CX=0,CY=0,BR=0,prevHov=-1;
