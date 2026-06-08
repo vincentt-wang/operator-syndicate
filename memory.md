@@ -41,7 +41,7 @@
 ### Core Team（3 人）
 - Boice Lin — Founder & Managing Partner。Gogolook 商務長(CBO)、前 Appier 全球業務資深副總(SVP Global Sales)、TutorABC 併購出場；20+ 年企業營收橫跨台灣/東南亞/日本。FB/email: boicegun。照片 Team/Boice.jpg。
 - Vincent Wang — AI Content & Funding AO。AI 案源篩選方法論、內容、募資端 anchor；史丹佛/柏克萊、設計思考全國冠軍、創業大聯盟前 300。照片 Team/Vincent.jpg（橫式 4500x3000，臉部對位待確認）。
-- Tina Li（李婷婷）— Community & Creator。AI 伴侶產品創作者，IG/Threads 10 萬+ 社群；頭像仍為 pravatar 佔位，待補真實照片/LinkedIn。
+- Tina Li（李婷婷）— Community & Creator。**2026-06 已從首頁團隊區移除**（網站現只保留有真實照片的 Boice + Vincent），資料保留待真實照片/確認後再上。背景：資工少女出身的 AI 工程師＋創作者，打造台灣最具人氣 AI 伴侶（AI 女友/男友）專案之一，IG @tinaaaaalee、Threads 破 10 萬社群，UC Berkeley。cred：Software Engineer / AI Companion Creator / 100K+ Community。
 
 ### 兩個受眾
 - B2B 新創創辦人：提交案源，跳過 12-18 個月企業冷開發期

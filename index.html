@@ -313,7 +313,7 @@ img{max-width:100%;display:block}
 
 /* TEAM */
 #team{padding:120px 0;background:var(--white)}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem;max-width:760px;margin-left:auto;margin-right:auto}
 .team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.75rem;transition:all .3s}
 .team-card:hover{box-shadow:var(--shadow-md);transform:translateY(-5px);border-color:rgba(255,102,0,.2)}
 .team-avatar{width:96px;height:96px;border-radius:50%;overflow:hidden;margin-bottom:1.25rem;border:3px solid rgba(255,102,0,.2);flex-shrink:0;background-repeat:no-repeat;background-position:center;background-size:cover;background-color:#e8edf3}
@@ -798,7 +798,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <a href="#team" onclick="closeMob()" data-en="Team" data-zh="團隊">Team</a>
   <a href="#faq" onclick="closeMob()" data-en="FAQ" data-zh="FAQ">FAQ</a>
   <button class="mob-cta" onclick="closeMob();openPortal('ps-startup')" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
-  <button class="btn-lang" onclick="toggleLang();closeMob()" id="mobLangBtn">中文</button>
+  <button class="btn-lang" onclick="toggleLang();closeMob()" id="mobLangBtn">CH</button>
 </div>
 
 <!-- NAV -->
@@ -817,7 +817,7 @@ footer{background:#060F1E;padding:72px 0 0}
     <li><a href="#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
   </ul>
   <div class="nav-right">
-    <button class="btn-lang" onclick="toggleLang()" id="langBtn">中文</button>
+    <button class="btn-lang" onclick="toggleLang()" id="langBtn">CH</button>
     <button onclick="openPortal('ps-startup')" class="btn-nav" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
   </div>
   <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
@@ -1257,17 +1257,6 @@ footer{background:#060F1E;padding:72px 0 0}
           <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Startup League · Top 300" data-zh="創業大聯盟 · 前 300 強">Startup League · Top 300</span></div>
         </div>
       </div>
-      <div class="team-card reveal d3">
-        <div class="team-avatar" role="img" aria-label="Tina Li" style="background-image:url('https://i.pravatar.cc/150?img=44');background-size:110%;background-position:center 20%"></div>
-        <div class="team-name">Tina Li</div>
-        <div class="team-role" data-en="Community &amp; Creator" data-zh="社群與創作者">Community &amp; Creator</div>
-        <div class="team-bio" data-en="Software engineer and creator behind one of Taiwan's most-followed AI companion projects, bringing content reach and creator-economy insight to the network." data-zh="工程師出身的創作者，打造台灣最具人氣的 AI 伴侶專案之一，為網絡帶來內容聲量與創作者經濟的洞察。">Software engineer and creator behind one of Taiwan's most-followed AI companion projects, bringing content reach and creator-economy insight to the network.</div>
-        <div class="cred-row">
-          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Software Engineer" data-zh="軟體工程師">Software Engineer</span></div>
-          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="AI Companion Creator" data-zh="AI 伴侶產品創作者">AI Companion Creator</span></div>
-          <div class="cred-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="100K+ Community" data-zh="10 萬+ 社群">100K+ Community</span></div>
-        </div>
-      </div>
     </div>
     <div class="advisors-wrap reveal">
       <div class="advisors-ey" data-en="Ecosystem Advisors" data-zh="生態系顧問">Ecosystem Advisors</div>
@@ -1383,9 +1372,9 @@ function applyLang(l){
   });
   // Update lang toggle buttons
   var b=document.getElementById('langBtn'),m=document.getElementById('mobLangBtn'),p=document.querySelector('.portal-lang');
-  if(b)b.textContent=l==='en'?'中文':'EN';
-  if(m)m.textContent=l==='en'?'中文':'EN';
-  if(p)p.textContent=l==='en'?'中文':'EN';
+  if(b)b.textContent=l==='en'?'CH':'EN';
+  if(m)m.textContent=l==='en'?'CH':'EN';
+  if(p)p.textContent=l==='en'?'CH':'EN';
 }
 function toggleLang(){applyLang(lang==='en'?'zh':'en');}
 applyLang(lang);
