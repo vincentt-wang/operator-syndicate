@@ -54,8 +54,8 @@ img{max-width:100%;display:block}
 #nav.hero-nav .nav-links a{color:rgba(255,255,255,.65)}
 #nav.hero-nav .nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:1rem;flex-shrink:0}
-.btn-lang{font-size:.9rem;font-weight:700;letter-spacing:.04em;color:var(--text-4);border:1px solid var(--border-2);border-radius:20px;padding:6px 16px;transition:all .2s;font-family:var(--fb)}
-.btn-lang:hover{color:var(--orange);border-color:var(--orange)}
+.btn-lang{font-size:.9rem;font-weight:700;letter-spacing:.04em;color:var(--orange);border:1.5px solid var(--orange);border-radius:20px;padding:6px 16px;transition:all .2s;font-family:var(--fb);background:rgba(255,102,0,.06)}
+.btn-lang:hover{color:#fff;background:var(--orange);border-color:var(--orange)}
 #nav.hero-nav .btn-lang{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.2)}
 #nav.hero-nav .btn-lang:hover{color:#fff;border-color:rgba(255,255,255,.5)}
 .btn-nav{font-family:var(--fb);font-weight:700;font-size:1rem;padding:10px 22px;border-radius:var(--r-btn);background:var(--orange);color:#fff;transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
@@ -151,7 +151,7 @@ img{max-width:100%;display:block}
 .hero-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
 #hero-canvas{width:100%;height:100%;display:block;pointer-events:none;opacity:.85}
 .hero-inner{position:relative;z-index:2;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-3);border:1px solid rgba(255,140,66,.3);border-radius:24px;padding:7px 18px;background:rgba(255,102,0,.08);margin-bottom:2.5rem}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:.85rem;text-decoration:none;transition:all .25s;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-3);border:1px solid rgba(255,140,66,.3);border-radius:24px;padding:7px 18px;background:rgba(255,102,0,.08);margin-bottom:2.5rem}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange-3);box-shadow:0 0 8px var(--orange-3);animation:dpulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes dpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
 .hero-h1{font-family:var(--fd);font-weight:900;font-size:clamp(3.5rem,8.5vw,8.5rem);line-height:1.0;letter-spacing:-.025em;color:#fff;margin-bottom:2rem}
@@ -594,8 +594,8 @@ footer{background:#060F1E;padding:72px 0 0}
 #nav.hero-nav .logo-tag{color:var(--orange)!important;background:rgba(255,102,0,.1)!important;border-color:rgba(255,102,0,.25)!important}
 #nav.hero-nav .nav-links a{color:var(--text-3)!important}
 #nav.hero-nav .nav-links a:hover{color:var(--orange)!important}
-#nav.hero-nav .btn-lang{color:var(--text-4)!important;border-color:var(--border-2)!important}
-#nav.hero-nav .btn-lang:hover{color:var(--orange)!important;border-color:var(--orange)!important}
+#nav.hero-nav .btn-lang{color:var(--orange)!important;border-color:var(--orange)!important;background:rgba(255,102,0,.06)!important}
+#nav.hero-nav .btn-lang:hover{color:#fff!important;background:var(--orange)!important;border-color:var(--orange)!important}
 #nav.hero-nav .hamburger span{background:var(--text-3)!important}
 /* Button alternating glow */
 @keyframes hero-glow-a{
@@ -800,7 +800,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="hero-grid"><canvas id="hero-canvas"></canvas></div>
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-badge"><span data-en="Taiwan's First Sales-Driven Fund · Launching June 2026" data-zh="全台首創 Sales-Driven 基金 · 2026 年 6 月 Launch">Taiwan's First Sales-Driven Fund · Launching June 2026</span></div>
+      <a href="pitch.html" class="hero-badge" style="cursor:pointer;text-decoration:none" onmouseover="this.style.background='rgba(255,102,0,.16)';this.style.borderColor='rgba(255,140,66,.6)'" onmouseout="this.style.background='rgba(255,102,0,.08)';this.style.borderColor='rgba(255,140,66,.3)'"><span data-en="Taiwan's First Sales-Driven Fund · View Pitch →" data-zh="全台首創 Sales-Driven 基金 · 查看簡報 →">Taiwan's First Sales-Driven Fund · View Pitch →</span></a>
       <h1 class="hero-h1">
         <span data-bind-en="brand.tagline_en_1" data-bind-zh="brand.tagline_zh_1" data-en="We Don't Just Invest," data-zh="不只是投資">We Don't Just Invest,</span><br>
         <em><span data-bind-en="brand.tagline_en_2" data-bind-zh="brand.tagline_zh_2" data-en="We Scale." data-zh="我們帶你做大">We Scale.</span></em>
@@ -811,10 +811,10 @@ footer{background:#060F1E;padding:72px 0 0}
         <button onclick="openPortal('ps-exec')" class="btn-outline" data-en="Join as Operator" data-zh="加入成為高管 LP">Join as Operator</button>
       </div>
       <div class="hero-stats">
-        <div class="h-stat"><div class="h-stat-n">50<span style="font-size:.75em">+</span></div><div class="h-stat-l" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
-        <div class="h-stat"><div class="h-stat-n">48<span style="font-size:.65em;font-family:var(--fb)">hr</span></div><div class="h-stat-l" data-en="First Response" data-zh="初步回覆">First Response</div></div>
-        <div class="h-stat"><div class="h-stat-n">2</div><div class="h-stat-l" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div></div>
-        <div class="h-stat"><div class="h-stat-n">12–18<span style="font-size:.5em;font-family:var(--fb)">mo</span></div><div class="h-stat-l" data-en="Enterprise Cycle Cut" data-zh="縮短的銷售週期">Enterprise Cycle Cut</div></div>
+        <div class="h-stat"><div class="h-stat-n">50<span style="font-size:.75em">+</span></div><div class="h-stat-l" data-bind-en="statLabels.operators_en" data-bind-zh="statLabels.operators_zh" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
+        <div class="h-stat"><div class="h-stat-n">48<span style="font-size:.65em;font-family:var(--fb)">hr</span></div><div class="h-stat-l" data-bind-en="statLabels.response_en" data-bind-zh="statLabels.response_zh" data-en="First Response" data-zh="初步回覆">First Response</div></div>
+        <div class="h-stat"><div class="h-stat-n">2</div><div class="h-stat-l" data-bind-en="statLabels.tiers_en" data-bind-zh="statLabels.tiers_zh" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div></div>
+        <div class="h-stat"><div class="h-stat-n">12–18<span style="font-size:.5em;font-family:var(--fb)">mo</span></div><div class="h-stat-l" data-bind-en="statLabels.cycle_en" data-bind-zh="statLabels.cycle_zh" data-en="Enterprise Cycle Cut" data-zh="縮短的銷售週期">Enterprise Cycle Cut</div></div>
       </div>
     </div>
   </div>
@@ -1379,13 +1379,7 @@ footer{background:#060F1E;padding:72px 0 0}
       <div class="eyebrow">FAQ</div>
       <h2 class="section-h" data-en="Common questions." data-zh="常見問題。">Common questions.</h2>
     </div>
-    <div class="faq-wrap">
-      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What B2B startups are a good fit?" data-zh="什麼樣的 B2B 新創適合申請？">What B2B startups are a good fit?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction (paying customers or LOIs), and a founder who moves fast. Pre-revenue teams with clear differentiation and a named target customer are also considered. Both Tier 1 (seed/early stage) and Tier 2 (pre-IPO) companies may apply." data-zh="高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力（付費客戶或意向書），以及能快速行動的創辦人。有清晰差異化技術且有具名目標客戶的種子前團隊也會納入考慮。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。">B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction (paying customers or LOIs), and a founder who moves fast. Pre-revenue teams with clear differentiation and a named target customer are also considered. Both Tier 1 (seed/early stage) and Tier 2 (pre-IPO) companies may apply.</div></div></div>
-      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="How is this different from traditional VC?" data-zh="這跟傳統創投有什麼不同？">How is this different from traditional VC?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are not advisors — they are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B doesn't come from reading financials. It comes from changing the odds by putting you in the room." data-zh="傳統創投提供資金與建議。Operator Syndicate 提供資金加上直接的企業通路。這些運營者不是顧問，他們是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 不來自閱讀財務報告，而是來自把你直接送進那個房間。">Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are not advisors — they are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B doesn't come from reading financials. It comes from changing the odds by putting you in the room.</div></div></div>
-      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What happens after I submit?" data-zh="提交之後會發生什麼？">What happens after I submit?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Vincent reviews within 48 hours. If there's initial fit, a 30-minute call follows. Qualified deals enter our rapid assessment and are matched to relevant operator LPs — executives who have sold into your exact target market. You'll hear back within 2 weeks. All submissions confidential." data-zh="Vincent 在 48 小時內審閱。若有初步契合度，會安排 30 分鐘通話。通過篩選的案源經快速評估後分發給相關高管 LP。2 週內得知是否有高管感興趣。所有申請嚴格保密。">Vincent reviews your submission within 48 hours. If there's initial fit, he'll schedule a 30-minute call. Qualified deals go through our rapid assessment process and are distributed to relevant operator LPs. You'll know within 2 weeks whether there's operator interest. All submissions are strictly confidential.</div></div></div>
-      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="How does the deal review process work?" data-zh="案源審核流程是什麼樣子？">How does the deal review process work?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Every qualified deal goes through a proprietary rapid assessment — a structured review that gives operator LPs the key signals they need to make a decision in minutes, not days. The format is designed to eliminate noise and surface only what matters: the problem, the opportunity, the strategic fit, and the honest risk. Operators receive it before any conversation." data-zh="每個通過篩選的案源都會經過一套專屬的快速決策流程，讓高管 LP 在幾分鐘內掌握關鍵信號。這套系統設計的目的是去除噪音，只留下真正重要的資訊：問題、機會、策略契合度、以及誠實的風險評估。高管在任何對話發生之前就能收到完整摘要。">Every qualified deal goes through a proprietary rapid assessment — a structured review that gives operator LPs the key signals they need to make a decision in minutes, not days. The format is designed to eliminate noise and surface only what matters: the problem, the opportunity, the strategic fit, and the honest risk. Operators receive it before any conversation.</div></div></div>
-      <div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="What stage is Operator Syndicate at right now?" data-zh="Operator Syndicate 目前處於什麼階段？">What stage is Operator Syndicate at right now?</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="Pre-launch. The operator LP network is being finalized, and the first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review and the earliest access to the operator network. This is the best time to be early." data-zh="Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格，並能最早接觸高管網絡。現在是最好的時機。">Pre-launch. The operator LP network is being finalized, and the first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review and the earliest access to the operator network. This is the best time to be early.</div></div></div>
-    </div>
+    <div class="faq-wrap" id="faqWrap"></div>
   </div>
 </section>
 
@@ -1504,7 +1498,7 @@ window.addEventListener('scroll',checkReveal,{passive:true});
 window.addEventListener('resize',checkReveal,{passive:true});
 
 /* ── MARQUEE ── */
-(function(){var items=['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){h+='<div class="mq-item"><span class="mq-sep"></span>'+it+'</div>';});t.innerHTML=h;})();
+(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||['Operator Syndicate'];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){h+='<div class="mq-item"><span class="mq-sep"></span>'+it+'</div>';});t.innerHTML=h;})();
 
 /* ── PORTAL ── */
 function openPortal(id){var ov=document.getElementById('portalOv');ov.classList.add('open');document.body.style.overflow='hidden';showStep(id||'ps-select');}
@@ -1522,6 +1516,15 @@ function closeMob(){document.getElementById('mobMenu').classList.remove('open');
 function showDemoNotice(){var m=lang==='zh'?'此為 Demo 展示網站，功能持續建置中。':'This is a demo site. Features are under development.';var el=document.getElementById('demoToast');el.textContent=m;el.style.opacity='0';el.style.transform='translateX(-50%) translateY(20px)';clearTimeout(el._t);requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='translateX(-50%) translateY(0)';});});el._t=setTimeout(function(){el.style.opacity='0';el.style.transform='translateX(-50%) translateY(20px)';},3000);}
 
 /* ── FAQ ── */
+
+/* ── FAQ from shared-content ── */
+(function(){
+  var wrap=document.getElementById('faqWrap');
+  if(!wrap||!window.OS_CONTENT||!window.OS_CONTENT.faq)return;
+  wrap.innerHTML=window.OS_CONTENT.faq.map(function(f){
+    return '<div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="'+f.q_en.replace(/"/g,'&quot;')+'" data-zh="'+f.q_zh.replace(/"/g,'&quot;')+'">'+f.q_en+'</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="'+f.a_en.replace(/"/g,'&quot;')+'" data-zh="'+f.a_zh.replace(/"/g,'&quot;')+'">'+f.a_en+'</div></div></div>';
+  }).join('');
+})();
 function toggleFaq(item){var b=item.querySelector('.fq-body'),open=item.classList.contains('open');document.querySelectorAll('.fq-item.open').forEach(function(el){el.classList.remove('open');el.querySelector('.fq-body').style.maxHeight='0';});if(!open){item.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}}
 
 /* ── BRIEF ── */

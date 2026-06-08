@@ -99,4 +99,38 @@ window.OS_CONTENT = {
     role_en: "Founder · Gogolook · Appier · Operator Syndicate",
     role_zh: "發起人 · Gogolook · Appier · Operator Syndicate",
   },
+  // ── Stats 標籤 ────────────────────────────────────
+  statLabels: {
+    operators_en: "Senior Operators", operators_zh: "資深高管",
+    response_en: "First Response",     response_zh: "初步回覆",
+    tiers_en: "Investment Tiers",      tiers_zh: "投資層級",
+    cycle_en: "Enterprise Cycle Cut",  cycle_zh: "縮短的銷售週期",
+  },
+
+  // ── 跑馬燈內容 ────────────────────────────────────
+  marquee: ['Nexia','Oracore','Globex','ACS','SalesBridge','Microtek','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'],
+
+  // ── FAQ ───────────────────────────────────────────
+  faq: [
+    { q_en: "What B2B startups are a good fit?",
+      q_zh: "什麼樣的 B2B 新創適合申請？",
+      a_en: "B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction, and a founder who moves fast. Both Tier 1 (seed/early) and Tier 2 (pre-IPO) companies may apply.",
+      a_zh: "高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力，以及能快速行動的創辦人。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。" },
+    { q_en: "How is this different from traditional VC?",
+      q_zh: "這跟傳統創投有什麼不同？",
+      a_en: "Traditional VCs provide capital and advice. Operator Syndicate provides capital plus direct enterprise channel access. The operators are decision-makers at the exact companies your startup is trying to sell to. Early alpha in B2B comes from changing the odds by putting you in the room.",
+      a_zh: "傳統創投提供資金與建議。Operator Syndicate 提供資金加上直接的企業通路。這些運營者是你新創正在嘗試銷售的那些公司的決策者。B2B 早期 Alpha 來自把你直接送進那個房間。" },
+    { q_en: "What happens after I submit?",
+      q_zh: "提交之後會發生什麼？",
+      a_en: "Vincent reviews within 48 hours. If there's initial fit, a 30-minute call follows. Qualified deals enter our rapid assessment and are matched to relevant operator LPs. You'll hear back within 2 weeks. All submissions confidential.",
+      a_zh: "Vincent 在 48 小時內審閱。若有初步契合度，會安排 30 分鐘通話。通過篩選的案源經快速評估後分配給相關高管 LP。2 週內回覆。所有申請嚴格保密。" },
+    { q_en: "How does the deal review process work?",
+      q_zh: "案源審核流程是什麼樣子？",
+      a_en: "Every qualified deal goes through a proprietary rapid assessment — a structured review that gives operator LPs the key signals they need to decide in minutes, not days. It eliminates noise and surfaces only what matters: the problem, the opportunity, the strategic fit, and the honest risk.",
+      a_zh: "每個通過篩選的案源都會經過一套專屬的快速決策流程，讓高管 LP 在幾分鐘內掌握關鍵信號。它去除噪音，只留下真正重要的：問題、機會、策略契合度、以及誠實的風險評估。" },
+    { q_en: "What stage is Operator Syndicate at right now?",
+      q_zh: "Operator Syndicate 目前處於什麼階段？",
+      a_en: "Pre-launch. The operator LP network is being finalized and first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review.",
+      a_zh: "Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格。" },
+  ],
 };
