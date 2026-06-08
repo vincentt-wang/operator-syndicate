@@ -766,6 +766,7 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">✕</button>
   <a href="#audience" onclick="closeMob()" data-en="Who Is This For" data-zh="適合誰">Who Is This For</a>
+  <a href="#about" onclick="closeMob()" data-en="About" data-zh="關於我們">About</a>
   <a href="#network" onclick="closeMob()" data-en="Operators" data-zh="高管網絡">Operators</a>
   <a href="#how" onclick="closeMob()" data-en="How It Works" data-zh="如何運作">How It Works</a>
   <a href="#brief" onclick="closeMob()" data-en="Deal Quality" data-zh="案源品質">Deal Quality</a>
@@ -783,8 +784,8 @@ footer{background:#060F1E;padding:72px 0 0}
     
   </a>
   <ul class="nav-links">
+    <li><a href="#about" data-en="About" data-zh="關於我們">About</a></li>
     <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
-    <li><a href="#why" data-en="The Problem" data-zh="核心問題">The Problem</a></li>
     <li><a href="#gallery" data-en="Proof" data-zh="案例">Proof</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
   </ul>
@@ -827,63 +828,38 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="divider"></div>
 
 <!-- OPERATOR NETWORK CONSTELLATION -->
-<section id="network" style="background:var(--navy);padding:60px 0 0;overflow:hidden">
-  <div class="container" style="text-align:center;padding-bottom:3rem">
-    <div class="reveal">
-      <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
-      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you." data-zh="50+ 位來自世界 500 強科技巨頭與台灣百大企業的 VP 與 Director 級營運者——真正能拿下企業大單的關係，現在為你所用。">50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you.</p>
-    </div>
-  </div>
-  <div style="position:relative">
-    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
-    <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
-      <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
-    </div>
-    <div id="net-tooltip" class="network-tooltip">
-      <div id="nt-company" class="nt-company"></div>
-      <div id="nt-title" class="nt-title"></div>
-    </div>
-  </div>
-  <div class="container">
-    <div style="display:flex;justify-content:center;gap:4rem;padding:2.5rem 0 2rem;flex-wrap:wrap">
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Fortune 500" data-zh="世界500強">Fortune 500</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Tech Giants" data-zh="科技巨頭">Tech Giants</div></div>
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Taiwan Top 100" data-zh="台灣百大">Taiwan Top 100</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Leading Enterprises" data-zh="領導企業">Leading Enterprises</div></div>
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Top-Tier" data-zh="頂尖">Top-Tier</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Founders" data-zh="創辦團隊">Founders</div></div>
-    </div>
-  </div>
-    <div style="text-align:center;padding:.5rem 0 2.5rem">
-      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
-    </div>
-</section>
-
-<!-- INVESTMENT TIERS -->
-<section id="why" style="padding:120px 0;background:#FAFBFF;position:relative;overflow:hidden"><canvas id="why-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:1"></canvas>
+<section id="about" style="padding:120px 0;background:#FAFBFF;position:relative;overflow:hidden"><canvas id="why-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:1"></canvas>
   <div class="why-ripple"></div><div class="why-ripple"></div><div class="why-ripple"></div>
   <div class="container">
-    <div class="reveal">
-      <div class="eyebrow" data-en="The Problem" data-zh="核心痛點">The Problem</div>
-      <h2 class="section-h" data-en="Enterprise channels are the<br>hardest problem in B2B." data-zh="企業通路是 B2B<br>最難解的問題。">Enterprise channels are the<br>hardest problem in B2B.</h2>
-      <p class="section-p" data-en="Great products fail not because of technology — but because they can't get in front of the right enterprise buyers at the right time." data-zh="優秀的產品失敗，不是因為技術，而是因為無法在正確時間接觸到正確的企業買家。">Great products fail not because of technology — but because they can't get in front of the right enterprise buyers at the right time.</p>
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <div class="eyebrow" data-en="About" data-zh="關於我們">About</div>
+      <h2 class="section-h" data-en="More than capital." data-zh="不只是資金。">More than capital.</h2>
+      <p class="section-p" style="margin:0 auto" data-en="Every co-investment comes with three things traditional VC cannot offer." data-zh="每一筆共同投資，都帶來傳統 VC 無法提供的三樣東西。">Every co-investment comes with three things traditional VC cannot offer.</p>
+    </div>
+    <!-- 100% Involvement Statement -->
+    <div class="reveal" style="max-width:780px;margin:3.5rem auto 0;text-align:center;padding:3rem 2.5rem;background:var(--orange-pale);border-radius:var(--r);border:1.5px solid rgba(255,102,0,.2)">
+      <div style="font-family:var(--fd);font-weight:900;font-size:clamp(3.5rem,6vw,5rem);color:var(--orange);line-height:1;letter-spacing:-.02em">100%</div>
+      <div style="font-family:var(--fd);font-weight:800;font-size:clamp(1.4rem,2.5vw,1.9rem);color:var(--text);margin:.5rem 0 1.25rem;letter-spacing:-.01em" data-bind-en="involvement.headline_en" data-bind-zh="involvement.headline_zh" data-en="Every deal. Every time." data-zh="每一筆投資，每一次都動用網絡">Every deal. Every time.</div>
+      <p style="font-size:1.1rem;color:var(--text-3);line-height:1.7;max-width:620px;margin:0 auto" data-bind-en="involvement.body_en" data-bind-zh="involvement.body_zh" data-en="We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check." data-zh="我們把資深 go-to-market 營運者，精準對接每家投組公司的策略與營運需求——以顧問、董事或實際操盤的高管身分加入。100% 的投資都有網絡參與，不只是一張支票。">We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check.</p>
     </div>
     <div class="why-grid">
       <div class="why-card reveal d1">
-        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <h3 data-en="Capital is everywhere. Operators are rare." data-zh="資金到處都是，懂業務的投資人沒幾個。">Capital is everywhere. Operators are rare.</h3>
-        <p data-en="Traditional VCs write checks and wait. Operator-led funds like Stage2 Capital and GTM Fund prove the model: when investors are also your sales network, CAC drops and deal velocity multiplies." data-zh="傳統 VC 給錢然後等待。Stage2 Capital 與 GTM Fund 已驗證：投資人本身就是業務網絡時，獲客成本下降，成交速度倍增。">Traditional VCs write checks and wait. Without a warm intro from inside the organization, your pitch never reaches the decision-maker — no matter how strong the product.</p>
-        <div class="why-stat" data-en="Operator-led funds outperform financial VCs on post-investment revenue growth" data-zh="Operator-led 模式在投後業績成長上優於財務型 VC">Operator-led funds outperform financial VCs on post-investment revenue growth</div>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3 data-bind-en="pillars.0.title_en" data-bind-zh="pillars.0.title_zh" data-en="Network Alpha" data-zh="Network Alpha">Network Alpha</h3>
+        <p data-bind-en="pillars.0.desc_en" data-bind-zh="pillars.0.desc_zh" data-en="Your enterprise relationships are your alpha. We measure, deploy, and monetize operator network value." data-zh="你的企業關係就是你的 Alpha。我們衡量、部署並變現高管網絡價值。">Your enterprise relationships are your alpha.</p>
+        <div class="why-stat" data-en="Warm intros · Enterprise POC in weeks · RaaS" data-zh="企業引薦 · 數週內 POC · 營收即服務">Warm intros · Enterprise POC in weeks · RaaS</div>
       </div>
       <div class="why-card reveal d2">
-        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 data-en="Your network is worth more than your check." data-zh="你的人脈比你的支票更值錢。">Your network is worth more than your check.</h3>
-        <p data-en="Senior sales executives sit on decades of enterprise relationships. Until now, those relationships had no financial upside. EvoScale Capital converts Network Alpha into returns — for both operators and founders." data-zh="資深業務高管掌握數十年的企業關係，但這些關係過去沒有財務回報。EvoScale Capital 把 Network Alpha 轉化為報酬，讓高管和創辦人都受益。">Senior sales executives sit on decades NT$200–500K per year — before you've proven the channel works. Most startups exhaust their runway before finding product-channel fit at the enterprise level.</p>
-        <div class="why-stat" data-en="Network Alpha: the systematic monetization of operator relationships" data-zh="Network Alpha：有系統地將高管關係轉化為資本報酬">Network Alpha: the systematic monetization of operator relationships</div>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 data-bind-en="pillars.1.title_en" data-bind-zh="pillars.1.title_zh" data-en="Revenue Intelligence Architecture" data-zh="營收智能架構">Revenue Intelligence Architecture</h3>
+        <p data-bind-en="pillars.1.desc_en" data-bind-zh="pillars.1.desc_zh" data-en="A repeatable system for B2B revenue growth: sales strategy, procurement navigation, and AI-augmented coaching." data-zh="可複製的 B2B 營收成長系統：業務策略、採購引導、AI 輔助教練機制。">A repeatable system for B2B revenue growth.</p>
+        <div class="why-stat" data-en="AI Coach · Sales playbook · GTM co-design" data-zh="AI Coach · 業務劇本 · GTM 共同設計">AI Coach · Sales playbook · GTM co-design</div>
       </div>
       <div class="why-card reveal d3">
-        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3 data-en="The best time to build this was 2015. The next best is now." data-zh="最好的時機是 2015 年。其次就是現在。">The best time to build this was 2015. The next best is now.</h3>
-        <p data-en="AI is reshaping enterprise software buying. B2B startups need sales-savvy investors who can open doors in real time — not advisors who meet quarterly. Taiwan has the talent. This is the moment." data-zh="AI 正在重塑企業軟體採購。B2B 新創需要懂業務的投資人即時開門，而不是每季見一次面的顧問。台灣有這樣的人才，而現在就是時機。">AI is reshaping enterprise software buying., procurement committees, compliance checklists — without a champion inside the organization, each step adds months. Startups run out of time waiting.</p>
-        <div class="why-stat" data-en="Taiwan's first Sales-Driven investment model" data-zh="全台首創 Sales-Driven 投資模式">Taiwan's first Sales-Driven investment model</div>
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 data-bind-en="pillars.2.title_en" data-bind-zh="pillars.2.title_zh" data-en="Operator-Led Community" data-zh="高管社群">Operator-Led Community</h3>
+        <p data-bind-en="pillars.2.desc_en" data-bind-zh="pillars.2.desc_zh" data-en="Taiwan&rsquo;s highest-density community of senior sales executives who love tech and investing." data-zh="台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子。">Taiwan&rsquo;s highest-density community of senior sales executives.</p>
+        <div class="why-stat" data-en="50+ operators · Exclusive dealflow · Annual Summit" data-zh="50+ 位高管 · 獨家案流 · 年度峰會">50+ operators · Exclusive dealflow · Annual Summit</div>
       </div>
     </div>
     <div class="why-quote reveal" data-en="&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;" data-zh="「資金已逐步商品化。通路網絡才是 2026 年的差異化核心。」">&ldquo;Capital is commoditized. Operator networks are the differentiated asset of 2026.&rdquo;</div>
@@ -925,6 +901,39 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
+<section id="network" style="background:var(--navy);padding:60px 0 0;overflow:hidden">
+  <div class="container" style="text-align:center;padding-bottom:3rem">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
+      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you." data-zh="50+ 位來自世界 500 強科技巨頭與台灣百大企業的 VP 與 Director 級營運者——真正能拿下企業大單的關係，現在為你所用。">50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you.</p>
+    </div>
+  </div>
+  <div style="position:relative">
+    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
+    <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
+      <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
+    </div>
+    <div id="net-tooltip" class="network-tooltip">
+      <div id="nt-company" class="nt-company"></div>
+      <div id="nt-title" class="nt-title"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div style="display:flex;justify-content:center;gap:4rem;padding:2.5rem 0 2rem;flex-wrap:wrap">
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Fortune 500" data-zh="世界500強">Fortune 500</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Tech Giants" data-zh="科技巨頭">Tech Giants</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Taiwan Top 100" data-zh="台灣百大">Taiwan Top 100</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Leading Enterprises" data-zh="領導企業">Leading Enterprises</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Top-Tier" data-zh="頂尖">Top-Tier</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Founders" data-zh="創辦團隊">Founders</div></div>
+    </div>
+  </div>
+    <div style="text-align:center;padding:.5rem 0 2.5rem">
+      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
+    </div>
+</section>
+
+<!-- INVESTMENT TIERS -->
+
+
 <section id="tiers" style="padding:100px 0;background:#111827;position:relative;overflow:hidden">
   <canvas id="tiers-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8"></canvas>
   <div class="container" style="position:relative;z-index:1">
@@ -965,46 +974,7 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- GLOBE -->
 <!-- PARTNERS -->
-<section id="pillars" style="padding:120px 0;background:var(--white)">
-  <canvas id="pillars-diag" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:1"></canvas>
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
-      <div class="eyebrow" data-en="What You Get" data-zh="你拿到的是什麼">What You Get</div>
-      <h2 class="section-h" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
-      <p class="section-p" style="margin:0 auto" data-en="Every co-investment comes with three things traditional VC cannot offer." data-zh="每筆共同投資都帶來傳統 VC 無法提供的三樣東西。">Every co-investment comes with three things traditional VC cannot offer.</p>
-    </div>
-    <!-- 100% Involvement Statement -->
-    <div class="reveal" style="max-width:780px;margin:3.5rem auto 0;text-align:center;padding:3rem 2.5rem;background:var(--orange-pale);border-radius:var(--r);border:1.5px solid rgba(255,102,0,.2)">
-      <div style="font-family:var(--fd);font-weight:900;font-size:clamp(3.5rem,6vw,5rem);color:var(--orange);line-height:1;letter-spacing:-.02em">100%</div>
-      <div style="font-family:var(--fd);font-weight:800;font-size:clamp(1.4rem,2.5vw,1.9rem);color:var(--text);margin:.5rem 0 1.25rem;letter-spacing:-.01em" data-bind-en="involvement.headline_en" data-bind-zh="involvement.headline_zh" data-en="Every deal. Every time." data-zh="每一筆投資，每一次都動用網絡">Every deal. Every time.</div>
-      <p style="font-size:1.1rem;color:var(--text-3);line-height:1.7;max-width:620px;margin:0 auto" data-bind-en="involvement.body_en" data-bind-zh="involvement.body_zh" data-en="We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check." data-zh="我們把資深 go-to-market 營運者，精準對接每家投組公司的策略與營運需求——以顧問、董事或實際操盤的高管身分加入。100% 的投資都有網絡參與，不只是一張支票。">We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar-card reveal d1">
-        <div class="p-num">01</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 data-bind-en="pillars.0.title_en" data-bind-zh="pillars.0.title_zh" data-en="Network Alpha" data-zh="Network Alpha">Network Alpha</h3>
-        <p data-bind-en="pillars.0.desc_en" data-bind-zh="pillars.0.desc_zh" data-en="Your enterprise relationships are your alpha. We build systems to measure, deploy, and monetize operator network value — creating returns that financial VCs simply cannot access." data-zh="你的企業關係就是你的 Alpha。我們建立系統來衡量、部署並變現高管網絡價值，創造財務型 VC 無法觸及的報酬。">Your enterprise relationships are your alpha. Operators choose in or out for each deal individually. No annual commitment required. Minimum $20K USD per deal.</p>
-        <div class="p-detail" data-en="→ Warm intros · Enterprise POC in weeks · RaaS" data-zh="→ 企業引薦 · 數週內 POC · 營收即服務">→ Warm intros · Enterprise POC in weeks · RaaS</div>
-      </div>
-      <div class="pillar-card reveal d2">
-        <div class="p-num">02</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 data-bind-en="pillars.1.title_en" data-bind-zh="pillars.1.title_zh" data-en="Science of Scaling" data-zh="科學賦能">Science of Scaling</h3>
-        <p data-bind-en="pillars.1.desc_en" data-bind-zh="pillars.1.desc_zh" data-en="A repeatable playbook for B2B revenue growth — enterprise sales strategy, procurement navigation, and AI-augmented coaching systems built by operators who have done it at scale." data-zh="可複製的 B2B 業績成長劇本：企業業務策略、採購決策引導，以及由實戰高管打造的 AI 輔助教練系統。">A repeatable playbook for B2B revenue growth evaluation or POC. Operator LPs advocate internally and use their procurement relationships to accelerate the entire process.</p>
-        <div class="p-detail" data-en="→ AI Coach · Sales playbook · GTM co-design" data-zh="→ AI Coach · 業務劇本 · GTM 共同設計">→ AI Coach · Sales playbook · GTM co-design</div>
-      </div>
-      <div class="pillar-card reveal d3">
-        <div class="p-num">03</div>
-        <div class="p-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 data-bind-en="pillars.2.title_en" data-bind-zh="pillars.2.title_zh" data-en="Operator-Led Community" data-zh="高管社群">Operator-Led Community</h3>
-        <p data-en="Taiwan's highest-density community of senior sales executives who love tech and investing. A curated circle of operators who want to put their influence to work — together." data-zh="台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子，把影響力轉化為集體行動。">Taiwan's highest-density community the first enterprise contract post-investment. Their title and relationships become your distribution advantage on day one.</p>
-        <div class="p-detail" data-en="→ 50+ operators · Exclusive dealflow · Annual Summit" data-zh="→ 50+ 位高管 · 獨家案流 · 年度峰會">→ 50+ operators · Exclusive dealflow · Annual Summit</div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
+
 
 <!-- GALLERY / PROOF SECTION -->
 <section id="global" style="padding:120px 0">
@@ -1012,9 +982,9 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="container">
     <div class="global-inner">
       <div class="reveal" style="color:#fff">
-        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Reach" data-zh="全球觸角">Global Reach</div>
-        <h2 class="section-h" style="color:#fff" data-en="Operator networks across every major enterprise market." data-zh="遍布所有主要企業市場的高管網絡。">Operator networks across every major enterprise market.</h2>
-        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers." data-zh="我們的高管 LP 在橫跨亞太、北美與歐洲的企業組織中擁有採購決策權，讓投組公司直接接觸全球企業買家。">Our operator LPs hold enterprise procurement authority at organizations spanning Asia-Pacific, North America, and Europe — giving portfolio companies direct access to global enterprise buyers.</p>
+        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Expansion" data-zh="協助出海">Global Expansion</div>
+        <h2 class="section-h" style="color:#fff" data-en="Operators who&rsquo;ve taken Taiwan startups global." data-zh="帶台灣新創走向世界的高管。">Operators who&rsquo;ve taken Taiwan startups global.</h2>
+        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades. We don&rsquo;t just point at the map; we help you expand into it." data-zh="我們有 10+ 位高管 LP 親身帶過台灣新創出海。憑藉在電信、金融、壽險等領域數十年累積的關係，他們能直接為你開門。我們不只指著地圖，而是實際幫你走進去。">10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades.</p>
         <div class="city-legend" style="margin-top:2.5rem">
           <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
           <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
@@ -1039,7 +1009,6 @@ footer{background:#060F1E;padding:72px 0 0}
 <section id="gallery" style="padding:100px 0;background:var(--bg)">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem">
-      <div class="eyebrow" data-en="Inside the Syndicate" data-zh="飛輪內部">Inside the Syndicate</div>
       <h2 class="section-h" data-en="Where operators and founders meet." data-zh="運營者與創辦人交匯之處">Where operators and founders meet.</h2>
     </div>
 
@@ -1110,7 +1079,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 
 <!-- TEAM -->
-<section id="partners">
+<section id="partners" style="display:none"><!-- hidden per request 2026-06; remove style to restore -->
   <div class="container" style="text-align:center;margin-bottom:3rem">
     <div class="reveal">
       <div class="eyebrow" data-en="Ecosystem Partners" data-zh="生態系夥伴">Ecosystem Partners</div>
@@ -1395,7 +1364,8 @@ footer{background:#060F1E;padding:72px 0 0}
       <nav class="ft-nav"><h5 data-en="Navigate" data-zh="導覽">Navigate</h5><ul>
         <li><a href="#audience" data-en="Who Is This For" data-zh="適合誰">Who Is This For</a></li>
         <li><a href="#tiers" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</a></li>
-        <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
+        <li><a href="#about" data-en="About" data-zh="關於我們">About</a></li>
+    <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
         <li><a href="#how" data-en="How It Works" data-zh="如何運作">How It Works</a></li>
         <li><a href="#brief" data-en="Deal Quality" data-zh="案源品質">Deal Quality</a></li>
         <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
