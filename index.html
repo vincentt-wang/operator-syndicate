@@ -841,7 +841,7 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
   </div>
   <div style="position:relative">
-    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
+    <canvas id="network-canvas" style="width:100%;height:780px;display:block;cursor:crosshair"></canvas>
     <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
       <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
     </div>
@@ -1717,11 +1717,11 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   function initNodes(){
     CX=W/2; CY=H/2+(W<600?-10:20);
     var isMobNet=(W<600);
-    BASE_R=Math.min(W,H)*(isMobNet?0.36:0.38);
-    RINGS[0].R=BASE_R*(isMobNet?1.08:1.05);
-    RINGS[1].R=BASE_R*(isMobNet?0.84:0.84);
-    RINGS[2].R=BASE_R*(isMobNet?0.64:0.66);
-    RINGS[3].R=BASE_R*(isMobNet?0.46:0.48);
+    BASE_R=Math.min(W,H)*(isMobNet?0.36:0.42);
+    RINGS[0].R=BASE_R*(isMobNet?1.08:1.10);
+    RINGS[1].R=BASE_R*(isMobNet?0.84:0.85);
+    RINGS[2].R=BASE_R*(isMobNet?0.64:0.62);
+    RINGS[3].R=BASE_R*(isMobNet?0.46:0.40);
     // Elliptical Ry: stretch rings vertically on mobile to fill tall canvas
     var mobVScale=isMobNet?(H/W)*0.96:1.0;
     RINGS.forEach(function(r){r.Ry=r.R*mobVScale;});
@@ -1734,7 +1734,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       for(var rr=0;rr<RN;rr++){ if(idx<acc+RING_COUNTS[rr]){ring=rr;break;} acc+=RING_COUNTS[rr]; }
       var pos=idx-acc;
       var startAngle=pos*(Math.PI*2/RING_COUNTS[ring])+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?23:26),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
+      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?23:24),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
