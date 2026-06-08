@@ -226,16 +226,26 @@ function slidesHTML(){
     <p class="s-sub" style="margin-top:1.5vh;font-weight:700;color:#FF6600" data-en="Monetize your influence: back the startups that grow our capital, and compound wealth together." data-zh="把你的影響力變現，扶植能壯大我們資本的新創團隊，一起累積財富。">Monetize your influence: back the startups that grow our capital, and compound wealth together.</p>
   </section>`,
 
-  // 06 — VISION & CTA (founder + track record + cta)
+  // 06 — THE ECOSYSTEM (3-layer architecture)
+  `<section class="slide light">
+    <div class="page-badge">04 · The Ecosystem</div>
+    <div class="eyebrow" data-en="The Ecosystem" data-zh="生態系戰略架構">The Ecosystem</div>
+    <h2 class="s-title" style="margin-bottom:2vh" data-en="Three layers. One flywheel." data-zh="三層架構，一個飛輪。">Three layers. One flywheel.</h2>
+    <div class="cards-3">
+      <div class="p-card"><div class="p-card-num">01</div><h3 data-en="Founding Council & Advisory Board" data-zh="創始決策委員會">Founding Council &amp; Advisory Board</h3><p data-en="Taiwan's most influential leaders open doors to global enterprises. Decades of client relationships, structured and replicated, plus monthly AI-growth and GTM white papers." data-zh="匯聚台灣最具話語權的產業領袖，敲開跨國大客戶；數十年客戶關係結構化複製，並每月發布 AI 增長與 GTM 白皮書。">Taiwan's most influential leaders open doors to global enterprises.</p></div>
+      <div class="p-card"><div class="p-card-num">02</div><h3 data-en="Revenue Intelligence Architecture" data-zh="營收智能架構">Revenue Intelligence Architecture</h3><p data-en="AI coaching embeds proven B2B sales methodology into your team. Focused on PMF-validated startups chasing 10x, not blind technology bets." data-zh="以 AI 教練系統將 B2B 銷售方法論導入團隊；鎖定已驗證 PMF、追求 10 倍增長的新創，而非盲目押注技術。">AI coaching embeds proven B2B sales methodology.</p></div>
+      <div class="p-card"><div class="p-card-num">03</div><h3 data-en="Catalyst Network & GTM Envoys" data-zh="創始催化夥伴與特使團">Catalyst Network &amp; GTM Envoys</h3><p data-en="Vetted senior operators form Taiwan's largest high-level sales community. 50+ members in 2026, 150+ in 2027, all able to co-invest." data-zh="篩選外商科技高階業務，建立全台最大業務社群；2026 年 50+、2027 年 150+ 會員皆可共投。">Vetted senior operators form Taiwan's largest sales community.</p></div>
+    </div>
+    <p class="s-sub" style="margin-top:3vh;text-align:center;font-weight:700;color:#FF6600;max-width:900px;margin-left:auto;margin-right:auto" data-en="Join Taiwan's largest senior-operator community, and become a professional investor." data-zh="加入全台最大高階業務社群，成為專業投資人。">Join Taiwan's largest senior-operator community, and become a professional investor.</p>
+  </section>`,
+
+  // 07 — VISION & CTA (founder quote + cta)
   `<section class="slide amber">
-    <div class="page-badge">04 · The Vision</div>
-    <p class="quote-big" style="font-size:clamp(1.15rem,2.1vw,1.75rem);line-height:1.4" data-en="&ldquo;${C.founderQuote.en}&rdquo;" data-zh="「${C.founderQuote.zh}」">&ldquo;${C.founderQuote.en}&rdquo;</p>
+    <div class="page-badge">05 · The Vision</div>
+    <p class="quote-big" style="font-size:clamp(1.3rem,2.4vw,2rem);line-height:1.42" data-en="&ldquo;I spent 20 years on the front lines of enterprise sales. That experience helped guide three startups to successful exits. There are others with the same business instinct, and the market needs a platform to help more startups. That's EvoScale Capital.&rdquo;" data-zh="「我在企業業務最前線待了 20 年。這些經驗讓我成功幫助三間新創出場。我一直想，市場上有更多人擁有同樣的商業思維，而市場需要一個平台來幫助更多新創。這就是 EvoScale Capital。」">&ldquo;I spent 20 years on the front lines of enterprise sales. That experience helped guide three startups to successful exits. There are others with the same business instinct, and the market needs a platform to help more startups. That's EvoScale Capital.&rdquo;</p>
     <div class="quote-author">
       <img src="Team/Boice.jpg" alt="${C.founderQuote.name}" style="object-fit:cover;object-position:52% 16%">
       <div><div class="qa-name">${C.founderQuote.name}</div><div class="qa-role" data-en="${C.founderQuote.role_en}" data-zh="${C.founderQuote.role_zh}">${C.founderQuote.role_en}</div></div>
-    </div>
-    <div class="tr-grid" style="margin-top:2vh;margin-bottom:2.5vh">
-      ${C.trackRecord.map(function(t){return `<div class="tr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span data-en="${t.en}" data-zh="${t.zh}">${t.en}</span></div>`}).join('')}
     </div>
     <a class="cta-link" href="https://vincentt-wang.github.io/operator-syndicate/" target="_blank"><span data-en="Don't just invest. Scale. Visit EvoScale Capital →" data-zh="不只是投資，一起做大。造訪官網 →">Don't just invest. Scale. Visit EvoScale Capital →</span></a>
   </section>`,
