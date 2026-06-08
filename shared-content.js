@@ -16,8 +16,8 @@ window.OS_CONTENT = {
     tagline_en_2: "We Scale.",
     tagline_zh_1: "不只是投資",
     tagline_zh_2: "我們帶你做大",
-    positioning_en: "Taiwan's first operator-led syndicate. 50+ senior operators who don't just write checks — they sell alongside you, turning enterprise influence into revenue.",
-    positioning_zh: "全台首創 Operator-Led 投資飛輪。50+ 位資深營運者不只是寫支票，更親自陪你銷售，把企業影響力轉化為實際業績。",
+    positioning_en: "Taiwan's first operator-led syndicate. 50+ go-to-market leaders embedded where it matters — opening doors, closing deals, scaling revenue from the inside.",
+    positioning_zh: "全台首創 Operator-Led 投資飛輪。50+ 位 go-to-market 領袖，深入你要攻下的企業內部，替你開門、成交、從內部放大營收。",
     launch_en: "Launching June 2026",
     launch_zh: "2026 年 6 月 Launch",
   },
@@ -35,7 +35,7 @@ window.OS_CONTENT = {
   // ── 關鍵數字 ──────────────────────────────────────
   stats: {
     operators: "50+",
-    response: "48hr",
+    exits: "3",
     tiers: "2",
     cycleCut: "12–18mo",
     minDeal: "$20K",
@@ -112,7 +112,7 @@ window.OS_CONTENT = {
   // ── Stats 標籤 ────────────────────────────────────
   statLabels: {
     operators_en: "Senior Operators", operators_zh: "資深高管",
-    response_en: "First Response",     response_zh: "初步回覆",
+    exits_en: "Founder Exits",         exits_zh: "團隊出場實績",
     tiers_en: "Investment Tiers",      tiers_zh: "投資層級",
     cycle_en: "Enterprise Cycle Cut",  cycle_zh: "縮短的銷售週期",
   },
