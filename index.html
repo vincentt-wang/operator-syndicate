@@ -282,7 +282,7 @@ img{max-width:100%;display:block}
 .gt-name{display:block;font-family:var(--fd);font-size:1rem;font-weight:700;color:#fff}
 .gt-desc{display:block;font-size:.88rem;color:var(--orange-3);margin-top:2px}
 .city-legend{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
-.city-tag{display:inline-flex;align-items:center;gap:6px;font-size:1rem;font-weight:500;color:rgba(255,180,100,.9);background:rgba(255,255,255,.07);border:1px solid rgba(255,140,30,.25);border-radius:20px;padding:5px 14px}
+.city-tag{display:inline-flex;align-items:center;gap:6px;font-size:1rem;font-weight:500;color:var(--text-2);background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:20px;padding:5px 14px}
 .city-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
 .city-dot.origin{background:#F59E0B;box-shadow:0 0 6px #F59E0B}
 
@@ -349,12 +349,12 @@ img{max-width:100%;display:block}
 .partner-cat{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-4);margin-top:.3rem;font-family:var(--fb)}
 
 /* SUBMIT */
-#submit{padding:140px 0 160px;background:var(--navy);position:relative;overflow:hidden;text-align:center}
+#submit{padding:140px 0 160px;background:#FAFBFF;position:relative;overflow:hidden;text-align:center}
 .submit-orb{position:absolute;width:80vw;height:80vw;max-width:900px;max-height:900px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,102,0,.12) 0%,rgba(255,102,0,.04) 40%,transparent 70%);pointer-events:none}
 .submit-inner{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:0 1.5rem}
-.submit-ey{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-3);margin-bottom:1.5rem}
-.submit-h{font-family:var(--fd);font-weight:900;font-size:clamp(2.5rem,5.5vw,4.2rem);line-height:1.06;color:#fff;margin-bottom:1.25rem}
-.submit-sub{font-size:1.1rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto}
+.submit-ey{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem}
+.submit-h{font-family:var(--fd);font-weight:900;font-size:clamp(2.5rem,5.5vw,4.2rem);line-height:1.06;color:var(--text);margin-bottom:1.25rem}
+.submit-sub{font-size:1.1rem;color:var(--text-3);line-height:1.7;margin-bottom:3rem;max-width:500px;margin-left:auto;margin-right:auto}
 .btn-submit{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fd);font-weight:800;font-size:1.25rem;color:#fff;background:var(--orange);border-radius:56px;padding:22px 56px;white-space:nowrap;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 32px rgba(255,102,0,.35);animation:subpulse 2.6s ease-in-out infinite;border:none;cursor:pointer}
 .btn-submit:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(255,102,0,.5);animation:none}
 @keyframes subpulse{0%,100%{box-shadow:0 8px 32px rgba(255,102,0,.35)}50%{box-shadow:0 8px 32px rgba(255,102,0,.35),0 0 0 18px rgba(255,102,0,0)}}
@@ -362,9 +362,9 @@ img{max-width:100%;display:block}
 .btn-submit:hover svg{transform:translateX(4px)}
 .submit-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:3.5rem}
 .ss-stat{text-align:center}
-.ss-n{font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff}
-.ss-l{font-size:.95rem;color:rgba(255,255,255,.35);letter-spacing:.04em;font-family:var(--fb)}
-.ss-div{width:1px;height:44px;background:rgba(255,255,255,.1);align-self:center}
+.ss-n{font-family:var(--fd);font-weight:800;font-size:1.6rem;color:var(--text)}
+.ss-l{font-size:.95rem;color:var(--text-4);letter-spacing:.04em;font-family:var(--fb)}
+.ss-div{width:1px;height:44px;background:var(--border);align-self:center}
 
 /* FAQ */
 #faq{padding:120px 0;background:var(--bg)}
@@ -674,6 +674,14 @@ footer{background:#060F1E;padding:72px 0 0}
 #team .advisor-card:hover{background:rgba(255,255,255,.08)!important;border-color:rgba(255,102,0,.4)!important}
 #team .advisor-name{color:#fff!important}
 #team .advisor-tag{color:rgba(255,255,255,.45)!important}
+
+/* FAQ section on dark bg */
+#faq .section-h{color:#fff}
+#faq .fq-item{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+#faq .fq-item:hover{border-color:rgba(255,102,0,.35)}
+#faq .fq-trigger h4{color:#fff}
+#faq .fq-chev{color:rgba(255,255,255,.4)}
+#faq .fq-inner{color:rgba(255,255,255,.62)}
 </style>
 </head>
 <body>
@@ -1192,14 +1200,14 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-<section id="global" style="padding:120px 0">
+<section id="global" style="padding:120px 0;background:#FAFBFF">
   <div id="globe-sun-ov"></div>
   <div class="container">
     <div class="global-inner">
-      <div class="reveal" style="color:#fff">
-        <div class="eyebrow" style="color:var(--orange-3)" data-en="Global Expansion" data-zh="協助出海">Global Expansion</div>
-        <h2 class="section-h" style="color:#fff" data-en="Operators who&rsquo;ve taken Taiwan startups global." data-zh="帶台灣新創走向世界的高管。">Operators who&rsquo;ve taken Taiwan startups global.</h2>
-        <p class="section-p" style="color:rgba(255,255,255,.6)" data-en="10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades. We don&rsquo;t just point at the map; we help you expand into it." data-zh="我們有 10+ 位高管 LP 親身帶過台灣新創出海。憑藉在電信、金融、壽險等領域數十年累積的關係，他們能直接為你開門。我們不只指著地圖，而是實際幫你走進去。">10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades.</p>
+      <div class="reveal" style="color:var(--text)">
+        <div class="eyebrow" style="color:var(--orange)" data-en="Global Expansion" data-zh="協助出海">Global Expansion</div>
+        <h2 class="section-h" data-en="Operators who&rsquo;ve taken Taiwan startups global." data-zh="帶台灣新創走向世界的高管。">Operators who&rsquo;ve taken Taiwan startups global.</h2>
+        <p class="section-p" style="color:var(--text-3)" data-en="10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades. We don&rsquo;t just point at the map; we help you expand into it." data-zh="我們有 10+ 位高管 LP 親身帶過台灣新創出海。憑藉在電信、金融、壽險等領域數十年累積的關係，他們能直接為你開門。我們不只指著地圖，而是實際幫你走進去。">10+ of our operator LPs have hands-on experience taking Taiwan startups global. They open doors across telecom, finance, and insurance through relationships built over decades.</p>
         <div class="city-legend" style="margin-top:2.5rem">
           <span class="city-tag"><span class="city-dot origin"></span>Taipei</span>
           <span class="city-tag"><span class="city-dot"></span>San Francisco</span>
@@ -1306,7 +1314,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="padding:120px 0;background:var(--bg)">
+<section id="faq" style="padding:120px 0;background:var(--navy)">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:580px;margin:0 auto">
       <div class="eyebrow">FAQ</div>
