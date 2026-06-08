@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operator Syndicate — Pitch Deck</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF6600;--orange-2:#E55A00;--orange-3:#FF8C42;--orange-pale:#FFF7ED;
+  --navy:#0A1628;--navy-2:#0F1E35;
+  --text:#0B1623;--text-2:#2D3748;--text-3:#5A6A7A;--text-4:#94A3B8;
+  --bg:#F7F9FB;--white:#FFFFFF;--border:rgba(11,22,35,.08);
+  --fd:'Playfair Display','Noto Serif TC',serif;
+  --fb:'DM Sans','Noto Sans TC',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smoothing:antialiased}
+/* lang handled by JS innerHTML swap — no CSS display toggle */
+
+/* ── DECK ── */
+#deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:6vh 8vw;opacity:0;visibility:hidden;transform:translateX(40px);transition:opacity .55s var(--ease),transform .55s var(--ease),visibility .55s;overflow:hidden}
+.slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.slide.prev{transform:translateX(-40px)}
+.slide.dark{background:var(--navy);color:#fff}
+.slide.light{background:var(--bg)}
+.slide.white{background:var(--white)}
+.slide.amber{background:linear-gradient(160deg,#1C1005 0%,#130B03 60%,#0A0601 100%);color:#fff}
+
+/* ── COMMON ── */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:2.5vh}
+.slide.dark .eyebrow,.slide.amber .eyebrow{color:var(--orange-3)}
+.eyebrow::before{content:'';width:32px;height:2px;background:currentColor;border-radius:2px}
+.s-title{font-family:var(--fd);font-weight:800;font-size:clamp(2.5rem,5.5vw,5rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:3vh}
+.s-title em{font-style:normal;color:var(--orange)}
+.slide.dark .s-title em,.slide.amber .s-title em{color:var(--orange-3)}
+.s-sub{font-size:clamp(1.2rem,2.2vw,1.75rem);line-height:1.6;color:var(--text-3);max-width:60ch}
+.slide.dark .s-sub,.slide.amber .s-sub{color:rgba(255,255,255,.6)}
+.page-badge{position:absolute;top:5vh;left:8vw;font-family:var(--fb);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);opacity:.6}
+.slide.dark .page-badge,.slide.amber .page-badge{color:var(--orange-3)}
+
+/* ── HERO SLIDE ── */
+.hero-slide{align-items:center;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-3);border:1px solid rgba(255,140,66,.35);border-radius:24px;padding:8px 22px;background:rgba(255,102,0,.08);margin-bottom:4vh}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange-3);box-shadow:0 0 10px var(--orange-3);animation:dpulse 2s ease-in-out infinite}
+@keyframes dpulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-h1{font-family:var(--fd);font-weight:900;font-size:clamp(3.5rem,9vw,8rem);line-height:1.0;letter-spacing:-.03em;margin-bottom:4vh}
+.hero-h1 .o{color:var(--orange)}
+.hero-tag{font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(255,255,255,.6);max-width:60ch;margin-bottom:5vh;line-height:1.6}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.55}
+.hero-slide>*{position:relative;z-index:1}
+
+/* ── STATS ROW ── */
+.stats-row{display:flex;gap:0;flex-wrap:wrap;margin-top:5vh;justify-content:center}
+.stat{padding:0 3vw;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,3.5vw,3rem);line-height:1;color:#fff}
+.stat-l{font-size:.95rem;color:rgba(255,255,255,.4);margin-top:.6rem;letter-spacing:.04em}
+
+/* ── 3-COL CARDS ── */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;margin-top:5vh}
+.p-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:3vh 2vw}
+.slide.light .p-card,.slide.white .p-card{background:var(--white);border-color:var(--border);box-shadow:0 4px 24px rgba(0,0,0,.05)}
+.p-card-num{font-family:var(--fd);font-size:2.5rem;font-weight:900;color:rgba(255,102,0,.25);line-height:1;margin-bottom:1.5vh}
+.p-card h3{font-family:var(--fd);font-weight:800;font-size:clamp(1.3rem,2vw,1.7rem);margin-bottom:1.5vh;letter-spacing:-.01em}
+.slide.dark .p-card h3{color:#fff}
+.p-card p{font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.6;color:var(--text-3)}
+.slide.dark .p-card p{color:rgba(255,255,255,.55)}
+
+/* ── COMPARISON TABLE ── */
+.cmp-table{width:100%;border-collapse:collapse;margin-top:4vh;font-size:clamp(1rem,1.5vw,1.4rem)}
+.cmp-table th,.cmp-table td{padding:2vh 1.5vw;text-align:left}
+.cmp-table thead th{font-family:var(--fd);font-weight:700;color:var(--text-4);font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--border)}
+.cmp-table thead th.us{color:var(--orange);background:var(--orange-pale)}
+.cmp-table tbody td{border-bottom:1px solid var(--border);color:var(--text-3)}
+.cmp-table tbody td:first-child{font-family:var(--fd);font-weight:700;color:var(--text-2)}
+.cmp-table .us-col{background:rgba(255,102,0,.05);color:var(--orange-2);font-weight:600;border-left:2px solid rgba(255,102,0,.2)}
+
+/* ── TIER CARDS ── */
+.tiers-2{display:grid;grid-template-columns:1fr 1fr;gap:2vw;margin-top:5vh}
+.tier-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:4vh 3vw}
+.tier-label{font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-3);background:rgba(255,102,0,.12);border:1px solid rgba(255,102,0,.25);border-radius:8px;padding:5px 14px;display:inline-block;margin-bottom:2.5vh}
+.tier-range{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,3.5vw,3.2rem);color:var(--orange-3);line-height:1;margin-bottom:1vh}
+.tier-sub{font-size:1.2rem;color:rgba(255,255,255,.5)}
+
+/* ── NETWORK SLIDE ── */
+.net-slide{padding:0;overflow:hidden}
+#net-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.net-overlay{position:absolute;top:8vh;left:50%;transform:translateX(-50%);text-align:center;z-index:2;pointer-events:none;width:90%}
+.net-tooltip{position:absolute;background:rgba(10,22,40,.95);backdrop-filter:blur(10px);border:1px solid rgba(255,102,0,.35);border-radius:12px;padding:12px 16px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10}
+.net-tooltip.vis{opacity:1}
+.nt-co{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:.4rem}
+.nt-t{font-size:1rem;color:rgba(255,255,255,.7)}
+
+/* ── TRACK RECORD ── */
+.tr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2vh 3vw;margin-top:5vh;max-width:60vw}
+.tr-item{display:flex;align-items:center;gap:1rem;font-size:clamp(1.2rem,2vw,1.6rem);color:#fff}
+.tr-item svg{width:28px;height:28px;color:var(--orange-3);flex-shrink:0}
+
+/* ── QUOTE SLIDE ── */
+.quote-big{font-family:var(--fd);font-style:italic;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.45;color:#fff;max-width:24ch;margin-bottom:5vh}
+.quote-author{display:flex;align-items:center;gap:1.25rem}
+.quote-author img{width:64px;height:64px;border-radius:50%;border:2.5px solid var(--orange)}
+.qa-name{font-family:var(--fd);font-weight:800;font-size:1.4rem;color:#fff}
+.qa-role{font-size:1.05rem;color:var(--orange-3);margin-top:.3rem}
+
+/* ── CTA SLIDE ── */
+.cta-slide{align-items:center;text-align:center}
+.cta-h{font-family:var(--fd);font-weight:900;font-size:clamp(3rem,7vw,6rem);line-height:1.05;color:#fff;margin-bottom:3vh}
+.cta-h .o{color:var(--orange)}
+.cta-sub{font-size:clamp(1.2rem,2vw,1.6rem);color:rgba(255,255,255,.55);margin-bottom:5vh}
+.cta-link{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fd);font-weight:800;font-size:1.3rem;color:#fff;background:var(--orange);border-radius:56px;padding:20px 48px;text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 32px rgba(255,102,0,.35)}
+.cta-link:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(255,102,0,.5)}
+
+/* ── PROGRESS + NAV ── */
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-3));z-index:100;transition:width .4s var(--ease)}
+#pager{position:fixed;bottom:4vh;right:4vw;z-index:100;font-family:var(--fd);font-weight:700;font-size:1.1rem;color:var(--text-4);display:flex;align-items:center;gap:.5rem}
+.slide.dark~#pager,body.dark-pager #pager{color:rgba(255,255,255,.5)}
+#dots{position:fixed;bottom:4vh;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:10px}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(120,120,120,.35);cursor:pointer;transition:all .25s}
+.dot.active{background:var(--orange);width:28px;border-radius:5px}
+#nav-arrows{position:fixed;bottom:4vh;left:4vw;z-index:100;display:flex;gap:.5rem}
+.nav-arrow{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(120,120,120,.3);display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);transition:all .2s}
+.nav-arrow:hover{border-color:var(--orange);background:#fff}
+.nav-arrow svg{width:18px;height:18px;color:var(--text-3)}
+.nav-arrow:hover svg{color:var(--orange)}
+#lang-toggle{position:fixed;top:4vh;right:4vw;z-index:100;font-family:var(--fb);font-size:.85rem;font-weight:700;letter-spacing:.06em;color:var(--text-4);border:1px solid rgba(120,120,120,.3);border-radius:20px;padding:6px 16px;cursor:pointer;background:rgba(255,255,255,.6);backdrop-filter:blur(8px)}
+#hint{position:fixed;bottom:11vh;left:50%;transform:translateX(-50%);z-index:99;font-size:.85rem;color:var(--text-4);opacity:.7;animation:fade-hint 4s ease forwards 3s}
+@keyframes fade-hint{to{opacity:0;visibility:hidden}}
+
+@media(max-width:768px){
+  .cards-3{grid-template-columns:1fr;gap:1.5vh}
+  .tiers-2,.tr-grid{grid-template-columns:1fr}
+  .cmp-table{font-size:.85rem}
+  .slide{padding:8vh 6vw}
+  .stat{padding:0 4vw}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="deck"></div>
+
+<button id="lang-toggle" onclick="toggleLang()">中文</button>
+<div id="nav-arrows">
+  <div class="nav-arrow" onclick="go(cur-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></div>
+  <div class="nav-arrow" onclick="go(cur+1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
+</div>
+<div id="dots"></div>
+<div id="pager"><span id="pg-cur">1</span> / <span id="pg-total">12</span></div>
+<div id="hint" data-en="Use ← → or Space to navigate · F11 for fullscreen" data-zh="用 ← → 或空白鍵切換 · F11 全螢幕">Use ← → or Space to navigate · F11 for fullscreen</div>
+
+<script src="shared-content.js"></script>
+<script>
+var C = window.OS_CONTENT;
+var lang = 'en';
+
+/* ════════ BUILD SLIDES from shared content ════════ */
+function slidesHTML(){
+  var s = C.stats, b = C.brand;
+  return [
+
+  // 01 — HERO
+  `<section class="slide hero-slide dark">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-badge"><span data-en="Taiwan's First Sales-Driven Fund · ${b.launch_en}" data-zh="全台首創 Sales-Driven 基金 · ${b.launch_zh}">Taiwan's First Sales-Driven Fund · ${b.launch_en}</span></div>
+    <h1 class="hero-h1"><span data-en="${b.tagline_en_1}" data-zh="${b.tagline_zh_1}">${b.tagline_en_1}</span><br><span class="o" data-en="${b.tagline_en_2}" data-zh="${b.tagline_zh_2}">${b.tagline_en_2}</span></h1>
+    <p class="hero-tag" data-en="${b.positioning_en}" data-zh="${b.positioning_zh}">${b.positioning_en}</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">${s.operators}</div><div class="stat-l" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
+      <div class="stat"><div class="stat-n">${s.response}</div><div class="stat-l" data-en="First Response" data-zh="初步回覆">First Response</div></div>
+      <div class="stat"><div class="stat-n">${s.tiers}</div><div class="stat-l" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div></div>
+      <div class="stat"><div class="stat-n">${s.cycleCut}</div><div class="stat-l" data-en="Cycle Cut" data-zh="縮短週期">Cycle Cut</div></div>
+    </div>
+  </section>`,
+
+  // 02 — THE PROBLEM
+  `<section class="slide light">
+    <div class="page-badge">01 · The Problem</div>
+    <div class="eyebrow" data-en="The Problem" data-zh="核心痛點">The Problem</div>
+    <h2 class="s-title" data-en="Capital is everywhere.<br><em>Operators are rare.</em>" data-zh="資金到處都是。<br><em>懂業務的投資人沒幾個。</em>">Capital is everywhere.<br><em>Operators are rare.</em></h2>
+    <p class="s-sub" data-en="Traditional VCs write checks and wait. B2B founders raise capital — then discover that breaking into enterprise is the real bottleneck. 80% stall at enterprise entry." data-zh="傳統 VC 給錢然後等待。B2B 創辦人融到資後才發現，敲開大廠的門才是真正的瓶頸。80% 卡在企業准入關。">Traditional VCs write checks and wait. B2B founders raise capital — then discover that breaking into enterprise is the real bottleneck. 80% stall at enterprise entry.</p>
+  </section>`,
+
+  // 03 — WHY NOW
+  `<section class="slide dark">
+    <div class="page-badge">02 · Why Now</div>
+    <div class="eyebrow" data-en="Why Now" data-zh="為什麼是現在">Why Now</div>
+    <h2 class="s-title" data-en="The best time was 2015.<br><em>The next best is now.</em>" data-zh="最好的時機是 2015 年。<br><em>其次就是現在。</em>">The best time was 2015.<br><em>The next best is now.</em></h2>
+    <p class="s-sub" data-en="AI is reshaping enterprise software buying. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model outperforms financial VCs. Taiwan has the sales talent — no one has organized it. Until now." data-zh="AI 正在重塑企業軟體採購。${C.benchmarks[0]} 與 ${C.benchmarks[1]} 等 Operator-led 基金已證明模式優於財務型 VC。台灣有業務人才，只是沒人組織起來。直到現在。">AI is reshaping enterprise software buying. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} prove the model outperforms financial VCs. Taiwan has the sales talent — no one has organized it. Until now.</p>
+  </section>`,
+
+  // 04 — THE SOLUTION
+  `<section class="slide amber">
+    <div class="page-badge">03 · The Solution</div>
+    <div class="eyebrow" data-en="The Solution" data-zh="解法">The Solution</div>
+    <h2 class="s-title" data-en="A Sales-Driven<br>investment syndicate." data-zh="Sales-Driven<br>投資飛輪。">A Sales-Driven<br>investment syndicate.</h2>
+    <p class="s-sub" data-en="${s.operators} senior sales operators co-invest in B2B startups — and personally sell alongside them. Capital plus channels. Investors who are also your enterprise sales network." data-zh="${s.operators} 位頂尖業務高管共同投資 B2B 新創，並親自陪他們衝業績。資金加通路。投資人就是你的企業業務網絡。">${s.operators} senior sales operators co-invest in B2B startups — and personally sell alongside them. Capital plus channels. Investors who are also your enterprise sales network.</p>
+  </section>`,
+
+  // 05 — OPERATOR NETWORK (live canvas)
+  `<section class="slide net-slide dark">
+    <div class="net-overlay">
+      <div class="eyebrow" style="justify-content:center" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
+      <h2 style="font-family:var(--fd);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.02em" data-en="${s.operators} Operators. One Syndicate." data-zh="${s.operators} 位高管。一個飛輪。">${s.operators} Operators. One Syndicate.</h2>
+      <p style="font-size:1.2rem;color:rgba(255,255,255,.5);margin-top:1.5vh" data-en="VP and Director-level — Nexia, Oracore, Globex, ACS" data-zh="VP 與 Director 級 — Nexia、Oracore、Globex、ACS">VP and Director-level — Nexia, Oracore, Globex, ACS</p>
+    </div>
+    <canvas id="net-canvas"></canvas>
+    <div id="net-tip" class="net-tooltip"><div id="nt-co" class="nt-co"></div><div id="nt-t" class="nt-t"></div></div>
+  </section>`,
+
+  // 06 — COMPARISON
+  `<section class="slide white">
+    <div class="page-badge">05 · The Edge</div>
+    <div class="eyebrow" data-en="Why We Win" data-zh="為什麼我們贏">Why We Win</div>
+    <h2 class="s-title" style="font-size:clamp(2rem,4vw,3.5rem)" data-en="Not another VC.<br>Not an accelerator." data-zh="不是又一家 VC。<br>不是加速器。">Not another VC.<br>Not an accelerator.</h2>
+    <table class="cmp-table">
+      <thead><tr><th></th><th data-en="Traditional VC" data-zh="傳統創投">Traditional VC</th><th data-en="Accelerator" data-zh="加速器">Accelerator</th><th class="us">Operator Syndicate</th></tr></thead>
+      <tbody>
+        <tr><td data-en="What they bring" data-zh="帶來什麼">What they bring</td><td data-en="Capital only" data-zh="只有資金">Capital only</td><td data-en="Capital + training" data-zh="資金+課程">Capital + training</td><td class="us-col" data-en="Capital + active selling" data-zh="資金+親自幫你賣">Capital + active selling</td></tr>
+        <tr><td data-en="Post-investment" data-zh="投後支持">Post-investment</td><td data-en="Quarterly board" data-zh="每季董事會">Quarterly board</td><td data-en="Demo Day" data-zh="Demo Day">Demo Day</td><td class="us-col" data-en="Operators sell with you" data-zh="高管陪你衝業績">Operators sell with you</td></tr>
+        <tr><td data-en="First enterprise deal" data-zh="第一筆大單">First enterprise deal</td><td data-en="12–18 months" data-zh="12–18 個月">12–18 months</td><td data-en="6–12 months" data-zh="6–12 個月">6–12 months</td><td class="us-col" data-en="Weeks" data-zh="數週內">Weeks</td></tr>
+      </tbody>
+    </table>
+  </section>`,
+
+  // 07 — RAAS PILLARS
+  `<section class="slide dark">
+    <div class="page-badge">06 · What You Get</div>
+    <div class="eyebrow" data-en="Revenue-as-a-Service" data-zh="營收即服務">Revenue-as-a-Service</div>
+    <h2 class="s-title" style="margin-bottom:1vh" data-en="More than capital." data-zh="不只是投資。">More than capital.</h2>
+    <div class="cards-3">
+      ${C.pillars.map(function(p,i){return `<div class="p-card"><div class="p-card-num">0${i+1}</div><h3 data-en="${p.title_en}" data-zh="${p.title_zh}">${p.title_en}</h3><p data-en="${p.desc_en}" data-zh="${p.desc_zh}">${p.desc_en}</p></div>`}).join('')}
+    </div>
+  </section>`,
+
+  // 08 — HOW IT WORKS
+  `<section class="slide light">
+    <div class="page-badge">07 · How It Works</div>
+    <div class="eyebrow" data-en="The Process" data-zh="運作流程">The Process</div>
+    <h2 class="s-title" data-en="From submission<br>to enterprise deal." data-zh="從提交<br>到大廠訂單。">From submission<br>to enterprise deal.</h2>
+    <div class="cards-3" style="margin-top:4vh">
+      <div class="p-card"><div class="p-card-num">01</div><h3 data-en="Submit & Screen" data-zh="提交與篩選">Submit & Screen</h3><p data-en="AI pre-screens 30–50 deals/month. 48hr response. Only 2–3 advance." data-zh="AI 每月初篩 30–50 案，48 小時回覆，只有 2–3 個晉級。">AI pre-screens 30–50 deals/month. 48hr response. Only 2–3 advance.</p></div>
+      <div class="p-card"><div class="p-card-num">02</div><h3 data-en="Rapid Assessment" data-zh="快速評估">Rapid Assessment</h3><p data-en="Structured review gives operators the signals to decide in minutes." data-zh="結構化評估讓高管幾分鐘內做出決定。">Structured review gives operators the signals to decide in minutes.</p></div>
+      <div class="p-card"><div class="p-card-num">03</div><h3 data-en="Operator Connect" data-zh="高管直連">Operator Connect</h3><p data-en="Operators co-invest and make direct enterprise introductions." data-zh="高管共同投資並直接進行企業引薦。">Operators co-invest and make direct enterprise introductions.</p></div>
+    </div>
+  </section>`,
+
+  // 09 — TWO TIERS
+  `<section class="slide dark">
+    <div class="page-badge">08 · Investment Tiers</div>
+    <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
+    <h2 class="s-title" style="margin-bottom:1vh" data-en="Two tiers. One network." data-zh="兩個層級，一個網絡。">Two tiers. One network.</h2>
+    <div class="tiers-2">
+      ${C.tiers.map(function(t){return `<div class="tier-card"><div class="tier-label" data-en="${t.label_en}" data-zh="${t.label_zh}">${t.label_en}</div><div class="tier-range" data-en="${t.range_en}" data-zh="${t.range_zh}">${t.range_en}</div><div class="tier-sub" data-en="${t.sub_en}" data-zh="${t.sub_zh}">${t.sub_en}</div></div>`}).join('')}
+    </div>
+    <p class="s-sub" style="margin-top:4vh" data-en="LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up." data-zh="高管共投：每案最低 ${s.minDeal} 美元。每案獨立 SPV，無年度鎖定。">LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up.</p>
+  </section>`,
+
+  // 10 — TRACK RECORD
+  `<section class="slide amber">
+    <div class="page-badge">09 · Track Record</div>
+    <div class="eyebrow" data-en="Track Record" data-zh="實戰戰績">Track Record</div>
+    <h2 class="s-title" data-en="Built by operators<br>who have <em>done it.</em>" data-zh="由真正<em>做過的人</em><br>打造。">Built by operators<br>who have <em>done it.</em></h2>
+    <div class="tr-grid">
+      ${C.trackRecord.map(function(t){return `<div class="tr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span data-en="${t.en}" data-zh="${t.zh}">${t.en}</span></div>`}).join('')}
+    </div>
+  </section>`,
+
+  // 11 — FOUNDER QUOTE
+  `<section class="slide dark">
+    <div class="page-badge">10 · The Vision</div>
+    <p class="quote-big" data-en="&ldquo;${C.founderQuote.en}&rdquo;" data-zh="「${C.founderQuote.zh}」">&ldquo;${C.founderQuote.en}&rdquo;</p>
+    <div class="quote-author">
+      <img src="https://i.pravatar.cc/64?img=57" alt="${C.founderQuote.name}">
+      <div><div class="qa-name">${C.founderQuote.name}</div><div class="qa-role" data-en="${C.founderQuote.role_en}" data-zh="${C.founderQuote.role_zh}">${C.founderQuote.role_en}</div></div>
+    </div>
+  </section>`,
+
+  // 12 — CTA
+  `<section class="slide cta-slide amber">
+    <div class="eyebrow" style="justify-content:center" data-en="${b.launch_en}" data-zh="${b.launch_zh}">${b.launch_en}</div>
+    <h2 class="cta-h"><span data-en="Don't just invest." data-zh="不只是投資。">Don't just invest.</span><br><span class="o" data-en="Scale." data-zh="一起做大。">Scale.</span></h2>
+    <p class="cta-sub" data-en="Join Taiwan's first Sales-Driven syndicate." data-zh="加入全台首創 Sales-Driven 投資飛輪。">Join Taiwan's first Sales-Driven syndicate.</p>
+    <a class="cta-link" href="https://vincentt-wang.github.io/operator-syndicate/" target="_blank"><span data-en="Visit operatorsyndicate.com →" data-zh="造訪官網 →">Visit operatorsyndicate.com →</span></a>
+  </section>`,
+
+  ];
+}
+
+/* ════════ RENDER ════════ */
+var deck = document.getElementById('deck');
+deck.innerHTML = slidesHTML().join('');
+var slides = Array.from(document.querySelectorAll('.slide'));
+var total = slides.length;
+var cur = 0;
+document.getElementById('pg-total').textContent = total;
+
+// Build dots
+var dotsWrap = document.getElementById('dots');
+slides.forEach(function(_,i){
+  var d = document.createElement('div'); d.className='dot'; d.onclick=function(){go(i)};
+  dotsWrap.appendChild(d);
+});
+var dots = Array.from(document.querySelectorAll('.dot'));
+
+function go(n){
+  n = Math.max(0, Math.min(total-1, n));
+  slides[cur].classList.remove('active');
+  slides[cur].classList.toggle('prev', n>cur);
+  cur = n;
+  slides[cur].classList.add('active');
+  slides[cur].classList.remove('prev');
+  dots.forEach(function(d,i){d.classList.toggle('active',i===cur)});
+  document.getElementById('progress').style.width = ((cur+1)/total*100)+'%';
+  document.getElementById('pg-cur').textContent = cur+1;
+  // pager color based on slide bg
+  var darkSlide = slides[cur].classList.contains('dark')||slides[cur].classList.contains('amber');
+  document.body.classList.toggle('dark-pager', darkSlide);
+  applyLang(lang);
+}
+
+/* ════════ KEYBOARD + TOUCH ════════ */
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(cur+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1);}
+  else if(e.key==='Home'){go(0);}
+  else if(e.key==='End'){go(total-1);}
+});
+var tStartX=0;
+document.addEventListener('touchstart',function(e){tStartX=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',function(e){
+  var dx=e.changedTouches[0].clientX-tStartX;
+  if(Math.abs(dx)>50){go(dx<0?cur+1:cur-1);}
+},{passive:true});
+// Wheel navigation (debounced)
+var wheelLock=false;
+document.addEventListener('wheel',function(e){
+  if(wheelLock)return;
+  if(Math.abs(e.deltaY)<20)return;
+  wheelLock=true;
+  go(e.deltaY>0?cur+1:cur-1);
+  setTimeout(function(){wheelLock=false;},700);
+},{passive:true});
+
+/* ════════ LANG ════════ */
+function applyLang(l){
+  lang=l;
+  document.documentElement.setAttribute('data-lang',l);
+  document.querySelectorAll('[data-en],[data-zh]').forEach(function(el){
+    if(el.children.length>0)return;
+    var v=l==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    if(v!==null&&v!=='')el.innerHTML=v;
+  });
+  document.getElementById('lang-toggle').textContent = l==='en'?'中文':'EN';
+}
+function toggleLang(){applyLang(lang==='en'?'zh':'en');}
+
+/* ════════ INIT ════════ */
+go(0);
+
+/* ════════ HERO CANVAS (network mesh) ════════ */
+(function(){
+  var canvas=document.getElementById('hero-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,t=0,N=24,nodes=[];
+  function build(){nodes=[];for(var i=0;i<N;i++){var x=Math.random()*W,y=Math.random()*H;nodes.push({x:x,y:y,ox:x,oy:y,ph:Math.random()*6.28,sp:.2+Math.random()*.3});}}
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);build();}
+  function loop(){requestAnimationFrame(loop);if(!slides[0].classList.contains('active')){return;}ctx.clearRect(0,0,W,H);t+=.006;
+    nodes.forEach(function(nd){nd.x=nd.ox+Math.sin(t*nd.sp+nd.ph)*40;nd.y=nd.oy+Math.cos(t*nd.sp*.7+nd.ph)*26;});
+    for(var i=0;i<nodes.length;i++){var sp=.5+.5*Math.sin(t*2+i);
+      for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<200){ctx.strokeStyle='rgba(255,102,0,'+((1-d/200)*.12).toFixed(3)+')';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}}}
+    nodes.forEach(function(nd,i){var g=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,8);var sp=.5+.5*Math.sin(t*2.5+i*.7);g.addColorStop(0,'rgba(255,150,50,'+(.5*sp+.2)+')');g.addColorStop(1,'rgba(255,100,0,0)');ctx.beginPath();ctx.arc(nd.x,nd.y,8,0,6.28);ctx.fillStyle=g;ctx.fill();ctx.beginPath();ctx.arc(nd.x,nd.y,2,0,6.28);ctx.fillStyle='rgba(255,210,140,.8)';ctx.fill();});
+  }
+  resize();window.addEventListener('resize',resize);loop();
+})();
+
+/* ════════ NETWORK SLIDE CANVAS (orbital, from main site) ════════ */
+(function(){
+  var canvas=document.getElementById('net-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,frame=0;
+  var OPS=C.operators;
+  OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.loaded=false;op.imgEl.onload=function(){op.loaded=true;};});
+  var RINGS=[{R:0,sp:.0006,tilt:.28,dir:1},{R:0,sp:.001,tilt:-.22,dir:-1},{R:0,sp:.0014,tilt:.32,dir:1},{R:0,sp:.0018,tilt:-.18,dir:-1}];
+  var nodes=[],CX=0,CY=0,BR=0,prevHov=-1;
+  function pickNear(idx){var b=-1,bd=Infinity;nodes.forEach(function(n,i){if(i===idx)return;var dx=nodes[idx].x-n.x,dy=nodes[idx].y-n.y,d=dx*dx+dy*dy;if(d<bd){bd=d;b=i;}});return b;}
+  function init(){CX=W/2;CY=H/2+30;BR=Math.min(W,H)*.36;RINGS[0].R=BR*1.05;RINGS[1].R=BR*.8;RINGS[2].R=BR*.56;RINGS[3].R=BR*.3;
+    nodes=OPS.map(function(op,idx){var ring=Math.min(Math.floor(idx/5),3),pos=idx-ring*5;return{op:op,ring:ring,angle:pos*1.256+ring*.7,x:0,y:0,r:26,alpha:0,sx:null,sy:null};});}
+  function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);init();}
+  canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=(e.clientX-r.left)*(W/r.width);my=(e.clientY-r.top)*(H/r.height);});
+  canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;hovI=-1;});
+  var tip=document.getElementById('net-tip'),tCo=document.getElementById('nt-co'),tT=document.getElementById('nt-t');
+  function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function loop(){requestAnimationFrame(loop);
+    if(!slides[4].classList.contains('active')){return;}
+    ctx.clearRect(0,0,W,H);frame++;
+    hovI=-1;var mD=9999;nodes.forEach(function(n,i){var dx=n.x-mx,dy=n.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<n.r*2.5&&d<mD){mD=d;hovI=i;}});
+    nodes.forEach(function(n,i){n.alpha=Math.min(1,n.alpha+.012);var ring=RINGS[n.ring];
+      if(i===hovI&&mx>-9000){if(n.sx===null){n.sx=n.x;n.sy=n.y;}n.sx+=(mx-n.sx)*.1;n.sy+=(my-n.sy)*.1;n.x=n.sx;n.y=n.sy;n.angle+=ring.sp*ring.dir*.3;}
+      else{n.sx=null;n.angle+=ring.sp*ring.dir;n.x=CX+ring.R*Math.cos(n.angle);n.y=CY+ring.R*Math.sin(n.angle)*Math.cos(ring.tilt);}});
+    // connections
+    var near={};for(var i=0;i<nodes.length;i++){var ds=[];for(var j=0;j<nodes.length;j++){if(i===j)continue;var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;ds.push({j:j,d:dx*dx+dy*dy});}ds.sort(function(a,b){return a.d-b.d;});near[i]=ds.slice(0,2).map(function(x){return x.j;});}
+    var drawn={};for(var i=0;i<nodes.length;i++){near[i].forEach(function(j){var k=Math.min(i,j)+'-'+Math.max(i,j);if(drawn[k])return;drawn[k]=1;var nh=i===hovI||j===hovI;var pl=.5+.5*Math.sin(frame*.018+i*.8+j*.5);var al=nh?.6:pl*.12+.04;if(nh){var c=rgb(nodes[hovI].op.color);ctx.strokeStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+al.toFixed(3)+')';}else ctx.strokeStyle='rgba(255,255,255,'+al.toFixed(3)+')';ctx.lineWidth=nh?1.8:.7;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();});}
+    // nodes
+    nodes.forEach(function(n,i){var isH=i===hovI,r=isH?n.r*1.7:n.r;ctx.save();ctx.globalAlpha=n.alpha;
+      if(isH){ctx.shadowColor=n.op.color;ctx.shadowBlur=24;
+        if(n.op.loaded){ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.clip();ctx.drawImage(n.op.imgEl,n.x-r,n.y-r,r*2,r*2);ctx.restore();ctx.save();ctx.globalAlpha=n.alpha;}
+        else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();}
+        ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle=n.op.color;ctx.lineWidth=3;ctx.stroke();
+      }else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px DM Sans';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(n.op.name.split(' ')[0].slice(0,2).toUpperCase(),n.x,n.y);}
+      ctx.restore();
+      ctx.save();ctx.globalAlpha=n.alpha*(isH?.95:.6);ctx.fillStyle=isH?'#fff':n.op.color;ctx.font=(isH?'bold ':'')+'13px DM Sans';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(isH?n.op.name:n.op.company,n.x,n.y+r+8);ctx.restore();});
+    // tooltip
+    if(hovI>=0){var n=nodes[hovI],cr=canvas.getBoundingClientRect();tip.style.left=(n.x*(cr.width/W)+50)+'px';tip.style.top=(n.y*(cr.height/H)-20)+'px';if(tCo){tCo.textContent=n.op.company;tCo.style.background=n.op.color+'22';tCo.style.color=n.op.color;}if(tT)tT.innerHTML='<strong style="color:#fff;display:block">'+n.op.name+'</strong>'+n.op.title;tip.classList.add('vis');}else tip.classList.remove('vis');
+  }
+  resize();window.addEventListener('resize',resize);loop();
+})();
+</script>
+</body>
+</html>
