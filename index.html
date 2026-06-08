@@ -789,7 +789,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <ul class="nav-links">
     <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
     <li><a href="#about" data-en="About" data-zh="關於我們">About</a></li>
-    <li><a href="#gallery" data-en="Proof" data-zh="案例">Proof</a></li>
+    <!-- <li><a href="#gallery" data-en="Proof" data-zh="案例">Proof</a></li> hidden with #gallery 2026-06 -->
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
   </ul>
   <div class="nav-right">
@@ -1000,9 +1000,10 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- PILLARS -->
 <!-- WHY -->
-<section id="gallery" style="padding:100px 0;background:var(--bg)">
+<section id="gallery" style="padding:100px 0;background:var(--bg);display:none"><!-- HIDDEN 2026-06 per request: placeholder case studies + founder/portfolio testimonials, needs real content before reuse; remove display:none to restore -->
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem">
+      <div class="eyebrow" data-en="Inside the Syndicate" data-zh="飛輪內部">Inside the Syndicate</div>
       <h2 class="section-h" data-en="Where operators and founders meet." data-zh="運營者與創辦人交匯之處">Where operators and founders meet.</h2>
     </div>
 
