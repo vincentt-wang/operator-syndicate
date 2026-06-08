@@ -99,7 +99,7 @@ window.OS_CONTENT = {
     {id:18,name:'Nancy P.',    company:'AWS',       companyKey:'acs',     color:'#0EA5E9', title:'Director, Cloud Sales APAC',      years:6,  focus:'Cloud Sales · APAC', linkedin:'', fn:'Cloud & Infra', type:'Funding Member (Council)', visible:true},
     {id:19,name:'Frank Y.',    company:'Salesforce',companyKey:'others',  color:'#10B981', title:'VP, Digital Transformation',     years:9,  focus:'Digital Transformation', linkedin:'', fn:'Growth & BD', type:'Funding Member (Council)', visible:true},
     {id:20,name:'Alex L.',     company:'Microsoft', companyKey:'others',  color:'#6B7280', title:'Director, Enterprise APAC',       years:8,  focus:'Enterprise Sales', linkedin:'', fn:'Enterprise Sales', type:'Funding Member (Council)', visible:true},
-    {id:21,name:'Boice Chen',   company:'EvoScale Capital',companyKey:'team',color:'#FF6600',title:'Founder / General Partner',     img:57,years:20,focus:'Sales · Scaling',     fn:'Leadership',type:'EvoScale Capital Team',linkedin:'',visible:true},
+    {id:21,name:'Boice Lin',   company:'EvoScale Capital',companyKey:'team',color:'#FF6600',title:'Founder & Managing Partner',     img:57,years:20,focus:'Sales · Scaling',     fn:'Leadership',type:'EvoScale Capital Team',linkedin:'',visible:true},
     {id:22,name:'Vincent Wang', company:'EvoScale Capital',companyKey:'team',color:'#FF6600',title:'Deal Flow Architect / AO',    img:12,years:10,focus:'AI · Methodology',    fn:'Leadership',type:'EvoScale Capital Team',linkedin:'',visible:true},
     {id:23,name:'Alice Liu',    company:'EvoScale Capital',companyKey:'team',color:'#FF6600',title:'Enterprise Partnerships',     img:32,years:12,focus:'Enterprise · Channels',fn:'Leadership',type:'EvoScale Capital Team',linkedin:'',visible:true},
     {id:24,name:'Jason Lin',    company:'EvoScale Capital',companyKey:'team',color:'#FF6600',title:'AI Research & Analysis',      img:25,years:8, focus:'AI · Enterprise NLP',  fn:'Leadership',type:'EvoScale Capital Team',linkedin:'',visible:true},
@@ -111,7 +111,7 @@ window.OS_CONTENT = {
   founderQuote: {
     en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's EvoScale Capital.",
     zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 EvoScale Capital。",
-    name: "Boice Chen",
+    name: "Boice Lin",
     role_en: "Founder · Gogolook · Appier · EvoScale Capital",
     role_zh: "發起人 · Gogolook · Appier · EvoScale Capital",
   },
