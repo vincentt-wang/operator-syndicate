@@ -328,7 +328,9 @@ img{max-width:100%;display:block}
 .team-socials a svg{width:14px;height:14px}
 .advisors-wrap{margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
 .advisors-ey{font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);margin-bottom:1.4rem}
-.advisor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.85rem}
+.advisor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
+@media(max-width:900px){.advisor-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.advisor-grid{grid-template-columns:1fr}}
 .advisor-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1rem 1.15rem;display:flex;align-items:center;gap:.85rem;transition:all .25s}
 .advisor-card:hover{border-color:rgba(255,102,0,.22);box-shadow:var(--shadow-sm)}
 .advisor-av{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0}
@@ -767,8 +769,8 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">✕</button>
   <a href="#audience" onclick="closeMob()" data-en="Who Is This For" data-zh="適合誰">Who Is This For</a>
-  <a href="#about" onclick="closeMob()" data-en="About" data-zh="關於我們">About</a>
   <a href="#network" onclick="closeMob()" data-en="Operators" data-zh="高管網絡">Operators</a>
+  <a href="#about" onclick="closeMob()" data-en="About" data-zh="關於我們">About</a>
   <a href="#how" onclick="closeMob()" data-en="How It Works" data-zh="如何運作">How It Works</a>
   <a href="#brief" onclick="closeMob()" data-en="Deal Quality" data-zh="案源品質">Deal Quality</a>
   <a href="#team" onclick="closeMob()" data-en="Team" data-zh="團隊">Team</a>
@@ -785,8 +787,8 @@ footer{background:#060F1E;padding:72px 0 0}
     
   </a>
   <ul class="nav-links">
-    <li><a href="#about" data-en="About" data-zh="關於我們">About</a></li>
     <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
+    <li><a href="#about" data-en="About" data-zh="關於我們">About</a></li>
     <li><a href="#gallery" data-en="Proof" data-zh="案例">Proof</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
   </ul>
@@ -829,6 +831,36 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="divider"></div>
 
 <!-- OPERATOR NETWORK CONSTELLATION -->
+<section id="network" style="background:var(--navy);padding:60px 0 0;overflow:hidden">
+  <div class="container" style="text-align:center;padding-bottom:3rem">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
+      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="50+ VP, Director and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you." data-zh="50+ 位來自世界 500 強科技巨頭與台灣百大企業的 VP、Director 與 GM 級營運者——真正能拿下企業大單的關係，現在為你所用。">50+ VP, Director and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you.</p>
+    </div>
+  </div>
+  <div style="position:relative">
+    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
+    <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
+      <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
+    </div>
+    <div id="net-tooltip" class="network-tooltip">
+      <div id="nt-company" class="nt-company"></div>
+      <div id="nt-title" class="nt-title"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div style="display:flex;justify-content:center;gap:4rem;padding:2.5rem 0 2rem;flex-wrap:wrap">
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Fortune 500" data-zh="世界500強">Fortune 500</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Tech Giants" data-zh="科技巨頭">Tech Giants</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Taiwan Top 100" data-zh="台灣百大">Taiwan Top 100</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Leading Enterprises" data-zh="領導企業">Leading Enterprises</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Top-Tier" data-zh="頂尖">Top-Tier</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Founders" data-zh="創辦團隊">Founders</div></div>
+    </div>
+  </div>
+    <div style="text-align:center;padding:.5rem 0 2.5rem">
+      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
+    </div>
+</section>
+
 <section id="about" style="padding:120px 0;background:#FAFBFF;position:relative;overflow:hidden"><canvas id="why-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:1"></canvas>
   <div class="why-ripple"></div><div class="why-ripple"></div><div class="why-ripple"></div>
   <div class="container">
@@ -894,36 +926,6 @@ footer{background:#060F1E;padding:72px 0 0}
       </table>
     </div>
   </div>
-</section>
-
-<section id="network" style="background:var(--navy);padding:60px 0 0;overflow:hidden">
-  <div class="container" style="text-align:center;padding-bottom:3rem">
-    <div class="reveal">
-      <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
-      <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:580px;margin:0 auto;line-height:1.7" data-en="50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you." data-zh="50+ 位來自世界 500 強科技巨頭與台灣百大企業的 VP 與 Director 級營運者——真正能拿下企業大單的關係，現在為你所用。">50+ VP and Director-level operators from Fortune 500 tech giants and Taiwan's top 100 enterprises — the relationships that actually close enterprise deals, now working for you.</p>
-    </div>
-  </div>
-  <div style="position:relative">
-    <canvas id="network-canvas" style="width:100%;height:700px;display:block;cursor:crosshair"></canvas>
-    <div id="op-av-ov" style="position:absolute;pointer-events:none;opacity:0;transition:opacity .22s,transform .22s;z-index:12;transform:scale(.75)">
-      <img id="op-av-img" src="" alt="" loading="lazy" style="border-radius:50%;object-fit:cover;display:block;box-shadow:0 4px 28px rgba(0,0,0,.45);border:3px solid #fff">
-    </div>
-    <div id="net-tooltip" class="network-tooltip">
-      <div id="nt-company" class="nt-company"></div>
-      <div id="nt-title" class="nt-title"></div>
-    </div>
-  </div>
-  <div class="container">
-    <div style="display:flex;justify-content:center;gap:4rem;padding:2.5rem 0 2rem;flex-wrap:wrap">
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Fortune 500" data-zh="世界500強">Fortune 500</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Tech Giants" data-zh="科技巨頭">Tech Giants</div></div>
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Taiwan Top 100" data-zh="台灣百大">Taiwan Top 100</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Leading Enterprises" data-zh="領導企業">Leading Enterprises</div></div>
-      <div style="text-align:center"><div style="font-family:var(--fd);font-weight:800;font-size:1.6rem;color:#fff" data-en="Top-Tier" data-zh="頂尖">Top-Tier</div><div style="font-size:1rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.04em;font-family:var(--fb)" data-en="Founders" data-zh="創辦團隊">Founders</div></div>
-    </div>
-  </div>
-    <div style="text-align:center;padding:.5rem 0 2.5rem">
-      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
-    </div>
 </section>
 
 <!-- INVESTMENT TIERS -->
@@ -1222,29 +1224,22 @@ footer{background:#060F1E;padding:72px 0 0}
         </div>
         <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
-      <div class="team-card reveal d3">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=32" alt="Alice Liu" loading="lazy"></div>
-        <div class="team-name">Alice Liu</div>
-        <div class="team-role" data-en="Enterprise Partnerships" data-zh="企業夥伴關係">Enterprise Partnerships</div>
-        <div class="team-bio" data-en="Ex-Oracle enterprise accounts. Specialist in manufacturing and financial sector procurement channels across Taiwan and Southeast Asia." data-zh="前 Oracle 企業客戶事業部。專精台灣與東南亞製造業、金融業供應鏈採購流程。">Ex-Oracle enterprise accounts. Specialist in manufacturing and financial sector procurement channels across Taiwan and Southeast Asia.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
-      </div>
-      <div class="team-card reveal d3">
-        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Vincent Wang" loading="lazy"></div>
-        <div class="team-name">Vincent Wang</div>
-        <div class="team-role" data-en="Deal Flow Architect / AO" data-zh="案源門閘 / AO">Deal Flow Architect / AO</div>
-        <div class="team-bio" data-en="Methodology designer and deal gatekeeper. Runs the AI screening system, oversees the rapid deal assessment process, and translates startup technology into executive-language ROI." data-zh="方法論設計師與案源門閘。運行 AI 篩選系統、主導快速決策評估流程，並把新創技術語言轉譯成高管看得懂的 ROI 語言。">Methodology designer and deal gatekeeper. Runs the AI screening system, oversees the rapid deal assessment process, and translates startup technology into executive-language ROI.</div>
-        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
-      </div>
+
       <div class="team-card reveal d2">
         <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Vincent Wang" loading="lazy"></div>
         <div class="team-name">Vincent Wang</div>
-        <div class="team-role" data-en="Funding AO / Community Manager" data-zh="募資 AO / 社群經營">Funding AO / Community Manager</div>
+        <div class="team-role" data-en="Funding & Community Manager" data-zh="募資與社群經營">Funding &amp; Community Manager</div>
         <div class="team-bio" data-en="Builds and runs the operator community: onboarding, events, and the annual summit. Coordinates the funding side across the syndicate." data-zh="建立並經營高管社群：成員招募、活動與年度峰會，並統籌 Syndicate 的募資端營運。">Builds and runs the operator community: onboarding, events, and the annual summit. Coordinates the funding side across the syndicate.</div>
         <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
       </div>
+      <div class="team-card reveal d3">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/150?img=49" alt="Tina Li" loading="lazy"></div>
+        <div class="team-name">Tina Li</div>
+        <div class="team-role" data-en="AI Content &amp; Community" data-zh="AI 內容與社群">AI Content &amp; Community</div>
+        <div class="team-bio" data-en="Software engineer and creator behind one of Taiwan&rsquo;s most-followed AI companion projects. Grows a 100K+ community across Instagram and Threads, bringing content reach and creator-economy insight to the network." data-zh="工程師出身的創作者，打造台灣最具人氣的 AI 伴侶專案之一。在 Instagram 與 Threads 經營破 10 萬人的社群，為網絡帶來內容聲量與創作者經濟的洞察。">Software engineer and creator behind one of Taiwan&rsquo;s most-followed AI companion projects. Grows a 100K+ community across Instagram and Threads, bringing content reach and creator-economy insight to the network.</div>
+        <div class="team-socials"><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></div>
+      </div>
 
-      
     </div>
     <div class="advisors-wrap reveal">
       <div class="advisors-ey" data-en="Ecosystem Advisors" data-zh="生態系顧問">Ecosystem Advisors</div>
@@ -1255,6 +1250,8 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=14" alt="" loading="lazy"></div><div><div class="advisor-name">Eric Lai</div><div class="advisor-tag">Meridian Ventures</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=20" alt="" loading="lazy"></div><div><div class="advisor-name">Karen Lin</div><div class="advisor-tag">Cornerstone Capital</div></div></div>
         <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=8" alt="" loading="lazy"></div><div><div class="advisor-name">Brian Chen</div><div class="advisor-tag">Vertex Ventures SEA</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=60" alt="" loading="lazy"></div><div><div class="advisor-name">Daniel Wu</div><div class="advisor-tag">Chairman, FinTech Association</div></div></div>
+        <div class="advisor-card"><div class="advisor-av"><img src="https://i.pravatar.cc/150?img=26" alt="" loading="lazy"></div><div><div class="advisor-name">Grace Lin</div><div class="advisor-tag">Managing Partner, Horizon Ventures</div></div></div>
       </div>
     </div>
   </div>
@@ -1689,7 +1686,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 (function(){
   var canvas=document.getElementById('network-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0;
-  var OPS=(window.OS_CONTENT&&window.OS_CONTENT.operators?window.OS_CONTENT.operators:[]).map(function(o){
+  var OPS=(window.OS_CONTENT&&window.OS_CONTENT.operators?window.OS_CONTENT.operators:[]).filter(function(o){return o.companyKey!=='team';}).map(function(o){
     var initials=(o.name.match(/[A-Z]/g)||[]).slice(0,2).join('')||o.name.slice(0,2).toUpperCase();
     return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img};
   });
