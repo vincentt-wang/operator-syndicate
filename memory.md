@@ -13,6 +13,7 @@
 - 重大架構改動 → 同步更新 memory.html 的「設計決策記錄」區塊
 - 新增設計規則 → 三個檔案同步更新
 - 部署後 → git push，記錄 commit 到本文件「部署記錄」
+- 改 index.html 內容 → 必須同步檢查 pitch.html：讀 ${b}/${s}/${C}（shared-content.js）的部分會自動聯動，但硬編 slide（hero stats、network 文案、CTA、founder 照片）需手動同步。曾漏同步一次。
 
 ### 各層檔案職責
 - `memory.md`（本文件）：Claude 工作用的純文字規格書，所有規則的唯一來源
