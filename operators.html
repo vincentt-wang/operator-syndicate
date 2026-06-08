@@ -105,6 +105,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 @media(max-width:420px){
   .ops-grid{grid-template-columns:1fr}
 }
+
+.filter-row{display:flex;align-items:center;gap:1.25rem;padding:.5rem 0;flex-wrap:wrap}
+.filter-label{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);min-width:80px}
+.filter-row:first-of-type{padding-top:2rem}
+.filter-btn.fn.active{background:var(--navy);border-color:var(--navy)}
+.result-count{font-size:.85rem;color:var(--text-4);padding:1.5rem 0 .5rem;font-weight:600}
+.op-fn-tag{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:rgba(10,22,40,.06);border:1px solid rgba(10,22,40,.1);border-radius:8px;padding:2px 9px;display:inline-block;margin-left:.4rem}
+@media(max-width:600px){.filter-label{min-width:auto;width:100%}.filter-row{gap:.5rem}}
 </style>
 </head>
 <body>
@@ -133,7 +141,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
     <p>VP and Director-level executives across five enterprise companies — each bringing direct procurement access.</p>
     <div class="stats-row">
       <div class="stat-item"><div class="stat-n" id="total-count">20</div><div class="stat-l">OPERATORS</div></div>
-      <div class="stat-item"><div class="stat-n">5</div><div class="stat-l">COMPANIES</div></div>
+      <div class="stat-item"><div class="stat-n">3</div><div class="stat-l">MEMBER TYPES</div></div>
       <div class="stat-item"><div class="stat-n">$20K</div><div class="stat-l">USD MIN / DEAL</div></div>
       <div class="stat-item"><div class="stat-n">TW · SEA · JP</div><div class="stat-l">MARKETS</div></div>
     </div>
@@ -141,20 +149,31 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </div>
 
 <div class="container">
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="nexia">Meta</button>
-    <button class="filter-btn" data-filter="oracore">Oracle</button>
-    <button class="filter-btn" data-filter="globex">Google</button>
-    <button class="filter-btn" data-filter="acs">AWS</button>
-    <button class="filter-btn" data-filter="others">Others</button>
+  <!-- Filter: by Type -->
+  <div class="filter-row">
+    <span class="filter-label">Type</span>
+    <div class="filter-bar" id="typeBar">
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="Founding Council Member">Founding Council</button>
+      <button class="filter-btn" data-type="Funding Member (Council)">Funding Member</button>
+      <button class="filter-btn" data-type="EvoScale Capital Team">EvoScale Team</button>
+    </div>
+  </div>
+  <!-- Filter: by Function -->
+  <div class="filter-row">
+    <span class="filter-label">Function</span>
+    <div class="filter-bar" id="functionBar">
+      <button class="filter-btn fn active" data-fn="all">All</button>
+      <button class="filter-btn fn" data-fn="Enterprise Sales">Enterprise Sales</button>
+      <button class="filter-btn fn" data-fn="Partnerships">Partnerships</button>
+      <button class="filter-btn fn" data-fn="Cloud & Infra">Cloud &amp; Infra</button>
+      <button class="filter-btn fn" data-fn="Channel">Channel</button>
+      <button class="filter-btn fn" data-fn="Growth & BD">Growth &amp; BD</button>
+      <button class="filter-btn fn" data-fn="Leadership">Leadership</button>
+    </div>
   </div>
 
-  <div class="search-wrap">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input class="search-input" id="searchInput" type="text" placeholder="Search by name or title...">
-  </div>
-
+  <div class="result-count" id="resultCount"></div>
   <div class="ops-grid" id="opsGrid"></div>
 </div>
 
@@ -178,38 +197,26 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 var OPERATORS = (window.OS_CONTENT && window.OS_CONTENT.operators ? window.OS_CONTENT.operators : []).map(function(o){
   return { id:o.id, name:o.name, company:o.company, companyKey:o.companyKey,
     companyColor:o.color, title:o.title, img:o.img,
-    linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise',
+    linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise', fn:o.fn||'Enterprise Sales', type:o.type||'Founding Council Member',
     visible:o.visible!==false };
 });
 
-/* ════════════ RENDER ════════════ */
-var currentFilter = 'all';
-var searchTerm    = '';
-// Read URL parameter and apply filter on load
-(function(){
-  try{
-    var params=new URLSearchParams(window.location.search);
-    var co=params.get('company');
-    if(co&&['nexia','oracore','globex','acs','others'].indexOf(co)>=0){
-      currentFilter=co;
-    }
-  }catch(e){}
-})();
+/* ════════════ RENDER (Type + Function classification) ════════════ */
+var currentType = 'all', currentFunction = 'all';
 
-function companyBg(color){ return color+'18'; }
+function companyBg(c){ return c+'18'; }
 
 function renderCard(op){
   var nameDisplay = op.visible ? op.name : 'Anonymous LP';
-  var avatarUrl   = op.visible
+  var avatarUrl = op.visible
     ? 'https://i.pravatar.cc/150?img='+op.img
     : 'https://placehold.co/150x150/'+op.companyColor.slice(1)+'/FFFFFF?text=LP';
-
-  return '<div class="op-card" id="op-'+op.id+'" data-company="'+op.companyKey+'" data-name="'+nameDisplay.toLowerCase()+'" data-title="'+op.title.toLowerCase()+'">' 
+  return '<div class="op-card" id="op-'+op.id+'">'
     +'<div class="op-card-top">'
     +'<img class="op-avatar" src="'+avatarUrl+'" alt="'+nameDisplay+'" style="border-color:'+op.companyColor+'44" loading="lazy">'
     +'<div>'
     +'<div class="op-name">'+nameDisplay+'</div>'
-    +'<span class="op-company" style="background:'+companyBg(op.companyColor)+';color:'+op.companyColor+'">'+op.company+'</span>'
+    +'<div style="margin-top:.3rem"><span class="op-company" style="background:'+companyBg(op.companyColor)+';color:'+op.companyColor+'">'+op.company+'</span><span class="op-fn-tag">'+op.fn+'</span></div>'
     +'</div>'
     +'</div>'
     +'<div class="op-title">'+op.title+'</div>'
@@ -217,56 +224,47 @@ function renderCard(op){
     +op.focus.split('·').map(function(f){return '<span class="op-tag">'+f.trim()+'</span>';}).join('')
     +'</div>'
     +'<div class="op-footer">'
-    +'<span class="op-years">'+op.years+'+ yrs at '+op.company+'</span>'
+    +'<span class="op-years">'+op.years+'+ yrs · '+(op.type||'')+'</span>'
     +(op.linkedin
       ? '<a class="op-linkedin" href="'+op.linkedin+'" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>'
-      : '<span class="op-linkedin" style="opacity:0;pointer-events:none"></span>'
-    )
+      : '<span class="op-linkedin" style="opacity:0;pointer-events:none"></span>')
     +'</div>'
     +'</div>';
 }
 
 function renderAll(){
   var filtered = OPERATORS.filter(function(op){
-    var matchFilter = currentFilter==='all'||op.companyKey===currentFilter;
-    var matchSearch = !searchTerm||op.name.toLowerCase().includes(searchTerm)||op.title.toLowerCase().includes(searchTerm)||op.company.toLowerCase().includes(searchTerm);
-    return matchFilter&&matchSearch;
+    var mt = currentType==='all' || op.type===currentType;
+    var mf = currentFunction==='all' || op.fn===currentFunction;
+    return mt && mf;
   });
-  var grid = document.getElementById('opsGrid');
-  grid.innerHTML = filtered.map(renderCard).join('');
+  document.getElementById('opsGrid').innerHTML = filtered.map(renderCard).join('');
   document.getElementById('total-count').textContent = '50+';
+  document.getElementById('resultCount').textContent = filtered.length + (filtered.length!==1?' people':' person') + ' shown';
 }
 
-// Filter buttons
-document.getElementById('filterBar').addEventListener('click',function(e){
-  var btn=e.target.closest('.filter-btn');
-  if(!btn)return;
-  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
-  currentFilter=btn.dataset.filter;
-  // Sync filter button states with currentFilter
-document.querySelectorAll('.filter-btn').forEach(function(btn){
-  btn.classList.toggle('active', btn.dataset.filter===currentFilter);
+document.getElementById('typeBar').addEventListener('click',function(e){
+  var b=e.target.closest('.filter-btn'); if(!b)return;
+  document.querySelectorAll('#typeBar .filter-btn').forEach(function(x){x.classList.remove('active');});
+  b.classList.add('active'); currentType=b.dataset.type; renderAll();
 });
+document.getElementById('functionBar').addEventListener('click',function(e){
+  var b=e.target.closest('.filter-btn'); if(!b)return;
+  document.querySelectorAll('#functionBar .filter-btn').forEach(function(x){x.classList.remove('active');});
+  b.classList.add('active'); currentFunction=b.dataset.fn; renderAll();
+});
+
 renderAll();
-// Scroll to highlighted card if #op-N in URL
-if(window.location.hash){
+
+// Scroll to highlighted card (#op-N)
+if(location.hash){
   setTimeout(function(){
-    var el=document.querySelector(window.location.hash);
+    var el=document.querySelector(location.hash);
     if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
       el.style.boxShadow='0 0 0 3px rgba(255,102,0,.5),0 8px 32px rgba(255,102,0,.2)';
       setTimeout(function(){el.style.boxShadow='';},2500);}
   },300);
 }
-});
-
-// Search
-document.getElementById('searchInput').addEventListener('input',function(e){
-  searchTerm=e.target.value.toLowerCase();
-  renderAll();
-});
-
-renderAll();
 </script>
 </body>
 </html>
