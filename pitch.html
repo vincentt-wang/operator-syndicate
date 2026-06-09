@@ -144,12 +144,20 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
   .stat{padding:0 4vw}
 }
 
-.cards-6{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vh 1.2vw;width:100%}
-.r-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:2vh 1.3vw;display:flex;flex-direction:column}
+.reasons-slide{justify-content:flex-start!important;padding-top:8vh!important;padding-bottom:3.5vh!important}
+.cards-6{display:grid;grid-template-columns:repeat(3,1fr);gap:1vh 1vw;width:100%}
+.r-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.5vh 1.2vw;display:flex;flex-direction:column;animation:rglow 7s ease-in-out infinite}
 .r-ico{width:30px;height:30px;color:var(--orange);margin-bottom:1vh}
 .r-ico svg{width:100%;height:100%}
-.r-card h4{font-family:var(--fd);font-weight:700;font-size:clamp(1.05rem,1.4vw,1.35rem);color:#fff;margin-bottom:.7vh;line-height:1.22}
-.r-card p{font-size:clamp(.9rem,1.05vw,1.08rem);color:rgba(255,255,255,.62);line-height:1.5}
+.r-card h4{font-family:var(--fd);font-weight:700;font-size:clamp(1.15rem,1.5vw,1.42rem);color:#fff;margin-bottom:.5vh;line-height:1.18}
+.r-card p{font-size:clamp(1.02rem,1.18vw,1.18rem);color:rgba(255,255,255,.66);line-height:1.42}
+@keyframes rglow{0%,100%{box-shadow:0 0 0 1px rgba(255,255,255,0);border-color:rgba(255,255,255,.1)}50%{box-shadow:0 0 30px rgba(255,102,0,.2);border-color:rgba(255,102,0,.5)}}
+.cards-6 .r-card:nth-child(1){animation-delay:0s}
+.cards-6 .r-card:nth-child(2){animation-delay:1.17s}
+.cards-6 .r-card:nth-child(3){animation-delay:2.33s}
+.cards-6 .r-card:nth-child(4){animation-delay:3.5s}
+.cards-6 .r-card:nth-child(5){animation-delay:4.67s}
+.cards-6 .r-card:nth-child(6){animation-delay:5.83s}
 .r-card .hl{color:var(--orange);font-weight:700}
 </style>
 </head>
@@ -235,10 +243,10 @@ function slidesHTML(){
   </section>`,
 
   // 06 — WHY JOIN (full text + highlights, from Boice's image)
-  `<section class="slide dark">
+  `<section class="slide dark reasons-slide">
     <div class="page-badge">04 · The Invitation</div>
-    <h2 class="s-title" style="font-size:clamp(1.5rem,3vw,2.4rem);margin-bottom:.6vh" data-en="Why join the EvoScale Founding Council?" data-zh="為什麼加入 EvoScale 創始決策委員會？">Why join the EvoScale Founding Council?</h2>
-    <p class="s-sub" style="margin-bottom:2.2vh;color:rgba(255,255,255,.5)" data-en="Converting latent industry influence into high-yield capital assets." data-zh="將潛藏的產業影響力，轉化為高報酬的資本資產。">Converting latent industry influence into high-yield capital assets.</p>
+    <h2 class="s-title" style="font-size:clamp(1.3rem,2.3vw,1.9rem);margin-bottom:.4vh" data-en="Why join the EvoScale Founding Council?" data-zh="為什麼加入 EvoScale 創始決策委員會？">Why join the EvoScale Founding Council?</h2>
+    <p class="s-sub" style="margin-bottom:1.8vh;color:rgba(255,255,255,.5);font-size:1rem" data-en="Converting latent industry influence into high-yield capital assets." data-zh="將潛藏的產業影響力，轉化為高報酬的資本資產。">Converting latent industry influence into high-yield capital assets.</p>
     <div class="cards-6"><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4 data-en="Risk Control: Only Capital That Helps" data-zh="風險控制：只投資能幫上忙的">Risk Control: Only Capital That Helps</h4><p data-en="Screen out pre-PMF technology risk through a professional due-diligence team. We don't bet on odds; <span class='hl'>we back only deals the group has voted to have proven growth certainty and replicable customers</span>." data-zh="排除 Pre-PMF 技術風險，透過專業 Due diligence 團隊進行篩選。不賭機率，<span class='hl'>只投大家投票後具備「增長確定性」與「客戶可複製」</span>的標的。">Screen out pre-PMF technology risk through a professional due-diligence team. We don't bet on odds; <span class='hl'>we back only deals the group has voted to have proven growth certainty and replicable customers</span>.</p></div><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg></div><h4 data-en="Industry Privilege: Open at Scale" data-zh="產業特權：規模開門">Industry Privilege: Open at Scale</h4><p data-en="Replicate the Revenue Intelligence Architecture (RIA) <span class='hl'>battle-tested playbook</span>. Through the Council operator window, open doors to target industries for startups and standardize each win." data-zh="複製 Revenue Intelligence Architecture (RIA) <span class='hl'>實戰 Playbook</span>。透過 Council 高管窗口，為新創敲開目標產業，將單一成功標準化。">Replicate the Revenue Intelligence Architecture (RIA) <span class='hl'>battle-tested playbook</span>. Through the Council operator window, open doors to target industries for startups and standardize each win.</p></div><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><h4 data-en="Multiplied Returns: Valuation Leap" data-zh="倍數回報：估值躍升">Multiplied Returns: Valuation Leap</h4><p data-en="Lock in the <span class='hl'>$3M–30M</span> revenue sweet spot, where valuations leap most sharply. Catalyze 10x growth within 18 months to create outsized capital returns for LPs." data-zh="鎖定 <span class='hl'>3M 至 30M</span> 營收甜蜜點，此階段估值跳躍最劇烈。透過 18 個月內催化 10 倍增長，為 LP 創造快速估值增加的超額資本回報。">Lock in the <span class='hl'>$3M–30M</span> revenue sweet spot, where valuations leap most sharply. Catalyze 10x growth within 18 months to create outsized capital returns for LPs.</p></div><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h4 data-en="Become an Investment & Tech Expert" data-zh="變成投資及科技專家">Become an Investment & Tech Expert</h4><p data-en="Over a monthly lunch, hear 15-minute pitches from three startups; the Gem toolkit <span class='hl'>helps you learn to read teams, industries, competition and opportunity</span>. Plus VC exchanges and enterprise visits." data-zh="讓大家在這個社群裡，透過每月一次中餐聽三個新創團隊 15 分鐘的投資簡報，平台提供工具 (Gem)<span class='hl'>協助各位學習怎麼看團隊、看產業、看競爭跟機會</span>。另外會有各式 VC 交流及企業參訪活動。">Over a monthly lunch, hear 15-minute pitches from three startups; the Gem toolkit <span class='hl'>helps you learn to read teams, industries, competition and opportunity</span>. Plus VC exchanges and enterprise visits.</p></div><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div><h4 data-en="Thought Leadership: Industry Authority" data-zh="思想領袖：變成產業專家">Thought Leadership: Industry Authority</h4><p data-en="Turn your influence into an <span class='hl'>asset</span>. Publish authoritative monthly AI and GTM industry trends to own the agenda and draw top startups to you." data-zh="將您的影響力<span class='hl'>資產化</span>。平台協助您每月發布 AI 與 GTM 權威產業趨勢，掌握市場話語權並吸引頂級新創主動投奔。">Turn your influence into an <span class='hl'>asset</span>. Publish authoritative monthly AI and GTM industry trends to own the agenda and draw top startups to you.</p></div><div class="r-card"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4 data-en="Human Leverage: GTM Task Force" data-zh="人力槓桿：GTM 特遣隊">Human Leverage: GTM Task Force</h4><p data-en="Taiwan's most formidable <span class='hl'>senior-sales community</span>. Catalysts from top-100 tech firms and elite startup leaders form an execution moat traditional VCs can't replicate: 50+ Catalysts in 2026, 150+ in 2027." data-zh="全台最具戰力的<span class='hl'>高階業務社群</span>。Catalyst 成員來自百大科技公司與頂尖新創主管，提供傳統 VC 無法複製的執行護城河。2026 預計 50+ Catalyst，2027 達 150+。">Taiwan's most formidable <span class='hl'>senior-sales community</span>. Catalysts from top-100 tech firms and elite startup leaders form an execution moat traditional VCs can't replicate: 50+ Catalysts in 2026, 150+ in 2027.</p></div></div>
   </section>`,
 
@@ -286,7 +294,7 @@ function go(n){
   var darkSlide = slides[cur].classList.contains('dark')||slides[cur].classList.contains('amber');
   document.body.classList.toggle('dark-pager', darkSlide);
   applyLang(lang);
-  try{localStorage.setItem('evoPitchSlide',cur);}catch(e){}
+  try{localStorage.setItem('evoPitchSlide',cur);history.replaceState(null,'','#s'+cur);}catch(e){}
 }
 
 /* ════════ KEYBOARD + TOUCH ════════ */
@@ -325,7 +333,7 @@ function applyLang(l){
 function toggleLang(){applyLang(lang==='en'?'zh':'en');}
 
 /* ════════ INIT ════════ */
-go(0);
+go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)return parseInt(m);var s=parseInt(localStorage.getItem('evoPitchSlide'));return isNaN(s)?0:s;}catch(e){return 0;}})());
 
 /* ════════ HERO CANVAS (network mesh) ════════ */
 (function(){
