@@ -29,7 +29,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* Header */
 .site-header{background:var(--navy);padding:2rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
 .header-inner{max-width:1180px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
-.header-logo{display:flex;align-items:center;gap:10px}
+.header-logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.header-logo:hover{opacity:.78}
 .lm{display:flex;flex-direction:column;gap:4px}
 .lm-b{height:2px;background:var(--orange);border-radius:2px}
 .lm-b:nth-child(1){width:14px}.lm-b:nth-child(2){width:22px}.lm-b:nth-child(3){width:14px}
@@ -119,11 +120,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-logo">
+    <a href="index.html" class="header-logo" title="Back to home">
       <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
       <span class="logo-text">EvoScale Capital</span>
-      
-    </div>
+    </a>
     <div style="display:flex;align-items:center;gap:1rem">
       <span class="confidential-badge">Confidential</span>
       <a href="index.html" class="back-link">
