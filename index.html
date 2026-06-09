@@ -53,10 +53,10 @@ img{max-width:100%;display:block}
 .nav-links a{font-size:1rem;font-weight:500;color:var(--text-3);transition:color .2s;white-space:nowrap;cursor:pointer}
 .nav-links a:hover{color:var(--orange)}
 .has-dropdown{position:relative}
-.nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);margin-top:10px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 14px 38px rgba(0,0,0,.14);padding:.4rem;min-width:190px;opacity:0;visibility:hidden;transition:opacity .22s,transform .22s;z-index:60}
+.nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);padding-top:12px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:60}
 .has-dropdown:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.nav-dropdown a{display:block;padding:.62rem .9rem;font-size:.92rem;font-weight:600;color:var(--text-2)!important;border-radius:8px;white-space:nowrap}
-.nav-dropdown a:hover{background:var(--orange-pale);color:var(--orange)!important}
+.nav-dropdown a{display:block;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 14px 38px rgba(0,0,0,.14);padding:.7rem 1.8rem;font-size:.92rem;font-weight:600;color:var(--text-2)!important;white-space:nowrap;text-align:center}
+.nav-dropdown a:hover{border-color:var(--orange);color:var(--orange)!important;background:var(--orange-pale)}
 #nav.hero-nav .nav-links a{color:rgba(255,255,255,.65)}
 #nav.hero-nav .nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:1rem;flex-shrink:0}
@@ -797,7 +797,7 @@ footer{background:#060F1E;padding:72px 0 0}
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">&#10005;</button>
   <a href="#network" onclick="closeMob()" data-en="Operators" data-zh="高管網絡">Operators</a>
-  <a href="operators.html" onclick="closeMob()" data-en="Operator Network →" data-zh="高管網絡名冊 →" style="padding-left:2rem;opacity:.75;font-size:.95rem">Operator Network →</a>
+  <a href="operators.html" onclick="closeMob()" data-en="Network" data-zh="完整名冊" style="padding-left:2rem;opacity:.75;font-size:.95rem">Network</a>
   <a href="#about" onclick="closeMob()" data-en="The Model" data-zh="運作模式">The Model</a>
   <a href="#tiers" onclick="closeMob()" data-en="Tiers" data-zh="投資層級">Tiers</a>
   <a href="#global" onclick="closeMob()" data-en="Global" data-zh="出海">Global</a>
@@ -815,7 +815,7 @@ footer{background:#060F1E;padding:72px 0 0}
     
   </a>
   <ul class="nav-links">
-    <li class="has-dropdown"><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a><div class="nav-dropdown"><a href="operators.html" data-en="Operator Network →" data-zh="高管網絡名冊 →">Operator Network →</a></div></li>
+    <li class="has-dropdown"><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a><div class="nav-dropdown"><a href="operators.html" data-en="Network" data-zh="完整名冊">Network</a></div></li>
     <li><a href="#about" data-en="The Model" data-zh="運作模式">The Model</a></li>
     <li><a href="#tiers" data-en="Tiers" data-zh="投資層級">Tiers</a></li>
     <li><a href="#global" data-en="Global" data-zh="出海">Global</a></li>
