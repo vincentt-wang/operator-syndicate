@@ -124,7 +124,7 @@ window.OS_CONTENT = {
   },
 
   // ── 跑馬燈內容 ────────────────────────────────────
-  marquee: ['Meta','Oracle','Google','AWS','Salesforce','Microsoft','Sales-Driven','Network Alpha','Revenue-as-a-Service','Operator-Led','50+ Operators','RaaS','Taiwan-to-Global','Enterprise Channels'],
+  marquee: [{n:'IBM',l:'assets/logos/ibm.svg'},{n:'Microsoft',l:'assets/logos/microsoft.svg'},{n:'Salesforce',l:'assets/logos/salesforce.svg'},{n:'AWS',l:'assets/logos/aws.svg'},{n:'NVIDIA',l:'assets/logos/nvidia.svg'},{n:'Dentsu',l:'assets/logos/dentsu.svg'},{n:'GlobalFoundries',l:'assets/logos/globalfoundries.svg'},{n:'LINE',l:'assets/logos/line.svg'},{n:'Sharp',l:'assets/logos/sharp.svg'},{n:'UBS',l:''},{n:'IDC',l:''},{n:'Appier',l:''},{n:'iPassMoney',l:''}],
 
   // ── FAQ ───────────────────────────────────────────
   faq: [
