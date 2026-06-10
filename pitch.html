@@ -409,7 +409,7 @@ go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)re
   var nodes=[],CX=0,CY=0,BR=0,prevHov=-1;
   function pickNear(idx){var b=-1,bd=Infinity;nodes.forEach(function(n,i){if(i===idx)return;var dx=nodes[idx].x-n.x,dy=nodes[idx].y-n.y,d=dx*dx+dy*dy;if(d<bd){bd=d;b=i;}});return b;}
   function init(){CX=W/2;CY=H/2+30;BR=Math.min(W,H)*.36;RINGS[0].R=BR*1.05;RINGS[1].R=BR*.8;RINGS[2].R=BR*.56;RINGS[3].R=BR*.3;
-    nodes=OPS.map(function(op,idx){var ring=Math.min(Math.floor(idx/5),3),pos=idx-ring*5;return{op:op,ring:ring,angle:pos*1.256+ring*.7,x:0,y:0,r:26,alpha:0,sx:null,sy:null};});}
+    nodes=OPS.map(function(op,idx){var ring=Math.min(Math.floor(idx/5),3),pos=idx-ring*5;return{op:op,ring:(3-ring),angle:pos*1.256+ring*.7,x:0,y:0,r:26,alpha:0,sx:null,sy:null};});}
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);init();}
   canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mx=(e.clientX-r.left)*(W/r.width);my=(e.clientY-r.top)*(H/r.height);});
   canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;hovI=-1;});
