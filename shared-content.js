@@ -111,8 +111,8 @@ window.OS_CONTENT = {
     en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's EvoScale Capital.",
     zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 EvoScale Capital。",
     name: "Boice Lin",
-    role_en: "Founder · Gogolook · Appier · EvoScale Capital",
-    role_zh: "發起人 · Gogolook · Appier · EvoScale Capital",
+    role_en: "Founder · EvoScale Capital",
+    role_zh: "發起人 · EvoScale Capital",
   },
   // ── Stats 標籤 ────────────────────────────────────
   statLabels: {
