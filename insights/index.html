@@ -83,7 +83,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
 <script>
 function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';try{localStorage.setItem('evoLang',l);}catch(e){}}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
-try{var s=localStorage.getItem('evoLang');if(s)applyL(s);}catch(e){}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; pages never auto-open in Chinese. */
 </script>
 </body>
 </html>
