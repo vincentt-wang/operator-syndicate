@@ -433,7 +433,7 @@ go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)re
         ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle=n.op.color;ctx.lineWidth=3;ctx.stroke();
       }else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px DM Sans';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(n.op.name.split(' ')[0].slice(0,2).toUpperCase(),n.x,n.y);}
       ctx.restore();
-      ctx.save();ctx.globalAlpha=n.alpha*(isH?.95:.6);ctx.fillStyle=isH?'#fff':n.op.color;ctx.font=(isH?'bold ':'')+'13px DM Sans';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(isH?n.op.name:n.op.company,n.x,n.y+r+8);ctx.restore();});
+      ctx.save();ctx.globalAlpha=n.alpha*(isH?.95:.6);ctx.fillStyle=isH?'#fff':n.op.color;ctx.font=(isH||n.op.confirmed?'bold ':'')+'13px DM Sans';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(isH?n.op.name:n.op.company,n.x,n.y+r+8);ctx.restore();});
     // tooltip
     if(hovI>=0){var n=nodes[hovI],cr=canvas.getBoundingClientRect();tip.style.left=(n.x*(cr.width/W)+50)+'px';tip.style.top=(n.y*(cr.height/H)-20)+'px';if(tCo){tCo.textContent=n.op.company;tCo.style.background=n.op.color+'22';tCo.style.color=n.op.color;}if(tT)tT.innerHTML='<strong style="color:#fff;display:block">'+n.op.name+'</strong>'+n.op.title;tip.classList.add('vis');}else tip.classList.remove('vis');
   }
