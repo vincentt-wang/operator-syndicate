@@ -193,7 +193,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    img: number from https://i.pravatar.cc/150?img=N (1–70)
    visible: true = show name; false = show as "Anonymous LP"
 ═══════════════════════════════════════════════ */
-var OPERATORS = (window.OS_CONTENT && window.OS_CONTENT.operators ? window.OS_CONTENT.operators : []).filter(function(o){return o.companyKey!=='team';}).map(function(o){
+var OPERATORS = (window.OS_CONTENT && window.OS_CONTENT.operators ? window.OS_CONTENT.operators : []).filter(function(o){return o.companyKey!=='team' && o.confirmed;}).map(function(o){
   return { id:o.id, name:o.name, company:o.company, companyKey:o.companyKey,
     companyColor:o.color, title:o.title, img:o.img,
     linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise', fn:o.fn||'Enterprise Sales', type:o.type||'Founding Council',
