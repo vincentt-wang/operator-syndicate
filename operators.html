@@ -55,7 +55,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .container{max-width:1180px;margin:0 auto;padding:0 2rem}
 
 /* Filter */
-.filter-bar{padding:2rem 0 1.5rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.filter-bar{padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .filter-btn{font-family:var(--fb);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:20px;border:1.5px solid var(--border-2);color:var(--text-3);background:var(--white);cursor:pointer;transition:all .2s}
 .filter-btn:hover{border-color:var(--orange);color:var(--orange)}
 .filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
@@ -107,11 +107,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .ops-grid{grid-template-columns:1fr}
 }
 
-.filter-row{display:flex;align-items:center;gap:1.25rem;padding:.5rem 0;flex-wrap:wrap}
+.filter-row{display:flex;align-items:center;gap:1.25rem;padding:.3rem 0;flex-wrap:wrap}
 .filter-label{font-family:var(--fb);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);min-width:80px}
-.filter-row:first-of-type{padding-top:2rem}
+.filter-row:first-of-type{padding-top:1.2rem}
 .filter-btn.fn.active{background:var(--navy);border-color:var(--navy)}
-.result-count{font-size:.85rem;color:var(--text-4);padding:1.5rem 0 .5rem;font-weight:600}
+.result-count{font-size:.85rem;color:var(--text-4);padding:.85rem 0 .5rem;font-weight:600}
 .op-fn-tag{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:rgba(10,22,40,.06);border:1px solid rgba(10,22,40,.1);border-radius:8px;padding:2px 9px;display:inline-block;margin-left:.4rem}
 @media(max-width:600px){.filter-label{min-width:auto;width:100%}.filter-row{gap:.5rem}}
 </style>
@@ -180,7 +180,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <a href="mailto:boicegun@gmail.com" style="color:var(--orange);opacity:.7">boicegun@gmail.com</a>
 </footer>
 
-<script src="shared-content.js"></script>
+<script src="shared-content.js?v=6"></script>
 <script>
 /* ═══════════════════════════════════════════════
    OPERATOR DATA — edit this array to add/update members
