@@ -213,7 +213,7 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 <div id="pager"><span id="pg-cur">1</span> / <span id="pg-total">12</span></div>
 <div id="hint" data-en="Use ← → or Space to navigate · F11 for fullscreen" data-zh="用 ← → 或空白鍵切換 · F11 全螢幕">Use ← → or Space to navigate · F11 for fullscreen</div>
 
-<script src="shared-content.js?v=8"></script>
+<script src="shared-content.js?v=9"></script>
 <script>
 var C = window.OS_CONTENT;
 var lang = 'en';
@@ -276,7 +276,7 @@ function slidesHTML(){
     <div class="tiers-2">
       ${C.tiers.map(function(t){return `<div class="tier-card"><div class="tier-label" data-en="${t.label_en}" data-zh="${t.label_zh}">${t.label_en}</div><div class="tier-range" data-en="${t.range_en}" data-zh="${t.range_zh}">${t.range_en}</div><div class="tier-sub" data-en="${t.sub_en}" data-zh="${t.sub_zh}">${t.sub_en}</div></div>`}).join('')}
     </div>
-    <p class="s-sub" style="margin-top:3vh" data-en="LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up." data-zh="高管共投：每案最低 ${s.minDeal} 美元。每案獨立 SPV，無年度鎖定。">LP co-invest: minimum ${s.minDeal} USD per deal. Per-deal SPV, no annual lock-up.</p>
+    <p class="s-sub" style="margin-top:3vh" data-en="LP co-invest per deal through a dedicated SPV, with no annual lock-up." data-zh="高管每案透過獨立 SPV 共同投資，無年度鎖定。">LP co-invest per deal through a dedicated SPV, with no annual lock-up.</p>
     <p class="s-sub" style="margin-top:1.5vh;font-weight:700;color:#FF6600" data-en="Monetize your influence: back the startups that grow our capital, and compound wealth together." data-zh="把你的影響力變現，扶植能壯大我們資本的新創團隊，一起累積財富。">Monetize your influence: back the startups that grow our capital, and compound wealth together.</p>
   </section>`,
 

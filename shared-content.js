@@ -38,7 +38,6 @@ window.OS_CONTENT = {
     exits: "3",
     tiers: "2",
     cycleCut: "12–18mo",
-    minDeal: "$20K",
     markets: "TW · SEA · JP",
   },
 
