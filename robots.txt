@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pitch.html
+Disallow: /operators.html
+
+Sitemap: https://evoscalecapital.com/sitemap.xml
