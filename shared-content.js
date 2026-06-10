@@ -124,7 +124,7 @@ window.OS_CONTENT = {
   },
 
   // ── 跑馬燈內容 ────────────────────────────────────
-  marquee: [{n:'IBM',l:'assets/logos/ibm.svg'},{n:'Microsoft',l:'assets/logos/microsoft.svg'},{n:'Salesforce',l:'assets/logos/salesforce.svg'},{n:'AWS',l:'assets/logos/aws.svg'},{n:'NVIDIA',l:'assets/logos/nvidia.svg'},{n:'Dentsu',l:'assets/logos/dentsu.svg'},{n:'GlobalFoundries',l:'assets/logos/globalfoundries.svg'},{n:'LINE',l:'assets/logos/line.svg'},{n:'Sharp',l:'assets/logos/sharp.svg'},{n:'UBS',l:''},{n:'IDC',l:''},{n:'Appier',l:''},{n:'iPassMoney',l:''}],
+  marquee: [{n:'IBM',l:'assets/logos/ibm.svg',h:23},{n:'Microsoft',l:'assets/logos/microsoft.svg',h:25},{n:'Salesforce',l:'assets/logos/salesforce.svg',h:36},{n:'AWS',l:'assets/logos/aws.svg',h:30},{n:'NVIDIA',l:'assets/logos/nvidia.svg',h:40},{n:'Dentsu',l:'assets/logos/dentsu.svg',h:25},{n:'GlobalFoundries',l:'assets/logos/globalfoundries.svg',h:26},{n:'LINE',l:'assets/logos/line.svg',h:34},{n:'Sharp',l:'assets/logos/sharp.svg',h:28},{n:'UBS',l:''},{n:'IDC',l:''},{n:'Appier',l:''},{n:'iPassMoney',l:''}],
 
   // ── FAQ ───────────────────────────────────────────
   faq: [
