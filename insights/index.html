@@ -52,7 +52,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
   <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
   <div class="top-r">
     <a class="back" href="../index.html" data-en="&larr; Home" data-zh="&larr; 首頁">&larr; Home</a>
-    <button class="lang" id="lt" onclick="toggleL()">中</button>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
   </div>
 </div></div>
 <main>
@@ -81,7 +81,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
 </main>
 <footer>EvoScale Capital · 毅拓資本 · Enterprise Channel. Day One.</footer>
 <script>
-function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'中';try{localStorage.setItem('evoLang',l);}catch(e){}}
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';try{localStorage.setItem('evoLang',l);}catch(e){}}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
 try{var s=localStorage.getItem('evoLang');if(s)applyL(s);}catch(e){}
 </script>
