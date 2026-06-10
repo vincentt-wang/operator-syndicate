@@ -1709,7 +1709,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0;
   var OPS=(window.OS_CONTENT&&window.OS_CONTENT.operators?window.OS_CONTENT.operators:[]).filter(function(o){return o.companyKey!=='team';}).map(function(o){
     var initials=(o.name.match(/[A-Z]/g)||[]).slice(0,2).join('')||o.name.slice(0,2).toUpperCase();
-    return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img};
+    return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img, cf:o.confirmed};
   });
   // Preload avatars
   OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.imgLoaded=false;op.imgEl.onload=function(){op.imgLoaded=true;};});
@@ -1746,7 +1746,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       for(var rr=0;rr<RN;rr++){ if(idx<acc+RING_COUNTS[rr]){ring=rr;break;} acc+=RING_COUNTS[rr]; }
       var pos=idx-acc;
       var startAngle=pos*(Math.PI*2/RING_COUNTS[ring])+(ring*0.7);
-      return{op:op,ring:ring,angle:startAngle,x:0,y:0,r:(W<600?23:24),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
+      return{op:op,ring:(RN-1-ring),angle:startAngle,x:0,y:0,r:(W<600?23:24),alpha:0,stickX:null,stickY:null,ret:false,retFromX:0,retFromY:0,retF:0};
     });
   }
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight||700;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);initNodes();}
@@ -1881,7 +1881,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       if(W>=600||isH){
         ctx.save();ctx.globalAlpha=nd.alpha*(isH?.95:.65);
         ctx.fillStyle=isH?'#fff':nd.op.cl;
-        ctx.font=(isH?'bold ':'')+(W<600?'11':'13')+'px Inter,system-ui';
+        ctx.font=(isH||nd.op.cf?'bold ':'')+(W<600?'11':'13')+'px Inter,system-ui';
         ctx.textAlign='center';ctx.textBaseline='top';
         ctx.fillText(isH?nd.op.n:String(nd.op.co||'').replace('EvoScale Capital','EvoScale'),nd.x,nd.y+r+6);
         ctx.restore();
