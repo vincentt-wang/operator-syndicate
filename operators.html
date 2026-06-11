@@ -148,17 +148,22 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </div>
 
 <style>
-#op-marquee{padding:24px 0;background:var(--bg,#fff);border-top:1px solid var(--border,rgba(0,0,0,.08));border-bottom:1px solid var(--border,rgba(0,0,0,.08));overflow:hidden}
-#op-marquee .mq-track{display:flex;white-space:nowrap;animation:mqscroll 32s linear infinite}
-#op-marquee .mq-track:hover{animation-play-state:paused}
-#op-marquee .mq-item{display:inline-flex;align-items:center;gap:2rem;padding:0 3rem}
-#op-marquee .mq-sep{width:4px;height:4px;border-radius:50%;background:var(--orange,#FF6600);opacity:.5;flex-shrink:0}
-#op-marquee .mq-logo{width:auto;max-width:155px;object-fit:contain;opacity:.85;display:block}
-#op-marquee .mq-name{font-family:var(--fd,Georgia,serif);font-weight:700;font-size:1.05rem;letter-spacing:.03em;color:var(--text-3,#5a6b80)}
-#op-marquee .mq-link{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .2s}#op-marquee .mq-link:hover{opacity:.6}
-@keyframes mqscroll{to{transform:translateX(-50%)}}
+.op-logo-wall-wrap{max-width:1180px;margin:2.6rem auto 1rem;padding:0 2rem}
+.op-lw-title{font-family:var(--fd);font-weight:800;font-size:1.02rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;text-align:left}
+.op-logo-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.op-logo-cell{flex:0 0 calc((100% - 6rem)/7);height:92px;background:var(--white,#fff);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.7rem .85rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.op-logo-cell:hover{border-color:rgba(255,102,0,.4);box-shadow:0 8px 22px rgba(0,0,0,.08);transform:translateY(-3px)}
+.op-logo-cell a{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.op-logo-cell img{max-height:44px;max-width:100%;object-fit:contain;opacity:.95}
+.op-logo-cell .lw-name{font-family:var(--fd);font-weight:700;font-size:1rem;color:var(--text-2);letter-spacing:.02em;white-space:nowrap}
+.op-logo-cell:hover .lw-name{color:var(--orange)}
+@media(max-width:880px){.op-logo-cell{flex:0 0 calc((100% - 3rem)/4)}}
+@media(max-width:560px){.op-logo-cell{flex:0 0 calc((100% - 2rem)/3);height:76px}}
 </style>
-<div id="op-marquee"><div class="mq-track" id="opMqTrack"></div></div>
+<div class="op-logo-wall-wrap">
+  <div class="op-lw-title">Operators drawn from the companies that define the market</div>
+  <div class="op-logo-wall" id="opLogoWall"></div>
+</div>
 
 <div class="container">
   <!-- Filter: by Type -->
@@ -193,8 +198,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <a href="mailto:boicegun@gmail.com" style="color:var(--orange);opacity:.7">boicegun@gmail.com</a>
 </footer>
 
-<script src="shared-content.js?v=12"></script>
-<script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var t=document.getElementById('opMqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){var inner=it.l?'<img class="mq-logo" src="'+it.l+'" style="height:'+(it.h||28)+'px" alt="'+it.n+'">':'<span class="mq-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener" class="mq-link">'+inner+'</a>';h+='<div class="mq-item"><span class="mq-sep"></span>'+inner+'</div>';});t.innerHTML=h;})();</script>
+<script src="shared-content.js?v=15"></script>
+<script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('opLogoWall');if(!w)return;var h='';items.forEach(function(it){var inner=it.l?'<img src="'+it.l+'" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="op-logo-cell">'+inner+'</div>';});w.innerHTML=h;})();</script>
 <script>
 /* ═══════════════════════════════════════════════
    OPERATOR DATA — edit this array to add/update members
