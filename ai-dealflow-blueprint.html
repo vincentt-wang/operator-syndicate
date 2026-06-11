@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>EvoScale · AI Deal Flow Architecture</title>
+<meta name="description" content="How EvoScale Capital architects an AI-augmented deal flow — from sourcing to decision brief — to screen B2B startups with operator insight.">
+<meta property="og:title" content="EvoScale · AI Deal Flow Architecture">
+<meta property="og:description" content="How EvoScale Capital architects an AI-augmented deal flow — from sourcing to decision brief — to screen B2B startups with operator insight.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://evoscalecapital.com/ai-dealflow-blueprint.html">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EvoScale · AI Deal Flow Architecture">
+<meta name="twitter:description" content="How EvoScale Capital architects an AI-augmented deal flow — from sourcing to decision brief — to screen B2B startups with operator insight.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--navy:#0A1628;--navy-2:#0F1E35;--ink:#0F172A;--ink-2:#334155;--ink-3:#64748B;--bg:#F6F8FB;--white:#fff;--border:#E2E8F0;--ok:#0E9F6E;--warn:#D97706;--no:#DC2626;--D:#3B82F6;--F:#0E9F6E;--V:#A855F7;--A:#0E7490;--B:#7C3AED;--C:#FF6600;--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.68;font-size:16px;-webkit-font-smoothing:antialiased}
+header.hero{background:linear-gradient(160deg,#04101f,#0A1628 60%,#0F1E35);color:#fff;padding:3.5rem 6vw 3rem}
+.hero-in{max-width:1160px;margin:0 auto}
+.badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-2);border:1px solid rgba(255,140,66,.4);border-radius:20px;padding:5px 14px;margin-bottom:1.4rem}
+.hero h1{font-family:var(--fd);font-weight:900;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.1;margin-bottom:1rem}
+.hero p{color:rgba(255,255,255,.72);font-size:1.04rem;max-width:870px}
+.hero .meta{margin-top:1.3rem;font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.7}
+.whatsnew{margin-top:1.3rem;background:rgba(255,102,0,.12);border:1px solid rgba(255,140,66,.3);border-radius:12px;padding:.9rem 1.2rem;font-size:.86rem;color:rgba(255,255,255,.85)}
+.whatsnew b{color:var(--orange-2)}
+.nav-bar{position:sticky;top:0;z-index:20;background:rgba(10,22,40,.97);backdrop-filter:blur(8px);padding:.7rem 6vw;display:flex;gap:.85rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-bar a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.77rem;font-weight:600;white-space:nowrap}
+.nav-bar a:hover{color:var(--orange-2)}.nav-bar a.new{color:var(--orange-2)}
+main{max-width:1160px;margin:0 auto;padding:3rem 6vw 5rem}
+section{margin-bottom:3.1rem;scroll-margin-top:60px}
+h2{font-family:var(--fd);font-weight:800;font-size:1.5rem;color:var(--navy);margin-bottom:.5rem;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+h2 .n{color:var(--orange);font-size:.92rem;font-weight:700}
+h2 .nb{font-size:.66rem;font-weight:700;background:var(--orange);color:#fff;padding:2px 8px;border-radius:8px;letter-spacing:.04em}
+.lead{color:var(--ink-3);margin-bottom:1.2rem;max-width:900px}
+h3{font-family:var(--fd);font-weight:700;font-size:1.06rem;color:var(--navy);margin:1.3rem 0 .55rem}
+h4{font-weight:700;color:var(--navy);margin:.9rem 0 .35rem;font-size:.95rem}
+p{margin-bottom:.8rem;color:var(--ink-2)}
+ul,ol{margin:0 0 .8rem 1.2rem;color:var(--ink-2)}li{margin-bottom:.28rem}
+strong{color:var(--ink)}.hero strong,.q strong,.whatsnew strong,.eq strong,th strong,.page-h strong,.state strong,.flow-step strong{color:#fff}code{background:#EEF2F7;padding:1px 6px;border-radius:5px;font-size:.86em;color:#0F766E}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.4rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+@media(max-width:880px){.grid2,.grid3{grid-template-columns:1fr}}
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:1.2rem 0}
+.flow-step{flex:1;min-width:90px;background:var(--white);border:1px solid var(--border);border-radius:11px;padding:.75rem .6rem;text-align:center}
+.flow-step .s-t{font-weight:700;color:var(--navy);font-size:.82rem;margin:.12rem 0}.flow-step .s-d{font-size:.68rem;color:var(--ink-3);line-height:1.3}
+.flow-arrow{display:flex;align-items:center;color:var(--orange);font-size:1.1rem;padding:0 .18rem}
+@media(max-width:880px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);justify-content:center;padding:.16rem 0}}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.84rem;background:var(--white);border-radius:12px;overflow:hidden;border:1px solid var(--border);table-layout:fixed}
+th,td{text-align:left;padding:.52rem .72rem;border-bottom:1px solid var(--border);vertical-align:top;word-wrap:break-word;overflow-wrap:break-word}
+th{background:var(--navy);color:#fff;font-weight:700;font-size:.75rem}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;font-size:.69rem;font-weight:700;padding:2px 8px;border-radius:9px;white-space:nowrap}
+.p-ok{background:rgba(14,159,110,.12);color:var(--ok)}.p-warn{background:rgba(217,119,6,.12);color:var(--warn)}.p-no{background:rgba(220,38,38,.1);color:var(--no)}.p-done{background:rgba(13,148,136,.12);color:#0D9488}.p-plan{background:#E2E8F0;color:#64748B}
+.hc{background:linear-gradient(150deg,#FFF7ED,#FFFFFF);border:1px solid rgba(255,102,0,.25);border-left:5px solid var(--orange);border-radius:14px;padding:1.3rem 1.5rem;margin-bottom:1rem}
+.hc .ask{font-family:var(--fd);font-weight:700;color:var(--navy);font-size:1.02rem;margin-bottom:.5rem}
+.hc .verdict{display:inline-block;font-size:.73rem;font-weight:700;padding:2px 10px;border-radius:9px;margin-bottom:.5rem}.v-pass{background:rgba(14,159,110,.14);color:var(--ok)}.v-part{background:rgba(217,119,6,.14);color:var(--warn)}
+.dfv-band{border-radius:14px;padding:1.1rem 1.35rem;margin-bottom:.85rem;border:1px solid var(--border);background:var(--white)}
+.dfv-band.d{border-top:4px solid var(--D)}.dfv-band.f{border-top:4px solid var(--F)}.dfv-band.v{border-top:4px solid var(--V)}
+.dfv-band .tag{font-size:.73rem;font-weight:700;text-transform:uppercase}.dfv-band.d .tag{color:var(--D)}.dfv-band.f .tag{color:var(--F)}.dfv-band.v .tag{color:var(--V)}
+.lens{border-top:4px solid var(--C)}.lens.A{border-top-color:var(--A)}.lens.B{border-top-color:var(--B)}.lens .l-tag{font-size:.69rem;font-weight:700;text-transform:uppercase;color:var(--ink-3)}.lens h4{font-family:var(--fd);font-size:.96rem;margin:.2rem 0 .35rem}.lens.A h4{color:var(--A)}.lens.B h4{color:var(--B)}.lens h4{color:var(--C)}.lens ul{font-size:.81rem;margin-left:1rem;margin-bottom:0}
+.gem{border-top:4px solid var(--D)}.gem.v{border-top-color:var(--F)}.gem.f{border-top-color:var(--V)}.gem h4{font-family:var(--fd);font-size:.95rem;color:var(--navy);margin:.2rem 0 .35rem}.gem ul{font-size:.79rem;margin-left:1rem;margin-bottom:0}
+.callout{background:rgba(255,102,0,.06);border:1px solid rgba(255,102,0,.2);border-radius:12px;padding:1rem 1.3rem;margin:1rem 0}.callout b{color:var(--orange)}
+.note{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:1rem 1.3rem;margin:1rem 0;font-size:.89rem}
+.flag{background:#FEF2F2;border:1px solid #FECACA;border-radius:12px;padding:1rem 1.3rem;margin:1rem 0;font-size:.89rem}.flag b{color:var(--no)}
+.eq{background:var(--navy);color:#fff;border-radius:12px;padding:1.1rem 1.4rem;margin:1rem 0;text-align:center}.eq .frac{font-family:var(--fd);font-size:1.02rem;line-height:1.5}.eq .frac .num{color:#6EE7B7}.eq .frac .den{color:#FCA5A5}.eq hr{border:none;border-top:1px solid rgba(255,255,255,.3);margin:.3rem auto;width:60%}
+.page{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:.6rem 0;background:var(--white)}
+.page-h{background:var(--navy);color:#fff;padding:.5rem .9rem;font-weight:700;font-size:.85rem}
+.page-b{padding:.7rem .9rem;font-size:.85rem;color:var(--ink-2)}
+.page.opt .page-h{background:#475569}
+.q{background:var(--navy-2);color:#fff;border-radius:12px;padding:1rem 1.3rem;margin-bottom:.8rem}.q .q-n{color:var(--orange-2);font-weight:800;font-family:var(--fd);margin-right:.5rem}.q .q-opt{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:.3rem}.q.ans{background:#0c2030;border:1px solid rgba(14,159,110,.4)}.q.ans .q-n{color:var(--ok)}
+footer{background:var(--navy);color:rgba(255,255,255,.4);text-align:center;padding:2rem;font-size:.85rem}
+.legend{font-size:.78rem;color:var(--ink-3);margin-top:.5rem}
+.tier-badge{display:inline-block;font-weight:700;font-size:.71rem;padding:2px 9px;border-radius:8px}.t1{background:rgba(59,130,246,.14);color:#2563EB}.t2{background:rgba(14,159,110,.14);color:var(--ok)}
+.ph{background:repeating-linear-gradient(45deg,#F8FAFC,#F8FAFC 10px,#F1F5F9 10px,#F1F5F9 20px);border:1px dashed var(--orange);border-radius:12px;padding:1rem 1.3rem;margin:1rem 0;font-size:.89rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <span class="badge">EvoScale Capital · AI Deal Flow Architecture</span>
+    <h1>EvoScale AI Deal Flow</h1>
+    <p>把投案從遞交到投資決策全程結構化的評估系統。讀 deck、做<strong style="color:#fff">基礎查核</strong>（股權/IP/合約/財報/事實）、<strong style="color:#fff">量化驗證</strong>（費米估算、蒙地卡羅、敏感度），輸出 <strong style="color:#fff">1 頁 A4 客觀報告＋內部配置附頁</strong>。方法論建立在 D-F-V 創新三元之上，IP 歸屬 Vincent。</p>
+    <div class="meta">方法論基礎：D-F-V 創新三元（課程框架）· Paul Graham · Hormozi · Sequoia / YC / a16z / Bessemer · Fermi / Monte Carlo</div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <a href="#investors" class="new">投資人MECE</a>
+  <a href="#dfv">D/F/V</a>
+  <a href="#hc">健檢摘要</a>
+  <a href="#ip" class="new">IP歸屬</a>
+  <a href="#engine">評估引擎</a>
+  <a href="#criteria" class="new">評估標準全表</a>
+  <a href="#quant" class="new">量化驗證</a>
+  <a href="#vetting" class="new">AI 基礎查核</a>
+  <a href="#report" class="new">報告結構</a>
+  <a href="#operators">高管庫</a>
+  <a href="#rubric">Rubric</a>
+  <a href="#prompts" class="new">五模組</a>
+  <a href="#intake" class="new">收集資料</a>
+  <a href="#vote">投票</a>
+  <a href="#stack">技術棧</a>
+  <a href="#decisions">發展藍圖</a>
+</nav>
+
+<main>
+
+<section id="investors">
+  <h2><span class="n">01</span>投資人類型與融資階段 <span class="nb">拆分＋甘特圖＋MECE</span></h2>
+  <p class="lead">融資全景：Bootstrap → 天使 → 創投 → 私募。Bootstrap 度過死亡谷、天使看早期牽引、VC 看 PMF/現金流、PE 看盈利路徑。每類投資人拆成三個互斥子類，甘特圖標出各自活躍輪次——轉介系統要對齊的使用者基底。</p>
+
+  <h3>主體類型 × 三子類（每類拆三，MECE）</h3>
+  <table>
+    <colgroup><col style="width:15%"><col style="width:53%"><col style="width:16%"><col style="width:16%"></colgroup>
+    <tr><th>類型</th><th>三種子類</th><th>活躍階段</th><th>對應我們</th></tr>
+    <tr><td>個人天使</td><td>富二代型（品牌＋人脈）／策略型（生態系＋通路）／親人型（信任，單人建議 ≤NT$200萬）</td><td>Pre-seed–Seed</td><td>視角 B</td></tr>
+    <tr><td>天使會</td><td>正式天使會（識富式）／聯合投資平台（AngelList syndicate 式）／校友・產業天使網</td><td>Pre-seed–Seed</td><td>B</td></tr>
+    <tr><td>Syndicate</td><td>單案 SPV／領投＋跟投／operator-led（我們）</td><td>Seed–A</td><td><strong>C（我們）</strong></td></tr>
+    <tr><td>VC 創投</td><td>早期（Seed–A）／成長（A–C）／後期（C＋）</td><td>Seed–Pre-IPO</td><td>B / A</td></tr>
+    <tr><td>PE 私募</td><td>成長股權／Buyout 收購／夾層債</td><td>C–Pre-IPO</td><td>轉介</td></tr>
+    <tr><td>CVC 企業創投</td><td>策略型／財務型／孵化型</td><td>Seed–C</td><td>共投</td></tr>
+    <tr><td>家族辦公室</td><td>單一家族／聯合家族／私人銀行 FO</td><td>A–Pre-IPO</td><td>轉介</td></tr>
+    <tr><td>政府/政策</td><td>國發基金直投／搭配款／補助型</td><td>Seed–B</td><td>跟投</td></tr>
+    <tr><td>加速器</td><td>通用型（YC/AppWorks）／垂直型／企業加速器</td><td>Pre-seed–Seed</td><td>案源上游</td></tr>
+    <tr><td>孵化器</td><td>大學育成中心／企業孵化／政府育成</td><td>Pre-seed</td><td>案源上游</td></tr>
+    <tr><td>創投債</td><td>銀行創投貸／基金型 venture debt／收入融資 RBF</td><td>A＋（需營收）</td><td>轉介</td></tr>
+    <tr><td>群眾募資</td><td>股權群募／回饋型／預購型</td><td>Pre-seed–Seed</td><td>少數</td></tr>
+  </table>
+
+  <h3>加速器 vs 孵化器</h3>
+  <div class="grid2">
+    <div class="card"><h4 style="margin-top:0">加速器 Accelerator</h4><p style="margin:0;font-size:.86rem">固定期程（3–6 月）、批次招募、<strong>給錢換股</strong>、以 Demo Day 收尾衝刺成長。例：YC、AppWorks。</p></div>
+    <div class="card"><h4 style="margin-top:0">孵化器 Incubator</h4><p style="margin:0;font-size:.86rem">提供空間／資源／導師<strong>育成</strong>、不一定給錢或換股、時間較長、更早期（0→1）。例：大學育成中心。</p></div>
+  </div>
+  <div class="note"><strong>SPV（Special Purpose Vehicle，特殊目的公司）：</strong>為單一筆投資專門成立的投資載體。每個 deal 開一個 SPV，高管／會員<strong>逐案</strong>選擇是否參與，風險隔離、股權結構乾淨。EvoScale 以 SPV 執行單案聯合投資，即 Syndicate 的運作機制。</div>
+
+  <h3>融資階段甘特圖（誰在哪一輪活躍）</h3>
+  <div style="overflow-x:auto;margin:.6rem 0">
+   <div style="min-width:680px">
+    <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;font-size:.62rem;color:var(--ink-3);font-weight:700;text-align:center;margin-bottom:4px">
+      <div></div><div>Bootstrap</div><div>Pre-seed</div><div>Seed</div><div>A</div><div>B</div><div>C</div><div>D/E</div><div>Pre-IPO</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;font-size:.74rem">
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">Bootstrap/親友</div><div style="grid-column:2/4;background:rgba(100,116,139,.5);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">個人天使</div><div style="grid-column:3/5;background:rgba(255,102,0,.45);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">天使會</div><div style="grid-column:3/5;background:rgba(255,102,0,.45);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">加速器/孵化器/群募</div><div style="grid-column:3/5;background:rgba(124,58,237,.4);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:700;color:var(--orange)">Syndicate（我們）</div><div style="grid-column:4/7;background:var(--orange);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">VC 早期</div><div style="grid-column:4/6;background:rgba(59,130,246,.5);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">政府/政策基金</div><div style="grid-column:4/7;background:rgba(14,159,110,.45);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">CVC 企業創投</div><div style="grid-column:4/8;background:rgba(14,116,144,.45);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">VC 成長</div><div style="grid-column:5/8;background:rgba(59,130,246,.6);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">創投債</div><div style="grid-column:5/9;background:rgba(100,116,139,.4);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">家族辦公室</div><div style="grid-column:6/10;background:rgba(168,85,247,.45);height:13px;border-radius:7px"></div></div>
+      <div style="display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;align-items:center"><div style="font-weight:600;color:var(--navy)">VC 後期 / PE</div><div style="grid-column:7/10;background:rgba(220,38,38,.4);height:13px;border-radius:7px"></div></div>
+    </div>
+   </div>
+  </div>
+  <div class="note">MECE 自檢：12 個主體類型以「資金來源性質」互斥切分、合起來涵蓋一級市場所有投資主體；每類再拆 3 子類；融資階段（Bootstrap→Pre-IPO）是正交軸。每個案子＝（主體類型 × 子類 × 階段）唯一定位。</div>
+
+  <h3>台灣代表 × EvoScale 關係網（轉介可觸達網絡）</h3>
+  <table>
+    <colgroup><col style="width:22%"><col style="width:44%"><col style="width:34%"></colgroup>
+    <tr><th>類型</th><th>台灣知名代表（公開）</th><th>EvoScale 關係網</th></tr>
+    <tr><td>Syndicate</td><td>（EvoScale 開創此型）</td><td><strong>EvoScale</strong>（Boice，視角 C）</td></tr>
+    <tr><td>VC 早期</td><td>AppWorks 之初、心元 Cherubic、Hive Ventures</td><td><strong>Bonhope Capital、炙星創投（Sing 哥）</strong></td></tr>
+    <tr><td>VC 成長</td><td>華威 WI Harper、達盈、中華開發資本</td><td>—</td></tr>
+    <tr><td>CVC 企業創投</td><td>台積電、聯發科、富邦、中華電信創投</td><td>（高管網路常與此重疊）</td></tr>
+    <tr><td>政府/政策基金</td><td>國發基金、台杉投資 Taiwania</td><td>—</td></tr>
+    <tr><td>加速器/孵化器</td><td>AppWorks、SparkLabs Taipei、Taiwan Tech Arena</td><td><strong>GVA</strong>（Terry Hsiao＋Tina Cheng）</td></tr>
+  </table>
+  <p class="legend">關係網（GVA／Bonhope／炙星創投／EvoScale）已定位到對應類型，即系統轉介可實際觸達的網絡。PE／家族辦公室／創投債／群募暫無直接關係，列為轉介池。</p>
+</section>
+
+<section id="dfv">
+  <h2><span class="n">02</span>方法論：利害關係人 → 欲求 → 可行 → 存續</h2>
+  <div class="dfv-band d"><div class="tag">① 欲求性</div><p style="margin:.4rem 0 0;font-size:.9rem">新創要被引薦進企業；高管要省時間＋關係變現；團隊要自動化＋零遺漏。功能先問「滿足哪格欲求」。</p></div>
+  <div class="dfv-band f"><div class="tag">② 可行性</div><p style="margin:.4rem 0 0;font-size:.9rem">北極星＝每月成功媒合數；KPI：引薦時間↓、採用率↑、遺漏率＝0。現成工具可建。</p></div>
+  <div class="dfv-band v"><div class="tag">③ 存續性</div><p style="margin:.4rem 0 0;font-size:.9rem">會員費／carry／白標授權；核心 IP 與護城河（見 §IP）。</p></div>
+  <p class="legend">完整利害關係人需求地圖見 v6（6 類：新創/會員/團隊/Council/共投VC/外部DD）。</p>
+</section>
+
+<section id="hc">
+  <h2><span class="n">03</span>頂尖創投健檢（摘要）</h2>
+  <div class="grid3">
+    <div class="hc" style="margin:0"><div class="ask">① Scale？</div><div class="verdict v-part">刻意先 not scalable</div><p style="margin:0;font-size:.85rem">niche down＋人工校正，但架構留了 scalable 空間（模組化 rubric＋自動配對＋多來源）。</p></div>
+    <div class="hc" style="margin:0"><div class="ask">② AI 力？</div><div class="verdict v-part">到位，4 點補強</div><p style="margin:0;font-size:.85rem">被拒回饋、個人化、跨案趨勢、Top-Genius insight。Adaptability/執行力強。</p></div>
+    <div class="hc" style="margin:0"><div class="ask">③ 賺錢？</div><div class="verdict v-part">能，先定 IP</div><p style="margin:0;font-size:.85rem">Hormozi 放大各方價值；會員費/carry/白標；IP 見下節。</p></div>
+  </div>
+</section>
+
+<section id="ip">
+  <h2><span class="n">04</span>IP 歸屬與授權 <span class="nb">定案</span></h2>
+  <p class="lead">IP 結構與多方使用權。</p>
+  <div class="grid2">
+    <div class="card">
+      <h4 style="margin-top:0">歸屬與授權</h4>
+      <ul style="font-size:.88rem;margin-bottom:0">
+        <li>系統<strong>掛 EvoScale 名下運作</strong>，IP <strong>不屬於 EvoScale，屬於 Vincent 本人</strong></li>
+        <li>由 <strong>Vincent 授權</strong> EvoScale 使用</li>
+        <li>先授權 <strong>3 個月</strong>，之後逐月談；專案正式運行後談定授權費</li>
+        <li>其他營運成本由 EvoScale 自付；Vincent 收取<strong>系統授權費</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">多方使用權（不受限）</h4>
+      <ul style="font-size:.88rem;margin-bottom:0">
+        <li>同一套系統可用於 <strong>GVA、Bonhope Capital（皆 Terry Hsiao 蕭一白＋Tina Cheng 共同創辦）、炙星創投（Sing 哥）</strong>等</li>
+        <li>投案申請人面向 EvoScale，但系統可與其他創投合作<strong>收集與傳送</strong>案源</li>
+        <li>產出資料可應用於其他場景，不受 EvoScale 限制</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flag"><b>互惠共生前提：</b>Vincent 持有 IP＋EvoScale 授權使用，以書面確立。架構保證「<strong>掛 EvoScale 名下運作、IP 屬 Vincent、可獨立抽換到其他創投</strong>」，技術上不綁定單一單位。</div>
+  <h3>IP 歸屬的法律基礎</h3>
+  <p>本系統與評估方法論為 Vincent 依據 ① <strong>課程網站方法論</strong> ② <strong>頂尖創投公開觀點</strong> ③ <strong>個人知識庫</strong> 整合創造的<strong>原創成果</strong>，法律上明確屬於 Vincent 的智慧財產。</p>
+  <table>
+    <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+    <tr><th>法律基礎</th><th>確立方式</th></tr>
+    <tr><td>著作權</td><td>方法論文件、prompt、rubric、系統設計皆為<strong>原創著作</strong>，創作即享著作權，不需登記。</td></tr>
+    <tr><td>營業秘密</td><td>rubric 與 prompt 屬 know-how，<strong>不公開即受營業秘密保護</strong>（合理保密措施＋限定存取）。</td></tr>
+    <tr><td>授權 ≠ 轉讓</td><td>書面載明「<strong>授權使用（License），著作權與一切 IP 歸 Vincent 所有</strong>」，可自由決定是否、何時轉移；非 work-for-hire、非職務著作。</td></tr>
+    <tr><td>創作證據</td><td>版本紀錄、時間戳、本地存檔（git／日期）證明<strong>原創與先在</strong>。</td></tr>
+    <tr><td>品牌 vs IP 分離</td><td>系統掛 EvoScale 品牌運作屬「授權部署」；<strong>品牌使用權與底層 IP 所有權分離</strong>，IP 歸 Vincent。</td></tr>
+  </table>
+  <p class="legend">落地：一份範圍／期限／分潤／終止／IP 歸屬條款完整的<strong>授權協議</strong>，加上創作紀錄保留與 rubric 不外流。即使商業上掛 EvoScale，法律上 IP 無可爭議屬於 Vincent。</p>
+</section>
+
+<section id="engine">
+  <h2><span class="n">05</span>評估引擎：三透鏡 × 三視角 × 七層</h2>
+  <div class="grid3">
+    <div class="card gem"><h4>D · 需求</h4><ul><li>痛點、想要程度、PMF/牽引</li></ul></div>
+    <div class="card gem v"><h4>V · 存續</h4><ul><li>模式、單位經濟、ARR/NRR</li></ul></div>
+    <div class="card gem f"><h4>F · 技術</h4><ul><li>可行、壁壘、Domain、可 demo</li></ul></div>
+  </div>
+  <div class="grid3" style="margin-top:1rem">
+    <div class="card lens A"><div class="l-tag">A</div><h4>策略成長基金</h4><ul><li>Post-PMF、ARR/NRR</li></ul></div>
+    <div class="card lens B"><div class="l-tag">B</div><h4>早期驗證創投</h4><ul><li>技術/法規護城河</li></ul></div>
+    <div class="card lens"><div class="l-tag">C · 我們</div><h4>營運加速聯盟</h4><ul><li>B2B、通路＞資金</li></ul></div>
+  </div>
+</section>
+
+<section id="criteria">
+  <h2><span class="n">06</span>評估標準全表 <span class="nb">含最高風險/最高槓桿</span></h2>
+  <p class="lead">每個視角七層評估標準全表，含最高風險假設與最高槓桿。</p>
+  <h3>七層（每視角 A/B/C 各跑一次）</h3>
+  <table>
+    <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+    <tr><th>層</th><th>說明</th></tr>
+    <tr><td>1 適配度</td><td>適配 / 不適配 / 條件式</td></tr>
+    <tr><td>2 判斷理由</td><td>為什麼這樣判</td></tr>
+    <tr><td>3 建議切入方向</td><td>若要參與，怎麼切</td></tr>
+    <tr><td>4 資金需求與結構</td><td>本輪金額、工具（股權/可轉債/SPV）、用途</td></tr>
+    <tr><td>5 推進前提</td><td>要往下必須先確認的事</td></tr>
+    <tr><td><strong>6 最高風險假設</strong></td><td>這案要成功、最關鍵且最可能崩的那個假設（例：依賴單一 KOL，KOL 退出則通路受阻）。＝敏感度分析要找的點</td></tr>
+    <tr><td><strong>7 最高槓桿</strong></td><td>我們/這案最大的施力點（例：透過某高管的產業關係取得臨床端背書）</td></tr>
+  </table>
+  <h3>其他評估標準（補充進整合判斷）</h3>
+  <table>
+    <colgroup><col style="width:24%"><col style="width:50%"><col style="width:26%"></colgroup>
+    <tr><th>標準</th><th>看什麼</th><th>方法</th></tr>
+    <tr><td>市場規模</td><td>TAM / SAM / SOM 夠不夠大</td><td>費米估算（§07）</td></tr>
+    <tr><td>時機 Why Now</td><td>為什麼是現在（技術/法規/行為拐點）</td><td>Sequoia</td></tr>
+    <tr><td>競爭與護城河</td><td>替代方案、可防禦性</td><td>a16z moat</td></tr>
+    <tr><td>退出可能性</td><td>併購/上市的合理路徑</td><td>對標可比案</td></tr>
+    <tr><td>創辦人軟因素</td><td>Domain、執行、抗壓、誠信</td><td>YC founder-fit</td></tr>
+    <tr><td>風險五類</td><td>市場/技術/團隊/財務/法律</td><td>查核＋蒙特卡羅</td></tr>
+  </table>
+</section>
+
+<section id="quant">
+  <h2><span class="n">07</span>量化驗證 <span class="nb">費米 / 蒙特卡羅 / 敏感度</span></h2>
+  <p class="lead">讓 AI 不只定性，還用量化交叉檢驗——既評案，也<strong>驗證我們報告本身</strong>站不站得住。</p>
+  <div class="grid3">
+    <div class="card"><h4 style="margin-top:0">費米估算 Fermi</h4><p style="margin:0;font-size:.86rem">拆解假設×數量級，快速估 TAM/客戶數/營收天花板。驗證「市場夠不夠大」，並標出估算用的假設。</p></div>
+    <div class="card"><h4 style="margin-top:0">蒙特卡羅 Monte Carlo</h4><p style="margin:0;font-size:.86rem">對關鍵變數給機率分布、模擬上千次，得出<strong>回報區間與成功機率</strong>，而非單一樂觀數字。</p></div>
+    <div class="card"><h4 style="margin-top:0">敏感度分析</h4><p style="margin:0;font-size:.86rem">哪個假設最影響結果＝<strong>最高風險假設</strong>（直接餵進七層第 6 層）。</p></div>
+  </div>
+  <div class="note"><strong>驗證報告本身：</strong>AI 的定性判斷若與量化結果矛盾（例：說「Go」但蒙特卡羅成功率低、TAM 撐不起回報），系統要<strong>標紅提示</strong>，逼報告自我修正。可行性：這些都能用 API＋計算腳本跑（AI 設假設→腳本算→AI 解讀）。</div>
+</section>
+
+<section id="vetting">
+  <h2><span class="n">08</span>AI 基礎查核＋事實查核 <span class="nb">前期能查就查</span></h2>
+  <p class="lead">公司型投案多數基礎資訊可外部查證。AI 盡力做基礎查核並列風險；查不到標「待查/未公開」，<strong>絕不編造</strong>。</p>
+  <table>
+    <colgroup><col style="width:22%"><col style="width:34%"><col style="width:24%"><col style="width:20%"></colgroup>
+    <tr><th>查核項</th><th>來源</th><th>AI 能做到</th><th>注意</th></tr>
+    <tr><td>公司註冊/統編/地址/成立</td><td>商業登記公開資料</td><td>抓取＋交叉比對</td><td>查不到標待查</td></tr>
+    <tr><td>股權結構</td><td>公開登記（部分）</td><td>能查到的列出</td><td>未公開標明</td></tr>
+    <tr><td>IP（專利/商標）</td><td>專利商標公開檢索</td><td>列已公開的 IP</td><td>申請中標註</td></tr>
+    <tr><td>財報</td><td>上市公司公開；未上市有限</td><td>有就抓、沒有靠 deck</td><td>不推估假數字</td></tr>
+    <tr><td>事實查核</td><td>官網/新聞/媒體交叉</td><td>驗證 pitch 宣稱（合作/客戶/獲獎）</td><td>標「簡報揭露」未證</td></tr>
+    <tr><td>風險旗標</td><td>訴訟/負面新聞/負評</td><td>掃描並列出旗標</td><td>標來源，不定性指控</td></tr>
+  </table>
+  <div class="flag"><b>守則：</b>沿用 A4 範本的 Disclaimer——所有未經獨立查證的，標「簡報揭露」；查核結果分「已驗證 / 待查 / 未公開」三態，不混為一談。</div>
+</section>
+
+<section id="report">
+  <h2><span class="n">09</span>報告結構：S 客觀 3 頁（可對外）＋ E 內部附頁 <span class="nb">關注點分離</span></h2>
+  <p class="lead">S 中立整合評估者產出 3 頁客觀報告，不含任何機構算盤，可直接對外發給投遞人或外部投資人；E 配置層另產內部附頁，僅 EvoScale 內部可見。</p>
+  <div class="page"><div class="page-h">第 1 頁 · A4 Decision Brief（S，可對外）</div><div class="page-b">Header／Cost of Problem／Elevator Pitch／D-V-F 快篩／Red Flag／客觀裁決＋屬於哪一輪＋客觀適合哪類投資人＋客觀缺口／連結 QR／Disclaimer</div></div>
+  <div class="page"><div class="page-h">第 2 頁 · 風險與基礎查核（S，可對外）</div><div class="page-b">基礎查核結果（註冊/股權/IP/財報/地址，三態標示）＋事實查核＋風險五類＋最高風險假設</div></div>
+  <div class="page"><div class="page-h">第 3 頁 · 量化驗證（S，可對外）</div><div class="page-b">費米 TAM＋蒙地卡羅回報區間/成功率＋敏感度（最高槓桿/最高風險）＋第一性原理結論＋估值合理性</div></div>
+  <div class="page" style="border-color:var(--orange);background:linear-gradient(180deg,#FFF8F3,#fff)"><div class="page-h" style="color:#a8480a">內部附頁 · EvoScale 配置（E，不對外）</div><div class="page-b">EvoScale 適配 Tier＋理由／處置建議（自投／轉介給誰／分配哪位 operator）／我們的切入點與進場條件／利益衝突旗標／待徵詢投遞人意願／人工拍板清單（HITL）</div></div>
+  <p class="legend">對外報告（S 三頁）中立、可直接分享；內部附頁（E）含機構配置決策，權限隔離。技術：JSON→模板→PDF。</p>
+</section>
+
+<section id="operators">
+  <h2><span class="n">10</span>高管網路資料庫（13 家品牌 × 角色立場）</h2>
+  <table>
+    <colgroup><col style="width:14%"><col style="width:30%"><col style="width:28%"><col style="width:28%"></colgroup>
+    <tr><th>角色</th><th>全名</th><th>在公司做什麼</th><th>通常想要的</th></tr>
+    <tr><td>C-Level</td><td>Chief X Officer</td><td>最高決策、定戰略</td><td>戰略合作、創新、能見度</td></tr>
+    <tr><td>VP</td><td>Vice President 副總裁</td><td>掌預算與採購</td><td>達 KPI、好方案、降本增效</td></tr>
+    <tr><td>GM</td><td>General Manager 總經理</td><td>事業單位 P&amp;L</td><td>營收成長、市場擴張</td></tr>
+    <tr><td>Director</td><td>Director 總監</td><td>部門主管、執行</td><td>方案評估、團隊績效</td></tr>
+    <tr><td>LP</td><td>Limited Partner</td><td>基金出資人（operator LP）</td><td>好回報、好案流、影響力</td></tr>
+  </table>
+  <p class="legend">13 家品牌的「高管立場與想要的」（依品牌業務推導）已在 v6 列出（IBM/Microsoft/Salesforce/AWS/NVIDIA/Dentsu/GlobalFoundries/LINE/Sharp/UBS/IDC/Appier/iPass）。新增以此類推：加一列品牌＋角色，立場自動套用上表。</p>
+</section>
+
+<section id="rubric">
+  <h2><span class="n">11</span>Rubric＋可填視角（D/V/F＝創新三元）</h2>
+  <table>
+    <colgroup><col style="width:14%"><col style="width:30%"><col style="width:22%"><col style="width:20%"><col style="width:14%"></colgroup>
+    <tr><th>透鏡</th><th>● 通過</th><th>△ 待驗證</th><th>× 不適配</th><th>對標</th></tr>
+    <tr><td>D 需求</td><td>明確 TA＋已驗證痛點</td><td>痛點合理但無驗證</td><td>偽需求</td><td>YC</td></tr>
+    <tr><td>V 存續</td><td>單位經濟正向</td><td>未證/規模化風險</td><td>燒錢無回收</td><td>Bessemer</td></tr>
+    <tr><td>F 技術</td><td>可 demo＋Domain＋壁壘</td><td>原型/執行待證</td><td>太早期</td><td>a16z</td></tr>
+  </table>
+  <div class="flow">
+    <div class="flow-step"><div class="s-t">視角 D</div></div><div class="flow-arrow">＋</div>
+    <div class="flow-step"><div class="s-t">視角 V</div></div><div class="flow-arrow">＋</div>
+    <div class="flow-step"><div class="s-t">視角 F</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step" style="border-color:var(--navy)"><div class="s-t">綜合評估者</div><div class="s-d">整合→報告</div></div>
+  </div>
+  <div class="note">D／V／F 三透鏡即創新三元（課程框架），三段評案 prompt 已內建；額外角度（如八角化）為可加掛模組。</div>
+</section>
+
+<section id="prompts">
+  <h2><span class="n">12</span>五模組三層 Prompt 全文</h2>
+  <p class="lead">三層關注點分離：D/F/V 為<strong>獨立頂尖創投審查官</strong>，不代表任何機構、互不相見、客觀審案；S 為<strong>中立整合評估者</strong>，把三透鏡合成客觀投資判斷；E 為<strong>配置層</strong>，唯一站在 EvoScale 立場做配置決策。各層獨立、符合 MECE，D/F/V/S 為通用資產，換機構只改 E 層。</p>
+
+  <div class="card" style="margin-bottom:1.3rem;background:linear-gradient(180deg,#F6F9FC,#fff)">
+    <h4 style="font-family:var(--fd)">三層架構（關注點分離）</h4>
+    <div style="display:flex;flex-direction:column;gap:.55rem;margin-top:.6rem">
+      <div style="background:#EAF1F8;border-left:4px solid #2E6BB0;border-radius:8px;padding:.6rem .8rem">
+        <div style="font-weight:700;font-size:.88rem;color:#1c4a7d">審查層 · 獨立頂尖創投審查官（不代表任何機構、互不相見）</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem;font-size:.82rem">
+          <span style="background:#fff;border:1px solid #cdddee;border-radius:6px;padding:.2rem .6rem">D 欲求性</span>
+          <span style="background:#fff;border:1px solid #cdddee;border-radius:6px;padding:.2rem .6rem">F 可行性</span>
+          <span style="background:#fff;border:1px solid #cdddee;border-radius:6px;padding:.2rem .6rem">V 存續性</span>
+          <span style="font-size:.8rem;color:var(--ink-3)">各自獨立評分，只答「就創投通則這案強不強」</span>
+        </div>
+      </div>
+      <div style="text-align:center;color:var(--ink-3);font-size:.8rem">▼ 三份獨立意見匯總</div>
+      <div style="background:#EFF7F0;border-left:4px solid #2E9E5B;border-radius:8px;padding:.6rem .8rem">
+        <div style="font-weight:700;font-size:.88rem;color:#1f7544">整合層 · S 中立整合評估者（仍不代表任何機構）</div>
+        <div style="font-size:.82rem;margin-top:.3rem">合成「一個客觀投資判斷」＋3 頁客觀報告（可對外）。只答「這案本身怎樣」，不答「我們投不投、配給誰」。</div>
+      </div>
+      <div style="text-align:center;color:var(--ink-3);font-size:.8rem">▼ 疊上 EvoScale 私有知識</div>
+      <div style="background:#FFF1E6;border-left:4px solid var(--orange);border-radius:8px;padding:.6rem .8rem">
+        <div style="font-weight:700;font-size:.88rem;color:#a8480a">配置層 · E EvoScale 配置決策官（唯一站在我們立場，內部）</div>
+        <div style="font-size:.82rem;margin-top:.3rem">疊 operator 網絡/採購線/基金論題 → 適配 Tier、自投或轉介、分配給誰、我們的切入點。換別家創投只改這層。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border:2px solid var(--orange);margin-bottom:1.3rem;background:linear-gradient(180deg,#FFF8F3,#fff)">
+    <h4 style="font-family:var(--fd);color:var(--orange)">運算引擎：怎麼從維度「算」到決策</h4>
+    <p style="font-size:.9rem">維度只是<strong>要看什麼</strong>；這層引擎定義<strong>怎麼算</strong>——維度→分數→透鏡狀態→客觀裁決，<strong>審查層＋整合層共用</strong>。配置層 E 不跑這套打分，它跑自己的配置邏輯。沒這層，prompt 只是名詞清單。完整在 <code>ai-dealflow-prompts.md</code>。</p>
+
+    <p style="font-size:.86rem;font-weight:700;margin:.9rem 0 .35rem">① 七步推理（強制順序，先證據後結論）</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.4rem;font-size:.82rem">
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">1 事實抽取（已知/缺口/待查）</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">2 逐維度 0–3 評分（無證據封頂 1）</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">3 Knockout 檢查（一票否決）</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">4 加權聚合 → ●/△/×</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">5 客觀裁決矩陣</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">6 量化複核（矛盾標紅）</span>
+      <span style="background:#FFF1E6;border:1px solid #FFD2AC;border-radius:999px;padding:.28rem .7rem;color:#7a3a00">7 信心＋資料完整度%</span>
+    </div>
+
+    <p style="font-size:.86rem;font-weight:700;margin:1rem 0 .35rem">② 評分量表（0–3，每維度有錨點，不靠語感）</p>
+    <p style="font-size:.84rem;margin:0">例｜痛點強度：0 維他命可有可無 → 3 止痛藥級、急迫無替代、預算已存在　·　Founder-Market Fit：0 無關 → 3 domain＋網絡＋戰績三者具備　·　單位經濟：0 LTV/CAC&lt;1 → 3 ≥3 且 Payback≤12 月。<strong>每個分數必附 deck 證據，未提供封頂 1 分（防模型幻覺給高分）。</strong></p>
+
+    <p style="font-size:.86rem;font-weight:700;margin:1rem 0 .35rem">③ 透鏡聚合公式</p>
+    <div style="background:#14233a;color:#fff;border-radius:10px;padding:.7rem .9rem;font-size:.84rem">透鏡得分 ＝ Σ(維度分 × 權重) ÷ 滿分　→　<strong>≥75% 且無 knockout ＝ ●</strong>　｜　50–74% ＝ △　｜　<strong>&lt;50% 或任一 knockout ＝ ×</strong>　（核心項 ×3、重要項 ×2、參考項 ×1；權重每季用實際成交回顧校正）</div>
+
+    <p style="font-size:.86rem;font-weight:700;margin:1rem 0 .35rem">④ Knockout 致命門檻（任一觸發該透鏡直接 ×，不再加總）</p>
+    <p style="font-size:.84rem;margin:0"><strong>D：</strong>Tar Pit／零真實痛點／受眾不可觸達（CAC 趨近無窮）　<strong>F：</strong>核心技術被第一性原理證偽／做不出 MVP／團隊無執行力　<strong>V：</strong>單位經濟結構性為負無解／損平量 &gt; 可觸及市場／現金流撐不到下一里程碑</p>
+
+    <p style="font-size:.86rem;font-weight:700;margin:1rem 0 .35rem">⑤ 整合層客觀裁決矩陣（D 是 gate，D× 一票否決；<strong>只判案子本身，不判我們投不投</strong>——那是 E 層）</p>
+    <table style="width:100%;border-collapse:collapse;font-size:.84rem">
+      <tr style="background:#14233a;color:#fff"><th style="padding:.4rem .7rem;text-align:left;border-radius:8px 0 0 0">三透鏡狀態</th><th style="padding:.4rem .7rem;text-align:left;border-radius:0 8px 0 0">客觀裁決（案子本身怎樣）</th></tr>
+      <tr><td style="padding:.4rem .7rem;border-bottom:1px solid #eee"><strong>D● F● V●</strong></td><td style="padding:.4rem .7rem;border-bottom:1px solid #eee">強案：客觀上值得投資，往 E 配置層評估</td></tr>
+      <tr><td style="padding:.4rem .7rem;border-bottom:1px solid #eee"><strong>D● F● V△</strong> / <strong>D● F△ V●</strong></td><td style="padding:.4rem .7rem;border-bottom:1px solid #eee">附條件：把 △ 透鏡的最高風險假設設成 checkpoint（帶日期），達標即翻強案</td></tr>
+      <tr><td style="padding:.4rem .7rem;border-bottom:1px solid #eee"><strong>D● F● V×</strong></td><td style="padding:.4rem .7rem;border-bottom:1px solid #eee">財務不成立：須續命資金或商業模式重構才可投（客觀事實，不等於拒絕）</td></tr>
+      <tr><td style="padding:.4rem .7rem;border-bottom:1px solid #eee"><strong>D● F× V●</strong></td><td style="padding:.4rem .7rem;border-bottom:1px solid #eee">技術受阻：須技術合夥人或深科技資源</td></tr>
+      <tr><td style="padding:.4rem .7rem;border-bottom:1px solid #eee"><strong>D△</strong></td><td style="padding:.4rem .7rem;border-bottom:1px solid #eee">Keep Going：設 revisit 日期，等 PMF 訊號（陌生人付費/月增&gt;20%）</td></tr>
+      <tr><td style="padding:.4rem .7rem"><strong>D×</strong></td><td style="padding:.4rem .7rem">否決：需求不成立，F、V 再漂亮也不成立</td></tr>
+    </table>
+
+    <p style="font-size:.86rem;font-weight:700;margin:1rem 0 .35rem">⑥ 量化三法的實際算法（不只是名詞）</p>
+    <p style="font-size:.84rem;margin:0"><strong>費米：</strong>寫拆解式（TAM＝戶數×滲透×ARPU×頻次）＋每變數三點估計＋Top/Bottom 對照（差&gt;3× 標假設有問題）　<strong>蒙地卡羅：</strong>變數設三角分布跑 10,000 次 → 回報 P10/P50/P90＋達 10× 機率（&lt;10% 標紅）　<strong>敏感度：</strong>龍捲風圖逐變數 ±1 檔排序 → 最大者＝最高風險假設，綁一個 checkpoint</p>
+
+    <p style="font-size:.84rem;margin:1rem 0 0;color:var(--ink-3)"><strong>反幻覺：</strong>每分附證據、查不到標待查、定性與量化矛盾以保守者為準並標紅。模型只做「結構化篩選＋假設驗證」，正式 DD 在人工階段。</p>
+  </div>
+
+  <div class="card gem" style="margin-bottom:1rem">
+    <h4>審查層 · 模組 D · 欲求性評審（Desirability，欲望的欲）</h4>
+    <p style="font-size:.88rem"><strong>角色：</strong><strong>獨立的欲求性審查官</strong>（不代表任何機構、不知道 EvoScale 偏好）——站在頂尖創投通則做殘酷的需求真偽檢驗，只答「這案需求面強不強」。</p>
+    <p style="font-size:.88rem"><strong>評估維度（19 項）：</strong>止痛藥 vs 維他命（採用快 10×）· Tar Pit 焦油坑 · Venture-backable · 三大永恆市場（健康/財富/關係）· 完美市場四特徵 · 痛點六驗 · Top-Down vs Bottom-Up · <strong>痛點量化代價</strong>（費米，餵 V 定價）· Persona→ICP→<strong>HXC</strong>（10–20% 貢獻 70%）· B2B 利益關係人矩陣（User/Budget/Decision/Blocker＋KPI）· JTBD 三層 · 五層洞察 · TPO 場景 · 感知價值三維（Identity/Outcome/Payoff）· 八角化 8 驅動力 · 北極星 2×2＋保齡球打擊點 · 黃金交集 · <strong>Founder-Market Fit 認真評估</strong> · <strong>瞄準市場地理與政策</strong>（台/美/中/星/全球）· <strong>對方 pitch 資料完整度檢查</strong>（缺的＝官網表單該補收的欄位）</p>
+    <p style="font-size:.88rem"><strong>輸出：</strong>欲求性透鏡狀態＋創投價值定性＋永恆市場＋完美市場四特徵＋HXC＋B2B 決策矩陣＋JTBD/五層/感知三維＋痛點量化代價＋北極星象限＋Founder-Market Fit 評分＋瞄準市場（地理＋政策）＋pitch 缺哪些欄位＋紅旗＋最高風險假設（需求面）＋Pitch Hook/Problem</p>
+    <p style="font-size:.82rem;color:var(--ink-3)">對標：Christensen（JTBD）· Paul Graham（Tar Pit）· Sean Ellis · Yu-kai Chou（八角化）· a16z · IDEO</p>
+  </div>
+
+  <div class="card gem f" style="margin-bottom:1rem">
+    <h4>審查層 · 模組 F · 可行性評審（Feasibility）</h4>
+    <p style="font-size:.88rem"><strong>角色：</strong><strong>獨立的可行性審查官</strong>（不代表任何機構）——做不做得出來、驗證到哪、技術需不需要這麼重。</p>
+    <p style="font-size:.88rem"><strong>評估維度（16 項）：</strong><strong>階段定位明確</strong>（Prototype 10%→MVP 30–60%→POC 70–80%→GTM→PMF→Scaling，對應 Pre-Seed→Seed→A→B→C+，過了哪些 checkpoint）· 三驗證關卡 PSF→PMF→Scaling · <strong>付費意願驗證</strong>（陌生人的錢，勝朋友稱讚 100×）· PMF 三訊號（陌生人行動/自發評論/月增&gt;20%）· 四種 MVP＋Solid Data · <strong>技術合理性</strong>（第一性原理：自建 vs 現成 API、技術需求量級）· <strong>商業模式九宮格 BMC</strong>（九格閉環、最弱一格）· 商業模式選擇與各端需求（D2C 養數據/B2B·B2G 養公司）· 生態系角色與競合 · 護城河五型 · 團隊三特質＋創辦人類型 · Founder-Market Fit（執行面）· 技術性毛利 · Runway 與 Bootstrap 死亡谷 · Lean Canvas 最高風險假設（48hr 實驗）· GO/NO-GO checkpoint</p>
+    <p style="font-size:.88rem"><strong>輸出：</strong>F 透鏡狀態＋階段定位（在哪格）/PMF%/已過 checkpoint＋付費驗證進度＋技術落點＋BMC 評估（最弱一格）＋商業模式判定＋主攻哪端＋生態系角色＋護城河＋毛利%＋團隊/FMF＋紅旗＋最高風險假設＋最高槓桿</p>
+    <p style="font-size:.82rem;color:var(--ink-3)">對標：Eric Ries · Ash Maurya · Sean Ellis · YC · a16z · Floodgate</p>
+  </div>
+
+  <div class="card gem v" style="margin-bottom:1rem">
+    <h4>審查層 · 模組 V · 存續性評審（Viability）</h4>
+    <p style="font-size:.88rem"><strong>角色：</strong><strong>獨立的存續性審查官＋算帳者</strong>（不代表任何機構）——把帳算清楚、判斷可持續、值多少。</p>
+    <p style="font-size:.88rem"><strong>評估維度（13 項）：</strong>市場量體 TAM/SAM/SOM＋動能 D×P×Q×F÷T，<strong>Top-Down 與 Bottom-Up 雙算對照</strong> · PMF 三支柱（有機/留存&gt;40%/NPS&gt;50）· 六個關鍵數字（CAC/LTV/毛利/回本/留存/成長）· <strong>單位經濟健康判準</strong>（LTV/CAC≥3、Payback≤12 月、Churn≤5%）· <strong>CFA</strong>（30 天毛利÷(CAC＋服務成本)）· <strong>Hormozi 價值公式</strong>（用痛點量化代價當錨）· 定價策略（定價即產品/錨點/價值定價/Fake Door）· <strong>損益平衡點</strong>（賣幾個/撐多久，對照市場）· 多元估值 2–3 種交叉 · VC 視角 D2C 困境 · Pitch 十元素檢查 · 外部評審九項 · <strong>估值合理性</strong>（對方開價合不合理）</p>
+    <p style="font-size:.88rem"><strong>輸出：</strong>V 透鏡狀態＋市場量體（雙算對照＋真實可觸及）＋損益平衡＋六個關鍵數字＋單位經濟/CFA 落點＋Hormozi 定價方向＋估值區間（交叉）＋對方開價是否合理＋Pitch 十元素/評審九項缺漏＋紅旗＋最高風險假設（財務面）</p>
+    <p style="font-size:.82rem;color:var(--ink-3)">對標：Alex Hormozi · David Skok · Steve Blank · Berkus · Bessemer · a16z</p>
+  </div>
+
+  <div class="card" style="border-top:4px solid #2E9E5B;margin-bottom:1rem">
+    <h4 style="font-family:var(--fd);color:#1f7544">整合層 · 模組 S · 中立整合評估者（Synthesis → 3 頁客觀報告）</h4>
+    <p style="font-size:.88rem"><strong>角色：</strong><strong>中立整合評估者，不代表任何機構（含 EvoScale）</strong>——收 D/F/V 三份獨立意見，合成「一個客觀投資判斷」。只答「這案本身怎樣」，<strong>不答「我們要不要投、配給誰」（那是 E 層）</strong>。這樣對外可直接發 S 的報告而不洩漏機構算盤。</p>
+    <p style="font-size:.88rem"><strong>工作：</strong>整合三透鏡→客觀裁決（強案/附條件/財務不成立/技術受阻/Keep Going/否決）· 點出透鏡矛盾並仲裁 · <strong>屬於哪一輪</strong>（Pre-seed→Pre-IPO）· 客觀上<strong>適合哪「類」投資人</strong>（用 §01 通用類型，只到類別、不點名特定基金、不含自投與否）· 客觀缺口（資金/通路/人才/背書，陳述事實）· 客觀終局選項 · 估值合理性 · <strong>量化交叉驗證</strong>（費米/蒙地卡羅/敏感度，矛盾標紅）· <strong>第一性原理驗證</strong> · <strong>AI 基礎查核</strong>（三態：已驗證/待查/未公開，查不到標待查不編造）· 信心與資料完整度往上傳給 E</p>
+    <p style="font-size:.88rem"><strong>輸出 3 頁客觀報告（皆必出，可對外）：</strong>① A4 快篩（客觀裁決＋哪一輪＋客觀適合哪類投資人＋客觀缺口）② 風險與基礎查核 ③ 量化驗證＋第一性原理＋估值合理性</p>
+  </div>
+
+  <div class="card" style="border-top:4px solid var(--orange);margin-bottom:1rem;background:linear-gradient(180deg,#FFF8F3,#fff)">
+    <h4 style="font-family:var(--fd);color:#a8480a">配置層 · 模組 E · EvoScale 配置決策官（內部，唯一站在我們立場）</h4>
+    <p style="font-size:.88rem"><strong>角色：</strong>前面 D/F/V/S 都中立、不知道我們是誰；<strong>E 是唯一代表 EvoScale 的一層</strong>。拿 S 的客觀判斷，疊上 EvoScale 私有知識（operator 網絡 §10／採購線／基金論題／Tier 標準／既有投資組合），決定我們怎麼處置。<strong>換別家創投時，只有這一層要改。</strong></p>
+    <p style="font-size:.88rem"><strong>工作：</strong><strong>EvoScale 適配度</strong>（Tier 1 主動追／Tier 2 跟投觀察／Pass）· <strong>自投或轉介</strong>（自投走 SPV／把 S 的「類別」落到具體名單／引薦給某 operator 當客戶顧問）· <strong>生態系分配</strong>（配給哪位 operator/高管，§10 匹配 domain 與本案需要的 B2B 服務）· <strong>我們的切入點</strong>（exit／換股權／co-invest／策略引薦／operator-as-service）· <strong>利益衝突檢查</strong> · <strong>轉介意願徵詢</strong>（轉介前先問投遞人，保密）· <strong>人在環 HITL</strong>（產出是建議，對外接觸前必須 Vincent/Boice 拍板）</p>
+    <p style="font-size:.88rem"><strong>輸出（內部配置附頁，接在 S 報告後，不發投遞人/外部）：</strong>適配 Tier＋理由／處置建議（自投/轉介給誰/分配哪位 operator）／我們切入點與進場條件／利益衝突旗標／待徵詢意願事項／人工拍板清單</p>
+  </div>
+
+  <div class="note"><strong>健康檢查補強（落地）：</strong>審查官獨立性（D/F/V 互不看對方結論防錨定）· 輸入契約（缺欄位回拋＝官網表單需求來源）· 棄權機制（資料不足明說棄權＋補件，不硬湊分）· 反 hype 偏誤（強制反方論證、牽引數字追分母）· 衝突仲裁 · 不確定性逐層上傳 · 利益衝突檢查 · 人在環 · 可審計（證據＋prompt 版本＋時間戳）· 每季回測校準。</div>
+
+  <div class="note">五模組皆<strong>可版本化、可定期拆解校正</strong>。<strong>白標關鍵：審查層 D/F/V＋整合層 S 為通用資產，換任何創投都不動；僅配置層 E 為 EvoScale 實例</strong>（IP 屬 Vincent）。完整可執行 prompt 在 <code>ai-dealflow-prompts.md</code>。</div>
+</section>
+
+<section id="intake">
+  <h2><span class="n">13</span>收集資料 Schema <span class="nb">從 prompt 反推 · 待落地官網</span></h2>
+  <p class="lead">從五模組三層的評估維度反推使用者遞交時系統需要的資料：哪些必填、各欄位餵給哪個模組運算。原則——必填門檻低（鼓勵遞交），選填越多評估越準：運算引擎對「未提供」的維度封頂 1 分，缺漏直接壓低分數並標待查。此 schema 確認後才反向更新官網收案表單。</p>
+  <div class="note"><strong>必填策略：</strong>必填＝三審查官能跑出基本判斷的最小集＋合規同意；其餘選填。表單明示「填越完整、評估越準、越可能進下一步」，並即時顯示資料完整度 %（對應報告的完整度標注）。標記：<span style="color:var(--orange);font-weight:700">●</span> 必填　<span style="color:#94A3B8;font-weight:700">○</span> 選填。</div>
+
+  <h3>A · 基本與聯絡</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>公司／專案名稱</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>全模組識別、S A4 Header</td></tr>
+   <tr><td>創辦人姓名與職稱</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>S 基礎查核、F 團隊</td></tr>
+   <tr><td>聯絡 email／電話</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>E 後續聯繫</td></tr>
+   <tr><td>公司網站／創辦人 LinkedIn</td><td><span style="color:#94A3B8">○</span></td><td>連結</td><td>S 查核、D Founder-Market Fit</td></tr>
+   <tr><td>Pitch Deck</td><td><span style="color:var(--orange)">●</span></td><td>PDF／連結</td><td>全模組主要輸入</td></tr>
+   <tr><td>所在地與目標市場</td><td><span style="color:var(--orange)">●</span></td><td>台／美／中／星／全球</td><td>D 瞄準市場地理與政策</td></tr>
+  </table>
+
+  <h3>B · 問題與解方</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>一句話描述</td><td><span style="color:var(--orange)">●</span></td><td>≤30 字</td><td>S A4 Elevator Pitch</td></tr>
+   <tr><td>要解決的痛點</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>D 痛點六驗、止痛藥 vs 維他命</td></tr>
+   <tr><td>痛點量化代價</td><td><span style="color:#94A3B8">○</span></td><td>客戶每年損失的金錢／時間／情緒</td><td>D 痛點量化代價 → V 定價錨</td></tr>
+   <tr><td>解決方案</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>D 解方、F 可行性</td></tr>
+   <tr><td>替代方案／競品</td><td><span style="color:#94A3B8">○</span></td><td>含「什麼都不做」</td><td>D 替代盤點、北極星象限</td></tr>
+  </table>
+
+  <h3>C · 市場與客戶</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>目標客戶／ICP</td><td><span style="color:var(--orange)">●</span></td><td>誰、為何是他</td><td>D HXC、JTBD 三層</td></tr>
+   <tr><td>B2B 決策鏈</td><td><span style="color:#94A3B8">○</span></td><td>User／Budget／Decision／Blocker</td><td>D 利害關係人矩陣</td></tr>
+   <tr><td>市場規模 TAM／SAM／SOM</td><td><span style="color:#94A3B8">○</span></td><td>數字＋推算依據</td><td>V 市場量體（Top／Bottom 對照）</td></tr>
+   <tr><td>商業模式</td><td><span style="color:var(--orange)">●</span></td><td>B2B／B2C／B2B2C／B2G</td><td>F 商業模式、V 單位經濟</td></tr>
+  </table>
+
+  <h3>D · 產品與技術</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>產品階段</td><td><span style="color:var(--orange)">●</span></td><td>概念／Prototype／MVP／POC／上線</td><td>F 階段定位</td></tr>
+   <tr><td>核心技術／難複製處</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>F 技術合理性、護城河五型</td></tr>
+   <tr><td>IP／專利／商標狀態</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>S 基礎查核、F 護城河</td></tr>
+  </table>
+
+  <h3>E · 牽引與驗證</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>付費客戶／LOI／預購</td><td><span style="color:var(--orange)">●</span></td><td>有／無＋說明</td><td>F 付費驗證（影響 knockout）</td></tr>
+   <tr><td>關鍵指標</td><td><span style="color:#94A3B8">○</span></td><td>MRR／MAU／留存／成長率，近 3–6 月</td><td>V 六個關鍵數字、F PMF 三訊號</td></tr>
+   <tr><td>單位經濟</td><td><span style="color:#94A3B8">○</span></td><td>CAC／LTV／Churn／毛利</td><td>V 單位經濟健康判準、CFA</td></tr>
+  </table>
+
+  <h3>F · 團隊</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>核心團隊與分工</td><td><span style="color:var(--orange)">●</span></td><td>全／兼職、人數</td><td>F 團隊三特質</td></tr>
+   <tr><td>創辦人經歷／過往戰績</td><td><span style="color:#94A3B8">○</span></td><td>domain／過往 exit</td><td>D Founder-Market Fit（核心權重 ×3）</td></tr>
+   <tr><td>為何是你們做這件事</td><td><span style="color:#94A3B8">○</span></td><td>不公平優勢</td><td>D FMF、黃金交集</td></tr>
+  </table>
+
+  <h3>G · 財務與募資</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>募資輪次</td><td><span style="color:var(--orange)">●</span></td><td>Pre-seed → C+</td><td>F 階段對應、S 屬於哪一輪</td></tr>
+   <tr><td>本輪募資目標額</td><td><span style="color:var(--orange)">●</span></td><td>—</td><td>S、E 配置</td></tr>
+   <tr><td>估值與工具</td><td><span style="color:#94A3B8">○</span></td><td>pre-money、SAFE／股權</td><td>V 估值合理性、E 進場條件</td></tr>
+   <tr><td>資金用途</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>V Pitch 十元素</td></tr>
+   <tr><td>Runway／月燒</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>F Runway 與死亡谷</td></tr>
+   <tr><td>已 committed／領投</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>S、E</td></tr>
+  </table>
+
+  <h3>H · 法律與股權（基礎查核）</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>公司登記狀態</td><td><span style="color:#94A3B8">○</span></td><td>註冊地、統編、成立日</td><td>S 基礎查核</td></tr>
+   <tr><td>股權結構 cap table</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>S 查核、V 估值</td></tr>
+   <tr><td>現有／前輪投資人</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>S、E 利益衝突檢查</td></tr>
+  </table>
+
+  <h3>I · 來源與同意（配置層 E）</h3>
+  <table>
+   <colgroup><col style="width:24%"><col style="width:8%"><col style="width:32%"><col style="width:36%"></colgroup>
+   <tr><th>欄位</th><th>必填</th><th>預期內容</th><th>對應運算（模組 · 用途）</th></tr>
+   <tr><td>怎麼得知／誰推薦</td><td><span style="color:#94A3B8">○</span></td><td>—</td><td>E 歸因、利益衝突檢查</td></tr>
+   <tr><td>同意資料用於 AI 結構化評估</td><td><span style="color:var(--orange)">●</span></td><td>是／否</td><td>合規前提</td></tr>
+   <tr><td>同意被轉介給生態系／合作創投</td><td><span style="color:var(--orange)">●</span></td><td>是／否</td><td>E IP 系統層轉介意願（轉介前提）</td></tr>
+   <tr><td>時間敏感度</td><td><span style="color:#94A3B8">○</span></td><td>其他 TS、close 時間</td><td>E 處置優先級</td></tr>
+  </table>
+
+  <div class="flag"><b>補充面向（容易漏，但專業 intake 該收）：</b>① <strong>同意條款</strong>（資料用於 AI 評估、是否同意轉介）——E 轉介與合規的前提，最常被忽略 ② <strong>來源／誰推薦</strong>——E 利益衝突與歸因 ③ <strong>cap table／前輪投資人</strong>——S 基礎查核＋E 利益衝突 ④ <strong>時間敏感度</strong>——E 處置優先級 ⑤ <strong>痛點量化代價</strong>——D→V 的定價橋接，創辦人常只講功能、不講代價。</div>
+  <div class="note">必填合計 12 欄（門檻低、5 分鐘可填完）；選填越多，運算引擎能評分的維度越多、待查越少、資料完整度 % 越高。下一步：據此 schema 更新官網收案表單，確認無誤再上線。</div>
+</section>
+
+<section id="vote">
+  <h2><span class="n">14</span>投票（Slack＋API 異步、可選透明）</h2>
+  <p>A4 自動發 Slack 案子頻道→互動按鈕投 Go/Conditional/No-Go＋評論→API 收集寫回 Airtable→驅動狀態機。異步（誰有空誰投）；每案可設透明（看得到誰投什麼）或匿名。初期可現場，系統版直接建好。</p>
+</section>
+
+<section id="stack">
+  <h2><span class="n">15</span>系統全景＋技術棧＋MECE 分類</h2>
+  <div class="flow">
+    <div class="flow-step"><div class="s-t">①收案</div><div class="s-d">表單＋Deck＋Email/LineID</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">②AI 評估＋查核＋量化</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">③校正</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">④配對/推薦投資人</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">⑤分派會員</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">⑥投票</div></div><div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="s-t">⑦追蹤</div></div>
+  </div>
+  <table>
+    <colgroup><col style="width:28%"><col style="width:52%"><col style="width:20%"></colgroup>
+    <tr><th>環節</th><th>方案</th><th>狀態</th></tr>
+    <tr><td>收案</td><td>表單升級欄位＋Deck 直傳＋<strong>Email/Line ID</strong></td><td><span class="pill p-ok">高可行</span></td></tr>
+    <tr><td>總表</td><td>Airtable（備援 Sheet）</td><td><span class="pill p-done">已定</span></td></tr>
+    <tr><td>AI 判斷＋查核＋量化</td><td>API＋查核腳本＋費米/蒙地卡羅腳本</td><td><span class="pill p-ok">可行</span></td></tr>
+    <tr><td>報告</td><td>1 頁 A4＋≤2 頁補充→PDF</td><td><span class="pill p-plan">樣張 Pending</span></td></tr>
+    <tr><td>編排/分發/投票</td><td>n8n／Slack＋API</td><td><span class="pill p-done">已定</span></td></tr>
+    <tr><td>部署 / IP</td><td>掛 EvoScale 運作、IP 屬 Vincent、Vincent 授權使用（§04）</td><td><span class="pill p-done">已定</span></td></tr>
+  </table>
+  <p class="legend">MECE 分類維度：投資人類型(10)×階段(8)×視角(A/B/C)×Tier(1/2)×產業×來源×Channel Fit×狀態×下次行動日。每案在每維度唯一歸類。狀態：Go/附條件/Keep Going/Revisit(自動浮回)/No Go。</p>
+</section>
+
+<section id="decisions">
+  <h2><span class="n">16</span>發展藍圖</h2>
+  <p class="lead">各模組成熟度與後續規劃。</p>
+  <h3>已定義</h3>
+  <div class="q ans"><span class="q-n">✓</span>投資人 MECE 分類：12 類主體 × 三子類 × 融資階段甘特圖，對齊轉介網絡（§01）</div>
+  <div class="q ans"><span class="q-n">✓</span>五模組三層評估架構：D/F/V 獨立審查官 → S 中立整合 → E 配置層，含運算引擎（七步推理／0–3 評分／Knockout／客觀裁決矩陣）（§12）</div>
+  <div class="q ans"><span class="q-n">✓</span>量化驗證：費米估算、蒙地卡羅、敏感度分析（§07）</div>
+  <div class="q ans"><span class="q-n">✓</span>AI 基礎查核：股權／IP／財報／事實／風險，三態標記、查不到標待查不編造（§08）</div>
+  <div class="q ans"><span class="q-n">✓</span>報告結構：S 客觀 3 頁（可對外）＋ E 內部配置附頁（§09）</div>
+  <div class="q ans"><span class="q-n">✓</span>IP 結構：歸屬 Vincent、授權 EvoScale、多方使用權、法律基礎（§04）</div>
+  <h3>規劃中</h3>
+  <div class="q"><span class="q-n">▷</span>收集資料 schema：定義系統所需資料欄位，反向更新官網收案表單</div>
+  <div class="q"><span class="q-n">▷</span>高管庫：依職級高→低排序、五級職級定義、13 家最想看見的 B2B 服務需求（§10）</div>
+  <div class="q"><span class="q-n">▷</span>MOAT 護城河：系統在地化、不可複製</div>
+  <div class="q"><span class="q-n">▷</span>利害關係人獲利模式：各角色獲利模式欄位</div>
+  <div class="q"><span class="q-n">▷</span>創新三元觀點視角（§03）：Scalable AI、niche down、paying point、massive vs niche 象限</div>
+  <div class="q"><span class="q-n">▷</span>IP 系統層：多處收案、互相轉介、轉介前徵詢投遞人意願</div>
+  <div class="q"><span class="q-n">▷</span>中英文雙語切換</div>
+</section>
+
+</main>
+<footer>EvoScale AI Deal Flow · Architecture Blueprint · 內部文件（noindex）</footer>
+</body>
+</html>
