@@ -198,6 +198,17 @@ img{max-width:100%;display:block}
 .mq-logo{width:auto;max-width:155px;object-fit:contain;opacity:.85;display:block}
 .mq-name{font-family:var(--fd);font-weight:700;font-size:1.05rem;letter-spacing:.03em;color:var(--text-3)}
 .mq-link{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .2s}.mq-link:hover{opacity:.6}
+.logo-wall-wrap{max-width:1000px;margin:5.5rem auto 0;text-align:center}
+.lw-title{font-family:var(--fd);font-weight:700;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);margin-bottom:2.2rem}
+.logo-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.logo-cell{flex:0 0 auto;width:174px;height:90px;background:#fff;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:1.1rem 1.4rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.logo-cell:hover{border-color:rgba(255,102,0,.35);box-shadow:0 8px 22px rgba(0,0,0,.07);transform:translateY(-3px)}
+.logo-cell a{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.logo-cell img{max-height:30px;max-width:130px;object-fit:contain;filter:grayscale(1);opacity:.6;transition:filter .25s,opacity .25s}
+.logo-cell:hover img{filter:grayscale(0);opacity:1}
+.logo-cell .lw-name{font-family:var(--fd);font-weight:700;font-size:1.1rem;color:var(--text-3);letter-spacing:.02em;white-space:nowrap;transition:color .25s}
+.logo-cell:hover .lw-name{color:var(--orange)}
+@media(max-width:560px){.logo-cell{width:138px;height:78px}}
 
 /* AUDIENCE SPLIT */
 #audience{padding:100px 0;background:var(--white)}
@@ -1253,6 +1264,10 @@ footer{background:#060F1E;padding:72px 0 0}
         <div id="globe-tooltip" class="globe-tip"><span class="gt-name"></span><span class="gt-desc"></span></div>
       </div>
     </div>
+    <div class="logo-wall-wrap reveal">
+      <div class="lw-title" data-en="Operators drawn from the companies that define the market" data-zh="高管來自定義市場的世界級企業">Operators drawn from the companies that define the market</div>
+      <div class="logo-wall" id="logoWall"></div>
+    </div>
   </div>
 </section>
 
@@ -1473,6 +1488,7 @@ window.addEventListener('resize',checkReveal,{passive:true});
 
 /* ── MARQUEE ── */
 (function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){var inner=it.l?'<img class="mq-logo" src="'+it.l+'" style="height:'+(it.h||28)+'px" alt="'+it.n+'">':'<span class="mq-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener" class="mq-link">'+inner+'</a>';h+='<div class="mq-item"><span class="mq-sep"></span>'+inner+'</div>';});t.innerHTML=h;})();
+(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('logoWall');if(!w)return;var h='';items.forEach(function(it){var inner=it.l?'<img src="'+it.l+'" style="max-height:'+Math.min((it.h||28)+4,34)+'px" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="logo-cell">'+inner+'</div>';});w.innerHTML=h;})();
 
 /* ── PORTAL ── */
 function openPortal(id){var ov=document.getElementById('portalOv');ov.classList.add('open');document.body.style.overflow='hidden';showStep(id||'ps-select');}

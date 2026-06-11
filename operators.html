@@ -147,6 +147,19 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   </div>
 </div>
 
+<style>
+#op-marquee{padding:24px 0;background:var(--bg,#fff);border-top:1px solid var(--border,rgba(0,0,0,.08));border-bottom:1px solid var(--border,rgba(0,0,0,.08));overflow:hidden}
+#op-marquee .mq-track{display:flex;white-space:nowrap;animation:mqscroll 32s linear infinite}
+#op-marquee .mq-track:hover{animation-play-state:paused}
+#op-marquee .mq-item{display:inline-flex;align-items:center;gap:2rem;padding:0 3rem}
+#op-marquee .mq-sep{width:4px;height:4px;border-radius:50%;background:var(--orange,#FF6600);opacity:.5;flex-shrink:0}
+#op-marquee .mq-logo{width:auto;max-width:155px;object-fit:contain;opacity:.85;display:block}
+#op-marquee .mq-name{font-family:var(--fd,Georgia,serif);font-weight:700;font-size:1.05rem;letter-spacing:.03em;color:var(--text-3,#5a6b80)}
+#op-marquee .mq-link{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .2s}#op-marquee .mq-link:hover{opacity:.6}
+@keyframes mqscroll{to{transform:translateX(-50%)}}
+</style>
+<div id="op-marquee"><div class="mq-track" id="opMqTrack"></div></div>
+
 <div class="container">
   <!-- Filter: by Type -->
   <div class="filter-row">
@@ -181,6 +194,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </footer>
 
 <script src="shared-content.js?v=12"></script>
+<script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var t=document.getElementById('opMqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){var inner=it.l?'<img class="mq-logo" src="'+it.l+'" style="height:'+(it.h||28)+'px" alt="'+it.n+'">':'<span class="mq-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener" class="mq-link">'+inner+'</a>';h+='<div class="mq-item"><span class="mq-sep"></span>'+inner+'</div>';});t.innerHTML=h;})();</script>
 <script>
 /* ═══════════════════════════════════════════════
    OPERATOR DATA — edit this array to add/update members
