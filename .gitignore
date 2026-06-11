@@ -1,3 +1,10 @@
 # 本地專屬記憶（含敏感內容：個人保障策略、帳號、key 名稱）— 絕不上傳 public repo
 memory.html
 memory.md
+
+# macOS 系統檔
+.DS_Store
+**/.DS_Store
+
+# 本地品牌素材（logo 產出檔，本機使用，不上線）
+brand/
