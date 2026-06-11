@@ -189,9 +189,9 @@ img{max-width:100%;display:block}
 @keyframes cue-b{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
 
 /* MARQUEE */
-#marquee{padding:26px 0;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
-.mq-track{display:flex;white-space:nowrap;animation:mqscroll 32s linear infinite}
-.mq-track:hover{animation-play-state:paused}
+#marquee{padding:22px 0;background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;cursor:grab;user-select:none}
+#marquee.dragging{cursor:grabbing}
+.mq-track{display:flex;white-space:nowrap;width:max-content;will-change:transform}
 .mq-item{display:inline-flex;align-items:center;gap:2rem;padding:0 3rem;font-family:var(--fd);font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-4)}
 .mq-sep{width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.5;flex-shrink:0}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
@@ -1401,7 +1401,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </footer>
 <div id="demoToast"></div>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<script src="shared-content.js?v=16"></script>
+<script src="shared-content.js?v=17"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>try{emailjs.init({publicKey:"oG6hm-tDcskzYg6t6"});}catch(e){}</script>
 <script>
@@ -1487,7 +1487,21 @@ window.addEventListener('scroll',checkReveal,{passive:true});
 window.addEventListener('resize',checkReveal,{passive:true});
 
 /* ── MARQUEE ── */
-(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var t=document.getElementById('mqTrack');if(!t)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){var inner=it.l?'<img class="mq-logo" src="'+it.l+'" style="height:'+(it.h||28)+'px" alt="'+it.n+'">':'<span class="mq-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener" class="mq-link">'+inner+'</a>';h+='<div class="mq-item"><span class="mq-sep"></span>'+inner+'</div>';});t.innerHTML=h;})();
+(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var t=document.getElementById('mqTrack');var box=document.getElementById('marquee');if(!t||!box)return;var h='';for(var r=0;r<2;r++)items.forEach(function(it){var inner=it.l?'<img class="mq-logo" src="'+it.l+'" style="height:'+(it.h||28)+'px" alt="'+it.n+'" draggable="false">':'<span class="mq-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener" class="mq-link">'+inner+'</a>';h+='<div class="mq-item"><span class="mq-sep"></span>'+inner+'</div>';});t.innerHTML=h;
+var x=0,paused=false,dragging=false,sx=0,st=0,moved=false,half=0;
+function measure(){half=t.scrollWidth/2;}
+function loop(){if(!paused&&!dragging){x-=0.5;}if(half){while(x<=-half){x+=half;}while(x>0){x-=half;}}t.style.transform='translateX('+x+'px)';requestAnimationFrame(loop);}
+setTimeout(measure,200);window.addEventListener('load',measure);window.addEventListener('resize',measure);requestAnimationFrame(loop);
+box.addEventListener('mouseenter',function(){paused=true;});
+box.addEventListener('mouseleave',function(){paused=false;dragging=false;});
+box.addEventListener('mousedown',function(e){dragging=true;moved=false;sx=e.clientX;st=x;box.classList.add('dragging');});
+window.addEventListener('mousemove',function(e){if(!dragging)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;x=st+dx;});
+window.addEventListener('mouseup',function(){if(dragging){dragging=false;box.classList.remove('dragging');}});
+box.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);
+box.addEventListener('touchstart',function(e){dragging=true;paused=true;sx=e.touches[0].clientX;st=x;},{passive:true});
+box.addEventListener('touchmove',function(e){if(!dragging)return;x=st+(e.touches[0].clientX-sx);},{passive:true});
+box.addEventListener('touchend',function(){dragging=false;paused=false;});
+})();
 (function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('logoWall');if(!w)return;var h='';items.forEach(function(it){var mh=it.wh||44;var inner=it.l?'<img src="'+it.l+'" style="max-height:'+mh+'px;max-width:100%" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="logo-cell">'+inner+'</div>';});w.innerHTML=h;})();
 
 /* ── PORTAL ── */
