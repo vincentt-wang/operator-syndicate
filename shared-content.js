@@ -145,7 +145,11 @@ window.OS_CONTENT = {
       a_zh: "每個合格案源會先經過快速初步評估，讓高管 LP 在幾分鐘內掌握關鍵訊號做出判斷。當 LP 評估達成共識後，案源就進入投審會進行正式的盡職調查（DD）。前期判斷快速、由高管主導，後段的 DD 仍然嚴謹。" },
     { q_en: "What stage is EvoScale Capital at right now?",
       q_zh: "EvoScale Capital 目前處於什麼階段？",
-      a_en: "Pre-launch. The operator LP network is being finalized and first deal submissions are being reviewed. The formal Launch event is planned for June 2026. Startups who submit before Launch receive priority review.",
-      a_zh: "Launch 前。運營者 LP 網絡正在最終確認，首批案源申請正在審閱中。正式 Launch 大會預計 2026 年 6 月舉行。在 Launch 前提交的新創享有優先審閱資格。" },
+      a_en: "Pre-launch, with capital closing by the end of June 2026 and the official launch on July 1, 2026. The operator network is being finalized and the first deal submissions are under review. Startups who submit before launch receive priority review.",
+      a_zh: "Launch 前。資金預計 2026 年 6 月底到位，並於 2026 年 7 月 1 日正式啟動。高管網絡正在最終確認，首批案源申請審閱中。在啟動前提交的新創享有優先審閱資格。" },
+    { q_en: "When does EvoScale meet, and how can I take part?",
+      q_zh: "EvoScale 多久聚會一次？我能怎麼參與？",
+      a_en: "Two recurring gatherings anchor the community. On June 24 we host EvoScale 01: The Operator-Led Blueprint, a founding-member session to align on how the syndicate works ahead of the July 1 launch. From July 31, the last Friday of each month is the Dealroom, where three startups that fit our sweet spot pitch to the operator network. Submit a deal or express interest to join the next one.",
+      a_zh: "兩場固定聚會構成社群的節奏。6/24 我們舉辦 EvoScale 01：The Operator-Led Blueprint，創始成員聚會，在 7/1 啟動前對齊飛輪的運作機制。自 7/31 起，每月最後一個星期五是 Dealroom 案源交易室，由三家符合我們 Sweet Spot 的新創向高管網絡簡報。歡迎提交案源或表達加入意願，參與下一場。" },
   ],
 };
