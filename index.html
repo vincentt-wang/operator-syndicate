@@ -1531,13 +1531,15 @@ function showDemoNotice(){var m=lang==='zh'?'此為 Demo 展示網站，功能�
   // Hover = auto-preview: expand the item under the cursor, collapse on leave
   // unless it was pinned open by an explicit click.
   wrap.querySelectorAll('.fq-item').forEach(function(item){
-    item.addEventListener('mouseenter',function(){fqSetOpen(item,true);});
-    item.addEventListener('mouseleave',function(){if(item.dataset.pin!=='1')fqSetOpen(item,false);});
+    // 0.5s hover-intent delay: only expand if the cursor settles on the item,
+    // so sweeping across the list doesn't trigger a cascade of expansions.
+    item.addEventListener('mouseenter',function(){clearTimeout(item._fqT);item._fqT=setTimeout(function(){fqSetOpen(item,true);},500);});
+    item.addEventListener('mouseleave',function(){clearTimeout(item._fqT);if(item.dataset.pin!=='1')fqSetOpen(item,false);});
   });
 })();
 function fqSetOpen(item,on){var b=item.querySelector('.fq-body');if(!b)return;if(on){item.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}else{item.classList.remove('open');b.style.maxHeight='0';}}
 // Click pins the item open (stays expanded after the mouse leaves); click again unpins.
-function toggleFaq(item){item.dataset.pin=(item.dataset.pin==='1'?'0':'1');if(item.dataset.pin==='1')fqSetOpen(item,true);}
+function toggleFaq(item){clearTimeout(item._fqT);item.dataset.pin=(item.dataset.pin==='1'?'0':'1');if(item.dataset.pin==='1')fqSetOpen(item,true);}
 
 /* ── BRIEF ── */
 function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.querySelector('.brief-body'),open=s.classList.contains('open');s.classList.toggle('open');b.style.maxHeight=open?'0':b.scrollHeight+'px';}
