@@ -1528,8 +1528,16 @@ function showDemoNotice(){var m=lang==='zh'?'此為 Demo 展示網站，功能�
   wrap.innerHTML=window.OS_CONTENT.faq.map(function(f){
     return '<div class="fq-item reveal" onclick="toggleFaq(this)"><button class="fq-trigger"><h4 data-en="'+f.q_en.replace(/"/g,'&quot;')+'" data-zh="'+f.q_zh.replace(/"/g,'&quot;')+'">'+f.q_en+'</h4><svg class="fq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="fq-body"><div class="fq-inner" data-en="'+f.a_en.replace(/"/g,'&quot;')+'" data-zh="'+f.a_zh.replace(/"/g,'&quot;')+'">'+f.a_en+'</div></div></div>';
   }).join('');
+  // Hover = auto-preview: expand the item under the cursor, collapse on leave
+  // unless it was pinned open by an explicit click.
+  wrap.querySelectorAll('.fq-item').forEach(function(item){
+    item.addEventListener('mouseenter',function(){fqSetOpen(item,true);});
+    item.addEventListener('mouseleave',function(){if(item.dataset.pin!=='1')fqSetOpen(item,false);});
+  });
 })();
-function toggleFaq(item){var b=item.querySelector('.fq-body'),open=item.classList.contains('open');document.querySelectorAll('.fq-item.open').forEach(function(el){el.classList.remove('open');el.querySelector('.fq-body').style.maxHeight='0';});if(!open){item.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}}
+function fqSetOpen(item,on){var b=item.querySelector('.fq-body');if(!b)return;if(on){item.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}else{item.classList.remove('open');b.style.maxHeight='0';}}
+// Click pins the item open (stays expanded after the mouse leaves); click again unpins.
+function toggleFaq(item){item.dataset.pin=(item.dataset.pin==='1'?'0':'1');if(item.dataset.pin==='1')fqSetOpen(item,true);}
 
 /* ── BRIEF ── */
 function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.querySelector('.brief-body'),open=s.classList.contains('open');s.classList.toggle('open');b.style.maxHeight=open?'0':b.scrollHeight+'px';}
