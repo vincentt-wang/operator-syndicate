@@ -451,34 +451,48 @@ select.ctrl option{background:var(--navy-2);color:#fff}
   <section class="stage" id="stage-upload">
     <div class="eyebrow" data-en="Final step" data-zh="最後一步">Final step</div>
     <h1 data-en="Upload your deck." data-zh="上傳你的 Deck。">Upload your deck.</h1>
-    <p class="lead" data-en="A 10 to 15 page pitch deck is required. Add any supplementary material that helps us evaluate." data-zh="必交一份 10 至 15 頁的 Pitch Deck。可附上任何有助評估的補充資料。">A 10 to 15 page pitch deck is required. Add any supplementary material that helps us evaluate.</p>
-
-    <div class="field" data-required>
-      <div class="flabel" data-en="Pitch deck (10–15 pages)" data-zh="Pitch Deck（10–15 頁）">Pitch deck (10–15 pages)<span class="req">●</span></div>
-      <div class="drop" id="dropDeck" onclick="document.getElementById('deckInput').click()">
-        <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
-        <div class="dt" data-en="Drop your deck here, or click to choose" data-zh="把 Deck 拖到這裡，或點擊選擇">Drop your deck here, or click to choose</div>
-        <div class="ds" data-en="PDF with a text layer recommended" data-zh="建議含文字層的 PDF">PDF with a text layer recommended</div>
-      </div>
-      <input type="file" id="deckInput" accept=".pdf,.ppt,.pptx,.key" style="display:none" onchange="addFiles(this.files,'deck')">
-      <div class="filelist" id="deckList"></div>
-      <div class="err" id="errDeck" style="display:none" data-en="A pitch deck is required." data-zh="Pitch Deck 為必交。">A pitch deck is required.</div>
-    </div>
+    <p class="lead" data-en="Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate." data-zh="以連結提供一份 10 至 15 頁的 Pitch Deck。可附上任何有助評估的補充資料。">Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate.</p>
 
     <div class="field">
-      <div class="flabel"><span data-en="Supplementary material" data-zh="補充資料">Supplementary material</span><span class="opt" data-en="optional, no pressure on financials" data-zh="選填，財務不勉強">optional, no pressure on financials</span></div>
-      <div class="drop" id="dropExtra" onclick="document.getElementById('extraInput').click()">
-        <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        <div class="dt" data-en="Financials, contracts/LOIs, demo, tech docs" data-zh="財務、合約／LOI、demo、技術文件">Financials, contracts/LOIs, demo, tech docs</div>
-        <div class="ds" data-en="Click to add, or drop files here" data-zh="點擊新增，或拖曳檔案到這裡">Click to add, or drop files here</div>
+      <label class="flabel" data-en="Pitch deck link (10–15 pages)" data-zh="Pitch Deck 連結（10–15 頁）">Pitch deck link (10–15 pages)<span class="req">●</span></label>
+      <p class="hint" data-en="Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login." data-zh="貼上 Google Drive、Dropbox 或 Notion 連結。請確認不需登入即可開啟。">Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login.</p>
+      <input class="ctrl" name="deck_link" type="url" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
+      <div class="err" id="errDeckLink" style="display:none" data-en="A deck link is required." data-zh="Deck 連結為必填。">A deck link is required.</div>
+    </div>
+
+    <!-- Supplementary as links/notes (Web3Forms trial mode) -->
+    <div class="field" id="extraNotesField">
+      <label class="flabel"><span data-en="Supplementary (links or notes)" data-zh="補充資料（連結或說明）">Supplementary (links or notes)</span><span class="opt" data-en="optional, no pressure on financials" data-zh="選填，財務不勉強">optional, no pressure on financials</span></label>
+      <textarea class="ctrl" name="extra_notes" data-en-ph="Links to financials, contracts/LOIs, demo, tech docs..." data-zh-ph="財務、合約／LOI、demo、技術文件的連結…"></textarea>
+    </div>
+
+    <!-- Direct file upload (Worker + R2 mode) -->
+    <div id="fileUploads" style="display:none">
+      <div class="field">
+        <div class="flabel"><span data-en="Or attach the deck file" data-zh="或直接附上 Deck 檔">Or attach the deck file</span><span class="opt" data-en="optional" data-zh="選填">optional</span></div>
+        <div class="drop" id="dropDeck" onclick="document.getElementById('deckInput').click()">
+          <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="dt" data-en="Drop your deck here, or click to choose" data-zh="把 Deck 拖到這裡，或點擊選擇">Drop your deck here, or click to choose</div>
+          <div class="ds" data-en="PDF with a text layer recommended" data-zh="建議含文字層的 PDF">PDF with a text layer recommended</div>
+        </div>
+        <input type="file" id="deckInput" accept=".pdf,.ppt,.pptx,.key" style="display:none" onchange="addFiles(this.files,'deck')">
+        <div class="filelist" id="deckList"></div>
       </div>
-      <input type="file" id="extraInput" multiple style="display:none" onchange="addFiles(this.files,'extra')">
-      <div class="filelist" id="extraList"></div>
+      <div class="field">
+        <div class="flabel"><span data-en="Supplementary files" data-zh="補充檔案">Supplementary files</span><span class="opt" data-en="optional" data-zh="選填">optional</span></div>
+        <div class="drop" id="dropExtra" onclick="document.getElementById('extraInput').click()">
+          <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          <div class="dt" data-en="Financials, contracts/LOIs, demo, tech docs" data-zh="財務、合約／LOI、demo、技術文件">Financials, contracts/LOIs, demo, tech docs</div>
+          <div class="ds" data-en="Click to add, or drop files here" data-zh="點擊新增，或拖曳檔案到這裡">Click to add, or drop files here</div>
+        </div>
+        <input type="file" id="extraInput" multiple style="display:none" onchange="addFiles(this.files,'extra')">
+        <div class="filelist" id="extraList"></div>
+      </div>
     </div>
 
     <div class="fmt">
-      <b data-en="File formats — make sure an AI can read it:" data-zh="檔案格式 — 確保 AI 讀得到：">File formats — make sure an AI can read it:</b>
-      <span data-en=" Recommended PDF with a real text layer (not a scanned image). Also fine: Word, PPT, plain text, Markdown, images, spreadsheets (great for financials). Avoid: image-only scanned PDFs, password-protected files, and links that need a login." data-zh=" 建議含文字層的 PDF（非整份掃描圖）。也可：Word、PPT、純文字、Markdown、圖片、試算表（財務佳）。避免：掃描成純圖片的 PDF、加密／密碼保護檔、需登入才看的連結。"> Recommended PDF with a real text layer (not a scanned image). Also fine: Word, PPT, plain text, Markdown, images, spreadsheets (great for financials). Avoid: image-only scanned PDFs, password-protected files, and links that need a login.</span>
+      <b data-en="Make sure we (and an AI) can read it:" data-zh="確保我們（與 AI）讀得到：">Make sure we (and an AI) can read it:</b>
+      <span data-en=" Use a link that opens without a login, and a PDF with a real text layer (not a scanned image). Avoid password-protected files and image-only scanned PDFs." data-zh=" 用不需登入即可開啟的連結，且為含文字層的 PDF（非整份掃描圖）。避免加密／密碼保護檔與掃描成純圖片的 PDF。"> Use a link that opens without a login, and a PDF with a real text layer (not a scanned image). Avoid password-protected files and image-only scanned PDFs.</span>
     </div>
 
     <div class="btn-row">
@@ -495,8 +509,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
       <div class="big"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7CD992" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h1 data-en="Submitted." data-zh="已送出。">Submitted.</h1>
       <p class="lead" style="margin:0 auto 22px" data-en="We review every submission personally and will be in touch. You will receive a one-page A4 assessment either way." data-zh="我們會親自審閱每份遞交並與你聯繫。無論結果如何，你都會收到一頁 A4 評估。">We review every submission personally and will be in touch. You will receive a one-page A4 assessment either way.</p>
-      <p class="note-line" data-en="Your reference token (keep it to add files later without re-filling):" data-zh="你的遞交編號（保留它，日後可憑此補件、不必重填）：">Your reference token (keep it to add files later without re-filling):</p>
-      <div class="tokbox"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><code id="tokOut">—</code></div>
+      <p class="note-line" id="tokNote" data-en="Your reference token (keep it to add files later without re-filling):" data-zh="你的遞交編號（保留它，日後可憑此補件、不必重填）：">Your reference token (keep it to add files later without re-filling):</p>
+      <div class="tokbox" id="tokWrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><code id="tokOut">—</code></div>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn-ghost" href="index.html"><span data-en="Back to site" data-zh="返回官網">Back to site</span></a>
       </div>
@@ -509,9 +523,16 @@ select.ctrl option{background:var(--navy-2);color:#fff}
 
 <script>
 /* ===== Config ===== */
-var API_BASE = '/api';            // same-origin Cloudflare Worker route
+/* SUBMIT_MODE:
+   'web3forms' — emails the questionnaire + deck link to you, no backend (current trial).
+                 Paste your free access key below (get it at https://web3forms.com,
+                 it is tied to vincent@evoscalecapital.com).
+   'worker'    — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
+var SUBMIT_MODE = 'web3forms';
+var WEB3FORMS_KEY = 'PASTE_YOUR_WEB3FORMS_ACCESS_KEY';
+var API_BASE = '/api';            // used only in 'worker' mode
 var DRAFT_KEY = 'evoscale-apply-draft';
-var MAX_FILE_MB = 40;
+var MAX_FILE_MB = (SUBMIT_MODE === 'web3forms') ? 5 : 40;
 
 /* ===== Bilingual (shares os-lang with the main site) ===== */
 var lang = localStorage.getItem('os-lang') || 'en';
@@ -645,6 +666,8 @@ function collectAnswers(){
     } else if(el.type==='radio'){ if(el.checked) data[el.name]=el.value; }
     else data[el.name]=el.value;
   });
+  // upload-stage fields live outside #appForm
+  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
   return data;
 }
 function saveDraft(){
@@ -665,6 +688,7 @@ function restoreDraft(){
     else el.value=a[el.name];
     if(el.value) any=true;
   });
+  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el && (n in a)){ el.value=a[n]; if(a[n]) any=true; } });
   var ol=document.querySelector('[name="one_liner"]'); if(ol) countOneLiner(ol);
   return any;
 }
@@ -693,7 +717,6 @@ function renderFiles(){
       wrap.appendChild(d);
     });
   });
-  document.getElementById('errDeck').style.display='none';
 }
 // drag & drop
 ['dropDeck','dropExtra'].forEach(function(id){
@@ -703,24 +726,65 @@ function renderFiles(){
   el.addEventListener('drop',function(e){ if(e.dataTransfer.files.length) addFiles(e.dataTransfer.files, kind); });
 });
 
-/* ===== Submit (Cloudflare Worker + R2) ===== */
+/* ===== Submit ===== */
 function setSubmitErr(msg){ var e=document.getElementById('errSubmit'); e.textContent=msg; e.style.display=msg?'block':'none'; }
+function setBusy(on){ var btn=document.getElementById('btnSubmit'), label=btn.querySelector('span'); btn.disabled=on; if(on){ btn.dataset.orig=label.textContent; label.textContent=lang==='zh'?'送出中…':'Sending…'; } else if(btn.dataset.orig){ label.textContent=btn.dataset.orig; } }
+function showSuccess(token){
+  var note=document.getElementById('tokNote'), box=document.getElementById('tokWrap');
+  if(token){ document.getElementById('tokOut').textContent=token; if(note)note.style.display=''; if(box)box.style.display=''; }
+  else { if(note)note.style.display='none'; if(box)box.style.display='none'; }
+  goStage('stage-done');
+}
 async function submitApplication(){
   setSubmitErr('');
-  // validate deck + consents
-  if(files.deck.length===0){ document.getElementById('errDeck').style.display='block'; document.getElementById('dropDeck').scrollIntoView({block:'center',behavior:'smooth'}); return; }
   var answers=collectAnswers();
   if(!answers.consent_ai || !answers.consent_referral){
     setSubmitErr(lang==='zh'?'請先回到問卷第 4 頁勾選兩項必要同意。':'Please go back to page 4 and check both required consents.');
     return;
   }
-  var btn=document.getElementById('btnSubmit'), label=btn.querySelector('span');
-  btn.disabled=true; var orig=label.textContent; label.textContent=lang==='zh'?'上傳中…':'Uploading…';
+  if(SUBMIT_MODE==='web3forms') return submitViaWeb3Forms(answers);
+  return submitViaWorker(answers);
+}
+
+/* Web3Forms: emails questionnaire + deck link to your inbox. No backend. */
+async function submitViaWeb3Forms(answers){
+  if(!(answers.deck_link||'').trim()){
+    document.getElementById('errDeckLink').style.display='block';
+    document.querySelector('[name="deck_link"]').scrollIntoView({block:'center',behavior:'smooth'}); return;
+  }
+  if(WEB3FORMS_KEY.indexOf('PASTE')===0){
+    setSubmitErr(lang==='zh'?'尚未設定 Web3Forms access key（見 apply.html 頂部 WEB3FORMS_KEY）。':'Web3Forms access key is not set yet (see WEB3FORMS_KEY at the top of apply.html).'); return;
+  }
+  setBusy(true);
   try{
-    // 1) init → token
+    var fd=new FormData();
+    fd.append('access_key', WEB3FORMS_KEY);
+    fd.append('subject', 'New deal submission — '+(answers.company||'Unknown'));
+    fd.append('from_name', 'EvoScale Apply');
+    Object.keys(answers).forEach(function(k){
+      var v=answers[k]; if(Array.isArray(v)) v=v.join(', '); if(typeof v==='boolean') v=v?'yes':'no';
+      fd.append(k, v==null?'':String(v));
+    });
+    var res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});
+    var jr=await res.json().catch(function(){return {};});
+    if(!res.ok || !jr.success) throw 0;
+    localStorage.removeItem(DRAFT_KEY);
+    showSuccess(null);
+  }catch(err){
+    setBusy(false);
+    setSubmitErr(lang==='zh'?'送出失敗，請稍後再試，或來信 vincent@evoscalecapital.com。你的草稿已保留。':'Submission failed. Please retry shortly or email vincent@evoscalecapital.com. Your draft is kept.');
+  }
+}
+
+/* Cloudflare Worker + R2: direct presigned file upload + token isolation. */
+async function submitViaWorker(answers){
+  if(files.deck.length===0 && !(answers.deck_link||'').trim()){
+    setSubmitErr(lang==='zh'?'請上傳 Deck 或提供 Deck 連結。':'Please upload a deck file or provide a deck link.'); return;
+  }
+  setBusy(true);
+  try{
     var init=await fetch(API_BASE+'/init',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
     if(!init.ok) throw 0; var token=(await init.json()).token;
-    // 2) presign + PUT each file directly to R2
     var manifest=[];
     for(var kind of ['deck','extra']){
       for(var file of files[kind]){
@@ -732,27 +796,26 @@ async function submitApplication(){
         manifest.push({kind:kind, filename:file.name, size:file.size});
       }
     }
-    // 3) complete → store answers + notify
     var done=await fetch(API_BASE+'/complete',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:token, answers:answers, files:manifest, lang:lang})});
     if(!done.ok) throw 0;
     localStorage.removeItem(DRAFT_KEY);
-    document.getElementById('tokOut').textContent=token;
-    goStage('stage-done');
+    showSuccess(token);
   }catch(err){
-    btn.disabled=false; label.textContent=orig;
-    setSubmitErr(lang==='zh'?'送出失敗，請稍後再試，或來信 apply@evoscalecapital.com。你的草稿已保留。':'Submission failed. Please retry shortly or email apply@evoscalecapital.com. Your draft is kept.');
+    setBusy(false);
+    setSubmitErr(lang==='zh'?'送出失敗，請稍後再試，或來信 vincent@evoscalecapital.com。你的草稿已保留。':'Submission failed. Please retry shortly or email vincent@evoscalecapital.com. Your draft is kept.');
   }
 }
 
 /* ===== Init ===== */
-document.addEventListener('input', function(e){
-  if(e.target.closest && e.target.closest('#appForm')){ saveDraft(); updateProgress(); }
-});
-document.addEventListener('change', function(e){
-  if(e.target.closest && e.target.closest('#appForm')){ saveDraft(); updateProgress(); }
-});
+function isTracked(t){ return t && t.closest && (t.closest('#appForm') || (t.name==='deck_link') || (t.name==='extra_notes')); }
+document.addEventListener('input', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
+document.addEventListener('change', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
 (function start(){
+  // Show the right upload UI for the active submit mode
+  var fu=document.getElementById('fileUploads'), en=document.getElementById('extraNotesField');
+  if(SUBMIT_MODE==='web3forms'){ if(fu)fu.style.display='none'; if(en)en.style.display=''; }
+  else { if(fu)fu.style.display=''; if(en)en.style.display='none'; }
   renderChecklist();
   var restored = restoreDraft();
   if(restored) document.getElementById('resumeNote').style.display='inline';
