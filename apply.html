@@ -524,15 +524,15 @@ select.ctrl option{background:var(--navy-2);color:#fff}
 <script>
 /* ===== Config ===== */
 /* SUBMIT_MODE:
-   'web3forms' — emails the questionnaire + deck link to you, no backend (current trial).
-                 Paste your free access key below (get it at https://web3forms.com,
-                 it is tied to vincent@evoscalecapital.com).
-   'worker'    — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
-var SUBMIT_MODE = 'web3forms';
-var WEB3FORMS_KEY = '84778893-4568-49c6-b7a3-a5e92dfeb23b';
+   'formsubmit' — emails the questionnaire + deck link to BOTH recipients via
+                  formsubmit.co (free, native CC). No backend. Current mode.
+   'worker'     — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
+var SUBMIT_MODE = 'formsubmit';
+var FORMSUBMIT_TO = 'boice@evoscalecapital.com';        // primary recipient
+var FORMSUBMIT_CC = 'vincent@evoscalecapital.com';      // CC — both get every submission
 var API_BASE = '/api';            // used only in 'worker' mode
 var DRAFT_KEY = 'evoscale-apply-draft';
-var MAX_FILE_MB = (SUBMIT_MODE === 'web3forms') ? 5 : 40;
+var MAX_FILE_MB = (SUBMIT_MODE === 'worker') ? 40 : 5;
 
 /* ===== Bilingual (shares os-lang with the main site) ===== */
 var lang = localStorage.getItem('os-lang') || 'en';
@@ -742,32 +742,30 @@ async function submitApplication(){
     setSubmitErr(lang==='zh'?'請先回到問卷第 4 頁勾選兩項必要同意。':'Please go back to page 4 and check both required consents.');
     return;
   }
-  if(SUBMIT_MODE==='web3forms') return submitViaWeb3Forms(answers);
+  if(SUBMIT_MODE!=='worker') return submitViaFormsubmit(answers);
   return submitViaWorker(answers);
 }
 
-/* Web3Forms: emails questionnaire + deck link to your inbox. No backend. */
-async function submitViaWeb3Forms(answers){
+/* formsubmit.co: emails questionnaire + deck link to BOTH recipients (TO + CC). No backend. */
+async function submitViaFormsubmit(answers){
   if(!(answers.deck_link||'').trim()){
     document.getElementById('errDeckLink').style.display='block';
     document.querySelector('[name="deck_link"]').scrollIntoView({block:'center',behavior:'smooth'}); return;
   }
-  if(WEB3FORMS_KEY.indexOf('PASTE')===0){
-    setSubmitErr(lang==='zh'?'尚未設定 Web3Forms access key（見 apply.html 頂部 WEB3FORMS_KEY）。':'Web3Forms access key is not set yet (see WEB3FORMS_KEY at the top of apply.html).'); return;
-  }
   setBusy(true);
   try{
     var fd=new FormData();
-    fd.append('access_key', WEB3FORMS_KEY);
-    fd.append('subject', 'New deal submission — '+(answers.company||'Unknown'));
-    fd.append('from_name', 'EvoScale Apply');
+    fd.append('_subject', 'New deal submission — '+(answers.company||'Unknown'));
+    fd.append('_cc', FORMSUBMIT_CC);
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
     Object.keys(answers).forEach(function(k){
       var v=answers[k]; if(Array.isArray(v)) v=v.join(', '); if(typeof v==='boolean') v=v?'yes':'no';
       fd.append(k, v==null?'':String(v));
     });
-    var res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});
+    var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_TO),{method:'POST',headers:{Accept:'application/json'},body:fd});
     var jr=await res.json().catch(function(){return {};});
-    if(!res.ok || !jr.success) throw 0;
+    if(!res.ok || !(jr.success===true || jr.success==='true')) throw 0;
     localStorage.removeItem(DRAFT_KEY);
     showSuccess(null);
   }catch(err){
@@ -814,8 +812,8 @@ document.addEventListener('change', function(e){ if(isTracked(e.target)){ saveDr
 (function start(){
   // Show the right upload UI for the active submit mode
   var fu=document.getElementById('fileUploads'), en=document.getElementById('extraNotesField');
-  if(SUBMIT_MODE==='web3forms'){ if(fu)fu.style.display='none'; if(en)en.style.display=''; }
-  else { if(fu)fu.style.display=''; if(en)en.style.display='none'; }
+  if(SUBMIT_MODE==='worker'){ if(fu)fu.style.display=''; if(en)en.style.display='none'; }
+  else { if(fu)fu.style.display='none'; if(en)en.style.display=''; }
   renderChecklist();
   var restored = restoreDraft();
   if(restored) document.getElementById('resumeNote').style.display='inline';
