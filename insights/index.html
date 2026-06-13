@@ -25,7 +25,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
 .top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
 .brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
@@ -58,7 +58,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
 <main>
   <div class="ey" data-en="Insights" data-zh="觀點">Insights</div>
   <h1 data-en="Perspectives on building B2B that scales." data-zh="關於打造可規模化 B2B 的觀點。">Perspectives on building B2B that scales.</h1>
-  <p class="sub" data-en="Go-to-market, enterprise channel access, AI workflows and operator-led investing — from the EvoScale team." data-zh="Go-to-market、企業通路、AI 工作流與高管主導投資 — 來自 EvoScale 團隊。">Go-to-market, enterprise channel access, AI workflows and operator-led investing — from the EvoScale team.</p>
+  <p class="sub" data-en="Go-to-market, enterprise channel access, AI workflows and operator-led investing, from the EvoScale team." data-zh="Go-to-market、企業通路、AI 工作流與高管主導投資，來自 EvoScale 團隊。">Go-to-market, enterprise channel access, AI workflows and operator-led investing, from the EvoScale team.</p>
 
   <a class="post" href="enterprise-channel-alpha.html">
     <div class="tag" data-en="B2B Strategy" data-zh="B2B 策略">B2B Strategy</div>
@@ -70,14 +70,14 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
   <a class="post" href="the-buying-committee.html">
     <div class="tag" data-en="B2B Strategy" data-zh="B2B 策略">B2B Strategy</div>
     <h2 data-en="The Buying Committee: Who Actually Says Yes in an Enterprise Deal" data-zh="採購委員會：企業案子裡，到底是誰說了算">The Buying Committee: Who Actually Says Yes in an Enterprise Deal</h2>
-    <p data-en="An enterprise deal is decided by a committee of 5–16 people, not one champion, and most deals stall on internal consensus, not your pitch. A field guide to who actually decides." data-zh="企業案子是由一個 5–16 人的委員會、而非單一擁護者決定——多數案子卡在內部共識，而不是你的簡報。一份「誰才真的拍板」的實戰指南。">An enterprise deal is decided by a committee of 5–16 people, not one champion, and most deals stall on internal consensus, not your pitch. A field guide to who actually decides.</p>
+    <p data-en="An enterprise deal is decided by a committee of 5–16 people, not one champion, and most deals stall on internal consensus, not your pitch. A field guide to who actually decides." data-zh="企業案子是由一個 5–16 人的委員會、而非單一擁護者決定。多數案子卡在內部共識，而不是你的簡報。一份「誰才真的拍板」的實戰指南。">An enterprise deal is decided by a committee of 5–16 people, not one champion, and most deals stall on internal consensus, not your pitch. A field guide to who actually decides.</p>
     <div class="meta" data-en="EvoScale Capital · June 2026" data-zh="毅拓資本 · 2026 年 6 月">EvoScale Capital · June 2026</div>
   </a>
 
   <a class="post" href="the-nine-month-sales-cycle.html">
     <div class="tag" data-en="B2B Strategy" data-zh="B2B 策略">B2B Strategy</div>
     <h2 data-en="Why Your Enterprise Sales Cycle Is Nine Months (and How to Halve It)" data-zh="為什麼你的企業銷售週期要九個月（以及怎麼砍半）">Why Your Enterprise Sales Cycle Is Nine Months (and How to Halve It)</h2>
-    <p data-en="The largest enterprise deals take 270 days. Most of that isn't your product being evaluated — it's trust a warm path could have transferred on day one. The data on what compresses the cycle." data-zh="最大的企業案子要 270 天。其中大部分不是在評估你的產品，而是在建立信任——而這份信任，一條熟路在第一天就能替你轉移。哪些做法能壓縮週期，數據在這。">The largest enterprise deals take 270 days. Most of that isn't your product being evaluated — it's trust a warm path could have transferred on day one. The data on what compresses the cycle.</p>
+    <p data-en="The largest enterprise deals take 270 days. Most of that isn't your product being evaluated; it's trust a warm path could have transferred on day one. The data on what compresses the cycle." data-zh="最大的企業案子要 270 天。其中大部分不是在評估你的產品，而是在建立信任；這份信任，一條熟路在第一天就能替你轉移。哪些做法能壓縮週期，數據在這。">The largest enterprise deals take 270 days. Most of that isn't your product being evaluated; it's trust a warm path could have transferred on day one. The data on what compresses the cycle.</p>
     <div class="meta" data-en="EvoScale Capital · June 2026" data-zh="毅拓資本 · 2026 年 6 月">EvoScale Capital · June 2026</div>
   </a>
 
@@ -91,21 +91,21 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
   <a class="post" href="what-vcs-evaluate.html">
     <div class="tag" data-en="Venture" data-zh="創投">Venture</div>
     <h2 data-en="What Top VCs Actually Evaluate in a B2B Startup" data-zh="頂尖 VC 到底在 B2B 新創身上看什麼">What Top VCs Actually Evaluate in a B2B Startup</h2>
-    <p data-en="Startups die from three things — no demand, can't execute, can't sustain. That's exactly what a disciplined investor scores: Desirability, Feasibility, Viability." data-zh="新創死於三件事——沒需求、做不出、撐不住。這正是嚴謹投資人評分的三透鏡：欲求性、可行性、存續性。">Startups die from three things — no demand, can't execute, can't sustain. That's exactly what a disciplined investor scores: Desirability, Feasibility, Viability.</p>
+    <p data-en="Startups die from three things: no demand, can't execute, can't sustain. That's exactly what a disciplined investor scores: Desirability, Feasibility, Viability." data-zh="新創死於三件事：沒需求、做不出、撐不住。這正是嚴謹投資人評分的三透鏡：欲求性、可行性、存續性。">Startups die from three things: no demand, can't execute, can't sustain. That's exactly what a disciplined investor scores: Desirability, Feasibility, Viability.</p>
     <div class="meta" data-en="EvoScale Capital · June 2026" data-zh="毅拓資本 · 2026 年 6 月">EvoScale Capital · June 2026</div>
   </a>
 
   <a class="post" href="the-approved-vendor-list.html">
     <div class="tag" data-en="B2B Strategy" data-zh="B2B 策略">B2B Strategy</div>
     <h2 data-en="The Approved-Vendor List: The Gate B2B Startups Forget" data-zh="合格供應商名單：B2B 新創最常忘記的那道關">The Approved-Vendor List: The Gate B2B Startups Forget</h2>
-    <p data-en="Winning the buyer isn't the last step — getting onto the approved-vendor list is. The procurement, security and legal gates that decide whether a startup can actually be paid." data-zh="贏得買方不是最後一步——擠上合格供應商名單才是。採購、資安、法務的層層關卡，決定一家新創到底收不收得到錢。">Winning the buyer isn't the last step — getting onto the approved-vendor list is. The procurement, security and legal gates that decide whether a startup can actually be paid.</p>
+    <p data-en="Winning the buyer isn't the last step; getting onto the approved-vendor list is. The procurement, security and legal gates that decide whether a startup can actually be paid." data-zh="贏得買方不是最後一步，擠上合格供應商名單才是。採購、資安、法務的層層關卡，決定一家新創到底收不收得到錢。">Winning the buyer isn't the last step; getting onto the approved-vendor list is. The procurement, security and legal gates that decide whether a startup can actually be paid.</p>
     <div class="meta" data-en="EvoScale Capital · June 2026" data-zh="毅拓資本 · 2026 年 6 月">EvoScale Capital · June 2026</div>
   </a>
 
   <a class="post" href="enterprise-b2b-pricing.html">
     <div class="tag" data-en="B2B Strategy" data-zh="B2B 策略">B2B Strategy</div>
     <h2 data-en="Enterprise B2B Pricing: The Most Powerful Lever Founders Leave Alone" data-zh="企業級定價：創辦人最不敢碰的那根最強槓桿">Enterprise B2B Pricing: The Most Powerful Lever Founders Leave Alone</h2>
-    <p data-en="A 1% gain in price beats the same gain in volume or cost — yet most startups price off their own costs and, in the enterprise, too cheap can lose the deal." data-zh="價格改善 1%，勝過銷量或成本同樣的改善——但多數新創對著自己的成本定價，而在企業市場，太便宜反而會輸掉案子。">A 1% gain in price beats the same gain in volume or cost — yet most startups price off their own costs and, in the enterprise, too cheap can lose the deal.</p>
+    <p data-en="A 1% gain in price beats the same gain in volume or cost, yet most startups price off their own costs and, in the enterprise, too cheap can lose the deal." data-zh="價格改善 1%，勝過銷量或成本同樣的改善，但多數新創對著自己的成本定價，而在企業市場，太便宜反而會輸掉案子。">A 1% gain in price beats the same gain in volume or cost, yet most startups price off their own costs and, in the enterprise, too cheap can lose the deal.</p>
     <div class="meta" data-en="EvoScale Capital · June 2026" data-zh="毅拓資本 · 2026 年 6 月">EvoScale Capital · June 2026</div>
   </a>
 
