@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Power Law: Why Most Startup Bets Lose and You Still Win | EvoScale Capital</title>
+<meta name="description" content="The second article in a series on learning to invest in B2B. Most startup investments return little or nothing; a tiny few return everything. Understanding the power law is the difference between fearing the losses and hunting the outliers.">
+<meta name="keywords" content="venture capital power law, why startup investing, angel investing returns, outliers, startup failure rate, how VCs make money, portfolio returns, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/power-law-startup-investing.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Power Law: Why Most Startup Bets Lose and You Still Win">
+<meta property="og:description" content="Most startup investments return little; a tiny few return everything. The power law is the difference between fearing losses and hunting outliers.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/power-law-startup-investing.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Power Law: Why Most Startup Bets Lose and You Still Win">
+<meta name="twitter:description" content="Why most startup investments return little, a tiny few return everything, and what that means for how you invest.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"The Power Law: Why Most Startup Bets Lose and You Still Win","description":"Most startup investments return little or nothing; a tiny few return everything. Understanding the power law is the difference between fearing the losses and hunting the outliers.","datePublished":"2026-06-13","dateModified":"2026-06-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/power-law-startup-investing.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Venture","wordCount":1700,"citation":["AngelList — power-law returns in venture","Sequoia Capital","Horsley Bridge data"],"keywords":"venture capital power law, angel investing returns, outliers, how VCs make money"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-d:#E05500;--navy:#1B1714;--ink:#243244;--mut:#5E6E80;--bg:#F3EAD9;--bg-2:#FBF6EA;--border:#E9DFCB;--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:rgba(243,234,217,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange-d);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:var(--navy);margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:var(--navy)!important;margin-bottom:2rem;font-weight:500}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:var(--navy);margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:var(--ink);margin-bottom:1.3rem}
+article strong{color:var(--navy)}
+.ref{color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(224,85,0,.32)}
+figure{margin:2.4rem 0}figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* power-law distribution chart */
+.plaw{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.plaw-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem}
+.plaw-s{font-size:1rem;color:var(--mut);margin-bottom:1.7rem;line-height:1.5}
+.plaw-bars{display:flex;align-items:flex-end;gap:7px;height:230px;border-bottom:2px solid var(--border);padding-bottom:0}
+.pb{flex:1;border-radius:6px 6px 0 0;background:#CDBfA6;position:relative;min-height:5px}
+.pb.win{background:linear-gradient(180deg,#FF6600,#E05500)}
+.pb .pbl{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:var(--fd);font-weight:800;font-size:1.05rem;color:var(--orange-d);white-space:nowrap}
+.plaw-x{display:flex;justify-content:space-between;margin-top:.7rem;font-size:1rem;color:var(--mut)}
+.plaw-note{font-size:1rem;color:var(--mut);margin-top:1.2rem;line-height:1.55}
+.plaw-note b{color:var(--navy)}
+.dsource{font-size:1rem;color:#9a8f78;margin-top:1.2rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.08),rgba(255,102,0,.02));border:1px solid rgba(255,102,0,.25);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:var(--ink);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:var(--navy);font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.plaw-bars{height:190px}.pb .pbl{font-size:.92rem}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · For Investors" data-zh="觀點 · 投資人視角">Insights · For Investors</div>
+  <h1 data-en="The Power Law: Why Most Startup Bets Lose, and You Still Win" data-zh="冪次法則：為什麼多數新創賭注會賠，你卻還是贏">The Power Law: Why Most Startup Bets Lose, and You Still Win</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="Someone new to startup investing usually carries an instinct from every other asset they own: spread the money, avoid losers, aim for a steady average. Applied to startups, that instinct quietly destroys returns. Startup investing does not pay you for a good batting average. It pays you, almost entirely, for the one or two bets that go enormously right, and learning to feel comfortable with that fact is the real beginning of investing well." data-zh="一個剛開始投資新創的人，通常會帶著他在其他所有資產上養成的直覺：分散資金、避開輸家、追求一個穩定的平均。把這套直覺用在新創上，會悄悄摧毀報酬。投資新創，並不會因為你「打擊率高」而付你錢。它幾乎完全只為一兩個「大得驚人地對」的賭注付你錢，而學會「對這個事實感到自在」，才是投得好的真正起點。">Someone new to startup investing usually carries an instinct from every other asset they own: spread the money, avoid losers, aim for a steady average. Applied to startups, that instinct quietly destroys returns. Startup investing does not pay you for a good batting average. It pays you, almost entirely, for the one or two bets that go enormously right, and learning to feel comfortable with that fact is the real beginning of investing well.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A row of seeds where most stay small and one grows into a large tree">
+      <rect width="720" height="230" fill="#FBF6EA"/>
+      <line x1="40" y1="186" x2="680" y2="186" stroke="#D8CCB2" stroke-width="2"/>
+      <g stroke="#B8AD93" stroke-width="3" fill="none"><path d="M90 186 q0 -16 0 -22"/><path d="M150 186 q0 -10 0 -16"/><path d="M210 186 q0 -22 0 -30"/><path d="M270 186 q0 -8 0 -12"/><path d="M330 186 q0 -18 0 -24"/><path d="M450 186 q0 -14 0 -20"/><path d="M510 186 q0 -10 0 -15"/><path d="M570 186 q0 -20 0 -26"/><path d="M630 186 q0 -8 0 -12"/></g>
+      <g><line x1="390" y1="186" x2="390" y2="70" stroke="#E05500" stroke-width="5"/><circle cx="390" cy="58" r="30" fill="rgba(255,102,0,.18)" stroke="#FF6600" stroke-width="3"/><path d="M375 60 q15 -22 30 0" fill="none" stroke="#FF6600" stroke-width="3"/></g>
+      <text x="390" y="214" text-anchor="middle" fill="#E05500" font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" data-en="the one that compounds" data-zh="那一個會複利長大的">the one that compounds</text>
+    </svg>
+    <figcaption data-en="Plant ten seeds and most stay small. The portfolio is not the average of the ten. It is mostly the one that became a tree." data-zh="種下十顆種子，多數長不大。投資組合的價值，不是這十顆的平均，而幾乎就是「長成大樹的那一顆」。">Plant ten seeds and most stay small. The portfolio is not the average of the ten. It is mostly the one that became a tree.</figcaption>
+  </figure>
+
+  <h2 data-en="What the power law actually says" data-zh="冪次法則到底在說什麼">What the power law actually says</h2>
+  <p data-en="In most asset classes, returns cluster around an average and extreme outcomes are rare. Startup returns do the opposite: they follow a power law, where a small number of investments account for nearly all of the gains and the rest return little or nothing. <a class='ref' href='https://www.angellist.com/blog/what-angellist-data-says-about-power-law-returns-in-venture-capital' target='_blank' rel='noopener'>AngelList's data</a> on thousands of early-stage investments shows this clearly, and the same shape appears in fund data: across a large sample studied by Horsley Bridge, a small share of deals produced the large majority of the returns. The distribution is not a flaw in the asset class. It is the asset class." data-zh="在多數資產類別裡，報酬會聚集在一個平均值附近，極端結果很罕見。新創的報酬剛好相反：它服從冪次法則：少數幾筆投資，貢獻了幾乎全部的收益，其餘的則回報甚少、甚至歸零。<a class='ref' href='https://www.angellist.com/blog/what-angellist-data-says-about-power-law-returns-in-venture-capital' target='_blank' rel='noopener'>AngelList</a> 對數千筆早期投資的數據清楚顯示了這一點，而同樣的形狀也出現在基金數據裡：在 Horsley Bridge 研究的一個大樣本中，極小比例的案子，創造了絕大多數的報酬。這個分布，不是這個資產類別的瑕疵，它「就是」這個資產類別。">In most asset classes, returns cluster around an average and extreme outcomes are rare. Startup returns do the opposite: they follow a power law, where a small number of investments account for nearly all of the gains and the rest return little or nothing. <a class="ref" href="https://www.angellist.com/blog/what-angellist-data-says-about-power-law-returns-in-venture-capital" target="_blank" rel="noopener">AngelList's data</a> on thousands of early-stage investments shows this clearly, and the same shape appears in fund data: across a large sample studied by Horsley Bridge, a small share of deals produced the large majority of the returns. The distribution is not a flaw in the asset class. It is the asset class.</p>
+
+  <div class="plaw">
+    <div class="plaw-t" data-en="One portfolio, ten outcomes" data-zh="一個投資組合，十種結果">One portfolio, ten outcomes</div>
+    <div class="plaw-s" data-en="Illustrative outcomes from ten startup investments, sorted. The shape is the point: most return little, one returns more than all the others combined." data-zh="十筆新創投資的示意結果，已排序。形狀就是重點：多數回報甚少，而其中一筆，回報比其餘所有筆加起來還多。">Illustrative outcomes from ten startup investments, sorted. The shape is the point: most return little, one returns more than all the others combined.</div>
+    <div class="plaw-bars">
+      <div class="pb" style="height:5px"></div>
+      <div class="pb" style="height:5px"></div>
+      <div class="pb" style="height:11px"></div>
+      <div class="pb" style="height:16px"></div>
+      <div class="pb" style="height:24px"></div>
+      <div class="pb" style="height:24px"></div>
+      <div class="pb" style="height:44px"><span class="pbl">3×</span></div>
+      <div class="pb" style="height:66px"><span class="pbl">5×</span></div>
+      <div class="pb win" style="height:210px"><span class="pbl">50×</span></div>
+    </div>
+    <div class="plaw-x"><span data-en="0× · lost or returned little" data-zh="0×，歸零或回報甚少">0&times; · lost or returned little</span><span data-en="the outlier" data-zh="那個離群值">the outlier</span></div>
+    <div class="plaw-note" data-en="<b>The outlier carries the portfolio.</b> Cut the worst bets and the result barely changes. Miss the one big winner and there is almost no return at all." data-zh="<b>離群值扛起整個組合。</b>砍掉最差的那幾筆，結果幾乎不變；但錯過那一個大贏家，幾乎就沒有報酬可言。"><b>The outlier carries the portfolio.</b> Cut the worst bets and the result barely changes. Miss the one big winner and there is almost no return at all.</div>
+    <div class="dsource" data-en="Illustrative; shape per AngelList and Horsley Bridge venture-return data" data-zh="示意圖；形狀依 AngelList 與 Horsley Bridge 創投報酬數據">Illustrative; shape per AngelList and Horsley Bridge venture-return data</div>
+  </div>
+
+  <h2 data-en="Why this inverts your instincts" data-zh="為什麼這會把你的直覺整個翻過來">Why this inverts your instincts</h2>
+  <p data-en="Two habits that serve you everywhere else become dangerous here. The first is loss-avoidance. If you screen primarily to avoid losing money on any single deal, you will systematically pass on the wild, polarising companies that have the highest chance of being the outlier, because those are exactly the ones that look riskiest at the seed stage. In a power-law world the cost of a loss is capped at one times your cheque, while the cost of missing a winner is unbounded. You are not protecting the portfolio by avoiding losers. You are starving it." data-zh="兩個在別處都很有用的習慣，在這裡變得危險。第一個是「避免虧損」。如果你篩選的首要目標，是「不要在任何單一案子上賠錢」，你會系統性地放掉那些狂野、兩極、最有機會成為離群值的公司，因為在種子階段，正是這些看起來最危險。在一個冪次法則的世界裡，一筆虧損的代價，被「一倍支票金額」封頂；而錯過一個大贏家的代價，是沒有上限的。你避開輸家，並不是在保護這個組合，而是在餓死它。">Two habits that serve you everywhere else become dangerous here. The first is loss-avoidance. If you screen primarily to avoid losing money on any single deal, you will systematically pass on the wild, polarising companies that have the highest chance of being the outlier, because those are exactly the ones that look riskiest at the seed stage. In a power-law world the cost of a loss is capped at one times your cheque, while the cost of missing a winner is unbounded. You are not protecting the portfolio by avoiding losers. You are starving it.</p>
+  <p data-en="The second habit is optimising for the average deal. A new investor often tunes their screen to raise the quality of the typical company they back. But the typical company barely matters to the result; the outlier is everything. <a class='ref' href='https://www.sequoiacap.com' target='_blank' rel='noopener'>Sequoia</a> and the best early-stage firms organise around this openly: they are not trying to be right often, they are trying to be enormously right occasionally, and they accept a high rate of zeros as the price of access to the few companies that return the fund. The mental shift is from 'will this lose money' to 'if this works, is it big enough to matter'." data-zh="第二個習慣，是「為平均案子最佳化」。一個新手投資人，常常把篩選調成「提高他所投的那個典型公司的品質」。但典型公司，對結果幾乎不重要；離群值才是全部。<a class='ref' href='https://www.sequoiacap.com' target='_blank' rel='noopener'>Sequoia</a> 與最好的早期機構，公開地圍繞這一點來組織自己：他們不是想「經常對」，而是想「偶爾大得驚人地對」，並且接受「高比例的歸零」，當作換取那少數幾家「能回報整支基金」公司的入場費。心態的轉變，是從「這會不會賠錢」，變成「如果它成了，它夠不夠大、大到足以撼動結果」。">The second habit is optimising for the average deal. A new investor often tunes their screen to raise the quality of the typical company they back. But the typical company barely matters to the result; the outlier is everything. <a class="ref" href="https://www.sequoiacap.com" target="_blank" rel="noopener">Sequoia</a> and the best early-stage firms organise around this openly: they are not trying to be right often, they are trying to be enormously right occasionally, and they accept a high rate of zeros as the price of access to the few companies that return the fund. The mental shift is from 'will this lose money' to 'if this works, is it big enough to matter'.</p>
+
+  <h2 data-en="What the power law does not excuse" data-zh="冪次法則不能拿來開脫的事">What the power law does not excuse</h2>
+  <p data-en="It would be easy to misread all this as 'spray money everywhere and hope.' The power law rewards outlier exposure, but it does not reward carelessness, and the two questions still have to be answered together. You raise your odds of touching an outlier in two ways at once: by taking enough quality shots that you are statistically likely to be in one, and by keeping the bar high enough on demand and team that each shot has real outlier potential. A disciplined screen and a power-law mindset are partners, not opposites. The screen decides which companies could be the outlier; the power law decides how to size and spread your bets across them." data-zh="把這一切誤讀成「到處撒錢、然後祈禱」，會很容易。冪次法則獎勵的是「對離群值的曝險」，但它不獎勵草率，而那兩個問題，仍然必須一起被回答。你用兩種方式「同時」提高碰到離群值的機率：投下「夠多、夠有品質」的賭注，讓你在統計上有機會身在其中；同時把「需求與團隊」的門檻維持得夠高，讓每一注都真的具備成為離群值的潛力。一套有紀律的篩選，和一個冪次法則的心態，是夥伴，不是對立面。篩選決定「哪些公司可能成為離群值」；冪次法則決定「怎麼在它們之間，配置與分散你的賭注」。">It would be easy to misread all this as 'spray money everywhere and hope.' The power law rewards outlier exposure, but it does not reward carelessness, and the two questions still have to be answered together. You raise your odds of touching an outlier in two ways at once: by taking enough quality shots that you are statistically likely to be in one, and by keeping the bar high enough on demand and team that each shot has real outlier potential. A disciplined screen and a power-law mindset are partners, not opposites. The screen decides which companies could be the outlier; the power law decides how to size and spread your bets across them.</p>
+  <p data-en="That is why this idea comes second in the series, right after the <a class='ref' href='how-investors-read-a-b2b-deal.html'>first-pass screen</a>. The screen keeps your quality high on each individual bet; the power law tells you how many such bets to make and how to think about the ones that fail. The next piece turns this into concrete portfolio maths, how many companies, how much per cheque, and how much to hold back for the winners." data-zh="這正是為什麼這個概念在系列裡排第二，緊接在<a class='ref' href='how-investors-read-a-b2b-deal.html'>第一輪初篩</a>之後。篩選讓你在每一個單一賭注上維持高品質；冪次法則則告訴你「要下多少這樣的注」，以及「怎麼看待那些失敗的注」。下一篇，會把這件事變成具體的投資組合算術：投幾家、每張支票多少、以及要為贏家保留多少。">That is why this idea comes second in the series, right after the <a class="ref" href="how-investors-read-a-b2b-deal.html">first-pass screen</a>. The screen keeps your quality high on each individual bet; the power law tells you how many such bets to make and how to think about the ones that fail. The next piece turns this into concrete portfolio maths, how many companies, how much per cheque, and how much to hold back for the winners.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="The single hardest adjustment for a new startup investor is emotional, not analytical: most of your bets will not work, and that is not failure, it is the design. Your job is not to avoid losses but to make sure you have real exposure to the rare company that returns everything, and to have the discipline that each bet could plausibly be that company. Judge any single investment by whether it could be the outlier, and judge yourself by the portfolio, never by the bets that went to zero along the way." data-zh="對一個新手新創投資人來說，最難的那個調整，是情緒上的，而不是分析上的：你多數的賭注都不會成，而那不是失敗，那是設計。你的工作，不是避免虧損，而是確保你「對那家能回報一切的稀有公司」有真實的曝險，並且有紀律地讓「每一注都有可能就是那家公司」。評斷任何單一一筆投資，要看它「有沒有可能成為離群值」；評斷你自己，要看整個組合，永遠不要看那些途中歸零的賭注。">The single hardest adjustment for a new startup investor is emotional, not analytical: most of your bets will not work, and that is not failure, it is the design. Your job is not to avoid losses but to make sure you have real exposure to the rare company that returns everything, and to have the discipline that each bet could plausibly be that company. Judge any single investment by whether it could be the outlier, and judge yourself by the portfolio, never by the bets that went to zero along the way.</p>
+  <p data-en="It is the logic every serious venture investor runs on, EvoScale Capital included: back a focused set of B2B companies that each have a credible path to being the outlier, and let the power law do what it does. The discipline this series teaches is how to make each of those bets a good one. The power law is why you make more than one." data-zh="這是每一個認真的創投投資人所依循的邏輯，EvoScale Capital 也不例外：投一組「每一家都有可信路徑成為離群值」的 B2B 公司，然後讓冪次法則去做它該做的事。這個系列要教的紀律，是「怎麼讓每一注都是好注」；而冪次法則，是「你為什麼不只下一注」的原因。">It is the logic every serious venture investor runs on, EvoScale Capital included: back a focused set of B2B companies that each have a credible path to being the outlier, and let the power law do what it does. The discipline this series teaches is how to make each of those bets a good one. The power law is why you make more than one.</p>
+
+  <div class="cta">
+    <h3 data-en="Building a B2B portfolio?" data-zh="正在建一個 B2B 投資組合？">Building a B2B portfolio?</h3>
+    <p data-en="EvoScale Capital is a B2B investing syndicate built around the power law: a focused set of bets, each screened for real outlier potential. If you want to invest this way, we'd be glad to talk." data-zh="EvoScale Capital 是一個圍繞冪次法則打造的 B2B 投資 syndicate：一組聚焦的賭注，每一注都篩過「真實的離群值潛力」。如果你想用這種方式投資，我們很樂意聊聊。">EvoScale Capital is a B2B investing syndicate built around the power law: a focused set of bets, each screened for real outlier potential. If you want to invest this way, we'd be glad to talk.</p>
+    <a class="cta-btn" href="../index.html" data-en="About EvoScale →" data-zh="認識 EvoScale →">About EvoScale →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.1rem" data-en="The investor track" data-zh="投資人系列">The investor track</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="how-investors-read-a-b2b-deal.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The First-Pass Screen" data-zh="四步初篩">The First-Pass Screen</span></a>
+      <a href="power-law-startup-investing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Power Law" data-zh="冪次法則">The Power Law</span></a>
+      <a href="startup-portfolio-construction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Portfolio Construction" data-zh="投資組合怎麼建">Portfolio Construction</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange-d);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
+</script>
+</body>
+</html>
