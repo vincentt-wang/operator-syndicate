@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>A4 Decision Brief · EmoTree / EaseAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#0E7490;--teal-d:#0B4E5E;--teal-l:#EAF4F7;--teal-2:#0891B2;
+  --ink:#15202B;--ink-2:#3D4F5C;--ink-3:#6B7D8A;--border:#D8E3E8;
+  --ok:#0E9F6E;--warn:#C77B16;--no:#C0392B;--red-bg:#FBEEEC;
+  --fb:'DM Sans','Noto Sans TC',sans-serif;--fs:'Noto Serif TC',serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);color:var(--ink);font-size:10.5pt;line-height:1.5;background:#eceff1}
+.a4{width:210mm;height:297mm;background:#fff;margin:0 auto 8mm;padding:15mm 16mm 13mm;position:relative;overflow:hidden}
+.run{position:absolute;top:7mm;left:16mm;font-style:italic;font-size:7.5pt;color:#9fb2bc;letter-spacing:.02em}
+.foot{position:absolute;bottom:7mm;left:16mm;right:16mm;display:flex;justify-content:space-between;font-style:italic;font-size:7.5pt;color:#9fb2bc}
+.foot b{font-style:normal;font-weight:600;color:#bcc9d0}
+h1.cov{font-family:var(--fs);font-weight:900;font-size:25pt;color:var(--teal);text-align:center;margin-top:72mm}
+.cov-sub{text-align:center;color:var(--teal-2);font-size:13pt;margin-top:2mm}
+.cov-meta{text-align:center;color:var(--ink-3);margin-top:13mm;font-size:11pt}
+.cov-meta .it{font-style:italic;font-size:10pt}
+.cov-by{text-align:center;margin-top:9mm}
+.cov-by .d{color:var(--teal);font-weight:700}.cov-by .n{color:var(--teal);font-weight:700;font-size:13pt;margin-top:1mm}.cov-by .r{color:var(--ink-3);font-size:9.5pt;margin-top:1mm}
+.attr{text-align:center;margin-top:6mm;font-size:9pt;color:var(--teal-2)}
+.disc{border:1px solid var(--border);border-radius:3px;padding:4mm 5mm;margin-top:20mm;font-size:8.5pt;color:var(--ink-2)}
+.disc b{color:var(--teal-d);display:block;margin-bottom:1.5mm}
+.band{background:var(--teal-d);color:#fff;border-radius:3px;padding:4mm 5mm;margin-bottom:3mm}
+.band .nm{font-weight:900;font-size:15pt}.band .nm .en{margin-right:3mm}
+.band .sub{color:#cfe6ec;font-size:9.5pt;margin-top:.5mm}
+.tags{display:flex;gap:0;align-items:center;flex-wrap:wrap;margin-bottom:3.5mm;font-size:9pt}
+.tags .t{color:var(--teal);font-weight:700}.tags .sep{color:var(--border);margin:0 2.5mm}
+.tags .award{color:var(--warn);font-weight:700}.tags .dt{color:var(--ink-3)}
+.box{border:1px solid var(--border);border-radius:3px;padding:3mm 4mm;margin-bottom:2.6mm}
+.box .lbl{color:var(--teal);font-weight:700;font-size:10pt;margin-bottom:1.5mm}
+.box p{font-size:9.5pt;color:var(--ink-2);margin:.3mm 0}
+.box.red{background:var(--red-bg);border-color:#e8c4bd}.box.red .lbl{color:var(--no)}
+.scan .row{font-size:9.5pt;margin:.8mm 0}.scan .sy{font-weight:800;margin-right:1.5mm;color:var(--warn)}
+.coi{background:var(--red-bg);border:1px solid #e8c4bd;border-left:3px solid var(--no);border-radius:3px;padding:3mm 4mm;margin-bottom:3mm;font-size:9pt;color:var(--ink-2)}
+.coi b{color:var(--no)}
+table{width:100%;border-collapse:collapse;margin-top:1mm;table-layout:fixed}
+th,td{border:1px solid var(--border);padding:2.2mm 2.5mm;vertical-align:top;font-size:8.6pt;line-height:1.45}
+th.h{background:var(--teal-d);color:#fff;font-weight:700;text-align:center;font-size:9pt}
+td.fit{text-align:center;font-weight:700}td.fit.y{color:var(--ok);background:#EAF7F1}td.fit.n{color:var(--ink-3)}
+td.k{color:var(--teal);font-weight:600;background:#F6FAFB}
+.na{color:var(--ink-3)}.risk{color:var(--no)}.lev{color:var(--teal-2)}
+.route{color:var(--teal-d);font-weight:600;font-size:9.5pt;border-top:1px solid var(--border);margin-top:3mm;padding-top:2.5mm}
+.route b{color:var(--teal)}
+h3.sec{font-family:var(--fs);font-weight:700;color:var(--teal-d);font-size:13pt;margin:1mm 0 3mm;border-bottom:1.5px solid var(--teal-l);padding-bottom:1.5mm}
+.pill{display:inline-block;font-size:7.8pt;font-weight:700;padding:.3mm 2mm;border-radius:2px}
+.p-ok{background:#E5F4EE;color:var(--ok)}.p-warn{background:#FBF1E2;color:var(--warn)}.p-no{background:#FBE9E6;color:var(--no)}
+@media print{body{background:#fff}.a4{margin:0;box-shadow:none}}
+@page{size:A4;margin:0}
+</style>
+</head>
+<body>
+
+<!-- P1 COVER -->
+<section class="a4">
+  <div class="run">A4 Decision Brief / 創新三元 Deal Flow · 2026</div>
+  <h1 class="cov">創新三元 Deal Flow 評案速覽</h1>
+  <div class="cov-sub">Innovation Trinity · A4 Decision Brief</div>
+  <div class="cov-meta">EmoTree™ / EaseAI Inc.<div class="it">Self-Diagnostic（利益衝突案 · 客觀體檢）</div></div>
+  <div class="cov-by"><div class="d">2026.06.13</div><div class="n">Vincent Wang</div><div class="r">VC Strategy Partner & Methodology Educator</div></div>
+  <div class="attr">本分析由 Vincent Wang 的「創新三元 Deal Flow」系統產出（Runbook v4）</div>
+  <div class="disc"><b>Disclaimer</b>本報告基於公開 Pitch 觀察、商業計畫書與 AI 結構化分析產出（前置事實基底＋JIT 適時查核＋有界回推）。數據標「宣稱」者未經獨立財務查核，本文件為初步篩選工具、非投資建議。<b style="margin-top:2.5mm">利益衝突</b>本案 CEO 為 Vincent 本人＝系統所有人；系統不對自家標的做投資決策，本報告僅作客觀體檢用。</div>
+  <div class="foot"><span><b>Confidential</b> · Vincent Wang 系統分析</span><span>Page 1 / 5</span></div>
+</section>
+
+<!-- P2 DECISION SUMMARY -->
+<section class="a4">
+  <div class="run">A4 Decision Brief / 創新三元 Deal Flow · 2026</div>
+  <div class="coi"><b>⚠ 利益衝突（E 層強制）：</b>CEO＝Vincent＝本系統所有人。系統<strong>不得對自家標的做投資決策</strong>；以下為「把引擎掉頭審視自己」的客觀體檢，配置判斷須獨立第三方覆核。對 Vincent 的用途：提前模擬競賽評審/投資人會打的點，用來補強 pitch。</div>
+  <div class="band"><div class="nm"><span class="en">EmoTree™</span>EaseAI Inc.</div><div class="sub">高壓族群情緒 AI Agent ·「情緒健康界的 Duolingo」</div></div>
+  <div class="tags"><span class="t">數位健康組</span><span class="sep">|</span><span class="t">情緒健康 SaaS · D2C/B2B2C/B2G</span><span class="sep">|</span><span class="award">創業大聯盟 補助申請</span><span class="sep">|</span><span class="dt">2026.06.13</span></div>
+  <div class="box"><div class="lbl">Cost of Problem</div>
+    <p>高壓專業人士（三明治族群、教師、醫護警消、新手媽媽）夜間心智枯竭、心理內耗。傳統諮商貴／高門檻／有污名；通用 AI 無專屬記憶與主動關懷。</p>
+    <p>市場真實：全球心理健康 App 市場約 USD 7.5–8.2B、CAGR ~15%。痛點方向與 TPO（21:00–凌晨、私密空間）具體。</p></div>
+  <div class="box"><div class="lbl">Elevator Pitch</div>
+    <p>10 秒情緒打卡（二維象限免文字）＋專屬 AI Agent 陪伴＋可視化成長報告，用 Core Memory 雙層記憶（E-E-T 三元組）做到「懂你」。三軌商模：D2C 訂閱＋B2B2C 專業轉介（15-30% 抽成）＋B2G2C 公部門/企業。申請補助 NT$600 萬。</p></div>
+  <div class="box scan"><div class="lbl">D / V / F 快篩（資料完整度 72–78%，真實評分）</div>
+    <div class="row"><span class="sy">△</span><b>D 欲求性</b>：附條件 — <strong>FMF 3/3（全案最強）</strong>＋命中永恆市場；但情緒 App 是知名 Tar Pit、最大對手是免費 ChatGPT、六垂直太散、付費/留存零一手驗證。</div>
+    <div class="row"><span class="sy">△</span><b>V 存續性</b>：附條件 — 無 knockout、資金結構誠實；但<strong>已驗證輸入重算 LTV/CAC 僅 2.3–3.3（下緣不及格）</strong>、churn 假設比業界(8-11%/月)樂觀 4-5 倍、「Day1 現金流轉正」偷換概念。</div>
+    <div class="row"><span class="sy">△</span><b>F 可行性</b>：附條件 — <strong>團隊 3/3（全案最強）</strong>、做得出來；但 JIT 查證 <strong>Core Memory／RAG-CAG 是 2026 現成架構＝不是護城河</strong>、三軌太廣、尚未上線。</div></div>
+  <div class="box red"><div class="lbl">Red Flag · 前 5 大風險假設</div>
+    <p>① <strong>留存</strong>：心理 App D30 結構性僅 ~3.3%，遊戲化能否改變留存曲線＝LTV 命門。② <strong>意向→實付</strong>：盲測 15-25% 願付費，落差通常 5-10 倍。③ <strong>護城河</strong>：技術非壁壘，真護城河需數據飛輪＋臨床信任累積（現＝0）。④ <strong>CAC 下修無依據</strong>：盲測 600 是樂觀下限，規模化通常上升。⑤ <strong>三軌太散</strong>：小團隊 18 月同跑 D2C/B2B2C/B2G 失敗率高。</p></div>
+  <div class="foot"><span><b>Confidential</b> · Vincent Wang 系統分析</span><span>Page 2 / 5</span></div>
+</section>
+
+<!-- P3 A/B/C TABLE -->
+<section class="a4">
+  <div class="run">A4 Decision Brief / 創新三元 Deal Flow · 2026</div>
+  <h3 class="sec">三類投資人視角 · 七層分析（A / B / C）</h3>
+  <table>
+    <tr><th class="h" style="width:24mm"></th><th class="h">A 策略成長型基金</th><th class="h">B 早期驗證型創投</th><th class="h">C 營運加速型聯盟</th></tr>
+    <tr><td class="k">適配</td><td class="fit n">不適配</td><td class="fit y">適配</td><td class="fit n">適配但利益衝突</td></tr>
+    <tr><td class="k">判斷理由</td><td class="na">PMF 未達、pre-launch、無單位經濟驗證，遠未達成長基金門檻。</td><td>罕見強 FMF＋真實大市場＋完整論述；正募政府補助、規劃 2027 Seed/Pre-A，正對早期驗證邏輯。</td><td>B2B2C/B2G 有 operator 協同潛力；但 CEO＝系統所有人，<span class="risk">系統迴避</span>。</td></tr>
+    <tr><td class="k">建議切入方向</td><td class="na">N/A</td><td>補助/早期投資綁「<strong>單一 HXC 的真實付費續訂與留存 cohort</strong>」，非綁產品開發或 MOU 數量。</td><td class="na">N/A（利益衝突）</td></tr>
+    <tr><td class="k">資金需求與結構</td><td class="na">N/A</td><td>政府補助 NT$600 萬（P1 200萬產品+冷啟動+CFA驗證 / P2 400萬多語海外）；後續 Seed/Pre-A。</td><td class="na">N/A</td></tr>
+    <tr><td class="k">推進前提</td><td class="na">N/A</td><td>P1 結束交出 ≥N 個付費 cohort 實測 CAC/CVR/D30，且 LTV/CAC 實測 ≥2.5。</td><td class="na">N/A</td></tr>
+    <tr><td class="k">最高風險假設</td><td class="na">N/A</td><td class="risk">心理 App D30 留存僅 ~3.3%，遊戲化能否突破品類留存重力（決定 LTV 是否撐起 ≥3）。</td><td class="na">N/A</td></tr>
+    <tr><td class="k">最高槓桿</td><td class="na">N/A</td><td class="lev">去識別化情緒數據飛輪＋諮商/醫療機構臨床信任轉介鎖定（B2B2C 高毛利抽成）。</td><td class="na">N/A</td></tr>
+  </table>
+  <div class="route"><b>建議路由：</b>客觀上適配 <strong>B（早期驗證型創投/天使/政府補助）</strong>——但因 CEO＝系統所有人，系統一律迴避投資決策。本報告作為競賽 pitch 的補強體檢（見後頁）。</div>
+  <div class="foot"><span><b>Confidential</b> · Vincent Wang 系統分析</span><span>Page 3 / 5</span></div>
+</section>
+
+<!-- P4 FACT-CHECK + QUANT -->
+<section class="a4">
+  <div class="run">A4 Decision Brief / 創新三元 Deal Flow · 2026</div>
+  <h3 class="sec">事實查核（AI 基礎查核 · 三態）</h3>
+  <table>
+    <tr><th class="h" style="width:40mm">項目</th><th class="h" style="width:20mm">狀態</th><th class="h">說明</th></tr>
+    <tr><td class="k">公司/官網/團隊</td><td style="text-align:center"><span class="pill p-ok">已驗證</span></td><td>easeai.com.tw 可連、LinkedIn 公司頁、團隊組成一致。建議再確認網域 WHOIS 續約。</td></tr>
+    <tr><td class="k">EaseAI Inc. 法人登記</td><td style="text-align:center"><span class="pill p-warn">待查</span></td><td>查無台灣公司登記/統編公開紀錄，建議調商工登記。</td></tr>
+    <tr><td class="k">夥伴 Labfront</td><td style="text-align:center"><span class="pill p-ok">公司為真</span></td><td>真實存在；「哈佛醫學院關聯」屬團隊人脈淵源、非校方背書。</td></tr>
+    <tr><td class="k">夥伴名稱一致性</td><td style="text-align:center"><span class="pill p-no">紅旗</span></td><td>計畫書與官網反覆不一致（Morphurs↔MorphusAI、度情↔渡情、慢慢↔漫漫）。須統一正名。</td></tr>
+    <tr><td class="k">近半夥伴</td><td style="text-align:center"><span class="pill p-warn">待查</span></td><td>多無法獨立查得，且多為「轉介資源」非簽約合作；表述恐高於實情，須逐一索取 MOU。</td></tr>
+    <tr><td class="k">監管風險（同業）</td><td style="text-align:center"><span class="pill p-no">注意</span></td><td>Woebot 2025/6 因 FDA 對 LLM 心理健康應用法規不確定而關閉 CBT bot。EmoTree 醫療器材定位須說清楚。</td></tr>
+  </table>
+  <h3 class="sec" style="margin-top:7mm">量化驗證（用業界基準取代「目標值」）</h3>
+  <table>
+    <tr><th class="h" style="width:32mm">項目</th><th class="h">計畫書宣稱</th><th class="h">用業界基準重算</th></tr>
+    <tr><td class="k">CAC</td><td>目標 NT$200–250</td><td>已驗證僅盲測 NT$600（未優化＝樂觀下限）；規模化通常↑，下修<span class="risk">無依據</span></td></tr>
+    <tr><td class="k">月 churn / D30</td><td>半年 churn &lt;12% / D30≥10%</td><td>心理 App 真實月 churn 8–11%、D30 中位數 ~3.3%；宣稱樂觀 4–5 倍且兩者互斥</td></tr>
+    <tr><td class="k">LTV / CAC</td><td>&gt;3x</td><td><span class="risk">CAC 600＋真實留存重算 = 2.3–3.3（下緣不及格）</span>；CAC 真降 250 才穩 &gt;3</td></tr>
+    <tr><td class="k">SOM</td><td>NT$9.6 億/年</td><td>真實付費佔比 0.5–1.5% 代入 → NT$1.2–3.6 億（仍可投，小 3–8 倍）</td></tr>
+  </table>
+  <div class="box" style="margin-top:4mm"><div class="lbl">第一性原理結論</div><p>命門不是市場（真）、不是團隊（強）、不是技術（做得出來）——而是<strong>「情緒陪伴 App 的結構性低留存」這條品類重力</strong>。所有正向財務結論都建立在「能突破品類留存均值」這個未證假設上。<strong>敏感度最高項＝留存；第二＝CAC 下修。</strong></p></div>
+  <div class="foot"><span><b>Confidential</b> · Vincent Wang 系統分析</span><span>Page 4 / 5</span></div>
+</section>
+
+<!-- P5 PITCH 補強 -->
+<section class="a4">
+  <div class="run">A4 Decision Brief / 創新三元 Deal Flow · 2026</div>
+  <h3 class="sec">給 Vincent 的競賽 pitch 補強（系統幫你先抓漏）</h3>
+  <table>
+    <tr><th class="h" style="width:50%">最該先補的證據</th><th class="h">最該先修的表述</th></tr>
+    <tr><td>① 哪怕 N 小的<strong>真實 trial→付費轉換</strong>與 <strong>D7/D30 留存 cohort</strong>（一個數字勝過所有目標值）<br><br>② 收斂到<strong>單一主攻 HXC</strong>（六垂直選一個先打通）<br><br>③ 護城河從「Core Memory 技術」改成「<strong>數據飛輪＋臨床信任</strong>」（技術評審會戳破現成架構）</td><td>① 夥伴名稱<strong>統一正名</strong>＋區分「已簽 MOU」vs「轉介資源」<br><br>② 「Day1 現金流轉正」改成「<strong>單筆交易毛利為正</strong>」，別讓人抓到偷換<br><br>③ SOM 改用真實付費佔比（誠實的 1–3.6 億比浮誇 9.6 億更有信服力）<br><br>④ 主動講<strong>監管定位</strong>（不診斷不治療＋自傷轉介）回應 Woebot/FDA</td></tr>
+  </table>
+  <div class="route"><b>一句話結論：</b>EmoTree 是團隊強、市場真、論點完整的早期案，遠比漂亮 deck 紮實；成敗在能否用真實 cohort 證明「逃出情緒 App 的留存重力」與「CAC 真能下修」。把補助里程碑綁這兩件事，就從「附條件」往「強案」走。</div>
+  <div class="foot"><span><b>Confidential</b> · Vincent Wang 系統分析 · 非投資建議</span><span>Page 5 / 5</span></div>
+</section>
+
+</body>
+</html>
