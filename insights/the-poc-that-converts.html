@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The POC That Converts: Escaping Pilot Purgatory | EvoScale Capital</title>
+<meta name="description" content="Most enterprise pilots don't fail — they just never end. A look at why proofs of concept stall in pilot purgatory, and the five design choices that turn a POC into a signed contract.">
+<meta name="keywords" content="proof of concept, POC, enterprise pilot, pilot purgatory, POC to contract, B2B sales, success criteria, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/the-poc-that-converts.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The POC That Converts: Escaping Pilot Purgatory">
+<meta property="og:description" content="Most enterprise pilots don't fail, they never end. The five design choices that turn a proof of concept into a signed contract.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/the-poc-that-converts.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The POC That Converts: Escaping Pilot Purgatory">
+<meta name="twitter:description" content="Why proofs of concept stall, and the five design choices that turn a POC into a contract.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"The POC That Converts: Escaping Pilot Purgatory","description":"Why proofs of concept stall in pilot purgatory, and the five design choices that turn a POC into a signed contract.","datePublished":"2026-06-13","dateModified":"2026-06-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/the-poc-that-converts.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"B2B Strategy","wordCount":1700,"citation":["Gartner B2B Buying Research"],"keywords":"proof of concept, enterprise pilot, pilot purgatory, POC to contract, B2B sales"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--navy:#0A1628;--navy-2:#0F1E35;--ink:#E8EDF2;--mut:#9FB0C3;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:#fff}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:#fff;margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:#fff!important;margin-bottom:2rem}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:#fff;margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:rgba(232,237,242,.88);margin-bottom:1.3rem}
+article strong{color:#fff}
+.ref{color:var(--orange-2);text-decoration:none;border-bottom:1px solid rgba(255,140,66,.35)}
+figure{margin:2.4rem 0}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--navy-2)}
+figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* stalls vs converts comparison */
+.vsbox{background:var(--navy-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.vsbox-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:.35rem}
+.vsbox-s{font-size:1rem;color:var(--mut);margin-bottom:1.6rem;line-height:1.5}
+.vs-head{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.vs-head span{font-size:1rem;font-weight:700}
+.vs-head .h1{color:var(--mut)}.vs-head .h2{color:rgba(232,237,242,.6)}.vs-head .h3{color:var(--orange-2)}
+.vs-row{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--border)}
+.vs-row:last-of-type{border-bottom:none}
+.vs-lever{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.02rem;line-height:1.25}
+.vs-stall{font-size:1rem;color:rgba(232,237,242,.6);line-height:1.4}
+.vs-conv{font-size:1rem;color:#fff;line-height:1.4}
+.vs-stall i,.vs-conv i{display:none;font-style:normal;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+.dsource{font-size:1rem;color:#6E8197;margin-top:1.5rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.1),rgba(255,102,0,.03));border:1px solid rgba(255,102,0,.22);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:rgba(232,237,242,.82);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:#fff;font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.vs-head{display:none}.vs-row{grid-template-columns:1fr;gap:.45rem;padding:1rem 0}.vs-stall i,.vs-conv i{display:block;color:var(--mut)}.vs-conv i{color:var(--orange-2)}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · B2B Strategy" data-zh="觀點 · B2B 策略">Insights · B2B Strategy</div>
+  <h1 data-en="The POC That Converts: Escaping Pilot Purgatory" data-zh="會成交的 POC：逃出試點煉獄">The POC That Converts: Escaping Pilot Purgatory</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="Most enterprise pilots do not fail. They simply never end. The product works, the users are mildly happy, everyone says nice things, and then the proof of concept quietly drifts into a second extension, a reorganised team, a new fiscal year, and a deal that was never lost and never won. The danger in a B2B pilot is rarely rejection. It is limbo." data-zh="多數企業試點，並不是失敗的，它們只是永遠不結束。產品能跑、使用者還算滿意、大家都說了好話，然後這個概念驗證（POC），就悄悄漂進了第二次延期、一次團隊改組、一個新的會計年度，變成一個「從沒輸過、也從沒贏過」的案子。B2B 試點真正的危險，很少是被拒絕，而是懸在半空。">Most enterprise pilots do not fail. They simply never end. The product works, the users are mildly happy, everyone says nice things, and then the proof of concept quietly drifts into a second extension, a reorganised team, a new fiscal year, and a deal that was never lost and never won. The danger in a B2B pilot is rarely rejection. It is limbo.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A pilot box, a gap, and a contract box, with a converting path bridging the gap and a stalling path falling into it">
+      <rect width="720" height="220" fill="#0F1E35"/>
+      <rect x="60" y="84" width="150" height="64" rx="8" fill="none" stroke="#9FB0C3" stroke-width="3"/>
+      <text x="135" y="122" text-anchor="middle" fill="#9FB0C3" font-family="'DM Sans',sans-serif" font-size="16" font-weight="700" data-en="POC" data-zh="POC">POC</text>
+      <rect x="510" y="84" width="150" height="64" rx="8" fill="rgba(255,102,0,.16)" stroke="#FF6600" stroke-width="3"/>
+      <text x="585" y="122" text-anchor="middle" fill="#FF8C42" font-family="'DM Sans',sans-serif" font-size="16" font-weight="700" data-en="Contract" data-zh="正式合約">Contract</text>
+      <path d="M210 104 Q360 40 510 104" fill="none" stroke="#FF6600" stroke-width="3"/><polygon points="500,96 514,106 498,112" fill="#FF6600"/>
+      <text x="360" y="58" text-anchor="middle" fill="#FF8C42" font-family="'DM Sans',sans-serif" font-size="14" font-weight="600" data-en="designed to convert" data-zh="為成交而設計">designed to convert</text>
+      <path d="M210 132 Q300 200 360 196" fill="none" stroke="#3C4A5E" stroke-width="3" stroke-dasharray="8 7"/>
+      <circle cx="372" cy="196" r="9" fill="none" stroke="#3C4A5E" stroke-width="3"/>
+      <text x="430" y="201" text-anchor="middle" fill="#6E8197" font-family="'DM Sans',sans-serif" font-size="14" font-weight="600" data-en="pilot purgatory" data-zh="試點煉獄">pilot purgatory</text>
+    </svg>
+    <figcaption data-en="The same product reaches both ends. The difference is whether the POC was built with a bridge to a contract, or without one." data-zh="同一個產品，兩端都到得了。差別在於，這個 POC 當初是「帶著一座通往合約的橋」設計的，還是沒有。">The same product reaches both ends. The difference is whether the POC was built with a bridge to a contract, or without one.</figcaption>
+  </figure>
+
+  <h2 data-en="Why pilots stall after they succeed" data-zh="為什麼試點在成功之後反而卡住">Why pilots stall after they succeed</h2>
+  <p data-en="The counter-intuitive part is that a pilot can meet its goals and still go nowhere, because a successful demo and a signed contract are governed by different people and different incentives. The pilot lives with the user who is curious about the product. The contract lives with the <a class='ref' href='the-buying-committee.html'>buying committee</a>, the budget owner, security, legal and procurement, none of whom were necessarily in the room when the pilot was scoped. A POC that proves the product works but never engages the people who sign is a technical success and a commercial dead end." data-zh="反直覺的地方在於，一個試點可以達成它的目標，卻還是哪裡都去不了，因為「成功的 demo」與「簽下的合約」，是由不同的人、不同的誘因所掌管的。試點，活在那個「對產品好奇」的使用者身上；合約，活在<a class='ref' href='the-buying-committee.html'>採購委員會</a>、預算負責人、資安、法務與採購身上，而這些人，在試點被定義範圍時，不一定在場。一個「證明了產品能跑、卻從沒接觸到那些簽字的人」的 POC，是一場技術上的成功，也是一條商業上的死路。">The counter-intuitive part is that a pilot can meet its goals and still go nowhere, because a successful demo and a signed contract are governed by different people and different incentives. The pilot lives with the user who is curious about the product. The contract lives with the <a class="ref" href="the-buying-committee.html">buying committee</a>, the budget owner, security, legal and procurement, none of whom were necessarily in the room when the pilot was scoped. A POC that proves the product works but never engages the people who sign is a technical success and a commercial dead end.</p>
+  <p data-en="The second reason is that an open-ended pilot has no forcing function. If nothing happens automatically when it ends, then nothing has to happen, and inside a large organisation the default state of any decision is to be deferred. Gartner's research on B2B buying describes the buying group spending most of its effort not on choosing a vendor but on reaching internal consensus and validating the decision. A pilot that does not actively drive toward that consensus is simply funding the customer's curiosity with your runway." data-zh="第二個原因是，一個開放式、沒有期限的試點，沒有任何「逼著事情發生」的機制。如果它結束時沒有任何事情會自動發生，那就代表沒有任何事情「非發生不可」，而在一個大型組織裡，任何決定的預設狀態，就是被往後延。Gartner 對 B2B 採購的研究指出，採購小組大部分的力氣，不是花在「選哪一家廠商」，而是花在「達成內部共識、驗證這個決定」上。一個沒有主動把案子推向那個共識的試點，其實只是在用你的資金跑道，去資助客戶的好奇心。">The second reason is that an open-ended pilot has no forcing function. If nothing happens automatically when it ends, then nothing has to happen, and inside a large organisation the default state of any decision is to be deferred. Gartner's research on B2B buying describes the buying group spending most of its effort not on choosing a vendor but on reaching internal consensus and validating the decision. A pilot that does not actively drive toward that consensus is simply funding the customer's curiosity with your runway.</p>
+
+  <div class="vsbox">
+    <div class="vsbox-t" data-en="The same pilot, designed two ways" data-zh="同一個試點，兩種設計方式">The same pilot, designed two ways</div>
+    <div class="vsbox-s" data-en="Five choices made before the POC starts decide whether it drifts or converts. The product can be identical." data-zh="POC 開始之前所做的五個選擇，決定了它最後是漂走、還是成交。產品可以一模一樣。">Five choices made before the POC starts decide whether it drifts or converts. The product can be identical.</div>
+    <div class="vs-head"><span class="h1" data-en="Design choice" data-zh="設計選擇">Design choice</span><span class="h2" data-en="Pilot that stalls" data-zh="會卡住的試點">Pilot that stalls</span><span class="h3" data-en="POC that converts" data-zh="會成交的 POC">POC that converts</span></div>
+    <div class="vs-row">
+      <div class="vs-lever" data-en="Success criteria" data-zh="成功標準">Success criteria</div>
+      <div class="vs-stall"><i data-en="Stalls" data-zh="會卡住">Stalls</i><span data-en="Fuzzy: 'let's see how it goes.'" data-zh="模糊：「先看看狀況再說。」">Fuzzy: 'let's see how it goes.'</span></div>
+      <div class="vs-conv"><i data-en="Converts" data-zh="會成交">Converts</i><span data-en="Defined and signed off before day one." data-zh="第一天之前就定義好、並取得認可。">Defined and signed off before day one.</span></div>
+    </div>
+    <div class="vs-row">
+      <div class="vs-lever" data-en="Time-box" data-zh="時間框架">Time-box</div>
+      <div class="vs-stall"><i data-en="Stalls" data-zh="會卡住">Stalls</i><span data-en="Open-ended; drifts for months." data-zh="沒有期限，一拖好幾個月。">Open-ended; drifts for months.</span></div>
+      <div class="vs-conv"><i data-en="Converts" data-zh="會成交">Converts</i><span data-en="Fixed end date with a decision attached." data-zh="固定的結束日，並綁著一個決定。">Fixed end date with a decision attached.</span></div>
+    </div>
+    <div class="vs-row">
+      <div class="vs-lever" data-en="Sponsor" data-zh="贊助人">Sponsor</div>
+      <div class="vs-stall"><i data-en="Stalls" data-zh="會卡住">Stalls</i><span data-en="Run by a curious junior user." data-zh="由一個好奇的基層使用者主導。">Run by a curious junior user.</span></div>
+      <div class="vs-conv"><i data-en="Converts" data-zh="會成交">Converts</i><span data-en="Owned by the person who holds the budget." data-zh="由握有預算的那個人擁有。">Owned by the person who holds the budget.</span></div>
+    </div>
+    <div class="vs-row">
+      <div class="vs-lever" data-en="Commercials" data-zh="商業條件">Commercials</div>
+      <div class="vs-stall"><i data-en="Stalls" data-zh="會卡住">Stalls</i><span data-en="Free, with no commercial frame." data-zh="免費，沒有任何商業框架。">Free, with no commercial frame.</span></div>
+      <div class="vs-conv"><i data-en="Converts" data-zh="會成交">Converts</i><span data-en="Price and terms pre-agreed if criteria are met." data-zh="若達標，價格與條件事先談定。">Price and terms pre-agreed if criteria are met.</span></div>
+    </div>
+    <div class="vs-row">
+      <div class="vs-lever" data-en="Production path" data-zh="上線路徑">Production path</div>
+      <div class="vs-stall"><i data-en="Stalls" data-zh="會卡住">Stalls</i><span data-en="A demo running in a sandbox." data-zh="一個跑在沙盒裡的 demo。">A demo running in a sandbox.</span></div>
+      <div class="vs-conv"><i data-en="Converts" data-zh="會成交">Converts</i><span data-en="A mapped path to live deployment." data-zh="一條已畫好、通往正式上線的路徑。">A mapped path to live deployment.</span></div>
+    </div>
+    <div class="dsource" data-en="EvoScale analysis of enterprise pilot-to-contract conversion" data-zh="毅拓資本就企業試點轉合約之分析">EvoScale analysis of enterprise pilot-to-contract conversion</div>
+  </div>
+
+  <h2 data-en="Design the POC backwards from the signature" data-zh="從那一筆簽名往回設計 POC">Design the POC backwards from the signature</h2>
+  <p data-en="The teams that convert pilots reliably do one thing differently: they design the POC backwards from the contract, not forwards from the demo. Before the pilot starts, they agree in writing what result would justify a purchase, who would approve it, by when, and at what price. That conversation feels uncomfortable to have early, which is precisely why it is valuable. A customer unwilling to define what success would unlock is telling you, cheaply and early, that budget and intent are not really there yet, and you have learned it before sinking a quarter into the pilot rather than after." data-zh="能穩定把試點轉成合約的團隊，做的一件不一樣的事是：他們從「合約」往回設計 POC，而不是從「demo」往前。在試點開始之前，他們就用白紙黑字談定：什麼樣的結果足以構成一筆採購、誰會核准它、在什麼時間之前、用什麼價格。這場對話，在很早的時候談會讓人不太舒服，而這正是它有價值的原因。一個不願意定義「成功會解鎖什麼」的客戶，其實正在用一種便宜又及早的方式告訴你：預算與意願其實還沒到位，而你是在「把一整季砸進試點之前」、而不是之後，就學到了這件事。">The teams that convert pilots reliably do one thing differently: they design the POC backwards from the contract, not forwards from the demo. Before the pilot starts, they agree in writing what result would justify a purchase, who would approve it, by when, and at what price. That conversation feels uncomfortable to have early, which is precisely why it is valuable. A customer unwilling to define what success would unlock is telling you, cheaply and early, that budget and intent are not really there yet, and you have learned it before sinking a quarter into the pilot rather than after.</p>
+  <p data-en="This is also where the <a class='ref' href='the-nine-month-sales-cycle.html'>length of the sales cycle</a> is quietly decided. A well-designed POC compresses the cycle because the hardest questions, success, budget, approver and price, are settled at the front instead of reopened at the end. A loosely-designed one stretches it indefinitely, because every one of those questions is still waiting when the technical work is already done. The POC is not a phase before the real negotiation. Structured correctly, it is the negotiation, run as an experiment." data-zh="這也正是<a class='ref' href='the-nine-month-sales-cycle.html'>銷售週期的長短</a>被悄悄決定的地方。一個設計良好的 POC，會壓縮週期，因為那些最難的問題，成功標準、預算、核准者、價格，都在最前面就解決掉了，而不是留到最後才被重新打開。一個設計鬆散的 POC，則會把週期無限拉長，因為當技術工作都已經做完時，那每一個問題，都還在那裡等著。POC 不是「真正談判之前」的一個階段。只要結構對了，它本身就是那場談判，只是用實驗的形式跑而已。">This is also where the <a class="ref" href="the-nine-month-sales-cycle.html">length of the sales cycle</a> is quietly decided. A well-designed POC compresses the cycle because the hardest questions, success, budget, approver and price, are settled at the front instead of reopened at the end. A loosely-designed one stretches it indefinitely, because every one of those questions is still waiting when the technical work is already done. The POC is not a phase before the real negotiation. Structured correctly, it is the negotiation, run as an experiment.</p>
+
+  <h2 data-en="Where operators change the odds" data-zh="高管在哪裡改變勝率">Where operators change the odds</h2>
+  <p data-en="Knowing how to structure a converting POC is one thing; having the standing to demand that structure is another. A first-time founder often accepts a vague, open-ended pilot because they are grateful to be in the building at all, and pushing for signed success criteria feels like risking the relationship. An operator who has sat on the buyer's side knows the opposite is true: a serious buyer respects a vendor who asks what would justify a purchase, because it is the same discipline their own procurement applies. That credibility makes it possible to set the terms that convert, instead of hoping a goodwill pilot turns into a deal on its own." data-zh="知道怎麼設計一個會成交的 POC 是一回事；有沒有那個份量去「要求」這樣的結構，是另一回事。一個第一次創業的創辦人，常常會接受一個模糊、無期限的試點，因為他光是能進到那棟大樓裡就已經很感激了，而去爭取「簽字的成功標準」，感覺像是在拿關係冒險。一個曾坐在買方那一側的高管，知道事實恰恰相反：一個認真的買家，會尊重一個「敢問清楚什麼足以構成採購」的廠商，因為這正是他們自己的採購所用的同一套紀律。那份可信度，讓你有可能去設定那些「會成交」的條件，而不是只能祈禱一個善意的試點，會自己變成一筆交易。">Knowing how to structure a converting POC is one thing; having the standing to demand that structure is another. A first-time founder often accepts a vague, open-ended pilot because they are grateful to be in the building at all, and pushing for signed success criteria feels like risking the relationship. An operator who has sat on the buyer's side knows the opposite is true: a serious buyer respects a vendor who asks what would justify a purchase, because it is the same discipline their own procurement applies. That credibility makes it possible to set the terms that convert, instead of hoping a goodwill pilot turns into a deal on its own.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="A pilot is not a smaller version of a sale; it is a test whose terms you get to write. Write them well, with defined success criteria, a real deadline, a budget-holding sponsor, pre-agreed commercials and a path to production, and the POC pulls itself toward a signature. Write them loosely and the same working product drifts into pilot purgatory, alive but never closing. The product earns the technical yes. The design of the pilot decides whether that yes ever becomes a contract." data-zh="試點，不是一筆銷售的縮小版，而是一場「條款由你來寫」的測試。把它寫好，有明確的成功標準、一個真實的截止日、一個握有預算的贊助人、事先談定的商業條件，以及一條通往正式上線的路徑，這個 POC 就會自己把自己拉向那一筆簽名。把它寫得鬆散，同樣一個能跑的產品，就會漂進試點煉獄，活著，卻永遠不成交。產品，掙得的是技術上的那個「好」；而試點的設計，決定了那個「好」會不會變成一紙合約。">A pilot is not a smaller version of a sale; it is a test whose terms you get to write. Write them well, with defined success criteria, a real deadline, a budget-holding sponsor, pre-agreed commercials and a path to production, and the POC pulls itself toward a signature. Write them loosely and the same working product drifts into pilot purgatory, alive but never closing. The product earns the technical yes. The design of the pilot decides whether that yes ever becomes a contract.</p>
+  <p data-en="It is one of the first things EvoScale Capital works on with the teams it backs, and where operators who have run the buyer's side earn their keep: turning a goodwill pilot into a structured experiment that ends in a decision. In a market where many products can earn a trial, the teams that win are the ones whose pilots were built to close." data-zh="這是 EvoScale Capital 與所投資團隊最先一起琢磨的事情之一，也是那些跑過買方端的高管掙得自己價值的地方：把一個善意的試點，變成一場「以一個決定作結」的結構化實驗。在一個「許多產品都能換得一次試用」的市場裡，真正會贏的團隊，是那些「試點打從一開始就是為成交而建」的人。">It is one of the first things EvoScale Capital works on with the teams it backs, and where operators who have run the buyer's side earn their keep: turning a goodwill pilot into a structured experiment that ends in a decision. In a market where many products can earn a trial, the teams that win are the ones whose pilots were built to close.</p>
+
+  <div class="cta">
+    <h3 data-en="Pilots that don't close?" data-zh="試點總是不成交？">Pilots that don't close?</h3>
+    <p data-en="If you win trials but they stall before a contract, that gap between a technical yes and a signature is exactly where our operators work. We'd like to see what you're building." data-zh="如果你贏得試用、卻總在簽約前卡住，那個「技術上的好」與「一筆簽名」之間的落差，正是我們的高管使力的地方。我們想看看你在打造什麼。">If you win trials but they stall before a contract, that gap between a technical yes and a signature is exactly where our operators work. We'd like to see what you're building.</p>
+    <a class="cta-btn" href="../apply.html" data-en="Share your deal →" data-zh="與我們分享 →">Share your deal →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem" data-en="Read next" data-zh="接著讀">Read next</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="enterprise-channel-alpha.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Access Problem" data-zh="門路問題：卡在企業門口">The Access Problem</span></a>
+      <a href="the-buying-committee.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Buying Committee" data-zh="採購委員會：誰拍板">The Buying Committee</span></a>
+      <a href="the-nine-month-sales-cycle.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Nine-Month Sales Cycle" data-zh="九個月的銷售週期">The Nine-Month Sales Cycle</span></a>
+      <a href="operator-led-investing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Operator-Led Investing" data-zh="operator-led 投資解析">Operator-Led Investing</span></a>
+      <a href="what-vcs-evaluate.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="What Top VCs Evaluate" data-zh="頂尖 VC 看什麼">What Top VCs Evaluate</span></a>
+      <a href="the-approved-vendor-list.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Approved-Vendor List" data-zh="合格供應商名單">The Approved-Vendor List</span></a>
+      <a href="enterprise-b2b-pricing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Enterprise B2B Pricing" data-zh="企業級定價">Enterprise B2B Pricing</span></a>
+      <a href="the-six-numbers-b2b-raise.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">08</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Six Numbers" data-zh="募資的六個數字">The Six Numbers</span></a>
+      <a href="founder-market-fit-b2b.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">09</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Founder-Market Fit" data-zh="創辦人與市場契合度">Founder-Market Fit</span></a>
+      <a href="bottom-up-market-sizing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">10</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Bottom-Up Market Sizing" data-zh="由下而上算市場">Bottom-Up Market Sizing</span></a>
+      <a href="the-poc-that-converts.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">11</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The POC That Converts" data-zh="會成交的 POC">The POC That Converts</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
+</script>
+</body>
+</html>

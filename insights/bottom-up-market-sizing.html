@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving | EvoScale Capital</title>
+<meta name="description" content="'We only need 1% of a huge market' is the line that loses investors. A look at bottom-up market sizing — counting real accounts times real contract value — and why it beats a top-down TAM slide for a B2B raise.">
+<meta name="keywords" content="bottom-up market sizing, TAM SAM SOM, B2B market size, total addressable market, ICP, annual contract value, fundraising, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/bottom-up-market-sizing.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving">
+<meta property="og:description" content="'We only need 1% of a huge market' loses investors. Bottom-up sizing — real accounts times real contract value — and why it beats a top-down TAM slide.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/bottom-up-market-sizing.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving">
+<meta name="twitter:description" content="Why bottom-up market sizing beats a top-down TAM slide for a B2B raise.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving","description":"Bottom-up market sizing — counting real accounts times real contract value — and why it beats a top-down TAM slide for a B2B raise.","datePublished":"2026-06-13","dateModified":"2026-06-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/bottom-up-market-sizing.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"B2B Strategy","wordCount":1700,"citation":["Andreessen Horowitz on market sizing"],"keywords":"bottom-up market sizing, TAM SAM SOM, ICP, annual contract value, B2B fundraising"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-d:#E05500;--navy:#0A1628;--ink:#243244;--mut:#5E6E80;--bg:#FFFFFF;--bg-2:#F4F7FB;--border:#E3E9F0;--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange-d);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:var(--navy);margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:var(--navy)!important;margin-bottom:2rem;font-weight:500}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:var(--navy);margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:var(--ink);margin-bottom:1.3rem}
+article strong{color:var(--navy)}
+.ref{color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(224,85,0,.32)}
+figure{margin:2.4rem 0}figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* bottom-up build ladder */
+.buildup{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.buildup-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem}
+.buildup-s{font-size:1rem;color:var(--mut);margin-bottom:1.6rem;line-height:1.5}
+.bu-row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.bu-row .bl{font-size:1.05rem;color:var(--ink);line-height:1.4}
+.bu-row .bl b{color:var(--navy);font-weight:700}
+.bu-row .bv{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.15rem;white-space:nowrap;flex-shrink:0}
+.bu-row.tot{border-bottom:none;border-top:2px solid var(--orange);margin-top:.4rem;padding-top:1rem}
+.bu-row.tot .bv{color:var(--orange-d);font-size:1.5rem}
+.bu-note{font-size:1rem;color:var(--mut);margin-top:1.2rem;line-height:1.55}
+.bu-note b{color:var(--navy)}
+.dsource{font-size:1rem;color:#7A8AA0;margin-top:1.3rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.08),rgba(255,102,0,.02));border:1px solid rgba(255,102,0,.25);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:var(--ink);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:var(--navy);font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.bu-row{flex-direction:column;gap:.2rem}.bu-row .bv{align-self:flex-end}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · B2B Strategy" data-zh="觀點 · B2B 策略">Insights · B2B Strategy</div>
+  <h1 data-en="Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving" data-zh="由下而上算市場：TAM、SAM、SOM 不靠喊話">Bottom-Up Market Sizing: TAM, SAM, SOM Without the Hand-Waving</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="There is one sentence that quietly ends more B2B pitches than any competitor ever could: 'we only need to capture 1% of this enormous market.' It is meant to sound modest. To an experienced investor it signals the opposite, that the founder has not actually counted who their customers are. The fix is not a bigger number. It is a number built from the bottom up." data-zh="有一句話，悄悄終結掉的 B2B 簡報，比任何競爭對手都多：「我們只要拿下這個龐大市場的 1% 就好。」它本意是想聽起來很謙虛，但在一個有經驗的投資人耳裡，它傳達的恰恰相反：這位創辦人，其實沒有真的去數過他的客戶到底是誰。解方不是換一個更大的數字，而是換一個「由下而上堆出來」的數字。">There is one sentence that quietly ends more B2B pitches than any competitor ever could: 'we only need to capture 1% of this enormous market.' It is meant to sound modest. To an experienced investor it signals the opposite, that the founder has not actually counted who their customers are. The fix is not a bigger number. It is a number built from the bottom up.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three nested boxes: TAM contains SAM contains SOM">
+      <rect width="720" height="240" fill="#F4F7FB"/>
+      <rect x="150" y="36" width="420" height="168" rx="10" fill="none" stroke="#9FB0C3" stroke-width="2.5"/>
+      <rect x="232" y="70" width="256" height="118" rx="9" fill="none" stroke="#5E6E80" stroke-width="2.5"/>
+      <rect x="300" y="104" width="120" height="66" rx="8" fill="rgba(255,102,0,.14)" stroke="#FF6600" stroke-width="2.5"/>
+      <text x="360" y="60" text-anchor="middle" fill="#5E6E80" font-family="'DM Sans',sans-serif" font-size="15" font-weight="700" data-en="TAM · everyone who has the problem" data-zh="TAM · 所有有這個問題的人">TAM · everyone who has the problem</text>
+      <text x="360" y="92" text-anchor="middle" fill="#5E6E80" font-family="'DM Sans',sans-serif" font-size="15" font-weight="700" data-en="SAM · those you can actually serve" data-zh="SAM · 你實際服務得了的">SAM · those you can actually serve</text>
+      <text x="360" y="142" text-anchor="middle" fill="#E05500" font-family="'DM Sans',sans-serif" font-size="15" font-weight="800" data-en="SOM" data-zh="SOM">SOM</text>
+      <text x="360" y="162" text-anchor="middle" fill="#E05500" font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" data-en="what you can win" data-zh="你能拿下的">what you can win</text>
+    </svg>
+    <figcaption data-en="The pitch lives in the outer box. The business lives in the inner one. Investors fund the inner one." data-zh="簡報活在最外圈，生意活在最內圈。投資人投的，是最內圈的那個。">The pitch lives in the outer box. The business lives in the inner one. Investors fund the inner one.</figcaption>
+  </figure>
+
+  <h2 data-en="Top-down looks bigger and means less" data-zh="由上而下看起來更大，意義卻更小">Top-down looks bigger and means less</h2>
+  <p data-en="The three letters are simple. TAM, the total addressable market, is everyone who has the problem. SAM, the serviceable addressable market, is the slice you could actually sell to given your product, geography and segment. SOM, the serviceable obtainable market, is the part you can realistically win in a few years. The trouble is not the framework; it is the direction founders build it from." data-zh="這三個字本身很簡單。TAM，總體可觸及市場，是所有有這個問題的人。SAM，可服務的市場，是考量你的產品、地區與客群之後，你真的賣得到的那一塊。SOM，可取得的市場，是你在幾年內實際能拿下的部分。問題不在這個框架本身，而在創辦人是「從哪個方向」把它堆起來的。">The three letters are simple. TAM, the total addressable market, is everyone who has the problem. SAM, the serviceable addressable market, is the slice you could actually sell to given your product, geography and segment. SOM, the serviceable obtainable market, is the part you can realistically win in a few years. The trouble is not the framework; it is the direction founders build it from.</p>
+  <p data-en="Top-down starts with a giant industry figure from an analyst report and shaves it with arbitrary percentages: a $50 billion market, times some share of it, times 1%. It is fast, and it is almost worthless, because every number in the chain is a guess and the conclusion is whatever the founder needs it to be. As <a class='ref' href='https://a16z.com' target='_blank' rel='noopener'>Andreessen Horowitz</a> and most disciplined investors will tell you, the credible direction is the reverse: start from the unit you can count, a single customer, and build up. A top-down chart shows ambition. A bottom-up build shows that you understand your own business." data-zh="由上而下，是從一份分析師報告裡的巨大產業數字出發，再用幾個隨意的百分比把它削一削：一個 500 億美元的市場，乘上某個市佔，再乘上 1%。它很快，也幾乎毫無價值，因為這串鏈條裡每一個數字都是猜的，而結論，就是創辦人需要它是多少、它就是多少。正如 <a class='ref' href='https://a16z.com' target='_blank' rel='noopener'>Andreessen Horowitz</a> 與多數有紀律的投資人會告訴你的，可信的方向是反過來：從一個你數得出來的單位，也就是「一個客戶」開始，往上堆。由上而下的圖表，秀的是企圖心；由下而上的堆疊，秀的是你真的懂自己的生意。">Top-down starts with a giant industry figure from an analyst report and shaves it with arbitrary percentages: a $50 billion market, times some share of it, times 1%. It is fast, and it is almost worthless, because every number in the chain is a guess and the conclusion is whatever the founder needs it to be. As <a class="ref" href="https://a16z.com" target="_blank" rel="noopener">Andreessen Horowitz</a> and most disciplined investors will tell you, the credible direction is the reverse: start from the unit you can count, a single customer, and build up. A top-down chart shows ambition. A bottom-up build shows that you understand your own business.</p>
+
+  <div class="buildup">
+    <div class="buildup-t" data-en="Building SOM from the bottom up" data-zh="由下而上堆出 SOM">Building SOM from the bottom up</div>
+    <div class="buildup-s" data-en="An illustrative B2B build. The numbers are examples; the method is the point: count accounts, apply honest rates, multiply by real contract value." data-zh="一個示意用的 B2B 堆疊。數字只是舉例，方法才是重點：數帳戶、套上誠實的比率、乘以真實的合約金額。">An illustrative B2B build. The numbers are examples; the method is the point: count accounts, apply honest rates, multiply by real contract value.</div>
+    <div class="bu-row"><div class="bl" data-en="Companies that genuinely fit your <b>ICP</b>" data-zh="真正符合你 <b>ICP</b> 的公司數">Companies that genuinely fit your <b>ICP</b></div><div class="bv">1,200</div></div>
+    <div class="bu-row"><div class="bl" data-en="Realistically reachable with your motion (≈40%)" data-zh="以你的銷售方式實際觸及得到的（約 40%）">Realistically reachable with your motion (≈40%)</div><div class="bv">480</div></div>
+    <div class="bu-row"><div class="bl" data-en="Win rate at maturity (≈25%)" data-zh="成熟期的成交率（約 25%）">Win rate at maturity (≈25%)</div><div class="bv">120</div></div>
+    <div class="bu-row"><div class="bl" data-en="Average annual contract value" data-zh="平均年合約金額">Average annual contract value</div><div class="bv">$60k</div></div>
+    <div class="bu-row tot"><div class="bl" data-en="Obtainable market (SOM)" data-zh="可取得市場（SOM）">Obtainable market (SOM)</div><div class="bv">≈ $7.2M ARR</div></div>
+    <div class="bu-note" data-en="<b>Top-down would have said:</b> '1% of a $20B market = $200M.' Bigger, and meaningless. The bottom-up figure is smaller, defensible, and doubles as your go-to-market plan: it names the 1,200 accounts and the rate you have to beat." data-zh="<b>由上而下會說：</b>「200 億美元市場的 1% 等於 2 億美元。」更大，卻毫無意義。由下而上的數字比較小，但站得住腳，而且它同時就是你的 go-to-market 計畫：它點出了那 1,200 家帳戶，以及你必須打敗的那個比率。"><b>Top-down would have said:</b> '1% of a $20B market = $200M.' Bigger, and meaningless. The bottom-up figure is smaller, defensible, and doubles as your go-to-market plan: it names the 1,200 accounts and the rate you have to beat.</div>
+    <div class="dsource" data-en="EvoScale illustrative model; method per standard VC market-sizing practice" data-zh="毅拓資本示意模型；方法依標準創投市場估算實務">EvoScale illustrative model; method per standard VC market-sizing practice</div>
+  </div>
+
+  <h2 data-en="Why the bottom-up number is the stronger pitch" data-zh="為什麼由下而上的數字才是更強的簡報">Why the bottom-up number is the stronger pitch</h2>
+  <p data-en="The instinct is that a smaller market hurts the story. In front of a serious B2B investor it usually helps it, because the smaller number is attached to things you can defend in the next question. Where did 1,200 come from? You can list the segments. Why 25%? You can point to early win rates and the competitors you displace. Where does the $60k sit? You can show real contracts. Every figure has a source, so the build survives scrutiny that a top-down slide collapses under the moment someone asks 'why 1%?'" data-zh="直覺會以為，市場比較小，會傷害故事。但在一個認真的 B2B 投資人面前，它通常反而幫了故事，因為那個比較小的數字，是接在一連串「你在下一個問題裡撐得住」的東西上的。1,200 哪來的？你列得出客群。為什麼是 25%？你指得出早期成交率、以及你取代掉的競爭對手。6 萬美元落在哪？你拿得出真實的合約。每一個數字都有來源，於是整個堆疊，撐得過那種「由上而下投影片一被問『為什麼是 1%？』就垮掉」的審視。">The instinct is that a smaller market hurts the story. In front of a serious B2B investor it usually helps it, because the smaller number is attached to things you can defend in the next question. Where did 1,200 come from? You can list the segments. Why 25%? You can point to early win rates and the competitors you displace. Where does the $60k sit? You can show real contracts. Every figure has a source, so the build survives scrutiny that a top-down slide collapses under the moment someone asks 'why 1%?'</p>
+  <p data-en="It also connects to the metrics an investor is already tracking. The contract value in your build is the same figure that drives <a class='ref' href='enterprise-b2b-pricing.html'>pricing</a> and gross margin; the win rate and reachability are what the <a class='ref' href='the-nine-month-sales-cycle.html'>sales cycle</a> and channel determine. A bottom-up model is not a standalone slide. It is the market-sized version of the same business the rest of the deck describes, which is exactly why a numerate investor trusts it more." data-zh="它也連到投資人本來就在追蹤的指標。你堆疊裡的合約金額，就是驅動<a class='ref' href='enterprise-b2b-pricing.html'>定價</a>與毛利的那個數字；成交率與可觸及度，則是由<a class='ref' href='the-nine-month-sales-cycle.html'>銷售週期</a>與通路決定的。一個由下而上的模型，不是一張獨立的投影片，而是「deck 其餘部分所描述的同一門生意」的市場規模版本，這正是為什麼一個懂數字的投資人，會更相信它。">It also connects to the metrics an investor is already tracking. The contract value in your build is the same figure that drives <a class="ref" href="enterprise-b2b-pricing.html">pricing</a> and gross margin; the win rate and reachability are what the <a class="ref" href="the-nine-month-sales-cycle.html">sales cycle</a> and channel determine. A bottom-up model is not a standalone slide. It is the market-sized version of the same business the rest of the deck describes, which is exactly why a numerate investor trusts it more.</p>
+
+  <h2 data-en="Where founders still go wrong" data-zh="創辦人還是會出錯的地方">Where founders still go wrong</h2>
+  <p data-en="Even a bottom-up build can be dishonest if the rates are wishful. A 25% win rate against entrenched incumbents in year two is a claim, not an assumption, and an investor will test it against your actual pipeline. The discipline is to use rates you can already evidence, then show how they improve as the company matures, rather than starting at the number you wish were true. A conservative build you beat is a far better fundraising position than an aggressive one you miss." data-zh="就算是由下而上的堆疊，如果比率是一廂情願的，它一樣可以不誠實。在第二年、面對根深蒂固的既有業者還能有 25% 的成交率，這是一個「主張」，不是一個「假設」，而投資人會拿它去對你真實的 pipeline 做檢驗。這裡的紀律，是用你「已經能拿出證據」的比率，再去說明它會如何隨公司成熟而改善，而不是一開始就用那個「你希望它成真」的數字。一個你超越的保守堆疊，是一個遠比「一個你沒達標的激進堆疊」更好的募資位置。">Even a bottom-up build can be dishonest if the rates are wishful. A 25% win rate against entrenched incumbents in year two is a claim, not an assumption, and an investor will test it against your actual pipeline. The discipline is to use rates you can already evidence, then show how they improve as the company matures, rather than starting at the number you wish were true. A conservative build you beat is a far better fundraising position than an aggressive one you miss.</p>
+  <p data-en="The second mistake is forgetting that the obtainable market is not fixed; it is a function of how you reach it. The same 1,200 accounts yield a very different SOM depending on whether you cold-email them or walk in through someone they already trust. Access changes the reachability and win-rate lines directly, which is why a credible market-sizing conversation and a credible go-to-market conversation are really the same conversation, viewed from two ends." data-zh="第二個錯誤，是忘了「可取得市場」並不是固定的，它是「你怎麼觸及它」的函數。同樣這 1,200 家帳戶，你是冷信去打、還是透過一個他們本來就信任的人走進去，會得出非常不同的 SOM。門路，會直接改變可觸及度與成交率那兩條線，這正是為什麼一場可信的「市場規模」對話，跟一場可信的「go-to-market」對話，其實是同一場對話，只是從兩端看過去而已。">The second mistake is forgetting that the obtainable market is not fixed; it is a function of how you reach it. The same 1,200 accounts yield a very different SOM depending on whether you cold-email them or walk in through someone they already trust. Access changes the reachability and win-rate lines directly, which is why a credible market-sizing conversation and a credible go-to-market conversation are really the same conversation, viewed from two ends.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="Investors do not fund the outer box. They fund the inner one, and they fund the founder who can show how it was built. Drop the line about 1% of a giant market and replace it with a number you assembled from real accounts, honest rates and actual contract value. It will be smaller, and it will be far more persuasive, because it proves you have done the counting that turns a market into a plan. The teams that raise well are not the ones with the biggest TAM. They are the ones whose SOM they can defend line by line." data-zh="投資人不投最外圈，他們投最內圈，而且他們投的，是那個「能秀出它是怎麼堆出來」的創辦人。把「一個龐大市場的 1%」那句話丟掉，換成一個你用真實帳戶、誠實比率、實際合約金額組裝出來的數字。它會比較小，卻會更有說服力，因為它證明了你做過那件「把市場變成計畫」的數算。募得好的團隊，不是 TAM 最大的那些，而是「SOM 能一行一行守得住」的那些。">Investors do not fund the outer box. They fund the inner one, and they fund the founder who can show how it was built. Drop the line about 1% of a giant market and replace it with a number you assembled from real accounts, honest rates and actual contract value. It will be smaller, and it will be far more persuasive, because it proves you have done the counting that turns a market into a plan. The teams that raise well are not the ones with the biggest TAM. They are the ones whose SOM they can defend line by line.</p>
+  <p data-en="It is how EvoScale Capital reads a market on every B2B submission, and where operators earn their place: someone who has sold into a segment can sanity-check a reachability rate or a contract value in seconds, because they have lived the real number. In a market full of confident TAM slides, the team that has counted its actual accounts is the one that stands out." data-zh="這正是 EvoScale Capital 在每一份 B2B 遞交上讀一個市場的方式，也是高管掙得自己位置的地方：一個賣進過某個客群的人，可以在幾秒內幫你驗一個可觸及率或一個合約金額是否合理，因為他活過那個真實的數字。在一個滿是自信 TAM 投影片的市場裡，那個「真的數過自己帳戶」的團隊，才是會被記住的那個。">It is how EvoScale Capital reads a market on every B2B submission, and where operators earn their place: someone who has sold into a segment can sanity-check a reachability rate or a contract value in seconds, because they have lived the real number. In a market full of confident TAM slides, the team that has counted its actual accounts is the one that stands out.</p>
+
+  <div class="cta">
+    <h3 data-en="Can you defend your SOM?" data-zh="你的 SOM 守得住嗎？">Can you defend your SOM?</h3>
+    <p data-en="If your market size is built from real accounts and rates you can evidence rather than a slice of a giant number, that is the kind of rigour we look for. We'd like to see what you're building." data-zh="如果你的市場規模，是用真實帳戶與「拿得出證據」的比率堆出來的，而不是一個巨大數字的切片，那正是我們在找的那種嚴謹。我們想看看你在打造什麼。">If your market size is built from real accounts and rates you can evidence rather than a slice of a giant number, that is the kind of rigour we look for. We'd like to see what you're building.</p>
+    <a class="cta-btn" href="../apply.html" data-en="Share your deal →" data-zh="與我們分享 →">Share your deal →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.1rem" data-en="Read next" data-zh="接著讀">Read next</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="enterprise-channel-alpha.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Access Problem" data-zh="門路問題：卡在企業門口">The Access Problem</span></a>
+      <a href="the-buying-committee.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Buying Committee" data-zh="採購委員會：誰拍板">The Buying Committee</span></a>
+      <a href="the-nine-month-sales-cycle.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Nine-Month Sales Cycle" data-zh="九個月的銷售週期">The Nine-Month Sales Cycle</span></a>
+      <a href="operator-led-investing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Operator-Led Investing" data-zh="operator-led 投資解析">Operator-Led Investing</span></a>
+      <a href="what-vcs-evaluate.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="What Top VCs Evaluate" data-zh="頂尖 VC 看什麼">What Top VCs Evaluate</span></a>
+      <a href="the-approved-vendor-list.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Approved-Vendor List" data-zh="合格供應商名單">The Approved-Vendor List</span></a>
+      <a href="enterprise-b2b-pricing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Enterprise B2B Pricing" data-zh="企業級定價">Enterprise B2B Pricing</span></a>
+      <a href="the-six-numbers-b2b-raise.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">08</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Six Numbers" data-zh="募資的六個數字">The Six Numbers</span></a>
+      <a href="founder-market-fit-b2b.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">09</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Founder-Market Fit" data-zh="創辦人與市場契合度">Founder-Market Fit</span></a>
+      <a href="bottom-up-market-sizing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">10</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Bottom-Up Market Sizing" data-zh="由下而上算市場">Bottom-Up Market Sizing</span></a>
+      <a href="the-poc-that-converts.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">11</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The POC That Converts" data-zh="會成交的 POC">The POC That Converts</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
+</script>
+</body>
+</html>
