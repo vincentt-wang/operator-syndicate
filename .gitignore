@@ -33,3 +33,10 @@ contribution-log.html
 *.numbers
 *.pages
 *.zip
+
+# 內部評案框架頁（創新三元 Deal Flow）：轉內部、不公開
+df-overview.html
+df-desirability.html
+df-feasibility.html
+df-viability.html
+df.css
