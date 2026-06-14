@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap Tables, SAFEs and Dilution for People Who Already Read a P&L | EvoScale Capital</title>
+<meta name="description" content="The seventh article in a series for senior B2B operators learning to invest. You read a P&L fluently; the cap table is the one financial document that runs on a different logic. The three mechanics that surprise even finance-literate operators, at your altitude.">
+<meta name="keywords" content="cap table for executives, SAFE dilution, option pool shuffle, pre-money post-money, fully diluted ownership, dilution across rounds, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/cap-table-for-operators.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cap Tables, SAFEs and Dilution for People Who Already Read a P&L">
+<meta property="og:description" content="The cap table is the one financial document that runs on a different logic. The three mechanics that surprise even finance-literate operators.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/cap-table-for-operators.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cap Tables, SAFEs and Dilution for People Who Already Read a P&L">
+<meta name="twitter:description" content="The three cap-table mechanics that surprise even finance-literate operators: SAFE overhang, the option-pool shuffle, and compounding dilution.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cap Tables, SAFEs and Dilution for People Who Already Read a P&L","description":"You read a P&L fluently; the cap table is the one financial document that runs on a different logic. The three mechanics that surprise even finance-literate operators.","datePublished":"2026-06-14","dateModified":"2026-06-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/cap-table-for-operators.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Venture","wordCount":1650,"citation":["Y Combinator — the SAFE","Carta — cap table management"],"keywords":"cap table for executives, SAFE dilution, option pool shuffle, pre-money post-money, fully diluted ownership"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--navy:#1B1714;--navy-2:#262019;--ink:#E8EDF2;--mut:#9FB0C3;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:#fff}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:#fff;margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:#fff!important;margin-bottom:2rem}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:#fff;margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:rgba(232,237,242,.88);margin-bottom:1.3rem}
+article strong{color:#fff}
+.ref{color:var(--orange-2);text-decoration:none;border-bottom:1px solid rgba(255,140,66,.35)}
+figure{margin:2.4rem 0}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--navy-2)}
+figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* where the dilution comes from */
+.conv{background:var(--navy-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.conv-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:.35rem}
+.conv-s{font-size:1rem;color:var(--mut);margin-bottom:1.5rem;line-height:1.5}
+.conv-bar{display:flex;height:58px;border-radius:9px;overflow:hidden;margin:.6rem 0 1.1rem}
+.conv-seg{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;color:#fff}
+.conv-seg.keep{background:rgba(255,255,255,.07);color:rgba(232,237,242,.7)}
+.conv-seg.new{background:linear-gradient(180deg,#FF7A1A,#E05500)}
+.conv-seg.safe{background:#9C7339}
+.conv-seg.pool{background:#5F574A}
+.conv-leg{display:flex;flex-wrap:wrap;gap:1.3rem;font-size:1rem;color:rgba(232,237,242,.82)}
+.conv-leg span{display:inline-flex;align-items:center;gap:.5rem}
+.conv-leg i{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+.conv-note{font-size:1rem;color:rgba(232,237,242,.82);margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--border);line-height:1.55}
+.conv-note b{color:var(--orange-2)}
+.dsource{font-size:1rem;color:#6E8197;margin-top:1.2rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.1),rgba(255,102,0,.03));border:1px solid rgba(255,102,0,.22);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:rgba(232,237,242,.82);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:#fff;font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.conv-seg{font-size:.92rem}}
+.hl{color:#FFC880;font-weight:600;background:linear-gradient(180deg,transparent 56%,rgba(255,162,72,.26) 56%,rgba(255,162,72,.26) 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · For Operators" data-zh="觀點 · 給經營者">Insights · For Operators</div>
+  <h1 data-en="Cap Tables, SAFEs and Dilution for People Who Already Read a P&L" data-zh="Cap table、SAFE 與稀釋：給已經會看 P&L 的人">Cap Tables, SAFEs and Dilution for People Who Already Read a P&L</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="You read a P&L and a balance sheet without thinking about it, so the mechanics of a startup round are not hard for you; they are just unfamiliar. The cap table is the one financial document that runs on a logic your career did not require, and <span class='hl'>a few of its mechanics surprise even people who are fluent in financial statements</span>. This is not a beginner's guide to what a share is. It is the three places the cap table behaves differently from the numbers you already know, pitched at your altitude." data-zh="你看 P&L 和資產負債表，幾乎不用思考，所以一輪新創募資的機制，對你並不難，它只是陌生。Cap table（股權結構表），是唯一一份「跑著你職涯不曾要求的邏輯」的財務文件，而<span class='hl'>它有幾個機制，連對財報滾瓜爛熟的人都會感到意外</span>。這不是一篇「股份是什麼」的入門，而是「cap table 在哪三個地方，行為跟你早已熟悉的數字不一樣」，並用你的高度來談。">You read a P&L and a balance sheet without thinking about it, so the mechanics of a startup round are not hard for you; they are just unfamiliar. The cap table is the one financial document that runs on a logic your career did not require, and <span class='hl'>a few of its mechanics surprise even people who are fluent in financial statements</span>. This is not a beginner's guide to what a share is. It is the three places the cap table behaves differently from the numbers you already know, pitched at your altitude.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A pie of ownership being re-sliced smaller across rounds">
+      <rect width="720" height="220" fill="#262019"/>
+      <circle cx="150" cy="110" r="58" fill="none" stroke="#FF6600" stroke-width="3"/>
+      <line x1="150" y1="52" x2="150" y2="110" stroke="#5A5349" stroke-width="2"/>
+      <text x="150" y="195" text-anchor="middle" fill="#7A7265" font-family="'DM Sans',sans-serif" font-size="15" font-weight="600" data-en="today" data-zh="今天">today</text>
+      <circle cx="360" cy="110" r="58" fill="none" stroke="#FF8C42" stroke-width="3"/>
+      <line x1="360" y1="52" x2="360" y2="110" stroke="#5A5349" stroke-width="2"/>
+      <line x1="360" y1="110" x2="410" y2="138" stroke="#5A5349" stroke-width="2"/>
+      <text x="360" y="195" text-anchor="middle" fill="#7A7265" font-family="'DM Sans',sans-serif" font-size="15" font-weight="600" data-en="after a round" data-zh="一輪之後">after a round</text>
+      <circle cx="570" cy="110" r="58" fill="none" stroke="#FF8C42" stroke-width="3"/>
+      <line x1="570" y1="52" x2="570" y2="110" stroke="#5A5349" stroke-width="2"/>
+      <line x1="570" y1="110" x2="620" y2="138" stroke="#5A5349" stroke-width="2"/>
+      <line x1="570" y1="110" x2="528" y2="150" stroke="#5A5349" stroke-width="2"/>
+      <path d="M570 110 L570 52 A58 58 0 0 1 612 70 Z" fill="rgba(255,102,0,.2)"/>
+      <text x="570" y="195" text-anchor="middle" fill="#FF8C42" font-family="'DM Sans',sans-serif" font-size="15" font-weight="700" data-en="your slice" data-zh="你那一塊">your slice</text>
+    </svg>
+    <figcaption data-en="The cap table is not about dollars; it is about the slice. Every round re-cuts the pie, and the number that matters is what you hold at the end." data-zh="Cap table 講的不是金額，而是那一塊餅。每一輪都重切一次，真正重要的數字，是你最後手上還握有多少。">The cap table is not about dollars; it is about the slice. Every round re-cuts the pie, and the number that matters is what you hold at the end.</figcaption>
+  </figure>
+
+  <h2 data-en="It is an ownership ledger, not a statement" data-zh="它是一份持股總帳，不是一張報表">It is an ownership ledger, not a statement</h2>
+  <p data-en="Start with the mental switch. A P&L measures performance over a period and a balance sheet measures position at a moment, both denominated in money. <span class='hl'>A cap table measures ownership over time, and its unit is percentage, not dollars</span>. The figure that decides what your investment is ultimately worth is not the cheque you wrote; it is your fully diluted ownership at exit, the slice you still hold after every subsequent round has re-cut the pie. As the investor-side <a class='ref' href='the-cap-table.html'>cap-table piece</a> puts it, every financing rewrites the ledger, so the discipline is to think in the percentage you will keep, not the dollars you put in." data-zh="先做一個心態切換。P&L 衡量「一段期間的表現」、資產負債表衡量「某一刻的狀態」，兩者都以金錢計價。<span class='hl'>Cap table 衡量的是「一段時間裡的所有權」，而它的單位是百分比，不是金額</span>。真正決定你這筆投資最後值多少的數字，不是你開出的那張支票，而是你在出場時的「完全稀釋後持股」：在後續每一輪都重切過餅之後，你仍握有的那一塊。如同投資人那一側的〈<a class='ref' href='the-cap-table.html'>股權表</a>〉所說，每一次募資都重寫這份總帳，所以紀律是：用「你會留下的百分比」來思考，而不是「你投進去的金額」。">Start with the mental switch. A P&L measures performance over a period and a balance sheet measures position at a moment, both denominated in money. <span class='hl'>A cap table measures ownership over time, and its unit is percentage, not dollars</span>. The figure that decides what your investment is ultimately worth is not the cheque you wrote; it is your fully diluted ownership at exit, the slice you still hold after every subsequent round has re-cut the pie. As the investor-side <a class="ref" href="the-cap-table.html">cap-table piece</a> puts it, every financing rewrites the ledger, so the discipline is to think in the percentage you will keep, not the dollars you put in.</p>
+
+  <h2 data-en="Surprise one: the SAFEs you cannot see yet" data-zh="意外一：你還看不見的那些 SAFE">Surprise one: the SAFEs you cannot see yet</h2>
+  <p data-en="The first surprise is that the cap table in front of you may be quietly incomplete. Much early money now comes in as a <a class='ref' href='https://www.ycombinator.com/documents' target='_blank' rel='noopener'>SAFE</a>, a promise to issue shares at the next priced round rather than shares today. <span class='hl'>SAFEs do not show up as equity on the cap table until they convert</span>, so a company can look cleanly owned while carrying a stack of them that will all turn into shares at once. When several SAFEs at different caps convert together at the Series A, the dilution they create can be materially larger than a quick glance suggests. The finance-literate move is to ask for the post-conversion, fully diluted table, not the tidy one." data-zh="第一個意外是：你眼前這張 cap table，可能悄悄是不完整的。如今很多早期資金，是以 <a class='ref' href='https://www.ycombinator.com/documents' target='_blank' rel='noopener'>SAFE</a> 的形式進來：一個「在下一輪定價募資時才發股份」、而非「今天就給股份」的承諾。<span class='hl'>SAFE 在轉換之前，不會以股權的形式出現在 cap table 上</span>，所以一家公司可以看起來持股很乾淨，實際上卻揹著一疊「將會在某一刻一次全部變成股份」的 SAFE。當好幾張不同上限（cap）的 SAFE，在 Series A 一起轉換，它們造成的稀釋，可能比你快速一瞥所以為的，要大上許多。懂財務的做法是：要那張「轉換後、完全稀釋」的表，而不是那張乾淨好看的。">The first surprise is that the cap table in front of you may be quietly incomplete. Much early money now comes in as a <a class="ref" href="https://www.ycombinator.com/documents" target="_blank" rel="noopener">SAFE</a>, a promise to issue shares at the next priced round rather than shares today. <span class='hl'>SAFEs do not show up as equity on the cap table until they convert</span>, so a company can look cleanly owned while carrying a stack of them that will all turn into shares at once. When several SAFEs at different caps convert together at the Series A, the dilution they create can be materially larger than a quick glance suggests. The finance-literate move is to ask for the post-conversion, fully diluted table, not the tidy one.</p>
+
+  <h2 data-en="Surprise two: the option-pool shuffle" data-zh="意外二：選擇權池的乾坤大挪移">Surprise two: the option-pool shuffle</h2>
+  <p data-en="The second surprise is a piece of standard structuring that quietly moves value, and a P&L reader spots the trick immediately once it is named. At a priced round, a new or expanded employee option pool is usually created out of the pre-money valuation. <span class='hl'>That means the pool dilutes the existing holders, not the incoming investor, even though it exists to hire the company's future team</span>. A larger pool demanded before the round is, in plain terms, a price cut disguised as a governance detail. You do not have to refuse it; you just have to see it, price it, and know that the headline valuation is not the whole negotiation." data-zh="第二個意外，是一個「悄悄移動價值」的標準結構手法，而一個會看 P&L 的人，一旦這把戲被點名，立刻就看穿。在一輪定價募資裡，新的、或擴大的員工選擇權池，通常是從「投前估值」裡切出來的。<span class='hl'>這意味著，這個池子稀釋的是現有股東，而不是進場的新投資人，即便它存在的目的，是為了招募公司未來的團隊</span>。一個「在募資前就被要求要更大」的池子，講白了，就是一次「偽裝成治理細節的降價」。你不必拒絕它，你只需要看見它、替它定價，並知道：那個頭條估值，不是談判的全部。">The second surprise is a piece of standard structuring that quietly moves value, and a P&L reader spots the trick immediately once it is named. At a priced round, a new or expanded employee option pool is usually created out of the pre-money valuation. <span class='hl'>That means the pool dilutes the existing holders, not the incoming investor, even though it exists to hire the company's future team</span>. A larger pool demanded before the round is, in plain terms, a price cut disguised as a governance detail. You do not have to refuse it; you just have to see it, price it, and know that the headline valuation is not the whole negotiation.</p>
+
+  <div class="conv">
+    <div class="conv-t" data-en="Where the dilution at the next round actually goes" data-zh="下一輪的稀釋，實際上跑去哪了">Where the dilution at the next round actually goes</div>
+    <div class="conv-s" data-en="An illustrative Series A. The existing holders are diluted by three things, and only one of them is the new investor everyone is looking at." data-zh="一個示意的 Series A。現有股東被三樣東西稀釋，而其中只有一樣，是大家盯著看的那個新投資人。">An illustrative Series A. The existing holders are diluted by three things, and only one of them is the new investor everyone is looking at.</div>
+    <div class="conv-bar">
+      <div class="conv-seg keep" style="flex:0 0 60%" data-en="Existing holders 60%" data-zh="現有股東 60%">Existing holders 60%</div>
+      <div class="conv-seg new" style="flex:0 0 20%" data-en="20%" data-zh="20%">20%</div>
+      <div class="conv-seg safe" style="flex:0 0 12%" data-en="12%" data-zh="12%">12%</div>
+      <div class="conv-seg pool" style="flex:0 0 8%" data-en="8%" data-zh="8%">8%</div>
+    </div>
+    <div class="conv-leg">
+      <span><i style="background:linear-gradient(180deg,#FF7A1A,#E05500)"></i><span data-en="New investor (visible)" data-zh="新投資人（看得見）">New investor (visible)</span></span>
+      <span><i style="background:#9C7339"></i><span data-en="Converting SAFEs (hidden)" data-zh="轉換中的 SAFE（隱藏）">Converting SAFEs (hidden)</span></span>
+      <span><i style="background:#5F574A"></i><span data-en="New option pool (hidden)" data-zh="新選擇權池（隱藏）">New option pool (hidden)</span></span>
+    </div>
+    <div class="conv-note" data-en="The new investor everyone negotiates with is 20% of the dilution. <b>The SAFEs and the pool, the parts you cannot see on the tidy cap table, are another 20%</b>, so half the dilution is the invisible half." data-zh="大家拿來談判的那個新投資人，是稀釋的 20%。<b>SAFE 與選擇權池，也就是你在那張乾淨 cap table 上看不到的部分，又是另外 20%</b>，所以有一半的稀釋，是看不見的那一半。">The new investor everyone negotiates with is 20% of the dilution. <b>The SAFEs and the pool, the parts you cannot see on the tidy cap table, are another 20%</b>, so half the dilution is the invisible half.</div>
+    <div class="dsource" data-en="Illustrative; mechanics per Y Combinator SAFE and standard option-pool practice. See also Valuation and Dilution" data-zh="示意數字；機制依 Y Combinator SAFE 與標準選擇權池做法。亦見〈估值與稀釋〉">Illustrative; mechanics per Y Combinator SAFE and standard option-pool practice. See also Valuation and Dilution</div>
+  </div>
+
+  <h2 data-en="Surprise three: dilution compounds, like interest" data-zh="意外三：稀釋會複利，就像利息">Surprise three: dilution compounds, like interest</h2>
+  <p data-en="The third surprise is the one your financial intuition is actually best equipped to grasp, once it is framed correctly: dilution compounds. Each round multiplies your ownership by a fraction, and those fractions stack the way compound interest does, just in the wrong direction for you. <span class='hl'>A 2% stake at seed is not a 2% stake at exit; after two or three more rounds it may be well under half that</span>, even though you did nothing wrong. This is not a reason to fear dilution, which is the normal cost of a company raising the capital to grow. It is a reason to underwrite the outcome on your likely final percentage, and to understand that following on in later rounds is how an investor defends a slice they believe in against the compounding." data-zh="第三個意外，反而是你的財務直覺最有能力一把抓住的，只要框對：稀釋會複利。每一輪，都把你的持股乘上一個分數，而這些分數疊加的方式，就跟複利一樣，只是方向對你來說是錯的。<span class='hl'>種子輪的 2% 持股，不等於出場時的 2%；再過兩三輪，它可能遠低於那個數字的一半</span>，即便你什麼都沒做錯。這不是「害怕稀釋」的理由，稀釋是一家公司為了成長而募資的正常代價。它是一個提醒：用你「最可能的最終百分比」來審視結果，並理解，後續輪次的跟投（follow on），正是一個投資人「替自己相信的那一塊，抵抗複利侵蝕」的方式。">The third surprise is the one your financial intuition is actually best equipped to grasp, once it is framed correctly: dilution compounds. Each round multiplies your ownership by a fraction, and those fractions stack the way compound interest does, just in the wrong direction for you. <span class='hl'>A 2% stake at seed is not a 2% stake at exit; after two or three more rounds it may be well under half that</span>, even though you did nothing wrong. This is not a reason to fear dilution, which is the normal cost of a company raising the capital to grow. It is a reason to underwrite the outcome on your likely final percentage, and to understand that following on in later rounds is how an investor defends a slice they believe in against the compounding.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="The cap table is not harder than the statements you already master; it simply answers a different question, ownership over time rather than money in a period. Hold three things and you are ahead of most first-time investors: ask for the fully diluted table after SAFEs convert, price the option pool as the pre-money cost it really is, and underwrite every deal on the percentage you expect to hold at exit, not the one you buy today. <span class='hl'>Your financial fluency is a genuine advantage here; it just needs pointing at the slice instead of the dollars</span>. With the mechanics in hand, the remaining question is the one the next piece takes up: across a whole portfolio, how many of these slices should you buy, and how big." data-zh="Cap table 並不比你早已精通的那些報表更難，它只是回答一個不同的問題：是「一段時間裡的所有權」，而不是「一段期間裡的金錢」。握住三件事，你就領先多數第一次投資的人：要一張「SAFE 轉換後、完全稀釋」的表、把選擇權池當成它真正的「投前成本」來定價、並且用「你預期出場時握有的百分比」來審每一筆案子，而不是你今天買到的那個。<span class='hl'>你的財務素養在這裡是真實的優勢，它只需要被指向那一塊餅，而不是那些金額</span>。機制握在手上之後，剩下的問題，正是下一篇要處理的：在整個投資組合裡，這樣的餅，你該買幾塊、每塊多大。">The cap table is not harder than the statements you already master; it simply answers a different question, ownership over time rather than money in a period. Hold three things and you are ahead of most first-time investors: ask for the fully diluted table after SAFEs convert, price the option pool as the pre-money cost it really is, and underwrite every deal on the percentage you expect to hold at exit, not the one you buy today. <span class='hl'>Your financial fluency is a genuine advantage here; it just needs pointing at the slice instead of the dollars</span>. With the mechanics in hand, the remaining question is the one the next piece takes up: across a whole portfolio, how many of these slices should you buy, and how big.</p>
+
+  <div class="cta">
+    <h3 data-en="Get the mechanics handled for you" data-zh="讓機制有人替你打理">Get the mechanics handled for you</h3>
+    <p data-en="EvoScale Capital is a B2B investing syndicate where the cap-table mechanics, SAFE conversions and pool maths are handled by people who have done it many times, so you can lead with judgement. If that appeals, we'd be glad to talk." data-zh="EvoScale Capital 是一個 B2B 投資 syndicate，cap table 機制、SAFE 轉換、選擇權池算術，都由一群「做過很多次的人」處理，讓你能用判斷力領頭。如果這對你有吸引力，我們很樂意聊聊。">EvoScale Capital is a B2B investing syndicate where the cap-table mechanics, SAFE conversions and pool maths are handled by people who have done it many times, so you can lead with judgement. If that appeals, we'd be glad to talk.</p>
+    <a class="cta-btn" href="../index.html" data-en="About EvoScale →" data-zh="認識 EvoScale →">About EvoScale →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem" data-en="The operator track" data-zh="經營者系列">The operator track</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="from-operator-to-investor.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="From Operator to Investor" data-zh="從 Operator 到投資人">From Operator to Investor</span></a>
+      <a href="what-your-network-is-worth.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="What Your Network Is Worth" data-zh="你的人脈值多少">What Your Network Is Worth</span></a>
+      <a href="the-operators-edge.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Edge and Its Traps" data-zh="優勢與三個陷阱">The Edge and Its Traps</span></a>
+      <a href="the-buyers-eye.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Reading With a Buyer's Eye" data-zh="用買方的眼睛讀案">Reading With a Buyer's Eye</span></a>
+      <a href="fake-enterprise-traction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Spotting Fake Traction" data-zh="看穿假牽引力">Spotting Fake Traction</span></a>
+      <a href="underwrite-the-people.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Underwrite the People" data-zh="先看人">Underwrite the People</span></a>
+      <a href="cap-table-for-operators.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Cap Tables & SAFEs" data-zh="Cap table 與 SAFE">Cap Tables & SAFEs</span></a>
+      <a href="the-cap-table.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">↗</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Cap Table (investor)" data-zh="股權表（投資人）">The Cap Table (investor)</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only. */
+</script>
+</body>
+</html>

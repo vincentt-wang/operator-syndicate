@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Many Bets, How Big: Portfolio Math for the Part-Time Angel | EvoScale Capital</title>
+<meta name="description" content="The eighth article in a series for senior B2B operators learning to invest. Your operating instinct is to find the one big bet and pour everything in. In a startup portfolio that instinct is the dominated strategy. The power-law math of how many bets, and how big.">
+<meta name="keywords" content="angel portfolio construction, how many startups to invest in, power law investing, shots on goal, diversification angel investing, part-time angel, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/how-many-bets.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Many Bets, How Big: Portfolio Math for the Part-Time Angel">
+<meta property="og:description" content="Your operating instinct is one big bet. In a startup portfolio that is the dominated strategy. The power-law math of how many bets, and how big.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/how-many-bets.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Many Bets, How Big: Portfolio Math for the Part-Time Angel">
+<meta name="twitter:description" content="In a startup portfolio, one big bet is the dominated strategy. The power-law math of how many bets, and how big.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How Many Bets, How Big: Portfolio Math for the Part-Time Angel","description":"Your operating instinct is to find the one big bet and pour everything in. In a startup portfolio that instinct is the dominated strategy. The power-law math of how many bets, and how big.","datePublished":"2026-06-14","dateModified":"2026-06-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/how-many-bets.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Venture","wordCount":1650,"citation":["AngelList — power-law returns data","Kauffman Fellows — seed portfolio performance"],"keywords":"angel portfolio construction, how many startups to invest in, power law investing, shots on goal, diversification"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--orange-d:#E05500;--red:#B0593A;--navy:#1B1714;--ink:#243244;--mut:#5E6E80;--bg:#F3EAD9;--bg-2:#FBF6EA;--border:#E9DFCB;--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:rgba(243,234,217,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange-d);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:var(--navy);margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:var(--navy)!important;margin-bottom:2rem;font-weight:500}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:var(--navy);margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:var(--ink);margin-bottom:1.3rem}
+article strong{color:var(--navy)}
+.ref{color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(224,85,0,.32)}
+figure{margin:2.4rem 0}figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* shots vs odds of an outlier */
+.odds{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.odds-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem}
+.odds-s{font-size:1rem;color:var(--mut);margin-bottom:1.6rem;line-height:1.5}
+.od-row{display:grid;grid-template-columns:5.6rem 1fr;align-items:center;gap:1rem;margin-bottom:.75rem}
+.od-n{font-weight:700;color:var(--navy);font-size:1rem;text-align:right}
+.od-track{background:rgba(120,100,60,.1);border-radius:7px;height:36px;overflow:hidden}
+.od-fill{height:100%;background:linear-gradient(90deg,#FF8C42,#E05500);border-radius:7px;display:flex;align-items:center;justify-content:flex-end;padding:0 .7rem;color:#fff;font-weight:800;font-size:1rem;white-space:nowrap}
+.odds-note{font-size:1rem;color:var(--ink);margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--border);line-height:1.55}
+.odds-note b{color:var(--orange-d)}
+.dsource{font-size:1rem;color:#9a8f78;margin-top:1.2rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.08),rgba(255,102,0,.02));border:1px solid rgba(255,102,0,.25);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:var(--ink);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:var(--navy);font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+.hl{background:linear-gradient(180deg,transparent 12%,#F8D29E 12%,#F8D29E 90%,transparent 90%);color:#3a2a12;font-weight:600;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · For Operators" data-zh="觀點 · 給經營者">Insights · For Operators</div>
+  <h1 data-en="How Many Bets, How Big: Portfolio Math for the Part-Time Angel" data-zh="押幾注、每注多大：兼職天使的投資組合數學">How Many Bets, How Big: Portfolio Math for the Part-Time Angel</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="Your operating instinct is to find the one bet you believe in and pour everything into making it work. It is the instinct that built your career, and in a portfolio of startups it is the wrong one. <span class='hl'>Early-stage investing runs on a power law, where most bets return little and a tiny few return everything</span>, and that single fact inverts how an operator should think about concentration. The questions are how many bets to make and how big each should be, and the answers are specific, a little counterintuitive, and very much in your favour once you see them." data-zh="你的營運直覺，是找到那個你深信的賭注，然後把一切都倒進去、讓它成功。這是建立你職涯的那個直覺，而在一個由新創組成的投資組合裡，它是錯的那一個。<span class='hl'>早期投資跑的是冪次法則：多數賭注回報甚少，極少數回報一切</span>，而這單一事實，顛覆了一個營運者該怎麼看「集中」。問題是「該押幾注、每注該多大」，而答案，是具體的、有點反直覺的，而且一旦你看懂，會非常對你有利。">Your operating instinct is to find the one bet you believe in and pour everything into making it work. It is the instinct that built your career, and in a portfolio of startups it is the wrong one. <span class='hl'>Early-stage investing runs on a power law, where most bets return little and a tiny few return everything</span>, and that single fact inverts how an operator should think about concentration. The questions are how many bets to make and how big each should be, and the answers are specific, a little counterintuitive, and very much in your favour once you see them.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Many small shots on goal, one of them lighting up">
+      <rect width="720" height="220" fill="#FBF6EA"/>
+      <g fill="none" stroke="#C9BDA3" stroke-width="3">
+        <circle cx="90" cy="70" r="15"/><circle cx="150" cy="120" r="15"/><circle cx="120" cy="170" r="15"/>
+        <circle cx="210" cy="60" r="15"/><circle cx="250" cy="140" r="15"/><circle cx="200" cy="180" r="15"/>
+        <circle cx="320" cy="90" r="15"/><circle cx="370" cy="160" r="15"/>
+        <circle cx="440" cy="70" r="15"/><circle cx="490" cy="130" r="15"/><circle cx="450" cy="185" r="15"/>
+        <circle cx="560" cy="100" r="15"/><circle cx="610" cy="170" r="15"/>
+      </g>
+      <circle cx="300" cy="120" r="26" fill="rgba(255,102,0,.18)" stroke="#FF6600" stroke-width="4"/>
+      <text x="640" y="60" text-anchor="end" fill="#E05500" font-family="'DM Sans',sans-serif" font-size="15" font-weight="700" data-en="you don't know which one" data-zh="你不知道是哪一個">you don't know which one</text>
+    </svg>
+    <figcaption data-en="You cannot pick the outlier in advance, so the strategy is to take enough shots that you are holding it when it appears." data-zh="你無法事先選中那個離群值，所以策略是：射出足夠多的球，好讓它出現時，它正握在你手上。">You cannot pick the outlier in advance, so the strategy is to take enough shots that you are holding it when it appears.</figcaption>
+  </figure>
+
+  <h2 data-en="The power law, for the new investor" data-zh="冪次法則，給新手投資人">The power law, for the new investor</h2>
+  <p data-en="The shape of startup returns is not a bell curve; it is a power law. A large majority of investments return less than the money put in, and a very small number return many multiples, such that as the <a class='ref' href='power-law-startup-investing.html'>power-law piece</a> details, roughly the top few percent of outcomes drive the great majority of all returns. <span class='hl'>The whole game is being in the handful of deals that carry everything</span>. And the uncomfortable companion fact is that you cannot reliably pick them in advance; even professional investors' own ex-ante enthusiasm correlates only weakly with which deals become outliers. If you cannot identify the winner, the only way to own it is to hold enough bets that one of them is it." data-zh="新創報酬的形狀，不是一條鐘形曲線，而是一條冪次曲線。絕大多數投資，回報少於投進去的錢，而極少數，回報好幾倍，以致於如同〈<a class='ref' href='power-law-startup-investing.html'>冪次法則</a>〉一文所詳述的，大約最頂端那幾個百分點的結果，驅動了幾乎全部的報酬。<span class='hl'>整場遊戲，就是要待在那「扛起一切」的少數幾個案子裡</span>。而那個讓人不舒服的伴隨事實是：你無法事先可靠地選中它們，連職業投資人自己事前的熱情，與「哪些案子會變成離群值」的相關性，都很弱。如果你選不出贏家，唯一能擁有它的方式，就是握住足夠多的賭注，好讓其中一個，就是它。">The shape of startup returns is not a bell curve; it is a power law. A large majority of investments return less than the money put in, and a very small number return many multiples, such that as the <a class="ref" href="power-law-startup-investing.html">power-law piece</a> details, roughly the top few percent of outcomes drive the great majority of all returns. <span class='hl'>The whole game is being in the handful of deals that carry everything</span>. And the uncomfortable companion fact is that you cannot reliably pick them in advance; even professional investors' own ex-ante enthusiasm correlates only weakly with which deals become outliers. If you cannot identify the winner, the only way to own it is to hold enough bets that one of them is it.</p>
+
+  <h2 data-en="Why concentration is the operator's trap" data-zh="為什麼「集中」是經營者的陷阱">Why concentration is the operator's trap</h2>
+  <p data-en="This is where your greatest operating strength becomes a liability. You built one company by concentrating everything on it and willing it to work through effort and judgement. <span class='hl'>Investing removes the lever you relied on, because you cannot operate the twenty companies you back</span>; your effort cannot rescue a concentrated bet that the market does not want. An operator's natural move, a big cheque into the one founder they are sure about, is precisely the strategy the power law punishes, since being sure is worth little when the winners are unpredictable. The counterintuitive truth is that breadth, not conviction, is the discipline that wins here, and resisting the urge to go big on the one you 'know' is most of the skill." data-zh="這正是你最大的營運強項變成負債的地方。你打造一家公司，靠的是把一切都集中在它身上，並用努力與判斷力，硬是把它推到成功。<span class='hl'>投資，拿走了你倚賴的那根槓桿，因為你沒辦法去經營你投的那二十家公司</span>；你的努力，救不了一個「市場並不想要」的集中賭注。一個營運者的自然動作，也就是「對著那個他最有把握的創辦人，開一張大支票」，恰恰是冪次法則會懲罰的策略，因為當贏家無法預測時，「有把握」值不了多少。反直覺的真相是：在這裡，廣度、而非信念，才是致勝的紀律，而「忍住『對你最懂的那一個下重注』的衝動」，就是這門技能的大部分。">This is where your greatest operating strength becomes a liability. You built one company by concentrating everything on it and willing it to work through effort and judgement. <span class='hl'>Investing removes the lever you relied on, because you cannot operate the twenty companies you back</span>; your effort cannot rescue a concentrated bet that the market does not want. An operator's natural move, a big cheque into the one founder they are sure about, is precisely the strategy the power law punishes, since being sure is worth little when the winners are unpredictable. The counterintuitive truth is that breadth, not conviction, is the discipline that wins here, and resisting the urge to go big on the one you 'know' is most of the skill.</p>
+
+  <div class="odds">
+    <div class="odds-t" data-en="More shots, better odds of holding the outlier" data-zh="更多球，更高機率握住那個離群值">More shots, better odds of holding the outlier</div>
+    <div class="odds-s" data-en="If roughly one in fourteen early bets becomes a true outlier, the chance that at least one of yours does climbs steeply with the number of bets you hold." data-zh="如果大約每十四個早期賭注，會有一個變成真正的離群值，那麼「你的賭注裡至少有一個中」的機率，會隨著你握有的注數，陡峭地往上爬。">If roughly one in fourteen early bets becomes a true outlier, the chance that at least one of yours does climbs steeply with the number of bets you hold.</div>
+    <div class="od-row"><div class="od-n" data-en="3 bets" data-zh="3 注">3 bets</div><div class="od-track"><div class="od-fill" style="width:20%" data-en="~20%" data-zh="約 20%">~20%</div></div></div>
+    <div class="od-row"><div class="od-n" data-en="10 bets" data-zh="10 注">10 bets</div><div class="od-track"><div class="od-fill" style="width:52%" data-en="~52%" data-zh="約 52%">~52%</div></div></div>
+    <div class="od-row"><div class="od-n" data-en="20 bets" data-zh="20 注">20 bets</div><div class="od-track"><div class="od-fill" style="width:77%" data-en="~77%" data-zh="約 77%">~77%</div></div></div>
+    <div class="od-row"><div class="od-n" data-en="30 bets" data-zh="30 注">30 bets</div><div class="od-track"><div class="od-fill" style="width:89%" data-en="~89%" data-zh="約 89%">~89%</div></div></div>
+    <div class="odds-note" data-en="Breadth is not only about catching the winner. In portfolio data, <b>each additional investment also adds roughly 9 basis points of annual return</b>, so a wider portfolio tends to do better on the median, not just the jackpot." data-zh="廣度，不只是為了抓到贏家。在投資組合數據裡，<b>每多一筆投資，大約還會增加 9 個基點的年化報酬</b>，所以一個更廣的組合，傾向於連「中位數」都更好，而不只是中頭獎。">Breadth is not only about catching the winner. In portfolio data, <b>each additional investment also adds roughly 9 basis points of annual return</b>, so a wider portfolio tends to do better on the median, not just the jackpot.</div>
+    <div class="dsource" data-en="Illustrative odds assume ~7% of bets are outliers; return figure per AngelList / Kauffman Fellows data. See also The Power Law" data-zh="示意機率假設約 7% 的賭注為離群值；報酬數字依 AngelList／Kauffman Fellows 數據。亦見〈冪次法則〉">Illustrative odds assume ~7% of bets are outliers; return figure per AngelList / Kauffman Fellows data. See also The Power Law</div>
+  </div>
+
+  <h2 data-en="So how many, and how big" data-zh="那麼，幾注、每注多大">So how many, and how big</h2>
+  <p data-en="Put the pieces together and a shape emerges. You want enough bets that catching an outlier is likely rather than lucky, which points to a portfolio counted in the dozens rather than the handful, built up steadily rather than all at once. You want each cheque small enough that no single loss hurts, because most will lose and that has to be survivable by design. <span class='hl'>Consistent small bets across many companies beat a few large bets into your favourites</span>, every time the power law is in play. There is even a counterintuitive footnote on follow-on: for a small investor, the data suggests a fresh shot on a new company often does more than doubling down to defend ownership in an existing one, so reserves matter less early than simply taking more swings, a theme the investor-side <a class='ref' href='startup-portfolio-construction.html'>portfolio piece</a> develops." data-zh="把這些拼起來，一個形狀浮現了。你會想要「足夠多的注」，好讓「抓到離群值」是「很可能」、而不是「靠運氣」，這指向一個「以幾十為單位、而非以個位數為單位」的組合，而且是穩定地慢慢建起來，不是一次全押。你會想要「每一張支票都小到，任何單一一次虧損都不會傷到你」，因為多數會賠，而這件事必須在設計上就能撐過去。<span class='hl'>跨許多家公司的、一致的小注，每一次只要冪次法則在場，都勝過對著你的最愛下的幾個大注</span>。關於跟投，甚至還有一個反直覺的註腳：對一個小投資人而言，數據顯示，「對一家新公司射出一球」，往往比「加碼去捍衛一家既有公司的持股」做得更多，所以在早期，「保留加碼金」的重要性，不如「單純地多揮幾棒」，這個主題，投資人那一側的〈<a class='ref' href='startup-portfolio-construction.html'>投資組合</a>〉一文有進一步的展開。">Put the pieces together and a shape emerges. You want enough bets that catching an outlier is likely rather than lucky, which points to a portfolio counted in the dozens rather than the handful, built up steadily rather than all at once. You want each cheque small enough that no single loss hurts, because most will lose and that has to be survivable by design. <span class='hl'>Consistent small bets across many companies beat a few large bets into your favourites</span>, every time the power law is in play. There is even a counterintuitive footnote on follow-on: for a small investor, the data suggests a fresh shot on a new company often does more than doubling down to defend ownership in an existing one, so reserves matter less early than simply taking more swings, a theme the investor-side <a class="ref" href="startup-portfolio-construction.html">portfolio piece</a> develops.</p>
+
+  <h2 data-en="How a part-time investor actually gets breadth" data-zh="一個兼職投資人，實際上怎麼取得廣度">How a part-time investor actually gets breadth</h2>
+  <p data-en="The practical problem is that breadth is hard to build alone while holding a day job. Two or three dozen quality bets means sourcing, diligencing and administering two or three dozen deals, which is a full-time operation, not a side pursuit. <span class='hl'>This is the clearest reason a syndicate fits an operator entering investing: it delivers the breadth the power law demands without asking you to run two dozen separate diligence marathons</span>. You bring your judgement to the deals where your buyer's eye is sharp, and the structure supplies the diversification, the smaller cheque sizes and the flow, so the portfolio shape the maths calls for is actually achievable alongside the rest of your life." data-zh="實務上的問題是：一邊還有正職，一邊要獨自建立廣度，很難。兩三打高品質的賭注，意味著要去尋源、盡調、管理兩三打案子，那是一份全職工作，不是一個副業。<span class='hl'>這正是「syndicate 適合一個剛進投資的經營者」最清楚的理由：它提供冪次法則所要求的廣度，卻不要求你去跑兩三打個別的盡調馬拉松</span>。你把判斷力，帶到那些「你買方的眼睛最銳利」的案子上，而結構，供應分散、更小的支票金額、以及案源，於是那個「數學所要求的組合形狀」，真的能在你生活的其餘部分之外，被實現。">The practical problem is that breadth is hard to build alone while holding a day job. Two or three dozen quality bets means sourcing, diligencing and administering two or three dozen deals, which is a full-time operation, not a side pursuit. <span class='hl'>This is the clearest reason a syndicate fits an operator entering investing: it delivers the breadth the power law demands without asking you to run two dozen separate diligence marathons</span>. You bring your judgement to the deals where your buyer's eye is sharp, and the structure supplies the diversification, the smaller cheque sizes and the flow, so the portfolio shape the maths calls for is actually achievable alongside the rest of your life.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="How many bets, and how big: enough that catching an outlier is likely, each small enough that no single loss can hurt you, made consistently over time rather than concentrated in a few favourites. The power law rewards breadth and punishes the concentration your operating career taught you to trust, so the hardest and most valuable discipline is to spread your bets and resist going big on the one you are surest about. <span class='hl'>Conviction built companies; breadth builds portfolios</span>, and learning to switch between the two is one of the real shifts from operator to investor. With the mechanics and the maths in place, what remains is the practice itself: how a time-poor operator runs a disciplined investing process, which is where this series turns next." data-zh="幾注、每注多大：多到「抓到離群值」是很可能的、每注小到「任何單一虧損都傷不了你」、並且是「隨時間一致地做」、而不是「集中在幾個最愛上」。冪次法則獎賞廣度、懲罰你的營運生涯教你去信任的那種集中，所以最難、也最有價值的紀律，是把賭注鋪開，並忍住「對你最有把握的那一個下重注」。<span class='hl'>信念，建起公司；廣度，建起投資組合</span>，而學會在兩者之間切換，正是「從經營者到投資人」真正的轉變之一。機制與數學都就位之後，剩下的，是實務本身：一個時間稀缺的經營者，怎麼跑一套有紀律的投資流程，而這，正是這個系列接下來要轉向的地方。">How many bets, and how big: enough that catching an outlier is likely, each small enough that no single loss can hurt you, made consistently over time rather than concentrated in a few favourites. The power law rewards breadth and punishes the concentration your operating career taught you to trust, so the hardest and most valuable discipline is to spread your bets and resist going big on the one you are surest about. <span class='hl'>Conviction built companies; breadth builds portfolios</span>, and learning to switch between the two is one of the real shifts from operator to investor. With the mechanics and the maths in place, what remains is the practice itself: how a time-poor operator runs a disciplined investing process, which is where this series turns next.</p>
+
+  <div class="cta">
+    <h3 data-en="Build the breadth the maths calls for" data-zh="建起數學所要求的那份廣度">Build the breadth the maths calls for</h3>
+    <p data-en="EvoScale Capital is a B2B investing syndicate built to give operators portfolio breadth without a full-time deal operation, so you can spread small, smart bets across many companies. If that is the shape you want, we'd be glad to talk." data-zh="EvoScale Capital 是一個 B2B 投資 syndicate，正是為了讓經營者「不必跑一個全職的案子作業，也能取得投資組合的廣度」而建，讓你能把小而精明的賭注，鋪在許多家公司上。如果這就是你要的形狀，我們很樂意聊聊。">EvoScale Capital is a B2B investing syndicate built to give operators portfolio breadth without a full-time deal operation, so you can spread small, smart bets across many companies. If that is the shape you want, we'd be glad to talk.</p>
+    <a class="cta-btn" href="../index.html" data-en="About EvoScale →" data-zh="認識 EvoScale →">About EvoScale →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.1rem" data-en="The operator track" data-zh="經營者系列">The operator track</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="from-operator-to-investor.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="From Operator to Investor" data-zh="從 Operator 到投資人">From Operator to Investor</span></a>
+      <a href="what-your-network-is-worth.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="What Your Network Is Worth" data-zh="你的人脈值多少">What Your Network Is Worth</span></a>
+      <a href="the-operators-edge.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Edge and Its Traps" data-zh="優勢與三個陷阱">The Edge and Its Traps</span></a>
+      <a href="the-buyers-eye.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Reading With a Buyer's Eye" data-zh="用買方的眼睛讀案">Reading With a Buyer's Eye</span></a>
+      <a href="fake-enterprise-traction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Spotting Fake Traction" data-zh="看穿假牽引力">Spotting Fake Traction</span></a>
+      <a href="underwrite-the-people.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Underwrite the People" data-zh="先看人">Underwrite the People</span></a>
+      <a href="cap-table-for-operators.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Cap Tables & SAFEs" data-zh="Cap table 與 SAFE">Cap Tables & SAFEs</span></a>
+      <a href="how-many-bets.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">08</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="How Many Bets" data-zh="押幾注">How Many Bets</span></a>
+      <a href="startup-portfolio-construction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:1rem">↗</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Portfolio Construction" data-zh="投資組合建構">Portfolio Construction</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange-d);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only. */
+</script>
+</body>
+</html>
