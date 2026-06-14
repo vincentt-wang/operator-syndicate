@@ -8,3 +8,6 @@ memory.md
 
 # 本地品牌素材（logo 產出檔，本機使用，不上線）
 brand/
+
+# 內部評案輸出（機密：第三方 deck＋內部決策報告）— 絕不上傳 public repo
+Review/
