@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Cap Table: Who Owns What, Over Time | EvoScale Capital</title>
+<meta name="description" content="The tenth article in a series on learning to invest in B2B. A cap table is the company's ownership ledger, and every round rewrites it. How to read one, how dilution compounds across rounds, and why a clean cap table is an asset in itself.">
+<meta name="keywords" content="cap table explained, capitalization table, ownership over rounds, dilution, fully diluted, clean cap table, startup investing, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/the-cap-table.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Cap Table: Who Owns What, Over Time">
+<meta property="og:description" content="A cap table is the company's ownership ledger, and every round rewrites it. How to read one, and why a clean cap table is an asset in itself.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/the-cap-table.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Cap Table: Who Owns What, Over Time">
+<meta name="twitter:description" content="How to read a cap table, how dilution compounds across rounds, and why a clean one is an asset.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"The Cap Table: Who Owns What, Over Time","description":"A cap table is the company's ownership ledger, and every round rewrites it. How to read one, how dilution compounds across rounds, and why a clean cap table is an asset in itself.","datePublished":"2026-06-14","dateModified":"2026-06-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/the-cap-table.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Venture","wordCount":1700,"citation":["Carta — cap table management","Y Combinator"],"keywords":"cap table explained, ownership over rounds, dilution, fully diluted, clean cap table"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--navy:#1B1714;--navy-2:#262019;--ink:#E8EDF2;--mut:#9FB0C3;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:#fff}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:#fff;margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:#fff!important;margin-bottom:2rem}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:#fff;margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:rgba(232,237,242,.88);margin-bottom:1.3rem}
+article strong{color:#fff}
+.ref{color:var(--orange-2);text-decoration:none;border-bottom:1px solid rgba(255,140,66,.35)}
+figure{margin:2.4rem 0}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--navy-2)}
+figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* dilution across rounds */
+.rounds{background:var(--navy-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.rounds-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:.35rem}
+.rounds-s{font-size:1rem;color:var(--mut);margin-bottom:1.7rem;line-height:1.5}
+.rnd{margin-bottom:1.05rem}
+.rnd-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.rnd-label .nm{font-weight:700;color:#fff;font-size:1.02rem}
+.rnd-label .yr{font-size:1rem;color:var(--mut)}
+.rnd-bar{display:flex;height:38px;border-radius:8px;overflow:hidden}
+.rnd-seg{display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:#fff;overflow:hidden}
+.rnd-seg.you{background:linear-gradient(180deg,#FF7A1A,#E05500)}
+.legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.4rem;font-size:1rem;color:var(--mut)}
+.legend span{display:inline-flex;align-items:center;gap:.5rem}
+.legend i{width:13px;height:13px;border-radius:3px;display:inline-block}
+.rounds-note{font-size:1rem;color:var(--mut);margin-top:1.2rem;line-height:1.55}
+.rounds-note b{color:#fff}
+.dsource{font-size:1rem;color:#6E8197;margin-top:1.1rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.1),rgba(255,102,0,.03));border:1px solid rgba(255,102,0,.22);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:rgba(232,237,242,.82);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:#fff;font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.rnd-seg{font-size:.78rem}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · For Investors" data-zh="觀點 · 給投資人">Insights · For Investors</div>
+  <h1 data-en="The Cap Table: Who Owns What, Over Time" data-zh="股權表：誰擁有什麼，以及它怎麼演變">The Cap Table: Who Owns What, Over Time</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="If the term sheet is the plan, the cap table is the record. It is the single spreadsheet that says who owns what percentage of the company, and it is the document an investor lives inside for years. New investors often treat it as the founder's paperwork to be taken on trust. Experienced ones read it closely, because the cap table is where the consequences of every round, and every mistake, are written down in plain numbers." data-zh="如果 term sheet 是計畫，那麼股權表（cap table），就是那份記錄。它是那張「說明誰擁有公司多少比例」的單一試算表，也是一個投資人「住在裡面好幾年」的文件。新手投資人，常常把它當成「創辦人的文書工作」、憑信任收下。有經驗的投資人，會仔細讀它，因為股權表，正是「每一輪、以及每一個錯誤」的後果，被用樸素的數字寫下來的地方。">If the term sheet is the plan, the cap table is the record. It is the single spreadsheet that says who owns what percentage of the company, and it is the document an investor lives inside for years. New investors often treat it as the founder's paperwork to be taken on trust. Experienced ones read it closely, because the cap table is where the consequences of every round, and every mistake, are written down in plain numbers.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked layers, each round adding a new layer on top">
+      <rect width="720" height="220" fill="#262019"/>
+      <rect x="250" y="150" width="220" height="34" rx="5" fill="none" stroke="#5A5349" stroke-width="2.5"/>
+      <rect x="250" y="112" width="220" height="34" rx="5" fill="none" stroke="#5A5349" stroke-width="2.5"/>
+      <rect x="250" y="74" width="220" height="34" rx="5" fill="none" stroke="#7A7265" stroke-width="2.5"/>
+      <rect x="250" y="36" width="220" height="34" rx="5" fill="rgba(255,102,0,.18)" stroke="#FF6600" stroke-width="2.5"/>
+      <text x="500" y="58" fill="#FF8C42" font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" data-en="newest round" data-zh="最新一輪">newest round</text>
+      <text x="500" y="172" fill="#9FB0C3" font-family="'DM Sans',sans-serif" font-size="14" font-weight="600" data-en="the founding" data-zh="創立之初">the founding</text>
+    </svg>
+    <figcaption data-en="Every round adds a layer. The cap table is the whole stack, and reading it means seeing how each layer changed the ones beneath." data-zh="每一輪，都疊上一層。股權表，是整疊；讀它，意味著看見「每一層，怎麼改變了它底下的那些」。">Every round adds a layer. The cap table is the whole stack, and reading it means seeing how each layer changed the ones beneath.</figcaption>
+  </figure>
+
+  <h2 data-en="How a cap table changes, round by round" data-zh="股權表怎麼一輪一輪地變">How a cap table changes, round by round</h2>
+  <p data-en="A cap table starts simple, the founders and a pool of options for early hires, and grows more crowded with every financing. Each round adds new investors and, because their shares are newly created, dilutes everyone who came before in proportion. The right way to read ownership is always on a fully-diluted basis, counting all the options and convertibles as if they already existed, because that is the percentage that will actually hold when the dust settles. A founder quoting a number that ignores the option pool or an outstanding convertible note is, knowingly or not, quoting a percentage that is about to shrink." data-zh="一張股權表，一開始很簡單，創辦人、加上一個給早期員工的選擇權池，然後隨著每一次融資，變得越來越擁擠。每一輪，都加進新投資人，而因為他們的股份是「新創造出來的」，所以會按比例稀釋掉「之前的每一個人」。讀持股的正確方式，永遠是用「完全稀釋（fully-diluted）」基礎來看，把所有選擇權與可轉換證券，都當成「已經存在」那樣計入，因為那才是「塵埃落定時，真正會成立」的比例。一個「報出一個忽略了選擇權池、或一張在外可轉換票據」的數字的創辦人，無論有意無意，都是在報一個「即將縮水」的比例。">A cap table starts simple, the founders and a pool of options for early hires, and grows more crowded with every financing. Each round adds new investors and, because their shares are newly created, dilutes everyone who came before in proportion. The right way to read ownership is always on a fully-diluted basis, counting all the options and convertibles as if they already existed, because that is the percentage that will actually hold when the dust settles. A founder quoting a number that ignores the option pool or an outstanding convertible note is, knowingly or not, quoting a percentage that is about to shrink.</p>
+
+  <div class="rounds">
+    <div class="rounds-t" data-en="One seed stake, diluted across rounds" data-zh="一筆種子持股，在各輪中被稀釋">One seed stake, diluted across rounds</div>
+    <div class="rounds-s" data-en="Illustrative. Your 20% seed stake is not lost as the company raises; it becomes a smaller share of a much larger, more valuable whole." data-zh="示意。你那 20% 的種子持股，並沒有在公司募資時消失；它變成「一個大得多、也值錢得多的整體」裡，較小的一塊。">Illustrative. Your 20% seed stake is not lost as the company raises; it becomes a smaller share of a much larger, more valuable whole.</div>
+    <div class="rnd">
+      <div class="rnd-label"><span class="nm" data-en="Seed" data-zh="種子輪">Seed</span><span class="yr" data-en="your stake: 20%" data-zh="你的持股：20%">your stake: 20%</span></div>
+      <div class="rnd-bar"><div class="rnd-seg" style="width:62%;background:#3C4A5E" data-en="Founders" data-zh="創辦人">Founders</div><div class="rnd-seg" style="width:18%;background:#5A5349" data-en="Pool" data-zh="池">Pool</div><div class="rnd-seg you" style="width:20%">20%</div></div>
+    </div>
+    <div class="rnd">
+      <div class="rnd-label"><span class="nm" data-en="Series A" data-zh="A 輪">Series A</span><span class="yr" data-en="your stake: 14%" data-zh="你的持股：14%">your stake: 14%</span></div>
+      <div class="rnd-bar"><div class="rnd-seg" style="width:45%;background:#3C4A5E" data-en="Founders" data-zh="創辦人">Founders</div><div class="rnd-seg" style="width:15%;background:#5A5349" data-en="Pool" data-zh="池">Pool</div><div class="rnd-seg you" style="width:14%">14%</div><div class="rnd-seg" style="width:26%;background:#6E5B3A" data-en="Series A" data-zh="A 輪">Series A</div></div>
+    </div>
+    <div class="rnd">
+      <div class="rnd-label"><span class="nm" data-en="Series B" data-zh="B 輪">Series B</span><span class="yr" data-en="your stake: 10%" data-zh="你的持股：10%">your stake: 10%</span></div>
+      <div class="rnd-bar"><div class="rnd-seg" style="width:33%;background:#3C4A5E" data-en="Founders" data-zh="創辦人">Founders</div><div class="rnd-seg" style="width:13%;background:#5A5349" data-en="Pool" data-zh="池">Pool</div><div class="rnd-seg you" style="width:10%">10%</div><div class="rnd-seg" style="width:19%;background:#6E5B3A" data-en="A" data-zh="A">A</div><div class="rnd-seg" style="width:25%;background:#85714A" data-en="Series B" data-zh="B 輪">Series B</div></div>
+    </div>
+    <div class="legend"><span><i style="background:linear-gradient(180deg,#FF7A1A,#E05500)"></i><span data-en="Your seed stake" data-zh="你的種子持股">Your seed stake</span></span><span><i style="background:#3C4A5E"></i><span data-en="Founders" data-zh="創辦人">Founders</span></span><span><i style="background:#6E5B3A"></i><span data-en="Later rounds" data-zh="後續輪次">Later rounds</span></span></div>
+    <div class="rounds-note" data-en="<b>Your percentage falls, but the pie grows faster.</b> 10% of a company worth 20x more than at seed is the goal; the danger is not dilution itself, but dilution with nothing to show for it." data-zh="<b>你的比例下降，但餅長得更快。</b>持有「一家比種子時值 20 倍的公司」的 10%，正是目標所在；危險的不是稀釋本身，而是「稀釋了、卻沒換到任何東西」。"><b>Your percentage falls, but the pie grows faster.</b> 10% of a company worth 20x more than at seed is the goal; the danger is not dilution itself, but dilution with nothing to show for it.</div>
+    <div class="dsource" data-en="Illustrative model; mechanics per standard cap-table practice (Carta, Y Combinator)" data-zh="示意模型；機制依標準股權表實務（Carta、Y Combinator）">Illustrative model; mechanics per standard cap-table practice (Carta, Y Combinator)</div>
+  </div>
+
+  <h2 data-en="A clean cap table is an asset" data-zh="一張乾淨的股權表，本身就是資產">A clean cap table is an asset</h2>
+  <p data-en="Beyond the numbers, the shape of a cap table carries information, and a messy one is a genuine liability. Warning signs include a long tail of tiny shareholders from informal early deals, large blocks of 'dead equity' held by founders or advisors who left long ago, missing or sloppy paperwork, and unusual side letters granting special rights to one investor. None of these are fatal on their own, but together they slow or sink future rounds, because every serious later investor will inherit this structure and most will simply pass rather than untangle it. As an early investor you should care about this for a selfish reason: a cap table that scares off the next round is a direct threat to the value of your own stake." data-zh="在數字之外，一張股權表的「形狀」也帶著資訊，而一張亂的，是一個真實的負債。警訊包括：一條「來自非正式早期交易」的微小股東長尾、一大塊「死股」由「早就離開」的創辦人或顧問持有、遺失或草率的文書、以及「給某一個投資人特別權利」的不尋常側邊協議（side letter）。這些沒有任何一個單獨來看是致命的，但加在一起，會拖慢、甚至弄沉未來的輪次，因為每一個認真的後期投資人，都會「繼承」這個結構，而多數人會「乾脆放掉」、而不是去解開它。身為早期投資人，你應該為了一個自私的理由在意這件事：一張「嚇跑下一輪」的股權表，是對「你自己持股價值」的直接威脅。">Beyond the numbers, the shape of a cap table carries information, and a messy one is a genuine liability. Warning signs include a long tail of tiny shareholders from informal early deals, large blocks of 'dead equity' held by founders or advisors who left long ago, missing or sloppy paperwork, and unusual side letters granting special rights to one investor. None of these are fatal on their own, but together they slow or sink future rounds, because every serious later investor will inherit this structure and most will simply pass rather than untangle it. As an early investor you should care about this for a selfish reason: a cap table that scares off the next round is a direct threat to the value of your own stake.</p>
+  <p data-en="The good news is that a clean cap table is also easy to recognise: a tight list of real shareholders, a sensible option pool, complete and consistent paperwork, and no surprises buried in side agreements. When a founder runs their cap table on a proper platform and can produce a clear, fully-diluted view in minutes, it tells you something good about how they run the company, in the same way that a founder who can hand you honest cohort data does." data-zh="好消息是，一張乾淨的股權表，也很容易認得出來：一份精簡的「真實股東」名單、一個合理的選擇權池、完整而一致的文書，以及「沒有什麼藏在側邊協議裡的意外」。當一個創辦人，把股權表跑在一個像樣的平台上、並能在幾分鐘內，拿出一份清楚的完全稀釋視圖時，它告訴你一件「關於他怎麼經營公司」的好事，就跟「一個能遞給你誠實同群數據的創辦人」所告訴你的一樣。">The good news is that a clean cap table is also easy to recognise: a tight list of real shareholders, a sensible option pool, complete and consistent paperwork, and no surprises buried in side agreements. When a founder runs their cap table on a proper platform and can produce a clear, fully-diluted view in minutes, it tells you something good about how they run the company, in the same way that a founder who can hand you honest cohort data does.</p>
+
+  <h2 data-en="What dilution really means for you" data-zh="稀釋對你到底意味著什麼">What dilution really means for you</h2>
+  <p data-en="Dilution sounds like loss, but on a healthy cap table it is the opposite. Trading 20% of a small seed-stage company for 10% of one worth twenty times more is exactly the outcome you invested for, the same logic as owning a smaller slice of a bigger pie from the piece on <a class='ref' href='valuation-and-dilution.html'>valuation and dilution</a>. What you actually want to control is not whether you are diluted, but whether you can defend your position where it counts. That is why the <a class='ref' href='term-sheets-demystified.html'>pro-rata right</a> matters so much: it lets you put more money into the rounds of the companies that are clearly winning, the reserves discipline from <a class='ref' href='startup-portfolio-construction.html'>portfolio construction</a>, and so hold a meaningful stake in exactly the outliers that drive your returns. Read the cap table not to avoid dilution, but to make sure the dilution you accept is buying a larger, more valuable company." data-zh="稀釋，聽起來像損失，但在一張健康的股權表上，它恰恰相反。用「一家小小種子期公司的 20%」，換「一家值二十倍的公司的 10%」，正是你「當初投資所為」的結果，這跟<a class='ref' href='valuation-and-dilution.html'>估值與稀釋</a>那篇談的「持有更大的餅的較小一塊」是同一套邏輯。你真正想控制的，不是「你有沒有被稀釋」，而是「你能不能在關鍵之處守住你的位置」。這正是為什麼<a class='ref' href='term-sheets-demystified.html'>按比例跟投權</a>這麼重要：它讓你能把更多錢，投進那些「明顯正在勝出」的公司的輪次，也就是<a class='ref' href='startup-portfolio-construction.html'>投資組合建構</a>裡的保留金紀律，從而在「正是那些驅動你報酬的離群值」裡，持有一塊有意義的股份。讀股權表，不是為了「避免稀釋」，而是為了「確保你接受的稀釋，買到的是一家更大、更值錢的公司」。">Dilution sounds like loss, but on a healthy cap table it is the opposite. Trading 20% of a small seed-stage company for 10% of one worth twenty times more is exactly the outcome you invested for, the same logic as owning a smaller slice of a bigger pie from the piece on <a class="ref" href="valuation-and-dilution.html">valuation and dilution</a>. What you actually want to control is not whether you are diluted, but whether you can defend your position where it counts. That is why the <a class="ref" href="term-sheets-demystified.html">pro-rata right</a> matters so much: it lets you put more money into the rounds of the companies that are clearly winning, the reserves discipline from <a class="ref" href="startup-portfolio-construction.html">portfolio construction</a>, and so hold a meaningful stake in exactly the outliers that drive your returns. Read the cap table not to avoid dilution, but to make sure the dilution you accept is buying a larger, more valuable company.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="The cap table is the company's ownership truth, and reading it is a basic investing literacy worth building. Always look at ownership fully diluted, expect your percentage to fall with each round as the value rises, and treat a clean, well-kept table as a real asset and a messy one as a real risk to the rounds that come after you. Defend the position that matters through your pro-rata right rather than fearing dilution itself. An investor who can open a cap table and see at a glance who owns what, what is healthy and what is a landmine, has turned a spreadsheet most people skim into one of the clearest windows into a company they will ever get." data-zh="股權表，是一家公司的「持股真相」，而讀懂它，是一項值得建立的基本投資素養。永遠用完全稀釋來看持股；預期你的比例會隨每一輪下降、而價值上升；並把一張「乾淨、維護良好」的表，當成一個真實的資產，把一張亂的，當成「對你之後那些輪次」的真實風險。透過你的按比例跟投權，去守住「真正重要的那個位置」，而不是害怕稀釋本身。一個「能打開一張股權表、一眼看出誰擁有什麼、哪裡健康、哪裡是地雷」的投資人，就把一張「多數人只草草掃過」的試算表，變成了「他所能得到的、最清楚的一扇『看進一家公司』的窗」。">The cap table is the company's ownership truth, and reading it is a basic investing literacy worth building. Always look at ownership fully diluted, expect your percentage to fall with each round as the value rises, and treat a clean, well-kept table as a real asset and a messy one as a real risk to the rounds that come after you. Defend the position that matters through your pro-rata right rather than fearing dilution itself. An investor who can open a cap table and see at a glance who owns what, what is healthy and what is a landmine, has turned a spreadsheet most people skim into one of the clearest windows into a company they will ever get.</p>
+  <p data-en="It is one of the first documents EvoScale Capital reads on any B2B deal, treating a clean cap table as part of the diligence rather than an afterthought, alongside people who have watched these tables evolve over many rounds. Reading the cap table is also the last piece of mechanics before the questions become practical: what, exactly, to verify before the money actually leaves your account." data-zh="這是 EvoScale Capital 在任何 B2B 交易上最先讀的文件之一：把一張乾淨的股權表，當成「盡職調查的一部分」、而不是事後才想的事，並與一群「看過這些表在許多輪次中演變」的人配在一起。讀股權表，也是「在問題變得實際之前」的最後一塊機制：在錢真的離開你的帳戶之前，你到底該查證什麼。">It is one of the first documents EvoScale Capital reads on any B2B deal, treating a clean cap table as part of the diligence rather than an afterthought, alongside people who have watched these tables evolve over many rounds. Reading the cap table is also the last piece of mechanics before the questions become practical: what, exactly, to verify before the money actually leaves your account.</p>
+
+  <div class="cta">
+    <h3 data-en="Reading a cap table?" data-zh="正在讀一張股權表？">Reading a cap table?</h3>
+    <p data-en="EvoScale Capital is a B2B investing syndicate where you can read ownership and structure alongside people who have lived these tables across rounds. If you want to sharpen that read, we'd be glad to talk." data-zh="EvoScale Capital 是一個 B2B 投資 syndicate，你可以在這裡，與一群「跨輪活過這些表」的人一起讀持股與結構。如果你想磨利這份判讀，我們很樂意聊聊。">EvoScale Capital is a B2B investing syndicate where you can read ownership and structure alongside people who have lived these tables across rounds. If you want to sharpen that read, we'd be glad to talk.</p>
+    <a class="cta-btn" href="../index.html" data-en="About EvoScale →" data-zh="認識 EvoScale →">About EvoScale →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem" data-en="The investor track" data-zh="投資人系列">The investor track</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="how-investors-read-a-b2b-deal.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The First-Pass Screen" data-zh="四步初篩">The First-Pass Screen</span></a>
+      <a href="power-law-startup-investing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Power Law" data-zh="冪次法則">The Power Law</span></a>
+      <a href="startup-portfolio-construction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Portfolio Construction" data-zh="投資組合怎麼建">Portfolio Construction</span></a>
+      <a href="judging-the-founder.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Judging the Founder" data-zh="判斷創辦人">Judging the Founder</span></a>
+      <a href="judging-the-market.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Judging the Market" data-zh="判斷市場">Judging the Market</span></a>
+      <a href="reading-traction-honestly.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Reading Traction" data-zh="誠實讀牽引力">Reading Traction</span></a>
+      <a href="the-numbers-that-matter.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Numbers That Matter" data-zh="看哪些數字">The Numbers That Matter</span></a>
+      <a href="valuation-and-dilution.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">08</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Valuation &amp; Dilution" data-zh="估值與稀釋">Valuation &amp; Dilution</span></a>
+      <a href="term-sheets-demystified.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">09</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Term Sheet" data-zh="term sheet 重點">The Term Sheet</span></a>
+      <a href="the-cap-table.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">10</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Cap Table" data-zh="股權表">The Cap Table</span></a>
+      <a href="startup-due-diligence.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">11</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Due Diligence" data-zh="盡職調查">Due Diligence</span></a>
+      <a href="the-investors-mind.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">12</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Investor's Mind" data-zh="投資人的腦">The Investor's Mind</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
+</script>
+</body>
+</html>
