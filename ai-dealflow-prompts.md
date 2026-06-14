@@ -185,7 +185,7 @@ D Knockout（任一觸發＝D 判 ×）：D2=0（Tar Pit 確認）／D1=0 且 D6
 | F15 | 最高風險假設（48hr 可驗證） | ★ | 未識別 | 已識別且有驗證計畫 |
 | F16 | 可 demo 程度 | ★★ | 無法 demo | 可現場 demo，效果顯著 |
 
-F Knockout：F6=0（技術被第一性原理證偽）／F5=0 且 F6≤1（做不出 MVP）／F11=0 且 F12=0（團隊無執行力）。
+F Knockout：F6=0（技術被第一性原理證偽）／F5=0 且 F6≤1（做不出 MVP）／F11=0 且 F12=0（團隊無執行力）／IP 未正式指派給公司（公司不擁有所售技術，see insights/startup-due-diligence）。
 
 ### V 透鏡 · 存續性（18 維度）
 | # | 維度 | 權重 | 0 分 | 3 分 |
@@ -421,3 +421,66 @@ Disclaimer：基於公開資訊＋AI 結構化分析，未經獨立財務查核�
 輸出（轉型評估 A4 一頁）：轉型適配狀態（值得轉型●／附條件△／暫不適合×）＋最強可商業化資產＋最可信 B2B 切入點＋使命漂移紅線＋建議路由（社企／影響力資本／B2B pilot，非純財務 VC）＋最該先驗證的一件事（通常＝先做一個付費 pilot 測 willingness-to-pay）。對標：Acumen、Echoing Green、社會企業 B Corp、Blended Finance、Clara Miller（非營利資本理論）。
 
 Knockout（任一＝×暫不適合轉型）：使命核心經不起檢驗（問題假／影響力查無）／無任何可被付費的資產／商業化必然觸倫理紅線且無解。
+
+---
+
+## 知識庫擴充 · B2B 評案判準（萃取自 EvoScale insights 24 篇）
+
+這 24 篇文章（路徑 `B2B/insights/`）是本系統的可引用知識庫。多數內容已在 D/F/V rubric；本節只補「更鋒利或新增」的判準，並讓報告可標來源（如 `see insights/the-buying-committee`）。
+
+### A. 時機 Why-Now（併入 D 的跨透鏡 gate）
+- Goldilocks 窗口：近 3 年有沒有 tech／法規／行為／成本的具體變化，使「今年」不同於以往？講不出 specific why-now＝時機未到，D 扣分。
+- 方向勝過體量：10% 年增的中型 SAM 勝過 0% 的巨大 TAM；先看成長率，再看體量。
+- 銷售週期＝信任距離 proxy：冷啟動企業案 60 到 270 天；暖路徑可壓到 20 到 60 天；多線程（3+ 角色）成交快 2.4 倍。週期長代表離信任遠，不是「企業就是慢」的藉口。
+- 來源：judging-the-market、the-nine-month-sales-cycle。
+
+### B. B2B 需求與通路可達性（沿 D；access 是資產，不是 capital）
+- 買方委員會 5 角色必畫：經濟買家／champion／技術評估／採購法務／blocker。只有單一 champion＝單線程＝會卡在共識（D 扣分）。問創辦人「畫出委員會、每個人要聽到什麼」。
+- Approved-Vendor 五關（採購不等於業務 yes）：商業／資安（SOC2 或 ISO 27001，無＝直接出局）／法務（MSA）／財務（存續性；年輕又太低價會被財務關卡擋）／vendor list。買方說 yes 只是開始。
+- 台灣 top100 是互聯網絡而非名單：一個受信任的群內名字勝過 10 通冷電話；第一個 reference 最好來自集團而非 SME。
+- 來源：the-buying-committee、enterprise-channel-alpha、the-approved-vendor-list、selling-into-taiwan-top-100。
+
+### C. POC 反向設計（沿 F）
+從「簽約」反推：成功標準先量化並簽核、綁固定決策日、sponsor 要握預算（不是好奇的初階使用者）、達標即生效的價格先談、要有 production path。鬆散＝drift 進 pilot purgatory；收緊＝converts。來源：the-poc-that-converts。
+
+### D. 創辦人三支柱（沿 F11／F12，更鋒利的 FMF 拆法）
+- 三支柱獨立評分：earned insight（同業常錯的非顯而易見洞見）／built-in access（暖的、點名得出的買方路徑）／transferable credibility（憑名聲就能招募或成交）。只有一支＝要有補齊缺口的可信計畫（如找 operator）。
+- substance 勝過 shine：高壓下的清晰思考、招募比自己強的人的能力、velocity（上次見面後做出了什麼）、誠實（坦白自身弱點），勝過簡報光鮮／名校履歷／不可動搖的自信。
+- reference 要嚴謹：打名單外的客戶；問「能不能讓我跟兩個你寧願我別接觸的客戶聊」，看反應不看答案。
+- 來源：founder-market-fit-b2b、judging-the-founder。
+
+### E. 牽引品質與數字（沿 V3／V4，更鋒利）
+- Quality-of-Revenue 階梯（由強到弱）：續約擴張 ＞ 付費客戶 ＞ pilot／LOI ＞ 免費註冊 ＞ 下載。把 LOI 當「營收」＝大紅旗。
+- cohort 留存不可造假：要每月新客在 6／12 月後仍付費的百分比；NRR ＞100% 才算基底不縮，＞110 到 120% 為佳。
+- 六數字是一套系統（非獨立）：成長 2 到 3 倍／NRR／毛利／CAC payback／Burn Multiple／Rule of 40；一項弱要有可信故事＋修法，兩項弱＝警訊，三項弱＝knockout。blended CAC 是話術，要規模化通路的 marginal CAC。
+- 定價力：價值量化（省時×成本／降錯×單錯成本／解鎖營收×毛利）；企業端「太便宜」是不可靠訊號（撐不久），不是便宜；要有 land-and-expand 架構。
+- 量化門檻表（量化步驟採用）：
+
+| 指標 | 綠區 | 紅旗 |
+|---|---|---|
+| 經常性 ARR | 只算經常性、合約制 | 把一次性／服務費塞進 ARR |
+| NRR | ≥100%（佳 110 到 120%+） | <100%，基底在縮 |
+| 毛利 | 軟體 70 到 80%+ | <70%，或把交付成本藏在毛利線下 |
+| CAC payback | <12 月，且為 marginal | >12 月，或用 blended 掩蓋 |
+| Burn Multiple | <1.5 | >1.5 或逐季上升 |
+| Rule of 40 | ≥40 | <40 |
+
+- 來源：reading-traction-honestly、the-six-numbers-b2b-raise、the-numbers-that-matter、enterprise-b2b-pricing。
+
+### F. 結構與盡調（沿前置／盡調；含新 knockout）
+- IP 必須已正式指派給公司：創辦人／早期工程師／外包若未簽 IP assignment，公司不擁有自己所賣的東西＝致命 knockout（查章程、IP 指派書、雇傭合約）。
+- cap table 用全稀釋讀法、且要乾淨：一堆小股東長尾／離場者 dead equity／缺文件／隱藏 side letter＝嚇跑下一輪＝直接威脅本投資。創辦人應能幾分鐘內給出全稀釋表。
+- term sheet 三桶：經濟（估值／清算優先以 1x non-participating 為準、期權池、反稀釋）、控制（董事會／pro-rata／保護條款／資訊權）、雜訊（boilerplate 放行）。＞1x 或 participating＝紅旗。
+- 兩通電話最划算：真實付費客戶＋名單外創辦人 backchannel。多數爆掉的案，事前都有一通電話會穿幫。
+- 來源：startup-due-diligence、the-cap-table、valuation-and-dilution、term-sheets-demystified。
+
+### G. 組合密度法則（Power-law）＋ operator-led 價值（E 配置層）
+- 密度法則：回報走 power-law，少數 outlier 背起全部。組合 20 到 40 bets（持有 outlier 機率 64 到 79%）、保留 30 到 50% 做跟投、護 pro-rata、首支票要大到讓一個 outlier 撐起整個組合；少於 10 bets 會系統性錯過 outlier。避免「為了不虧而篩掉最可能爆的偏激案」。
+- operator-led access 是可量化護城河：暖路徑省 40 到 60 天／案、多線程再快 2.4 倍；syndicate 多 operator 池勝過單一 operator（網絡會見底）。台灣群內 20+ 年 operator＝加分；純財務 generic VC＝減分。配置層要把標的需求對應到生態 operator 的「可達性」。
+- 來源：power-law-startup-investing、startup-portfolio-construction、operator-led-investing。
+
+### H. 整合層紀律（S；投資人偏誤護欄）
+同一篩網每案都跑；先寫反方（會殺掉它的理由）再下判；anchoring 先有自己的估值再看對方開價；sunk-cost 把跟投當全新決策；不跟風借信念。edge 是聚焦，不是對什麼都有意見。來源：the-investors-mind。
+
+### 四問首篩（順序即致命序）
+1 急迫痛點＋具體買方？→ 2 是「這個團隊」能贏「這個市場」？→ 3 牽引是真的還是 logo 牆？→ 4 單位經濟撐得過規模？任一不過＝停。speed 不等於 skip。來源：how-investors-read-a-b2b-deal。
