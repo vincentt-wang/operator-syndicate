@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Valuation and Dilution, in Plain Language | EvoScale Capital</title>
+<meta name="description" content="The eighth article in a series on learning to invest in B2B. Pre-money, post-money, the option pool, and how a round dilutes everyone, explained as the simple arithmetic it is, plus why a higher valuation is not always the better outcome.">
+<meta name="keywords" content="pre-money post-money valuation, dilution explained, option pool, ownership percentage, startup valuation for investors, cap table basics, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/valuation-and-dilution.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Valuation and Dilution, in Plain Language">
+<meta property="og:description" content="Pre-money, post-money, the option pool, and how a round dilutes everyone, explained as the simple arithmetic it is.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/valuation-and-dilution.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valuation and Dilution, in Plain Language">
+<meta name="twitter:description" content="Pre-money, post-money, the option pool, and how a round dilutes everyone.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Valuation and Dilution, in Plain Language","description":"Pre-money, post-money, the option pool, and how a round dilutes everyone, explained as the simple arithmetic it is, plus why a higher valuation is not always the better outcome.","datePublished":"2026-06-14","dateModified":"2026-06-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/valuation-and-dilution.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Venture","wordCount":1700,"citation":["Carta — cap table and valuation basics","Y Combinator"],"keywords":"pre-money post-money valuation, dilution, option pool, ownership percentage, cap table"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--navy:#1B1714;--navy-2:#262019;--ink:#E8EDF2;--mut:#9FB0C3;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:#fff}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:#fff;margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:#fff!important;margin-bottom:2rem}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:#fff;margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:rgba(232,237,242,.88);margin-bottom:1.3rem}
+article strong{color:#fff}
+.ref{color:var(--orange-2);text-decoration:none;border-bottom:1px solid rgba(255,140,66,.35)}
+figure{margin:2.4rem 0}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--navy-2)}
+figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+/* ownership-after-round chart */
+.cap{background:var(--navy-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.cap-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:.35rem}
+.cap-s{font-size:1rem;color:var(--mut);margin-bottom:1.7rem;line-height:1.5}
+.cap-calc{font-size:1.05rem;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.6rem;line-height:1.6}
+.cap-calc b{color:var(--orange-2);font-family:var(--fd)}
+.cap-bar{display:flex;height:62px;border-radius:10px;overflow:hidden}
+.cap-seg{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:.3rem;line-height:1.2}
+.cap-seg .pct{font-family:var(--fd);font-weight:800;font-size:1.2rem}
+.cap-seg .lbl{font-size:.92rem;opacity:.9}
+.cap-note{font-size:1rem;color:var(--mut);margin-top:1.2rem;line-height:1.55}
+.cap-note b{color:#fff}
+.dsource{font-size:1rem;color:#6E8197;margin-top:1.2rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.1),rgba(255,102,0,.03));border:1px solid rgba(255,102,0,.22);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:rgba(232,237,242,.82);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:#fff;font-family:var(--fd)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+@media(max-width:600px){.cap-seg .lbl{font-size:.8rem}.cap-seg .pct{font-size:1rem}}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · For Investors" data-zh="觀點 · 給投資人">Insights · For Investors</div>
+  <h1 data-en="Valuation and Dilution, in Plain Language" data-zh="估值與稀釋，講白話">Valuation and Dilution, in Plain Language</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="Of all the parts of investing that feel like a foreign language, valuation is the one new investors most often nod along to without quite following. Yet underneath the jargon, pre-money, post-money, the option pool, it is simple arithmetic, and the arithmetic decides what your money actually buys. Getting comfortable with it is the difference between agreeing to a number because it sounded reasonable and knowing exactly what you own when the round closes." data-zh="在所有「感覺像外語」的投資環節裡，估值，是新手投資人最常「點頭附和、卻沒真的跟上」的那一個。但在術語底下，pre-money、post-money、選擇權池（option pool），其實就是簡單的算術，而這個算術，決定了「你的錢，到底買到了什麼」。把它弄熟，是「因為一個數字聽起來合理就同意」與「在這一輪結束時，清楚知道自己擁有什麼」之間的差別。">Of all the parts of investing that feel like a foreign language, valuation is the one new investors most often nod along to without quite following. Yet underneath the jargon, pre-money, post-money, the option pool, it is simple arithmetic, and the arithmetic decides what your money actually buys. Getting comfortable with it is the difference between agreeing to a number because it sounded reasonable and knowing exactly what you own when the round closes.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A small pie with a large slice, and a larger pie with a smaller slice">
+      <circle cx="200" cy="110" r="50" fill="none" stroke="#5A5349" stroke-width="2.5"/>
+      <path d="M200 110 L200 60 A50 50 0 0 1 243 135 Z" fill="rgba(255,102,0,.2)" stroke="#FF6600" stroke-width="2.5"/>
+      <text x="200" y="186" text-anchor="middle" fill="#9FB0C3" font-family="'DM Sans',sans-serif" font-size="14" font-weight="600" data-en="before: big slice" data-zh="之前：大塊">before: big slice</text>
+      <line x1="290" y1="110" x2="350" y2="110" stroke="#3C342B" stroke-width="3" stroke-dasharray="7 7"/><polygon points="350,102 368,110 350,118" fill="#5A5349"/>
+      <circle cx="500" cy="105" r="76" fill="none" stroke="#5A5349" stroke-width="2.5"/>
+      <path d="M500 105 L500 29 A76 76 0 0 1 552 145 Z" fill="rgba(255,102,0,.2)" stroke="#FF6600" stroke-width="2.5"/>
+      <text x="500" y="200" text-anchor="middle" fill="#FF8C42" font-family="'DM Sans',sans-serif" font-size="14" font-weight="700" data-en="after: smaller slice of a bigger pie" data-zh="之後：更大的餅、較小的一塊">after: smaller slice of a bigger pie</text>
+    </svg>
+    <figcaption data-en="Dilution is not losing; it is trading a larger share of a small company for a smaller share of a bigger one." data-zh="稀釋，不是「損失」；而是用「一家小公司的較大股份」，換「一家更大公司的較小股份」。">Dilution is not losing; it is trading a larger share of a small company for a smaller share of a bigger one.</figcaption>
+  </figure>
+
+  <h2 data-en="Pre-money, post-money, and your slice" data-zh="Pre-money、post-money，與你的那一塊">Pre-money, post-money, and your slice</h2>
+  <p data-en="Start with the two words that cause the most confusion. Pre-money is what the company is valued at before the new money goes in. Post-money is simply that plus the amount raised. And your ownership is just the cheque you write divided by the post-money value. That is the whole engine. Everything else, the share price, the number of shares, the legal language, is bookkeeping on top of this one relationship: the post-money valuation is the denominator, and your investment over it is your slice." data-zh="先從最讓人混淆的兩個詞開始。Pre-money（投前估值），是「新錢進來之前」公司被估的價值。Post-money（投後估值），就是它「加上募到的金額」。而你的持股比例，就只是「你開的支票，除以投後估值」。這就是整台引擎。其餘的一切，股價、股數、法律語言，都只是疊在這一個關係之上的記帳：投後估值，是分母；你的投資金額除以它，就是你的那一塊。">Start with the two words that cause the most confusion. Pre-money is what the company is valued at before the new money goes in. Post-money is simply that plus the amount raised. And your ownership is just the cheque you write divided by the post-money value. That is the whole engine. Everything else, the share price, the number of shares, the legal language, is bookkeeping on top of this one relationship: the post-money valuation is the denominator, and your investment over it is your slice.</p>
+
+  <div class="cap">
+    <div class="cap-t" data-en="One round, worked through" data-zh="一輪募資，算給你看">One round, worked through</div>
+    <div class="cap-s" data-en="Illustrative. The same arithmetic scales to any numbers; what matters is seeing where each slice comes from." data-zh="示意。同樣的算術適用於任何數字；重點是看清「每一塊從哪裡來」。">Illustrative. The same arithmetic scales to any numbers; what matters is seeing where each slice comes from.</div>
+    <div class="cap-calc" data-en="<b>$8M</b> pre-money <b>+ $2M</b> raised <b>= $10M</b> post-money. New investors own <b>$2M ÷ $10M = 20%</b>. A 10% option pool is created for future hires, and existing holders are diluted to the rest." data-zh="<b>$8M</b> 投前 <b>＋ $2M</b> 募資 <b>＝ $10M</b> 投後。新投資人持有 <b>$2M ÷ $10M ＝ 20%</b>。再為未來招募建立一個 10% 的選擇權池，既有股東則被稀釋到其餘的部分。"><b>$8M</b> pre-money <b>+ $2M</b> raised <b>= $10M</b> post-money. New investors own <b>$2M ÷ $10M = 20%</b>. A 10% option pool is created for future hires, and existing holders are diluted to the rest.</div>
+    <div class="cap-bar">
+      <div class="cap-seg" style="width:70%;background:#3C4A5E"><span class="pct">70%</span><span class="lbl" data-en="Existing holders" data-zh="既有股東">Existing holders</span></div>
+      <div class="cap-seg" style="width:10%;background:#B98A4A"><span class="pct">10%</span><span class="lbl" data-en="Pool" data-zh="池">Pool</span></div>
+      <div class="cap-seg" style="width:20%;background:linear-gradient(180deg,#FF7A1A,#E05500)"><span class="pct">20%</span><span class="lbl" data-en="New investors" data-zh="新投資人">New investors</span></div>
+    </div>
+    <div class="cap-note" data-en="<b>Ownership after the round.</b> Your 20% is fixed by the post-money. The only real question left is whether the option pool comes out of the pre-money, which quietly dilutes existing holders, not you." data-zh="<b>這一輪之後的持股。</b>你的 20%，由投後估值鎖定。剩下唯一真正的問題是：那個選擇權池，是不是從「投前」裡撥出來的，因為那會悄悄稀釋到「既有股東」，而不是你。"><b>Ownership after the round.</b> Your 20% is fixed by the post-money. The only real question left is whether the option pool comes out of the pre-money, which quietly dilutes existing holders, not you.</div>
+    <div class="dsource" data-en="Illustrative model; mechanics per standard cap-table practice (Carta, Y Combinator)" data-zh="示意模型；機制依標準股權表實務（Carta、Y Combinator）">Illustrative model; mechanics per standard cap-table practice (Carta, Y Combinator)</div>
+  </div>
+
+  <h2 data-en="The option pool shuffle" data-zh="選擇權池的障眼法">The option pool shuffle</h2>
+  <p data-en="The one piece of this that trips up almost every beginner is the option pool, the shares set aside for future employees. The detail that matters is where it comes from. By convention, a new or topped-up pool is carved out of the pre-money valuation, which means the founders and existing shareholders absorb its dilution before the new investor's percentage is even calculated. A larger pool therefore lowers the effective price the existing holders are getting, even though the headline pre-money number does not change. As the incoming investor you are usually on the comfortable side of this, but you should understand it, because a pool that is set unusually large is a quiet way of paying a lower price than the headline suggests." data-zh="這件事裡，幾乎絆倒每一個新手的，是選擇權池，也就是「留給未來員工」的股份。真正重要的細節，是它「從哪裡來」。按慣例，一個新建或加大的池子，是從「投前估值」裡切出來的，這意味著創辦人與既有股東，要在「新投資人的比例都還沒算」之前，就先吸收掉它的稀釋。因此，一個更大的池子，會「壓低既有股東實際拿到的價格」，即使那個頭條的投前數字並沒有變。身為進場的投資人，你通常站在這件事比較舒服的那一側，但你應該懂它，因為一個「設得異常大」的池子，是一種「悄悄用比頭條更低的價格買入」的方式。">The one piece of this that trips up almost every beginner is the option pool, the shares set aside for future employees. The detail that matters is where it comes from. By convention, a new or topped-up pool is carved out of the pre-money valuation, which means the founders and existing shareholders absorb its dilution before the new investor's percentage is even calculated. A larger pool therefore lowers the effective price the existing holders are getting, even though the headline pre-money number does not change. As the incoming investor you are usually on the comfortable side of this, but you should understand it, because a pool that is set unusually large is a quiet way of paying a lower price than the headline suggests.</p>
+
+  <h2 data-en="Why a higher valuation is not always better" data-zh="為什麼更高的估值不一定更好">Why a higher valuation is not always better</h2>
+  <p data-en="New investors often assume that a lower valuation is always good for them and a higher one always good for the founder, and stop thinking there. The first half is roughly true, your entry price sets your return, and paying less for the same company means more upside. But the second half is a trap for everyone. A valuation pushed too high sets a bar the company must clear at the next round, and a team that cannot grow into it faces a down round, where new money comes in at a lower price, badly diluting and demoralising everyone, founders and early investors alike. A price that is fair and leaves room is healthier for the investor than a trophy number that loads the next round with risk." data-zh="新手投資人常常假設：低估值對自己永遠是好的、高估值對創辦人永遠是好的，然後就不再多想。前半句大致成立：你的進場價格，決定了你的報酬，用更低的價格買到同一家公司，意味著更多上檔空間。但後半句，對所有人都是個陷阱。一個被推得太高的估值，會替公司「在下一輪設下一道必須跨過的門檻」，而一個「長不進那個估值」的團隊，會面臨一個 down round（折價輪），新錢以更低的價格進來，狠狠稀釋、也打擊所有人的士氣，創辦人與早期投資人都一樣。一個「公允、且留有餘地」的價格，對投資人來說，比一個「替下一輪裝滿風險」的獎盃數字，更健康。">New investors often assume that a lower valuation is always good for them and a higher one always good for the founder, and stop thinking there. The first half is roughly true, your entry price sets your return, and paying less for the same company means more upside. But the second half is a trap for everyone. A valuation pushed too high sets a bar the company must clear at the next round, and a team that cannot grow into it faces a down round, where new money comes in at a lower price, badly diluting and demoralising everyone, founders and early investors alike. A price that is fair and leaves room is healthier for the investor than a trophy number that loads the next round with risk.</p>
+  <p data-en="This is where valuation connects back to everything earlier in the series. A price is only sensible in light of the <a class='ref' href='the-numbers-that-matter.html'>real unit economics</a> and the size of the outcome the <a class='ref' href='judging-the-market.html'>market</a> can support, because under the <a class='ref' href='power-law-startup-investing.html'>power law</a> what you ultimately care about is owning enough of a company that becomes very large. Entry price and ownership are the two levers that turn a great company into a great investment, and valuation is simply where you set them." data-zh="這正是估值「連回系列前面一切」的地方。一個價格，只有在「對照<a class='ref' href='the-numbers-that-matter.html'>真實的單位經濟</a>、以及<a class='ref' href='judging-the-market.html'>市場</a>能撐起的結果大小」之下，才是合理的，因為在<a class='ref' href='power-law-startup-investing.html'>冪次法則</a>之下，你最終在乎的，是「持有足夠多『一家會變得非常大的公司』的股份」。進場價格與持股比例，是把「一家好公司」變成「一筆好投資」的兩根槓桿，而估值，不過就是你「把它們設在哪裡」。">This is where valuation connects back to everything earlier in the series. A price is only sensible in light of the <a class="ref" href="the-numbers-that-matter.html">real unit economics</a> and the size of the outcome the <a class="ref" href="judging-the-market.html">market</a> can support, because under the <a class="ref" href="power-law-startup-investing.html">power law</a> what you ultimately care about is owning enough of a company that becomes very large. Entry price and ownership are the two levers that turn a great company into a great investment, and valuation is simply where you set them.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="Strip away the jargon and valuation is one equation: post-money equals pre-money plus the raise, and your ownership is your cheque over the post-money. Watch the option pool, because where it is carved from quietly changes the real price. And resist the instinct that higher is simply better; the right valuation is one the company can grow past, so the next round lifts everyone instead of resetting them. An investor who can do this arithmetic in their head, and who reads a valuation against the business rather than against their hopes, has turned the most intimidating part of a deal into one of the most controllable." data-zh="把術語剝掉，估值就是一條方程式：投後 ＝ 投前 ＋ 募資，而你的持股 ＝ 你的支票 ÷ 投後。盯著選擇權池，因為「它從哪裡切出來」，會悄悄改變真實的價格。並抗拒那個「越高就越好」的直覺；對的估值，是一個「公司能成長超越」的估值，這樣下一輪才會「抬升所有人」、而不是「把所有人重設」。一個「能在腦中做這個算術、並且對照『生意』、而不是對照『自己的期望』去讀一個估值」的投資人，就把一筆交易裡最嚇人的那一部分，變成了最能掌控的部分之一。">Strip away the jargon and valuation is one equation: post-money equals pre-money plus the raise, and your ownership is your cheque over the post-money. Watch the option pool, because where it is carved from quietly changes the real price. And resist the instinct that higher is simply better; the right valuation is one the company can grow past, so the next round lifts everyone instead of resetting them. An investor who can do this arithmetic in their head, and who reads a valuation against the business rather than against their hopes, has turned the most intimidating part of a deal into one of the most controllable.</p>
+  <p data-en="It is the discipline EvoScale Capital brings to pricing every B2B round, anchoring valuation to the real economics rather than the momentum in the room, alongside people who have seen how these numbers play out a round or two later. The cleanest version of this judgement still has to be written down, which is the next subject: the term sheet, and the handful of terms in it that actually matter." data-zh="這是 EvoScale Capital 在替每一輪 B2B 募資定價時所帶的紀律：把估值錨定在「真實的經濟」上，而不是「房間裡的氣勢」，並與一群「見過這些數字在一兩輪之後如何演變」的人配在一起。而這份判斷最乾淨的版本，終究還是得「寫下來」，這就是下一個主題：term sheet（投資條件書），以及裡面那少數幾條「真正重要」的條款。">It is the discipline EvoScale Capital brings to pricing every B2B round, anchoring valuation to the real economics rather than the momentum in the room, alongside people who have seen how these numbers play out a round or two later. The cleanest version of this judgement still has to be written down, which is the next subject: the term sheet, and the handful of terms in it that actually matter.</p>
+
+  <div class="cta">
+    <h3 data-en="Pricing a round?" data-zh="正在替一輪募資定價？">Pricing a round?</h3>
+    <p data-en="EvoScale Capital is a B2B investing syndicate where you can pressure-test valuation and ownership alongside people who have priced and lived these rounds. If you want to sharpen that judgement, we'd be glad to talk." data-zh="EvoScale Capital 是一個 B2B 投資 syndicate，你可以在這裡，與一群「定過價、也活過這些輪次」的人一起壓力測試估值與持股。如果你想磨利這份判斷，我們很樂意聊聊。">EvoScale Capital is a B2B investing syndicate where you can pressure-test valuation and ownership alongside people who have priced and lived these rounds. If you want to sharpen that judgement, we'd be glad to talk.</p>
+    <a class="cta-btn" href="../index.html" data-en="About EvoScale →" data-zh="認識 EvoScale →">About EvoScale →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+    <div style="margin-top:.7rem" data-en="Written by: Vincent Wang, Founding AO" data-zh="本文撰寫：Vincent Wang, Founding AO">Written by: Vincent Wang, Founding AO</div>
+  </div>
+
+  <div style="margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)">
+    <h4 style="font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem" data-en="The investor track" data-zh="投資人系列">The investor track</h4>
+    <div class="more-strip" style="display:flex;gap:12px;overflow-x:auto;padding:.1rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+      <a href="how-investors-read-a-b2b-deal.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">01</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The First-Pass Screen" data-zh="四步初篩">The First-Pass Screen</span></a>
+      <a href="power-law-startup-investing.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">02</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Power Law" data-zh="冪次法則">The Power Law</span></a>
+      <a href="startup-portfolio-construction.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">03</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Portfolio Construction" data-zh="投資組合怎麼建">Portfolio Construction</span></a>
+      <a href="judging-the-founder.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">04</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Judging the Founder" data-zh="判斷創辦人">Judging the Founder</span></a>
+      <a href="judging-the-market.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">05</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Judging the Market" data-zh="判斷市場">Judging the Market</span></a>
+      <a href="reading-traction-honestly.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">06</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Reading Traction" data-zh="誠實讀牽引力">Reading Traction</span></a>
+      <a href="the-numbers-that-matter.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">07</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Numbers That Matter" data-zh="看哪些數字">The Numbers That Matter</span></a>
+      <a href="valuation-and-dilution.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">08</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="Valuation &amp; Dilution" data-zh="估值與稀釋">Valuation &amp; Dilution</span></a>
+      <a href="term-sheets-demystified.html" style="flex:0 0 235px;scroll-snap-align:start;border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;text-decoration:none"><span style="font-family:var(--fd);font-weight:800;color:var(--orange);font-size:1rem">09</span><span style="display:block;margin-top:.35rem;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.4" data-en="The Term Sheet" data-zh="term sheet 重點">The Term Sheet</span></a>
+    </div>
+  </div>
+  <script>(function(){var s=document.querySelector('.more-strip');if(!s)return;var h=location.pathname.split('/').pop(),c=s.children,i;for(i=0;i<c.length;i++){if(c[i].getAttribute('href')===h){c[i].style.opacity='.4';c[i].style.pointerEvents='none';var n=c[i+1]||c[0];if(n)s.scrollLeft=n.offsetLeft-s.offsetLeft-12;break;}}var step=function(){var card=s.children[0];return card?card.getBoundingClientRect().width+12:240;};function mk(t,d){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-label',d);b.style.cssText='width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--orange);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:border-color .2s,opacity .2s';b.onmouseenter=function(){b.style.borderColor='var(--orange)';};b.onmouseleave=function(){b.style.borderColor='var(--border)';};return b;}var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:.9rem';var lb=mk('‹','Scroll to earlier articles'),rb=mk('›','Scroll to later articles');lb.onclick=function(){s.scrollBy({left:-step(),behavior:'smooth'});};rb.onclick=function(){s.scrollBy({left:step(),behavior:'smooth'});};function upd(){var max=s.scrollWidth-s.clientWidth-2;lb.style.opacity=s.scrollLeft>4?'1':'.3';rb.style.opacity=s.scrollLeft<max?'1':'.3';}s.addEventListener('scroll',upd);wrap.appendChild(lb);wrap.appendChild(rb);s.parentNode.appendChild(wrap);if(s.scrollWidth<=s.clientWidth+4){wrap.style.display='none';}else{upd();}})();</script>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+/* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
+</script>
+</body>
+</html>
