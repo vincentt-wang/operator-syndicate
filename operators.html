@@ -204,6 +204,74 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   <div class="ops-grid" id="opsGrid"></div>
 </div>
 
+<style>
+.eco-wrap{max-width:1180px;margin:1.5rem auto 3.5rem;padding:0 2rem}
+.eco-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem}
+.eco-h{font-family:var(--fd);font-weight:800;font-size:clamp(1.5rem,2.6vw,2rem);color:var(--text);letter-spacing:-.02em;margin-bottom:.85rem}
+.eco-intro{font-size:.98rem;color:var(--text-3);max-width:700px;line-height:1.75}
+.eco-intro b{color:var(--text)}
+.eco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1rem;margin-top:1.7rem}
+.eco-cell{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem 1.4rem;position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.eco-cell:hover{border-color:rgba(255,102,0,.35);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.eco-cell::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+.eco-dom{font-family:var(--fd);font-weight:800;font-size:1.12rem;color:var(--text);margin-bottom:.15rem}
+.eco-dom-en{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-4);margin-bottom:.9rem}
+.eco-cos{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.95rem}
+.eco-co{font-size:.78rem;font-weight:700;color:var(--navy);background:rgba(10,22,40,.05);border:1px solid var(--border);border-radius:8px;padding:3px 10px}
+.eco-co span{font-weight:500;color:var(--text-4)}
+.eco-reach{font-size:.92rem;color:var(--text-3);line-height:1.6}
+.eco-reach b{color:var(--orange-2)}
+.eco-note{margin-top:1.6rem;font-size:.82rem;color:var(--text-4);line-height:1.65}
+.eco-note .eco-src{display:block;margin-top:.45rem;font-style:italic}
+@media(max-width:560px){.eco-grid{grid-template-columns:1fr}}
+</style>
+<div class="eco-wrap">
+  <div class="section-label">The reach behind the syndicate · 生態系科普</div>
+  <div class="eco-eyebrow">Ecosystem Access Map</div>
+  <h2 class="eco-h">我們的網絡，覆蓋了 B2B 真正稀缺的那些「門」</h2>
+  <p class="eco-intro">麥肯錫與 BCG 都把一個生態系的價值，定義為它能打開的<b>「access 介面」</b>。對一家 B2B 新創而言，最稀缺的從來不是資金，而是通往<b>企業買家、通路、基礎設施、資本與品牌</b>的門。我們的 operator 網絡來自下面這些定義市場的公司，剛好對應到這幾個介面。這張圖，說明這份觸及長什麼樣子。</p>
+  <div class="eco-grid">
+    <div class="eco-cell">
+      <div class="eco-dom">雲端與基礎設施</div><div class="eco-dom-en">Cloud &amp; Infrastructure</div>
+      <div class="eco-cos"><span class="eco-co">AWS <span>雲端</span></span><span class="eco-co">Microsoft <span>Azure · M365</span></span><span class="eco-co">IBM <span>混合雲 · 顧問</span></span></div>
+      <div class="eco-reach">進入<b>超大規模雲端</b>的 marketplace、ISV 計畫與企業 IT 採購鏈。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">AI 與運算</div><div class="eco-dom-en">AI &amp; Compute</div>
+      <div class="eco-cos"><span class="eco-co">NVIDIA <span>GPU · AI 運算</span></span><span class="eco-co">Appier <span>AI 行銷</span></span></div>
+      <div class="eco-reach">接上<b>AI 運算供應鏈</b>與 AI 應用、模型生態。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">企業軟體與 CRM</div><div class="eco-dom-en">Enterprise Software &amp; CRM</div>
+      <div class="eco-cos"><span class="eco-co">Salesforce <span>CRM · SaaS</span></span></div>
+      <div class="eco-reach">CRM 與 SaaS 的 <b>go-to-market</b> 與 ISV 夥伴生態。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">半導體與硬體</div><div class="eco-dom-en">Semiconductor &amp; Hardware</div>
+      <div class="eco-cos"><span class="eco-co">GlobalFoundries <span>晶圓代工</span></span><span class="eco-co">Sharp <span>顯示 · 電子</span></span></div>
+      <div class="eco-reach">晶片與硬體<b>供應鏈</b>，以及製造業的企業買家。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">行銷、媒體與通訊</div><div class="eco-dom-en">Marketing, Media &amp; Comms</div>
+      <div class="eco-cos"><span class="eco-co">Dentsu <span>廣告 · 品牌</span></span><span class="eco-co">LINE <span>超級 App</span></span></div>
+      <div class="eco-reach"><b>品牌與廣告觸及</b>，以及台日東南亞的數位分發。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">金融、財富與支付</div><div class="eco-dom-en">Finance, Wealth &amp; Payments</div>
+      <div class="eco-cos"><span class="eco-co">UBS <span>財富 · 投行</span></span><span class="eco-co">iPassMoney <span>電子支付</span></span></div>
+      <div class="eco-reach">財富管理與金融機構，以及<b>支付軌道</b>。</div>
+    </div>
+    <div class="eco-cell">
+      <div class="eco-dom">市場情報與顧問</div><div class="eco-dom-en">Market Intelligence &amp; Advisory</div>
+      <div class="eco-cos"><span class="eco-co">IDC <span>產業研究</span></span></div>
+      <div class="eco-reach"><b>進場情報</b>、分析師關係與市場數據。</div>
+    </div>
+  </div>
+  <div class="eco-note">operators 來自上述公司（VP 至 GM 級），圖中為其專業領域與可觸及面；實際引薦視關係與適配而定。公司名稱與其標誌性領域為公開資訊。
+    <span class="eco-src">框架參考：McKinsey 與 BCG 對 business ecosystems 的研究；以及「access 才是稀缺資源」的頂尖創投觀點。</span>
+  </div>
+</div>
+
 <footer class="page-footer">
   EvoScale Capital · Confidential — For Internal Use Only · All data subject to LP consent ·
   <a href="mailto:boicegun@gmail.com" style="color:var(--orange);opacity:.7">boicegun@gmail.com</a>
