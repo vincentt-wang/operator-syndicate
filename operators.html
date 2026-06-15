@@ -214,15 +214,15 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .eco-lang{flex-shrink:0;font-family:var(--fb);font-size:.82rem;font-weight:700;color:var(--orange);background:rgba(255,102,0,.1);border:1px solid rgba(255,102,0,.35);border-radius:20px;padding:6px 16px;cursor:pointer;transition:background .2s}
 .eco-lang:hover{background:rgba(255,102,0,.2)}
 .eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.eco-cell{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.4rem;min-height:184px;display:flex;flex-direction:column;animation:ecoGlow 9s linear infinite;animation-delay:calc(var(--i) * 1s);transition:transform .25s,border-color .25s,background .25s}
-.eco-cell:hover{transform:translateY(-4px);border-color:rgba(255,140,66,.5);background:rgba(255,255,255,.05);animation-play-state:paused}
+.eco-cell{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:1.4rem;min-height:184px;display:flex;flex-direction:column;animation:ecoGlow 9s linear infinite;animation-delay:calc(var(--i) * 1s);transition:transform .25s,border-color .25s,background .25s}
+.eco-cell:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.1);animation-play-state:paused}
 .eco-dom{font-family:var(--fd);font-weight:800;font-size:1.08rem;color:#fff;margin-bottom:.9rem;line-height:1.3}
 .eco-cos{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:auto}
 .eco-co{font-size:.8rem;font-weight:700;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:3px 11px}
 .eco-reach{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.55;margin-top:1rem}
 .eco-note{margin-top:2rem;font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.65;max-width:780px}
 .eco-note .eco-src{display:block;margin-top:.45rem;font-style:italic;color:rgba(255,255,255,.3)}
-@keyframes ecoGlow{0%,13%,100%{border-color:rgba(255,255,255,.09);box-shadow:none}4.5%{border-color:rgba(255,140,66,.6);box-shadow:0 0 30px rgba(255,102,0,.28),inset 0 0 26px rgba(255,102,0,.06)}}
+@keyframes ecoGlow{0%,13%,100%{border-color:rgba(255,255,255,.13);box-shadow:none;background:rgba(255,255,255,.045)}4.5%{border-color:rgba(255,255,255,.85);box-shadow:0 0 32px rgba(255,255,255,.22),inset 0 0 24px rgba(255,255,255,.07);background:rgba(255,255,255,.1)}}
 @media(max-width:880px){.eco-grid{grid-template-columns:repeat(2,1fr)}.eco-top{flex-direction:column}}
 @media(max-width:560px){.eco-grid{grid-template-columns:1fr}.eco-cell{min-height:0}}
 </style>
@@ -232,9 +232,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
       <div>
         <div class="eco-eyebrow" data-en="Ecosystem Access Map" data-zh="生態系 access 地圖">Ecosystem Access Map</div>
         <h2 class="eco-h" data-en="The reach behind the syndicate" data-zh="syndicate 背後的觸及網絡">The reach behind the syndicate</h2>
-        <p class="eco-intro" data-en="McKinsey and BCG define an ecosystem's value by the access surfaces it opens. For a B2B startup the scarce resource is never capital, but the doors to enterprise buyers, channel, infrastructure, capital and brand. Our operator network, drawn from the companies below, maps onto exactly those surfaces." data-zh="麥肯錫與 BCG 把一個生態系的價值，定義為它能打開的「access 介面」。對一家 B2B 新創而言，最稀缺的從來不是資金，而是通往企業買家、通路、基礎設施、資本與品牌的門。我們的 operator 網絡，來自下面這些公司，剛好對應到這些介面。">McKinsey and BCG define an ecosystem's value by the access surfaces it opens. For a B2B startup the scarce resource is never capital, but the doors to enterprise buyers, channel, infrastructure, capital and brand. Our operator network, drawn from the companies below, maps onto exactly those surfaces.</p>
+        <p class="eco-intro" data-en="For a B2B startup the scarce resource is access, not capital. Our operator network, drawn from the companies below, opens exactly those doors." data-zh="對 B2B 新創而言，稀缺的是門路，不是資金。我們的 operator 網絡，來自下面這些公司，剛好打開這些門。">For a B2B startup the scarce resource is access, not capital. Our operator network, drawn from the companies below, opens exactly those doors.</p>
       </div>
-      <button class="eco-lang" id="ecoLang" onclick="ecoToggle()">中文</button>
+      <button class="eco-lang" id="ecoLang" onclick="ecoToggle()">CH</button>
     </div>
     <div class="eco-grid">
       <div class="eco-cell" style="--i:0"><div class="eco-dom" data-en="Cloud Infrastructure" data-zh="雲端基礎設施">Cloud Infrastructure</div><div class="eco-cos"><span class="eco-co">AWS</span><span class="eco-co">Microsoft</span></div><div class="eco-reach" data-en="Hyperscaler marketplaces, ISV programmes and enterprise IT procurement." data-zh="超大規模雲端的 marketplace、ISV 計畫與企業 IT 採購。">Hyperscaler marketplaces, ISV programmes and enterprise IT procurement.</div></div>
@@ -251,7 +251,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   </div>
 </section>
 <script>
-function ecoApply(l){var sec=document.getElementById("ecoSection");sec.querySelectorAll("[data-en]").forEach(function(e){var v=l==="zh"?e.getAttribute("data-zh"):e.getAttribute("data-en");if(v!==null)e.textContent=v;});document.getElementById("ecoLang").textContent=l==="zh"?"EN":"中文";sec.setAttribute("data-lang",l);}
+function ecoApply(l){var sec=document.getElementById("ecoSection");sec.querySelectorAll("[data-en]").forEach(function(e){var v=l==="zh"?e.getAttribute("data-zh"):e.getAttribute("data-en");if(v!==null)e.textContent=v;});document.getElementById("ecoLang").textContent=l==="zh"?"EN":"CH";sec.setAttribute("data-lang",l);}
 function ecoToggle(){var sec=document.getElementById("ecoSection");ecoApply(sec.getAttribute("data-lang")==="zh"?"en":"zh");}
 </script>
 
