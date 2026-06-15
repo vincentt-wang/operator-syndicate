@@ -40,3 +40,6 @@ df-desirability.html
 df-feasibility.html
 df-viability.html
 df.css
+
+# 內部文件（Gate 手冊草案等）— 絕不上傳 public repo
+internal/
