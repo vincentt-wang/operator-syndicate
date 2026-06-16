@@ -195,6 +195,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top
 <script>
 function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+(function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
 /* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
 </script>
 </body>
