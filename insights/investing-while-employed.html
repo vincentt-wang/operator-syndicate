@@ -159,7 +159,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top
 <footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
 <script>
 function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
-function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(nl);try{history.replaceState(null,'',location.pathname+(nl==='zh'?'#zh':''));}catch(e){}}
 (function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
 /* Site default is English on every load. The toggle is session-only. */
 </script>
