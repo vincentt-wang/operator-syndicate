@@ -43,3 +43,7 @@ df.css
 
 # 內部文件（Gate 手冊草案等）— 絕不上傳 public repo
 internal/
+
+# 本機私密資料夾（含 carry/談判/薪資、名片印刷檔）— 絕不上傳
+EvoScale_Founding/
+Team/名片/
