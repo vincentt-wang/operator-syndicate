@@ -65,6 +65,17 @@ h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.2rem,5vw,3.2rem);colo
 .post.soon{opacity:.5;pointer-events:none}
 .post.soon .meta{color:var(--orange-2)}
 footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-top:1px solid var(--border)}
+.search{position:relative;max-width:540px;margin:0 0 1.6rem}
+.search>svg{position:absolute;left:1.05rem;top:50%;transform:translateY(-50%);color:var(--mut);pointer-events:none}
+.search input{width:100%;font-family:inherit;font-size:1rem;color:var(--ink);background:var(--navy-2);border:1px solid var(--border);border-radius:999px;padding:.72rem 2.7rem;outline:none;transition:border-color .2s}
+.search input:focus{border-color:var(--orange)}
+.search input::placeholder{color:var(--mut)}
+.search .qx{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);display:none;border:none;background:none;color:var(--mut);font-size:1.4rem;cursor:pointer;padding:.1rem .5rem;line-height:1}
+body.searching .qx{display:block}
+body.searching .aud-switch,body.searching #hero{opacity:.35;transition:opacity .2s}
+body.searching .chips{display:none!important}
+#scount{display:none;color:var(--orange-2);font-size:.92rem;margin:-.4rem 0 1.5rem;font-weight:600}
+body.searching #scount{display:block}
 </style>
 </head>
 <body>
@@ -77,6 +88,12 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
 </div></div>
 <main>
   <div class="ey" data-en="Insights" data-zh="觀點">Insights</div>
+  <div class="search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="q" oninput="doSearch()" autocomplete="off" data-ph-en="Search every column: retention, pricing, moat, channels…" data-ph-zh="搜尋所有專欄：留存、定價、護城河、通路…" placeholder="Search every column: retention, pricing, moat, channels…">
+    <button class="qx" onclick="clearSearch()" aria-label="clear search" type="button">&times;</button>
+  </div>
+  <div id="scount"></div>
 
   <div class="aud-switch">
     <span class="aud-glide"></span>
@@ -468,14 +485,16 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:.82rem;border-t
 <script>
 var curAud='founder',curTag='all';
 function positionGlide(){var a=document.querySelector('.aud-btn.active');var g=document.querySelector('.aud-glide');if(!a||!g)return;g.style.left=a.offsetLeft+'px';g.style.width=a.offsetWidth+'px';}
-function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';positionGlide();try{localStorage.setItem('evoLang',l);}catch(e){}}
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';var qi=document.getElementById('q');if(qi){var ph=qi.getAttribute('data-ph-'+l);if(ph)qi.placeholder=ph;}positionGlide();try{localStorage.setItem('evoLang',l);}catch(e){}if(document.body.classList.contains('searching'))filterPosts();}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
 (function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
 function setAudData(aud){var mk=aud==='investor'?'i':aud==='operator'?'o':aud==='b2c'?'c':'f';document.querySelectorAll('[data-f-en]').forEach(function(e){e.setAttribute('data-en',e.getAttribute('data-'+mk+'-en'));e.setAttribute('data-zh',e.getAttribute('data-'+mk+'-zh'));});}
 function showChips(aud){document.querySelectorAll('.chips').forEach(function(g){g.style.display=g.getAttribute('data-for')===aud?'flex':'none';});var grp=document.querySelector('.chips[data-for="'+aud+'"]');grp.querySelectorAll('.chip').forEach(function(ch){var tg=ch.getAttribute('data-tag');ch.classList.remove('active');if(tg==='all'){ch.style.display='';return;}var n=document.querySelectorAll('.post[data-aud="'+aud+'"][data-tag="'+tg+'"]:not(.soon)').length;ch.style.display=n>0?'':'none';});grp.querySelector('.chip[data-tag="all"]').classList.add('active');}
-function filterPosts(){document.querySelectorAll('.post').forEach(function(p){var show=p.getAttribute('data-aud')===curAud&&(curTag==='all'||p.getAttribute('data-tag')===curTag);p.style.display=show?'':'none';});}
+function filterPosts(){var qi=document.getElementById('q');var query=qi?qi.value.trim().toLowerCase():'';document.body.classList.toggle('searching',!!query);if(query){var n=0;document.querySelectorAll('.post').forEach(function(p){var show=(p.dataset.search||'').indexOf(query)>=0;p.style.display=show?'':'none';if(show)n++;});var sc=document.getElementById('scount');if(sc){sc.textContent=document.documentElement.lang==='zh'?(n?('找到 '+n+' 篇相關文章'):'找不到相關文章，換個關鍵字試試'):(n?(n+(n>1?' results':' result')):'No matches, try another keyword');}}else{document.querySelectorAll('.post').forEach(function(p){var show=p.getAttribute('data-aud')===curAud&&(curTag==='all'||p.getAttribute('data-tag')===curTag);p.style.display=show?'':'none';});}}
+function doSearch(){filterPosts();}
+function clearSearch(){var qi=document.getElementById('q');if(qi){qi.value='';qi.focus();}filterPosts();}
 function setTag(tag){curTag=tag;var grp=document.querySelector('.chips[data-for="'+curAud+'"]');grp.querySelectorAll('.chip').forEach(function(ch){ch.classList.toggle('active',ch.getAttribute('data-tag')===tag);});var posts=document.getElementById('posts');posts.style.opacity='0';setTimeout(function(){filterPosts();posts.style.opacity='1';},160);}
-function setAud(aud){curAud=aud;curTag='all';document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===aud);});setAudData(aud);positionGlide();showChips(aud);var posts=document.getElementById('posts'),hero=document.getElementById('hero');posts.style.opacity='0';hero.style.opacity='0';setTimeout(function(){filterPosts();applyL(document.documentElement.lang);posts.style.opacity='1';hero.style.opacity='1';},200);try{localStorage.setItem('evoAud',aud);}catch(e){}}
+function setAud(aud){var qi=document.getElementById('q');if(qi)qi.value='';curAud=aud;curTag='all';document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===aud);});setAudData(aud);positionGlide();showChips(aud);var posts=document.getElementById('posts'),hero=document.getElementById('hero');posts.style.opacity='0';hero.style.opacity='0';setTimeout(function(){filterPosts();applyL(document.documentElement.lang);posts.style.opacity='1';hero.style.opacity='1';},200);try{localStorage.setItem('evoAud',aud);}catch(e){}}
 (function(){var a='founder';try{var p=new URLSearchParams(location.search);var q=(p.get('aud')||'').toLowerCase();if(q==='b2b')q='founder';if(q==='b2c'||q==='founder'||q==='investor'||q==='operator'){a=q;}else{var s=localStorage.getItem('evoAud');if(s==='investor'||s==='founder'||s==='operator'||s==='b2c')a=s;}}catch(e){}
   document.querySelectorAll('.aud-btn').forEach(function(b){b.addEventListener('click',function(){setAud(b.getAttribute('data-aud'));});});
   document.querySelectorAll('.chip').forEach(function(ch){ch.addEventListener('click',function(){setTag(ch.getAttribute('data-tag'));});});
@@ -483,6 +502,7 @@ function setAud(aud){curAud=aud;curTag='all';document.querySelectorAll('.aud-btn
   document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===a);});
   setAudData(a);showChips(a);filterPosts();applyL(document.documentElement.lang);
 })();
+(function(){var COLNAME={founder:'b2b founders 創辦人 企業',b2c:'b2c founders 消費 consumer 創辦人',investor:'investors 投資人',operator:'operators 經理人 operator'};document.querySelectorAll('.post').forEach(function(p){var s=(COLNAME[p.getAttribute('data-aud')]||'')+' ';p.querySelectorAll('[data-en]').forEach(function(el){s+=' '+(el.getAttribute('data-en')||'')+' '+(el.getAttribute('data-zh')||'');});p.dataset.search=s.toLowerCase();});})();
 window.addEventListener('load',positionGlide);window.addEventListener('resize',positionGlide);
 </script>
 </body>
