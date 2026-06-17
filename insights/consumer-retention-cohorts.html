@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Retention Is the Business: Reading the Cohort Curve | EvoScale Capital</title>
+<meta name="description" content="Every other growth lever leaks into this one. A consumer business is its retention curve, and if the curve does not flatten, you are refilling a leaky bucket forever. How to read a cohort curve, what good looks like, and how retention gets faked.">
+<meta name="keywords" content="retention, cohort analysis, cohort curve, churn, product-market fit, consumer retention, DAU MAU, EvoScale Capital, 毅拓資本">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://evoscalecapital.com/insights/consumer-retention-cohorts.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retention Is the Business: Reading the Cohort Curve">
+<meta property="og:description" content="A consumer business is its retention curve. If it does not flatten, you are refilling a leaky bucket forever. How to read it.">
+<meta property="og:url" content="https://evoscalecapital.com/insights/consumer-retention-cohorts.html">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Retention Is the Business: Reading the Cohort Curve">
+<meta name="twitter:description" content="The curve that flattens is a business. The curve that decays to zero is a leaky bucket. How to tell them apart.">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Retention Is the Business: Reading the Cohort Curve","description":"A consumer business is its retention curve, and if the curve does not flatten, you are refilling a leaky bucket forever. How to read a cohort curve, what good looks like, and how retention gets faked.","datePublished":"2026-06-17","dateModified":"2026-06-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/insights/consumer-retention-cohorts.html"},"author":{"@type":"Person","name":"Vincent Wang","alternateName":"王玉宇","jobTitle":"Founding AO & Content Manager","worksFor":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本"}},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"毅拓資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"Retention","wordCount":1720,"citation":["Bain & Company / HBR retention research","Andrew Chen on retention curves","Reforge / Brian Balfour"],"keywords":"retention, cohort curve, churn, product-market fit, DAU MAU"}
+</script>
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--orange-d:#E05500;--red:#B0593A;--green:#5C7B53;--navy:#1B1714;--ink:#243244;--mut:#5E6E80;--bg:#F3EAD9;--bg-2:#FBF6EA;--border:#E9DFCB;--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.8;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.95}
+a{color:inherit}
+.top{background:rgba(243,234,217,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1rem}
+.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.top-r{display:flex;align-items:center;gap:1.1rem}
+.lang{background:none;border:1px solid var(--orange);color:var(--orange-d);border-radius:18px;padding:4px 14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
+article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.14;letter-spacing:-.02em;color:var(--navy);margin-bottom:1.3rem}
+.byline{color:var(--mut);font-size:1rem;margin-bottom:2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--border)}
+.lede{font-size:1.22rem;line-height:1.7;color:var(--navy)!important;margin-bottom:2rem;font-weight:500}
+article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:var(--navy);margin:2.8rem 0 1rem;letter-spacing:-.01em}
+article p{font-size:1.1rem;color:var(--ink);margin-bottom:1.3rem}
+article strong{color:var(--navy)}
+.ref{color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(224,85,0,.32)}
+figure{margin:2.4rem 0}figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
+.rtable{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.rtable-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem}
+.rtable-s{font-size:1rem;color:var(--mut);margin-bottom:1.4rem;line-height:1.5}
+.rt{width:100%;border-collapse:collapse;font-size:1.05rem}
+.rt th,.rt td{padding:.7rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.rt th{font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
+.rt td:first-child{font-weight:700;color:var(--navy)}
+.rt .leak{color:var(--red);font-weight:600}
+.rt .stick{color:var(--green);font-weight:800}
+.dsource{font-size:1rem;color:#9a8f78;margin-top:1.1rem;text-align:right;font-style:italic}
+.cta{margin:3.2rem 0 1rem;padding:2rem;background:linear-gradient(150deg,rgba(255,102,0,.08),rgba(255,102,0,.02));border:1px solid rgba(255,102,0,.25);border-radius:16px}
+.cta h3{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.4rem;margin-bottom:.6rem}
+.cta p{margin-bottom:1.3rem;color:var(--ink);font-size:1.08rem}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:40px;font-size:1.05rem}
+.author-box{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.author-box b{color:var(--navy);font-family:var(--fd)}
+.related{margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--border)}
+.related h4{font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1rem}
+.related a{display:block;color:var(--ink);text-decoration:none;padding:.7rem 0;border-bottom:1px solid var(--border);font-weight:600;font-size:1.05rem}.related a:hover{color:var(--orange-d)}
+footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+.hl{background:linear-gradient(180deg,transparent 12%,#F8D29E 12%,#F8D29E 90%,transparent 90%);color:#3a2a12;font-weight:600;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <div class="top-r">
+    <a class="back" href="index.html" data-en="&larr; Insights" data-zh="&larr; 觀點">&larr; Insights</a>
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+  </div>
+</div></div>
+
+<article>
+  <div class="ey" data-en="Insights · Retention &amp; Money" data-zh="觀點 · 留存與變現">Insights · Retention &amp; Money</div>
+  <h1 data-en="Retention Is the Business: Reading the Cohort Curve" data-zh="留存就是生意本身：讀懂同期群曲線">Retention Is the Business: Reading the Cohort Curve</h1>
+  <div class="byline" data-en="By EvoScale Capital · 7 min read · June 2026" data-zh="毅拓資本 · 7 分鐘閱讀 · 2026 年 6 月">By EvoScale Capital · 7 min read · June 2026</div>
+
+  <p class="lede" data-en="Every other lever eventually drains into this one. Demand, acquisition and referral all assume that a user who arrives will stay long enough to matter, and a consumer business is, in the end, <span class='hl'>the shape of its retention curve</span>. If that curve flattens, you have a business that compounds. If it decays toward zero, you are refilling a leaky bucket forever, and no amount of acquisition will outrun the drain." data-zh="其他每一根槓桿，最後都流進這一根。需求、獲客、推薦，全都假設了一件事：一個進來的使用者，會留得夠久、久到有意義，而一門消費生意，到頭來，就是<span class='hl'>它那條留存曲線的形狀</span>。如果那條曲線會走平，你就有了一門會複利的生意；如果它一路衰退趨近於零，你就是在永遠地替一個漏水的桶重新注水，而再多的獲客，也跑不贏那個漏。">Every other lever eventually drains into this one. Demand, acquisition and referral all assume that a user who arrives will stay long enough to matter, and a consumer business is, in the end, <span class='hl'>the shape of its retention curve</span>. If that curve flattens, you have a business that compounds. If it decays toward zero, you are refilling a leaky bucket forever, and no amount of acquisition will outrun the drain.</p>
+
+  <figure>
+    <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two retention curves: one decaying to zero, one flattening to a plateau">
+      <rect width="720" height="240" fill="#FBF6EA"/>
+      <line x1="70" y1="40" x2="70" y2="200" stroke="#C9BEA8" stroke-width="2"/>
+      <line x1="70" y1="200" x2="680" y2="200" stroke="#C9BEA8" stroke-width="2"/>
+      <text x="40" y="50" fill="#9a8f78" font-family="DM Sans,sans-serif" font-size="15" text-anchor="middle">100%</text>
+      <text x="360" y="230" fill="#9a8f78" font-family="DM Sans,sans-serif" font-size="16" text-anchor="middle" data-en="weeks since signup" data-zh="註冊後的週數">weeks since signup</text>
+      <path d="M70 50 C 160 150, 260 188, 680 198" fill="none" stroke="#B0593A" stroke-width="4"/>
+      <text x="560" y="186" fill="#B0593A" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" data-en="leaky" data-zh="漏水">leaky</text>
+      <path d="M70 50 C 150 120, 240 132, 680 130" fill="none" stroke="#5C7B53" stroke-width="4"/>
+      <text x="560" y="118" fill="#5C7B53" font-family="DM Sans,sans-serif" font-size="16" font-weight="700" data-en="sticky (flattens)" data-zh="黏著（走平）">sticky (flattens)</text>
+    </svg>
+    <figcaption data-en="The whole game is in the tail: a curve that flattens above zero is a business; a curve that keeps falling is a countdown." data-zh="整場比賽都在尾巴：一條在零以上走平的曲線是一門生意；一條持續下墜的曲線，是一個倒數計時。">The whole game is in the tail: a curve that flattens above zero is a business; a curve that keeps falling is a countdown.</figcaption>
+  </figure>
+
+  <h2 data-en="Why retention sits above everything" data-zh="為什麼留存站在一切之上">Why retention sits above everything</h2>
+  <p data-en="Retention is the input that quietly sets the other numbers. It is the bulk of lifetime value, since a customer who stays twice as long is worth roughly twice as much; it is what makes acquisition affordable, because a higher LTV justifies a higher cost to win; and it is the fuel for referral, since people only recommend what they kept using. The economics have been measured for decades: Bain &amp; Company's classic finding in the <a class='ref' href='https://hbr.org/1990/09/zero-defections-quality-comes-to-services' target='_blank' rel='noopener'>Harvard Business Review</a> is that lifting retention by just 5% can raise profits by 25% to 95%. <span class='hl'>Improving retention does not add to growth; it multiplies it</span>." data-zh="留存，是那個悄悄決定其他數字的輸入。它是終身價值的大宗，因為一個留存時間多一倍的顧客，價值大約也多一倍；它讓獲客變得划算，因為更高的 LTV 才撐得起更高的贏得成本；它也是推薦的燃料，因為人們只會推薦他們持續使用的東西。這套經濟學被量測了數十年：Bain &amp; Company 發表在<a class='ref' href='https://hbr.org/1990/09/zero-defections-quality-comes-to-services' target='_blank' rel='noopener'>哈佛商業評論</a>的經典發現是，留存率只要提高 5%，利潤就能成長 25% 到 95%。<span class='hl'>改善留存，不是在「加」成長，而是在「乘」成長</span>。">Retention is the input that quietly sets the other numbers. It is the bulk of lifetime value, since a customer who stays twice as long is worth roughly twice as much; it is what makes acquisition affordable, because a higher LTV justifies a higher cost to win; and it is the fuel for referral, since people only recommend what they kept using. The economics have been measured for decades: Bain &amp; Company's classic finding in the <a class="ref" href="https://hbr.org/1990/09/zero-defections-quality-comes-to-services" target="_blank" rel="noopener">Harvard Business Review</a> is that lifting retention by just 5% can raise profits by 25% to 95%. <span class='hl'>Improving retention does not add to growth; it multiplies it</span>.</p>
+
+  <h2 data-en="How to read a cohort curve" data-zh="怎麼讀一條同期群曲線">How to read a cohort curve</h2>
+  <p data-en="A cohort is a group that started together, say everyone who signed up in one week, tracked over time. The retention curve plots what fraction of that cohort is still active week by week. It always falls at first, as the merely curious drop away. What matters is what happens next: does it keep falling to zero, or does it bend and settle on a plateau. <span class='hl'>That plateau is the share of people for whom the product became a habit</span>, and the height of it, not the steepness of the early drop, decides whether you have a business." data-zh="一個同期群（cohort），是一群一起開始的人，比如「同一週註冊的所有人」，被沿著時間追蹤。留存曲線畫的是：這群人裡，每一週還有多少比例仍然活躍。它一開始一定會掉，因為只是好奇的人會散去。要緊的是接下來：它是繼續掉到零，還是彎下來、停在一個平台上。<span class='hl'>那個平台，就是「這個產品變成習慣」的那群人的比例</span>，而它的高度，而不是早期下墜的陡度，決定了你有沒有一門生意。">A cohort is a group that started together, say everyone who signed up in one week, tracked over time. The retention curve plots what fraction of that cohort is still active week by week. It always falls at first, as the merely curious drop away. What matters is what happens next: does it keep falling to zero, or does it bend and settle on a plateau. <span class='hl'>That plateau is the share of people for whom the product became a habit</span>, and the height of it, not the steepness of the early drop, decides whether you have a business.</p>
+
+  <div class="rtable">
+    <div class="rtable-t" data-en="Same start, two destinies" data-zh="一樣的起點，兩種命運">Same start, two destinies</div>
+    <div class="rtable-s" data-en="Share of a signup cohort still active. Both lose people early; only one finds a floor." data-zh="一個註冊同期群中仍然活躍的比例。兩者早期都流失人，但只有一個找到了底。">Share of a signup cohort still active. Both lose people early; only one finds a floor.</div>
+    <table class="rt">
+      <tr><th data-en="Week" data-zh="週">Week</th><th data-en="Leaky product" data-zh="漏水的產品">Leaky product</th><th data-en="Sticky product" data-zh="黏著的產品">Sticky product</th></tr>
+      <tr><td>1</td><td class="leak">100%</td><td class="stick">100%</td></tr>
+      <tr><td>4</td><td class="leak">40%</td><td class="stick">62%</td></tr>
+      <tr><td>8</td><td class="leak">18%</td><td class="stick">51%</td></tr>
+      <tr><td>12</td><td class="leak">7%</td><td class="stick">46%</td></tr>
+      <tr><td>24</td><td class="leak" data-en="~1%" data-zh="約 1%">~1%</td><td class="stick" data-en="44% (flat)" data-zh="44%（走平）">44% (flat)</td></tr>
+    </table>
+    <div class="dsource" data-en="EvoScale illustration of a decaying vs a flattening cohort curve" data-zh="毅拓資本示意：衰退型與走平型同期群曲線">EvoScale illustration of a decaying vs a flattening cohort curve</div>
+  </div>
+
+  <h2 data-en="The flattening curve is the real signal" data-zh="會走平的曲線，才是真正的訊號">The flattening curve is the real signal</h2>
+  <p data-en="Among growth practitioners, the flattening of the retention curve is treated as the clearest evidence of product-market fit, a point Andrew Chen and the Reforge community have made for years. The instructive part is that <span class='hl'>the plateau does not need to be high, it needs to exist</span>. A product that settles at forty-something percent of users active months later has found a core that genuinely needs it, and that core is what every other lever then compounds on. What a healthy floor looks like varies enormously by category, daily for a messaging app, monthly for a travel product, so the comparison that matters is against your own earlier cohorts, not a universal benchmark." data-zh="在成長實務圈裡，留存曲線「走平」被當成產品市場媒合度最清楚的證據，這是 Andrew Chen 與 Reforge 社群多年來的主張。有啟發的是，<span class='hl'>那個平台不需要很高，它需要的是「存在」</span>。一個在幾個月後仍有四十幾趴使用者活躍的產品，已經找到了一群真正需要它的核心，而那群核心，正是其他每一根槓桿接下來複利的基礎。一個健康的「底」長什麼樣，因品類而天差地遠，通訊 App 是每日、旅遊產品是每月，所以真正有意義的比較，是「對著你自己更早的同期群」，而不是一個放諸四海的基準。">Among growth practitioners, the flattening of the retention curve is treated as the clearest evidence of product-market fit, a point Andrew Chen and the Reforge community have made for years. The instructive part is that <span class='hl'>the plateau does not need to be high, it needs to exist</span>. A product that settles at forty-something percent of users active months later has found a core that genuinely needs it, and that core is what every other lever then compounds on. What a healthy floor looks like varies enormously by category, daily for a messaging app, monthly for a travel product, so the comparison that matters is against your own earlier cohorts, not a universal benchmark.</p>
+
+  <h2 data-en="How retention gets faked" data-zh="留存怎麼被造假">How retention gets faked</h2>
+  <p data-en="The most common trick is not a lie but a flattering definition. Counting a login, an app open or any trivial action as 'active' inflates retention with motions that carry no value, so a curve can look healthy while the behaviour that pays the bills quietly erodes. The other classic is hiding behind aggregate <strong>monthly active users</strong>: a total that grows because acquisition outruns churn can mask a leaky curve underneath, since new arrivals refill what departing users empty. <span class='hl'>A rising MAU with a falling cohort curve is a company spending more and more to stand still</span>. The honest read is always per cohort, on an action that means the product did its job." data-zh="最常見的把戲，不是說謊，而是一個美化過的定義。把一次登入、一次開啟 App、或任何微不足道的動作算成「活躍」，會用「沒有價值的動作」把留存灌水，於是一條曲線可以看起來很健康，而真正付帳單的那個行為，卻在底下悄悄崩解。另一個經典，是躲在總量的<strong>月活躍用戶</strong>背後：一個因為「獲客跑贏流失」而成長的總數，能蓋住底下一條漏水的曲線，因為新來的人，補滿了離開的人騰出的空。<span class='hl'>一個「MAU 上升、同期群曲線下降」的公司，是在花越來越多錢來原地踏步</span>。誠實的判讀，永遠是「逐同期群」，而且看的是一個「代表產品真的完成了任務」的動作。">The most common trick is not a lie but a flattering definition. Counting a login, an app open or any trivial action as 'active' inflates retention with motions that carry no value, so a curve can look healthy while the behaviour that pays the bills quietly erodes. The other classic is hiding behind aggregate <strong>monthly active users</strong>: a total that grows because acquisition outruns churn can mask a leaky curve underneath, since new arrivals refill what departing users empty. <span class='hl'>A rising MAU with a falling cohort curve is a company spending more and more to stand still</span>. The honest read is always per cohort, on an action that means the product did its job.</p>
+
+  <h2 data-en="How we read it" data-zh="我們怎麼讀它">How we read it</h2>
+  <p data-en="Reading a consumer deal, the retention curve is the first thing we ask for, by cohort, on a meaningful action, over as long a window as the company has data. We look for the bend: does the curve flatten, and where. We check whether recent cohorts retain better than older ones, which says the product is improving, or worse, which is a quiet alarm no headline growth number will sound. And we treat a flattening curve as the strongest evidence that the demand in <a class='ref' href='what-consumers-buy.html'>what consumers actually buy</a> is real, because <span class='hl'>retention is desire, proven over time</span>. It is lever three of <a class='ref' href='what-makes-consumer-startups-grow.html'>the four levers</a>, and the one we trust most." data-zh="讀一個消費案子時，留存曲線是我們第一個要的東西：逐同期群、看一個有意義的動作、跨越「公司有多長資料就看多長」的窗口。我們找那個彎：曲線會不會走平、在哪裡走平。我們檢查近期的同期群，留存得比舊的更好（這說明產品在進步），還是更差（這是一個任何成長頭條數字都不會響起的安靜警報）。而我們把一條走平的曲線，當成「<a class='ref' href='what-consumers-buy.html'>消費者其實在買什麼</a>裡那份需求是真的」最強的證據，因為<span class='hl'>留存，就是「被時間證明過的渴望」</span>。它是<a class='ref' href='what-makes-consumer-startups-grow.html'>四根槓桿</a>裡的第三根，也是我們最信任的那一根。">Reading a consumer deal, the retention curve is the first thing we ask for, by cohort, on a meaningful action, over as long a window as the company has data. We look for the bend: does the curve flatten, and where. We check whether recent cohorts retain better than older ones, which says the product is improving, or worse, which is a quiet alarm no headline growth number will sound. And we treat a flattening curve as the strongest evidence that the demand in <a class="ref" href="what-consumers-buy.html">what consumers actually buy</a> is real, because <span class='hl'>retention is desire, proven over time</span>. It is lever three of <a class="ref" href="what-makes-consumer-startups-grow.html">the four levers</a>, and the one we trust most.</p>
+
+  <h2 data-en="The takeaway" data-zh="結論">The takeaway</h2>
+  <p data-en="Before you spend the next dollar on growth, find out whether your curve flattens. If it does, acquisition is an investment and you should make it boldly. If it does not, growth is just a faster way to spend money teaching strangers that they do not need you yet. <span class='hl'>Fix the curve first; everything else in a consumer business is built on its plateau</span>." data-zh="在你把下一塊錢花在成長之前，先搞清楚你的曲線會不會走平。如果會，獲客就是一筆投資，你該大膽地做；如果不會，成長就只是一個「更快地花錢，去教一群陌生人『他們還不需要你』」的方式。<span class='hl'>先把曲線修好；一門消費生意的其他一切，都蓋在它的平台之上</span>。">Before you spend the next dollar on growth, find out whether your curve flattens. If it does, acquisition is an investment and you should make it boldly. If it does not, growth is just a faster way to spend money teaching strangers that they do not need you yet. <span class='hl'>Fix the curve first; everything else in a consumer business is built on its plateau</span>.</p>
+
+  <div class="cta">
+    <h3 data-en="Does your retention curve flatten?" data-zh="你的留存曲線會走平嗎？">Does your retention curve flatten?</h3>
+    <p data-en="The consumer founders we find most compelling lead with a cohort curve that bends to a floor, on an action that matters. If yours does, we'd like to see it." data-zh="我們覺得最有說服力的消費創業者，開場用的是一條「彎向一個底」的同期群曲線，而且看的是一個重要的動作。如果你的會，我們很樂意認識。">The consumer founders we find most compelling lead with a cohort curve that bends to a floor, on an action that matters. If yours does, we'd like to see it.</p>
+    <a class="cta-btn" href="../apply.html" data-en="Share your deal →" data-zh="與我們分享 →">Share your deal →</a>
+  </div>
+
+  <div class="author-box">
+    <b data-en="EvoScale Capital" data-zh="毅拓資本">EvoScale Capital</b> <span data-en="· Insights from Taiwan's first operator-led syndicate." data-zh="· 觀點由 EvoScale 團隊產出，全台首創 operator-led syndicate。">· Insights from Taiwan's first operator-led syndicate.</span>
+  </div>
+
+  <div class="related">
+    <h4 data-en="Read next" data-zh="接著讀">Read next</h4>
+    <a href="building-consumer-habits.html" data-en="Building a Product People Come Back To" data-zh="打造一個人們會回來的產品">Building a Product People Come Back To</a>
+    <a href="consumer-unit-economics.html" data-en="The Unit Economics of Consumer: CAC, LTV and Payback" data-zh="消費的單位經濟：CAC、LTV 與回收期">The Unit Economics of Consumer: CAC, LTV and Payback</a>
+    <a href="what-makes-consumer-startups-grow.html" data-en="What Actually Makes a Consumer Startup Grow" data-zh="消費新創，真正靠什麼成長">What Actually Makes a Consumer Startup Grow</a>
+  </div>
+</article>
+
+<footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 毅拓資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
+<script>
+function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v===null)return;if(e.tagName.toLowerCase()==='text'){e.textContent=v;}else{e.innerHTML=v;}});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+(function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
+</script>
+</body>
+</html>
