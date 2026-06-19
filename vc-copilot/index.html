@@ -57,6 +57,8 @@ body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:va
 .dt .q{color:var(--mid)}
 .disc{font-size:var(--min-label);color:var(--mid);opacity:.95;max-width:64ch}
 .disc-tag{display:inline-flex;align-items:center;gap:.45rem;font-size:var(--min-label);color:var(--mid);border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:.4rem 1.1rem}
+.pagenote{position:absolute;left:0;right:0;bottom:2.4vh;margin:0 auto;width:100%;max-width:70ch;padding:0 6vw;display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:var(--min-label);line-height:1.45;color:var(--mid);opacity:.6;text-align:center;text-wrap:pretty}
+.pagenote svg{width:14px;height:14px;flex-shrink:0;opacity:.85}
 .gembtn{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;font-size:var(--min-label);color:#0a0a0f;background:linear-gradient(100deg,var(--orange),#FF9E4D);border:none;border-radius:999px;padding:.78rem 1.7rem;text-decoration:none;box-shadow:0 6px 24px rgba(255,107,0,.3);transition:transform .2s,box-shadow .2s;white-space:nowrap;cursor:pointer}
 .gembtn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,107,0,.45)}
 .gembtn svg{width:18px;height:18px;flex-shrink:0}
@@ -127,6 +129,7 @@ body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:va
   .step{padding:.85rem 1rem}
   .gembtn{font-size:1rem;padding:.72rem 1.4rem}
   .disc-tag{font-size:1rem;padding:.45rem 1rem;line-height:1.4}
+  .pagenote{position:static;bottom:auto;margin-top:1.1rem;padding:0;max-width:100%;font-size:1rem}
 }
 </style>
 </head>
@@ -174,10 +177,10 @@ const D=[
   title:'不同階段，<span class="g">問不同問題</span>',
   cols:['階段','它最在意的三個問題'],
   rows:[
-    ['想法／PSF','痛點有人現在就願意付錢嗎？　·　為什麼是現在？　·　為什麼是你這隊？'],
-    ['MVP','用戶真在用，還是只說想用？　·　跟用戶聊完改了什麼？　·　哪一群人最愛你？'],
-    ['PMF','沒了產品，幾成用戶會很失望？　·　用戶會主動推薦嗎？　·　留存打平了嗎？'],
-    ['Scaling','每多賺一塊 ARR（年營收）燒掉幾塊？　·　LTV（客戶終身價值）蓋得過 CAC（獲客成本）嗎？　·　加錢是更快還是更會燒？']],
+    ['想法／PSF',['痛點有人現在就願意付錢嗎？','為什麼是現在？','為什麼是你這隊？']],
+    ['MVP',['用戶真在用，還是只說想用？','跟用戶聊完改了什麼？','哪一群人最愛你？']],
+    ['PMF',['沒了產品，幾成用戶會很失望？','用戶會主動推薦嗎？','留存打平了嗎？']],
+    ['Scaling',['每多賺一塊 ARR（年營收）燒掉幾塊？','LTV（客戶終身價值）蓋得過 CAC（獲客成本）嗎？','加錢是更快還是更會燒？']]],
   note:'副駕先判斷你在哪一輪，再用對的問題。問錯階段，容易錯殺好案子。'},
 
 {id:'flow5',type:'flow',blob:['rgba(168,85,247,.1)','rgba(255,107,0,.07)'],
@@ -256,10 +259,10 @@ triad:{ey:'The core idea',title:'Innovation Triad <span class="g">D／F／V</spa
 stage:{ey:'First, locate you',title:'Different stage, <span class="g">different questions</span>',
   cols:['Stage','The three questions it cares about most'],
   rows:[
-    ['Idea／PSF','Would anyone pay to solve this now?　·　Why now?　·　Why your team?'],
-    ['MVP','Are users actually using it, or just saying so?　·　What did user talks change?　·　Who loves it most?'],
-    ['PMF','How many would be very disappointed without it?　·　Do users refer others?　·　Has retention flattened?'],
-    ['Scaling','How much do you burn per new dollar of ARR?　·　Does LTV beat CAC?　·　Does capital drive growth or just burn?']],
+    ['Idea／PSF',['Would anyone pay to solve this now?','Why now?','Why your team?']],
+    ['MVP',['Are users actually using it, or just saying so?','What did user talks change?','Who loves it most?']],
+    ['PMF',['How many would be very disappointed without it?','Do users refer others?','Has retention flattened?']],
+    ['Scaling',['How much do you burn per new dollar of ARR?','Does LTV beat CAC?','Does capital drive growth or just burn?']]],
   note:'The copilot finds your stage first, then asks the right questions. Wrong-stage questions kill good deals.'},
 flow5:{ey:'The scoring flow',title:'Five steps, <span class="g">one at a time</span>',
   flow:[{ft:'① Quick screen',fd:'Map the facts'},{ft:'② D／F score',fd:'Need & build'},{ft:'③ V score',fd:'Viability'},{ft:'④ Suggestion',fd:'A leaning'},{ft:'⑤ Diligence Qs',fd:'3 hardest'}],
@@ -313,7 +316,7 @@ function render(sd){
   if(d.type==='cover'){
     h+=eyT(d)+`<h1 class="cover-h">${d.title}</h1><div class="sub">${d.sub}</div>`+chips(d.chips)+(d.foot?`<div class="foot" style="margin-top:.5rem">${d.foot}</div>`:'');
   }else if(d.type==='big'){
-    h+=eyT(d)+`<div class="big">${d.big}</div>`+noteT(d)+(d.button?`<div style="margin-top:.6rem">${gembtn(d.button)}</div>`:'')+discT(d)+(d.foot?`<div class="foot" style="margin-top:.3rem">${d.foot}</div>`:'');
+    h+=eyT(d)+`<div class="big">${d.big}</div>`+noteT(d)+(d.button?`<div style="margin-top:.6rem">${gembtn(d.button)}</div>`:'')+(d.foot?`<div class="foot" style="margin-top:.3rem">${d.foot}</div>`:'');
   }else if(d.type==='triad'){
     h+=eyT(d)+`<h2 class="title">${d.title}</h2>`;
     h+=`<div class="triad">${d.orbs.map(o=>`<div class="orb" style="--c:${o.c}"><div class="L">${o.L}</div><div class="n">${o.n}</div><div class="d">${o.d}</div></div>`).join('')}</div>`;
@@ -321,7 +324,7 @@ function render(sd){
     h+=noteT(d);
   }else if(d.type==='stages'){
     h+=eyT(d)+`<h2 class="title">${d.title}</h2>`;
-    h+=`<table class="dt"><thead><tr>${d.cols.map((c,i)=>`<th style="${i===0?'color:var(--orange);width:20%':'color:var(--cyan)'}">${c}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr><td class="k">${r[0]}</td><td class="q">${r[1]}</td></tr>`).join('')}</tbody></table>`;
+    h+=`<table class="dt"><thead><tr><th style="color:var(--orange);width:18%">${d.cols[0]}</th><th colspan="3" style="color:var(--cyan)">${d.cols[1]}</th></tr></thead><tbody>${d.rows.map(r=>`<tr><td class="k">${r[0]}</td>${r[1].map(q=>`<td class="q" style="width:27.3%">${q}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
     h+=noteT(d);
   }else if(d.type==='flow'){
     const f=d.flow.map((x,i)=>`<div class="fbox"><div class="ft">${x.ft}</div><div class="fd">${x.fd}</div></div>`+(i<d.flow.length-1?'<div class="farr">›</div>':'')).join('');
@@ -331,12 +334,13 @@ function render(sd){
     h+=`<table class="dt"><thead><tr>${d.cols.map((c,i)=>`<th style="${i===0?'width:19%':i===2?'width:23%':''}">${c}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr><td class="k" style="color:${r[0][1]}">${r[0][0]}</td><td>${nbItems(r[1])}</td><td class="q" style="text-wrap:balance">${r[2]}</td></tr>`).join('')}</tbody></table>`;
     h+=noteT(d);
   }else if(d.type==='cards2'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="cards c2">${d.cards.map(c=>`<div class="card" style="--c:${c.c}"><div class="ch">${c.ch}</div><div class="cd">${c.cd}</div></div>`).join('')}</div>`+discT(d);
+    h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="cards c2">${d.cards.map(c=>`<div class="card" style="--c:${c.c}"><div class="ch">${c.ch}</div><div class="cd">${c.cd}</div></div>`).join('')}</div>`;
   }else if(d.type==='steps'){
     h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="steps">${d.steps.map(s=>`<div class="step"><div class="sn">${s.n}</div><div class="st">${s.t}</div></div>`).join('')}</div>`+noteT(d);
   }
-  h+='</div>';return h;
+  h+='</div>';if(d.disc)h+=pagenote(d.disc);return h;
 }
+function pagenote(t){return `<div class="pagenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>${t}</div>`;}
 
 function build(){
   const c=$('#slides');c.innerHTML='';
