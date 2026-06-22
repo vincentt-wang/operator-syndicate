@@ -908,7 +908,7 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="reveal">
       <div class="eyebrow" style="justify-content:center;color:var(--orange-3)" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
       <h2 style="font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.025em;line-height:1.05;white-space:normal;margin-bottom:1rem" data-en="Senior Operators. One Syndicate." data-zh="頂尖高管，一個飛輪">Senior Operators. One Syndicate.</h2>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:880px;margin:0 auto;line-height:1.7" data-en="A Founding Council of VP- and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 votes on every deal and opens enterprise doors." data-zh="由世界 500 強科技巨頭與台灣百大企業 VP、GM 級高管組成的創始決策委員會（Founding Council）投票決策、為你敲開企業大門。">A Founding Council of VP- and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 votes on every deal and opens enterprise doors.</p>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.5);max-width:880px;margin:0 auto;line-height:1.7" data-en="VP- and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 serve as industry mentors who open enterprise doors and help founders navigate the enterprise sales cycle." data-zh="由世界 500 強科技巨頭與台灣百大企業 VP、GM 級高管擔任業界導師，為新創敲開企業大門，陪創辦人走過企業銷售的每一關。">VP- and GM-level operators from Fortune 500 tech giants and Taiwan's top 100 serve as industry mentors who open enterprise doors and help founders navigate the enterprise sales cycle.</p>
     </div>
   </div>
   <div style="position:relative">
@@ -1401,7 +1401,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </footer>
 <div id="demoToast"></div>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<script src="shared-content.js?v=17"></script>
+<script src="shared-content.js?v=18"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>try{emailjs.init({publicKey:"oG6hm-tDcskzYg6t6"});}catch(e){}</script>
 <script>
@@ -1776,8 +1776,6 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
     var initials=(o.name.match(/[A-Z]/g)||[]).slice(0,2).join('')||o.name.slice(0,2).toUpperCase();
     return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img, cf:o.confirmed};
   });
-  // Preload avatars
-  OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.imgLoaded=false;op.imgEl.onload=function(){op.imgLoaded=true;};});
 
   // 4 tilted orbital rings: each holds 5 nodes
   // Nodes orbit smoothly at different speeds and inclinations
@@ -2016,46 +2014,31 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
         ctx.beginPath();ctx.arc(nd.x,nd.y,r+8+pRing*6,0,Math.PI*2);
         ctx.strokeStyle='rgba(255,255,255,'+(.18*pRing).toFixed(2)+')';ctx.lineWidth=1.5;ctx.stroke();
       } else {
-        // Normal: colored circle with initials
+        // Normal: plain colored dot (no initials / no person identity)
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();
-        ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px Inter,system-ui';
-        ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(nd.op.i,nd.x,nd.y);
       }
       ctx.restore();
-      // Company name label — hide on mobile to prevent overlap
+      // Brand name label only (never a person's name) — hide on mobile to prevent overlap
       if(W>=600||isH){
         ctx.save();ctx.globalAlpha=nd.alpha*(isH?.95:.65);
         ctx.fillStyle=isH?'#fff':nd.op.cl;
         ctx.font=(isH||nd.op.cf?'bold ':'')+(W<600?'11':'13')+'px Inter,system-ui';
         ctx.textAlign='center';ctx.textBaseline='top';
-        ctx.fillText(isH?nd.op.n:String(nd.op.co||'').replace('EvoScale Capital','EvoScale'),nd.x,nd.y+r+6);
+        ctx.fillText(String(nd.op.co||'').replace('EvoScale Capital','EvoScale'),nd.x,nd.y+r+6);
         ctx.restore();
       }
     });
 
-    // DOM avatar overlay
-    var avOv=document.getElementById('op-av-ov'),avImg=document.getElementById('op-av-img');
-    if(hovI>=0&&avOv){
-      var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
-      var r=nd.r*1.7,px=nd.x*(cr.width/W)+(cr.left-cr2.left),py=nd.y*(cr.height/H)+(cr.top-cr2.top);
-      avOv.style.left=(px-r)+'px';avOv.style.top=(py-r)+'px';
-      avOv.style.width=(r*2)+'px';avOv.style.height=(r*2)+'px';
-      avOv.style.opacity='1';avOv.style.transform='scale(1)';
-      if(avImg){
-        avImg.style.width=(r*2)+'px';avImg.style.height=(r*2)+'px';
-        var ns='https://i.pravatar.cc/100?img='+nd.op.img;
-        if(!avImg.src.endsWith('img='+nd.op.img))avImg.src=ns;
-        avImg.style.borderColor=nd.op.cl;
-      }
-    }else if(avOv){avOv.style.opacity='0';avOv.style.transform='scale(.75)';}
-    // Tooltip (name + title, offset to side)
+    // No photo overlay — hover reveals brand name + colored dot/ring only
+    var avOv=document.getElementById('op-av-ov');if(avOv){avOv.style.opacity='0';avOv.style.transform='scale(.75)';}
+    // Tooltip: brand name only (no person name, no title)
     if(hovI>=0&&tip){
       var nd=nodes[hovI],cr=canvas.getBoundingClientRect(),cr2=canvas.parentElement.getBoundingClientRect();
       var r=nd.r*1.7,px=nd.x*(cr.width/W)+(cr.left-cr2.left),py=nd.y*(cr.height/H)+(cr.top-cr2.top);
-      tip.style.left=(px+r+12)+'px';tip.style.top=(py-24)+'px';
+      tip.style.left=(px+r+12)+'px';tip.style.top=(py-18)+'px';
       if(tipCo){tipCo.textContent=nd.op.co;tipCo.style.background=nd.op.cl+'22';tipCo.style.color=nd.op.cl;}
-      if(tipTi)tipTi.innerHTML='<strong style="color:#fff;display:block;margin-bottom:3px">'+nd.op.n+'</strong>'+nd.op.t;
+      if(tipTi)tipTi.innerHTML='';
       tip.classList.add('vis');
     }else if(tip)tip.classList.remove('vis');
   }

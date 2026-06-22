@@ -148,12 +148,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 <div class="page-hero">
   <div class="container">
     <h1>50+ Senior Operators.<br>One Syndicate.</h1>
-    <p>VP to GM-level operators from Fortune 500 and Taiwan's top 100.</p>
+    <p>VP to GM-level operators from Fortune 500 and Taiwan's top 100, serving as industry mentors who open enterprise doors for founders.</p>
     <div class="stats-row">
       <div class="stat-item"><div class="stat-n" id="total-count">20</div><div class="stat-l">OPERATORS</div></div>
       <div class="stat-item"><div class="stat-n">20</div><div class="stat-l">COMPANIES</div></div>
       <div class="stat-item"><div class="stat-n">20+</div><div class="stat-l">AVG YEARS</div></div>
-      <div class="stat-item"><div class="stat-n">TW · SEA · JP</div><div class="stat-l">MARKETS</div></div>
     </div>
   </div>
 </div>
@@ -177,15 +176,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </div>
 
 <div class="container">
-  <!-- Filter: by Type -->
-  <div class="filter-row">
-    <span class="filter-label">Type</span>
-    <div class="filter-bar" id="typeBar">
-      <button class="filter-btn active" data-type="all">All</button>
-      <button class="filter-btn" data-type="Founding Council">Founding Council</button>
-      <button class="filter-btn" data-type="Founding Member">Founding Member</button>
-    </div>
-  </div>
   <!-- Filter: by Function -->
   <div class="filter-row">
     <span class="filter-label">Function</span>
@@ -260,7 +250,7 @@ function ecoToggle(){var sec=document.getElementById("ecoSection");ecoApply(sec.
   <a href="mailto:boicegun@gmail.com" style="color:var(--orange);opacity:.7">boicegun@gmail.com</a>
 </footer>
 
-<script src="shared-content.js?v=17"></script>
+<script src="shared-content.js?v=18"></script>
 <script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('opLogoWall');if(!w)return;var h='';items.forEach(function(it){var mh=it.wh||44;var inner=it.l?'<img src="'+it.l+'" style="max-height:'+mh+'px;max-width:100%" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="op-logo-cell">'+inner+'</div>';});w.innerHTML=h;})();</script>
 <script>
 /* ═══════════════════════════════════════════════
@@ -276,7 +266,7 @@ function ecoToggle(){var sec=document.getElementById("ecoSection");ecoApply(sec.
 var OPERATORS = (window.OS_CONTENT && window.OS_CONTENT.operators ? window.OS_CONTENT.operators : []).filter(function(o){return o.companyKey!=='team' && o.confirmed;}).map(function(o){
   return { id:o.id, name:o.name, company:o.company, companyKey:o.companyKey,
     companyColor:o.color, title:o.title, img:o.img,
-    linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise', fn:o.fn||'Enterprise Sales', type:o.type||'Founding Council',
+    linkedin:o.linkedin||'', years:o.years||5, focus:o.focus||'Enterprise', fn:o.fn||'Enterprise Sales', type:o.type||'',
     visible:o.visible!==false };
 });
 
@@ -303,7 +293,7 @@ function renderCard(op){
     +op.focus.split('·').map(function(f){return '<span class="op-tag">'+f.trim()+'</span>';}).join('')
     +'</div>'
     +'<div class="op-footer">'
-    +'<span class="op-years">'+op.years+'+ yrs · '+(op.type||'')+'</span>'
+    +'<span class="op-years">'+op.years+'+ yrs</span>'
     +(op.linkedin
       ? '<a class="op-linkedin" href="'+op.linkedin+'" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>'
       : '<span class="op-linkedin" style="opacity:0;pointer-events:none"></span>')
@@ -322,11 +312,6 @@ function renderAll(){
   document.getElementById('resultCount').textContent = filtered.length + (filtered.length!==1?' people':' person') + ' shown';
 }
 
-document.getElementById('typeBar').addEventListener('click',function(e){
-  var b=e.target.closest('.filter-btn'); if(!b)return;
-  document.querySelectorAll('#typeBar .filter-btn').forEach(function(x){x.classList.remove('active');});
-  b.classList.add('active'); currentType=b.dataset.type; renderAll();
-});
 document.getElementById('functionBar').addEventListener('click',function(e){
   var b=e.target.closest('.filter-btn'); if(!b)return;
   document.querySelectorAll('#functionBar .filter-btn').forEach(function(x){x.classList.remove('active');});
