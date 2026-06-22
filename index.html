@@ -202,7 +202,7 @@ img{max-width:100%;display:block}
 .logo-wall-wrap{max-width:1180px;margin:5.5rem auto 0}
 .lw-title{font-family:var(--fd);font-weight:800;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:2rem;text-align:left}
 .logo-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
-.logo-cell{flex:0 0 calc((100% - 6rem)/7);height:96px;background:#fff;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.7rem .85rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.logo-cell{flex:0 0 calc((100% - 4rem)/5);height:96px;background:#fff;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.7rem .85rem;transition:border-color .25s,box-shadow .25s,transform .25s}
 .logo-cell:hover{border-color:rgba(255,102,0,.4);box-shadow:0 8px 22px rgba(0,0,0,.08);transform:translateY(-3px)}
 .logo-cell a{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .logo-cell img{max-height:44px;max-width:100%;object-fit:contain;opacity:1;filter:saturate(1.12);transition:transform .25s,filter .25s}
@@ -1401,7 +1401,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </footer>
 <div id="demoToast"></div>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<script src="shared-content.js?v=18"></script>
+<script src="shared-content.js?v=19"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>try{emailjs.init({publicKey:"oG6hm-tDcskzYg6t6"});}catch(e){}</script>
 <script>
@@ -1772,9 +1772,11 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 (function(){
   var canvas=document.getElementById('network-canvas');if(!canvas)return;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,active=false,frame=0,sunA=0,sunPX=0,sunPY=0;
+  // Stock-ticker / short abbreviations shown inside each node (brand, not person)
+  var TICKER={'NVIDIA':'NVDA','Microsoft':'MSFT','AWS':'AMZN','IBM':'IBM','Salesforce':'CRM','UBS':'UBS','GlobalFoundries':'GFS','Sharp':'SHRP','Dentsu':'DNTS','LINE':'LINE','IDC':'IDC','Appier':'APPR','iPassMoney':'IPAS','TSMC':'TSM','Foxconn':'FOXC','MediaTek':'MTK','ASUS':'ASUS','Acer':'ACER','Quanta':'QNTA','Delta':'DLTA','Oracle':'ORCL','SAP':'SAP'};
   var OPS=(window.OS_CONTENT&&window.OS_CONTENT.operators?window.OS_CONTENT.operators:[]).filter(function(o){return o.companyKey!=='team';}).map(function(o){
-    var initials=(o.name.match(/[A-Z]/g)||[]).slice(0,2).join('')||o.name.slice(0,2).toUpperCase();
-    return {i:initials, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img, cf:o.confirmed};
+    var tk=TICKER[o.company]||(o.company||'').replace(/[^A-Za-z0-9]/g,'').slice(0,4).toUpperCase();
+    return {tk:tk, n:o.name, co:o.company, cl:o.color, t:o.title, img:o.img, cf:o.confirmed};
   });
 
   // 4 tilted orbital rings: each holds 5 nodes
@@ -2014,9 +2016,18 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
         ctx.beginPath();ctx.arc(nd.x,nd.y,r+8+pRing*6,0,Math.PI*2);
         ctx.strokeStyle='rgba(255,255,255,'+(.18*pRing).toFixed(2)+')';ctx.lineWidth=1.5;ctx.stroke();
       } else {
-        // Normal: plain colored dot (no initials / no person identity)
+        // Normal: plain colored dot (brand ticker, no person identity)
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.fillStyle=nd.op.cl;ctx.fill();
         ctx.beginPath();ctx.arc(nd.x,nd.y,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();
+      }
+      // Stock-ticker abbreviation inside the dot (brand identifier, never a person)
+      if(nd.op.tk){
+        ctx.shadowBlur=0;
+        var tlen=nd.op.tk.length;
+        var fs=Math.round(r*(tlen>=4?0.38:tlen===3?0.46:0.54));
+        ctx.fillStyle='#fff';ctx.font='700 '+fs+'px Inter,system-ui';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(nd.op.tk,nd.x,nd.y);
       }
       ctx.restore();
       // Brand name label only (never a person's name) — hide on mobile to prevent overlap
