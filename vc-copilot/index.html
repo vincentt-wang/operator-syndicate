@@ -234,13 +234,8 @@ const D=[
     ['MVP',['用戶是真在用，還是只說想用？','哪一群人最愛你，愛到離不開？']],
     ['PMF',['沒了你，幾成用戶會真的失望？','留存曲線打平了嗎？']],
     ['Scaling',['每多賺一塊 ARR，要先燒幾塊？','加錢是更快，還是更會燒？']]],
-  rulerHead:'它隨手對照的幾把尺',
-  rulers:[
-    {t:'Pitch 十元素',d:'問題到募資，10 格盤點缺口'},
-    {t:'評審九項',d:'市場到 PMF，9 項各標信心'},
-    {t:'護城河五型',d:'網絡·轉移·品牌·規模·數據'}],
   note:'同一組問題，<b class="hl2">會因階段而換問法</b>；先判對案子在哪一階段，再逐項檢視。階段一旦判錯，最容易錯殺好案。',
-  disc:'階段判斷僅供定位參考，尺規幫你看得更全面，皆不等於投資建議。'},
+  disc:'階段判斷僅供定位參考，不等於投資建議。'},
 
 {id:'process',type:'process',
   ey:'它怎麼運作',
@@ -299,13 +294,8 @@ lenses:{ey:'Locate first, then one ruler',title:'Each stage, <span class="g">new
     ['MVP',['Real usage, or just talk?','Which segment can\'t quit?']],
     ['PMF',['% truly upset without you?','Has retention flattened?']],
     ['Scaling',['Burn per $1 of new ARR?','More cash: speed or burn?']]],
-  rulerHead:'A few rulers it reaches for',
-  rulers:[
-    {t:'Pitch 10 elements',d:'Flags what\'s unclear.'},
-    {t:'9 review criteria',d:'Confidence on each.'},
-    {t:'5 moat types',d:'Which moat is forming?'}],
   note:'The same questions <b class="hl2">change form by stage</b>: place the deal at its stage first, then check item by item. Misjudge the stage and you kill good deals.',
-  disc:'Stage calls orient only; the rulers help you see more fully. Neither is investment advice.'},
+  disc:'Stage calls orient only; not investment advice.'},
 process:{ey:'How it runs',title:'Five steps, <span class="g">one at a time</span>',
   flow:[{ft:'① Quick screen',fd:'Map the facts'},{ft:'② D/F score',fd:'Need & build'},{ft:'③ V score',fd:'Viability'},{ft:'④ Suggestion',fd:'A leaning'},{ft:'⑤ Diligence Qs',fd:'3 hardest'}],
   note:'Drop in the pitch, or a one-liner plus a website, and it walks the five steps one round at a time: <b class="hl1">the first three only map and score, no verdict</b>; the leaning comes in step four, the hardest questions in step five. If something\'s missing, it names it.',
@@ -351,8 +341,6 @@ function render(sd){
   }else if(d.type==='lenses'){
     h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2>`;
     h+=`<table class="dt" data-reveal><thead><tr><th style="width:20%">${d.stageCols[0]}</th><th colspan="2">${d.stageCols[1]}</th></tr></thead><tbody>${d.stageRows.map(r=>`<tr><td class="k">${r[0]}</td>${r[1].map(q=>`<td class="q" style="width:40%">${q}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
-    h+=`<div class="ruler-head" data-reveal>${d.rulerHead}</div>`;
-    h+=`<div class="cards" data-reveal style="grid-template-columns:repeat(3,1fr);gap:.7rem">${d.rulers.map((c,i)=>`<div class="card ruler" style="--c:var(--c${i+1})"><div class="ch">${c.t}</div><div class="cd">${c.d}</div></div>`).join('')}</div>`;
     h+=noteT(d);
   }else if(d.type==='process'){
     const f=d.flow.map((x,i)=>`<div class="fbox"><div class="ft">${x.ft}</div><div class="fd">${x.fd}</div></div>`+(i<d.flow.length-1?'<div class="farr" aria-hidden="true">›</div>':'')).join('');
