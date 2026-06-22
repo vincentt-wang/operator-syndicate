@@ -7,136 +7,184 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0f;--bg2:#111118;--ink:#f0f0f5;--mid:rgba(240,240,245,.8);
-  --line:rgba(255,255,255,.1);
-  --orange:#FF6B00;--red:#FF2055;--blue:#3B82F6;--purple:#A855F7;--green:#22C55E;--yellow:#FBBF24;--cyan:#06B6D4;
-  --ease-back:cubic-bezier(0.34,1.56,0.64,1);--ease-smooth:cubic-bezier(0.4,0,0.2,1);
-  --min-font:clamp(1.1rem,1.7vw,1.4rem);--min-label:clamp(1rem,1.5vw,1.25rem);
+  --bg:#0B0C0E;--surface:#15171A;--surface-2:#1C1F23;--line:#272A30;--line-hi:#3a3f46;
+  --ink:#F2F3F5;--ink-2:#AEB3BA;--ink-3:#6B7077;
+  --accent:#FF6600;--accent-soft:#FF8A3D;--accent-tint:rgba(255,102,0,.12);--accent-line:rgba(255,102,0,.34);
+  /* 三色重點系統：橘為主視覺，藍／綠為輔助標註 */
+  --c1:#FF6600;--c1k:#FF9A52;--c1t:rgba(255,102,0,.13);--c1l:rgba(255,102,0,.42);
+  --c2:#5B9DF9;--c2k:#93C0FC;--c2t:rgba(91,157,249,.13);--c2l:rgba(91,157,249,.42);
+  --c3:#34D399;--c3k:#7CE9C0;--c3t:rgba(52,211,153,.13);--c3l:rgba(52,211,153,.44);
+  --orange:#FF6600;--mid:#AEB3BA;--cyan:#5B9DF9;--green:#34D399;--purple:#5B9DF9;--blue:#5B9DF9;--red:#FF6600;--yellow:#FF8A3D;
+  --serif:'Source Serif 4','Noto Serif TC',Georgia,'Songti TC',serif;
+  --ease-smooth:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --min-font:clamp(1.2rem,1.5vw,1.38rem);--min-label:clamp(1.08rem,1.25vw,1.2rem);--eyebrow:1rem;
+  --maxw:1150px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:20px}
-body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
-#slides{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
-.slide{height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6vh 6vw;overflow:hidden}
-.inner{position:relative;z-index:1;width:100%;max-width:1180px;display:flex;flex-direction:column;align-items:center;gap:1rem}
-@keyframes aurora{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.blob{position:absolute;inset:0;pointer-events:none;z-index:0;background-size:200% 200%;animation:aurora 18s ease-in-out infinite}
+body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink-2);-webkit-font-smoothing:antialiased;overflow:hidden}
 
-.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--min-label);font-weight:700;letter-spacing:.04em;padding:.4rem 1rem;border-radius:999px;white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.05)}
-.chip-orange{color:var(--orange);border-color:rgba(255,107,0,.4);background:rgba(255,107,0,.1)}
-.chip-cyan{color:var(--cyan);border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.1)}
-.chip-green{color:var(--green);border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.1)}
-.chip-white{color:rgba(255,255,255,.82)}
+/* slow brand aurora */
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.6}
+.aurora::before,.aurora::after{content:"";position:absolute;width:62vmax;height:62vmax;border-radius:50%;filter:blur(64px);will-change:transform}
+.aurora::before{top:-18vmax;left:-12vmax;background:radial-gradient(circle at center,rgba(255,102,0,.15),transparent 64%);animation:auA 23s ease-in-out infinite}
+.aurora::after{bottom:-20vmax;right:-14vmax;background:radial-gradient(circle at center,rgba(255,138,61,.1),transparent 64%);animation:auB 28s ease-in-out infinite}
+@keyframes auA{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(6vw,4vh,0) scale(1.12)}}
+@keyframes auB{0%,100%{transform:translate3d(0,0,0) scale(1.05)}50%{transform:translate3d(-5vw,-3vh,0) scale(.95)}}
+
+#slides{position:relative;z-index:1;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.slide{height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(48px,7vh,84px) clamp(36px,6vw,80px);overflow:hidden}
+.inner{position:relative;z-index:1;width:100%;max-width:var(--maxw);display:flex;flex-direction:column;align-items:center;gap:.9rem}
+
+/* reveal-on-enter motion */
+.js-reveal .slide [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);transition-delay:var(--rd,0ms);will-change:opacity,transform}
+.slide.in-view [data-reveal]{opacity:1;transform:none;will-change:auto}
+
+/* chips */
 .chips{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--min-label);font-weight:600;letter-spacing:.01em;padding:.45rem 1rem;border-radius:10px;white-space:nowrap;border:1px solid var(--c1l);background:var(--c1t);color:var(--c1k);transition:transform .16s var(--ease-smooth),background-color .16s,border-color .16s}
+.chip.b{border-color:var(--c2l);background:var(--c2t);color:var(--c2k)}
+.chip.g{border-color:var(--c3l);background:var(--c3t);color:var(--c3k)}
+.chip:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.chip.n{border-color:var(--line);background:var(--surface);color:var(--ink-2)}
+.chip.n:hover{border-color:var(--line-hi);background:var(--surface-2)}
 
-.ey{font-size:var(--min-label);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
-.title{font-weight:900;font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.02em}
-.title .g{background:linear-gradient(100deg,var(--orange),#FF9E4D 60%,var(--yellow));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.cover-h{font-weight:900;font-size:clamp(2.8rem,7vw,5.2rem);line-height:1.04;letter-spacing:-.03em}
-.cover-h .g{background:linear-gradient(100deg,var(--orange),#FF9E4D 55%,var(--yellow));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sub{font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.65;color:var(--mid);max-width:44ch}
+/* type */
+.ey{display:inline-flex;align-items:center;font-size:var(--eyebrow);font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.ey::before{content:"";width:24px;height:3px;border-radius:2px;background:var(--accent);margin-right:.6rem}
+.title{font-weight:800;font-size:clamp(2.1rem,3.5vw,2.85rem);line-height:1.14;letter-spacing:-.02em;color:var(--ink)}
+.title .g,.cover-h .g,.big .g{background:linear-gradient(96deg,var(--accent),var(--accent-soft));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cover-h{font-weight:800;font-size:clamp(3rem,5.2vw,4.2rem);line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
+.sub{font-size:clamp(1.28rem,1.85vw,1.6rem);line-height:1.55;color:var(--ink-2);max-width:42ch}
 .sub b{color:var(--ink);font-weight:700}
-.big{font-weight:800;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.4;letter-spacing:-.01em;max-width:30ch}
-.big .g{color:var(--orange)}
-.note{font-size:var(--min-font);line-height:1.62;color:var(--mid);max-width:56ch}
-.note b{color:var(--ink)}
-.foot{font-size:var(--min-label);color:var(--mid);letter-spacing:.05em}
+.big{font-weight:800;font-size:clamp(2.7rem,4.7vw,3.75rem);line-height:1.16;letter-spacing:-.025em;max-width:34ch;color:var(--ink);text-wrap:balance}
+.nlg{font-size:clamp(1.3rem,1.85vw,1.62rem);line-height:1.5;color:var(--ink-2);max-width:44ch}
+.nlg b{color:var(--ink);font-weight:700}
+.note{font-size:var(--min-font);line-height:1.58;color:var(--ink-2);max-width:50ch}
+.note b{color:var(--ink);font-weight:600}
+.foot{font-size:var(--min-label);color:var(--ink-3);letter-spacing:.04em}
 .title,.cover-h,.sub,.big,.orb .n,.card .ch,.fbox .ft{text-wrap:balance}
-.note,.card .cd,.orb .d,.fbox .fd,.step .st,.disc{text-wrap:pretty}
+.card .cd,.orb .d,.fbox .fd,.disc{text-wrap:pretty}
+.note,.ruler-head{text-wrap:balance}
+.card.ruler .cd,.startbox span:last-child{text-wrap:balance;white-space:normal}
 
-/* data tables */
-.dt{width:100%;border-collapse:separate;border-spacing:0;margin-top:.2rem;font-size:var(--min-label);border-radius:14px;border:1px solid var(--line);overflow:hidden}
-.dt th,.dt td{padding:.5rem .8rem;text-align:left;border-bottom:1px solid var(--line);line-height:1.42;vertical-align:top}
+/* highlights */
+.hl1{color:var(--c1k)!important}.hl2{color:var(--c2k)!important}.hl3{color:var(--c3k)!important}
+
+/* hero single stat */
+.hero-stat{display:flex;flex-direction:column;align-items:center;gap:.1rem;margin:.2rem 0}
+.hnum{font-weight:800;font-size:clamp(4.4rem,11.5vw,7.6rem);line-height:.92;color:var(--c1);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.hunit{font-weight:700;font-size:clamp(1.3rem,2vw,1.72rem);color:var(--ink);letter-spacing:.01em}
+.hcap{font-size:var(--min-font);color:var(--ink-2);max-width:34ch;line-height:1.5;margin-top:.3rem}
+.hcap b{color:var(--ink)}
+
+/* metric cards */
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;width:100%;max-width:780px}
+.metric{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c,var(--accent));border-radius:15px;padding:1.35rem 1.2rem;display:flex;flex-direction:column;gap:.38rem;align-items:center;text-align:center;transition:transform .2s var(--ease-smooth),box-shadow .2s}
+.metric:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.34)}
+.mnum{font-weight:800;font-size:clamp(2.9rem,5.4vw,3.9rem);line-height:1;color:var(--c,var(--accent));font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.mnum.mtext{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.14;letter-spacing:-.01em}
+.mcap{font-size:var(--min-label);color:var(--ink);font-weight:600;line-height:1.42;max-width:26ch}
+.msrc{font-size:var(--eyebrow);color:var(--ink-3);letter-spacing:.02em}
+
+/* tables */
+.dt{width:100%;border-collapse:separate;border-spacing:0;margin-top:.1rem;font-size:var(--min-label);border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.dt th,.dt td{padding:.44rem .85rem;text-align:left;border-bottom:1px solid var(--line);line-height:1.38;vertical-align:top}
 .dt tr:last-child td{border-bottom:none}
-.dt thead th{font-weight:800;background:rgba(255,255,255,.05)}
-.dt td.k{font-weight:800;color:var(--ink);white-space:nowrap;background:rgba(255,255,255,.02)}
-.dt .dim{color:var(--ink);font-weight:800;display:block}
-.dt .q{color:var(--mid)}
-.disc{font-size:var(--min-label);color:var(--mid);opacity:.95;max-width:64ch}
-.disc-tag{display:inline-flex;align-items:center;gap:.45rem;font-size:var(--min-label);color:var(--mid);border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:.4rem 1.1rem}
-.pagenote{position:absolute;left:0;right:0;bottom:2.4vh;margin:0 auto;width:100%;max-width:70ch;padding:0 6vw;display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:var(--min-label);line-height:1.45;color:var(--mid);opacity:.6;text-align:center;text-wrap:pretty}
-.pagenote svg{width:14px;height:14px;flex-shrink:0;opacity:.85}
-.gembtn{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;font-size:var(--min-label);color:#0a0a0f;background:linear-gradient(100deg,var(--orange),#FF9E4D);border:none;border-radius:999px;padding:.78rem 1.7rem;text-decoration:none;box-shadow:0 6px 24px rgba(255,107,0,.3);transition:transform .2s,box-shadow .2s;white-space:nowrap;cursor:pointer}
-.gembtn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,107,0,.45)}
-.gembtn svg{width:18px;height:18px;flex-shrink:0}
+.dt thead th{font-weight:700;background:rgba(255,255,255,.03);color:var(--accent);font-size:.95rem;letter-spacing:.02em}
+.dt td.k{font-weight:700;color:var(--ink);white-space:nowrap;background:rgba(255,255,255,.02)}
+.dt .dim{color:var(--ink);font-weight:600;display:block}
+.dt .q{color:var(--ink-2)}
+
+/* disc / pagenote */
+.disc-tag{display:inline-flex;align-items:center;gap:.45rem;font-size:var(--min-label);color:var(--ink-3);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.4rem 1.05rem}
+.pagenote{position:absolute;left:0;right:0;bottom:2.2vh;margin:0 auto;width:100%;max-width:72ch;padding:0 6vw;display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:var(--min-label);line-height:1.45;color:var(--ink-3);opacity:.75;text-align:center;text-wrap:pretty}
+.pagenote svg{width:13px;height:13px;flex-shrink:0;opacity:.8}
+
+/* gem button */
+.gembtn{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:var(--min-label);color:#0B0C0E;background:var(--accent);border:none;border-radius:12px;padding:.74rem 1.6rem;text-decoration:none;box-shadow:0 6px 22px rgba(255,102,0,.26);transition:transform .18s var(--ease-smooth),box-shadow .18s,filter .18s;white-space:nowrap;cursor:pointer}
+.gembtn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,102,0,.4);filter:brightness(1.05)}
+.gembtn:active{transform:translateY(0);transition-duration:.08s}
+.gembtn svg{width:17px;height:17px;flex-shrink:0}
 
 /* triad */
-.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;width:100%}
-.orb{background:var(--bg2);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:16px;padding:.7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.1rem}
-.orb .L{font-weight:900;font-size:clamp(1.9rem,3vw,2.4rem);color:var(--c);line-height:1}
-.orb .n{font-weight:800;font-size:clamp(1.1rem,1.6vw,1.35rem);white-space:nowrap}
-.orb .d{font-size:var(--min-label);color:var(--mid);line-height:1.4}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;width:100%}
+.orb{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c,var(--accent));border-radius:15px;padding:.92rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.15rem;transition:transform .2s var(--ease-smooth),border-color .2s,box-shadow .2s}
+.orb:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.34)}
+.orb .L{font-weight:800;font-size:clamp(2.2rem,3.1vw,2.8rem);color:var(--c,var(--accent));line-height:1}
+.orb .n{font-weight:700;font-size:clamp(1.25rem,1.75vw,1.5rem);white-space:nowrap;color:var(--ink)}
+.orb .d{font-size:var(--min-label);color:var(--ink-2);line-height:1.4}
 
 /* flow */
 .flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:.5rem;width:100%}
-.fbox{flex:1;min-width:130px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:1rem .8rem;display:flex;flex-direction:column;gap:.3rem}
-.fbox .ft{font-weight:800;font-size:var(--min-font);color:var(--orange);white-space:nowrap}
-.fbox .fd{font-size:var(--min-label);color:var(--mid);line-height:1.4}
-.farr{display:flex;align-items:center;color:var(--orange);font-weight:800;font-size:1.4rem;flex-shrink:0}
+.fbox{flex:1;min-width:128px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:.9rem .8rem;display:flex;flex-direction:column;gap:.25rem;transition:transform .2s var(--ease-smooth),border-color .2s}
+.fbox:hover{transform:translateY(-3px);border-color:var(--accent-line)}
+.fbox .ft{font-weight:700;font-size:var(--min-font);color:var(--accent);white-space:nowrap}
+.fbox .fd{font-size:var(--min-label);color:var(--ink-2);line-height:1.38}
+.farr{display:flex;align-items:center;color:var(--ink-3);font-weight:700;font-size:1.3rem;flex-shrink:0}
 
 /* cards */
-.cards{display:grid;gap:1rem;width:100%}
-.c2{grid-template-columns:1fr 1fr}
-.card{background:var(--bg2);border:1px solid var(--line);border-top:3px solid var(--c,var(--orange));border-radius:16px;padding:1.3rem 1.3rem;text-align:left;display:flex;flex-direction:column;gap:.5rem}
-.card .ch{font-weight:800;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--c,var(--orange));white-space:nowrap}
-.card .cd{font-size:var(--min-label);color:var(--mid);line-height:1.55}
+.cards{display:grid;gap:.85rem;width:100%}
+.c2{grid-template-columns:1fr 1fr;grid-auto-rows:1fr}
+.card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c,var(--accent));border-radius:15px;padding:1.25rem 1.3rem;text-align:left;display:flex;flex-direction:column;gap:.5rem;transition:transform .2s var(--ease-smooth),border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.34)}
+.card .ch{font-weight:700;font-size:clamp(1.2rem,1.6vw,1.42rem);color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:.5rem}
+.card .ch::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c,var(--accent));flex-shrink:0}
+.card .cd{font-size:var(--min-label);color:var(--ink-2);line-height:1.55}
 .card .cd b{color:var(--ink)}
+.card.ruler .ch{font-size:clamp(1.12rem,1.5vw,1.3rem)}
 
-/* steps */
-.steps{display:flex;flex-direction:column;gap:.6rem;width:100%;max-width:820px;text-align:left}
-.step{display:flex;gap:1rem;align-items:flex-start;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem}
-.step .sn{font-weight:900;font-size:clamp(1.4rem,2vw,1.7rem);color:var(--orange);flex-shrink:0;line-height:1.2;min-width:1.6rem}
-.step .st{font-size:var(--min-font);line-height:1.5}
-.step .st b{font-weight:800}
+/* steps / starts */
+.ruler-head{font-size:var(--min-label);font-weight:700;letter-spacing:.03em;color:var(--ink-3);margin-top:.3rem}
+.starts{display:flex;flex-wrap:wrap;gap:.55rem;width:100%;justify-content:center}
+.startbox{flex:1;min-width:206px;display:flex;align-items:center;gap:.65rem;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c,var(--accent));border-radius:12px;padding:.8rem 1rem;font-size:var(--min-label);color:var(--ink-2);text-align:left;line-height:1.42;transition:transform .2s var(--ease-smooth),box-shadow .2s}
+.startbox:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.3)}
+.sn2{font-weight:800;color:var(--c,var(--accent));font-size:1.5rem;flex-shrink:0;line-height:1}
 
-/* UI */
-#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--yellow));z-index:60;transition:width .3s var(--ease-smooth);width:0}
-#counter{position:fixed;bottom:18px;right:18px;z-index:60;font-size:16px;font-weight:700;letter-spacing:.05em;padding:.3rem .7rem;border-radius:999px;background:rgba(0,0,0,.45);color:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.18)}
-.nav-btn{position:fixed;right:18px;z-index:60;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.nav-btn:hover{border-color:var(--orange);color:var(--orange)}
-#btn-prev{bottom:118px}#btn-next{bottom:70px}
-#btn-lang{position:fixed;top:14px;left:16px;z-index:60;padding:.34rem .9rem;border-radius:999px;font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78);background:rgba(255,255,255,.06);backdrop-filter:blur(12px);border:1px solid var(--line);cursor:pointer;transition:all .25s}
-#btn-lang:hover{border-color:var(--orange);color:var(--orange)}
+/* UI chrome */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-soft));z-index:60;transition:width .3s var(--ease-smooth);width:0}
+#counter{position:fixed;bottom:18px;right:18px;z-index:60;font-size:16px;font-weight:600;letter-spacing:.05em;padding:.3rem .7rem;border-radius:999px;background:rgba(0,0,0,.4);color:var(--ink-2);border:1px solid var(--line)}
+.nav-btn{position:fixed;right:18px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(20,22,25,.6);backdrop-filter:blur(10px);color:var(--ink-2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.nav-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+#btn-prev{bottom:116px}#btn-next{bottom:68px}
+#btn-lang{position:fixed;top:14px;right:16px;z-index:60;padding:.34rem .9rem;border-radius:999px;font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:rgba(20,22,25,.6);backdrop-filter:blur(12px);border:1px solid var(--line);cursor:pointer;transition:all .2s}
+#btn-lang:hover{border-color:var(--accent);color:var(--accent)}
 
 @media(max-width:820px){
   html{font-size:17px}
-  /* slides grow & scroll instead of clipping; gentler snap for tall slides */
   #slides{scroll-snap-type:y proximity}
   .slide{height:auto;min-height:100vh;min-height:100svh;overflow:visible;padding:11vh 5vw 8vh}
-  .inner{gap:.8rem;max-width:100%}
-  .cover-h{font-size:clamp(2.3rem,11vw,3.2rem)}
-  .title{font-size:clamp(1.65rem,6.6vw,2.3rem)}
-  .big{font-size:clamp(1.45rem,5.8vw,2rem);max-width:100%}
-  .sub{max-width:100%}
-  /* triad: keep 3 orbs across but compact */
-  .triad{grid-template-columns:repeat(3,1fr);gap:.45rem}
-  .orb{padding:.7rem .35rem;border-radius:12px}
-  .orb .L{font-size:1.7rem}
-  .orb .n{font-size:1rem}
+  .inner{gap:.85rem;max-width:100%}
+  .sub,.big,.note{max-width:100%}
+  .triad{gap:.45rem}
+  .orb{padding:.8rem .35rem}
   .orb .d{display:none}
   .c2{grid-template-columns:1fr}
-  .flow{flex-direction:column;gap:.45rem}
-  .farr{transform:rotate(90deg);justify-content:center;font-size:1.1rem;padding:0}
+  .flow{flex-direction:column;gap:.4rem}
+  .farr{transform:rotate(90deg);justify-content:center;font-size:1.05rem}
   .fbox{padding:.7rem 1rem}
-  /* tables: fit width, allow wrapping (kills horizontal overflow) */
-  .dt{font-size:1rem}
-  .dt th,.dt td{padding:.5rem .55rem;line-height:1.4}
   .dt td span{white-space:normal!important}
-  .card{padding:1.1rem 1.15rem}
-  .step{padding:.85rem 1rem}
-  .gembtn{font-size:1rem;padding:.72rem 1.4rem}
-  .disc-tag{font-size:1rem;padding:.45rem 1rem;line-height:1.4}
-  .pagenote{position:static;bottom:auto;margin-top:1.1rem;padding:0;max-width:100%;font-size:1rem}
+  .card{padding:1.05rem 1.1rem}
+  .metrics{grid-template-columns:1fr}
+  .pagenote{position:static;bottom:auto;margin-top:1rem;padding:0;max-width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .js-reveal .slide [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}
+  .orb:hover,.card:hover,.fbox:hover,.chip:hover,.startbox:hover,.gembtn:hover,.nav-btn:hover{transform:none!important}
+  .aurora::before,.aurora::after{animation:none!important}
+  *{scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
+<div class="aurora" aria-hidden="true"></div>
 <div id="prog"></div>
 <button id="btn-lang" onclick="toggleLang()">EN</button>
-<div id="counter">1 / 10</div>
+<div id="counter">1 / 7</div>
 <button class="nav-btn" id="btn-prev" onclick="go(-1)" aria-label="Prev"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
 <button class="nav-btn" id="btn-next" onclick="go(1)" aria-label="Next"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
 <div id="slides"></div>
@@ -146,49 +194,56 @@ const GEM='https://gemini.google.com/gem/14LqWk5Mpx6nTEh_m0UAypPHg37x6tgfM?usp=s
 
 /* ════ DATA (zh) ════ */
 const D=[
-{id:'cover',type:'cover',blob:['rgba(255,107,0,.16)','rgba(168,85,247,.08)'],
+{id:'cover',type:'cover',
   ey:'VC Deal Copilot · v7.1',
-  title:'創投級<span class="g">評案副駕</span>',
-  sub:'一個像創投一樣陪你看案子的 AI 副駕，用結構化的角度，幫你看見容易被忽略的盲點。',
-  chips:[['創新三元 D／F／V','orange'],['五步評分','cyan'],['一頁決策摘要','green']],
+  title:'評案<span class="g">副手</span>',
+  sub:'說穿了，它就是一份會回話的評案清單：把看一個案子該問的問題照順序問完，<b class="hl1">每個案子都用同一套標準過一遍</b>。',
+  chips:['D／F／V 三透鏡','五步評分','一頁決策摘要'],
   foot:'Vincent Wang',
-  disc:'本簡報為工具介紹，內容僅供參考，不構成投資建議。'},
+  disc:'本簡報為方法論介紹，內容僅供參考，不構成投資建議。'},
 
-{id:'why',type:'big',blob:['rgba(255,107,0,.12)','rgba(59,130,246,.06)'],
-  ey:'為什麼做這個',
-  big:'創業者要的，不只是稱讚，<span class="g">更是創投會關心的那幾個關鍵問題</span>。',
-  note:'我把這套思考角度整理成一個你隨時能對話的 Gem，幫你在見投資人之前，先自己想一輪。',
-  disc:'它幫你先想一輪，不取代與投資人的真實對話。'},
+{id:'why',type:'metric',
+  ey:'它幫上忙的地方',
+  title:'好案子和好故事，<span class="g">差在有沒有人把問題問完</span>。',
+  hero:{n:53,unit:'個評估維度',cap:'每個案子，用同一套標準從頭問過一遍'},
+  chips:['D／F／V 三透鏡','創業四階段','五步評分'],
+  note:'你很難從一個好故事裡，事前認出哪個案子是對的。<b class="hl2">這套清單把該問的 53 個問題一次問完</b>，不靠當下記不記得問，也不靠手感好不好。',
+  disc:'評估維度為本工具設計內容，僅供結構化參考，不構成投資建議。'},
 
-{id:'triad',type:'triad',blob:['rgba(255,107,0,.1)','rgba(34,197,94,.08)'],
+{id:'triad',type:'triad',
   ey:'核心原理',
   title:'創新三元 <span class="g">D／F／V</span>',
   orbs:[
-    {c:'var(--orange)',L:'D',n:'欲求性',d:'需求真不真？'},
-    {c:'var(--cyan)',L:'F',n:'可行性',d:'做不做得出來？'},
-    {c:'var(--green)',L:'V',n:'存續性',d:'帳算不算得清？'}],
-  heads:[{t:'D · 欲求性',c:'var(--orange)'},{t:'F · 可行性',c:'var(--cyan)'},{t:'V · 存續性',c:'var(--green)'}],
+    {L:'D',n:'欲求性',d:'需求真不真？'},
+    {L:'F',n:'可行性',d:'做不做得出來？'},
+    {L:'V',n:'存續性',d:'帳算不算得清？'}],
+  heads:[{t:'D · 欲求性'},{t:'F · 可行性'},{t:'V · 存續性'}],
   rows:[
-    [['止痛藥還是維他命','這個痛非解不可嗎？'],['付費意願驗證','陌生人真的掏錢了嗎？'],['單位經濟','賺一個客戶划算嗎？']],
-    [['焦油坑檢驗','大市場是不是無利陷阱？'],['技術合理性','第一性原理做得出來嗎？'],['市場量體','真撐得起創投回報嗎？']],
-    [['創辦人市場契合','為什麼非得是你？'],['階段定位','現在真正卡在哪一格？'],['六個關鍵數字','核心財務健不健康？']]],
-  note:'完整有 53 個維度，這裡只先列每個透鏡最關鍵的三個。',
+    [['止痛藥還是維他命','這個痛非解不可嗎？'],['技術合理性','第一性原理做得出來嗎？'],['單位經濟','賺一個客戶划算嗎？']],
+    [['付費意願驗證','陌生人真的掏錢了嗎？'],['創辦人市場契合','為什麼非你這隊不可？'],['市場量體','撐得起創投回報嗎？']],
+    [['焦油坑檢驗','看似誘人，是不是人人踩過的坑？'],['護城河','做出來後多快被抄走？'],['六個關鍵數字','核心財務健不健康？']]],
+  note:'三盞燈分開照，<b class="hl1">取最低分、不取平均</b>；一個案子可以九項漂亮，卻倒在第十項。這裡先列每盞燈最關鍵的三個。',
   disc:'三透鏡是思考框架，不對任何案子的成敗背書。'},
 
-{id:'stage',type:'stages',blob:['rgba(59,130,246,.1)','rgba(255,107,0,.06)'],
-  ey:'先定位你在哪',
+{id:'lenses',type:'lenses',
+  ey:'先定位，再用同一套尺',
   title:'不同階段，<span class="g">問不同問題</span>',
-  cols:['階段','它最在意的三個問題'],
-  rows:[
-    ['Idea／PSF',['痛點有人現在就願意付錢嗎？','為什麼是現在？','為什麼是你這隊？']],
-    ['MVP',['用戶真在用，還是只說想用？','跟用戶聊完改了什麼？','哪一群人最愛你？']],
-    ['PMF',['沒了產品，幾成人會失望？','用戶會主動推薦嗎？','留存打平了嗎？']],
-    ['Scaling',['每賺一塊 ARR，要燒幾塊？','LTV 蓋得過 CAC 嗎？','加錢是更快還是更會燒？']]],
-  note:'副駕先判斷你在哪一輪，再用對的問題。問錯階段，容易錯殺好案子。',
-  disc:'階段判斷僅供定位參考，實際情況因案而異。'},
+  stageCols:['階段','它最在意的兩個問題'],
+  stageRows:[
+    ['Idea／PSF',['痛點有人現在就願意付錢嗎？','為什麼非你這隊不可？']],
+    ['MVP',['用戶是真在用，還是只說想用？','哪一群人最愛你，愛到離不開？']],
+    ['PMF',['沒了你，幾成用戶會真的失望？','留存曲線打平了嗎？']],
+    ['Scaling',['每多賺一塊 ARR，要先燒幾塊？','加錢是更快，還是更會燒？']]],
+  rulerHead:'它隨手對照的幾把尺',
+  rulers:[
+    {t:'Pitch 十元素',d:'問題到募資，10 格盤點缺口'},
+    {t:'評審九項',d:'市場到 PMF，9 項各標信心'},
+    {t:'護城河五型',d:'網絡·轉移·品牌·規模·數據'}],
+  note:'同一組問題，<b class="hl2">會因階段而換問法</b>；先判對案子在哪一階段，再逐項檢視。階段一旦判錯，最容易錯殺好案。',
+  disc:'階段判斷僅供定位參考，尺規幫你看得更全面，皆不等於投資建議。'},
 
-{id:'flow5',type:'flow',blob:['rgba(168,85,247,.1)','rgba(255,107,0,.07)'],
-  ey:'評分系統總覽',
+{id:'process',type:'process',
+  ey:'它怎麼運作',
   title:'五步，<span class="g">一步一輪</span>',
   flow:[
     {ft:'① 基本快篩',fd:'盤點事實'},
@@ -196,56 +251,25 @@ const D=[
     {ft:'③ V 打分',fd:'存續與估值'},
     {ft:'④ 投資建議',fd:'給個傾向'},
     {ft:'⑤ 盡調提問',fd:'最難三問'}],
-  note:'前三步只盤點與評分、不下建議；建議在第四步，最難的提問在第五步。',
+  note:'把案子的 pitch、或一句話加官網丟進去，它會一輪一輪走完這五步：<b class="hl1">前三步只盤點與評分、不下結論</b>，傾向在第四步才出現，最難的提問留到第五步。缺資料，它會直接點名要你補。',
   button:{label:'在 Gemini 開這個 Gem'},
-  disc:'評分為結構化參考，最終決策仍由你自己做。'},
+  disc:'評分為結構化參考，產出品質取決於你輸入的資訊，最終決策仍由你自己做。'},
 
-{id:'rubric',type:'rubric',blob:['rgba(255,107,0,.1)','rgba(6,182,212,.07)'],
-  ey:'它參考的幾把尺',
-  title:'同一套角度，<span class="g">看每一案</span>',
-  cols:['工具','涵蓋什麼','幫你看見'],
-  rows:[
-    [['Pitch 十元素','var(--orange)'],'問題·市場·方案·模式·TAM／SAM／SOM（市場規模）·競優·團隊·財務·資金用途·募資估值','哪幾項還沒講清楚'],
-    [['評審九項','var(--cyan)'],'市場大小·真實問題·團隊執行·可盈利·護城河·現金流·融資邏輯·FMF（創辦人契合）·PMF','每一項的信心高低'],
-    [['護城河五型','var(--green)'],'網絡效應（越用越強）·轉移成本（換掉很痛）·品牌（信任門檻）·規模經濟（越大越省）·數據與 ML（越用越準）','哪一型已成形、哪型還弱']],
-  note:'不靠感覺，每一案都用同一套角度先看過一遍。',
-  disc:'這些尺規幫你看得更全面，不等於投資建議。'},
-
-{id:'trust',type:'cards2',blob:['rgba(34,197,94,.1)','rgba(255,107,0,.06)'],
-  ey:'為什麼值得參考',
-  title:'一個<span class="g">不容易被故事帶走</span>的視角',
+{id:'value',type:'value',
+  ey:'看完之後，它能幫你',
+  title:'它不只給答案，<span class="g">還能一直陪你往下問</span>。',
+  traits:['三透鏡分開看','追問數字背後','人來拍板','不確定就說不確定'],
   cards:[
-    {c:'var(--orange)',ch:'三透鏡分開看',cd:'D／F／V 各自獨立評分、互不參照，一個漂亮的故事比較不會帶偏整體判斷。'},
-    {c:'var(--cyan)',ch:'追問數字背後',cd:'對亮眼的牽引數字，會傾向追問分母與時間窗，幫你分清「說的」和「驗過的」。'},
-    {c:'var(--green)',ch:'人來拍板',cd:'AI 只負責整理判斷與提問，最後要不要投，永遠由你自己決定。'},
-    {c:'var(--purple)',ch:'不確定就說不確定',cd:'查不到的資訊會標成待查，傾向不替你腦補出一個看似肯定的答案。'}],
-  disc:'它提供的是一個結構化的參考視角，不是投資建議。'},
+    {ch:'接著追問',cd:'每個判斷都能請它<b>解釋、舉證、換個假設重算</b>，不是一次性報告。'},
+    {ch:'提問變清單',cd:'它點出投資人會追問的關鍵題，能直接<b>擴寫成盡調與訪談清單</b>。'},
+    {ch:'摘要帶上桌',cd:'可追溯到依據的<b>一頁決策摘要</b>，直接帶進投委會或共投討論。'},
+    {ch:'換視角再看',cd:'用創辦人、投資人、顧問<b>不同視角重跑</b>，補上你沒注意到的盲點。'}],
+  disc:'它提供的是結構化的參考視角，實際產出依你提供的資料而不同，不構成投資建議。'},
 
-{id:'output',type:'cards2',blob:['rgba(255,107,0,.1)','rgba(168,85,247,.07)'],
-  ey:'你大致會拿到',
-  title:'一頁，<span class="g">幫你看懂全局</span>',
-  cards:[
-    {c:'var(--orange)',ch:'一個傾向判斷',cd:'強案、附條件、或先再看看，並說它大概屬於哪一輪。'},
-    {c:'var(--cyan)',ch:'信心高低',cd:'每個判斷標上高、中、低信心，讓你知道哪裡還站得不夠穩。'},
-    {c:'var(--green)',ch:'最難的提問',cd:'投資人可能會問你、最關鍵的那幾題，先讓你自己練習回答。'},
-    {c:'var(--purple)',ch:'一頁摘要',cd:'一頁式、能追溯到依據的決策摘要，方便你帶著走。'}],
-  disc:'以上為這個 Gem 大致的產出，實際內容會依你提供的資料而不同。'},
-
-{id:'howto',type:'steps',blob:['rgba(59,130,246,.1)','rgba(255,107,0,.07)'],
-  ey:'怎麼用它',
-  title:'三分鐘，<span class="g">就能上手</span>',
-  steps:[
-    {n:'1',t:'<b>貼上</b>你的 pitch 或 deck 重點，或公司一句話與官網。'},
-    {n:'2',t:'<b>說你是誰</b>：創辦人自評、投資人看標的、還是第三方顧問。'},
-    {n:'3',t:'<b>一步步走完五關</b>，每步一輪，看完一頁再往下。'},
-    {n:'4',t:'<b>缺資料它會點名</b>請你補，傾向不自己腦補。'}],
-  note:'像跟一位願意花時間、也願意說真話的創投，先聊過一輪。',
-  disc:'產出品質取決於你輸入的資訊，僅供參考。'},
-
-{id:'close',type:'big',blob:['rgba(255,107,0,.16)','rgba(255,32,85,.06)'],
+{id:'close',type:'big',
   ey:'一句話收束',
-  big:'它不取代你的判斷，<br><span class="g">只是給你一個隨時能壓力測試想法的副駕</span>。',
-  note:'把你的下一個想法丟進來，先過一輪，再去見投資人。',
+  big:'它不取代你的判斷，<br><span class="g">只讓每個案子先過同一道關</span>。',
+  note:'它不懂你的產業，也不會比你更懂人；<b class="hl3">它只負責確保該問的都問了</b>。把下一個要評估的案子丟進來，先過一輪，再上桌定奪。',
   button:{label:'在 Gemini 開這個 Gem'},
   disc:'本工具僅供投資評估與學習參考，不構成投資建議，也不取代你自己的判斷。',
   foot:'創投級評案副駕 VC Deal Copilot v7.1 · Vincent Wang'}
@@ -253,118 +277,131 @@ const D=[
 
 /* ════ EN ════ */
 const T_en={
-cover:{ey:'VC Deal Copilot · v7.1',title:'VC Deal <span class="g">Copilot</span>',sub:'An AI copilot that looks at your deal like a VC would, offering a structured perspective to help surface the blind spots.',chips:[['Innovation Triad D／F／V','orange'],['5-step scoring','cyan'],['One-page summary','green']],foot:'Vincent Wang',disc:'An intro to the tool; for reference only, not investment advice.'},
-why:{ey:'Why this exists',big:'Founders don\'t just want praise. <span class="g">They want the questions a VC would actually care about</span>.',note:'I shaped that way of thinking into a Gem you can talk to anytime, to help you run a round on your own before meeting investors.',disc:'It helps you think first; it doesn\'t replace real conversations with investors.'},
-triad:{ey:'The core idea',title:'Innovation Triad <span class="g">D／F／V</span>',
-  orbs:[{c:'var(--orange)',L:'D',n:'Desirability',d:'Is the need real?'},{c:'var(--cyan)',L:'F',n:'Feasibility',d:'Can it be built?'},{c:'var(--green)',L:'V',n:'Viability',d:'Do the numbers work?'}],
-  heads:[{t:'D · Desirability',c:'var(--orange)'},{t:'F · Feasibility',c:'var(--cyan)'},{t:'V · Viability',c:'var(--green)'}],
+cover:{ey:'VC Deal Copilot · v7.1',title:'VC Deal <span class="g">Copilot</span>',sub:'Really, it\'s just a checklist that talks back: it asks what you\'d ask of any deal, in order, so <b class="hl1">every deal clears the same bar</b>.',chips:['D/F/V three lenses','5-step scoring','One-page summary'],foot:'Vincent Wang',disc:'An intro to the methodology; for reference only, not investment advice.'},
+why:{ey:'Where it helps',title:'A good deal and a good story <span class="g">differ in whether the questions got asked</span>.',
+  hero:{n:53,unit:'evaluation dimensions',cap:'every deal, checked against the same standard from the top'},
+  chips:['D/F/V three lenses','Four startup stages','Five-step scoring'],
+  note:'You can rarely tell the right deal from a good story up front. <b class="hl2">This checklist asks all 53 of the questions that matter, in one pass</b>, not relying on what you remember to ask, or on how good your instinct is.',
+  disc:'The dimensions are this tool\'s design; a structured reference only, not investment advice.'},
+triad:{ey:'The core idea',title:'Innovation Triad <span class="g">D/F/V</span>',
+  orbs:[{L:'D',n:'Desirability',d:'Is the need real?'},{L:'F',n:'Feasibility',d:'Can it be built?'},{L:'V',n:'Viability',d:'Do the numbers work?'}],
+  heads:[{t:'D · Desirability'},{t:'F · Feasibility'},{t:'V · Viability'}],
   rows:[
-    [['Painkiller vs Vitamin','A must-have, or nice-to-have?'],['Paid validation','Have strangers actually paid?'],['Unit economics','Is one customer worth it?']],
-    [['Tar-pit test','A big but unprofitable trap?'],['Tech soundness','Buildable from first principles?'],['Market size','Big enough for a VC return?']],
-    [['Founder-market fit','Why does it have to be you?'],['Stage fit','Which stage is it really at?'],['Six key numbers','Are the core metrics healthy?']]],
-  note:'There are 53 dimensions in full; this just shows the three most pivotal per lens.',
+    [['Painkiller vs Vitamin','A must-have, or nice-to-have?'],['Tech soundness','Buildable from first principles?'],['Unit economics','Is one customer worth it?']],
+    [['Paid validation','Have strangers actually paid?'],['Founder-market fit','Why must it be your team?'],['Market size','Big enough for a VC return?']],
+    [['Tarpit test','A seductive idea that traps everyone?'],['Moat','How fast can it be copied?'],['Six key numbers','Are the core metrics healthy?']]],
+  note:'Three lights, shone separately, <b class="hl1">scored on the lowest, not the average</b>; a deal can be strong on nine counts and fall on the tenth. Here are the three most pivotal per light.',
   disc:'The triad is a thinking framework; it doesn\'t endorse any deal\'s outcome.'},
-stage:{ey:'First, locate you',title:'Different stage, <span class="g">different questions</span>',
-  cols:['Stage','The three questions it cares about most'],
-  rows:[
-    ['Idea／PSF',['Pay to solve this now?','Why now?','Why your team?']],
-    ['MVP',['Using it, or just saying so?','What did user talks change?','Who loves it most?']],
-    ['PMF',['% very disappointed?','Do users refer others?','Has retention flattened?']],
-    ['Scaling',['Burn per new $1 of ARR?','Does LTV beat CAC?','Capital: growth or just burn?']]],
-  note:'The copilot finds your stage first, then asks the right questions. Wrong-stage questions kill good deals.',
-  disc:'Stage calls are for orientation only; reality varies by deal.'},
-flow5:{ey:'The scoring flow',title:'Five steps, <span class="g">one at a time</span>',
-  flow:[{ft:'① Quick screen',fd:'Map the facts'},{ft:'② D／F score',fd:'Need & build'},{ft:'③ V score',fd:'Viability'},{ft:'④ Suggestion',fd:'A leaning'},{ft:'⑤ Diligence Qs',fd:'3 hardest'}],
-  note:'The first three steps only map and score, no advice; the suggestion comes in step 4, the hardest questions in step 5.',
+lenses:{ey:'Locate first, then one ruler',title:'Each stage, <span class="g">new questions</span>',
+  stageCols:['Stage','The two questions it cares about most'],
+  stageRows:[
+    ['Idea/PSF',['Who pays to fix this now?','Why must it be your team?']],
+    ['MVP',['Real usage, or just talk?','Which segment can\'t quit?']],
+    ['PMF',['% truly upset without you?','Has retention flattened?']],
+    ['Scaling',['Burn per $1 of new ARR?','More cash: speed or burn?']]],
+  rulerHead:'A few rulers it reaches for',
+  rulers:[
+    {t:'Pitch 10 elements',d:'Flags what\'s unclear.'},
+    {t:'9 review criteria',d:'Confidence on each.'},
+    {t:'5 moat types',d:'Which moat is forming?'}],
+  note:'The same questions <b class="hl2">change form by stage</b>: place the deal at its stage first, then check item by item. Misjudge the stage and you kill good deals.',
+  disc:'Stage calls orient only; the rulers help you see more fully. Neither is investment advice.'},
+process:{ey:'How it runs',title:'Five steps, <span class="g">one at a time</span>',
+  flow:[{ft:'① Quick screen',fd:'Map the facts'},{ft:'② D/F score',fd:'Need & build'},{ft:'③ V score',fd:'Viability'},{ft:'④ Suggestion',fd:'A leaning'},{ft:'⑤ Diligence Qs',fd:'3 hardest'}],
+  note:'Drop in the pitch, or a one-liner plus a website, and it walks the five steps one round at a time: <b class="hl1">the first three only map and score, no verdict</b>; the leaning comes in step four, the hardest questions in step five. If something\'s missing, it names it.',
   button:{label:'Open this Gem in Gemini'},
-  disc:'Scores are a structured reference; the final decision is always yours.'},
-rubric:{ey:'A few rulers it draws on',title:'One lens, <span class="g">every deal</span>',
-  cols:['Tool','What it covers','What it surfaces'],
-  rows:[
-    [['Pitch 10 elements','var(--orange)'],'Problem·market·solution·model·TAM／SAM／SOM·edge·team·financials·use of funds·raise','Which parts aren\'t clear yet'],
-    [['9 review criteria','var(--cyan)'],'Market·problem·team·profitability·moat·cash flow·financing·FMF·PMF','A confidence level on each'],
-    [['5 moat types','var(--green)'],'Network effects · switching cost · brand · economies of scale · data & ML','Which is forming, which is weak']],
-  note:'Not gut feel; every deal gets looked at through the same lens first.',
-  disc:'These rulers help you see more fully; they\'re not investment advice.'},
-trust:{ey:'Why it\'s worth a look',title:'A view that <span class="g">a good story can\'t easily sway</span>',
+  disc:'Scores are a structured reference; output quality depends on your input, and the final call is always yours.'},
+value:{ey:'After the demo, it helps you',title:'It doesn\'t just answer, <span class="g">it keeps digging with you</span>.',
+  traits:['Three lenses, separate','Question the numbers','A human decides','Flags the unknown'],
   cards:[
-    {c:'var(--orange)',ch:'Three lenses, separate',cd:'D／F／V score independently, blind to each other, so one pretty story is less likely to bias the whole.'},
-    {c:'var(--cyan)',ch:'Question the numbers',cd:'For shiny traction figures, it tends to ask for the denominator and time window, separating claimed from verified.'},
-    {c:'var(--green)',ch:'A human decides',cd:'The AI only organizes the judgment and the questions; whether to invest is always your call.'},
-    {c:'var(--purple)',ch:'It flags the unknown',cd:'What it can\'t verify is marked as to-check; it tends not to invent a confident-looking answer.'}],
-  disc:'It offers a structured perspective for reference, not investment advice.'},
-output:{ey:'Roughly what you get',title:'One page, <span class="g">to see the whole picture</span>',
-  cards:[
-    {c:'var(--orange)',ch:'A leaning',cd:'Strong, conditional, or take-another-look, plus roughly which round it fits.'},
-    {c:'var(--cyan)',ch:'Confidence levels',cd:'Each judgment marked high, medium or low, so you see where it still wobbles.'},
-    {c:'var(--green)',ch:'The hardest questions',cd:'The few questions an investor might press on, for you to practice first.'},
-    {c:'var(--purple)',ch:'A one-page brief',cd:'A one-page summary, traceable to its basis, easy to carry into the room.'}],
-  disc:'This is roughly what the Gem produces; the actual output varies with what you provide.'},
-howto:{ey:'How to use it',title:'Three minutes, <span class="g">and you\'re in</span>',
-  steps:[
-    {n:'1',t:'<b>Paste</b> your pitch or deck highlights, or your one-liner and website.'},
-    {n:'2',t:'<b>Say who you are</b>: founder self-check, investor, or third-party advisor.'},
-    {n:'3',t:'<b>Walk the five steps</b>, one round each, read one page before moving on.'},
-    {n:'4',t:'<b>It names what\'s missing</b> and tends not to fill the gaps with guesses.'}],
-  note:'Like talking through a round with a VC who has time, and is willing to tell you the truth.',
-  disc:'Output quality depends on what you provide; for reference only.'},
-close:{ey:'In one line',big:'It doesn\'t replace your judgment.<br><span class="g">It just gives you a copilot to pressure-test ideas, anytime</span>.',note:'Drop your next idea in, run a round, then go meet investors.',button:{label:'Open this Gem in Gemini'},disc:'For investment evaluation and learning reference only. Not investment advice, and not a replacement for your own judgment.',foot:'VC Deal Copilot v7.1 · Vincent Wang'}
+    {ch:'Keep asking',cd:'Press any judgment to have it <b>explain, show evidence, or rerun on a new assumption</b>; never a one-shot report.'},
+    {ch:'A diligence list',cd:'It surfaces what investors will press on, ready to <b>expand into a diligence and interview list</b>.'},
+    {ch:'A one-page brief',cd:'A summary <b>traceable to its basis</b>, ready for the IC or a co-invest discussion.'},
+    {ch:'Another angle',cd:'Replay as founder, investor, or advisor to <b>surface the blind spots</b> you\'d otherwise miss.'}],
+  disc:'It offers a structured perspective; the actual output varies with what you provide, and isn\'t investment advice.'},
+close:{ey:'In one line',big:'It doesn\'t replace your judgment.<br><span class="g">It just puts every deal through one consistent gate first</span>.',note:'It doesn\'t know your sector, and it won\'t read people better than you; <b class="hl3">its job is only to make sure the right questions got asked</b>. Drop in the next deal you\'re weighing, run a round, then take it to the table.',button:{label:'Open this Gem in Gemini'},disc:'For investment evaluation and learning reference only. Not investment advice, and not a replacement for your own judgment.',foot:'VC Deal Copilot v7.1 · Vincent Wang'}
 };
 
 /* ════ RENDER ════ */
 let LANG=new URLSearchParams(location.search).get('lang')==='en'?'en':'zh';
 const $=s=>document.querySelector(s);
 function L(sd){return LANG==='en'&&T_en[sd.id]?{...sd,...T_en[sd.id]}:sd;}
-function blob(b){return b?`<div class="blob" style="background:radial-gradient(ellipse 80% 70% at 20% 20%,${b[0]},transparent 55%),radial-gradient(ellipse 70% 80% at 80% 80%,${b[1]},transparent 55%)"></div>`:'';}
-function chips(cs){return cs&&cs.length?`<div class="chips">${cs.map(c=>`<span class="chip chip-${c[1]}">${c[0]}</span>`).join('')}</div>`:'';}
-function eyT(d){return d.ey?`<div class="ey">${d.ey}</div>`:'';}
-function noteT(d){return d.note?`<div class="note">${d.note}</div>`:'';}
-function discT(d){return d.disc?`<div class="disc-tag"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>${d.disc}</div>`:'';}
+function chips(cs,n){return cs&&cs.length?`<div class="chips" data-reveal>${cs.map((c,i)=>`<span class="chip ${n?'n':['','b','g'][i%3]}">${Array.isArray(c)?c[0]:c}</span>`).join('')}</div>`:'';}
+function eyT(d){return d.ey?`<div class="ey" data-reveal>${d.ey}</div>`:'';}
+function noteT(d){return d.note?`<div class="note" data-reveal>${d.note}</div>`:'';}
 function gembtn(b){return b?`<a class="gembtn" href="${GEM}" target="_blank" rel="noopener">${b.label}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg></a>`:'';}
-function nbItems(s){return s.split('·').map(x=>`<span style="white-space:nowrap">${x.trim()}</span>`).join(' · ');}
+function pagenote(t){return `<div class="pagenote" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>${t}</div>`;}
 
 function render(sd){
-  const d=L(sd);let h=blob(d.blob)+'<div class="inner">';
+  const d=L(sd);let h='<div class="inner">';
   if(d.type==='cover'){
-    h+=eyT(d)+`<h1 class="cover-h">${d.title}</h1><div class="sub">${d.sub}</div>`+chips(d.chips)+(d.foot?`<div class="foot" style="margin-top:.5rem">${d.foot}</div>`:'');
+    h+=eyT(d)+`<h1 class="cover-h" data-reveal>${d.title}</h1><div class="sub" data-reveal>${d.sub}</div>`+chips(d.chips)+(d.foot?`<div class="foot" data-reveal style="margin-top:.4rem">${d.foot}</div>`:'');
   }else if(d.type==='big'){
-    h+=eyT(d)+`<div class="big">${d.big}</div>`+noteT(d)+(d.button?`<div style="margin-top:.6rem">${gembtn(d.button)}</div>`:'')+(d.foot?`<div class="foot" style="margin-top:.3rem">${d.foot}</div>`:'');
+    h+=eyT(d)+`<div class="big" data-reveal>${d.big}</div>`+(d.note?`<div class="note nlg" data-reveal>${d.note}</div>`:'')+(d.button?`<div data-reveal style="margin-top:.7rem">${gembtn(d.button)}</div>`:'')+(d.foot?`<div class="foot" data-reveal style="margin-top:.4rem">${d.foot}</div>`:'');
+  }else if(d.type==='metric'){
+    h+=eyT(d)+`<h2 class="title" data-reveal style="max-width:24ch">${d.title}</h2>`;
+    h+=`<div class="hero-stat" data-reveal><div class="hnum"><span class="mn" data-count="${d.hero.n}">0</span>${d.hero.suf||''}</div><div class="hunit">${d.hero.unit}</div><div class="hcap">${d.hero.cap}</div></div>`;
+    h+=chips(d.chips);
+    h+=(d.note?`<div class="note nlg" data-reveal>${d.note}</div>`:'');
   }else if(d.type==='triad'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2>`;
-    h+=`<div class="triad">${d.orbs.map(o=>`<div class="orb" style="--c:${o.c}"><div class="L">${o.L}</div><div class="n">${o.n}</div><div class="d">${o.d}</div></div>`).join('')}</div>`;
-    h+=`<table class="dt"><thead><tr>${d.heads.map(x=>`<th style="color:${x.c};width:33.33%">${x.t}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr>${r.map(c=>`<td><span class="dim">${c[0]}</span><span class="q">${c[1]}</span></td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2>`;
+    h+=`<div class="triad">${d.orbs.map((o,i)=>`<div class="orb" data-reveal style="--c:var(--c${i+1})"><div class="L">${o.L}</div><div class="n">${o.n}</div><div class="d">${o.d}</div></div>`).join('')}</div>`;
+    h+=`<table class="dt" data-reveal><thead><tr>${d.heads.map((x,i)=>`<th style="width:33.33%;color:var(--c${i+1})">${x.t}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr>${r.map(c=>`<td><span class="dim">${c[0]}</span><span class="q">${c[1]}</span></td>`).join('')}</tr>`).join('')}</tbody></table>`;
     h+=noteT(d);
-  }else if(d.type==='stages'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2>`;
-    h+=`<table class="dt"><thead><tr><th style="color:var(--orange);width:18%">${d.cols[0]}</th><th colspan="3" style="color:var(--cyan)">${d.cols[1]}</th></tr></thead><tbody>${d.rows.map(r=>`<tr><td class="k">${r[0]}</td>${r[1].map(q=>`<td class="q" style="width:27.3%">${q}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  }else if(d.type==='lenses'){
+    h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2>`;
+    h+=`<table class="dt" data-reveal><thead><tr><th style="width:20%">${d.stageCols[0]}</th><th colspan="2">${d.stageCols[1]}</th></tr></thead><tbody>${d.stageRows.map(r=>`<tr><td class="k">${r[0]}</td>${r[1].map(q=>`<td class="q" style="width:40%">${q}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    h+=`<div class="ruler-head" data-reveal>${d.rulerHead}</div>`;
+    h+=`<div class="cards" data-reveal style="grid-template-columns:repeat(3,1fr);gap:.7rem">${d.rulers.map((c,i)=>`<div class="card ruler" style="--c:var(--c${i+1})"><div class="ch">${c.t}</div><div class="cd">${c.d}</div></div>`).join('')}</div>`;
     h+=noteT(d);
-  }else if(d.type==='flow'){
-    const f=d.flow.map((x,i)=>`<div class="fbox"><div class="ft">${x.ft}</div><div class="fd">${x.fd}</div></div>`+(i<d.flow.length-1?'<div class="farr">›</div>':'')).join('');
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="flow">${f}</div>`+noteT(d)+(d.button?`<div style="margin-top:.4rem">${gembtn(d.button)}</div>`:'');
-  }else if(d.type==='rubric'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2>`;
-    h+=`<table class="dt"><thead><tr>${d.cols.map((c,i)=>`<th style="${i===0?'width:19%':i===2?'width:23%':''}">${c}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r=>`<tr><td class="k" style="color:${r[0][1]}">${r[0][0]}</td><td>${nbItems(r[1])}</td><td class="q" style="text-wrap:balance">${r[2]}</td></tr>`).join('')}</tbody></table>`;
-    h+=noteT(d);
-  }else if(d.type==='cards2'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="cards c2">${d.cards.map(c=>`<div class="card" style="--c:${c.c}"><div class="ch">${c.ch}</div><div class="cd">${c.cd}</div></div>`).join('')}</div>`;
-  }else if(d.type==='steps'){
-    h+=eyT(d)+`<h2 class="title">${d.title}</h2><div class="steps">${d.steps.map(s=>`<div class="step"><div class="sn">${s.n}</div><div class="st">${s.t}</div></div>`).join('')}</div>`+noteT(d);
+  }else if(d.type==='process'){
+    const f=d.flow.map((x,i)=>`<div class="fbox"><div class="ft">${x.ft}</div><div class="fd">${x.fd}</div></div>`+(i<d.flow.length-1?'<div class="farr" aria-hidden="true">›</div>':'')).join('');
+    h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2><div class="flow" data-reveal>${f}</div>`;
+    h+=noteT(d)+(d.button?`<div data-reveal style="margin-top:.4rem">${gembtn(d.button)}</div>`:'');
+  }else if(d.type==='value'){
+    h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2>`+chips(d.traits);
+    h+=`<div class="cards c2" style="margin-top:.2rem">${d.cards.map((c,i)=>`<div class="card" data-reveal style="--c:var(--c${(i%3)+1})"><div class="ch">${c.ch}</div><div class="cd">${c.cd}</div></div>`).join('')}</div>`;
   }
   h+='</div>';if(d.disc)h+=pagenote(d.disc);return h;
 }
-function pagenote(t){return `<div class="pagenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>${t}</div>`;}
 
 function build(){
   const c=$('#slides');c.innerHTML='';
   D.forEach(sd=>{const s=document.createElement('section');s.className='slide';s.id='sl-'+sd.id;s.innerHTML=render(sd);c.appendChild(s);});
   document.documentElement.setAttribute('lang',LANG==='en'?'en':'zh-TW');
   $('#btn-lang').textContent=LANG==='en'?'CH':'EN';
+  setupReveal();
+}
+const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function countUp(el){
+  if(el.dataset.done)return;el.dataset.done='1';
+  const target=parseFloat(el.dataset.count);if(isNaN(target)){return;}
+  if(REDUCE){el.textContent=target;return;}
+  const dur=1000,t0=performance.now();
+  (function step(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);})(t0);
+}
+function runCounts(slide){slide&&slide.querySelectorAll('[data-count]').forEach(countUp);}
+let _io=null;
+function setupReveal(){
+  if(REDUCE){document.querySelectorAll('[data-count]').forEach(countUp);return;}
+  const root=$('#slides');
+  document.querySelectorAll('.slide').forEach(slide=>{
+    slide.querySelectorAll('[data-reveal]').forEach((el,i)=>el.style.setProperty('--rd',Math.min(i*60,360)+'ms'));
+  });
+  if(_io)_io.disconnect();
+  _io=new IntersectionObserver((es)=>{es.forEach(e=>{
+    if(e.intersectionRatio>=0.5){e.target.classList.add('in-view');runCounts(e.target);}
+    else if(e.intersectionRatio<0.12) e.target.classList.remove('in-view');
+  });},{root,threshold:[0,0.12,0.5,1]});
+  document.querySelectorAll('.slide').forEach(s=>_io.observe(s));
+  const first=document.querySelectorAll('.slide')[cur||0];if(first){first.classList.add('in-view');runCounts(first);}
 }
 let cur=0;const total=D.length;
 function syncCounter(){const c=$('#slides'),hh=c.clientHeight;cur=Math.round(c.scrollTop/hh);$('#counter').textContent=(cur+1)+' / '+total;$('#prog').style.width=((cur+1)/total*100)+'%';}
 function go(dir){const c=$('#slides'),hh=c.clientHeight;let n=Math.max(0,Math.min(total-1,cur+dir));c.scrollTo({top:n*hh,behavior:'smooth'});}
-function toggleLang(){const c=$('#slides');const idx=cur;LANG=LANG==='en'?'zh':'en';const u=new URL(location);LANG==='en'?u.searchParams.set('lang','en'):u.searchParams.delete('lang');history.replaceState(null,'',u);build();requestAnimationFrame(()=>{c.scrollTo({top:idx*c.clientHeight,behavior:'auto'});syncCounter();});}
+function toggleLang(){const idx=cur;LANG=LANG==='en'?'zh':'en';const u=new URL(location);LANG==='en'?u.searchParams.set('lang','en'):u.searchParams.delete('lang');history.replaceState(null,'',u);build();requestAnimationFrame(()=>{const c=$('#slides');c.scrollTo({top:idx*c.clientHeight,behavior:'auto'});syncCounter();});}
 
+document.documentElement.classList.add('js-reveal');
 build();
 $('#slides').addEventListener('scroll',()=>requestAnimationFrame(syncCounter),{passive:true});
 document.addEventListener('keydown',e=>{
