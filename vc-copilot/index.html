@@ -94,7 +94,7 @@ body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:va
 .dt{width:100%;border-collapse:separate;border-spacing:0;margin-top:.1rem;font-size:var(--min-label);border-radius:14px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
 .dt th,.dt td{padding:.44rem .85rem;text-align:left;border-bottom:1px solid var(--line);line-height:1.38;vertical-align:top}
 .dt tr:last-child td{border-bottom:none}
-.dt thead th{font-weight:700;background:rgba(255,255,255,.03);color:var(--accent);font-size:.95rem;letter-spacing:.02em}
+.dt thead th{font-weight:700;background:rgba(255,255,255,.03);color:var(--accent);font-size:var(--min-label);letter-spacing:.02em}
 .dt td.k{font-weight:700;color:var(--ink);white-space:nowrap;background:rgba(255,255,255,.02)}
 .dt .dim{color:var(--ink);font-weight:600;display:block}
 .dt .q{color:var(--ink-2)}
@@ -212,14 +212,14 @@ const D=[
 
 {id:'triad',type:'triad',
   ey:'核心原理',
-  title:'創新三元 <span class="g">D／F／V</span>',
+  title:'Innovation Triad <span class="g">D/F/V</span>',
   orbs:[
-    {L:'D',n:'欲求性',d:'需求真不真？'},
-    {L:'F',n:'可行性',d:'做不做得出來？'},
-    {L:'V',n:'存續性',d:'帳算不算得清？'}],
-  heads:[{t:'D · 欲求性'},{t:'F · 可行性'},{t:'V · 存續性'}],
+    {L:'D',n:'Desirability',d:'需求真不真？'},
+    {L:'F',n:'Feasibility',d:'做不做得出來？'},
+    {L:'V',n:'Viability',d:'帳算不算得清？'}],
+  heads:[{t:'D · Desirability'},{t:'F · Feasibility'},{t:'V · Viability'}],
   rows:[
-    [['止痛藥還是維他命','這個痛非解不可嗎？'],['技術合理性','第一性原理做得出來嗎？'],['單位經濟','賺一個客戶划算嗎？']],
+    [['Must-have vs Nice-to-have','是止痛藥，還是維他命？'],['技術合理性','第一性原理做得出來嗎？'],['單位經濟','賺一個客戶划算嗎？']],
     [['付費意願驗證','陌生人真的掏錢了嗎？'],['創辦人市場契合','為什麼非你這隊不可？'],['市場量體','撐得起創投回報嗎？']],
     [['焦油坑檢驗','看似誘人，是不是人人踩過的坑？'],['護城河','做出來後多快被抄走？'],['六個關鍵數字','核心財務健不健康？']]],
   note:'三盞燈分開照，<b class="hl1">取最低分、不取平均</b>；一個案子可以九項漂亮，卻倒在第十項。這裡先列每盞燈最關鍵的三個。',
@@ -287,7 +287,7 @@ triad:{ey:'The core idea',title:'Innovation Triad <span class="g">D/F/V</span>',
   orbs:[{L:'D',n:'Desirability',d:'Is the need real?'},{L:'F',n:'Feasibility',d:'Can it be built?'},{L:'V',n:'Viability',d:'Do the numbers work?'}],
   heads:[{t:'D · Desirability'},{t:'F · Feasibility'},{t:'V · Viability'}],
   rows:[
-    [['Painkiller vs Vitamin','A must-have, or nice-to-have?'],['Tech soundness','Buildable from first principles?'],['Unit economics','Is one customer worth it?']],
+    [['Must-have vs Nice-to-have','A must-have, or nice-to-have?'],['Tech soundness','Buildable from first principles?'],['Unit economics','Is one customer worth it?']],
     [['Paid validation','Have strangers actually paid?'],['Founder-market fit','Why must it be your team?'],['Market size','Big enough for a VC return?']],
     [['Tarpit test','A seductive idea that traps everyone?'],['Moat','How fast can it be copied?'],['Six key numbers','Are the core metrics healthy?']]],
   note:'Three lights, shone separately, <b class="hl1">scored on the lowest, not the average</b>; a deal can be strong on nine counts and fall on the tenth. Here are the three most pivotal per light.',
