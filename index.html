@@ -197,19 +197,19 @@ img{max-width:100%;display:block}
 .mq-sep{width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.5;flex-shrink:0}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
 .mq-logo{width:auto;max-width:155px;object-fit:contain;opacity:1;filter:saturate(1.1);display:block}
-.mq-name{font-family:var(--fd);font-weight:700;font-size:1.05rem;letter-spacing:.03em;color:var(--text-3)}
+.mq-name{font-family:var(--fd);font-weight:800;font-size:1.5rem;letter-spacing:.01em;color:var(--text-2)}
 .mq-link{display:inline-flex;align-items:center;text-decoration:none;transition:opacity .2s}.mq-link:hover{opacity:.6}
 .logo-wall-wrap{max-width:1180px;margin:5.5rem auto 0}
 .lw-title{font-family:var(--fd);font-weight:800;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:2rem;text-align:left}
 .logo-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
-.logo-cell{flex:0 0 calc((100% - 4rem)/5);height:96px;background:#fff;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.7rem .85rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.logo-cell{flex:0 0 calc((100% - 3rem)/4);height:96px;background:#fff;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:.7rem .85rem;transition:border-color .25s,box-shadow .25s,transform .25s}
 .logo-cell:hover{border-color:rgba(255,102,0,.4);box-shadow:0 8px 22px rgba(0,0,0,.08);transform:translateY(-3px)}
 .logo-cell a{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .logo-cell img{max-height:44px;max-width:100%;object-fit:contain;opacity:1;filter:saturate(1.12);transition:transform .25s,filter .25s}
-.logo-cell .lw-name{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:var(--text-2);letter-spacing:.02em;white-space:nowrap}
+.logo-cell .lw-name{font-family:var(--fd);font-weight:800;font-size:1.7rem;color:var(--text-2);letter-spacing:.01em;white-space:nowrap}
 .logo-cell:hover .lw-name{color:var(--orange)}
 @media(max-width:880px){.logo-cell{flex:0 0 calc((100% - 3rem)/4)}}
-@media(max-width:560px){.logo-cell{flex:0 0 calc((100% - 2rem)/3);height:78px}}
+@media(max-width:560px){.logo-cell{flex:0 0 calc((100% - 1rem)/2);height:78px}}
 
 /* AUDIENCE SPLIT */
 #audience{padding:100px 0;background:var(--white)}
@@ -966,39 +966,6 @@ footer{background:#060F1E;padding:72px 0 0}
       <div style="margin-top:1rem;font-family:var(--fb);font-size:.95rem;font-style:normal;letter-spacing:.02em;color:var(--text-3)"><span style="font-family:var(--fd);font-weight:700;color:var(--text-2)">Boice Lin</span><span data-en="&nbsp;&middot; Founder &amp; Managing Partner" data-zh="&nbsp;&middot; 創辦人暨執行合夥人">&nbsp;&middot; Founder &amp; Managing Partner</span></div>
     </div>
 
-    <!-- Comparison Table -->
-    <div class="reveal" style="margin-top:3.5rem;overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:1rem">
-        <thead>
-          <tr>
-            <th style="padding:1rem 1.5rem;text-align:left;background:var(--bg);border-bottom:2px solid var(--border);font-family:var(--fd);font-weight:700;color:var(--text-4);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;width:25%" data-en="" data-zh=""></th>
-            <th style="padding:1rem 1.5rem;text-align:center;background:var(--bg);border-bottom:2px solid var(--border);font-family:var(--fd);font-weight:700;color:var(--text-3);font-size:.9rem" data-en="Traditional VC" data-zh="傳統創投">Traditional VC</th>
-            <th style="padding:1rem 1.5rem;text-align:center;background:var(--bg);border-bottom:2px solid var(--border);font-family:var(--fd);font-weight:700;color:var(--text-3);font-size:.9rem" data-en="Accelerator" data-zh="加速器">Accelerator</th>
-            <th style="padding:1rem 1.5rem;text-align:center;background:var(--orange-pale);border-bottom:2px solid var(--orange);border-left:2px solid rgba(255,102,0,.2);font-family:var(--fd);font-weight:800;color:var(--orange);font-size:.9rem" data-en="EvoScale Capital" data-zh="EvoScale Capital">EvoScale Capital</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);font-family:var(--fd);font-weight:700;font-size:.95rem;color:var(--text-2)" data-en="What they bring" data-zh="帶來什麼">What they bring</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-3)" data-en="Capital only" data-zh="只有資金">Capital only</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-3)" data-en="Capital + training" data-zh="資金＋課程">Capital + training</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;background:rgba(255,102,0,.04);border-left:2px solid rgba(255,102,0,.15);font-weight:600;color:var(--orange)" data-en="Capital + active selling" data-zh="資金＋親自幫你賣">Capital + active selling</td>
-          </tr>
-          <tr>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);font-family:var(--fd);font-weight:700;font-size:.95rem;color:var(--text-2)" data-en="Post-investment" data-zh="投後支持">Post-investment</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-3)" data-en="Quarterly board" data-zh="每季董事會">Quarterly board</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-3)" data-en="Demo Day" data-zh="Demo Day">Demo Day</td>
-            <td style="padding:.9rem 1.5rem;border-bottom:1px solid var(--border);text-align:center;background:rgba(255,102,0,.04);border-left:2px solid rgba(255,102,0,.15);font-weight:600;color:var(--orange)" data-en="Operators sell with you" data-zh="高管陪你一起衝業績">Operators sell with you</td>
-          </tr>
-          <tr>
-            <td style="padding:.9rem 1.5rem;font-family:var(--fd);font-weight:700;font-size:.95rem;color:var(--text-2)" data-en="Comparable funds" data-zh="對標機構">Comparable funds</td>
-            <td style="padding:.9rem 1.5rem;text-align:center;color:var(--text-4);font-size:.9rem">—</td>
-            <td style="padding:.9rem 1.5rem;text-align:center;color:var(--text-4);font-size:.9rem">—</td>
-            <td style="padding:.9rem 1.5rem;text-align:center;background:rgba(255,102,0,.04);border-left:2px solid rgba(255,102,0,.15);color:var(--text-3);font-size:.9rem">Stage2 Capital · GTM Fund</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </section>
 
@@ -1400,7 +1367,7 @@ footer{background:#060F1E;padding:72px 0 0}
 </footer>
 <div id="demoToast"></div>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<script src="shared-content.js?v=21"></script>
+<script src="shared-content.js?v=22"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>try{emailjs.init({publicKey:"oG6hm-tDcskzYg6t6"});}catch(e){}</script>
 <script>
