@@ -79,6 +79,9 @@ body{font-family:'Inter','Noto Sans TC',sans-serif;background:var(--bg);color:va
 .hnum{font-weight:800;font-size:clamp(4.4rem,11.5vw,7.6rem);line-height:.92;color:var(--c1);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
 .hunit{font-weight:700;font-size:clamp(1.3rem,2vw,1.72rem);color:var(--ink);letter-spacing:.01em}
 .hcap{font-size:var(--min-font);color:var(--ink-2);max-width:34ch;line-height:1.5;margin-top:.3rem}
+.painstat{margin:.6rem auto 0;padding:.6rem 1.4rem;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:13px;background:rgba(255,255,255,.025);max-width:960px;text-align:center;font-size:1.02rem;line-height:1.5;color:var(--ink);text-wrap:balance}
+.ps-stat{color:var(--ink-3);font-weight:700}
+.ps-n{font-size:1.3rem;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
 .hcap b{color:var(--ink)}
 
 /* metric cards */
@@ -208,6 +211,7 @@ const D=[
   hero:{n:53,unit:'個評估維度',cap:'每個案子，用同一套標準從頭問過一遍'},
   chips:['D／F／V 三透鏡','創業四階段','五步評分'],
   note:'你很難從一個好故事裡，事前認出哪個案子是對的。<b class="hl2">這套清單把該問的 53 個問題一次問完</b>，不靠當下記不記得問，也不靠手感好不好。',
+  painstat:{n:'62.5',unit:'小時／週',cap:'高管平均工時（HBR, 2018）',line:'先用它<b class="hl1">快速、初步評估一個產業</b>，再用各自專業切入，<b class="hl2">不取代你的判斷</b>。'},
   disc:'評估維度為本工具設計內容，僅供結構化參考，不構成投資建議。'},
 
 {id:'triad',type:'triad',
@@ -265,6 +269,7 @@ why:{ey:'Where it helps',title:'A good deal and a good story <span class="g">dif
   hero:{n:53,unit:'evaluation dimensions',cap:'every deal, checked against the same standard from the top'},
   chips:['D/F/V three lenses','Four startup stages','Five-step scoring'],
   note:'You can rarely tell the right deal from a good story up front. <b class="hl2">This checklist asks all 53 of the questions that matter, in one pass</b>, not relying on what you remember to ask, or on how good your instinct is.',
+  painstat:{n:'62.5',unit:'hrs / week',cap:'avg CEO work hours (HBR, 2018)',line:'Use it to <b class="hl1">pre-screen an industry fast</b>, then bring your expertise. <b class="hl2">It does not replace your judgment.</b>'},
   disc:'The dimensions are this tool\'s design; a structured reference only, not investment advice.'},
 triad:{ey:'The core idea',title:'Innovation Triad <span class="g">D/F/V</span>',
   orbs:[{L:'D',n:'Desirability',d:'Is the need real?'},{L:'F',n:'Feasibility',d:'Can it be built?'},{L:'V',n:'Viability',d:'Do the numbers work?'}],
@@ -321,6 +326,7 @@ function render(sd){
     h+=`<div class="hero-stat" data-reveal><div class="hnum"><span class="mn" data-count="${d.hero.n}">0</span>${d.hero.suf||''}</div><div class="hunit">${d.hero.unit}</div><div class="hcap">${d.hero.cap}</div></div>`;
     h+=chips(d.chips);
     h+=(d.note?`<div class="note nlg" data-reveal>${d.note}</div>`:'');
+    h+=(d.painstat?`<div class="painstat" data-reveal><span class="ps-stat"><b class="ps-n">${d.painstat.n}</b> ${d.painstat.unit} · ${d.painstat.cap}</span>　${d.painstat.line}</div>`:'');
   }else if(d.type==='triad'){
     h+=eyT(d)+`<h2 class="title" data-reveal>${d.title}</h2>`;
     h+=`<div class="triad">${d.orbs.map((o,i)=>`<div class="orb" data-reveal style="--c:var(--c${i+1})"><div class="L">${o.L}</div><div class="n">${o.n}</div><div class="d">${o.d}</div></div>`).join('')}</div>`;
