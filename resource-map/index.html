@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>資源盤點 · EvoScale 生態夥伴</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23FF6600'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F7F4EC;--card:#FFFDF8;--line:#E4DCC9;--line2:#D2C7AD;--ink:#221f1a;--mid:#544d42;--dim:#847c6c;--orange:#E05A00;--green:#16803C;--rose:#C2410C;--blue:#2563EB}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:1.05rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:660px;margin:0 auto;padding:0 20px 70px}
+header{padding:2.2rem 0 1.1rem}
+.ey{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:800;letter-spacing:.08em;color:var(--orange)}
+.ey .es{width:26px;height:26px;border-radius:7px;background:#FF6600;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:.85rem;font-weight:800}
+h1{font-size:1.72rem;line-height:1.3;margin:.55rem 0 .5rem;font-weight:800}
+.lead{color:var(--mid);font-size:1.04rem}
+.lead b{color:var(--ink)}
+.why{margin-top:1rem;display:grid;gap:.6rem}
+.why div{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:12px;padding:.7rem .95rem;font-size:.98rem;line-height:1.6}
+.why b{color:var(--orange)}
+.priv{margin-top:.9rem;font-size:.93rem;color:var(--green);background:rgba(22,128,60,.07);border:1px solid rgba(22,128,60,.25);border-radius:10px;padding:.65rem .9rem;line-height:1.65}
+.priv b{color:var(--green)}
+.prog{display:flex;gap:.5rem;margin:1.5rem 0 1rem}
+.prog i{flex:1;height:7px;border-radius:4px;background:var(--line);transition:.3s}
+.prog i.on{background:var(--orange)}
+.steplab{font-size:.98rem;font-weight:800;color:var(--dim);letter-spacing:.03em;margin-bottom:1rem}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.2rem;margin-bottom:1rem}
+.q.err{border-color:var(--rose);box-shadow:0 0 0 1px rgba(194,65,12,.35)}
+.qt{font-size:1.1rem;font-weight:800;margin-bottom:.15rem;line-height:1.4}
+.qt .req{font-size:.8rem;font-weight:800;color:#fff;background:var(--orange);border-radius:6px;padding:.1rem .5rem;margin-left:.45rem;vertical-align:2px}
+.qt .opt{font-size:.8rem;font-weight:800;color:var(--dim);background:var(--line);border-radius:6px;padding:.1rem .5rem;margin-left:.45rem;vertical-align:2px}
+.qd{font-size:.95rem;color:var(--dim);margin-bottom:.8rem;line-height:1.55}
+.qd .sens{color:var(--rose);font-weight:700}
+.opts{display:flex;flex-wrap:wrap;gap:.55rem}
+.opts button{font-family:inherit;font-size:1rem;font-weight:700;color:var(--ink);background:var(--bg);border:1.5px solid var(--line2);border-radius:12px;padding:.72rem 1.05rem;cursor:pointer;transition:.12s;min-height:46px}
+.opts button.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.opts.stack{flex-direction:column;align-items:stretch}
+.opts.stack button{text-align:left}
+.opts button small{display:block;font-size:.88rem;font-weight:500;opacity:.78;line-height:1.4;margin-top:.1rem}
+.fillpills{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.45rem}
+.fillpills button{font-family:inherit;font-size:.95rem;font-weight:700;color:var(--mid);background:var(--bg);border:1.5px dashed var(--line2);border-radius:10px;padding:.5rem .8rem;cursor:pointer;min-height:44px}
+.fillpills button:hover{border-color:var(--orange);color:var(--orange)}
+.fillpills .lb{font-size:.9rem;color:var(--dim);font-weight:700;align-self:center;margin-right:.2rem}
+input[type=text]{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line2);border-radius:10px;padding:.7rem .85rem;width:100%;min-height:46px}
+input[type=text]:focus{outline:none;border-color:var(--orange)}
+textarea{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line2);border-radius:10px;padding:.7rem .85rem;width:100%;min-height:80px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--orange)}
+.note-in{margin-top:.6rem}
+.doorrow{background:var(--bg);border:1.5px solid var(--line2);border-radius:14px;padding:.85rem;margin-bottom:.7rem}
+.doorrow .mini{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--line)}
+.doorrow .mini.first{border-top:none;padding-top:0;margin-top:.6rem}
+.doorrow .mini button{font-family:inherit;font-size:1rem;font-weight:700;color:var(--ink);background:var(--card);border:1.5px solid var(--line2);border-radius:10px;padding:.55rem .85rem;cursor:pointer;min-height:44px}
+.doorrow .mini button.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.doorrow .ml{font-size:.92rem;font-weight:800;color:var(--mid);width:100%;margin-bottom:.1rem}
+.doorrow .rm{background:none;border:none;color:var(--dim);font-size:.9rem;font-weight:700;cursor:pointer;padding:.2rem;margin-top:.3rem}
+.doorrow .rm:hover{color:var(--rose)}
+.addrow{background:none;border:1.5px dashed var(--line2);border-radius:12px;color:var(--dim);font-family:inherit;font-size:1rem;font-weight:700;padding:.75rem;width:100%;cursor:pointer;min-height:46px}
+.addrow:hover{color:var(--orange);border-color:var(--orange)}
+.navrow{display:flex;gap:.7rem;margin-top:1.5rem}
+.navrow button{flex:1;font-family:inherit;font-size:1.1rem;font-weight:800;border-radius:13px;padding:.98rem;cursor:pointer;min-height:54px;border:none}
+.navrow .next{background:var(--orange);color:#fff}
+.navrow .next:hover{filter:brightness(1.08)}
+.navrow .back{background:none;border:1.5px solid var(--line2);color:var(--mid);flex:0 0 28%}
+.errmsg{display:none;color:var(--rose);font-weight:700;font-size:.98rem;margin-top:.9rem}
+.errmsg.show{display:block}
+#done{display:none}
+.doneh{font-size:1.4rem;font-weight:800;margin:.4rem 0 .3rem}
+#out{width:100%;min-height:280px;resize:vertical;font-family:inherit;font-size:.96rem;line-height:1.75;color:var(--mid);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.submitbtn{width:100%;font-family:inherit;font-size:1.12rem;font-weight:800;border:none;border-radius:14px;padding:1rem;cursor:pointer;min-height:56px;background:var(--orange);color:#fff;margin:.3rem 0}
+.submitbtn:disabled{opacity:.6;cursor:default}
+.submitbtn.ok{background:var(--green)}
+.subnote{font-size:.92rem;color:var(--dim);text-align:center;margin-bottom:1rem;line-height:1.6}
+.suberr{display:none;color:var(--rose);font-weight:700;font-size:.95rem;text-align:center;margin:.4rem 0}
+.suberr.show{display:block}
+.selfrow{display:flex;gap:.7rem;margin:1rem 0}
+.selfrow button{flex:1;font-family:inherit;font-size:1rem;font-weight:800;border:1.5px solid var(--line2);border-radius:12px;padding:.85rem;cursor:pointer;min-height:50px;background:none;color:var(--mid)}
+.selfrow button:hover{border-color:var(--orange);color:var(--orange)}
+.selfrow button.ok{border-color:var(--green);color:var(--green)}
+.editln{background:none;border:none;color:var(--dim);font-family:inherit;font-size:.98rem;font-weight:700;cursor:pointer;text-decoration:underline;padding:.3rem 0}
+footer{margin-top:1.7rem;font-size:.88rem;color:var(--dim);line-height:1.7}
+@media print{header .why,header .priv,.prog,.steplab,.navrow,.submitbtn,.subnote,.suberr,.selfrow,.editln,footer{display:none!important}body{background:#fff}#out{border:none;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="ey"><span class="es">ES</span>EVOSCALE · 資源盤點</span>
+  <h1>盤點你的資源，讓對的案子精準找上你</h1>
+  <p class="lead">EvoScale（一春資本）是<b>邀請制的高管共投社群</b>。這份盤點幫我們把你能開的門、想幫的方式、感興趣的題材記下來，之後媒合就有依據。花你幾分鐘，往後省下每次重問一輪的時間。</p>
+  <div class="why">
+    <div><b>對你：</b>之後只有真正落在你能幫、也有興趣範圍內的案子才會來找你，不是海投。你先說清楚，往後每次被找上都是精準邀請。</div>
+    <div><b>對我們：</b>配對案子時知道先問誰，不必每次重新問一遍你的背景與門路，也讓你的資源在關鍵時刻被用在刀口上。</div>
+  </div>
+  <div class="priv"><b>隱私：</b>按最後的「送出」＝這份盤點只 email 給 Vincent 與 Boice 兩人，<b>不進任何群組、不對外公開、不給新創看到</b>。標「敏感」的欄位都可以留空；金額只問區間、不問你的財力。也可以只「複製給自己留存」不送出。</div>
+</header>
+
+<div class="prog" id="prog"><i class="on"></i><i></i><i></i><i></i></div>
+<div id="form"></div>
+<div class="errmsg" id="errmsg">還有必填題沒完成，已幫你把它標紅。</div>
+<div class="navrow" id="navrow">
+  <button class="back" id="backBtn" type="button">上一步</button>
+  <button class="next" id="nextBtn" type="button">下一步</button>
+</div>
+
+<div id="done">
+  <div class="steplab">完成，這是你的盤點結果</div>
+  <div class="doneh">最後一步：送給我們</div>
+  <p class="subnote">按下方送出，這份盤點會 email 給 Vincent 與 Boice（只有我們兩人收到）。</p>
+  <button class="submitbtn" id="submitBtn" type="button">送出給 EvoScale（我和 Boice 都會收到）</button>
+  <div class="suberr" id="suberr"></div>
+  <p class="subnote" style="margin:.2rem 0 .8rem">或，先不送出，只給自己留一份：</p>
+  <div class="selfrow">
+    <button id="copyBtn" type="button">複製文字</button>
+    <button id="printBtn" type="button">存成 PDF</button>
+  </div>
+  <textarea id="out" readonly></textarea>
+  <div style="text-align:center;margin-top:.6rem"><button class="editln" id="editBtn" type="button">回上一步修改答案</button></div>
+</div>
+
+<footer>EvoScale Capital · 一春資本｜本表單為邀請制夥伴內部盤點用，非投資要約；投資單位金基準每案 US$10K（約 NT$30 萬），實際條件以正式文件為準。</footer>
+</div>
+
+<script>
+/* ===== 選項資料 ===== */
+var DOMAINS=['跨產業／連接者型','半導體·硬體','雲端·AI','企業軟體·數據','電商·通路·支付','行銷·廣告','教育·人才','人才招募','自媒體·流量','金融·資產管理','法務','食農','投資·生態','政府·法人','其他'];
+var COSTATUS=['自由接案／顧問','創業中','轉換職涯中','目前 break','退休','不便透露'];
+var REACH=[['直達','C-level，通常當天就能約到'],['很快','VP／總監層，約一週內'],['要看案子','經理層，或需要具體理由才好開口'],['看交情','沒有標準流程，純看關係深淺']];
+var CONF=['把握高','中等','想試試'];
+var RECENT=['3 個月內聊過','今年聊過','更久了'];
+var REL=['前同事','客戶','供應商','董事/顧問','朋友','其他'];
+var WINDOW=['採購/決策層','技術/產品','業務/BD','高層','不確定'];
+var DEPTH=[['被動','需要時配合一下就好'],['主動','會花時間幫忙找適合的案子'],['深度','願意跟著案子跑，甚至進顧問／董事角色']];
+var FREQ=['每月 1 件就夠','每季 1 到 2 件','案子夠好不設限'];
+var HELPA=['系統寫好信、我轉發','15 分鐘電話快篩','實體引薦／飯局'];
+var HELPB=['當 design partner','當首位客戶','高階人才引薦','法規與政策','通路嵌入','後續跟投','技術盡調','當顧問 Advisory'];
+var ROLE=[['也想參與投資','逐案 opt-in，US$10K 起，可加碼'],['這階段只幫忙引薦／顧問','先不投資']];
+var TICKET=[['1 個單位','US$10K，約 NT$30 萬'],['2 到 3 個單位','會依案加碼'],['先觀望第一案','看完再決定']];
+var TOPICS=['AI 應用','企業軟體 SaaS','半導體供應鏈','零售與電商科技','金融科技','醫療健康','食農科技','製造與自動化','資安','機器人/硬體','其他'];
+var CONFLICT=[['涉及時先問我','碰到我雇主／其供應商或對手的案子，引薦前先跟我確認'],['目前想不到衝突','但有狀況我會主動說'],['需要個案討論','']];
+var CONSENT=[['可以，姓名＋公司','放進 EvoScale 內部名錄與網絡圖（不對外公開）'],['只用職稱、不具名',''],['請先問我再放','']];
+var CHANNEL=['LINE','電話','Email'];
+var AO=[['有興趣了解','未來想當 deal lead／AO'],['再看看',''],['我只想輕鬆參與','']];
+
+/* ===== 作答狀態 ===== */
+var S={name:'',co:'',domains:[],domainNote:'',reach:'',
+  doors:[{co:'',conf:'',recent:'',rel:'',win:''}],
+  depth:'',freq:'',helpa:[],helpb:[],role:'',ticket:'',
+  topics:[],conflict:'',avoid:'',ao:'',channel:[],consent:'',note:''};
+var step=0;
+
+/* ===== 元件 ===== */
+function pills(list,key,max,labeled){
+  return '<div class="opts'+(labeled?' stack':'')+'">'+list.map(function(o){
+    var v=labeled?o[0]:o, sub=labeled&&o[1]?'<small>'+o[1]+'</small>':'';
+    var on=Array.isArray(S[key])?S[key].indexOf(v)>=0:S[key]===v;
+    return '<button type="button" data-k="'+key+'" data-v="'+v+'" data-max="'+(max||0)+'" class="'+(on?'on':'')+'">'+v+sub+'</button>';
+  }).join('')+'</div>';
+}
+function doorRows(){
+  return S.doors.map(function(d,i){
+    function row(label,arr,fld,first){
+      return '<div class="mini'+(first?' first':'')+'"><span class="ml">'+label+'</span>'+arr.map(function(c){
+        return '<button type="button" data-dp="'+fld+'" data-i="'+i+'" data-v="'+c+'" class="'+(d[fld]===c?'on':'')+'">'+c+'</button>';
+      }).join('')+'</div>';
+    }
+    return '<div class="doorrow" data-i="'+i+'">'
+      +'<input type="text" data-door="co" data-i="'+i+'" placeholder="公司名，或你熟的人才圈，例：台達電 / 半導體資深研發圈" value="'+d.co.replace(/"/g,'&quot;')+'">'
+      +row('把握度',CONF,'conf',true)+row('最近聯繫',RECENT,'recent')+row('你們的關係',REL,'rel')+row('對到的窗口（選填）',WINDOW,'win')
+      +(S.doors.length>1?'<button type="button" class="rm" data-rm="'+i+'">移除這一家</button>':'')
+      +'</div>';
+  }).join('')+(S.doors.length<4?'<button class="addrow" id="addDoor" type="button">＋ 再加一家（最多 4 家）</button>':'');
+}
+
+/* ===== 四段 ===== */
+var STEPS=[
+ {lab:'第 1 段 · 你是誰、人脈在哪',html:function(){return ''
+   +'<div class="q" data-req="name"><div class="qt">怎麼稱呼你<span class="req">必填</span></div><div class="qd">這個名字我們會直接拿來跟你確認案子，留個能對得上的全名最好。</div>'
+     +'<input type="text" data-f="name" placeholder="例：王小明（Tiger）" value="'+S.name.replace(/"/g,'&quot;')+'">'
+     +'<div class="note-in"><input type="text" data-f="co" placeholder="目前任職公司（沒有也沒關係）" value="'+S.co.replace(/"/g,'&quot;')+'"></div>'
+     +'<div class="fillpills"><span class="lb">或直接點：</span>'+COSTATUS.map(function(c){return '<button type="button" data-costat="'+c+'">'+c+'</button>';}).join('')+'</div></div>'
+   +'<div class="q" data-req="domains"><div class="qt">你的人脈主要在哪些產業？<span class="req">必填</span></div><div class="qd">最多選 4 個。人脈很廣的話，選「跨產業／連接者型」也可以。</div>'+pills(DOMAINS,'domains',4)
+     +'<div class="note-in"><input type="text" data-f="domainNote" placeholder="想補一句？例：人資招聘，橫跨科技與傳產（選填）" value="'+S.domainNote.replace(/"/g,'&quot;')+'"></div></div>'
+   +'<div class="q"><div class="qt">你打聲招呼，通常能對到哪一層、多快？<span class="opt">選填</span></div><div class="qd">不同案子當然不一樣，選一個最接近你平均狀況的就好。</div>'+pills(REACH,'reach',0,true)+'</div>';}},
+
+ {lab:'第 2 段 · 你能幫誰敲開門（最有價值的一段）',html:function(){return ''
+   +'<div class="q" data-req="doors"><div class="qt">哪 1 到 4 家企業，你有把握幫新創牽到線？<span class="req">必填</span></div>'
+     +'<div class="qd">這題最值錢：具名一家，勝過十句「我人脈很廣」。<b>不一定要是你的客戶，你能牽到人就算數（不是你自己的公司）。</b><br><span class="sens">敏感：這份具名清單只有 Vincent 與 Boice 看得到，不會外流。</span></div>'
+     +'<div id="doorWrap">'+doorRows()+'</div></div>';}},
+
+ {lab:'第 3 段 · 你想怎麼幫、要不要參與投資',html:function(){return ''
+   +'<div class="q" data-req="depth"><div class="qt">你願意投入到什麼程度？<span class="req">必填</span></div><div class="qd">只問心力，不是頻率也不是要幫什麼，下面兩題會分開問。</div>'+pills(DEPTH,'depth',0,true)+'</div>'
+   +(S.depth&&S.depth!=='被動'?'<div class="q"><div class="qt">多常找你引薦，你覺得舒服？<span class="opt">選填</span></div>'+pills(FREQ,'freq')+'</div>':'')
+   +'<div class="q"><div class="qt">你偏好怎麼幫？<span class="opt">選填</span></div><div class="qd">引薦方式（可複選）</div>'+pills(HELPA,'helpa')+'<div class="qd" style="margin-top:.75rem">門路以外，你也願意出的力（可複選）</div>'+pills(HELPB,'helpb')+'</div>'
+   +'<div class="q" data-req="role"><div class="qt">這次你想扮演哪種角色？<span class="req">必填</span></div>'+pills(ROLE,'role',0,true)+'</div>'
+   +(S.role==='也想參與投資'?'<div class="q"><div class="qt">單案的舒適投入區間？<span class="opt">選填</span></div><div class="qd">基準：每案每單位 US$10K（約 NT$30 萬）。<span class="sens">敏感，只給我們看。</span></div>'+pills(TICKET,'ticket',0,true)+'</div>':'');}},
+
+ {lab:'第 4 段 · 興趣、界線與同意',html:function(){return ''
+   +'<div class="q"><div class="qt">最感興趣的台灣早期 B2B 題材？<span class="opt">選填</span></div><div class="qd">最多選 4 個。</div>'+pills(TOPICS,'topics',4)+'</div>'
+   +'<div class="q" data-req="conflict"><div class="qt">利益衝突怎麼處理？<span class="req">必填</span></div><div class="qd">你只做舉手之勞的引薦，不需動用在職職權。先講好界線，之後大家都安心。</div>'+pills(CONFLICT,'conflict',0,true)+'</div>'
+   +'<div class="q"><div class="qt">有沒有不方便碰的公司或產業？<span class="opt">選填</span></div><div class="qd"><span class="sens">敏感，只給我們看。</span>寫個關鍵字就好，我們會自動避開。</div><textarea data-f="avoid" placeholder="例：某前東家、直接競品…（選填）">'+S.avoid.replace(/</g,'&lt;')+'</textarea></div>'
+   +'<div class="q"><div class="qt">未來有興趣當 deal lead／AO 嗎？<span class="opt">選填</span></div><div class="qd">幫忙分配額度、逐案募足、經營會員關係，可分潤。</div>'+pills(AO,'ao',0,true)+'</div>'
+   +'<div class="q"><div class="qt">最方便的聯絡管道？<span class="opt">選填</span></div>'+pills(CHANNEL,'channel',0)+'</div>'
+   +'<div class="q" data-req="consent"><div class="qt">你的姓名與公司，能放進我們內部資料嗎？<span class="req">必填</span></div><div class="qd">只在 EvoScale <b>內部</b>名錄與關係網絡圖（已設不公開、不被搜尋），幫我們看清生態全貌。</div>'+pills(CONSENT,'consent',0,true)+'</div>'
+   +'<div class="q"><div class="qt">還有想補充的？<span class="opt">選填</span></div><textarea data-f="note" placeholder="任何想讓我們知道的（選填）">'+S.note.replace(/</g,'&lt;')+'</textarea></div>';}}
+];
+
+var form=document.getElementById('form');
+function render(){
+  document.querySelectorAll('#prog i').forEach(function(el,i){el.classList.toggle('on',i<=step);});
+  form.innerHTML='<div class="steplab">'+STEPS[step].lab+'</div>'+STEPS[step].html();
+  document.getElementById('backBtn').style.visibility=step===0?'hidden':'visible';
+  document.getElementById('nextBtn').textContent=step===STEPS.length-1?'完成，產生結果':'下一步';
+  document.getElementById('errmsg').classList.remove('show');
+  document.getElementById('done').style.display='none';
+  document.getElementById('navrow').style.display='flex';
+}
+form.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  if(b.id==='addDoor'){S.doors.push({co:'',conf:'',recent:'',rel:'',win:''});document.getElementById('doorWrap').innerHTML=doorRows();return;}
+  if(b.dataset.rm!=null){S.doors.splice(+b.dataset.rm,1);document.getElementById('doorWrap').innerHTML=doorRows();return;}
+  if(b.dataset.dp){var d=S.doors[+b.dataset.i];d[b.dataset.dp]=(d[b.dataset.dp]===b.dataset.v?'':b.dataset.v);document.getElementById('doorWrap').innerHTML=doorRows();return;}
+  if(b.dataset.costat!=null){S.co=b.dataset.costat;var inp=form.querySelector('input[data-f="co"]');if(inp)inp.value=S.co;return;}
+  if(!b.dataset.k)return;
+  var k=b.dataset.k,v=b.dataset.v,max=+b.dataset.max;
+  if(Array.isArray(S[k])){var ix=S[k].indexOf(v);if(ix>=0)S[k].splice(ix,1);else{if(max&&S[k].length>=max)return;S[k].push(v);}}
+  else{S[k]=(S[k]===v?'':v);}
+  if(k==='depth'||k==='role'){render();return;}
+  b.classList.toggle('on');
+});
+form.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.dataset.f)S[t.dataset.f]=t.value;
+  if(t.dataset.door)S.doors[+t.dataset.i][t.dataset.door]=t.value;
+});
+function valid(){
+  var ok=true;
+  document.querySelectorAll('.q.err').forEach(function(q){q.classList.remove('err');});
+  document.querySelectorAll('.q[data-req]').forEach(function(q){
+    var k=q.dataset.req,good=true;
+    if(k==='name')good=!!S.name.trim();
+    else if(k==='doors')good=S.doors.some(function(d){return d.co.trim();});
+    else if(Array.isArray(S[k]))good=S[k].length>0;
+    else good=!!S[k];
+    if(!good){q.classList.add('err');ok=false;}
+  });
+  return ok;
+}
+function output(){
+  var L=[];
+  L.push('【EvoScale 資源盤點回覆】');
+  L.push('稱呼／姓名：'+S.name.trim()+(S.co.trim()?'（'+S.co.trim()+'）':''));
+  L.push('人脈領域：'+(S.domains.join('、')||'（未填）')+(S.domainNote.trim()?'｜'+S.domainNote.trim():''));
+  if(S.reach){var r=REACH.filter(function(x){return x[0]===S.reach;})[0];L.push('通常對到：'+r[0]+'（'+r[1]+'）');}
+  L.push('');L.push('── 具名門路 ──');
+  S.doors.filter(function(d){return d.co.trim();}).forEach(function(d,i){
+    var parts=[d.co.trim()];if(d.conf)parts.push(d.conf);if(d.recent)parts.push(d.recent);if(d.rel)parts.push(d.rel);if(d.win)parts.push('窗口:'+d.win);
+    L.push(' '+(i+1)+'. '+parts.join('｜'));
+  });
+  L.push('');L.push('── 怎麼幫 ──');
+  if(S.depth){var dp=DEPTH.filter(function(x){return x[0]===S.depth;})[0];L.push('投入深度：'+dp[0]+'（'+dp[1]+'）');}
+  if(S.freq)L.push('引薦頻率上限：'+S.freq);
+  if(S.helpa.length)L.push('偏好引薦方式：'+S.helpa.join('、'));
+  if(S.helpb.length)L.push('願意出的力：'+S.helpb.join('、'));
+  L.push('角色：'+(S.role||'（未填）'));
+  if(S.role==='也想參與投資'&&S.ticket){var t=TICKET.filter(function(x){return x[0]===S.ticket;})[0];L.push('單案投入：'+t[0]+'（'+t[1]+'）');}
+  L.push('');L.push('── 興趣與界線 ──');
+  if(S.topics.length)L.push('感興趣題材：'+S.topics.join('、'));
+  if(S.conflict){var c=CONFLICT.filter(function(x){return x[0]===S.conflict;})[0];L.push('利益衝突：'+c[0]+(c[1]?'（'+c[1]+'）':''));}
+  if(S.avoid.trim())L.push('不便觸碰：'+S.avoid.trim());
+  if(S.ao){var a=AO.filter(function(x){return x[0]===S.ao;})[0];L.push('AO 意願：'+a[0]);}
+  if(S.channel.length)L.push('聯絡管道：'+S.channel.join('、'));
+  if(S.consent)L.push('資料同意：'+S.consent);
+  if(S.note.trim())L.push('補充：'+S.note.trim());
+  return L.join('\n');
+}
+document.getElementById('nextBtn').addEventListener('click',function(){
+  if(!valid()){document.getElementById('errmsg').classList.add('show');var er=document.querySelector('.q.err');if(er)window.scrollTo({top:er.offsetTop-80,behavior:'smooth'});return;}
+  if(step<STEPS.length-1){step++;render();window.scrollTo({top:0,behavior:'smooth'});return;}
+  document.getElementById('out').value=output();
+  form.innerHTML='';document.getElementById('navrow').style.display='none';
+  document.querySelectorAll('#prog i').forEach(function(el){el.classList.add('on');});
+  document.getElementById('errmsg').classList.remove('show');
+  document.getElementById('done').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('backBtn').addEventListener('click',function(){if(step>0){step--;render();window.scrollTo({top:0,behavior:'smooth'});}});
+
+/* ===== 送出 / 複製 / PDF / 修改 ===== */
+var FS_TO='boice@evoscalecapital.com', FS_CC='vincent@evoscalecapital.com';
+document.getElementById('submitBtn').addEventListener('click',function(){
+  var b=this,se=document.getElementById('suberr');se.classList.remove('show');
+  if(!S.name.trim()){se.textContent='請先填稱呼再送出。';se.classList.add('show');return;}
+  b.disabled=true;b.textContent='送出中…';
+  var fd=new FormData();
+  fd.append('_subject','資源盤點 · '+S.name.trim());
+  fd.append('_cc',FS_CC);fd.append('_captcha','false');fd.append('_template','box');
+  fd.append('填答人',S.name.trim());
+  fd.append('盤點內容',output());
+  fd.append('_json',JSON.stringify(S));
+  fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FS_TO),{method:'POST',headers:{Accept:'application/json'},body:fd})
+    .then(function(r){return r.json();})
+    .then(function(){b.classList.add('ok');b.textContent='已送出，謝謝你！我們會依這份盤點來對接。';})
+    .catch(function(){b.disabled=false;b.textContent='送出給 EvoScale（我和 Boice 都會收到）';se.textContent='送出失敗，請稍後再試，或改用下方「複製文字」貼回 LINE 給我們。';se.classList.add('show');});
+});
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var out=document.getElementById('out'),b=this;
+  var done=function(){b.classList.add('ok');b.textContent='已複製';setTimeout(function(){b.classList.remove('ok');b.textContent='複製文字';},1800);};
+  var fb=function(){out.select();try{document.execCommand('copy');}catch(e){}done();};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out.value).then(done,fb);}else fb();
+});
+document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+document.getElementById('editBtn').addEventListener('click',function(){document.getElementById('done').style.display='none';step=STEPS.length-1;render();window.scrollTo({top:0,behavior:'smooth'});});
+
+render();
+</script>
+</body>
+</html>

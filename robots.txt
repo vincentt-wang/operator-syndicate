@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /pitch.html
 Disallow: /operators.html
+Disallow: /resource-map/
 
 Sitemap: https://evoscalecapital.com/sitemap.xml
