@@ -99,6 +99,18 @@ textarea.ctrl{min-height:88px;resize:vertical;line-height:1.6}
 .submitbtn:hover{background:var(--orange-2)}
 .submitbtn:disabled{opacity:.6}
 .submitbtn.ok{background:#1E8E4A;box-shadow:none}
+.startb{margin-top:24px}
+@media(max-width:520px){
+  .wrap{padding:28px 18px 80px}
+  h1{font-size:2rem}
+  .lead{font-size:16.5px}
+  .why div,.priv{font-size:15.5px}
+  .steplab{font-size:20px}
+  .qt{font-size:17.5px}
+  .opts button,.doorrow .mini button{font-size:15.5px}
+  .btn{font-size:16px;padding:14px 18px}
+  .navrow{gap:10px}
+}
 .subnote{font-size:15px;color:var(--w-3);text-align:center;margin:10px 0 4px;line-height:1.6}
 .suberr{display:none;color:#FF7A7A;font-weight:600;font-size:15px;text-align:center;margin:6px 0}
 .suberr.show{display:block}
@@ -131,6 +143,7 @@ details.raw[open] summary::before{content:'－ '}
     <div><b>對我們：</b>配對時知道先問誰，讓你的資源用在刀口上。</div>
   </div>
   <div class="priv"><b>隱私：</b>你的回覆只會由 <b>EvoScale Capital 核心團隊</b>收到，完全保密：不進群組、不對外、不給新創看到。標「敏感」的欄位都可以留空。</div>
+  <button class="submitbtn startb" id="startBtn" type="button">開始盤點</button>
 </div>
 
 <div id="quiz" style="display:none">
@@ -157,9 +170,6 @@ details.raw[open] summary::before{content:'－ '}
 <p class="foot">EvoScale Capital · 一春資本｜僅供邀請夥伴內部盤點用。</p>
 </div>
 
-<div class="wrap" id="startbar" style="padding-top:0">
-  <button class="submitbtn" id="startBtn" type="button" style="max-width:340px">開始盤點（幾分鐘）</button>
-</div>
 
 <script>
 /* ===== 選項資料 ===== */
@@ -376,7 +386,6 @@ function drawCard(){
 /* ===== 導覽 ===== */
 document.getElementById('startBtn').addEventListener('click',function(){
   document.getElementById('intro').style.display='none';
-  document.getElementById('startbar').style.display='none';
   document.getElementById('quiz').style.display='block';
   render();window.scrollTo({top:0,behavior:'smooth'});
 });
@@ -393,7 +402,7 @@ document.getElementById('backBtn').addEventListener('click',function(){if(step>0
 document.getElementById('editBtn').addEventListener('click',function(){document.getElementById('done').style.display='none';document.getElementById('quiz').style.display='block';step=STEPS.length-1;render();window.scrollTo({top:0,behavior:'smooth'});});
 
 /* ===== 送出 / 圖片 / PDF / 複製 ===== */
-var FS_TO='boice@evoscalecapital.com',FS_CC='vincent@evoscalecapital.com';
+var FS_TO='vincent@evoscalecapital.com',FS_CC='boice@evoscalecapital.com';
 document.getElementById('submitBtn').addEventListener('click',function(){
   var b=this,se=document.getElementById('suberr');se.classList.remove('show');
   if(!S.name.trim()){se.textContent='請先填稱呼再送出。';se.classList.add('show');return;}
