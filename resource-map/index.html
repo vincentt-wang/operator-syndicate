@@ -235,7 +235,6 @@ var STEPS=[
    +'<div class="q"><div class="qt">有沒有不方便碰的公司或產業？<span class="opt">選填</span></div><div class="qd"><span class="sens">敏感，只給我們看。</span>寫個關鍵字就好，我們會自動避開。</div><textarea class="ctrl" data-f="avoid" placeholder="例：某前東家、直接競品…（選填）">'+S.avoid.replace(/</g,'&lt;')+'</textarea></div>'
    +'<div class="q"><div class="qt">未來有興趣當 deal lead／AO 嗎？<span class="opt">選填</span></div><div class="qd">幫忙分配額度、逐案募足、經營會員關係，可分潤。</div>'+pills(AO,'ao',0,true)+'</div>'
    +'<div class="q"><div class="qt">最方便的聯絡管道？<span class="opt">選填</span></div>'+pills(CHANNEL,'channel',0)+'</div>'
-   +'<div class="q" data-req="consent"><div class="qt">你的姓名與公司，能放進我們內部資料嗎？<span class="req">必填</span></div><div class="qd">只在 EvoScale <b>內部</b>名錄與關係網絡圖（已設不公開、不被搜尋），幫我們看清生態全貌。</div>'+pills(CONSENT,'consent',0,true)+'</div>'
    +'<div class="q"><div class="qt">還有想補充的？<span class="opt">選填</span></div><textarea class="ctrl" data-f="note" placeholder="任何想讓我們知道的（選填）">'+S.note.replace(/</g,'&lt;')+'</textarea></div>';}}
 ];
 
@@ -304,7 +303,6 @@ function output(){
   if(S.avoid.trim())L.push('不便觸碰：'+S.avoid.trim());
   if(S.ao){var a=AO.filter(function(x){return x[0]===S.ao;})[0];L.push('AO 意願：'+a[0]);}
   if(S.channel.length)L.push('聯絡管道：'+S.channel.join('、'));
-  if(S.consent)L.push('資料同意：'+S.consent);
   if(S.note.trim())L.push('補充：'+S.note.trim());
   return L.join('\n');
 }
