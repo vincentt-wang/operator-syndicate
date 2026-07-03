@@ -125,12 +125,12 @@ details.raw[open] summary::before{content:'－ '}
 <div id="intro">
   <div class="eyebrow">資源盤點 · Resource Map</div>
   <h1>盤點你的資源，<span style="color:var(--orange-3)">讓對的案子精準找上你</span></h1>
-  <p class="lead">EvoScale（一春資本）是<b>邀請制的高管共投社群</b>。這份盤點把你能開的門、想幫的方式、感興趣的題材記下來，之後媒合就有依據。花你幾分鐘，往後省下每次重問一輪的時間。</p>
+  <p class="lead">花你幾分鐘，把你能幫上忙的地方記下來，之後媒合案子就有依據，也省下每次重問一輪的時間。</p>
   <div class="why">
-    <div><b>對你：</b>之後只有真正落在你能幫、也有興趣範圍內的案子才會來找你，不是海投。你先說清楚，往後每次被找上都是精準邀請。</div>
-    <div><b>對我們：</b>配對案子時知道先問誰，不必每次重新問一遍你的背景與門路，讓你的資源用在刀口上。</div>
+    <div><b>對你：</b>之後只有落在你能幫、也有興趣範圍內的案子才會來找你，不是海投。</div>
+    <div><b>對我們：</b>配對時知道先問誰，讓你的資源用在刀口上。</div>
   </div>
-  <div class="priv"><b>隱私：</b>按最後的「送出」＝這份盤點只 email 給 Vincent 與 Boice 兩人，<b>不進任何群組、不對外公開、不給新創看到</b>。標「敏感」的欄位都可留空；金額只問區間、不問財力。也可以只存成卡片給自己、不送出。</div>
+  <div class="priv"><b>隱私：</b>你的回覆只會由 <b>EvoScale Capital 核心團隊</b>收到，完全保密：不進群組、不對外、不給新創看到。標「敏感」的欄位都可以留空。</div>
 </div>
 
 <div id="quiz" style="display:none">
@@ -146,21 +146,15 @@ details.raw[open] summary::before{content:'－ '}
 <div id="done">
   <div class="done-badge">✓ 完成</div>
   <h2>你的資源盤點卡</h2>
-  <p class="dsub">這張卡是你這次盤點的總結。可以直接截圖或「存成圖片」留存，也把它送給我們，之後對接就照這張卡。</p>
+  <p class="dsub">這張卡是你這次盤點的總結，可以截圖或存成圖片留存。按下方送出，就交給我們對接。</p>
   <div class="cardwrap"><canvas id="card" width="1080" height="1400"></canvas></div>
-  <button class="submitbtn" id="submitBtn" type="button">送出給 EvoScale（我和 Boice 都會收到）</button>
+  <button class="submitbtn" id="submitBtn" type="button">送出給 EvoScale 核心團隊</button>
   <div class="suberr" id="suberr"></div>
-  <p class="subnote">或先不送出，只留給自己：</p>
-  <div class="selfrow">
-    <button id="imgBtn" type="button">存成圖片</button>
-    <button id="printBtn" type="button">存 PDF</button>
-    <button id="copyBtn" type="button">複製文字</button>
-  </div>
-  <details class="raw"><summary>看純文字版</summary><textarea id="out" readonly></textarea></details>
+  <div class="selfrow"><button id="imgBtn" type="button">存成圖片留存</button></div>
   <div style="text-align:center"><button class="editln" id="editBtn" type="button">回上一步修改答案</button></div>
 </div>
 
-<p class="foot">EvoScale Capital · 一春資本｜本表單為邀請制夥伴內部盤點用，非投資要約；投資單位金基準每案 US$10K（約 NT$30 萬），實際條件以正式文件為準。</p>
+<p class="foot">EvoScale Capital · 一春資本｜僅供邀請夥伴內部盤點用。</p>
 </div>
 
 <div class="wrap" id="startbar" style="padding-top:0">
@@ -227,7 +221,7 @@ var STEPS=[
    +'<div class="q"><div class="qt">你打聲招呼，通常能對到哪一層、多快？<span class="opt">選填</span></div><div class="qd">不同案子當然不一樣，選一個最接近你平均狀況的就好。</div>'+pills(REACH,'reach',0,true)+'</div>';}},
  {lab:'第 2 段 · 你能幫誰敲開門（最有價值的一段）',html:function(){return ''
    +'<div class="q" data-req="doors"><div class="qt">哪 1 到 4 家企業，你有把握幫新創牽到線？<span class="req">必填</span></div>'
-     +'<div class="qd">這題最值錢：具名一家，勝過十句「我人脈很廣」。<b>不一定要是你的客戶，你能牽到人就算數（不是你自己的公司）。</b><br><span class="sens">敏感：這份具名清單只有 Vincent 與 Boice 看得到，不會外流。</span></div>'
+     +'<div class="qd">這題最值錢：具名一家，勝過十句「我人脈很廣」。<b>不一定要是你的客戶，你能牽到人就算數（不是你自己的公司）。</b><br><span class="sens">敏感：這份具名清單只有 EvoScale 核心團隊看得到，不會外流。</span></div>'
      +'<div id="doorWrap">'+doorRows()+'</div></div>';}},
  {lab:'第 3 段 · 你想怎麼幫、要不要參與投資',html:function(){return ''
    +'<div class="q" data-req="depth"><div class="qt">你願意投入到什麼程度？<span class="req">必填</span></div><div class="qd">只問心力，不是頻率也不是要幫什麼，下面兩題會分開問。</div>'+pills(DEPTH,'depth',0,true)+'</div>'
@@ -391,7 +385,6 @@ document.getElementById('startBtn').addEventListener('click',function(){
 document.getElementById('nextBtn').addEventListener('click',function(){
   if(!valid()){document.getElementById('errmsg').classList.add('show');var er=document.querySelector('.q.err');if(er)window.scrollTo({top:er.offsetTop-70,behavior:'smooth'});return;}
   if(step<STEPS.length-1){step++;render();window.scrollTo({top:0,behavior:'smooth'});return;}
-  document.getElementById('out').value=output();
   try{drawCard();}catch(e){}
   document.getElementById('quiz').style.display='none';
   document.getElementById('done').style.display='block';
@@ -413,7 +406,7 @@ document.getElementById('submitBtn').addEventListener('click',function(){
   fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FS_TO),{method:'POST',headers:{Accept:'application/json'},body:fd})
     .then(function(r){return r.json();})
     .then(function(){b.classList.add('ok');b.textContent='已送出，謝謝你！我們會依這張卡對接。';})
-    .catch(function(){b.disabled=false;b.textContent='送出給 EvoScale（我和 Boice 都會收到）';se.textContent='送出失敗，請稍後再試，或用下方「複製文字」貼回 LINE 給我們。';se.classList.add('show');});
+    .catch(function(){b.disabled=false;b.textContent='送出給 EvoScale 核心團隊';se.textContent='送出失敗，請稍後再試，或先「存成圖片」自己留存。';se.classList.add('show');});
 });
 document.getElementById('imgBtn').addEventListener('click',function(){
   var b=this,cv=document.getElementById('card');
@@ -426,13 +419,6 @@ document.getElementById('imgBtn').addEventListener('click',function(){
       b.classList.add('ok');b.textContent='已下載';setTimeout(function(){b.classList.remove('ok');b.textContent='存成圖片';},1800);
     },'image/png');
   }catch(e){b.textContent='請長按卡片截圖';}
-});
-document.getElementById('printBtn').addEventListener('click',function(){window.print();});
-document.getElementById('copyBtn').addEventListener('click',function(){
-  var out=document.getElementById('out'),b=this;
-  var done=function(){b.classList.add('ok');b.textContent='已複製';setTimeout(function(){b.classList.remove('ok');b.textContent='複製文字';},1800);};
-  var fb=function(){out.select();try{document.execCommand('copy');}catch(e){}done();};
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out.value).then(done,fb);}else fb();
 });
 </script>
 </body>
