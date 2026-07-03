@@ -28,9 +28,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;color:inhe
 input,textarea{font-family:inherit}
 ::selection{background:rgba(255,102,0,.3)}
 #bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-3));z-index:99;transition:width .35s var(--ease)}
-header.top{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:11px;padding:15px 22px;background:rgba(10,22,40,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:11px;padding:15px 22px;background:rgba(10,22,40,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;font-size:18px}
 .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800;font-family:var(--fd)}
+.langbtn{font-size:15px;font-weight:700;letter-spacing:.04em;color:var(--orange-3);border:1px solid rgba(255,140,66,.42);border-radius:20px;padding:7px 16px;transition:all .2s;min-height:38px}
+.langbtn:hover{background:rgba(255,140,66,.12)}
 .wrap{max-width:680px;margin:0 auto;padding:40px 22px 90px}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-3);margin-bottom:16px}
 .eyebrow::before{content:'';width:26px;height:2px;background:var(--orange-3);border-radius:2px}
@@ -88,7 +90,6 @@ textarea.ctrl{min-height:88px;resize:vertical;line-height:1.6}
 .btn.ghost:hover{background:rgba(255,255,255,.06);color:#fff;transform:none}
 .errmsg{display:none;color:#FF7A7A;font-weight:600;font-size:16px;margin-top:14px}
 .errmsg.show{display:block}
-/* done */
 #done{display:none}
 .done-badge{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:700;color:#7CD992;background:rgba(124,217,146,.12);border:1px solid rgba(124,217,146,.4);border-radius:99px;padding:8px 16px;margin-bottom:16px}
 #done h2{font-family:var(--fd);font-weight:800;font-size:26px;letter-spacing:-.01em;margin-bottom:8px}
@@ -100,169 +101,234 @@ textarea.ctrl{min-height:88px;resize:vertical;line-height:1.6}
 .submitbtn:disabled{opacity:.6}
 .submitbtn.ok{background:#1E8E4A;box-shadow:none}
 .startb{margin-top:24px}
-@media(max-width:520px){
-  .wrap{padding:28px 18px 80px}
-  h1{font-size:2rem}
-  .lead{font-size:16.5px}
-  .why div,.priv{font-size:15.5px}
-  .steplab{font-size:20px}
-  .qt{font-size:17.5px}
-  .opts button,.doorrow .mini button{font-size:15.5px}
-  .btn{font-size:16px;padding:14px 18px}
-  .navrow{gap:10px}
-}
-.subnote{font-size:15px;color:var(--w-3);text-align:center;margin:10px 0 4px;line-height:1.6}
 .suberr{display:none;color:#FF7A7A;font-weight:600;font-size:15px;text-align:center;margin:6px 0}
 .suberr.show{display:block}
 .selfrow{display:flex;gap:10px;margin:16px 0 8px}
 .selfrow button{flex:1;font-size:15.5px;font-weight:700;border:1px solid var(--line-2);border-radius:12px;padding:13px;min-height:50px;color:var(--w-2);background:rgba(255,255,255,.03)}
 .selfrow button:hover{border-color:var(--orange);color:#fff}
 .selfrow button.ok{border-color:#7CD992;color:#7CD992}
-details.raw{margin-top:6px}
-details.raw summary{cursor:pointer;font-size:15px;color:var(--w-3);list-style:none;padding:8px 0}
-details.raw summary::-webkit-details-marker{display:none}
-details.raw summary::before{content:'＋ ';color:var(--orange-3)}
-details.raw[open] summary::before{content:'－ '}
-#out{width:100%;min-height:220px;resize:vertical;font-family:var(--fb);font-size:15px;line-height:1.7;color:#E8EDF2;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 .editln{background:none;color:var(--w-3);font-size:15.5px;font-weight:600;text-decoration:underline;padding:8px 0;margin-top:6px}
 .foot{font-size:15px;color:var(--w-3);line-height:1.65;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
-@media print{header.top,.prog,.steplab,.navrow,.submitbtn,.subnote,.suberr,.selfrow,.editln,.foot,.done-badge,#done .dsub,details.raw{display:none!important}body{background:#fff}.cardwrap{border:none;padding:0}}
+@media(max-width:520px){
+  .wrap{padding:28px 18px 80px}
+  h1{font-size:2rem}.lead{font-size:16.5px}.why div,.priv{font-size:15.5px}
+  .steplab{font-size:20px}.qt{font-size:17.5px}
+  .opts button,.doorrow .mini button{font-size:15.5px}
+  .btn{font-size:16px;padding:14px 18px}.navrow{gap:10px}
+}
+@media print{header.top,.prog,.steplab,.navrow,.submitbtn,.suberr,.selfrow,.editln,.foot,.done-badge,#done .dsub{display:none!important}body{background:#fff}.cardwrap{border:none;padding:0}}
 </style>
 </head>
 <body>
 <div id="bar"></div>
-<header class="top"><span class="brand"><span class="mark">ES</span>EvoScale Capital</span></header>
+<header class="top"><span class="brand"><span class="mark">ES</span>EvoScale Capital</span><button class="langbtn" id="langBtn">EN</button></header>
 
 <div class="wrap">
 <div id="intro">
-  <div class="eyebrow">資源盤點 · Resource Map</div>
-  <h1>盤點你的資源，<span style="color:var(--orange-3)">讓對的案子精準找上你</span></h1>
-  <p class="lead">花你幾分鐘，把你能幫上忙的地方記下來，之後媒合案子就有依據，也省下每次重問一輪的時間。</p>
-  <div class="why">
-    <div><b>對你：</b>之後只有落在你能幫、也有興趣範圍內的案子才會來找你，不是海投。</div>
-    <div><b>對我們：</b>配對時知道先問誰，讓你的資源用在刀口上。</div>
-  </div>
-  <div class="priv"><b>隱私：</b>你的回覆只會由 <b>EvoScale Capital 核心團隊</b>收到，完全保密：不進群組、不對外、不給新創看到。標「敏感」的欄位都可以留空。</div>
-  <button class="submitbtn startb" id="startBtn" type="button">開始盤點</button>
+  <div class="eyebrow" id="i_eyebrow"></div>
+  <h1 id="i_h1"></h1>
+  <p class="lead" id="i_lead"></p>
+  <div class="why"><div id="i_why1"></div><div id="i_why2"></div></div>
+  <div class="priv" id="i_priv"></div>
+  <button class="submitbtn startb" id="startBtn" type="button"></button>
 </div>
 
 <div id="quiz" style="display:none">
   <div class="prog" id="prog"><i class="on"></i><i></i><i></i><i></i></div>
   <div id="form"></div>
-  <div class="errmsg" id="errmsg">還有必填題沒完成，已幫你把它標紅。</div>
+  <div class="errmsg" id="errmsg"></div>
   <div class="navrow" id="navrow">
-    <button class="btn ghost" id="backBtn" type="button">上一步</button>
-    <button class="btn" id="nextBtn" type="button">下一步</button>
+    <button class="btn ghost" id="backBtn" type="button"></button>
+    <button class="btn" id="nextBtn" type="button"></button>
   </div>
 </div>
 
 <div id="done">
-  <div class="done-badge">✓ 完成</div>
-  <h2>你的資源盤點卡</h2>
-  <p class="dsub">這張卡是你這次盤點的總結，可以截圖或存成圖片留存。按下方送出，就交給我們對接。</p>
+  <div class="done-badge" id="doneBadge"></div>
+  <h2 id="doneH"></h2>
+  <p class="dsub" id="doneSub"></p>
   <div class="cardwrap"><canvas id="card" width="1080" height="1400"></canvas></div>
-  <button class="submitbtn" id="submitBtn" type="button">送出給 EvoScale 核心團隊</button>
+  <button class="submitbtn" id="submitBtn" type="button"></button>
   <div class="suberr" id="suberr"></div>
-  <div class="selfrow"><button id="imgBtn" type="button">存成圖片留存</button></div>
-  <div style="text-align:center"><button class="editln" id="editBtn" type="button">回上一步修改答案</button></div>
+  <div class="selfrow"><button id="imgBtn" type="button"></button></div>
+  <div style="text-align:center"><button class="editln" id="editBtn" type="button"></button></div>
 </div>
 
-<p class="foot">EvoScale Capital · 一春資本｜僅供邀請夥伴內部盤點用。</p>
+<p class="foot" id="foot"></p>
 </div>
-
 
 <script>
-/* ===== 選項資料 ===== */
-var DOMAINS=['跨產業／連接者型','半導體·硬體','雲端·AI','企業軟體·數據','電商·通路·支付','行銷·廣告','教育·人才','人才招募','自媒體·流量','金融·資產管理','法務','食農','投資·生態','政府·法人','其他'];
-var COSTATUS=['自由接案／顧問','創業中','轉換職涯中','目前 break','退休','不便透露'];
-var REACH=[['直達','C-level，通常當天就能約到'],['很快','VP／總監層，約一週內'],['要看案子','經理層，或需要具體理由才好開口'],['看交情','沒有標準流程，純看關係深淺']];
-var CONF=['把握高','中等','想試試'];
-var RECENT=['3 個月內聊過','今年聊過','更久了'];
-var REL=['前同事','客戶','供應商','董事/顧問','朋友','其他'];
-var WINDOW=['採購/決策層','技術/產品','業務/BD','高層','不確定'];
-var DEPTH=[['被動','需要時配合一下就好'],['主動','會花時間幫忙找適合的案子'],['深度','願意跟著案子跑，甚至進顧問／董事角色']];
-var FREQ=['每月 1 件就夠','每季 1 到 2 件','案子夠好不設限'];
-var HELPA=['系統寫好信、我轉發','15 分鐘電話快篩','實體引薦／飯局'];
-var HELPB=['當 design partner','當首位客戶','高階人才引薦','法規與政策','通路嵌入','後續跟投','技術盡調','當顧問 Advisory'];
-var ROLE=[['也想參與投資','逐案 opt-in，US$10K 起，可加碼'],['這階段只幫忙引薦／顧問','先不投資']];
-var TICKET=[['1 個單位','US$10K，約 NT$30 萬'],['2 到 3 個單位','會依案加碼'],['先觀望第一案','看完再決定']];
-var TOPICS=['AI 應用','企業軟體 SaaS','半導體供應鏈','零售與電商科技','金融科技','醫療健康','食農科技','製造與自動化','資安','機器人/硬體','其他'];
-var CONFLICT=[['涉及時先問我','碰到我雇主／其供應商或對手的案子，引薦前先跟我確認'],['目前想不到衝突','但有狀況我會主動說'],['需要個案討論','']];
-var CONSENT=[['可以，姓名＋公司','放進 EvoScale 內部名錄與網絡圖（不對外公開）'],['只用職稱、不具名',''],['請先問我再放','']];
-var CHANNEL=['LINE','電話','Email'];
-var AO=[['有興趣了解','未來想當 deal lead／AO'],['再看看',''],['我只想輕鬆參與','']];
+var LANG='zh';
+/* ===== 選項（[zh,en] 或 labeled [zh,zhSub,en,enSub]；data-v 一律用 zh 當語言中性鍵） ===== */
+var DOMAINS=[['跨產業／連接者型','Cross-industry / connector'],['半導體·硬體','Semiconductor · Hardware'],['雲端·AI','Cloud · AI'],['企業軟體·數據','Enterprise software · Data'],['電商·通路·支付','E-commerce · Channel · Payments'],['行銷·廣告','Marketing · Advertising'],['教育·人才','Education · Talent'],['人才招募','Recruiting'],['自媒體·流量','Media · Audience'],['金融·資產管理','Finance · Asset mgmt'],['法務','Legal'],['食農','Food & Agri'],['投資·生態','Investment · Ecosystem'],['政府·法人','Government · Institutions'],['其他','Other']];
+var COSTATUS=[['自由接案／顧問','Freelance / Advisor'],['創業中','Building a startup'],['轉換職涯中','Between roles'],['目前 break','On a break'],['退休','Retired'],['不便透露','Prefer not to say']];
+var REACH=[['直達','C-level，通常當天就能約到','Direct','C-level, usually same-day'],['很快','VP／總監層，約一週內','Quick','VP / Director, within a week'],['要看案子','經理層，或需要具體理由才好開口','Depends','Manager level, or needs a concrete reason'],['看交情','沒有標準流程，純看關係深淺','Relationship','No set process, depends on rapport']];
+var CONF=[['把握高','Confident'],['中等','Medium'],['想試試','Worth a try']];
+var RECENT=[['3 個月內聊過','Spoke <3 mo'],['今年聊過','This year'],['更久了','Longer ago']];
+var REL=[['前同事','Ex-colleague'],['客戶','Customer'],['供應商','Supplier'],['董事/顧問','Board / Advisor'],['朋友','Friend'],['其他','Other']];
+var WINDOW=[['採購/決策層','Procurement / Decision'],['技術/產品','Tech / Product'],['業務/BD','Sales / BD'],['高層','Exec'],['不確定','Not sure']];
+var DEPTH=[['被動','需要時配合一下就好','Light','Help out when needed'],['主動','會花時間幫忙找適合的案子','Active','Spend time finding fits'],['深度','願意跟著案子跑，甚至進顧問／董事角色','Deep','Ride along, even advisor / board']];
+var FREQ=[['每月 1 件就夠','1 / month is enough'],['每季 1 到 2 件','1-2 per quarter'],['案子夠好不設限','No cap if good enough']];
+var HELPA=[['系統寫好信、我轉發','I forward a ready-made intro'],['15 分鐘電話快篩','15-min screening call'],['實體引薦／飯局','In-person intro / dinner']];
+var HELPB=[['當 design partner','Design partner'],['當首位客戶','First customer'],['高階人才引薦','Exec talent intro'],['法規與政策','Regulatory / policy'],['通路嵌入','Channel embed'],['後續跟投','Follow-on invest'],['技術盡調','Tech due diligence'],['當顧問 Advisory','Advisory']];
+var ROLE=[['也想參與投資','逐案 opt-in，US$10K 起，可加碼','Also want to invest','Opt-in per deal, from US$10K'],['這階段只幫忙引薦／顧問','先不投資','Just intros / advice for now','Not investing yet']];
+var TICKET=[['1 個單位','US$10K，約 NT$30 萬','1 unit','US$10K'],['2 到 3 個單位','會依案加碼','2-3 units','may add per deal'],['先觀望第一案','看完再決定','Wait and see','decide after deal 1']];
+var TOPICS=[['AI 應用','AI applications'],['企業軟體 SaaS','Enterprise SaaS'],['半導體供應鏈','Semiconductor supply chain'],['零售與電商科技','Retail & e-commerce tech'],['金融科技','Fintech'],['醫療健康','Healthcare'],['食農科技','Food & agri tech'],['製造與自動化','Manufacturing & automation'],['資安','Cybersecurity'],['機器人/硬體','Robotics / Hardware'],['其他','Other']];
+var CONFLICT=[['涉及時先問我','碰到我雇主／其供應商或對手的案子，引薦前先跟我確認','Ask me first','For deals touching my employer, its suppliers or rivals, check before intro'],['目前想不到衝突','但有狀況我會主動說','None I can think of',"I'll flag it if it comes up"],['需要個案討論','','Discuss case by case','']];
+var CHANNEL=[['LINE','LINE'],['電話','Phone'],['Email','Email']];
+var AO=[['有興趣了解','未來想當 deal lead／AO','Interested','Open to being a deal lead / AO'],['再看看','','Maybe later',''],['我只想輕鬆參與','','Keep it light for me','']];
+
+var TRL={};
+[DOMAINS,COSTATUS,CONF,RECENT,REL,WINDOW,FREQ,HELPA,HELPB,TOPICS,CHANNEL].forEach(function(a){a.forEach(function(o){TRL[o[0]]=o[1];});});
+[REACH,DEPTH,ROLE,TICKET,CONFLICT,AO].forEach(function(a){a.forEach(function(o){TRL[o[0]]=o[2];});});
+function TR(v){return LANG==='en'?(TRL[v]||v):v;}
+
+var UI={
+ zh:{langBtn:'EN',dir:'zh-Hant',
+  eyebrow:'資源盤點 · Resource Map',h1a:'盤點你的資源，',h1b:'讓對的案子精準找上你',
+  lead:'花你幾分鐘，把你能幫上忙的地方記下來，之後媒合案子就有依據，也省下每次重問一輪的時間。',
+  why1:'<b>對你：</b>之後只有落在你能幫、也有興趣範圍內的案子才會來找你，不是海投。',
+  why2:'<b>對我們：</b>配對時知道先問誰，讓你的資源用在刀口上。',
+  priv:'<b>隱私：</b>你的回覆只會由 <b>EvoScale Capital 核心團隊</b>收到，完全保密：不進群組、不對外、不給新創看到。標「敏感」的欄位都可以留空。',
+  start:'開始盤點',back:'上一步',next:'下一步',nextLast:'完成，產生卡片',
+  errmsg:'還有必填題沒完成，已幫你把它標紅。',req:'必填',opt:'選填',
+  s1:'第 1 段 · 你是誰、人脈在哪',s2:'第 2 段 · 你能幫誰敲開門（最有價值的一段）',s3:'第 3 段 · 你想怎麼幫、要不要參與投資',s4:'第 4 段 · 興趣與界線',
+  qName:'怎麼稱呼你',qdName:'這個名字我們會直接拿來跟你確認案子，留個能對得上的全名最好。',phName:'例：王小明（Tiger）',phCo:'目前任職公司（沒有也沒關係）',orPick:'或直接點：',
+  qDom:'你的人脈主要在哪些產業？',qdDom:'最多選 4 個。人脈很廣的話，選「跨產業／連接者型」也可以。',phDomNote:'想補一句？例：人資招聘，橫跨科技與傳產（選填）',
+  qReach:'你打聲招呼，通常能對到哪一層、多快？',qdReach:'不同案子當然不一樣，選一個最接近你平均狀況的就好。',
+  qDoors:'哪 1 到 4 家企業，你有把握幫新創牽到線？',qdDoors:'這題最值錢：具名一家，勝過十句「我人脈很廣」。<b>不一定要是你的客戶，你能牽到人就算數（不是你自己的公司）。</b><br><span class="sens">敏感：這份具名清單只有 EvoScale 核心團隊看得到，不會外流。</span>',phDoor:'公司名，或你熟的人才圈，例：台達電 / 半導體資深研發圈',
+  dlConf:'把握度',dlRecent:'最近聯繫',dlRel:'你們的關係',dlWin:'對到的窗口（選填）',addrow:'＋ 再加一家（最多 4 家）',rm:'移除這一家',
+  qDepth:'你願意投入到什麼程度？',qdDepth:'只問心力，不是頻率也不是要幫什麼，下面兩題會分開問。',
+  qFreq:'多常找你引薦，你覺得舒服？',
+  qHelp:'你偏好怎麼幫？',qdHelpa:'引薦方式（可複選）',qdHelpb:'門路以外，你也願意出的力（可複選）',
+  qRole:'這次你想扮演哪種角色？',
+  qTicket:'單案的舒適投入區間？',qdTicket:'基準：每案每單位 US$10K（約 NT$30 萬）。<span class="sens">敏感，只給我們看。</span>',
+  qTopics:'最感興趣的台灣早期 B2B 題材？',qdTopics:'最多選 4 個。',
+  qConflict:'利益衝突怎麼處理？',qdConflict:'你只做舉手之勞的引薦，不需動用在職職權。先講好界線，之後大家都安心。',
+  qAvoid:'有沒有不方便碰的公司或產業？',qdAvoid:'<span class="sens">敏感，只給我們看。</span>寫個關鍵字就好，我們會自動避開。',phAvoid:'例：某前東家、直接競品…（選填）',
+  qAO:'未來有興趣當 deal lead／AO 嗎？',qdAO:'幫忙分配額度、逐案募足、經營會員關係，可分潤。',
+  qChannel:'最方便的聯絡管道？',qNote:'還有想補充的？',phNote:'任何想讓我們知道的（選填）',
+  doneBadge:'✓ 完成',doneH:'你的資源盤點卡',doneSub:'這張卡是你這次盤點的總結，可以截圖或存成圖片留存。按下方送出，就交給我們對接。',
+  submit:'送出給 EvoScale 核心團隊',submitting:'送出中…',submitOk:'已送出，謝謝你！我們會依這張卡對接。',submitErr:'送出失敗，請稍後再試，或先「存成圖片」自己留存。',needName:'請先填稱呼再送出。',
+  saveImg:'存成圖片留存',savedImg:'已下載',longPress:'請長按卡片截圖',edit:'回上一步修改答案',
+  foot:'EvoScale Capital · 一春資本｜僅供邀請夥伴內部盤點用。',
+  cTag:'EVOSCALE · 資源盤點',cSub:'RESOURCE MAP',cDom:'人脈領域',cDoors:'具名門路',cHelp:'怎麼幫',cTopics:'感興趣題材',cDepth:'投入',cRole:'角色',cTicket:'單案',cReach:'對到',cInvest:'參與投資',cIntro:'引薦／顧問',cFoot:'EvoScale Capital · 一春資本 · 僅供內部盤點 · ',
+  oTitle:'【EvoScale 資源盤點回覆】',oName:'稱呼／姓名：',oDom:'人脈領域：',oReach:'通常對到：',oDoors:'── 具名門路 ──',oHelp:'── 怎麼幫 ──',oDepth:'投入深度：',oFreq:'引薦頻率上限：',oHelpa:'偏好引薦方式：',oHelpb:'願意出的力：',oRole:'角色：',oTicket:'單案投入：',oInterest:'── 興趣與界線 ──',oTopics:'感興趣題材：',oConflict:'利益衝突：',oAvoid:'不便觸碰：',oAO:'AO 意願：',oChannel:'聯絡管道：',oNote:'補充：',oBlank:'（未填）',subj:'資源盤點 · '},
+ en:{langBtn:'中',dir:'en',
+  eyebrow:'Resource Map',h1a:'Map your resources, ',h1b:'let the right deals find you',
+  lead:'A few minutes to note where you can help. It gives us a basis for matching deals, and saves you being asked the same background every time.',
+  why1:'<b>For you:</b> from then on, only deals that fall in what you can help with, and care about, reach you — not a blast to everyone.',
+  why2:'<b>For us:</b> when matching, we know who to ask first, so your resources are used where they count.',
+  priv:'<b>Privacy:</b> your answers go only to the <b>EvoScale Capital core team</b> — fully confidential: no group chats, never public, never shown to startups. Any field marked “sensitive” can be left blank.',
+  start:'Start',back:'Back',next:'Next',nextLast:'Finish & make card',
+  errmsg:'Some required questions are unanswered — they are marked in red.',req:'Required',opt:'Optional',
+  s1:'Part 1 · Who you are, where your network is',s2:'Part 2 · Who you can open a door to (the most valuable part)',s3:'Part 3 · How you want to help, and whether to invest',s4:'Part 4 · Interests & boundaries',
+  qName:'What should we call you?',qdName:'We use this name to check deals with you directly — a full name we can match is best.',phName:'e.g. Ming Wang (Tiger)',phCo:'Current company (fine if none)',orPick:'Or tap:',
+  qDom:'Which industries is your network mainly in?',qdDom:'Pick up to 4. If it spans widely, “Cross-industry / connector” works too.',phDomNote:'Want to add a line? e.g. recruiting, across tech and traditional industry (optional)',
+  qReach:'When you reach out, what level do you usually reach, and how fast?',qdReach:'It varies by deal, of course — pick the one closest to your average.',
+  qDoors:'Which 1-4 companies can you confidently open a door to for a startup?',qdDoors:'The most valuable question: one named company beats ten “I know lots of people.” <b>It doesn’t have to be a customer — if you can make the intro it counts (not your own company).</b><br><span class="sens">Sensitive: this named list is seen only by the EvoScale core team and never shared.</span>',phDoor:'Company name, or a talent circle you know well, e.g. Delta / senior semiconductor R&D',
+  dlConf:'Confidence',dlRecent:'Last contact',dlRel:'Your relationship',dlWin:'Who you reach (optional)',addrow:'＋ Add another (up to 4)',rm:'Remove this one',
+  qDepth:'How much are you willing to put in?',qdDepth:'This asks about effort only — not frequency or what kind of help; those are separate questions below.',
+  qFreq:'How often is it comfortable to be asked for intros?',
+  qHelp:'How do you prefer to help?',qdHelpa:'Intro style (multi-select)',qdHelpb:'Beyond intros, what you’d also offer (multi-select)',
+  qRole:'What role do you want this time?',
+  qTicket:'Comfortable check size per deal?',qdTicket:'Baseline: US$10K per unit per deal. <span class="sens">Sensitive — for our eyes only.</span>',
+  qTopics:'Early-stage B2B themes you’re most interested in?',qdTopics:'Pick up to 4.',
+  qConflict:'How should we handle conflicts of interest?',qdConflict:'You only make light-touch intros, no need to use your position at work. Setting the boundary up front keeps everyone comfortable.',
+  qAvoid:'Any companies or sectors you’d rather not touch?',qdAvoid:'<span class="sens">Sensitive — for our eyes only.</span> A keyword is enough; we’ll steer clear.',phAvoid:'e.g. a former employer, a direct competitor… (optional)',
+  qAO:'Interested in being a deal lead / AO someday?',qdAO:'Allocate the quota, fill each deal, manage member relationships — carry-eligible.',
+  qChannel:'Easiest way to reach you?',qNote:'Anything else to add?',phNote:'Anything you want us to know (optional)',
+  doneBadge:'✓ Done',doneH:'Your resource-map card',doneSub:'This card summarizes your inventory — screenshot it or save as an image. Hit send below to hand it to us.',
+  submit:'Send to the EvoScale core team',submitting:'Sending…',submitOk:'Sent — thank you! We’ll match against this card.',submitErr:'Send failed. Please retry, or “save as image” to keep it for now.',needName:'Please fill in your name before sending.',
+  saveImg:'Save as image',savedImg:'Downloaded',longPress:'Long-press the card to screenshot',edit:'Back to edit answers',
+  foot:'EvoScale Capital｜For invited partners’ internal inventory only.',
+  cTag:'EVOSCALE',cSub:'RESOURCE MAP',cDom:'Network',cDoors:'Named doors',cHelp:'How to help',cTopics:'Interested in',cDepth:'Effort',cRole:'Role',cTicket:'Check',cReach:'Reaches',cInvest:'Investing',cIntro:'Intros / advice',cFoot:'EvoScale Capital · internal inventory · ',
+  oTitle:'[EvoScale Resource-Map reply]',oName:'Name: ',oDom:'Network domains: ',oReach:'Usually reaches: ',oDoors:'── Named doors ──',oHelp:'── How to help ──',oDepth:'Effort: ',oFreq:'Intro frequency cap: ',oHelpa:'Preferred intro style: ',oHelpb:'Willing to offer: ',oRole:'Role: ',oTicket:'Check size: ',oInterest:'── Interests & boundaries ──',oTopics:'Interested themes: ',oConflict:'Conflict of interest: ',oAvoid:'Avoid: ',oAO:'AO interest: ',oChannel:'Contact: ',oNote:'Note: ',oBlank:'(blank)',subj:'Resource Map · '}
+};
+function U(){return UI[LANG];}
 
 var S={name:'',co:'',domains:[],domainNote:'',reach:'',
   doors:[{co:'',conf:'',recent:'',rel:'',win:''}],
   depth:'',freq:'',helpa:[],helpb:[],role:'',ticket:'',
-  topics:[],conflict:'',avoid:'',ao:'',channel:[],consent:'',note:''};
+  topics:[],conflict:'',avoid:'',ao:'',channel:[],note:''};
 var step=0;
 
 function pills(list,key,max,labeled){
   return '<div class="opts'+(labeled?' stack':'')+'">'+list.map(function(o){
-    var v=labeled?o[0]:o, sub=labeled&&o[1]?'<small>'+o[1]+'</small>':'';
+    var v=o[0], lbl=LANG==='zh'?o[0]:o[labeled?2:1], sub=labeled?(LANG==='zh'?o[1]:o[3]):'';
     var on=Array.isArray(S[key])?S[key].indexOf(v)>=0:S[key]===v;
-    return '<button type="button" data-k="'+key+'" data-v="'+v+'" data-max="'+(max||0)+'" class="'+(on?'on':'')+'">'+v+sub+'</button>';
+    return '<button type="button" data-k="'+key+'" data-v="'+v+'" data-max="'+(max||0)+'" class="'+(on?'on':'')+'">'+lbl+(sub?'<small>'+sub+'</small>':'')+'</button>';
   }).join('')+'</div>';
 }
-function doorRows(){
-  return S.doors.map(function(d,i){
-    function row(label,arr,fld,first){
-      return '<div class="mini'+(first?' first':'')+'"><span class="ml">'+label+'</span>'+arr.map(function(c){
-        return '<button type="button" data-dp="'+fld+'" data-i="'+i+'" data-v="'+c+'" class="'+(d[fld]===c?'on':'')+'">'+c+'</button>';
-      }).join('')+'</div>';
-    }
-    return '<div class="doorrow" data-i="'+i+'">'
-      +'<input class="ctrl" type="text" data-door="co" data-i="'+i+'" placeholder="公司名，或你熟的人才圈，例：台達電 / 半導體資深研發圈" value="'+d.co.replace(/"/g,'&quot;')+'">'
-      +row('把握度',CONF,'conf',true)+row('最近聯繫',RECENT,'recent')+row('你們的關係',REL,'rel')+row('對到的窗口（選填）',WINDOW,'win')
-      +(S.doors.length>1?'<button type="button" class="rm" data-rm="'+i+'">移除這一家</button>':'')
-      +'</div>';
-  }).join('')+(S.doors.length<4?'<button class="addrow" id="addDoor" type="button">＋ 再加一家（最多 4 家）</button>':'');
+function bpills(list,fld,i,d){
+  return list.map(function(o){var lbl=LANG==='zh'?o[0]:o[1];return '<button type="button" data-dp="'+fld+'" data-i="'+i+'" data-v="'+o[0]+'" class="'+(d[fld]===o[0]?'on':'')+'">'+lbl+'</button>';}).join('');
 }
-
+function doorRows(){var u=U();
+  return S.doors.map(function(d,i){
+    return '<div class="doorrow" data-i="'+i+'">'
+      +'<input class="ctrl" type="text" data-door="co" data-i="'+i+'" placeholder="'+u.phDoor+'" value="'+d.co.replace(/"/g,'&quot;')+'">'
+      +'<div class="mini first"><span class="ml">'+u.dlConf+'</span>'+bpills(CONF,'conf',i,d)+'</div>'
+      +'<div class="mini"><span class="ml">'+u.dlRecent+'</span>'+bpills(RECENT,'recent',i,d)+'</div>'
+      +'<div class="mini"><span class="ml">'+u.dlRel+'</span>'+bpills(REL,'rel',i,d)+'</div>'
+      +'<div class="mini"><span class="ml">'+u.dlWin+'</span>'+bpills(WINDOW,'win',i,d)+'</div>'
+      +(S.doors.length>1?'<button type="button" class="rm" data-rm="'+i+'">'+u.rm+'</button>':'')
+      +'</div>';
+  }).join('')+(S.doors.length<4?'<button class="addrow" id="addDoor" type="button">'+u.addrow+'</button>':'');
+}
+function req(){return '<span class="req">'+U().req+'</span>';}
+function opt(){return '<span class="opt">'+U().opt+'</span>';}
 var STEPS=[
- {lab:'第 1 段 · 你是誰、人脈在哪',html:function(){return ''
-   +'<div class="q" data-req="name"><div class="qt">怎麼稱呼你<span class="req">必填</span></div><div class="qd">這個名字我們會直接拿來跟你確認案子，留個能對得上的全名最好。</div>'
-     +'<input class="ctrl" type="text" data-f="name" placeholder="例：王小明（Tiger）" value="'+S.name.replace(/"/g,'&quot;')+'">'
-     +'<div class="note-in"><input class="ctrl" type="text" data-f="co" placeholder="目前任職公司（沒有也沒關係）" value="'+S.co.replace(/"/g,'&quot;')+'"></div>'
-     +'<div class="fillpills"><span class="lb">或直接點：</span>'+COSTATUS.map(function(c){return '<button type="button" data-costat="'+c+'">'+c+'</button>';}).join('')+'</div></div>'
-   +'<div class="q" data-req="domains"><div class="qt">你的人脈主要在哪些產業？<span class="req">必填</span></div><div class="qd">最多選 4 個。人脈很廣的話，選「跨產業／連接者型」也可以。</div>'+pills(DOMAINS,'domains',4)
-     +'<div class="note-in"><input class="ctrl" type="text" data-f="domainNote" placeholder="想補一句？例：人資招聘，橫跨科技與傳產（選填）" value="'+S.domainNote.replace(/"/g,'&quot;')+'"></div></div>'
-   +'<div class="q"><div class="qt">你打聲招呼，通常能對到哪一層、多快？<span class="opt">選填</span></div><div class="qd">不同案子當然不一樣，選一個最接近你平均狀況的就好。</div>'+pills(REACH,'reach',0,true)+'</div>';}},
- {lab:'第 2 段 · 你能幫誰敲開門（最有價值的一段）',html:function(){return ''
-   +'<div class="q" data-req="doors"><div class="qt">哪 1 到 4 家企業，你有把握幫新創牽到線？<span class="req">必填</span></div>'
-     +'<div class="qd">這題最值錢：具名一家，勝過十句「我人脈很廣」。<b>不一定要是你的客戶，你能牽到人就算數（不是你自己的公司）。</b><br><span class="sens">敏感：這份具名清單只有 EvoScale 核心團隊看得到，不會外流。</span></div>'
-     +'<div id="doorWrap">'+doorRows()+'</div></div>';}},
- {lab:'第 3 段 · 你想怎麼幫、要不要參與投資',html:function(){return ''
-   +'<div class="q" data-req="depth"><div class="qt">你願意投入到什麼程度？<span class="req">必填</span></div><div class="qd">只問心力，不是頻率也不是要幫什麼，下面兩題會分開問。</div>'+pills(DEPTH,'depth',0,true)+'</div>'
-   +(S.depth&&S.depth!=='被動'?'<div class="q"><div class="qt">多常找你引薦，你覺得舒服？<span class="opt">選填</span></div>'+pills(FREQ,'freq')+'</div>':'')
-   +'<div class="q"><div class="qt">你偏好怎麼幫？<span class="opt">選填</span></div><div class="qd">引薦方式（可複選）</div>'+pills(HELPA,'helpa')+'<div class="qd" style="margin-top:14px">門路以外，你也願意出的力（可複選）</div>'+pills(HELPB,'helpb')+'</div>'
-   +'<div class="q" data-req="role"><div class="qt">這次你想扮演哪種角色？<span class="req">必填</span></div>'+pills(ROLE,'role',0,true)+'</div>'
-   +(S.role==='也想參與投資'?'<div class="q"><div class="qt">單案的舒適投入區間？<span class="opt">選填</span></div><div class="qd">基準：每案每單位 US$10K（約 NT$30 萬）。<span class="sens">敏感，只給我們看。</span></div>'+pills(TICKET,'ticket',0,true)+'</div>':'');}},
- {lab:'第 4 段 · 興趣、界線與同意',html:function(){return ''
-   +'<div class="q"><div class="qt">最感興趣的台灣早期 B2B 題材？<span class="opt">選填</span></div><div class="qd">最多選 4 個。</div>'+pills(TOPICS,'topics',4)+'</div>'
-   +'<div class="q" data-req="conflict"><div class="qt">利益衝突怎麼處理？<span class="req">必填</span></div><div class="qd">你只做舉手之勞的引薦，不需動用在職職權。先講好界線，之後大家都安心。</div>'+pills(CONFLICT,'conflict',0,true)+'</div>'
-   +'<div class="q"><div class="qt">有沒有不方便碰的公司或產業？<span class="opt">選填</span></div><div class="qd"><span class="sens">敏感，只給我們看。</span>寫個關鍵字就好，我們會自動避開。</div><textarea class="ctrl" data-f="avoid" placeholder="例：某前東家、直接競品…（選填）">'+S.avoid.replace(/</g,'&lt;')+'</textarea></div>'
-   +'<div class="q"><div class="qt">未來有興趣當 deal lead／AO 嗎？<span class="opt">選填</span></div><div class="qd">幫忙分配額度、逐案募足、經營會員關係，可分潤。</div>'+pills(AO,'ao',0,true)+'</div>'
-   +'<div class="q"><div class="qt">最方便的聯絡管道？<span class="opt">選填</span></div>'+pills(CHANNEL,'channel',0)+'</div>'
-   +'<div class="q"><div class="qt">還有想補充的？<span class="opt">選填</span></div><textarea class="ctrl" data-f="note" placeholder="任何想讓我們知道的（選填）">'+S.note.replace(/</g,'&lt;')+'</textarea></div>';}}
+ {lab:function(){return U().s1;},html:function(){var u=U();return ''
+   +'<div class="q" data-req="name"><div class="qt">'+u.qName+req()+'</div><div class="qd">'+u.qdName+'</div>'
+     +'<input class="ctrl" type="text" data-f="name" placeholder="'+u.phName+'" value="'+S.name.replace(/"/g,'&quot;')+'">'
+     +'<div class="note-in"><input class="ctrl" type="text" data-f="co" placeholder="'+u.phCo+'" value="'+S.co.replace(/"/g,'&quot;')+'"></div>'
+     +'<div class="fillpills"><span class="lb">'+u.orPick+'</span>'+COSTATUS.map(function(c){return '<button type="button" data-costat="'+c[0]+'">'+(LANG==='zh'?c[0]:c[1])+'</button>';}).join('')+'</div></div>'
+   +'<div class="q" data-req="domains"><div class="qt">'+u.qDom+req()+'</div><div class="qd">'+u.qdDom+'</div>'+pills(DOMAINS,'domains',4)
+     +'<div class="note-in"><input class="ctrl" type="text" data-f="domainNote" placeholder="'+u.phDomNote+'" value="'+S.domainNote.replace(/"/g,'&quot;')+'"></div></div>'
+   +'<div class="q"><div class="qt">'+u.qReach+opt()+'</div><div class="qd">'+u.qdReach+'</div>'+pills(REACH,'reach',0,true)+'</div>';}},
+ {lab:function(){return U().s2;},html:function(){var u=U();return ''
+   +'<div class="q" data-req="doors"><div class="qt">'+u.qDoors+req()+'</div><div class="qd">'+u.qdDoors+'</div><div id="doorWrap">'+doorRows()+'</div></div>';}},
+ {lab:function(){return U().s3;},html:function(){var u=U();return ''
+   +'<div class="q" data-req="depth"><div class="qt">'+u.qDepth+req()+'</div><div class="qd">'+u.qdDepth+'</div>'+pills(DEPTH,'depth',0,true)+'</div>'
+   +(S.depth&&S.depth!=='被動'?'<div class="q"><div class="qt">'+u.qFreq+opt()+'</div>'+pills(FREQ,'freq')+'</div>':'')
+   +'<div class="q"><div class="qt">'+u.qHelp+opt()+'</div><div class="qd">'+u.qdHelpa+'</div>'+pills(HELPA,'helpa')+'<div class="qd" style="margin-top:14px">'+u.qdHelpb+'</div>'+pills(HELPB,'helpb')+'</div>'
+   +'<div class="q" data-req="role"><div class="qt">'+u.qRole+req()+'</div>'+pills(ROLE,'role',0,true)+'</div>'
+   +(S.role==='也想參與投資'?'<div class="q"><div class="qt">'+u.qTicket+opt()+'</div><div class="qd">'+u.qdTicket+'</div>'+pills(TICKET,'ticket',0,true)+'</div>':'');}},
+ {lab:function(){return U().s4;},html:function(){var u=U();return ''
+   +'<div class="q"><div class="qt">'+u.qTopics+opt()+'</div><div class="qd">'+u.qdTopics+'</div>'+pills(TOPICS,'topics',4)+'</div>'
+   +'<div class="q" data-req="conflict"><div class="qt">'+u.qConflict+req()+'</div><div class="qd">'+u.qdConflict+'</div>'+pills(CONFLICT,'conflict',0,true)+'</div>'
+   +'<div class="q"><div class="qt">'+u.qAvoid+opt()+'</div><div class="qd">'+u.qdAvoid+'</div><textarea class="ctrl" data-f="avoid" placeholder="'+u.phAvoid+'">'+S.avoid.replace(/</g,'&lt;')+'</textarea></div>'
+   +'<div class="q"><div class="qt">'+u.qAO+opt()+'</div><div class="qd">'+u.qdAO+'</div>'+pills(AO,'ao',0,true)+'</div>'
+   +'<div class="q"><div class="qt">'+u.qChannel+opt()+'</div>'+pills(CHANNEL,'channel',0)+'</div>'
+   +'<div class="q"><div class="qt">'+u.qNote+opt()+'</div><textarea class="ctrl" data-f="note" placeholder="'+u.phNote+'">'+S.note.replace(/</g,'&lt;')+'</textarea></div>';}}
 ];
 
 var form=document.getElementById('form');
-function setBar(){document.getElementById('bar').style.width=((step+1)/STEPS.length*100)+'%';}
-function render(){
+function $(id){return document.getElementById(id);}
+function setBar(){$('bar').style.width=((step+1)/STEPS.length*100)+'%';}
+function renderChrome(){var u=U();
+  document.documentElement.lang=u.dir;
+  $('langBtn').textContent=u.langBtn;
+  $('i_eyebrow').textContent=u.eyebrow;
+  $('i_h1').innerHTML=u.h1a+'<span style="color:var(--orange-3)">'+u.h1b+'</span>';
+  $('i_lead').innerHTML=u.lead;$('i_why1').innerHTML=u.why1;$('i_why2').innerHTML=u.why2;$('i_priv').innerHTML=u.priv;
+  $('startBtn').textContent=u.start;$('backBtn').textContent=u.back;$('errmsg').textContent=u.errmsg;
+  $('doneBadge').textContent=u.doneBadge;$('doneH').textContent=u.doneH;$('doneSub').textContent=u.doneSub;
+  $('imgBtn').textContent=u.saveImg;$('editBtn').textContent=u.edit;$('foot').innerHTML=u.foot;
+  if(!$('submitBtn').classList.contains('ok'))$('submitBtn').textContent=u.submit;
+}
+function render(){var u=U();
   document.querySelectorAll('#prog i').forEach(function(el,i){el.classList.toggle('on',i<=step);});
-  form.innerHTML='<div class="steplab">'+STEPS[step].lab+'</div>'+STEPS[step].html();
-  document.getElementById('backBtn').style.visibility=step===0?'hidden':'visible';
-  document.getElementById('nextBtn').textContent=step===STEPS.length-1?'完成，產生卡片':'下一步';
-  document.getElementById('errmsg').classList.remove('show');
-  setBar();
+  form.innerHTML='<div class="steplab">'+STEPS[step].lab()+'</div>'+STEPS[step].html();
+  $('backBtn').style.visibility=step===0?'hidden':'visible';
+  $('nextBtn').textContent=step===STEPS.length-1?u.nextLast:u.next;
+  $('errmsg').classList.remove('show');setBar();
 }
 form.addEventListener('click',function(e){
   var b=e.target.closest('button');if(!b)return;
-  if(b.id==='addDoor'){S.doors.push({co:'',conf:'',recent:'',rel:'',win:''});document.getElementById('doorWrap').innerHTML=doorRows();return;}
-  if(b.dataset.rm!=null){S.doors.splice(+b.dataset.rm,1);document.getElementById('doorWrap').innerHTML=doorRows();return;}
-  if(b.dataset.dp){var d=S.doors[+b.dataset.i];d[b.dataset.dp]=(d[b.dataset.dp]===b.dataset.v?'':b.dataset.v);document.getElementById('doorWrap').innerHTML=doorRows();return;}
+  if(b.id==='addDoor'){S.doors.push({co:'',conf:'',recent:'',rel:'',win:''});$('doorWrap').innerHTML=doorRows();return;}
+  if(b.dataset.rm!=null){S.doors.splice(+b.dataset.rm,1);$('doorWrap').innerHTML=doorRows();return;}
+  if(b.dataset.dp){var d=S.doors[+b.dataset.i];d[b.dataset.dp]=(d[b.dataset.dp]===b.dataset.v?'':b.dataset.v);$('doorWrap').innerHTML=doorRows();return;}
   if(b.dataset.costat!=null){S.co=b.dataset.costat;var inp=form.querySelector('input[data-f="co"]');if(inp)inp.value=S.co;return;}
   if(!b.dataset.k)return;
   var k=b.dataset.k,v=b.dataset.v,max=+b.dataset.max;
@@ -271,162 +337,123 @@ form.addEventListener('click',function(e){
   if(k==='depth'||k==='role'){render();return;}
   b.classList.toggle('on');
 });
-form.addEventListener('input',function(e){
-  var t=e.target;
-  if(t.dataset.f)S[t.dataset.f]=t.value;
-  if(t.dataset.door)S.doors[+t.dataset.i][t.dataset.door]=t.value;
-});
-function valid(){
-  var ok=true;
+form.addEventListener('input',function(e){var t=e.target;if(t.dataset.f)S[t.dataset.f]=t.value;if(t.dataset.door)S.doors[+t.dataset.i][t.dataset.door]=t.value;});
+function valid(){var ok=true;
   document.querySelectorAll('.q.err').forEach(function(q){q.classList.remove('err');});
-  document.querySelectorAll('.q[data-req]').forEach(function(q){
-    var k=q.dataset.req,good=true;
+  document.querySelectorAll('.q[data-req]').forEach(function(q){var k=q.dataset.req,good=true;
     if(k==='name')good=!!S.name.trim();
     else if(k==='doors')good=S.doors.some(function(d){return d.co.trim();});
     else if(Array.isArray(S[k]))good=S[k].length>0;
     else good=!!S[k];
-    if(!good){q.classList.add('err');ok=false;}
-  });
+    if(!good){q.classList.add('err');ok=false;}});
   return ok;
 }
-function output(){
-  var L=[];
-  L.push('【EvoScale 資源盤點回覆】');
-  L.push('稱呼／姓名：'+S.name.trim()+(S.co.trim()?'（'+S.co.trim()+'）':''));
-  L.push('人脈領域：'+(S.domains.join('、')||'（未填）')+(S.domainNote.trim()?'｜'+S.domainNote.trim():''));
-  if(S.reach){var r=REACH.filter(function(x){return x[0]===S.reach;})[0];L.push('通常對到：'+r[0]+'（'+r[1]+'）');}
-  L.push('');L.push('── 具名門路 ──');
+function lbl(v){return TR(v);}
+function output(){var u=U(),L=[];
+  L.push(u.oTitle);
+  L.push(u.oName+S.name.trim()+(S.co.trim()?'（'+S.co.trim()+'）':''));
+  L.push(u.oDom+(S.domains.map(lbl).join('、')||u.oBlank)+(S.domainNote.trim()?'｜'+S.domainNote.trim():''));
+  if(S.reach)L.push(u.oReach+lbl(S.reach));
+  L.push('');L.push(u.oDoors);
   S.doors.filter(function(d){return d.co.trim();}).forEach(function(d,i){
-    var parts=[d.co.trim()];if(d.conf)parts.push(d.conf);if(d.recent)parts.push(d.recent);if(d.rel)parts.push(d.rel);if(d.win)parts.push('窗口:'+d.win);
-    L.push(' '+(i+1)+'. '+parts.join('｜'));
-  });
-  L.push('');L.push('── 怎麼幫 ──');
-  if(S.depth){var dp=DEPTH.filter(function(x){return x[0]===S.depth;})[0];L.push('投入深度：'+dp[0]+'（'+dp[1]+'）');}
-  if(S.freq)L.push('引薦頻率上限：'+S.freq);
-  if(S.helpa.length)L.push('偏好引薦方式：'+S.helpa.join('、'));
-  if(S.helpb.length)L.push('願意出的力：'+S.helpb.join('、'));
-  L.push('角色：'+(S.role||'（未填）'));
-  if(S.role==='也想參與投資'&&S.ticket){var t=TICKET.filter(function(x){return x[0]===S.ticket;})[0];L.push('單案投入：'+t[0]+'（'+t[1]+'）');}
-  L.push('');L.push('── 興趣與界線 ──');
-  if(S.topics.length)L.push('感興趣題材：'+S.topics.join('、'));
-  if(S.conflict){var c=CONFLICT.filter(function(x){return x[0]===S.conflict;})[0];L.push('利益衝突：'+c[0]+(c[1]?'（'+c[1]+'）':''));}
-  if(S.avoid.trim())L.push('不便觸碰：'+S.avoid.trim());
-  if(S.ao){var a=AO.filter(function(x){return x[0]===S.ao;})[0];L.push('AO 意願：'+a[0]);}
-  if(S.channel.length)L.push('聯絡管道：'+S.channel.join('、'));
-  if(S.note.trim())L.push('補充：'+S.note.trim());
+    var p=[d.co.trim()];if(d.conf)p.push(lbl(d.conf));if(d.recent)p.push(lbl(d.recent));if(d.rel)p.push(lbl(d.rel));if(d.win)p.push(lbl(d.win));
+    L.push(' '+(i+1)+'. '+p.join('｜'));});
+  L.push('');L.push(u.oHelp);
+  if(S.depth)L.push(u.oDepth+lbl(S.depth));
+  if(S.freq)L.push(u.oFreq+lbl(S.freq));
+  if(S.helpa.length)L.push(u.oHelpa+S.helpa.map(lbl).join('、'));
+  if(S.helpb.length)L.push(u.oHelpb+S.helpb.map(lbl).join('、'));
+  L.push(u.oRole+(S.role?lbl(S.role):u.oBlank));
+  if(S.role==='也想參與投資'&&S.ticket)L.push(u.oTicket+lbl(S.ticket));
+  L.push('');L.push(u.oInterest);
+  if(S.topics.length)L.push(u.oTopics+S.topics.map(lbl).join('、'));
+  if(S.conflict)L.push(u.oConflict+lbl(S.conflict));
+  if(S.avoid.trim())L.push(u.oAvoid+S.avoid.trim());
+  if(S.ao)L.push(u.oAO+lbl(S.ao));
+  if(S.channel.length)L.push(u.oChannel+S.channel.map(lbl).join('、'));
+  if(S.note.trim())L.push(u.oNote+S.note.trim());
   return L.join('\n');
 }
 
-/* ===== 摘要卡（canvas，可截圖／下載） ===== */
-function drawCard(){
-  var cv=document.getElementById('card'),ctx=cv.getContext('2d'),W=1080,PAD=76,cw=W-PAD*2;
+function drawCard(){var u=U();
+  var cv=$('card'),ctx=cv.getContext('2d'),W=1080,PAD=76,cw=W-PAD*2;
   var FB='"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif';
   function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-  function chipLayout(items,fontPx){ // returns {rows:[[{t,w}]], h}
-    ctx.font='600 '+fontPx+'px '+FB;var gap=14,padx=26,ch=fontPx+26,rows=[[]],x=0;
+  function chipLayout(items,fontPx){ctx.font='600 '+fontPx+'px '+FB;var gap=14,padx=26,ch=fontPx+26,rows=[[]],x=0;
     items.forEach(function(it){var w=ctx.measureText(it).width+padx*2;if(x+w>cw&&rows[rows.length-1].length){rows.push([]);x=0;}rows[rows.length-1].push({t:it,w:w});x+=w+gap;});
-    return {rows:rows,ch:ch,gap:gap,h:rows.length*(ch+12)-12};
-  }
-  var doors=S.doors.filter(function(d){return d.co.trim();}).map(function(d){return d.co.trim()+(d.conf?'  ·  '+d.conf:'')+(d.rel?'  ·  '+d.rel:'');});
-  var domItems=S.domains.concat(S.domainNote.trim()?[S.domainNote.trim()]:[]);
+    return {rows:rows,ch:ch,gap:gap,h:rows.length*(ch+12)-12};}
+  var doors=S.doors.filter(function(d){return d.co.trim();}).map(function(d){return d.co.trim()+(d.conf?'  ·  '+lbl(d.conf):'')+(d.rel?'  ·  '+lbl(d.rel):'');});
+  var domItems=S.domains.map(lbl).concat(S.domainNote.trim()?[S.domainNote.trim()]:[]);
   var stats=[];
-  if(S.depth)stats.push(['投入',S.depth]);
-  stats.push(['角色',(S.role==='也想參與投資')?'參與投資':'引薦／顧問']);
-  if(S.role==='也想參與投資'&&S.ticket)stats.push(['單案',S.ticket]);
-  if(S.reach)stats.push(['對到',S.reach]);
-  // ---- measure height ----
-  var y=76+66+56; // header
-  y+=76; // name
-  if(S.co.trim())y+=50;
-  y+=34; // divider gap
-  var domL=chipLayout(domItems,30);
-  y+=48+domL.h+30;
-  if(doors.length){y+=48+doors.length*54+30;}
-  y+=48+Math.ceil(stats.length/2)*92+18; // stats
-  var topL=null;
-  if(S.topics.length){topL=chipLayout(S.topics,28);y+=48+topL.h+30;}
-  y+=96; // footer
-  var H=Math.max(y,760);
-  cv.width=W;cv.height=H;
-  // ---- background ----
-  var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#12264a');g.addColorStop(.5,'#0F1E35');g.addColorStop(1,'#0A1628');
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-  var rg=ctx.createRadialGradient(W*0.85,-60,40,W*0.85,-60,700);rg.addColorStop(0,'rgba(255,102,0,.18)');rg.addColorStop(1,'rgba(255,102,0,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
+  if(S.depth)stats.push([u.cDepth,lbl(S.depth)]);
+  stats.push([u.cRole,(S.role==='也想參與投資')?u.cInvest:u.cIntro]);
+  if(S.role==='也想參與投資'&&S.ticket)stats.push([u.cTicket,lbl(S.ticket)]);
+  if(S.reach)stats.push([u.cReach,lbl(S.reach)]);
+  var topItems=S.topics.map(lbl);
+  var y=76+66+56;y+=76;if(S.co.trim())y+=50;y+=34;
+  var domL=chipLayout(domItems,30);y+=48+domL.h+30;
+  if(doors.length)y+=48+doors.length*54+30;
+  y+=48+Math.ceil(stats.length/2)*92+18;
+  var topL=null;if(topItems.length){topL=chipLayout(topItems,28);y+=48+topL.h+30;}
+  y+=96;var H=Math.max(y,760);cv.width=W;cv.height=H;
+  var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#12264a');g.addColorStop(.5,'#0F1E35');g.addColorStop(1,'#0A1628');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  var rg=ctx.createRadialGradient(W*.85,-60,40,W*.85,-60,700);rg.addColorStop(0,'rgba(255,102,0,.18)');rg.addColorStop(1,'rgba(255,102,0,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
   ctx.strokeStyle='rgba(255,102,0,.5)';ctx.lineWidth=3;rr(14,14,W-28,H-28,26);ctx.stroke();
-  // ---- header ----
-  y=76;
-  ctx.fillStyle='#FF6600';rr(PAD,y,66,66,16);ctx.fill();
+  y=76;ctx.fillStyle='#FF6600';rr(PAD,y,66,66,16);ctx.fill();
   ctx.fillStyle='#fff';ctx.font='800 34px Georgia,serif';ctx.textAlign='center';ctx.fillText('ES',PAD+33,y+45);ctx.textAlign='left';
-  ctx.fillStyle='#FF8C42';ctx.font='800 26px '+FB;ctx.fillText('EVOSCALE · 資源盤點',PAD+86,y+28);
-  ctx.fillStyle='rgba(255,255,255,.5)';ctx.font='600 20px '+FB;ctx.fillText('RESOURCE MAP',PAD+86,y+56);
-  y+=66+56;
-  // ---- name ----
-  ctx.fillStyle='#fff';ctx.font='800 60px '+FB;ctx.fillText(S.name.trim()||'—',PAD,y+8);y+=66;
+  ctx.fillStyle='#FF8C42';ctx.font='800 26px '+FB;ctx.fillText(u.cTag,PAD+86,y+28);
+  ctx.fillStyle='rgba(255,255,255,.5)';ctx.font='600 20px '+FB;ctx.fillText(u.cSub,PAD+86,y+56);
+  y+=66+56;ctx.fillStyle='#fff';ctx.font='800 60px '+FB;ctx.fillText(S.name.trim()||'—',PAD,y+8);y+=66;
   if(S.co.trim()){ctx.fillStyle='rgba(255,255,255,.64)';ctx.font='500 30px '+FB;ctx.fillText(S.co.trim(),PAD,y+22);y+=50;}
-  y+=20;
-  ctx.strokeStyle='rgba(255,255,255,.14)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(PAD,y);ctx.lineTo(W-PAD,y);ctx.stroke();y+=44;
+  y+=20;ctx.strokeStyle='rgba(255,255,255,.14)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(PAD,y);ctx.lineTo(W-PAD,y);ctx.stroke();y+=44;
   function label(t){ctx.fillStyle='#FF8C42';ctx.font='800 24px '+FB;ctx.fillText(t,PAD,y);y+=42;}
   function chips(L){L.rows.forEach(function(row){var x=PAD;row.forEach(function(it){ctx.fillStyle='rgba(255,102,0,.16)';rr(x,y,it.w,L.ch,L.ch/2);ctx.fill();ctx.strokeStyle='rgba(255,140,66,.5)';ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle='#fff';ctx.font='600 30px '+FB;ctx.textAlign='center';ctx.fillText(it.t,x+it.w/2,y+L.ch/2+10);ctx.textAlign='left';x+=it.w+L.gap;});y+=L.ch+12;});y+=18;}
-  // ---- domains ----
-  label('人脈領域');chips(domL);
-  // ---- doors ----
-  if(doors.length){label('具名門路（'+doors.length+'）');doors.forEach(function(d){ctx.fillStyle='#FF6600';ctx.beginPath();ctx.arc(PAD+7,y+14,7,0,7);ctx.fill();ctx.fillStyle='#EAF0F6';ctx.font='600 30px '+FB;ctx.fillText(d,PAD+28,y+24);y+=54;});y+=30;}
-  // ---- stats ----
-  label('怎麼幫');
-  var colW=(cw-24)/2;
+  label(u.cDom);chips(domL);
+  if(doors.length){label(u.cDoors+'（'+doors.length+'）');doors.forEach(function(d){ctx.fillStyle='#FF6600';ctx.beginPath();ctx.arc(PAD+7,y+14,7,0,7);ctx.fill();ctx.fillStyle='#EAF0F6';ctx.font='600 30px '+FB;ctx.fillText(d,PAD+28,y+24);y+=54;});y+=30;}
+  label(u.cHelp);var colW=(cw-24)/2;
   stats.forEach(function(st,i){var col=i%2,x=PAD+col*(colW+24),yy=y+Math.floor(i/2)*92;ctx.fillStyle='rgba(255,255,255,.05)';rr(x,yy,colW,76,14);ctx.fill();ctx.strokeStyle='rgba(255,255,255,.1)';ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle='rgba(255,255,255,.5)';ctx.font='600 22px '+FB;ctx.fillText(st[0],x+22,yy+30);ctx.fillStyle='#fff';ctx.font='700 30px '+FB;ctx.fillText(st[1],x+22,yy+62);});
   y+=Math.ceil(stats.length/2)*92+18;
-  // ---- topics ----
-  if(topL){label('感興趣題材');chips(topL);}
-  // ---- footer ----
+  if(topL){label(u.cTopics);chips(topL);}
   var d=new Date(),ds=d.getFullYear()+'.'+('0'+(d.getMonth()+1)).slice(-2)+'.'+('0'+d.getDate()).slice(-2);
-  ctx.fillStyle='rgba(255,255,255,.4)';ctx.font='500 22px '+FB;ctx.fillText('EvoScale Capital · 一春資本 · 僅供內部盤點 · '+ds,PAD,H-46);
+  ctx.fillStyle='rgba(255,255,255,.4)';ctx.font='500 22px '+FB;ctx.fillText(u.cFoot+ds,PAD,H-46);
 }
 
-/* ===== 導覽 ===== */
-document.getElementById('startBtn').addEventListener('click',function(){
-  document.getElementById('intro').style.display='none';
-  document.getElementById('quiz').style.display='block';
-  render();window.scrollTo({top:0,behavior:'smooth'});
-});
-document.getElementById('nextBtn').addEventListener('click',function(){
-  if(!valid()){document.getElementById('errmsg').classList.add('show');var er=document.querySelector('.q.err');if(er)window.scrollTo({top:er.offsetTop-70,behavior:'smooth'});return;}
+function showDone(){$('quiz').style.display='none';$('intro').style.display='none';$('done').style.display='block';$('bar').style.width='100%';}
+$('startBtn').addEventListener('click',function(){$('intro').style.display='none';$('quiz').style.display='block';render();window.scrollTo({top:0,behavior:'smooth'});});
+$('nextBtn').addEventListener('click',function(){
+  if(!valid()){$('errmsg').classList.add('show');var er=document.querySelector('.q.err');if(er)window.scrollTo({top:er.offsetTop-70,behavior:'smooth'});return;}
   if(step<STEPS.length-1){step++;render();window.scrollTo({top:0,behavior:'smooth'});return;}
-  try{drawCard();}catch(e){}
-  document.getElementById('quiz').style.display='none';
-  document.getElementById('done').style.display='block';
-  document.getElementById('bar').style.width='100%';
-  window.scrollTo({top:0,behavior:'smooth'});
+  try{drawCard();}catch(e){}showDone();window.scrollTo({top:0,behavior:'smooth'});
 });
-document.getElementById('backBtn').addEventListener('click',function(){if(step>0){step--;render();window.scrollTo({top:0,behavior:'smooth'});}});
-document.getElementById('editBtn').addEventListener('click',function(){document.getElementById('done').style.display='none';document.getElementById('quiz').style.display='block';step=STEPS.length-1;render();window.scrollTo({top:0,behavior:'smooth'});});
+$('backBtn').addEventListener('click',function(){if(step>0){step--;render();window.scrollTo({top:0,behavior:'smooth'});}});
+$('editBtn').addEventListener('click',function(){$('done').style.display='none';$('quiz').style.display='block';step=STEPS.length-1;render();window.scrollTo({top:0,behavior:'smooth'});});
+$('langBtn').addEventListener('click',function(){
+  LANG=LANG==='zh'?'en':'zh';renderChrome();
+  if($('quiz').style.display==='block')render();
+  if($('done').style.display==='block'){try{drawCard();}catch(e){}}
+});
 
-/* ===== 送出 / 圖片 / PDF / 複製 ===== */
 var FS_TO='vincent@evoscalecapital.com',FS_CC='boice@evoscalecapital.com';
-document.getElementById('submitBtn').addEventListener('click',function(){
-  var b=this,se=document.getElementById('suberr');se.classList.remove('show');
-  if(!S.name.trim()){se.textContent='請先填稱呼再送出。';se.classList.add('show');return;}
-  b.disabled=true;b.textContent='送出中…';
+$('submitBtn').addEventListener('click',function(){var u=U(),b=this,se=$('suberr');se.classList.remove('show');
+  if(!S.name.trim()){se.textContent=u.needName;se.classList.add('show');return;}
+  b.disabled=true;b.textContent=u.submitting;
   var fd=new FormData();
-  fd.append('_subject','資源盤點 · '+S.name.trim());fd.append('_cc',FS_CC);fd.append('_captcha','false');fd.append('_template','box');
-  fd.append('填答人',S.name.trim());fd.append('盤點內容',output());fd.append('_json',JSON.stringify(S));
+  fd.append('_subject',u.subj+S.name.trim());fd.append('_cc',FS_CC);fd.append('_captcha','false');fd.append('_template','box');
+  fd.append('name',S.name.trim());fd.append('inventory',output());fd.append('_json',JSON.stringify(S));
   fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FS_TO),{method:'POST',headers:{Accept:'application/json'},body:fd})
     .then(function(r){return r.json();})
-    .then(function(){b.classList.add('ok');b.textContent='已送出，謝謝你！我們會依這張卡對接。';})
-    .catch(function(){b.disabled=false;b.textContent='送出給 EvoScale 核心團隊';se.textContent='送出失敗，請稍後再試，或先「存成圖片」自己留存。';se.classList.add('show');});
+    .then(function(){b.classList.add('ok');b.textContent=u.submitOk;})
+    .catch(function(){b.disabled=false;b.textContent=u.submit;se.textContent=u.submitErr;se.classList.add('show');});
 });
-document.getElementById('imgBtn').addEventListener('click',function(){
-  var b=this,cv=document.getElementById('card');
-  try{
-    cv.toBlob(function(blob){
-      if(!blob){b.textContent='請長按卡片截圖';return;}
-      var url=URL.createObjectURL(blob),a=document.createElement('a');
-      a.href=url;a.download='EvoScale資源盤點_'+(S.name.trim()||'card')+'.png';document.body.appendChild(a);a.click();document.body.removeChild(a);
-      setTimeout(function(){URL.revokeObjectURL(url);},1000);
-      b.classList.add('ok');b.textContent='已下載';setTimeout(function(){b.classList.remove('ok');b.textContent='存成圖片';},1800);
-    },'image/png');
-  }catch(e){b.textContent='請長按卡片截圖';}
+$('imgBtn').addEventListener('click',function(){var u=U(),b=this,cv=$('card');
+  try{cv.toBlob(function(blob){if(!blob){b.textContent=u.longPress;return;}
+    var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='EvoScale_ResourceMap_'+(S.name.trim()||'card')+'.png';document.body.appendChild(a);a.click();document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    b.classList.add('ok');b.textContent=u.savedImg;setTimeout(function(){b.classList.remove('ok');b.textContent=u.saveImg;},1800);
+  },'image/png');}catch(e){b.textContent=u.longPress;}
 });
+
+renderChrome();
 </script>
 </body>
 </html>
