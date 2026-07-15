@@ -16,11 +16,11 @@
 <meta name="twitter:title" content="EvoScale Capital — Pitch Deck">
 <meta name="twitter:description" content="Taiwan's first operator-led syndicate. 50+ senior operators from Fortune 500 tech giants and Taiwan's top 100 enterprises co-invest in B2B startups and open enterprise procurement doors from day one.">
 <meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-192x192.png" sizes="192x192" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-192x192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -146,8 +146,12 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 .nav-arrow:hover{border-color:var(--orange);background:#fff}
 .nav-arrow svg{width:18px;height:18px;color:var(--text-3)}
 .nav-arrow:hover svg{color:var(--orange)}
-#lang-toggle{position:fixed;top:4vh;right:4vw;z-index:100;font-family:var(--fb);font-size:.95rem;font-weight:700;letter-spacing:.06em;color:#fff;border:1.5px solid var(--orange);border-radius:22px;padding:8px 20px;cursor:pointer;background:var(--orange);box-shadow:0 4px 16px rgba(255,102,0,.35);transition:all .2s}
+#toggles{position:fixed;top:4vh;right:4vw;z-index:100;display:flex;gap:10px}
+#lang-toggle{font-family:var(--fb);font-size:1rem;font-weight:700;letter-spacing:.06em;color:#fff;border:1.5px solid var(--orange);border-radius:22px;padding:8px 20px;cursor:pointer;background:var(--orange);box-shadow:0 4px 16px rgba(255,102,0,.35);transition:all .2s;white-space:nowrap}
 #lang-toggle:hover{background:var(--orange-2);transform:scale(1.05)}
+#aud-toggle{font-family:var(--fb);font-size:1rem;font-weight:700;letter-spacing:.06em;color:var(--orange-2);border:1.5px solid var(--orange);border-radius:22px;padding:8px 20px;cursor:pointer;background:rgba(255,255,255,.92);white-space:nowrap;transition:all .2s}
+#aud-toggle:hover{background:#fff;transform:scale(1.05)}
+.cards-2{display:grid;grid-template-columns:1fr 1fr;gap:2vw;margin-top:5vh}
 #hint{position:fixed;bottom:11vh;left:50%;transform:translateX(-50%);z-index:99;font-size:.85rem;color:var(--text-4);opacity:.7;animation:fade-hint 4s ease forwards 3s}
 @keyframes fade-hint{to{opacity:0;visibility:hidden}}
 
@@ -185,7 +189,8 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 /* ── MOBILE (overrides all above) ── */
 @media(max-width:768px){
   .slide{padding:80px 7vw 90px;justify-content:flex-start;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
-  #lang-toggle{top:3vh;right:5vw;padding:6px 15px;font-size:.85rem}
+  #toggles{top:3vh;right:5vw;gap:8px}
+  #aud-toggle,#lang-toggle{padding:6px 14px;font-size:1rem}
   .hero-slide{justify-content:flex-start;text-align:center}
   .hero-badge{font-size:.68rem;padding:6px 14px;margin-bottom:3vh}
   .s-title{font-size:clamp(2rem,8vw,2.8rem)!important;margin-bottom:1.8vh}
@@ -195,7 +200,7 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
   .hero-badge{font-size:.78rem;padding:7px 16px}
   .eyebrow{font-size:.82rem;margin-bottom:1.4vh}
   .page-badge{font-size:.72rem;top:3vh;left:7vw}
-  .cards-3,.cards-6,.tiers-2,.tr-grid{grid-template-columns:1fr!important;gap:1.8vh!important}
+  .cards-2,.cards-3,.cards-6,.tiers-2,.tr-grid{grid-template-columns:1fr!important;gap:1.8vh!important}
   .tr-grid{max-width:100%}
   .reasons-slide{padding:80px 7vw 90px!important}
   .r-card{min-height:auto!important;padding:2.8vh 6vw!important}
@@ -212,6 +217,54 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
   .cta-link{font-size:1.05rem;padding:15px 30px}
   .net-overlay{top:5vh;width:94%}
 }
+
+/* ── INST DECK ADDITIONS（機構夥伴版專用；op 版無這些 class，零影響） ── */
+@keyframes instRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.slide.active .inst-stagger>*{animation:instRise .6s var(--ease) both}
+.slide.active .inst-stagger>*:nth-child(1){animation-delay:.12s}
+.slide.active .inst-stagger>*:nth-child(2){animation-delay:.24s}
+.slide.active .inst-stagger>*:nth-child(3){animation-delay:.36s}
+.slide.active .inst-stagger>*:nth-child(4){animation-delay:.48s}
+.slide.active .inst-stagger>*:nth-child(5){animation-delay:.6s}
+.slide.active .inst-stagger>*:nth-child(6){animation-delay:.72s}
+
+.inst-row-label{font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-4);margin:2.4vh 0 1.2vh}
+.inst-shapes{padding:4vh 7vw!important}
+.inst-shapes .cards-3{margin-top:0;gap:1.6vw}
+.inst-shapes .p-card{padding:2.4vh 1.6vw}
+.inst-sub-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw}
+.sub-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2vh 1.4vw;box-shadow:0 2px 12px rgba(11,22,35,.05)}
+.sub-card h4{font-family:var(--fd);font-weight:700;font-size:clamp(1rem,1.35vw,1.25rem);margin-bottom:.8vh;white-space:nowrap;color:var(--text)}
+.sub-card p{font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.55;color:var(--text-3)}
+
+.inst-spot{position:relative;isolation:isolate}
+.inst-spot::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:radial-gradient(300px circle at var(--x,50%) var(--y,50%),rgba(255,102,0,.8) 0%,rgba(255,102,0,.22) 34%,transparent 64%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none;z-index:1}
+.inst-spot:hover::before{opacity:1}
+
+.proof-wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:4vw;align-items:center;margin-top:3vh}
+.inv-num{font-family:var(--fd);font-weight:900;font-size:clamp(4rem,8vw,6.5rem);line-height:1;color:var(--orange-3);font-variant-numeric:tabular-nums}
+.inv-line{font-size:clamp(1.05rem,1.5vw,1.3rem);color:rgba(255,255,255,.65);margin-top:1.2vh;max-width:34ch;line-height:1.6}
+.proof-wrap .tr-grid{margin-top:0;max-width:none;grid-template-columns:1fr;gap:1.6vh}
+
+.inst-marq-label{font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4vh}
+.inst-marq{overflow:hidden;margin-top:1.4vh;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.inst-marq-track{display:flex;align-items:center;width:max-content;animation:instMarq 36s linear infinite}
+.inst-marq-track img{width:auto;margin-right:4vw;filter:brightness(0) invert(1);opacity:.6;flex-shrink:0}
+@keyframes instMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+@media (prefers-reduced-motion:reduce){
+  .slide.active .inst-stagger>*{animation:none}
+  .inst-marq-track{animation:none;flex-wrap:wrap;width:auto}
+}
+@media(max-width:768px){
+  .inst-shapes{padding:80px 7vw 90px!important}
+  .inst-sub-3{grid-template-columns:1fr;gap:1.6vh}
+  .sub-card{padding:2vh 5vw}
+  .sub-card h4{font-size:1.15rem}
+  .proof-wrap{grid-template-columns:1fr;gap:3vh}
+  .inv-num{font-size:clamp(3rem,14vw,4rem)}
+  .inst-marq-track img{margin-right:8vw;transform:scale(.8);transform-origin:left center}
+}
 </style>
 </head>
 <body>
@@ -219,7 +272,10 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 <div id="progress"></div>
 <div id="deck"></div>
 
-<button id="lang-toggle" onclick="toggleLang()">CH</button>
+<div id="toggles">
+  <button id="aud-toggle" onclick="toggleAudience()" data-en="For Institutions" data-zh="機構夥伴版">For Institutions</button>
+  <button id="lang-toggle" onclick="toggleLang()">CH</button>
+</div>
 <div id="nav-arrows">
   <div class="nav-arrow" onclick="go(cur-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></div>
   <div class="nav-arrow" onclick="go(cur+1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></div>
@@ -232,9 +288,43 @@ body{font-family:var(--fb);background:#000;color:var(--text);-webkit-font-smooth
 <script>
 var C = window.OS_CONTENT;
 var lang = 'en';
+var audience = 'op';                 /* 'op' = operator/LP · 'inst' = 機構夥伴 */
 
-/* ════════ BUILD SLIDES from shared content ════════ */
-function slidesHTML(){
+/* ════════════════════════════════════════════════════════════════
+   高管姓名遮蔽 GATE（2026-07-15）
+   名單尚未經 Boice 確認，operators[] 目前為示意資料（半數 confirmed:false）。
+   在對外簡報上公開個人姓名前必須先取得 Boice 拍板。
+   false = 網絡圖只顯示「公司＋職稱」，hover 不揭露任何個人姓名。
+   Boice 確認真實名單後，改成 true 即可全部還原，不需動其他程式。
+   ════════════════════════════════════════════════════════════════ */
+var SHOW_OPERATOR_NAMES = false;
+var deck, slides, total, cur = 0, dots, dotsWrap;
+var teardowns = [];
+
+/* ── shared fragments (single-sourced across both audience decks) ── */
+function heroStatsRow(){
+  var s = C.stats;
+  return `<div class="stats-row">
+      <div class="stat"><div class="stat-n">${s.operators}</div><div class="stat-l" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
+      <div class="stat"><div class="stat-n">1000+</div><div class="stat-l" data-en="Yrs Operating Exp" data-zh="累積營運年資">Yrs Operating Exp</div></div>
+      <div class="stat"><div class="stat-n">$10B+</div><div class="stat-l" data-en="Procurement Influence" data-zh="採購影響力">Procurement Influence</div></div>
+      <div class="stat"><div class="stat-n">${s.cycleCut}</div><div class="stat-l" data-en="Cycle Cut" data-zh="縮短週期">Cycle Cut</div></div>
+    </div>`;
+}
+function netSlideHTML(o){
+  return `<section class="slide net-slide dark">
+    <div class="net-overlay">
+      <div class="eyebrow" style="justify-content:center" data-en="${o.eyeEn}" data-zh="${o.eyeZh}">${o.eyeEn}</div>
+      <h2 style="font-family:var(--fd);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.02em" data-en="${o.h2En}" data-zh="${o.h2Zh}">${o.h2En}</h2>
+      <p style="font-size:1.2rem;color:rgba(255,255,255,.5);margin-top:1.5vh" data-en="${o.subEn}" data-zh="${o.subZh}">${o.subEn}</p>
+    </div>
+    <canvas id="net-canvas"></canvas>
+    <div id="net-tip" class="net-tooltip"><div id="nt-co" class="nt-co"></div><div id="nt-t" class="nt-t"></div></div>
+  </section>`;
+}
+
+/* ════════ BUILD SLIDES · OPERATOR / LP 版 ════════ */
+function slidesOpHTML(){
   var s = C.stats, b = C.brand;
   return [
 
@@ -244,12 +334,7 @@ function slidesHTML(){
     <div class="hero-badge"><span data-en="Taiwan's First Operator-Led Syndicate · ${b.launch_en}" data-zh="全台首創 Operator-Led 投資飛輪 · ${b.launch_zh}">Taiwan's First Operator-Led Syndicate · ${b.launch_en}</span></div>
     <h1 class="hero-h1"><span data-en="${b.tagline_en_1}" data-zh="${b.tagline_zh_1}">${b.tagline_en_1}</span><br><span class="o" data-en="${b.tagline_en_2}" data-zh="${b.tagline_zh_2}">${b.tagline_en_2}</span></h1>
     <p class="hero-tag" data-en="${b.positioning_en}" data-zh="${b.positioning_zh}">${b.positioning_en}</p>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-n">${s.operators}</div><div class="stat-l" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
-      <div class="stat"><div class="stat-n">1000+</div><div class="stat-l" data-en="Yrs Operating Exp" data-zh="累積營運年資">Yrs Operating Exp</div></div>
-      <div class="stat"><div class="stat-n">$10B+</div><div class="stat-l" data-en="Procurement Influence" data-zh="採購影響力">Procurement Influence</div></div>
-      <div class="stat"><div class="stat-n">${s.cycleCut}</div><div class="stat-l" data-en="Cycle Cut" data-zh="縮短週期">Cycle Cut</div></div>
-    </div>
+    ${heroStatsRow()}
   </section>`,
 
   // 02 — THE OPPORTUNITY (problem + why now + solution)
@@ -262,15 +347,12 @@ function slidesHTML(){
   </section>`,
 
   // 03 — THE OPERATOR NETWORK (live canvas)
-  `<section class="slide net-slide dark">
-    <div class="net-overlay">
-      <div class="eyebrow" style="justify-content:center" data-en="The Operator Network" data-zh="高管網絡">The Operator Network</div>
-      <h2 style="font-family:var(--fd);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);color:#fff;letter-spacing:-.02em" data-en="${s.operators} Operators. One Syndicate." data-zh="${s.operators} 位高管。一個飛輪。">${s.operators} Operators. One Syndicate.</h2>
-      <p style="font-size:1.2rem;color:rgba(255,255,255,.5);margin-top:1.5vh" data-en="VP, Director and GM-level · Fortune 500 tech giants and Taiwan's top 100 enterprises" data-zh="VP、Director 與 GM 級 · 世界 500 強科技巨頭與台灣百大企業">VP, Director and GM-level · Fortune 500 tech giants and Taiwan's top 100 enterprises</p>
-    </div>
-    <canvas id="net-canvas"></canvas>
-    <div id="net-tip" class="net-tooltip"><div id="nt-co" class="nt-co"></div><div id="nt-t" class="nt-t"></div></div>
-  </section>`,
+  netSlideHTML({
+    eyeEn:"The Operator Network", eyeZh:"高管網絡",
+    h2En:`${s.operators} Operators. One Syndicate.`, h2Zh:`${s.operators} 位高管。一個飛輪。`,
+    subEn:"VP, Director and GM-level · Fortune 500 tech giants and Taiwan's top 100 enterprises",
+    subZh:"VP、Director 與 GM 級 · 世界 500 強科技巨頭與台灣百大企業"
+  }),
 
   // 04 — THE MODEL (pillars + comparison)
   `<section class="slide light">
@@ -327,21 +409,163 @@ function slidesHTML(){
   ];
 }
 
-/* ════════ RENDER ════════ */
-var deck = document.getElementById('deck');
-deck.innerHTML = slidesHTML().join('');
-var slides = Array.from(document.querySelectorAll('.slide'));
-var total = slides.length;
-var cur = 0;
-document.getElementById('pg-total').textContent = total;
+/* ════════ BUILD SLIDES · 機構夥伴版 (institution-agnostic) ════════ */
+function slidesInstHTML(){
+  var s = C.stats, b = C.brand;
+  return [
 
-// Build dots
-var dotsWrap = document.getElementById('dots');
-slides.forEach(function(_,i){
-  var d = document.createElement('div'); d.className='dot'; d.onclick=function(){go(i)};
-  dotsWrap.appendChild(d);
-});
-var dots = Array.from(document.querySelectorAll('.dot'));
+  // I-01 — HERO
+  `<section class="slide hero-slide dark">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-badge"><span data-en="Taiwan's First Operator-Led Syndicate · Invitation-Only Network" data-zh="全台首創 Operator-Led 投資飛輪 · 邀請制高管網絡">Taiwan's First Operator-Led Syndicate · Invitation-Only Network</span></div>
+    <h1 class="hero-h1"><span data-en="${b.tagline_en_1}" data-zh="${b.tagline_zh_1}">${b.tagline_en_1}</span><br><span class="o" data-en="${b.tagline_en_2}" data-zh="${b.tagline_zh_2}">${b.tagline_en_2}</span></h1>
+    <p class="hero-tag" data-en="An operator-led syndicate of ${s.operators} senior enterprise operators. We co-invest in B2B startups and open enterprise doors ourselves. What this network can do for incubators, accelerators, university programs, corporate innovation teams and fellow investors is exactly the conversation we want to have." data-zh="由 ${s.operators} 位資深企業高管組成的 operator-led 投資飛輪：共同投資 B2B 新創，並親自打開企業大門。這個網絡能為育成中心、加速器、大學計畫、企業創新單位與創投夥伴做什麼，正是我們最想聊的事。">An operator-led syndicate of ${s.operators} senior enterprise operators. We co-invest in B2B startups and open enterprise doors ourselves. What this network can do for incubators, accelerators, university programs, corporate innovation teams and fellow investors is exactly the conversation we want to have.</p>
+    ${heroStatsRow()}
+  </section>`,
+
+  // I-02 — THE GAP (market-level statement, no second person)
+  `<section class="slide light">
+    <div class="page-badge">01 · Enterprise Access</div>
+    <div class="eyebrow" data-en="Enterprise Access" data-zh="企業准入">Enterprise Access</div>
+    <h2 class="s-title" data-en="Mentorship is abundant.<br><em>Enterprise access is scarce.</em>" data-zh="輔導資源很多。<br><em>企業門路很少。</em>">Mentorship is abundant.<br><em>Enterprise access is scarce.</em></h2>
+    <p class="s-sub" data-en="80% of B2B startups stall at enterprise entry. Getting demo-ready is one game; the first enterprise contract is another: procurement process, security review, and a champion inside the buyer. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} have proven who wins that game." data-zh="80% 的 B2B 新創卡在企業准入。把產品做到能上場是一回事，第一張企業訂單是另一回事：採購流程、資安審查，還有買方內部的推手。${C.benchmarks[0]} 與 ${C.benchmarks[1]} 等 operator-led 基金已經證明，這場比賽誰會贏。">80% of B2B startups stall at enterprise entry. Getting demo-ready is one game; the first enterprise contract is another: procurement process, security review, and a champion inside the buyer. Operator-led funds like ${C.benchmarks[0]} and ${C.benchmarks[1]} have proven who wins that game.</p>
+    <p class="s-sub" style="margin-top:2.4vh;font-weight:700;color:#FF6600" data-en="That last step is what our ${s.operators} operators do for a living." data-zh="這最後一步，正是我們 ${s.operators} 位高管每天在做的事。">That last step is what our ${s.operators} operators do for a living.</p>
+  </section>`,
+
+  // I-03 — THE NETWORK (live canvas)
+  netSlideHTML({
+    eyeEn:"The Operator Network", eyeZh:"高管網絡",
+    h2En:`${s.operators} Operators. The Way In.`, h2Zh:`${s.operators} 位高管，就是門路。`,
+    subEn:"VP, Director and GM-level · Fortune 500 tech giants and Taiwan's top 100 enterprises",
+    subZh:"VP、Director 與 GM 級 · 世界 500 強科技巨頭與台灣百大企業"
+  }),
+
+  // I-04 — CAPITAL THAT OPENS DOORS
+  `<section class="slide white reasons-slide">
+    <div class="page-badge">02 · What We Bring</div>
+    <div class="eyebrow" data-en="What We Bring" data-zh="我們帶來什麼">What We Bring</div>
+    <h2 class="s-title" style="font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:.7vh" data-en="Capital that opens doors." data-zh="會開門的資本。">Capital that opens doors.</h2>
+    <p class="s-sub" style="margin-bottom:2.4vh;font-size:clamp(1.05rem,1.4vw,1.25rem)" data-en="Screened with discipline, backed with access, measured in revenue." data-zh="紀律篩選，門路加持，成果用營收衡量。">Screened with discipline, backed with access, measured in revenue.</p>
+    <div class="cards-6 inst-stagger"><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4 data-en="Discipline: We Screen Before We Engage" data-zh="選案紀律：先盡調，再出手">Discipline: We Screen Before We Engage</h4><p data-en="A professional due-diligence team plus an operator vote. <span class='hl'>When we take on a team, it is because the network can genuinely help it win</span>. For referred teams, that filter is protection, not a hurdle." data-zh="專業盡調加上高管共識決。<span class='hl'>我們接手一個團隊，是因為網絡真的幫得上忙</span>。對受推薦的團隊，這道篩選是保護，不是門檻。">A professional due-diligence team plus an operator vote. <span class='hl'>When we take on a team, it is because the network can genuinely help it win</span>. For referred teams, that filter is protection, not a hurdle.</p></div><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg></div><h4 data-en="Access: Doors Opened by Insiders" data-zh="產業門路：由內行人開門">Access: Doors Opened by Insiders</h4><p data-en="Operators in the target industry make the introduction themselves: <span class='hl'>procurement, security review, internal champion</span>. It is a path they have walked, not a business card exchange." data-zh="由目標產業的高管親自引路：<span class='hl'>採購流程、資安審查、內部推手</span>。走的是他們走過的路，不是交換名片。">Operators in the target industry make the introduction themselves: <span class='hl'>procurement, security review, internal champion</span>. It is a path they have walked, not a business card exchange.</p></div><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><h4 data-en="Outcome: Revenue Before Valuation" data-zh="成果導向：營收先行">Outcome: Revenue Before Valuation</h4><p data-en="Enterprise orders cut <span class='hl'>${s.cycleCut}</span> off the sales cycle. Revenue lands first, and valuation has something real to stand on." data-zh="企業訂單把銷售週期縮短 <span class='hl'>${s.cycleCut}</span>。營收先落地，估值才站得住。">Enterprise orders cut <span class='hl'>${s.cycleCut}</span> off the sales cycle. Revenue lands first, and valuation has something real to stand on.</p></div></div>
+  </section>`,
+
+  // I-05 — A NETWORK THAT COMPOUNDS
+  `<section class="slide dark reasons-slide">
+    <div class="page-badge">02 · What We Bring</div>
+    <div class="eyebrow" data-en="What We Bring" data-zh="我們帶來什麼">What We Bring</div>
+    <h2 class="s-title" style="font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:.7vh" data-en="A network that compounds." data-zh="會複利的網絡。">A network that compounds.</h2>
+    <p class="s-sub" style="margin-bottom:2.4vh;color:rgba(255,255,255,.55);font-size:clamp(1.05rem,1.4vw,1.25rem)" data-en="Every month the network gets stronger. So does what it can do for partners." data-zh="網絡每個月都在變強，能為夥伴做的事也是。">Every month the network gets stronger. So does what it can do for partners.</p>
+    <div class="cards-6 inst-stagger"><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h4 data-en="Judgment That Sharpens Monthly" data-zh="每月精進的判斷力">Judgment That Sharpens Monthly</h4><p data-en="The Dealroom runs on the last Friday of every month: three startups pitch, operators vote. <span class='hl'>Deal judgment compounds with every session</span>." data-zh="Dealroom 在每月最後一個週五舉行：三家新創簡報，高管投票。<span class='hl'>看案的判斷力隨每一場累積</span>。">The Dealroom runs on the last Friday of every month: three startups pitch, operators vote. <span class='hl'>Deal judgment compounds with every session</span>.</p></div><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div><h4 data-en="Coverage That Keeps Widening" data-zh="持續擴大的守備範圍">Coverage That Keeps Widening</h4><p data-en="The community targets <span class='hl'>50+ members in 2026 and 150+ in 2027</span>. Every new operator adds industries covered and doors that open." data-zh="社群目標 <span class='hl'>2026 年 50+ 位、2027 年 150+ 位成員</span>。每多一位高管，就多一片產業與一扇門。">The community targets <span class='hl'>50+ members in 2026 and 150+ in 2027</span>. Every new operator adds industries covered and doors that open.</p></div><div class="r-card inst-spot"><div class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4 data-en="Playbooks That Accumulate" data-zh="不斷沉澱的方法論">Playbooks That Accumulate</h4><p data-en="Operators publish monthly on AI and industry trends. <span class='hl'>Field experience becomes reusable playbooks</span> for every team the network backs." data-zh="高管每月發表 AI 與產業趨勢文章，<span class='hl'>把實戰經驗沉澱成可複用的 Playbook</span>，供網絡支持的每個團隊使用。">Operators publish monthly on AI and industry trends. <span class='hl'>Field experience becomes reusable playbooks</span> for every team the network backs.</p></div></div>
+  </section>`,
+
+  // I-06 — TRACK RECORD & INVOLVEMENT
+  `<section class="slide dark">
+    <div class="page-badge">03 · Proof</div>
+    <div class="eyebrow" data-en="Track Record &amp; Involvement" data-zh="實績與參與">Track Record &amp; Involvement</div>
+    <h2 class="s-title" style="font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:1vh" data-en="${C.involvement.headline_en}" data-zh="${C.involvement.headline_zh}">${C.involvement.headline_en}</h2>
+    <div class="proof-wrap">
+      <div class="inv-block">
+        <div class="inv-num" id="inv-num" data-final="100" data-suffix="%">${C.involvement.stat}</div>
+        <p class="inv-line" data-en="of our investments involve the operator network, not just a check." data-zh="的投資都有高管網絡實際參與，不只是一張支票。">of our investments involve the operator network, not just a check.</p>
+      </div>
+      <div class="tr-grid">
+        ${C.trackRecord.map(function(t){return `<div class="tr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.27"/></svg><span data-en="${t.en}" data-zh="${t.zh}">${t.en}</span></div>`}).join('')}
+      </div>
+    </div>
+    <div class="inst-marq-label" data-en="An operator network drawn from" data-zh="高管網絡橫跨">An operator network drawn from</div>
+    <div class="inst-marq"><div class="inst-marq-track">${C.marquee.map(function(m){return '<img src="'+m.l+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px">';}).join('')}${C.marquee.map(function(m){return '<img src="'+m.l+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px" aria-hidden="true">';}).join('')}</div></div>
+  </section>`,
+
+  // I-07 — INVESTMENT TIERS (coverage framing)
+  `<section class="slide dark">
+    <div class="page-badge">04 · Coverage</div>
+    <div class="eyebrow" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</div>
+    <h2 class="s-title" style="margin-bottom:2vh" data-en="Two tiers. Clear coverage." data-zh="兩個層級，清楚的守備範圍。">Two tiers. Clear coverage.</h2>
+    <div class="tiers-2 inst-stagger">
+      ${C.tiers.map(function(t){return `<div class="tier-card"><div class="tier-label" data-en="${t.label_en}" data-zh="${t.label_zh}">${t.label_en}</div><div class="tier-range" data-en="${t.range_en}" data-zh="${t.range_zh}">${t.range_en}</div><div class="tier-sub" data-en="${t.sub_en}" data-zh="${t.sub_zh}">${t.sub_en}</div></div>`}).join('')}
+    </div>
+    <p class="s-sub" style="margin-top:3vh" data-en="From seed to pre-IPO: wherever the teams in a partner ecosystem sit, there is a matching entry point. Operators co-invest per deal through a dedicated SPV, with no annual lock-up." data-zh="從種子輪到上市前：生態系夥伴的團隊走到哪個階段，都有對應的切入點。高管每案透過獨立 SPV 共同投資，無年度鎖定。">From seed to pre-IPO: wherever the teams in a partner ecosystem sit, there is a matching entry point. Operators co-invest per deal through a dedicated SPV, with no annual lock-up.</p>
+    <p class="s-sub" style="margin-top:1.5vh;font-weight:700;color:#FF6600" data-en="Sharing where we play is the fastest way to find overlap." data-zh="先講清楚我們打哪裡，重疊的地方自然浮現。">Sharing where we play is the fastest way to find overlap.</p>
+  </section>`,
+
+  // I-08 — SIX POSSIBLE SHAPES
+  `<section class="slide light inst-shapes">
+    <div class="page-badge">05 · Ways to Work Together</div>
+    <div class="eyebrow" data-en="Ways to Work Together" data-zh="合作的可能">Ways to Work Together</div>
+    <h2 class="s-title" style="font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:.7vh" data-en="Six possible shapes." data-zh="六種可能的合作形狀。">Six possible shapes.</h2>
+    <p class="s-sub" style="margin-bottom:1.6vh;font-size:clamp(1.05rem,1.4vw,1.25rem)" data-en="Every partnership looks different. These are shapes we can explore together, and each one can start small." data-zh="每段合作長得都不一樣。以下是可以一起探索的形狀，每一種都能從小規模開始。">Every partnership looks different. These are shapes we can explore together, and each one can start small.</p>
+    <div class="inst-row-label" data-en="Most common starting points" data-zh="最常見的三個起點">Most common starting points</div>
+    <div class="cards-3 inst-stagger">
+      <div class="p-card inst-spot"><div class="p-card-num">01</div><h3 data-en="Deal Referral" data-zh="選案對接">Deal Referral</h3><p data-en="B2B teams from partner programs can be referred for a rapid operator read. Teams that fit are invited to pitch at the Dealroom." data-zh="生態系中的 B2B 團隊可推薦給網絡，由高管快速評估。契合的團隊受邀在 Dealroom 向網絡簡報。">B2B teams from partner programs can be referred for a rapid operator read. Teams that fit are invited to pitch at the Dealroom.</p></div>
+      <div class="p-card inst-spot"><div class="p-card-num">02</div><h3 data-en="Operator Coaching" data-zh="實戰陪跑">Operator Coaching</h3><p data-en="Operators work with founders on enterprise go-to-market: pipeline, procurement navigation, and closing the first major account." data-zh="高管與創辦人一起打企業戰：業務漏斗、採購流程，直到拿下第一個大客戶。">Operators work with founders on enterprise go-to-market: pipeline, procurement navigation, and closing the first major account.</p></div>
+      <div class="p-card inst-spot"><div class="p-card-num">03</div><h3 data-en="Co-Investment" data-zh="共同投資">Co-Investment</h3><p data-en="When a deal clears review, operators co-invest through a dedicated SPV. The people opening doors hold skin in the game." data-zh="案子通過審核後，高管透過獨立 SPV 共同投資。開門的人，同時押上自己的錢。">When a deal clears review, operators co-invest through a dedicated SPV. The people opening doors hold skin in the game.</p></div>
+    </div>
+    <div class="inst-row-label" data-en="More shapes on the table" data-zh="還在桌上的形狀">More shapes on the table</div>
+    <div class="inst-sub-3 inst-stagger">
+      <div class="sub-card inst-spot"><h4 data-en="Dealroom Seats" data-zh="Dealroom 席次">Dealroom Seats</h4><p data-en="Last Friday of each month, three startups pitch the network. Partners are welcome to attend or put teams on stage." data-zh="每月最後一個週五，三家新創向網絡簡報。歡迎貴機構出席，或推薦團隊登台。">Last Friday of each month, three startups pitch the network. Partners are welcome to attend or put teams on stage.</p></div>
+      <div class="sub-card inst-spot"><h4 data-en="Enterprise Intros" data-zh="企業引介">Enterprise Intros</h4><p data-en="For teams that are ready, operators in the matching industry can assess a direct introduction to enterprise buyers." data-zh="對準備好的團隊，可由對應產業的高管評估，直接引介企業買方窗口。">For teams that are ready, operators in the matching industry can assess a direct introduction to enterprise buyers.</p></div>
+      <div class="sub-card inst-spot"><h4 data-en="Two-Way Deal Flow" data-zh="雙向案源">Two-Way Deal Flow</h4><p data-en="Deals we see that fit a partner program better than our tiers can flow the other way. Good matchmaking runs in both directions." data-zh="我們看到的案源中，更適合夥伴計畫的團隊，也可以反向推薦。好的媒合是雙向的。">Deals we see that fit a partner program better than our tiers can flow the other way. Good matchmaking runs in both directions.</p></div>
+    </div>
+  </section>`,
+
+  // I-09 — FOUNDER QUOTE
+  `<section class="slide white">
+    <div class="page-badge">06 · The Vision</div>
+    <p class="quote-big" style="font-size:clamp(1.3rem,2.4vw,2rem);line-height:1.42" data-en="&ldquo;${C.founderQuote.en}&rdquo;" data-zh="「${C.founderQuote.zh}」">&ldquo;${C.founderQuote.en}&rdquo;</p>
+    <div class="quote-author">
+      <img src="Team/Boice.jpg" alt="${C.founderQuote.name}" style="object-fit:cover;object-position:52% 16%">
+      <div><div class="qa-name">${C.founderQuote.name}</div><div class="qa-role" data-en="${C.founderQuote.role_en}" data-zh="${C.founderQuote.role_zh}">${C.founderQuote.role_en}</div></div>
+    </div>
+  </section>`,
+
+  // I-10 — NEXT STEPS
+  `<section class="slide cta-slide dark">
+    <div class="page-badge">07 · Next Steps</div>
+    <h2 class="cta-h" data-en="Start with a <span class='o'>conversation.</span>" data-zh="從<span class='o'>一次對話</span>開始。">Start with a <span class='o'>conversation.</span></h2>
+    <p class="cta-sub" data-en="Nothing to prepare, nothing to commit. One conversation to see which shapes make sense, or simply visit a Dealroom and watch the network at work." data-zh="不必準備什麼，也不必承諾什麼：聊一次，看哪些形狀有意義。或者先來一場 Dealroom，看網絡怎麼運作。">Nothing to prepare, nothing to commit. One conversation to see which shapes make sense, or simply visit a Dealroom and watch the network at work.</p>
+    <a class="cta-link" href="https://evoscalecapital.com" target="_blank"><span data-en="Meet EvoScale Capital →" data-zh="認識 EvoScale Capital →">Meet EvoScale Capital →</span></a>
+  </section>`,
+
+  ];
+}
+
+/* ════════ RENDER ════════ */
+function buildDots(){
+  dotsWrap.innerHTML = '';
+  slides.forEach(function(_,i){
+    var d = document.createElement('div'); d.className='dot'; d.onclick=function(){go(i)};
+    dotsWrap.appendChild(d);
+  });
+  dots = Array.from(dotsWrap.children);
+}
+function destroyCanvases(){
+  teardowns.forEach(function(f){ f(); });
+  teardowns = [];
+}
+function setAudBtn(){
+  var btn = document.getElementById('aud-toggle');
+  if(audience === 'inst'){ btn.setAttribute('data-en','For Operators'); btn.setAttribute('data-zh','Operator 版'); }
+  else { btn.setAttribute('data-en','For Institutions'); btn.setAttribute('data-zh','機構夥伴版'); }
+}
+function renderDeck(){
+  destroyCanvases();
+  deck.innerHTML = (audience === 'inst' ? slidesInstHTML() : slidesOpHTML()).join('');
+  slides = Array.from(deck.querySelectorAll('.slide'));
+  total = slides.length;
+  cur = 0;
+  document.getElementById('pg-total').textContent = total;
+  buildDots();
+  var t = initHeroCanvas(); if(t) teardowns.push(t);
+  t = initNetCanvas();      if(t) teardowns.push(t);
+  t = initInstAnim();       if(t) teardowns.push(t);
+  setAudBtn();
+}
+function toggleAudience(){
+  audience = (audience === 'op') ? 'inst' : 'op';
+  try{ localStorage.setItem('evoPitchAud', audience); }catch(e){}
+  renderDeck();
+  go(0);
+}
 
 function go(n){
   n = Math.max(0, Math.min(total-1, n));
@@ -357,7 +581,7 @@ function go(n){
   var darkSlide = slides[cur].classList.contains('dark')||slides[cur].classList.contains('amber');
   document.body.classList.toggle('dark-pager', darkSlide);
   applyLang(lang);
-  try{localStorage.setItem('evoPitchSlide',cur);history.replaceState(null,'','#s'+cur);}catch(e){}
+  try{localStorage.setItem('evoPitchSlide',cur);history.replaceState(null,'','#'+(audience==='inst'?'i':'s')+cur);}catch(e){}
 }
 
 /* ════════ KEYBOARD + TOUCH ════════ */
@@ -395,16 +619,14 @@ function applyLang(l){
 }
 function toggleLang(){applyLang(lang==='en'?'zh':'en');}
 
-/* ════════ INIT ════════ */
-go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)return parseInt(m);var s=parseInt(localStorage.getItem('evoPitchSlide'));return isNaN(s)?0:s;}catch(e){return 0;}})());
-
 /* ════════ HERO CANVAS (network mesh) ════════ */
-(function(){
-  var canvas=document.getElementById('hero-canvas');if(!canvas)return;
+function initHeroCanvas(){
+  var canvas=document.getElementById('hero-canvas');if(!canvas)return null;
+  var host=canvas.closest('.slide');var dead=false;
   var ctx=canvas.getContext('2d'),W=0,H=0,t=0,N=24,nodes=[];
   function build(){nodes=[];for(var i=0;i<N;i++){var x=Math.random()*W,y=Math.random()*H;nodes.push({x:x,y:y,ox:x,oy:y,ph:Math.random()*6.28,sp:.2+Math.random()*.3});}}
   function resize(){var dpr=Math.min(window.devicePixelRatio||1,2);W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);build();}
-  function loop(){requestAnimationFrame(loop);if(!slides[0].classList.contains('active')){return;}ctx.clearRect(0,0,W,H);t+=.006;
+  function loop(){if(dead)return;requestAnimationFrame(loop);if(!host.classList.contains('active')){return;}ctx.clearRect(0,0,W,H);t+=.006;
     nodes.forEach(function(nd){nd.x=nd.ox+Math.sin(t*nd.sp+nd.ph)*40;nd.y=nd.oy+Math.cos(t*nd.sp*.7+nd.ph)*26;});
     for(var i=0;i<nodes.length;i++){var sp=.5+.5*Math.sin(t*2+i);
       for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
@@ -412,14 +634,16 @@ go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)re
     nodes.forEach(function(nd,i){var g=ctx.createRadialGradient(nd.x,nd.y,0,nd.x,nd.y,8);var sp=.5+.5*Math.sin(t*2.5+i*.7);g.addColorStop(0,'rgba(255,150,50,'+(.5*sp+.2)+')');g.addColorStop(1,'rgba(255,100,0,0)');ctx.beginPath();ctx.arc(nd.x,nd.y,8,0,6.28);ctx.fillStyle=g;ctx.fill();ctx.beginPath();ctx.arc(nd.x,nd.y,2,0,6.28);ctx.fillStyle='rgba(255,210,140,.8)';ctx.fill();});
   }
   resize();window.addEventListener('resize',resize);loop();
-})();
+  return function(){dead=true;window.removeEventListener('resize',resize);};
+}
 
 /* ════════ NETWORK SLIDE CANVAS (orbital, from main site) ════════ */
-(function(){
-  var canvas=document.getElementById('net-canvas');if(!canvas)return;
+function initNetCanvas(){
+  var canvas=document.getElementById('net-canvas');if(!canvas)return null;
+  var host=canvas.closest('.slide');var dead=false;
   var ctx=canvas.getContext('2d'),W=0,H=0,mx=-9999,my=-9999,hovI=-1,frame=0;
   var OPS=C.operators.filter(function(o){return o.companyKey!=='team';});
-  OPS.forEach(function(op){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.loaded=false;op.imgEl.onload=function(){op.loaded=true;};});
+  OPS.forEach(function(op){if(!op.imgEl){op.imgEl=new Image();op.imgEl.crossOrigin='anonymous';op.imgEl.src='https://i.pravatar.cc/100?img='+op.img;op.loaded=false;op.imgEl.onload=function(){op.loaded=true;};}});
   var RINGS=[{R:0,sp:.0006,tilt:.28,dir:1},{R:0,sp:.001,tilt:-.22,dir:-1},{R:0,sp:.0014,tilt:.32,dir:1},{R:0,sp:.0018,tilt:-.18,dir:-1}];
   var nodes=[],CX=0,CY=0,BR=0,prevHov=-1;
   function pickNear(idx){var b=-1,bd=Infinity;nodes.forEach(function(n,i){if(i===idx)return;var dx=nodes[idx].x-n.x,dy=nodes[idx].y-n.y,d=dx*dx+dy*dy;if(d<bd){bd=d;b=i;}});return b;}
@@ -430,8 +654,8 @@ go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)re
   canvas.addEventListener('mouseleave',function(){mx=-9999;my=-9999;hovI=-1;});
   var tip=document.getElementById('net-tip'),tCo=document.getElementById('nt-co'),tT=document.getElementById('nt-t');
   function rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
-  function loop(){requestAnimationFrame(loop);
-    if(!slides[2].classList.contains('active')){return;}
+  function loop(){if(dead)return;requestAnimationFrame(loop);
+    if(!host.classList.contains('active')){return;}
     ctx.clearRect(0,0,W,H);frame++;
     hovI=-1;var mD=9999;nodes.forEach(function(n,i){var dx=n.x-mx,dy=n.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<n.r*2.5&&d<mD){mD=d;hovI=i;}});
     nodes.forEach(function(n,i){n.alpha=Math.min(1,n.alpha+.012);var ring=RINGS[n.ring];
@@ -446,14 +670,80 @@ go((function(){try{var m=(location.hash.match(/^#s(\d+)$/)||[])[1];if(m!=null)re
         if(n.op.loaded){ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.clip();ctx.drawImage(n.op.imgEl,n.x-r,n.y-r,r*2,r*2);ctx.restore();ctx.save();ctx.globalAlpha=n.alpha;}
         else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();}
         ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle=n.op.color;ctx.lineWidth=3;ctx.stroke();
-      }else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px DM Sans';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(n.op.name.split(' ')[0].slice(0,2).toUpperCase(),n.x,n.y);}
+      }else{ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.fillStyle=n.op.color;ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,r,0,6.28);ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#fff';ctx.font='bold '+Math.round(r*.5)+'px DM Sans';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText((SHOW_OPERATOR_NAMES?n.op.name:n.op.company).split(' ')[0].slice(0,2).toUpperCase(),n.x,n.y);}
       ctx.restore();
-      ctx.save();ctx.globalAlpha=n.alpha*(isH?.95:.6);ctx.fillStyle=isH?'#fff':n.op.color;ctx.font=(isH||n.op.confirmed?'bold ':'')+'13px DM Sans';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(isH?n.op.name:n.op.company,n.x,n.y+r+8);ctx.restore();});
+      ctx.save();ctx.globalAlpha=n.alpha*(isH?.95:.6);ctx.fillStyle=isH?'#fff':n.op.color;ctx.font=(isH||n.op.confirmed?'bold ':'')+'13px DM Sans';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText((isH&&SHOW_OPERATOR_NAMES)?n.op.name:n.op.company,n.x,n.y+r+8);ctx.restore();});
     // tooltip
-    if(hovI>=0){var n=nodes[hovI],cr=canvas.getBoundingClientRect();tip.style.left=(n.x*(cr.width/W)+50)+'px';tip.style.top=(n.y*(cr.height/H)-20)+'px';if(tCo){tCo.textContent=n.op.company;tCo.style.background=n.op.color+'22';tCo.style.color=n.op.color;}if(tT)tT.innerHTML='<strong style="color:#fff;display:block">'+n.op.name+'</strong>'+n.op.title;tip.classList.add('vis');}else tip.classList.remove('vis');
+    if(hovI>=0){var n=nodes[hovI],cr=canvas.getBoundingClientRect();tip.style.left=(n.x*(cr.width/W)+50)+'px';tip.style.top=(n.y*(cr.height/H)-20)+'px';if(tCo){tCo.textContent=n.op.company;tCo.style.background=n.op.color+'22';tCo.style.color=n.op.color;}if(tT)tT.innerHTML=(SHOW_OPERATOR_NAMES?'<strong style="color:#fff;display:block">'+n.op.name+'</strong>':'')+n.op.title;tip.classList.add('vis');}else tip.classList.remove('vis');
   }
   resize();window.addEventListener('resize',resize);loop();
+  return function(){dead=true;window.removeEventListener('resize',resize);};
+}
+
+/* ════════ INST DECK ANIMATIONS（機構版限定；op 版找不到目標元素，立即回傳 null） ════════ */
+function initInstAnim(){
+  var numEl = document.getElementById('inv-num');
+  var hasSpot = !!deck.querySelector('.inst-spot');
+  if(!numEl && !hasSpot) return null;
+  var dead = false, rafId = 0, played = false, mo = null;
+
+  if(numEl){
+    var slideEl = numEl.closest('.slide');
+    var final = parseInt(numEl.dataset.final, 10), suffix = numEl.dataset.suffix || '';
+    var play = function(){
+      if(played || dead) return; played = true;
+      var t0 = null;
+      var step = function(now){
+        if(dead) return;
+        if(t0 === null) t0 = now;
+        var t = Math.min(1, (now - t0) / 900), e = 1 - Math.pow(1 - t, 3);
+        numEl.textContent = Math.round(final * e) + suffix;
+        if(t < 1) rafId = requestAnimationFrame(step);
+      };
+      rafId = requestAnimationFrame(step);
+    };
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ played = true; }
+    else{
+      mo = new MutationObserver(function(){ if(slideEl.classList.contains('active')) play(); });
+      mo.observe(slideEl, {attributes:true, attributeFilter:['class']});
+      if(slideEl.classList.contains('active')) play();
+    }
+  }
+
+  var onMove = null;
+  if(hasSpot){
+    onMove = function(e){
+      var card = e.target.closest ? e.target.closest('.inst-spot') : null;
+      if(!card) return;
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--x', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--y', (e.clientY - r.top) + 'px');
+    };
+    deck.addEventListener('pointermove', onMove);
+  }
+
+  return function(){
+    dead = true;
+    if(mo) mo.disconnect();
+    if(rafId) cancelAnimationFrame(rafId);
+    if(onMove) deck.removeEventListener('pointermove', onMove);
+  };
+}
+
+/* ════════ INIT ════════ */
+deck = document.getElementById('deck');
+dotsWrap = document.getElementById('dots');
+var _init = (function(){
+  try{
+    var m = location.hash.match(/^#([si])(\d+)$/);
+    if(m) return { aud: m[1]==='i' ? 'inst' : 'op', n: parseInt(m[2],10) };
+    return { aud: localStorage.getItem('evoPitchAud')==='inst' ? 'inst' : 'op',
+             n: parseInt(localStorage.getItem('evoPitchSlide'))||0 };
+  }catch(e){ return {aud:'op', n:0}; }
 })();
+audience = _init.aud;
+renderDeck();
+go(_init.n);
 </script>
 </body>
 </html>

@@ -18,8 +18,10 @@ window.OS_CONTENT = {
     tagline_zh_2: "我們帶你做大",
     positioning_en: "Taiwan's first operator-led syndicate. We're built to grow your revenue, from breaking into enterprise to scaling beyond it, with 50+ operators who've already done it.",
     positioning_zh: "全台首創 Operator-Led 投資飛輪。我們為放大你的營收而生，從打進企業到突破規模天花板，靠的是 50+ 位走過這條路的營運者。",
-    launch_en: "Launching June 2026",
-    launch_zh: "2026 年 6 月 Launch",
+    // 2026-07-15：原為「Launching June 2026／2026 年 6 月 Launch」，該日期已過，改用邀請制框架（不綁日期）。
+    // 只有 pitch.html 讀這兩個 key（index.html／operators.html 未使用）。
+    launch_en: "Invitation-Only",
+    launch_zh: "邀請制",
   },
 
 
@@ -43,10 +45,10 @@ window.OS_CONTENT = {
 
   // ── 投資 Tier ─────────────────────────────────────
   tiers: [
-    { label_en: "Tier 1 — Early Stage", label_zh: "Tier 1 — 早期階段",
+    { label_en: "Tier 1 — Early Stage", label_zh: "Tier 1：早期階段",
       range_en: "$100K–$1M ARR", range_zh: "NT$300萬–3,000萬 ARR",
       sub_en: "Seed to Series A", sub_zh: "種子輪至 A 輪" },
-    { label_en: "Tier 2 — Pre-IPO", label_zh: "Tier 2 — 上市前",
+    { label_en: "Tier 2 — Pre-IPO", label_zh: "Tier 2：上市前",
       range_en: "$2M–$20M ARR", range_zh: "NT$6,000萬–6億 ARR",
       sub_en: "Growth to Pre-IPO", sub_zh: "成長期至上市前" },
   ],

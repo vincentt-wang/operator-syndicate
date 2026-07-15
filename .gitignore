@@ -15,7 +15,9 @@ Review/
 # 內部 IP／評案系統／估值紀錄（絕不公開）
 ai-dealflow-blueprint.html
 ai-dealflow-prompts.md
+ai-dealflow-prompts.bak*
 dealflow-runbook.md
+dims60-rubric.json
 a4_decision_brief_spec.html
 ecosystem-self-protection.md
 contribution-log.html
@@ -43,6 +45,12 @@ df.css
 
 # 內部文件（Gate 手冊草案等）— 絕不上傳 public repo
 internal/
+
+# 內部合作案（提案、對接、機密）— 絕不上傳 public repo
+炙星合作/
+課程合作/
+人脈資料庫/
+台大創創/
 
 # 本機私密資料夾（含 carry/談判/薪資、名片印刷檔）— 絕不上傳
 EvoScale_Founding/
