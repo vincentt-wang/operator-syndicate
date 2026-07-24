@@ -199,15 +199,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 @media(max-width:880px){.op-logo-cell{flex:0 0 calc((100% - 3rem)/4)}}
 @media(max-width:560px){.op-logo-cell{flex:0 0 calc((100% - 1rem)/2);height:76px}}
 </style>
-<div class="op-logo-wall-wrap">
-  <div class="op-logo-wall" id="opLogoWall"></div>
-</div>
 
 <style>
 .ops-veil-wrap{position:relative}
-.ops-veil-inner{filter:blur(11px) saturate(.72);opacity:.5;pointer-events:none;user-select:none}
-.ops-veil-mask{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,22,40,.22);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-radius:16px}
-.ops-veil-badge{font-family:var(--fd);font-weight:800;color:#fff;font-size:1.05rem;letter-spacing:.05em;padding:.85rem 1.8rem;background:rgba(10,22,40,.72);border:1px solid rgba(255,255,255,.22);border-radius:30px;box-shadow:0 8px 30px rgba(0,0,0,.35);text-align:center}
+.ops-veil-inner{filter:blur(5px);opacity:.92;pointer-events:none;user-select:none}
+.ops-veil-mask{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding-top:1.4rem;background:rgba(10,22,40,.04);border-radius:16px}
+.ops-veil-badge{font-family:var(--fd);font-weight:700;color:#fff;font-size:.86rem;letter-spacing:.04em;padding:.5rem 1.2rem;background:rgba(10,22,40,.6);border:1px solid rgba(255,255,255,.18);border-radius:24px;text-align:center}
 </style>
 <div class="container">
   <!-- Filter: by Function -->
@@ -234,7 +231,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 </div>
 
 <style>
-.eco-section{background:linear-gradient(180deg,#0A1628 0%,#0F1E35 100%);padding:3.6rem 0 4.2rem;margin-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+.eco-section{background:linear-gradient(180deg,#0A1628 0%,#0F1E35 100%);padding:2.4rem 0 4.2rem}
 .eco-inner{max-width:1180px;margin:0 auto;padding:0 2rem}
 .eco-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;margin-bottom:2.2rem}
 .eco-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem}
@@ -261,9 +258,13 @@ function ecoApply(l){var sec=document.getElementById("ecoSection");sec.querySele
 function ecoToggle(){var sec=document.getElementById("ecoSection");ecoApply(sec.getAttribute("data-lang")==="zh"?"en":"zh");}
 </script>
 
+<div class="op-logo-wall-wrap" style="margin-top:3rem;margin-bottom:1rem">
+  <div class="op-logo-wall" id="opLogoWall"></div>
+</div>
+
 <footer class="page-footer">
   EvoScale Capital · Confidential — For Internal Use Only · All data subject to LP consent ·
-  <a href="mailto:boicegun@gmail.com" style="color:var(--orange);opacity:.7">boicegun@gmail.com</a>
+  <a href="mailto:boice@evoscalecapital.com" style="color:var(--orange);opacity:.7">boice@evoscalecapital.com</a>
 </footer>
 
 <script src="shared-content.js?v=24"></script>
