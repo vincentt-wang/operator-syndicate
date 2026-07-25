@@ -731,6 +731,16 @@ footer{background:#060F1E;padding:72px 0 0}
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "x4ewf64gyt");
 </script>
+<script>
+/* 網址整潔：把 /index.html 與裸 # 從網址列清掉，讓分享出去的連結永遠是 https://evoscalecapital.com/
+   保留真正的錨點（#tiers、#network 等），只清無意義的部分。 */
+(function(){try{
+  var p=location.pathname, h=location.hash, clean=p, dirty=false;
+  if(/index\.html$/i.test(p)){clean=p.replace(/index\.html$/i,''); dirty=true;}
+  if(h==='#'){h=''; dirty=true;}
+  if(dirty&&history.replaceState){history.replaceState(null,'',clean+location.search+h);}
+}catch(e){}})();
+</script>
 </head>
 <body>
 <div id="bar"></div>
@@ -853,7 +863,7 @@ footer{background:#060F1E;padding:72px 0 0}
 
 <!-- NAV -->
 <nav id="nav" class="hero-nav">
-  <a class="logo" href="#">
+  <a class="logo" href="/" onclick="if(!event.metaKey&&!event.ctrlKey&&!event.shiftKey){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'','/');}">
     <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
     <span class="logo-text">EvoScale Capital</span>
     
