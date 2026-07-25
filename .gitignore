@@ -55,3 +55,27 @@ internal/
 # 本機私密資料夾（含 carry/談判/薪資、名片印刷檔）— 絕不上傳
 EvoScale_Founding/
 Team/名片/
+
+# ── 2026-07-25 安全加固：以下原本「未追蹤但也未 ignore」，一次 git add . 就會全部上線 ──
+# 內部戰情室／總控台（deal pipeline、聯絡人操作、五視角 ROLEBRIEF）— 絕不公開
+ecosystem/
+# 內部評案輸入與輸出（第三方 deck、決策報告）
+0-Review/
+# 創辦人保障文件包（法律／股權／自保策略）
+founder-protection-pack/
+founder-docs-guide/
+EvoScale_FounderDocs/
+# 內部品牌媒體原始素材
+EvoScale media/
+# 內部品質檢查產出
+qa/
+# 資安事件紀錄與證據截圖（內部，不對外）
+攻擊防禦/
+# 社群經營內部規劃
+社群經營/
+# 內部草稿一律用底線前綴，永不上線
+_*.md
+**/_*.md
+insights/_*.html
+# 內部提示詞公版
+_提案十頁改版_公版提示詞.md
