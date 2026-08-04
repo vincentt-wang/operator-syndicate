@@ -1,28 +1,21 @@
-# 本地專屬記憶（含敏感內容：個人保障策略、帳號、key 名稱）— 絕不上傳 public repo
-memory.html
-memory.md
+# ═══════════════════════════════════════════════════════════════
+# EvoScale 官網 repo（public，evoscalecapital.com）
+#
+# 2026-07-25 起：這個資料夾「就是」repo 根目錄，整個 repo 只裝會上線的東西。
+# 所有內部資料（02_評案、03_引擎、04_生態與合作、05_內部文件、06_營運紀錄、
+# 07_素材、_archive）都在這個資料夾的「外面」，物理上進不了 repo。
+# 新增內部檔案 → 放到外層對應編號夾，不要放進 01_網站/。
+# ═══════════════════════════════════════════════════════════════
 
-# macOS 系統檔
-.DS_Store
-**/.DS_Store
+# ── 團隊名片印刷檔（Team/ 的公開頭像會上線，名片不上線）──
+Team/名片/
 
-# 本地品牌素材（logo 產出檔，本機使用，不上線）
-brand/
+# ── 內部草稿一律底線前綴，永不上線 ──
+_*.md
+**/_*.md
+insights/_*.html
 
-# 內部評案輸出（機密：第三方 deck＋內部決策報告）— 絕不上傳 public repo
-Review/
-
-# 內部 IP／評案系統／估值紀錄（絕不公開）
-ai-dealflow-blueprint.html
-ai-dealflow-prompts.md
-ai-dealflow-prompts.bak*
-dealflow-runbook.md
-dims60-rubric.json
-a4_decision_brief_spec.html
-ecosystem-self-protection.md
-contribution-log.html
-
-# 文件／簡報／試算表類：你定期放進來的資料，預設一律不上線（網站不含任何此類公開檔）
+# ── 文件／簡報／試算表類：原始資料預設一律不上線 ──
 *.pdf
 *.pptx
 *.ppt
@@ -36,46 +29,10 @@ contribution-log.html
 *.pages
 *.zip
 
-# 內部評案框架頁（創新三元 Deal Flow）：轉內部、不公開
-df-overview.html
-df-desirability.html
-df-feasibility.html
-df-viability.html
-df.css
+# ── macOS 系統檔 ──
+.DS_Store
+**/.DS_Store
 
-# 內部文件（Gate 手冊草案等）— 絕不上傳 public repo
-internal/
-
-# 內部合作案（提案、對接、機密）— 絕不上傳 public repo
-炙星合作/
-課程合作/
-人脈資料庫/
-台大創創/
-
-# 本機私密資料夾（含 carry/談判/薪資、名片印刷檔）— 絕不上傳
-EvoScale_Founding/
-Team/名片/
-
-# ── 2026-07-25 安全加固：以下原本「未追蹤但也未 ignore」，一次 git add . 就會全部上線 ──
-# 內部戰情室／總控台（deal pipeline、聯絡人操作、五視角 ROLEBRIEF）— 絕不公開
-ecosystem/
-# 內部評案輸入與輸出（第三方 deck、決策報告）
-0-Review/
-# 創辦人保障文件包（法律／股權／自保策略）
-founder-protection-pack/
-founder-docs-guide/
-EvoScale_FounderDocs/
-# 內部品牌媒體原始素材
-EvoScale media/
-# 內部品質檢查產出
-qa/
-# 資安事件紀錄與證據截圖（內部，不對外）
-攻擊防禦/
-# 社群經營內部規劃
-社群經營/
-# 內部草稿一律用底線前綴，永不上線
-_*.md
-**/_*.md
-insights/_*.html
-# 內部提示詞公版
-_提案十頁改版_公版提示詞.md
+# ── 本機備份檔，不上線 ──
+*.bak_*
+*.bak
