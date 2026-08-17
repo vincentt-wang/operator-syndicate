@@ -41,7 +41,7 @@ main{max-width:920px;margin:0 auto;padding:3.5rem 6vw 4rem}
 .aud-switch{display:inline-flex;position:relative;background:var(--navy-2);border:1px solid var(--border);border-radius:30px;padding:4px;margin-bottom:2.2rem;max-width:100%;overflow-x:auto;scrollbar-width:none}
 .aud-switch::-webkit-scrollbar{display:none}
 .aud-glide{position:absolute;top:4px;bottom:4px;left:4px;width:0;border-radius:26px;background:linear-gradient(135deg,#FF6600,#E05500);box-shadow:0 4px 14px rgba(255,102,0,.32);transition:left .34s cubic-bezier(.4,0,.2,1),width .34s cubic-bezier(.4,0,.2,1);z-index:0}
-.aud-btn{position:relative;z-index:1;border:none;background:none;color:var(--mut);font-family:inherit;font-weight:700;font-size:.95rem;padding:.6rem 1.4rem;border-radius:26px;cursor:pointer;white-space:nowrap;transition:color .28s}
+.aud-btn{position:relative;z-index:1;border:none;background:none;color:var(--mut);font-family:inherit;font-weight:700;font-size:.92rem;padding:.6rem 1rem;border-radius:26px;cursor:pointer;white-space:nowrap;transition:color .28s}
 .aud-btn.active{color:#fff}
 @media(max-width:480px){.aud-btn{padding:.5rem .8rem;font-size:.82rem}}
 #hero{transition:opacity .22s ease}
@@ -105,11 +105,12 @@ body.searching #scount{display:block}
     <button class="aud-btn" data-aud="b2c" data-en="For B2C Founders" data-zh="給創辦人·B2C">For B2C Founders</button>
     <button class="aud-btn" data-aud="investor" data-en="For Investors" data-zh="給投資人">For Investors</button>
     <button class="aud-btn" data-aud="operator" data-en="For Operators" data-zh="給經理人">For Operators</button>
+<button class="aud-btn" data-aud="expert" data-en="Operator Notes" data-zh="高管專欄">Operator Notes</button>
   </div>
 
   <div id="hero">
-    <h1 data-f-en="Perspectives on building B2B that scales." data-f-zh="關於打造可規模化 B2B 的觀點。" data-i-en="Perspectives on backing B2B that scales." data-i-zh="關於投資 B2B 新創的觀點。" data-o-en="From building B2B to backing it." data-o-zh="從打造 B2B，到投資 B2B。" data-c-en="Perspectives on building consumer products that grow." data-c-zh="關於打造能持續成長的消費產品的觀點。" data-en="Perspectives on building B2B that scales." data-zh="關於打造可規模化 B2B 的觀點。">Perspectives on building B2B that scales.</h1>
-    <p class="sub" data-f-en="Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team." data-f-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。" data-i-en="Learn to read a B2B deal the way the best investors do." data-i-zh="像最好的投資人那樣，讀懂一個 B2B 案子。" data-o-en="Turn a career of building and selling B2B into the judgement of an investor." data-o-zh="把一輩子打造與銷售 B2B 的歷練，變成一個投資人的判斷力。" data-c-en="Acquisition, retention and brand for founders selling to consumers, from the EvoScale team." data-c-zh="獲客、留存與品牌，給賣給消費者的創業者，來自 EvoScale 團隊。" data-en="Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team." data-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。">Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team.</p>
+    <h1 data-f-en="Perspectives on building B2B that scales." data-f-zh="關於打造可規模化 B2B 的觀點。" data-i-en="Perspectives on backing B2B that scales." data-i-zh="關於投資 B2B 新創的觀點。" data-o-en="From building B2B to backing it." data-o-zh="從打造 B2B，到投資 B2B。" data-x-en="Written by the operators in our network." data-x-zh="由網絡裡的現任高管親自執筆。" data-c-en="Perspectives on building consumer products that grow." data-c-zh="關於打造能持續成長的消費產品的觀點。" data-en="Perspectives on building B2B that scales." data-zh="關於打造可規模化 B2B 的觀點。">Perspectives on building B2B that scales.</h1>
+    <p class="sub" data-f-en="Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team." data-f-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。" data-i-en="Learn to read a B2B deal the way the best investors do." data-i-zh="像最好的投資人那樣，讀懂一個 B2B 案子。" data-x-en="One vertical, one operator, one piece a month. Each writer still runs the business they are writing about." data-x-zh="一個產業一位高管，每月一篇。每位執筆的人，現在都還在他寫的那個產業裡帶團隊。" data-o-en="Turn a career of building and selling B2B into the judgement of an investor." data-o-zh="把一輩子打造與銷售 B2B 的歷練，變成一個投資人的判斷力。" data-c-en="Acquisition, retention and brand for founders selling to consumers, from the EvoScale team." data-c-zh="獲客、留存與品牌，給賣給消費者的創業者，來自 EvoScale 團隊。" data-en="Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team." data-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。">Go-to-market, enterprise channel access and operator-led investing, from the EvoScale team.</p>
   </div>
 
   <div class="chips" data-for="founder">
@@ -139,6 +140,13 @@ body.searching #scount{display:block}
   </div>
 
   <div id="posts">
+<a class="post" data-aud="expert" data-tag="all" href="salestech-the-number-nobody-checks.html">
+<div class="ctop"><span class="cnum">01</span><span class="tag" data-en="Sales Tech" data-zh="Sales Tech">Sales Tech</span></div>
+<h2 data-en="The Number Nobody Checks: What Enterprises Actually Spend on AI for Sales" data-zh="沒有人查的那個數字：企業到底花多少錢買 AI 賣東西">The Number Nobody Checks: What Enterprises Actually Spend on AI for Sales</h2>
+<p data-en="Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all. What the verifiable numbers say about adoption, seats and where the wall actually came from." data-zh="市場報告把這個品類估在 219 億到 253 億美元之間。而唯一一份把企業 AI 支出按部門拆開的調查，裡面根本沒有銷售這一項。用查得到的數字談採用率、席位，以及那道牆到底是誰蓋的。">Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all.</p>
+<div class="meta" data-en="Operator Notes · 8 min · August 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 8 月">Operator Notes · 8 min · August 2026</div>
+</a>
+
 
   <a class="post" data-aud="operator" data-tag="edge" href="from-operator-to-investor.html">
     <div class="ctop"><span class="cnum">01</span><span class="tag" data-en="Your Edge" data-zh="你的優勢">Your Edge</span></div>
@@ -493,8 +501,8 @@ function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[d
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');syncURL();}
 function syncURL(){try{history.replaceState(null,'','?aud='+curAud+(document.documentElement.lang==='zh'?'&lang=zh':''));}catch(e){}}
 (function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
-function setAudData(aud){var mk=aud==='investor'?'i':aud==='operator'?'o':aud==='b2c'?'c':'f';document.querySelectorAll('[data-f-en]').forEach(function(e){e.setAttribute('data-en',e.getAttribute('data-'+mk+'-en'));e.setAttribute('data-zh',e.getAttribute('data-'+mk+'-zh'));});}
-function showChips(aud){document.querySelectorAll('.chips').forEach(function(g){g.style.display=g.getAttribute('data-for')===aud?'flex':'none';});var grp=document.querySelector('.chips[data-for="'+aud+'"]');grp.querySelectorAll('.chip').forEach(function(ch){var tg=ch.getAttribute('data-tag');ch.classList.remove('active');if(tg==='all'){ch.style.display='';return;}var n=document.querySelectorAll('.post[data-aud="'+aud+'"][data-tag="'+tg+'"]:not(.soon)').length;ch.style.display=n>0?'':'none';});grp.querySelector('.chip[data-tag="all"]').classList.add('active');}
+function setAudData(aud){var mk=aud==='investor'?'i':aud==='operator'?'o':aud==='b2c'?'c':aud==='expert'?'x':'f';document.querySelectorAll('[data-f-en]').forEach(function(e){e.setAttribute('data-en',e.getAttribute('data-'+mk+'-en'));e.setAttribute('data-zh',e.getAttribute('data-'+mk+'-zh'));});}
+function showChips(aud){document.querySelectorAll('.chips').forEach(function(g){g.style.display=g.getAttribute('data-for')===aud?'flex':'none';});var grp=document.querySelector('.chips[data-for="'+aud+'"]');if(!grp)return;grp.querySelectorAll('.chip').forEach(function(ch){var tg=ch.getAttribute('data-tag');ch.classList.remove('active');if(tg==='all'){ch.style.display='';return;}var n=document.querySelectorAll('.post[data-aud="'+aud+'"][data-tag="'+tg+'"]:not(.soon)').length;ch.style.display=n>0?'':'none';});grp.querySelector('.chip[data-tag="all"]').classList.add('active');}
 function filterPosts(){var qi=document.getElementById('q');var query=qi?qi.value.trim().toLowerCase():'';document.body.classList.toggle('searching',!!query);if(query){var n=0;document.querySelectorAll('.post').forEach(function(p){var show=(p.dataset.search||'').indexOf(query)>=0;p.style.display=show?'':'none';if(show)n++;});var sc=document.getElementById('scount');if(sc){sc.textContent=document.documentElement.lang==='zh'?(n?('找到 '+n+' 篇相關文章'):'找不到相關文章，換個關鍵字試試'):(n?(n+(n>1?' results':' result')):'No matches, try another keyword');}}else{document.querySelectorAll('.post').forEach(function(p){var show=p.getAttribute('data-aud')===curAud&&(curTag==='all'||p.getAttribute('data-tag')===curTag);p.style.display=show?'':'none';});}}
 function doSearch(){filterPosts();}
 function clearSearch(){var qi=document.getElementById('q');if(qi){qi.value='';qi.focus();}filterPosts();}
@@ -507,7 +515,7 @@ function setAud(aud){var qi=document.getElementById('q');if(qi)qi.value='';curAu
   document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===a);});
   setAudData(a);showChips(a);filterPosts();applyL(document.documentElement.lang);
 })();
-(function(){var COLNAME={founder:'b2b founders 創辦人 企業',b2c:'b2c founders 消費 consumer 創辦人',investor:'investors 投資人',operator:'operators 經理人 operator'};document.querySelectorAll('.post').forEach(function(p){var s=(COLNAME[p.getAttribute('data-aud')]||'')+' ';p.querySelectorAll('[data-en]').forEach(function(el){s+=' '+(el.getAttribute('data-en')||'')+' '+(el.getAttribute('data-zh')||'');});p.dataset.search=s.toLowerCase();});})();
+(function(){var COLNAME={founder:'b2b founders 創辦人 企業',b2c:'b2c founders 消費 consumer 創辦人',investor:'investors 投資人',operator:'operators 經理人 operator',expert:'operator notes 高管專欄 專家 sales tech 產業'};document.querySelectorAll('.post').forEach(function(p){var s=(COLNAME[p.getAttribute('data-aud')]||'')+' ';p.querySelectorAll('[data-en]').forEach(function(el){s+=' '+(el.getAttribute('data-en')||'')+' '+(el.getAttribute('data-zh')||'');});p.dataset.search=s.toLowerCase();});})();
 window.addEventListener('load',positionGlide);window.addEventListener('resize',positionGlide);
 </script>
 </body>
