@@ -759,14 +759,27 @@ function showSuccess(token){
 }
 async function submitApplication(){
   setSubmitErr('');
+  clearDeckErrors(); setSubmitErr('');
   var answers=collectAnswers();
   if(!answers.consent_ai || !answers.consent_referral){
     setSubmitErr(lang==='zh'?'請先回到問卷第 4 頁勾選兩項必要同意。':'Please go back to page 4 and check both required consents.');
+    var se=document.getElementById('errSubmit'); if(se) se.scrollIntoView({block:'center',behavior:'smooth'});
     return;
   }
   if(SUBMIT_MODE!=='worker') return submitViaFormsubmit(answers);
   return submitViaWorker(answers);
 }
+
+/* 錯誤訊息一旦顯示就要有辦法消失。舊版沒有這個，所以使用者補上連結之後
+   那句「A deck link is required」還掛在畫面上，看起來像連結沒被接受。 */
+function clearDeckErrors(){
+  ['errDeckLink','errDeckMoved','btnUseNotesLink'].forEach(function(id){
+    var e=document.getElementById(id); if(e) e.style.display='none';
+  });
+}
+document.addEventListener('input', function(e){
+  if(e.target && (e.target.name==='deck_link' || e.target.name==='extra_notes')) clearDeckErrors();
+});
 
 /* 連結正規化：把使用者真的會貼進來的東西修好，而不是把它擋掉。
    全形冒號、前後空白、外層角括號、沒有 scheme，四種都自動處理。 */
