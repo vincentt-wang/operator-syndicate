@@ -460,14 +460,16 @@ select.ctrl option{background:var(--navy-2);color:#fff}
   <!-- ───────────── STAGE 3 · UPLOAD ───────────── -->
   <section class="stage" id="stage-upload">
     <div class="eyebrow" data-en="Final step" data-zh="最後一步">Final step</div>
-    <h1 data-en="Upload your deck." data-zh="上傳你的 Deck。">Upload your deck.</h1>
+    <h1 data-en="Share your deck." data-zh="提供你的 Deck。">Share your deck.</h1>
     <p class="lead" data-en="Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate." data-zh="以連結提供一份 10 至 15 頁的 Pitch Deck。可附上任何有助評估的補充資料。">Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate.</p>
 
     <div class="field">
       <label class="flabel" data-en="Pitch deck link (10–15 pages)" data-zh="Pitch Deck 連結（10–15 頁）">Pitch deck link (10–15 pages)<span class="req">●</span></label>
       <p class="hint" data-en="Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login." data-zh="貼上 Google Drive、Dropbox 或 Notion 連結。請確認不需登入即可開啟。">Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login.</p>
-      <input class="ctrl" name="deck_link" type="url" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
-      <div class="err" id="errDeckLink" style="display:none" data-en="A deck link is required." data-zh="Deck 連結為必填。">A deck link is required.</div>
+      <input class="ctrl" name="deck_link" type="text" inputmode="url" autocomplete="url" spellcheck="false" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
+      <div class="err" id="errDeckLink" style="display:none" data-en="Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there." data-zh="請把 Deck 連結貼在上面這一格。想用 email 給也可以，寄到 vincent@evoscalecapital.com 我們接手處理。">Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there.</div>
+      <div class="err" id="errDeckMoved" style="display:none" data-en="It looks like you pasted a link in the supplementary box below. Use it as your deck link?" data-zh="看起來你把連結貼在下面的補充資料那格了。要用它當 Deck 連結嗎？">It looks like you pasted a link in the supplementary box below. Use it as your deck link?</div>
+      <button type="button" id="btnUseNotesLink" class="btn ghost" style="display:none;margin-top:8px" data-en="Use that link" data-zh="用那個連結">Use that link</button>
     </div>
 
     <!-- Supplementary as links/notes (Web3Forms trial mode) -->
@@ -766,12 +768,40 @@ async function submitApplication(){
   return submitViaWorker(answers);
 }
 
+/* 連結正規化：把使用者真的會貼進來的東西修好，而不是把它擋掉。
+   全形冒號、前後空白、外層角括號、沒有 scheme，四種都自動處理。 */
+function normalizeDeckLink(){
+  var el=document.querySelector('[name="deck_link"]'); if(!el) return;
+  var v=(el.value||'').trim().replace(/^[<（(]+|[>）)]+$/g,'').replace(/：/g,':').trim();
+  if(v && !/^https?:\/\//i.test(v)) v='https://'+v.replace(/^\/+/,'');
+  el.value=v;
+}
+/* 從補充資料那格撈出第一個網址。使用者最常見的錯是把連結貼錯格。 */
+function firstUrlInNotes(){
+  var el=document.querySelector('[name="extra_notes"]'); if(!el) return '';
+  var m=(el.value||'').match(/(https?:\/\/[^\s<>"']+|(?:drive|docs)\.google\.com[^\s<>"']+|(?:www\.)?(?:dropbox|notion)\.[a-z]{2,}[^\s<>"']*)/i);
+  return m?m[0]:'';
+}
+function deckLinkMissing(){
+  var el=document.querySelector('[name="deck_link"]');
+  var cand=firstUrlInNotes();
+  var e1=document.getElementById('errDeckLink'), e2=document.getElementById('errDeckMoved'), btn=document.getElementById('btnUseNotesLink');
+  if(cand && e2 && btn){
+    e1.style.display='none'; e2.style.display='block'; btn.style.display='';
+    btn.onclick=function(){ el.value=cand; normalizeDeckLink(); e2.style.display='none'; btn.style.display='none'; saveDraft(); el.focus(); };
+  } else {
+    if(e2)e2.style.display='none'; if(btn)btn.style.display='none';
+    e1.style.display='block';
+  }
+  el.scrollIntoView({block:'center',behavior:'smooth'});
+  setTimeout(function(){ el.focus(); }, 400);
+}
+
 /* formsubmit.co: emails questionnaire + deck link to BOTH recipients (TO + CC). No backend. */
 async function submitViaFormsubmit(answers){
-  if(!(answers.deck_link||'').trim()){
-    document.getElementById('errDeckLink').style.display='block';
-    document.querySelector('[name="deck_link"]').scrollIntoView({block:'center',behavior:'smooth'}); return;
-  }
+  normalizeDeckLink();
+  answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';
+  if(!(answers.deck_link||'').trim()){ return deckLinkMissing(); }
   setBusy(true);
   try{
     var fd=new FormData();
@@ -796,9 +826,9 @@ async function submitViaFormsubmit(answers){
 
 /* Cloudflare Worker + R2: direct presigned file upload + token isolation. */
 async function submitViaWorker(answers){
-  if(files.deck.length===0 && !(answers.deck_link||'').trim()){
-    setSubmitErr(lang==='zh'?'請上傳 Deck 或提供 Deck 連結。':'Please upload a deck file or provide a deck link.'); return;
-  }
+  normalizeDeckLink();
+  answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';
+  if(files.deck.length===0 && !(answers.deck_link||'').trim()){ return deckLinkMissing(); }
   setBusy(true);
   try{
     var init=await fetch(API_BASE+'/init',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
