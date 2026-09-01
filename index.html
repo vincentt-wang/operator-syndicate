@@ -764,6 +764,9 @@ footer{background:#060F1E;padding:72px 0 0}
 #faq .fq-trigger h4{color:#fff}
 #faq .fq-chev{color:rgba(255,255,255,.4)}
 #faq .fq-inner{color:rgba(255,255,255,.62)}
+
+.ft-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;transition:opacity .2s}
+.ft-soc:hover{opacity:.82}
 </style>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "766d2a2b8e7c479eba3f8fe21c4779d1"}'></script>
@@ -801,12 +804,12 @@ footer{background:#060F1E;padding:72px 0 0}
       <p class="portal-sub" data-en="Select your role to access the right resources." data-zh="選擇你的身份，查看專屬資源。">Select your role to access the right resources.</p>
     </div>
     <div class="role-grid">
-      <div class="role-card" onclick="location.href='apply.html'">
+      <div class="role-card" onclick="location.href='/apply/'">
         <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         <div class="role-label" data-en="B2B Startup" data-zh="B2B 新創">B2B Startup</div>
         <div class="role-desc" data-en="Submit your deal for review" data-zh="提交案源申請">Submit your deal for review</div>
       </div>
-      <div class="role-card" onclick="location.href='membership.html'">
+      <div class="role-card" onclick="location.href='/membership/'">
         <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="role-label" data-en="Enterprise Executive" data-zh="外商高管">Enterprise Executive</div>
         <div class="role-desc" data-en="Apply for membership" data-zh="會員申請">Apply for membership</div>
@@ -886,7 +889,7 @@ footer{background:#060F1E;padding:72px 0 0}
       <li><span data-en="Early access to deal assessments for every screened opportunity" data-zh="每個篩選案源都可提前獲得評估摘要">Early access to deal assessments for every screened opportunity</span></li>
       <li><span data-en="Warm intro to founders via the operator network" data-zh="透過運營者網絡直接引薦給創辦人">Warm intro to founders via the operator network</span></li>
     </ul>
-    <div class="portal-btns"><a class="portal-btn" href="pitch.html" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center" data-en="View Partnership Deck →" data-zh="查看合作簡報 →">View Partnership Deck →</a></div>
+    <div class="portal-btns"><a class="portal-btn" href="/pitch/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center" data-en="View Partnership Deck →" data-zh="查看合作簡報 →">View Partnership Deck →</a></div>
   </div>
 </div>
 
@@ -898,9 +901,9 @@ footer{background:#060F1E;padding:72px 0 0}
   <a href="#global" onclick="closeMob()" data-en="Global" data-zh="出海">Global</a>
   <a href="#team" onclick="closeMob()" data-en="Team" data-zh="團隊">Team</a>
   <a href="#faq" onclick="closeMob()" data-en="FAQ" data-zh="FAQ">FAQ</a>
-  <a href="insights/index.html" onclick="closeMob()" data-en="Insights" data-zh="觀點">Insights</a>
-  <button class="mob-cta" onclick="closeMob();location.href='apply.html'" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
-  <button class="mob-cta" onclick="closeMob();location.href='membership.html'" style="background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange);margin-top:.6rem" data-en="Membership" data-zh="會員申請">Membership</button>
+  <a href="/insights/" onclick="closeMob()" data-en="Insights" data-zh="觀點">Insights</a>
+  <button class="mob-cta" onclick="closeMob();location.href='/apply/'" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
+  <button class="mob-cta" onclick="closeMob();location.href='/membership/'" style="background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange);margin-top:.6rem" data-en="Membership" data-zh="會員申請">Membership</button>
   <button class="btn-lang" onclick="toggleLang();closeMob()" id="mobLangBtn">CH</button>
 </div>
 
@@ -917,12 +920,12 @@ footer{background:#060F1E;padding:72px 0 0}
     <li><a href="#global" data-en="Global" data-zh="出海">Global</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
     <li><a href="#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
-    <li><a href="insights/index.html" data-en="Insights" data-zh="觀點">Insights</a></li>
+    <li><a href="/insights/" data-en="Insights" data-zh="觀點">Insights</a></li>
   </ul>
   <div class="nav-right">
     <button class="btn-lang" onclick="toggleLang()" id="langBtn">CH</button>
-    <button onclick="location.href='membership.html'" class="btn-nav ghost" data-en="Membership" data-zh="會員申請">Membership</button>
-    <button onclick="location.href='apply.html'" class="btn-nav" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
+    <button onclick="location.href='/membership/'" class="btn-nav ghost" data-en="Membership" data-zh="會員申請">Membership</button>
+    <button onclick="location.href='/apply/'" class="btn-nav" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
   </div>
   <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
 </nav>
@@ -933,17 +936,17 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="hero-grid"><canvas id="hero-canvas"></canvas></div>
   <div class="container">
     <div class="hero-inner">
-      <a href="pitch.html" class="hero-badge" style="cursor:pointer;text-decoration:none" onmouseover="this.style.background='rgba(255,102,0,.16)';this.style.borderColor='rgba(255,140,66,.6)'" onmouseout="this.style.background='rgba(255,102,0,.08)';this.style.borderColor='rgba(255,140,66,.3)'"><span data-en="Taiwan's First Operator-Led Fund" data-zh="全台首創 Operator-Led 基金">Taiwan's First Operator-Led Fund</span></a>
+      <a href="/pitch/" class="hero-badge" style="cursor:pointer;text-decoration:none" onmouseover="this.style.background='rgba(255,102,0,.16)';this.style.borderColor='rgba(255,140,66,.6)'" onmouseout="this.style.background='rgba(255,102,0,.08)';this.style.borderColor='rgba(255,140,66,.3)'"><span data-en="Taiwan's First Operator-Led Fund" data-zh="全台首創 Operator-Led 基金">Taiwan's First Operator-Led Fund</span></a>
       <h1 class="hero-h1">
         <span data-bind-en="brand.tagline_en_1" data-bind-zh="brand.tagline_zh_1" data-en="We Don't Just Invest," data-zh="不只是投資">We Don't Just Invest,</span><br>
         <em><span data-bind-en="brand.tagline_en_2" data-bind-zh="brand.tagline_zh_2" data-en="We Scale." data-zh="我們帶你做大">We Scale.</span></em>
       </h1>
       <p class="hero-sub" data-bind-en="brand.positioning_en" data-bind-zh="brand.positioning_zh" data-en="Taiwan's first Sales-Driven syndicate. 50+ senior operators turning personal influence into enterprise deals — and capital returns." data-zh="全台首創 Sales-Driven 投資模式。50+ 位業務高管把個人影響力轉化為高槓桿資本報酬，帶你從個位數客戶走向億級規模">50+ senior operators from Meta, Oracle, Google and AWS co-invest in B2B startups. They don't just write checks; they mentor you through enterprise go-to-market.</p>
       <div class="hero-ctas">
-        <button onclick="location.href='apply.html'" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
-        <button onclick="location.href='membership.html'" class="btn-outline" data-en="Membership" data-zh="會員申請">Membership</button>
+        <button onclick="location.href='/apply/'" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
+        <button onclick="location.href='/membership/'" class="btn-outline" data-en="Membership" data-zh="會員申請">Membership</button>
       </div>
-      <a href="insights/index.html" style="display:inline-block;margin:-2.5rem auto 3.5rem;color:rgba(255,255,255,.6);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:2px;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'" data-en="Read our Insights →" data-zh="閱讀我們的觀點 →">Read our Insights →</a>
+      <a href="/insights/" style="display:inline-block;margin:-2.5rem auto 3.5rem;color:rgba(255,255,255,.6);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:2px;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'" data-en="Read our Insights →" data-zh="閱讀我們的觀點 →">Read our Insights →</a>
       <div class="hero-stats">
         <div class="h-stat"><div class="h-stat-n">50<span style="font-size:.75em">+</span></div><div class="h-stat-l" data-bind-en="statLabels.operators_en" data-bind-zh="statLabels.operators_zh" data-en="Senior Operators" data-zh="資深高管">Senior Operators</div></div>
         <div class="h-stat"><div class="h-stat-n">1000<span style="font-size:.5em;vertical-align:.16em;letter-spacing:.02em">+ YRS</span></div><div class="h-stat-l" data-en="Operating Experience" data-zh="企業營運經驗">Operating Experience</div></div>
@@ -986,7 +989,7 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
   </div>
     <div style="text-align:center;padding:.5rem 0 2.5rem">
-      <a href="operators.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
+      <a href="/operators/" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:9px 22px;transition:all .25s;text-decoration:none" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.45)';this.style.background='rgba(255,255,255,.06)'" onmouseout="this.style.color='rgba(255,255,255,.55)';this.style.borderColor='rgba(255,255,255,.18)';this.style.background='none'">View Full Operator Directory →</a>
     </div>
 </section>
 
@@ -1151,7 +1154,7 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="insights-block reveal" style="margin-top:1rem;text-align:center;padding-top:1rem">
       <div class="advisors-ey" data-en="From the EvoScale Desk" data-zh="EvoScale 觀點">From the EvoScale Desk</div>
       <p style="color:rgba(255,255,255,.55);max-width:540px;margin:.7rem auto 1.7rem;line-height:1.7;font-size:1.05rem" data-en="We regularly publish research and perspectives on B2B go-to-market, operator-led investing and the AI tools reshaping how enterprises buy." data-zh="我們定期發表關於 B2B go-to-market、operator-led 投資，以及重塑企業採購的 AI 工具的研究與觀點。">We regularly publish research and perspectives on B2B go-to-market, operator-led investing and the AI tools reshaping how enterprises buy.</p>
-      <a href="insights/index.html" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.98rem;font-weight:600;color:#fff;background:var(--orange);border-radius:26px;padding:12px 28px;text-decoration:none;transition:opacity .25s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Read our Insights →" data-zh="閱讀我們的觀點 →">Read our Insights →</span></a>
+      <a href="/insights/" style="display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-size:.98rem;font-weight:600;color:#fff;background:var(--orange);border-radius:26px;padding:12px 28px;text-decoration:none;transition:opacity .25s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span data-en="Read our Insights →" data-zh="閱讀我們的觀點 →">Read our Insights →</span></a>
     </div>
   </div>
 </section>
@@ -1169,11 +1172,11 @@ footer{background:#060F1E;padding:72px 0 0}
     <h2 class="submit-h reveal" data-en="Submit your deal" data-zh="提交你的案源">Submit your deal</h2>
     <p class="submit-sub reveal" data-en="If you're building B2B with serious enterprise ambitions, this could be your shortest path to several-million-dollar business." data-zh="如果你正在打造 B2B 並有明確的企業端野心，這裡可能是你通往數百萬營收的最短路徑。">If you're building B2B with serious enterprise ambitions, this could be your shortest path to several-million-dollar business.</p>
     <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem" class="reveal">
-      <button onclick="location.href='apply.html'" class="btn-submit">
+      <button onclick="location.href='/apply/'" class="btn-submit">
         <span data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
-      <button onclick="location.href='membership.html'" class="btn-submit btn-ghost">
+      <button onclick="location.href='/membership/'" class="btn-submit btn-ghost">
         <span data-en="Apply for Membership" data-zh="會員申請">Apply for Membership</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
       </button>
@@ -1266,22 +1269,22 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="ft-logo"><div class="lm">ES</div><span class="ft-logo-text">EvoScale Capital</span></div>
 <div class="ft-zhname" style="font-size:.82rem;color:var(--muted,#8A93A0);margin-top:.25rem;letter-spacing:.02em">一春資本</div>
 <div class="ft-social" style="display:flex;gap:.85rem;margin-top:.9rem">
-  <a href="https://www.linkedin.com/company/evoscale-capital/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:var(--muted,#8A93A0);display:inline-flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
-  <a href="https://www.facebook.com/profile.php?id=61593171164016" target="_blank" rel="noopener" aria-label="Facebook" style="color:var(--muted,#8A93A0);display:inline-flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+  <a href="https://www.linkedin.com/company/evoscale-capital/" target="_blank" rel="noopener" aria-label="LinkedIn" class="ft-soc"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+  <a href="https://www.facebook.com/profile.php?id=61593171164016" target="_blank" rel="noopener" aria-label="Facebook" class="ft-soc"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
 </div>
         <a class="ft-email" href="mailto:boice@evoscalecapital.com" style="display:block">boice@evoscalecapital.com</a>
         <a class="ft-email" href="vc-copilot/" target="_blank" rel="noopener" style="display:block;margin-top:.3rem">vincent@evoscalecapital.com</a>
       </div>
       <nav class="ft-nav"><h5 data-en="Navigate" data-zh="導覽">Navigate</h5><ul>
         <li><a href="#network" data-en="Network" data-zh="網絡">Network</a></li>
-        <li><a href="operators.html" data-en="Full roster" data-zh="完整名冊">Full roster</a></li>
+        <li><a href="/operators/" data-en="Full roster" data-zh="完整名冊">Full roster</a></li>
         <li><a href="#about" data-en="Model" data-zh="運作">Model</a></li>
         <li><a href="#tiers" data-en="Investment tiers" data-zh="投資層級">Investment tiers</a></li>
         <li><a href="#ways" data-en="Ways to work together" data-zh="合作方式">Ways to work together</a></li>
       </ul></nav>
       <div class="ft-nav"><h5 data-en="Get Started" data-zh="開始合作">Get Started</h5>
-        <button onclick="location.href='apply.html'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:var(--orange);color:#fff;border-radius:var(--r-btn);cursor:pointer;border:none" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
-        <button onclick="location.href='membership.html'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:transparent;color:var(--orange);border-radius:var(--r-btn);cursor:pointer;border:2px solid var(--orange);margin-top:.55rem;display:block" data-en="Membership →" data-zh="會員申請 →">Membership →</button>
+        <button onclick="location.href='/apply/'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:var(--orange);color:#fff;border-radius:var(--r-btn);cursor:pointer;border:none" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
+        <button onclick="location.href='/membership/'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:transparent;color:var(--orange);border-radius:var(--r-btn);cursor:pointer;border:2px solid var(--orange);margin-top:.55rem;display:block" data-en="Membership →" data-zh="會員申請 →">Membership →</button>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1354,7 +1357,7 @@ applyLang(lang);
     if(filter){
       window.location.href='operators.html?company='+filter;
     } else {
-      window.location.href='operators.html';
+      window.location.href='/operators/';
     }
   });
 })();

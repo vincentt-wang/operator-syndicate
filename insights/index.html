@@ -30,7 +30,16 @@
 body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
-.top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.4rem}
+.top-in{max-width:1240px}
+.top-nav{list-style:none;display:flex;gap:1.5rem;margin:0 auto;padding:0}
+.top-nav a{font-family:var(--fb);font-size:.92rem;font-weight:600;color:var(--mut);text-decoration:none;transition:color .2s}
+.top-nav a:hover,.top-nav a.on{color:#fff}
+.tb{font-family:var(--fb);font-weight:700;font-size:.88rem;padding:8px 17px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;white-space:nowrap}
+.tb.ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
+.tb.ghost:hover{background:var(--orange);color:#fff}
+@media(max-width:1080px){.top-nav{display:none}.tb.ghost{display:none}}
+
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
 .brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
 .top-r{display:flex;align-items:center;gap:1.1rem}
@@ -84,10 +93,19 @@ body.searching #scount{display:block}
 </head>
 <body>
 <div class="top"><div class="top-in">
-  <a class="brand" href="../index.html"><span class="lm">ES</span>EvoScale Capital</a>
+  <a class="brand" href="/"><span class="lm">ES</span>EvoScale Capital</a>
+  <ul class="top-nav">
+    <li><a href="/#network" data-en="Network" data-zh="網絡">Network</a></li>
+    <li><a href="/#about" data-en="Model" data-zh="運作">Model</a></li>
+    <li><a href="/#global" data-en="Global" data-zh="出海">Global</a></li>
+    <li><a href="/#team" data-en="Team" data-zh="團隊">Team</a></li>
+    <li><a href="/#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
+    <li><a href="/insights/" class="on" data-en="Insights" data-zh="觀點">Insights</a></li>
+  </ul>
   <div class="top-r">
-    <a class="back" href="../index.html" data-en="&larr; Home" data-zh="&larr; 首頁">&larr; Home</a>
     <button class="lang" id="lt" onclick="toggleL()">CH</button>
+    <a class="tb ghost" href="/membership/" data-en="Membership" data-zh="會員申請">Membership</a>
+    <a class="tb" href="/apply/" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</a>
   </div>
 </div></div>
 <main>

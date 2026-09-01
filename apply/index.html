@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apply — EvoScale Capital 一春資本</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Submit your B2B startup to EvoScale Capital — a YC-style application reviewed by senior operators.">
+<meta property="og:title" content="Submit your deal — EvoScale Capital">
+<meta property="og:description" content="A short questionnaire plus your pitch deck, reviewed personally by senior operators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://evoscalecapital.com/apply.html">
+<meta property="og:site_name" content="EvoScale Capital">
+<meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://evoscalecapital.com/og-cover.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192x192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF6600;--orange-2:#E55A00;--orange-3:#FF8C42;
+  --navy:#0A1628;--navy-2:#0F1E35;--navy-3:#15294a;
+  --ink:#0B1623;--bg:#F7F9FB;--white:#fff;
+  --w-1:#fff;--w-2:rgba(255,255,255,.62);--w-3:rgba(255,255,255,.42);
+  --line:rgba(255,255,255,.12);--line-2:rgba(255,255,255,.2);
+  --r:18px;--r-btn:12px;--ease:cubic-bezier(.4,0,.2,1);
+  --fd:'Playfair Display','Noto Serif TC',serif;
+  --fb:'DM Sans','Noto Sans TC',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);font-size:18px;line-height:1.6;color:var(--w-1);
+  background:radial-gradient(120% 90% at 80% -10%,#13284a 0%,var(--navy-2) 42%,var(--navy) 100%);
+  min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+input,select,textarea{font-family:inherit}
+::selection{background:rgba(255,102,0,.3)}
+
+/* top progress bar */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-3));z-index:9999;transition:width .35s var(--ease)}
+
+/* header */
+header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;background:rgba(10,22,40,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;font-size:19px;letter-spacing:-.01em}
+.brand .mark{width:30px;height:30px;border-radius:8px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800;font-family:var(--fd)}
+.hd-r{display:flex;align-items:center;gap:14px}
+.hd-link{font-size:16px;color:var(--w-2);transition:color .2s}.hd-link:hover{color:#fff}
+.lang-btn{font-size:15px;font-weight:700;letter-spacing:.04em;color:var(--orange-3);border:1px solid rgba(255,140,66,.4);border-radius:20px;padding:6px 15px;transition:all .2s}
+.lang-btn:hover{background:rgba(255,140,66,.12)}
+
+main{max-width:920px;margin:0 auto;padding:48px 24px 96px}
+.stage{display:none;animation:fade .4s var(--ease) both}
+.stage.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-3);margin-bottom:18px}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--orange-3);border-radius:2px}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.3rem,5.5vw,3.6rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:18px}
+.lead{font-size:19px;color:var(--w-2);line-height:1.7;max-width:680px;margin-bottom:40px}
+h2.blk{font-family:var(--fd);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin:46px 0 20px}
+.gold{color:var(--orange-3)}
+
+/* value cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.card h3{font-family:var(--fd);font-weight:800;font-size:20px;margin-bottom:14px;display:flex;align-items:center;gap:11px}
+.card .ic{width:40px;height:40px;border-radius:11px;background:rgba(255,102,0,.14);border:1px solid rgba(255,102,0,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.card li{position:relative;padding-left:26px;font-size:16.5px;color:var(--w-2);line-height:1.6}
+.card li::before{content:'';position:absolute;left:2px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,102,0,.16)}
+
+/* checklist box */
+.checklist{margin-top:22px;background:var(--navy-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.checklist-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.checklist-hd h4{font-size:17px;font-weight:700;color:#fff}
+.copy-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--orange-3);border:1px solid rgba(255,140,66,.4);border-radius:9px;padding:8px 14px;transition:all .2s}
+.copy-btn:hover{background:rgba(255,140,66,.12)}
+.copy-btn.done{color:#7CD992;border-color:rgba(124,217,146,.5)}
+.checklist pre{margin:0;padding:18px;font-family:var(--fb);font-size:16px;line-height:1.75;color:#E8EDF2;white-space:pre-wrap;max-height:340px;overflow-y:auto}
+
+/* buttons */
+.btn-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:17px;font-weight:700;
+  background:var(--orange);color:#fff;border-radius:var(--r-btn);padding:15px 30px;transition:transform .15s,box-shadow .2s,background .2s;box-shadow:0 8px 24px rgba(255,102,0,.28)}
+.btn:hover{transform:translateY(-2px);background:var(--orange-2);box-shadow:0 12px 30px rgba(255,102,0,.36)}
+.btn:disabled{opacity:.55;cursor:default;transform:none;box-shadow:none}
+.btn-ghost{background:none;color:var(--w-2);border:1px solid var(--line-2);box-shadow:none}
+.btn-ghost:hover{background:rgba(255,255,255,.06);color:#fff;transform:none;box-shadow:none}
+.note-line{font-size:16px;color:var(--w-3);margin-top:18px;line-height:1.6}
+
+/* questionnaire */
+.prog-wrap{margin-bottom:34px}
+.prog-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.prog-label{font-size:16px;font-weight:700;color:var(--w-2)}
+.saved{display:inline-flex;align-items:center;gap:7px;font-size:15px;color:var(--w-3);opacity:0;transition:opacity .3s}
+.saved.show{opacity:1}
+.saved svg{color:#7CD992}
+.prog-track{height:7px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-3));border-radius:99px;transition:width .4s var(--ease)}
+
+.qpage{display:none}.qpage.on{display:block;animation:fade .35s var(--ease) both}
+.qpage h2{font-family:var(--fd);font-weight:800;font-size:26px;letter-spacing:-.02em;margin-bottom:6px}
+.qpage .sub{font-size:16.5px;color:var(--w-3);margin-bottom:28px}
+.field{margin-bottom:24px}
+.field > label,.field > .flabel{display:block;font-size:17px;font-weight:600;margin-bottom:9px}
+.req{color:var(--orange-3);margin-left:3px}
+.opt{font-size:14.5px;font-weight:500;color:var(--w-3);margin-left:6px}
+.hint{font-size:16px;color:var(--w-3);margin-top:-3px;margin-bottom:9px;line-height:1.55}
+.ctrl{width:100%;font-size:17px;color:#fff;background:rgba(255,255,255,.05);border:1px solid var(--line-2);border-radius:11px;padding:13px 15px;transition:border-color .2s,background .2s}
+.ctrl::placeholder{color:rgba(255,255,255,.32)}
+.ctrl:focus{outline:none;border-color:var(--orange);background:rgba(255,255,255,.07)}
+textarea.ctrl{min-height:96px;resize:vertical;line-height:1.6}
+select.ctrl{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:42px}
+select.ctrl option{background:var(--navy-2);color:#fff}
+.cc{font-size:14.5px;color:var(--w-3);text-align:right;margin-top:5px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+
+/* chip group (multi-select & radios) */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-block;font-size:16px;font-weight:600;color:var(--w-2);background:rgba(255,255,255,.05);border:1px solid var(--line-2);border-radius:99px;padding:10px 18px;transition:all .18s}
+.chip input:checked + span{color:#fff;background:rgba(255,102,0,.18);border-color:var(--orange)}
+.chip span:hover{border-color:var(--line-2);background:rgba(255,255,255,.09)}
+
+/* consent */
+.consent{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin-bottom:14px;cursor:pointer}
+.consent input{margin-top:3px;width:20px;height:20px;accent-color:var(--orange);flex-shrink:0;cursor:pointer}
+.consent .ctxt{font-size:16.5px;color:var(--w-2);line-height:1.55}
+.privacy{font-size:16px;color:var(--w-3);line-height:1.6;margin-top:18px;padding-left:16px;border-left:2px solid var(--line-2)}
+
+.err{font-size:15px;color:#FF7A7A;margin-top:7px;display:none}
+.field.invalid .err{display:block}
+.field.invalid .ctrl{border-color:#FF7A7A}
+
+/* upload */
+.drop{border:1.5px dashed var(--line-2);border-radius:14px;padding:34px 22px;text-align:center;transition:all .2s;background:rgba(255,255,255,.025);cursor:pointer}
+.drop:hover,.drop.over{border-color:var(--orange);background:rgba(255,102,0,.06)}
+.drop .di{width:48px;height:48px;border-radius:13px;background:rgba(255,102,0,.14);border:1px solid rgba(255,102,0,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.drop .dt{font-size:17px;font-weight:700;margin-bottom:6px}
+.drop .ds{font-size:16px;color:var(--w-3)}
+.filelist{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.fileitem{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:11px;padding:11px 14px;font-size:16px}
+.fileitem .fn{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fileitem .fs{color:var(--w-3);font-size:14.5px;flex-shrink:0}
+.fileitem .rm{color:var(--w-3);flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all .15s}
+.fileitem .rm:hover{color:#fff;background:rgba(255,255,255,.1)}
+.fileitem .up{display:flex;align-items:center;gap:7px;font-size:14.5px;color:#7CD992;flex-shrink:0}
+.fmt{font-size:16px;color:var(--w-3);line-height:1.65;margin-top:18px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fmt b{color:var(--w-2)}
+
+/* success */
+.success{text-align:center;padding:30px 0}
+.success .big{width:74px;height:74px;border-radius:50%;background:rgba(124,217,146,.14);border:1px solid rgba(124,217,146,.45);display:flex;align-items:center;justify-content:center;margin:0 auto 26px}
+.tokbox{display:inline-flex;align-items:center;gap:12px;background:var(--navy-2);border:1px solid var(--line);border-radius:11px;padding:13px 18px;margin-top:8px;font-size:16px}
+.tokbox code{font-family:ui-monospace,Menlo,monospace;color:var(--orange-3);letter-spacing:.02em}
+
+.foot{max-width:920px;margin:0 auto;padding:0 24px 50px;font-size:15px;color:var(--w-3);text-align:center}
+
+@media(max-width:560px){
+  header{padding:13px 18px}
+  main{padding:34px 18px 80px}
+  .hd-link.site{display:none}
+}
+</style>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "766d2a2b8e7c479eba3f8fe21c4779d1"}'></script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "x4ewf64gyt");
+</script>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <a class="brand" href="/"><span class="mark">ES</span><span>EvoScale Capital</span></a>
+  <div class="hd-r">
+    <a class="hd-link site" href="/" data-en="Back to site" data-zh="返回官網">Back to site</a>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">CH</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ───────────── STAGE 1 · INTRO ───────────── -->
+  <section class="stage on" id="stage-intro">
+    <div class="eyebrow" data-en="Deal Submission" data-zh="案源申請">Deal Submission</div>
+    <h1 data-en="Submit your deal." data-zh="提交你的案源。">Submit your deal.</h1>
+    <p class="lead" data-en="A short questionnaire plus your pitch deck. Reviewed personally by senior operators, scored objectively, and matched into the ecosystem." data-zh="一份簡短問卷加上你的 Pitch Deck。由資深高管親自審閱、客觀評分，並媒合進生態系。">A short questionnaire plus your pitch deck. Reviewed personally by senior operators, scored objectively, and matched into the ecosystem.</p>
+
+    <h2 class="blk" data-en="Why submit to EvoScale" data-zh="為什麼遞交給 EvoScale">Why submit to EvoScale</h2>
+    <div style="display:flex;gap:22px;align-items:flex-start;background:linear-gradient(135deg,rgba(255,102,0,.10),rgba(255,255,255,.03));border:1px solid rgba(255,140,66,.22);border-radius:20px;padding:28px 32px">
+      <div style="flex-shrink:0;width:54px;height:54px;border-radius:15px;background:rgba(255,102,0,.15);border:1px solid rgba(255,140,66,.35);display:flex;align-items:center;justify-content:center">
+        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18.5" r="2.4"/><line x1="7" y1="7.4" x2="10.4" y2="16.4"/><line x1="17" y1="7.4" x2="13.6" y2="16.4"/><line x1="7.4" y1="6" x2="16.6" y2="6"/></svg>
+      </div>
+      <div>
+        <h3 style="font-family:var(--fd);font-weight:800;font-size:22px;color:#fff;margin-bottom:12px" data-en="More than capital" data-zh="不只是資金">More than capital</h3>
+        <p style="font-family:var(--fb);font-size:16.5px;color:var(--w-2);line-height:1.65;margin-bottom:11px" data-en="EvoScale is an operator-led syndicate. Alongside capital, you gain an operator network and direct access to the enterprise buyers you are trying to reach." data-zh="EvoScale 是 operator-led syndicate。除了資金，你獲得一張高管網絡，以及直通你想接觸的企業採購決策者的通路。">EvoScale is an operator-led syndicate. Alongside capital, you gain an operator network and direct access to the enterprise buyers you are trying to reach.</p>
+        <p style="font-family:var(--fb);font-size:16.5px;color:var(--w-2);line-height:1.65" data-en="Every deal is evaluated objectively through our D-F-V framework: desirability, feasibility, viability." data-zh="每個案源都以 D-F-V 框架客觀評估：欲求性、可行性、存續性。">Every deal is evaluated objectively through our D-F-V framework: desirability, feasibility, viability.</p>
+      </div>
+    </div>
+
+    <h2 class="blk" data-en="What we ask of you" data-zh="我們需要你提供什麼">What we ask of you</h2>
+    <div class="cards">
+      <div class="card">
+        <h3 data-en="The form" data-zh="問卷">The form</h3>
+        <ul>
+          <li data-en="About 12 questions, roughly 5 minutes. Your answers save automatically as you go." data-zh="約 12 題、大約 5 分鐘。作答過程自動保存草稿。">About 12 questions, roughly 5 minutes. Your answers save automatically as you go.</li>
+          <li data-en="Referral to the ecosystem or partner VCs follows the consent choices you make at the end." data-zh="是否轉介給生態系或合作創投，依你在最後勾選的同意選項。">Referral to the ecosystem or partner VCs follows the consent choices you make at the end.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-en="The deck" data-zh="Pitch Deck">The deck</h3>
+        <ul>
+          <li data-en="The final step is uploading a 10 to 15 page pitch deck. Anything the form does not ask, your deck should carry." data-zh="最後一步上傳 10 至 15 頁 Pitch Deck。問卷沒問的深度，由 Deck 承載。">The final step is uploading a 10 to 15 page pitch deck. Anything the form does not ask, your deck should carry.</li>
+          <li data-en="A reference, not a checklist. Not every item applies to every business, and none of it is required. The more it covers, the faster we can read it." data-zh="這是參考，不是檢查表。不是每一項都適用每一種生意，也沒有一項是必填。涵蓋越多，我們判斷得越快。">A reference, not a checklist. Not every item applies to every business, and none of it is required. The more it covers, the faster we can read it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-hd">
+        <h4 data-en="Deck self-check" data-zh="Deck 自檢清單">Deck self-check</h4>
+        <button class="copy-btn" id="copyChk" onclick="copyChecklist()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span data-en="Copy" data-zh="複製">Copy</span>
+        </button>
+      </div>
+      <pre id="chkText"></pre>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="goStage('stage-form')"><span data-en="Start application" data-zh="開始填寫">Start application</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <span class="note-line" id="resumeNote" style="display:none" data-en="A saved draft was found and restored." data-zh="偵測到先前的草稿，已自動帶回。">A saved draft was found and restored.</span>
+    </div>
+    <p class="note-line" data-en="Your data is used only for evaluation, retained for 12 months, and deletable on request." data-zh="你的資料僅用於評估，保留 12 個月，可隨時要求刪除。">Your data is used only for evaluation, retained for 12 months, and deletable on request.</p>
+  </section>
+
+  <!-- ───────────── STAGE 2 · QUESTIONNAIRE ───────────── -->
+  <section class="stage" id="stage-form">
+    <div class="prog-wrap">
+      <div class="prog-top">
+        <span class="prog-label"><span id="pgNow">1</span><span data-en=" / 4 · " data-zh=" / 4 頁 · "> / 4 · </span><span id="pgPct">0</span><span data-en="% complete" data-zh="% 完成">% complete</span></span>
+        <span class="saved" id="savedTag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Saved" data-zh="已自動儲存">Saved</span></span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    </div>
+
+    <form id="appForm" novalidate>
+
+    <!-- PAGE 1 -->
+    <div class="qpage on" data-page="1">
+      <h2 data-en="Basics & contact" data-zh="基本與聯絡">Basics &amp; contact</h2>
+      <p class="sub" data-en="Just the essentials, so we can reach you and place your company." data-zh="幾個基本資料，方便我們聯繫你、快速定位你的公司。">Just the essentials, so we can reach you and place your company.</p>
+
+      <div class="field" data-required>
+        <label class="flabel" data-en="Company / project name" data-zh="公司／專案名稱">Company / project name<span class="req">●</span></label>
+        <input class="ctrl" name="company" data-en-ph="Acme Inc." data-zh-ph="例：Acme Inc.">
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="Founder name & title" data-zh="創辦人姓名與職稱">Founder name &amp; title<span class="req">●</span></label>
+        <input class="ctrl" name="founders" data-en-ph="Jane Doe, CEO & Co-founder" data-zh-ph="例：王小明，執行長暨共同創辦人">
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="row2">
+        <div class="field" data-required>
+          <label class="flabel" data-en="Contact email" data-zh="聯絡 email">Contact email<span class="req">●</span></label>
+          <input class="ctrl" name="email" type="email" data-en-ph="founder@company.com" data-zh-ph="founder@company.com">
+          <div class="err" data-en="A valid email is required." data-zh="請填寫有效的 email。">A valid email is required.</div>
+        </div>
+        <div class="field">
+          <label class="flabel" data-en="Phone" data-zh="聯絡電話"><span data-en="Phone" data-zh="聯絡電話">Phone</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <input class="ctrl" name="phone" data-en-ph="+886 ..." data-zh-ph="+886 ...">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="flabel"><span data-en="Company website" data-zh="公司網站">Company website</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <input class="ctrl" name="website" type="url" data-en-ph="https://..." data-zh-ph="https://...">
+        </div>
+        <div class="field">
+          <label class="flabel"><span data-en="Founder LinkedIn" data-zh="創辦人 LinkedIn">Founder LinkedIn</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <input class="ctrl" name="linkedin" type="url" data-en-ph="https://linkedin.com/in/..." data-zh-ph="https://linkedin.com/in/...">
+        </div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="Where are you based?" data-zh="所在地">Where are you based?<span class="req">●</span></label>
+        <input class="ctrl" name="hq_location" data-en-ph="e.g. Taipei, Taiwan" data-zh-ph="例：台灣台北">
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required data-group="target_markets">
+        <div class="flabel" data-en="Which markets are you going after?" data-zh="你主攻哪些市場？">Which markets are you going after?<span class="req">●</span></div>
+        <p class="hint" data-en="Pick all that apply." data-zh="可複選。">Pick all that apply.</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="target_markets" value="taiwan"><span data-en="Taiwan" data-zh="台灣">Taiwan</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="us"><span data-en="United States" data-zh="美國">United States</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="china"><span data-en="China" data-zh="中國">China</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="jpkr"><span data-en="Japan / Korea" data-zh="日韓">Japan / Korea</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="sea"><span data-en="Southeast Asia" data-zh="東南亞">Southeast Asia</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="europe"><span data-en="Europe" data-zh="歐洲">Europe</span></label>
+          <label class="chip"><input type="checkbox" name="target_markets" value="global"><span data-en="Other / Global" data-zh="其他·全球">Other / Global</span></label>
+        </div>
+        <div class="err" data-en="Select at least one market." data-zh="請至少選擇一個市場。">Select at least one market.</div>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="qpage" data-page="2">
+      <h2 data-en="Problem & customer" data-zh="問題與客戶">Problem &amp; customer</h2>
+      <p class="sub" data-en="What you solve, and for whom." data-zh="你解決什麼、為了誰。">What you solve, and for whom.</p>
+
+      <div class="field" data-required>
+        <label class="flabel" data-en="One-line description" data-zh="一句話描述">One-line description<span class="req">●</span></label>
+        <input class="ctrl" name="one_liner" maxlength="70" oninput="countOneLiner(this)" data-en-ph="We help [enterprise] do [outcome] via [method]" data-zh-ph="我們幫助〔企業〕透過〔方法〕達成〔成果〕">
+        <div class="cc"><span id="olCount">0</span> / 35</div>
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="The pain you solve" data-zh="要解決的痛點">The pain you solve<span class="req">●</span></label>
+        <textarea class="ctrl" name="pain" data-en-ph="What hurts today, and how badly?" data-zh-ph="現在哪裡痛、有多痛？"></textarea>
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="Your solution" data-zh="解決方案">Your solution<span class="req">●</span></label>
+        <textarea class="ctrl" name="solution" data-en-ph="How you solve it, and what is different." data-zh-ph="你怎麼解決、有何不同。"></textarea>
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="Target customer" data-zh="目標客戶">Target customer<span class="req">●</span></label>
+        <p class="hint" data-en="Be specific: an ICP or a high-expectation customer (HXC). Not a vague persona." data-zh="要具體：理想客戶輪廓（ICP）或高期望消費者（HXC）。不要寫泛泛的 Persona。">Be specific: an ICP or a high-expectation customer (HXC). Not a vague persona.</p>
+        <textarea class="ctrl" name="target_customer" data-en-ph="e.g. Heads of enterprise sales ops at 500+ seat B2B SaaS firms in Taiwan" data-zh-ph="例：台灣 500 人以上 B2B SaaS 公司的企業銷售營運主管"></textarea>
+        <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
+      </div>
+      <div class="field" data-required data-group="business_model">
+        <div class="flabel" data-en="Business model" data-zh="商業模式">Business model<span class="req">●</span></div>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="business_model" value="B2B"><span>B2B</span></label>
+          <label class="chip"><input type="radio" name="business_model" value="B2C"><span>B2C</span></label>
+          <label class="chip"><input type="radio" name="business_model" value="B2B2C"><span>B2B2C</span></label>
+          <label class="chip"><input type="radio" name="business_model" value="B2G"><span>B2G</span></label>
+          <label class="chip"><input type="radio" name="business_model" value="other"><span data-en="Other" data-zh="其他">Other</span></label>
+        </div>
+        <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="qpage" data-page="3">
+      <h2 data-en="Stage & raise" data-zh="階段與募資">Stage &amp; raise</h2>
+      <p class="sub" data-en="Where the company is, and what you are raising." data-zh="公司目前的階段，以及這輪要募什麼。">Where the company is, and what you are raising.</p>
+
+      <div class="field" data-required data-group="product_stage">
+        <div class="flabel" data-en="Product stage" data-zh="產品階段">Product stage<span class="req">●</span></div>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="product_stage" value="concept"><span data-en="Concept" data-zh="概念">Concept</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="prototype"><span data-en="Prototype" data-zh="原型">Prototype</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="mvp"><span data-en="MVP · Beta" data-zh="MVP·Beta">MVP · Beta</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="launched"><span data-en="Launched" data-zh="已上線">Launched</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="pmf"><span data-en="Product-market fit" data-zh="達到 PMF">Product-market fit</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="scaling"><span data-en="Scaling" data-zh="規模化成長">Scaling</span></label>
+        </div>
+        <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
+      </div>
+      <div class="field" data-required data-group="paid_validation">
+        <div class="flabel" data-en="Paid validation" data-zh="付費驗證">Paid validation<span class="req">●</span></div>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="paid_validation" value="yes"><span data-en="Yes" data-zh="有">Yes</span></label>
+          <label class="chip"><input type="radio" name="paid_validation" value="no"><span data-en="No" data-zh="無">No</span></label>
+        </div>
+        <input class="ctrl" name="paid_validation_note" style="margin-top:12px" data-en-ph="Briefly: paying customers, pilots, LOIs..." data-zh-ph="簡述：付費客戶、試點、意向書（LOI）…">
+        <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
+      </div>
+      <div class="field" data-required>
+        <label class="flabel" data-en="Funding round" data-zh="募資輪次">Funding round<span class="req">●</span></label>
+        <select class="ctrl" name="round">
+          <option value="" data-en="Select a round" data-zh="選擇輪次">Select a round</option>
+          <option value="pre-seed">Pre-seed</option>
+          <option value="seed">Seed</option>
+          <option value="series-a">Series A</option>
+          <option value="series-b">Series B</option>
+          <option value="series-c+">Series C+</option>
+        </select>
+        <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="flabel"><span data-en="Target raise this round" data-zh="本輪募資目標額">Target raise this round</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <input class="ctrl" name="raise_target" data-en-ph="e.g. US$1.5M" data-zh-ph="例：150 萬美元">
+        </div>
+        <div class="field">
+          <label class="flabel"><span data-en="Instrument" data-zh="募資工具">Instrument</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <select class="ctrl" name="instrument">
+            <option value="" data-en="Not specified" data-zh="未指定">Not specified</option>
+            <option value="safe">SAFE</option>
+            <option value="equity" data-en="Priced equity" data-zh="股權">Priced equity</option>
+            <option value="convertible" data-en="Convertible note" data-zh="可轉換票據">Convertible note</option>
+            <option value="other" data-en="Other" data-zh="其他">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label class="flabel"><span data-en="Pre-money valuation" data-zh="估值（pre-money）">Pre-money valuation</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+        <input class="ctrl" name="valuation" data-en-ph="e.g. US$8M pre-money" data-zh-ph="例：投前估值 800 萬美元">
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="qpage" data-page="4">
+      <h2 data-en="Source & consent" data-zh="來源與同意">Source &amp; consent</h2>
+      <p class="sub" data-en="How you found us, and your permissions." data-zh="你怎麼找到我們，以及你的授權。">How you found us, and your permissions.</p>
+
+      <div class="field">
+        <label class="flabel"><span data-en="How did you hear about us / who referred you?" data-zh="怎麼得知／誰推薦">How did you hear about us / who referred you?</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+        <input class="ctrl" name="referral" data-en-ph="e.g. introduced by an operator, event, search..." data-zh-ph="例：高管引薦、活動、搜尋…">
+      </div>
+      <div class="field">
+        <label class="flabel"><span data-en="Time sensitivity" data-zh="時間敏感度">Time sensitivity</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+        <input class="ctrl" name="time_sensitivity" data-en-ph="e.g. closing the round by Aug; other term sheets" data-zh-ph="例：8 月前要 close；已有其他 term sheet">
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent_ai">
+        <span class="ctxt" data-en="I agree my submission may be processed by AI for structured, objective evaluation." data-zh="我同意我的遞交資料可被 AI 用於結構化、客觀的評估。">I agree my submission may be processed by AI for structured, objective evaluation.</span>
+      </label>
+      <div class="err" id="errConsentAi" style="display:none;margin:-8px 0 14px" data-en="Required to submit." data-zh="此項為遞交的必要同意。">Required to submit.</div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent_referral">
+        <span class="ctxt" data-en="I agree to be referred to the EvoScale ecosystem and partner VCs where there is a fit." data-zh="我同意在契合時，被轉介給 EvoScale 生態系與合作創投。">I agree to be referred to the EvoScale ecosystem and partner VCs where there is a fit.</span>
+      </label>
+      <div class="err" id="errConsentRef" style="display:none;margin:-8px 0 14px" data-en="Required to submit." data-zh="此項為遞交的必要同意。">Required to submit.</div>
+
+      <p class="privacy" data-en="Privacy: your data is used only for evaluation and matching. We retain it for 12 months and delete it on request. Contact privacy@evoscalecapital.com." data-zh="隱私：你的資料僅用於評估與配對，保留 12 個月，可隨時要求刪除。聯絡 privacy@evoscalecapital.com。">Privacy: your data is used only for evaluation and matching. We retain it for 12 months and delete it on request. Contact privacy@evoscalecapital.com.</p>
+    </div>
+
+    </form>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="btnPrev" onclick="prevPage()" style="display:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back" data-zh="上一頁">Back</span></button>
+      <button class="btn" id="btnNext" onclick="nextPage()"><span data-en="Next" data-zh="下一頁">Next</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ───────────── STAGE 3 · UPLOAD ───────────── -->
+  <section class="stage" id="stage-upload">
+    <div class="eyebrow" data-en="Final step" data-zh="最後一步">Final step</div>
+    <h1 data-en="Share your deck." data-zh="提供你的 Deck。">Share your deck.</h1>
+    <p class="lead" data-en="Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate." data-zh="以連結提供一份 10 至 15 頁的 Pitch Deck。可附上任何有助評估的補充資料。">Share a 10 to 15 page pitch deck by link. Add any supplementary material that helps us evaluate.</p>
+
+    <div class="field">
+      <label class="flabel" data-en="Pitch deck link (10–15 pages)" data-zh="Pitch Deck 連結（10–15 頁）">Pitch deck link (10–15 pages)<span class="req">●</span></label>
+      <p class="hint" data-en="Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login." data-zh="貼上 Google Drive、Dropbox 或 Notion 連結。請確認不需登入即可開啟。">Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login.</p>
+      <input class="ctrl" name="deck_link" type="text" inputmode="url" autocomplete="url" spellcheck="false" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
+      <div class="err" id="errDeckLink" style="display:none" data-en="Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there." data-zh="請把 Deck 連結貼在上面這一格。想用 email 給也可以，寄到 vincent@evoscalecapital.com 我們接手處理。">Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there.</div>
+      <div class="err" id="errDeckMoved" style="display:none" data-en="It looks like you pasted a link in the supplementary box below. Use it as your deck link?" data-zh="看起來你把連結貼在下面的補充資料那格了。要用它當 Deck 連結嗎？">It looks like you pasted a link in the supplementary box below. Use it as your deck link?</div>
+      <button type="button" id="btnUseNotesLink" class="btn ghost" style="display:none;margin-top:8px" data-en="Use that link" data-zh="用那個連結">Use that link</button>
+    </div>
+
+    <!-- Supplementary as links/notes (Web3Forms trial mode) -->
+    <div class="field" id="extraNotesField">
+      <label class="flabel"><span data-en="Supplementary (links or notes)" data-zh="補充資料（連結或說明）">Supplementary (links or notes)</span><span class="opt" data-en="optional, no pressure on financials" data-zh="選填，財務不勉強">optional, no pressure on financials</span></label>
+      <textarea class="ctrl" name="extra_notes" data-en-ph="Links to financials, contracts/LOIs, demo, tech docs..." data-zh-ph="財務、合約／LOI、demo、技術文件的連結…"></textarea>
+    </div>
+
+    <!-- Direct file upload (Worker + R2 mode) -->
+    <div id="fileUploads" style="display:none">
+      <div class="field">
+        <div class="flabel"><span data-en="Or attach the deck file" data-zh="或直接附上 Deck 檔">Or attach the deck file</span><span class="opt" data-en="optional" data-zh="選填">optional</span></div>
+        <div class="drop" id="dropDeck" onclick="document.getElementById('deckInput').click()">
+          <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="dt" data-en="Drop your deck here, or click to choose" data-zh="把 Deck 拖到這裡，或點擊選擇">Drop your deck here, or click to choose</div>
+          <div class="ds" data-en="PDF with a text layer recommended" data-zh="建議含文字層的 PDF">PDF with a text layer recommended</div>
+        </div>
+        <input type="file" id="deckInput" accept=".pdf,.ppt,.pptx,.key" style="display:none" onchange="addFiles(this.files,'deck')">
+        <div class="filelist" id="deckList"></div>
+      </div>
+      <div class="field">
+        <div class="flabel"><span data-en="Supplementary files" data-zh="補充檔案">Supplementary files</span><span class="opt" data-en="optional" data-zh="選填">optional</span></div>
+        <div class="drop" id="dropExtra" onclick="document.getElementById('extraInput').click()">
+          <div class="di"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          <div class="dt" data-en="Financials, contracts/LOIs, demo, tech docs" data-zh="財務、合約／LOI、demo、技術文件">Financials, contracts/LOIs, demo, tech docs</div>
+          <div class="ds" data-en="Click to add, or drop files here" data-zh="點擊新增，或拖曳檔案到這裡">Click to add, or drop files here</div>
+        </div>
+        <input type="file" id="extraInput" multiple style="display:none" onchange="addFiles(this.files,'extra')">
+        <div class="filelist" id="extraList"></div>
+      </div>
+    </div>
+
+    <div class="fmt">
+      <b data-en="Make sure we (and an AI) can read it:" data-zh="確保我們（與 AI）讀得到：">Make sure we (and an AI) can read it:</b>
+      <span data-en=" Use a link that opens without a login, and a PDF with a real text layer (not a scanned image). Avoid password-protected files and image-only scanned PDFs." data-zh=" 用不需登入即可開啟的連結，且為含文字層的 PDF（非整份掃描圖）。避免加密／密碼保護檔與掃描成純圖片的 PDF。"> Use a link that opens without a login, and a PDF with a real text layer (not a scanned image). Avoid password-protected files and image-only scanned PDFs.</span>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="goStage('stage-form')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back to form" data-zh="回到問卷">Back to form</span></button>
+      <button class="btn" id="btnSubmit" onclick="submitApplication()"><span data-en="Submit application" data-zh="送出申請">Submit application</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
+    <p class="err" id="errSubmit" style="margin-top:16px"></p>
+  </section>
+
+  <!-- ───────────── SUCCESS ───────────── -->
+  <section class="stage" id="stage-done">
+    <div class="success">
+      <div class="big"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7CD992" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h1 data-en="Submitted." data-zh="已送出。">Submitted.</h1>
+      <p class="lead" style="margin:0 auto 22px" data-en="We review every submission personally and will be in touch soon." data-zh="我們會親自審閱每份遞交，並盡快與你聯繫。">We review every submission personally and will be in touch soon.</p>
+      <p class="note-line" id="tokNote" data-en="Your reference token (keep it to add files later without re-filling):" data-zh="你的遞交編號（保留它，日後可憑此補件、不必重填）：">Your reference token (keep it to add files later without re-filling):</p>
+      <div class="tokbox" id="tokWrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8C42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><code id="tokOut">—</code></div>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-ghost" href="/"><span data-en="Back to site" data-zh="返回官網">Back to site</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="foot"><span data-en="© 2026 EvoScale Capital · Confidential" data-zh="© 2026 EvoScale Capital · 保密文件">© 2026 EvoScale Capital · Confidential</span></div>
+
+<script>
+/* ===== Config ===== */
+/* SUBMIT_MODE:
+   'formsubmit' — emails the questionnaire + deck link to BOTH recipients via
+                  formsubmit.co (free, native CC). No backend. Current mode.
+   'worker'     — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
+var SUBMIT_MODE = 'formsubmit';
+var FORMSUBMIT_TO = 'boice@evoscalecapital.com';        // primary recipient
+var FORMSUBMIT_CC = 'vincent@evoscalecapital.com';      // CC — both get every submission
+var API_BASE = '/api';            // used only in 'worker' mode
+var DRAFT_KEY = 'evoscale-apply-draft';
+var MAX_FILE_MB = (SUBMIT_MODE === 'worker') ? 40 : 5;
+
+/* ===== Bilingual (shares os-lang with the main site) ===== */
+var lang = localStorage.getItem('os-lang') || 'en';
+function applyLang(l){
+  lang = l; localStorage.setItem('os-lang', l);
+  document.documentElement.lang = l==='zh'?'zh-Hant':'en';
+  document.documentElement.dataset.lang = l;
+  document.querySelectorAll('[data-en],[data-zh]').forEach(function(el){
+    if(el.children.length>0) return;
+    var v = l==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    if(v!==null && v!=='') el.textContent = v;
+  });
+  document.querySelectorAll('[data-en-ph],[data-zh-ph]').forEach(function(el){
+    var v = l==='zh'?el.getAttribute('data-zh-ph'):el.getAttribute('data-en-ph');
+    if(v!==null) el.setAttribute('placeholder', v);
+  });
+  var b=document.getElementById('langBtn'); if(b) b.textContent = l==='en'?'CH':'EN';
+  renderChecklist();
+}
+function toggleLang(){ applyLang(lang==='en'?'zh':'en'); }
+
+/* ===== Deck self-check checklist (one-click copy) ===== */
+var CHK_EN = "This list is a reference, not a checklist. Every business is different, not every item applies, and nothing here is required.\n"+
+  "Share what you can. Anything you would rather hold back for now is completely fine. The more it covers, the faster we can read it, and the fewer rounds you have to run.\n\n"+
+"1. Problem & pain + quantified cost (how much money/time customers lose per year)\n"+
+"2. Solution & unique value\n"+
+"3. Alternatives / competitors (including \"doing nothing\") & differentiation\n"+
+"4. Target customer (ICP or high-expectation customer HXC, be specific) + decision chain / stakeholders\n"+
+"5. Market size TAM / SAM / SOM + how you derived them\n"+
+"6. Business model & unit economics (CAC / LTV / gross margin)\n"+
+"7. Traction (MRR / MAU / retention / growth) & PMF signals\n"+
+"8. Core technology / moat / why it is hard to copy, IP status\n"+
+"9. Team background / track record / why you\n"+
+"10. Position & strategic role in the ecosystem (platform / complementor / channel / to-be-integrated)\n"+
+"11. Round / target raise / valuation / use of funds / runway, cap table";
+var CHK_ZH = "這份清單是給你參考的，不是檢查表。每一種生意不一樣，不是每一項都適用，也沒有一項是必填。\n"+
+  "能講的先講，暫時不方便公開的之後再談完全沒問題。涵蓋越多，我們判斷得越快，你也少跑幾次。\n\n"+
+"1. 問題與痛點＋量化代價（客戶每年損失多少錢／時間）\n"+
+"2. 解決方案與獨特價值\n"+
+"3. 替代方案／競品（含「什麼都不做」）與差異化\n"+
+"4. 目標客戶（ICP 或高期望消費者 HXC，要具體）＋決策鏈／利害關係\n"+
+"5. 市場規模 TAM／SAM／SOM＋推算依據\n"+
+"6. 商業模式與單位經濟（CAC／LTV／毛利）\n"+
+"7. 牽引指標（MRR／MAU／留存／成長率）與 PMF 訊號\n"+
+"8. 核心技術／護城河／為何難複製、IP 狀態\n"+
+"9. 團隊經歷／過往戰績／為何是你們\n"+
+"10. 在生態系中的定位與戰略角色（平台／補完者／通路／被整合方）\n"+
+"11. 募資輪次／目標額／估值／資金用途／Runway、cap table";
+function renderChecklist(){ var p=document.getElementById('chkText'); if(p) p.textContent = lang==='zh'?CHK_ZH:CHK_EN; }
+function copyChecklist(){
+  var txt = lang==='zh'?CHK_ZH:CHK_EN, btn=document.getElementById('copyChk');
+  navigator.clipboard.writeText(txt).then(function(){
+    btn.classList.add('done');
+    btn.querySelector('span').textContent = lang==='zh'?'已複製':'Copied';
+    setTimeout(function(){ btn.classList.remove('done'); applyLang(lang); }, 1800);
+  });
+}
+
+/* ===== Stage navigation ===== */
+function goStage(id){
+  document.querySelectorAll('.stage').forEach(function(s){ s.classList.remove('on'); });
+  document.getElementById(id).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  applyLang(lang);
+}
+
+/* ===== Questionnaire paging ===== */
+var page = 1, TOTAL_PAGES = 4;
+function showPage(n){
+  page = n;
+  document.querySelectorAll('.qpage').forEach(function(p){ p.classList.toggle('on', +p.dataset.page===n); });
+  document.getElementById('pgNow').textContent = n;
+  document.getElementById('btnPrev').style.display = n===1?'none':'inline-flex';
+  var next=document.getElementById('btnNext'), s=next.querySelector('span');
+  s.setAttribute('data-en', n===TOTAL_PAGES?'Continue to upload':'Next');
+  s.setAttribute('data-zh', n===TOTAL_PAGES?'前往上傳':'下一頁');
+  updateProgress(); applyLang(lang);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function nextPage(){
+  if(!validatePage(page)) return;
+  if(page<TOTAL_PAGES) showPage(page+1);
+  else goStage('stage-upload');
+}
+function prevPage(){ if(page>1) showPage(page-1); }
+
+/* ===== Required-field tracking & progress ===== */
+function requiredFields(){
+  // returns array of {name, type, ok()}
+  var list=[];
+  document.querySelectorAll('.qpage .field[data-required]').forEach(function(f){
+    var group=f.dataset.group;
+    if(group){ list.push({el:f, ok:function(){ return document.querySelector('[name="'+group+'"]:checked')!=null; }}); }
+    else{ var c=f.querySelector('.ctrl'); if(c) list.push({el:f, ctrl:c, ok:function(){ return c.value.trim()!==''; }}); }
+  });
+  return list;
+}
+function updateProgress(){
+  var reqs=requiredFields(), done=reqs.filter(function(r){return r.ok();}).length;
+  var pct=Math.round(done/reqs.length*100);
+  document.getElementById('pgPct').textContent = pct;
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('bar').style.width = (12 + pct*0.6)+'%';
+}
+function validatePage(n){
+  var ok=true, pageEl=document.querySelector('.qpage[data-page="'+n+'"]');
+  pageEl.querySelectorAll('.field[data-required]').forEach(function(f){
+    var good;
+    if(f.dataset.group) good = document.querySelector('[name="'+f.dataset.group+'"]:checked')!=null;
+    else{ var c=f.querySelector('.ctrl'); good = c && c.value.trim()!==''; if(good && c.type==='email') good=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.value); }
+    f.classList.toggle('invalid', !good);
+    if(!good && ok){ ok=false; f.scrollIntoView({block:'center',behavior:'smooth'}); }
+  });
+  // Page 4: both consents are required to advance
+  if(n===4){
+    var ai=document.querySelector('[name="consent_ai"]'), rf=document.querySelector('[name="consent_referral"]');
+    document.getElementById('errConsentAi').style.display = ai.checked?'none':'block';
+    document.getElementById('errConsentRef').style.display = rf.checked?'none':'block';
+    if(!ai.checked || !rf.checked){
+      if(ok){ (ai.checked?rf:ai).closest('.consent').scrollIntoView({block:'center',behavior:'smooth'}); }
+      ok=false;
+    }
+  }
+  return ok;
+}
+
+/* ===== One-liner counter (CJK-aware, ≤35) ===== */
+function countOneLiner(el){
+  var n=[...el.value].length;
+  document.getElementById('olCount').textContent = n;
+  document.getElementById('olCount').style.color = n>35?'#FF7A7A':'';
+}
+
+/* ===== Draft autosave (localStorage) ===== */
+var saveTimer=null;
+function collectAnswers(){
+  var f=document.getElementById('appForm'), data={};
+  f.querySelectorAll('input,textarea,select').forEach(function(el){
+    if(!el.name) return;
+    if(el.type==='checkbox'){
+      if(el.name==='target_markets'){ data[el.name]=data[el.name]||[]; if(el.checked) data[el.name].push(el.value); }
+      else data[el.name]=el.checked;
+    } else if(el.type==='radio'){ if(el.checked) data[el.name]=el.value; }
+    else data[el.name]=el.value;
+  });
+  // upload-stage fields live outside #appForm
+  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
+  return data;
+}
+function saveDraft(){
+  try{ localStorage.setItem(DRAFT_KEY, JSON.stringify({a:collectAnswers(), page:page, t:Date.now()})); }catch(e){}
+  var tag=document.getElementById('savedTag'); tag.classList.add('show');
+  clearTimeout(saveTimer); saveTimer=setTimeout(function(){ tag.classList.remove('show'); }, 1600);
+}
+function restoreDraft(){
+  var raw=localStorage.getItem(DRAFT_KEY); if(!raw) return false;
+  var d; try{ d=JSON.parse(raw); }catch(e){ return false; }
+  var a=d.a||{}, any=false, f=document.getElementById('appForm');
+  f.querySelectorAll('input,textarea,select').forEach(function(el){
+    if(!el.name || !(el.name in a)) return;
+    if(el.type==='checkbox'){
+      if(el.name==='target_markets'){ el.checked=(a[el.name]||[]).indexOf(el.value)>=0; }
+      else el.checked=!!a[el.name];
+    } else if(el.type==='radio'){ el.checked=(a[el.name]===el.value); }
+    else el.value=a[el.name];
+    if(el.value) any=true;
+  });
+  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el && (n in a)){ el.value=a[n]; if(a[n]) any=true; } });
+  var ol=document.querySelector('[name="one_liner"]'); if(ol) countOneLiner(ol);
+  return any;
+}
+
+/* ===== File handling ===== */
+var files={deck:[], extra:[]};
+function fmtSize(b){ return b>1048576?(b/1048576).toFixed(1)+' MB':Math.max(1,Math.round(b/1024))+' KB'; }
+function addFiles(fileList, kind){
+  [...fileList].forEach(function(file){
+    if(file.size > MAX_FILE_MB*1048576){ alert((lang==='zh'?'檔案過大（上限 ':'File too large (max ')+MAX_FILE_MB+'MB): '+file.name); return; }
+    if(kind==='deck') files.deck=[file]; else files.extra.push(file);
+  });
+  renderFiles();
+}
+function removeFile(kind,i){ files[kind].splice(i,1); renderFiles(); }
+function renderFiles(){
+  ['deck','extra'].forEach(function(kind){
+    var wrap=document.getElementById(kind+'List'); wrap.innerHTML='';
+    files[kind].forEach(function(file,i){
+      var d=document.createElement('div'); d.className='fileitem';
+      d.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'+
+        '<span class="fn"></span><span class="fs">'+fmtSize(file.size)+'</span>'+
+        '<button class="rm" aria-label="remove"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+      d.querySelector('.fn').textContent=file.name;
+      d.querySelector('.rm').onclick=function(){ removeFile(kind,i); };
+      wrap.appendChild(d);
+    });
+  });
+}
+// drag & drop
+['dropDeck','dropExtra'].forEach(function(id){
+  var el=document.getElementById(id), kind=id==='dropDeck'?'deck':'extra';
+  ['dragenter','dragover'].forEach(function(ev){ el.addEventListener(ev,function(e){ e.preventDefault(); el.classList.add('over'); }); });
+  ['dragleave','drop'].forEach(function(ev){ el.addEventListener(ev,function(e){ e.preventDefault(); el.classList.remove('over'); }); });
+  el.addEventListener('drop',function(e){ if(e.dataTransfer.files.length) addFiles(e.dataTransfer.files, kind); });
+});
+
+/* ===== Submit ===== */
+function setSubmitErr(msg){ var e=document.getElementById('errSubmit'); e.textContent=msg; e.style.display=msg?'block':'none'; }
+function setBusy(on){ var btn=document.getElementById('btnSubmit'), label=btn.querySelector('span'); btn.disabled=on; if(on){ btn.dataset.orig=label.textContent; label.textContent=lang==='zh'?'送出中…':'Sending…'; } else if(btn.dataset.orig){ label.textContent=btn.dataset.orig; } }
+function showSuccess(token){
+  var note=document.getElementById('tokNote'), box=document.getElementById('tokWrap');
+  if(token){ document.getElementById('tokOut').textContent=token; if(note)note.style.display=''; if(box)box.style.display=''; }
+  else { if(note)note.style.display='none'; if(box)box.style.display='none'; }
+  goStage('stage-done');
+}
+async function submitApplication(){
+  setSubmitErr('');
+  clearDeckErrors(); setSubmitErr('');
+  var answers=collectAnswers();
+  if(!answers.consent_ai || !answers.consent_referral){
+    setSubmitErr(lang==='zh'?'請先回到問卷第 4 頁勾選兩項必要同意。':'Please go back to page 4 and check both required consents.');
+    var se=document.getElementById('errSubmit'); if(se) se.scrollIntoView({block:'center',behavior:'smooth'});
+    return;
+  }
+  if(SUBMIT_MODE!=='worker') return submitViaFormsubmit(answers);
+  return submitViaWorker(answers);
+}
+
+/* 錯誤訊息一旦顯示就要有辦法消失。舊版沒有這個，所以使用者補上連結之後
+   那句「A deck link is required」還掛在畫面上，看起來像連結沒被接受。 */
+function clearDeckErrors(){
+  ['errDeckLink','errDeckMoved','btnUseNotesLink'].forEach(function(id){
+    var e=document.getElementById(id); if(e) e.style.display='none';
+  });
+}
+document.addEventListener('input', function(e){
+  if(e.target && (e.target.name==='deck_link' || e.target.name==='extra_notes')) clearDeckErrors();
+});
+
+/* 連結正規化：把使用者真的會貼進來的東西修好，而不是把它擋掉。
+   全形冒號、前後空白、外層角括號、沒有 scheme，四種都自動處理。 */
+function normalizeDeckLink(){
+  var el=document.querySelector('[name="deck_link"]'); if(!el) return;
+  var v=(el.value||'').trim().replace(/^[<（(]+|[>）)]+$/g,'').replace(/：/g,':').trim();
+  if(v && !/^https?:\/\//i.test(v)) v='https://'+v.replace(/^\/+/,'');
+  el.value=v;
+}
+/* 從補充資料那格撈出第一個網址。使用者最常見的錯是把連結貼錯格。 */
+function firstUrlInNotes(){
+  var el=document.querySelector('[name="extra_notes"]'); if(!el) return '';
+  var m=(el.value||'').match(/(https?:\/\/[^\s<>"']+|(?:drive|docs)\.google\.com[^\s<>"']+|(?:www\.)?(?:dropbox|notion)\.[a-z]{2,}[^\s<>"']*)/i);
+  return m?m[0]:'';
+}
+function deckLinkMissing(){
+  var el=document.querySelector('[name="deck_link"]');
+  var cand=firstUrlInNotes();
+  var e1=document.getElementById('errDeckLink'), e2=document.getElementById('errDeckMoved'), btn=document.getElementById('btnUseNotesLink');
+  if(cand && e2 && btn){
+    e1.style.display='none'; e2.style.display='block'; btn.style.display='';
+    btn.onclick=function(){ el.value=cand; normalizeDeckLink(); e2.style.display='none'; btn.style.display='none'; saveDraft(); el.focus(); };
+  } else {
+    if(e2)e2.style.display='none'; if(btn)btn.style.display='none';
+    e1.style.display='block';
+  }
+  el.scrollIntoView({block:'center',behavior:'smooth'});
+  setTimeout(function(){ el.focus(); }, 400);
+}
+
+/* formsubmit.co: emails questionnaire + deck link to BOTH recipients (TO + CC). No backend. */
+async function submitViaFormsubmit(answers){
+  normalizeDeckLink();
+  answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';
+  if(!(answers.deck_link||'').trim()){ return deckLinkMissing(); }
+  setBusy(true);
+  try{
+    var fd=new FormData();
+    fd.append('_subject', 'New deal submission — '+(answers.company||'Unknown'));
+    fd.append('_cc', FORMSUBMIT_CC);
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    Object.keys(answers).forEach(function(k){
+      var v=answers[k]; if(Array.isArray(v)) v=v.join(', '); if(typeof v==='boolean') v=v?'yes':'no';
+      fd.append(k, v==null?'':String(v));
+    });
+    var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_TO),{method:'POST',headers:{Accept:'application/json'},body:fd});
+    var jr=await res.json().catch(function(){return {};});
+    if(!res.ok || !(jr.success===true || jr.success==='true')) throw 0;
+    localStorage.removeItem(DRAFT_KEY);
+    showSuccess(null);
+  }catch(err){
+    setBusy(false);
+    setSubmitErr(lang==='zh'?'送出失敗，請稍後再試，或來信 vincent@evoscalecapital.com。你的草稿已保留。':'Submission failed. Please retry shortly or email vincent@evoscalecapital.com. Your draft is kept.');
+  }
+}
+
+/* Cloudflare Worker + R2: direct presigned file upload + token isolation. */
+async function submitViaWorker(answers){
+  normalizeDeckLink();
+  answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';
+  if(files.deck.length===0 && !(answers.deck_link||'').trim()){ return deckLinkMissing(); }
+  setBusy(true);
+  try{
+    var init=await fetch(API_BASE+'/init',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+    if(!init.ok) throw 0; var token=(await init.json()).token;
+    var manifest=[];
+    for(var kind of ['deck','extra']){
+      for(var file of files[kind]){
+        var ps=await fetch(API_BASE+'/presign',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({token:token, kind:kind, filename:file.name, contentType:file.type||'application/octet-stream'})});
+        if(!ps.ok) throw 0; var url=(await ps.json()).url;
+        var put=await fetch(url,{method:'PUT',headers:{'Content-Type':file.type||'application/octet-stream'},body:file});
+        if(!put.ok) throw 0;
+        manifest.push({kind:kind, filename:file.name, size:file.size});
+      }
+    }
+    var done=await fetch(API_BASE+'/complete',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({token:token, answers:answers, files:manifest, lang:lang})});
+    if(!done.ok) throw 0;
+    localStorage.removeItem(DRAFT_KEY);
+    showSuccess(token);
+  }catch(err){
+    setBusy(false);
+    setSubmitErr(lang==='zh'?'送出失敗，請稍後再試，或來信 vincent@evoscalecapital.com。你的草稿已保留。':'Submission failed. Please retry shortly or email vincent@evoscalecapital.com. Your draft is kept.');
+  }
+}
+
+/* ===== Init ===== */
+function isTracked(t){ return t && t.closest && (t.closest('#appForm') || (t.name==='deck_link') || (t.name==='extra_notes')); }
+document.addEventListener('input', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
+document.addEventListener('change', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
+(function start(){
+  // Show the right upload UI for the active submit mode
+  var fu=document.getElementById('fileUploads'), en=document.getElementById('extraNotesField');
+  if(SUBMIT_MODE==='worker'){ if(fu)fu.style.display=''; if(en)en.style.display='none'; }
+  else { if(fu)fu.style.display='none'; if(en)en.style.display=''; }
+  renderChecklist();
+  var restored = restoreDraft();
+  if(restored) document.getElementById('resumeNote').style.display='inline';
+  showPage(1);
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
