@@ -187,5 +187,14 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
 (function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
 /* Site default is English on every load. The toggle is session-only. */
 </script>
+<!-- 分析：Cloudflare Web Analytics + Microsoft Clarity -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "766d2a2b8e7c479eba3f8fe21c4779d1"}'></script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "x4ewf64gyt");
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # EvoScale Capital
 
-> EvoScale Capital (毅拓資本) is Taiwan's first operator-led venture syndicate. 50+ senior operators from Fortune 500 tech giants and Taiwan's top 100 enterprises co-invest in B2B startups and open enterprise procurement doors from day one.
+> EvoScale Capital (一春資本) is Taiwan's first operator-led venture syndicate. 50+ senior operators from Fortune 500 tech giants and Taiwan's top 100 enterprises co-invest in B2B startups and open enterprise procurement doors from day one.
 
 EvoScale Capital invests more than capital. Alongside funding, portfolio companies gain an operator network and direct enterprise channel access: the operators personally know the decision-makers at the exact companies a startup is trying to sell to. The thesis is that early alpha in B2B comes from changing the odds by putting founders in the room.
 
@@ -15,16 +15,16 @@ Every submission is evaluated objectively through a D-F-V framework (Desirabilit
 - Who can apply: Tier 1 (seed / early stage) and Tier 2 (pre-IPO) B2B companies
 - Community cadence: a monthly Dealroom on the last Friday of each month, where three fitting startups pitch to the operator network
 - Enterprises represented in the founding council include NVIDIA, Microsoft, AWS, IBM, Salesforce, UBS, GlobalFoundries, Sharp, Dentsu, LINE, IDC, Appier, and iPassMoney
-- Team: Boice Lin (Founder & Managing Partner), Vincent Wang, Tina Lee
+- Team: Boice Lin (Founder & Managing Partner), Vincent Wang (Founding AO & Content Manager)
 - Membership is by invitation; operators are added selectively based on fit and capacity
 
 ## Pages
 
 - [Home](https://evoscalecapital.com/): What EvoScale is, the operator network, the model, investment tiers, and FAQ
-- [Apply / Submit a deal](https://evoscalecapital.com/apply.html): YC-style application for B2B founders — a short questionnaire plus a pitch deck
+- [Apply / Submit a deal](https://evoscalecapital.com/apply/): YC-style application for B2B founders — a short questionnaire plus a pitch deck
 - [Insights](https://evoscalecapital.com/insights/): Articles on enterprise go-to-market and operator-led investing
 
 ## Contact
 
-- Deal submissions: https://evoscalecapital.com/apply.html
+- Deal submissions: https://evoscalecapital.com/apply/
 - General enquiries: boice@evoscalecapital.com
