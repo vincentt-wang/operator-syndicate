@@ -32,7 +32,7 @@ a{color:inherit}
 .top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
 .top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
-.brand .lm{display:flex;flex-direction:column;gap:3px}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
 .top-r{display:flex;align-items:center;gap:1.1rem}
 .lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 13px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:inherit}
 .back{font-size:.86rem;color:var(--mut);text-decoration:none}.back:hover{color:#fff}
@@ -84,7 +84,7 @@ body.searching #scount{display:block}
 </head>
 <body>
 <div class="top"><div class="top-in">
-  <a class="brand" href="../index.html"><span class="lm"><b></b><b></b><b></b></span>EvoScale Capital</a>
+  <a class="brand" href="../index.html"><span class="lm">ES</span>EvoScale Capital</a>
   <div class="top-r">
     <a class="back" href="../index.html" data-en="&larr; Home" data-zh="&larr; 首頁">&larr; Home</a>
     <button class="lang" id="lt" onclick="toggleL()">CH</button>

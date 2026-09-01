@@ -46,7 +46,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .header-inner{max-width:1180px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
 .header-logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;transition:opacity .2s}
 .header-logo:hover{opacity:.78}
-.lm{display:flex;flex-direction:column;gap:4px}
+.lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .lm-b{height:2px;background:var(--orange);border-radius:2px}
 .lm-b:nth-child(1){width:14px}.lm-b:nth-child(2){width:22px}.lm-b:nth-child(3){width:14px}
 .logo-text{font-family:var(--fd);font-weight:800;font-size:.95rem;color:#fff}
@@ -136,7 +136,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="header-logo" title="Back to home">
-      <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
+      <div class="lm">ES</div>
       <span class="logo-text">EvoScale Capital</span>
     </a>
     <div style="display:flex;align-items:center;gap:1rem">

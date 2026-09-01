@@ -56,7 +56,7 @@ img{max-width:100%;display:block}
 #nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent;pointer-events:all}
 #nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--border);box-shadow:0 1px 0 rgba(0,0,0,.05)}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.lm{display:flex;flex-direction:column;gap:4px}
+.lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .lm-b{height:2px;background:var(--orange);border-radius:2px;transition:all .3s;transform-origin:left}
 .lm-b:nth-child(1){width:14px}.lm-b:nth-child(2){width:22px}.lm-b:nth-child(3){width:14px}
 .logo:hover .lm-b:nth-child(1){width:22px}.logo:hover .lm-b:nth-child(2){width:14px}.logo:hover .lm-b:nth-child(3){width:22px}
@@ -240,7 +240,7 @@ img{max-width:100%;display:block}
 .btn-submit.btn-ghost{background:transparent;color:var(--orange);border:2px solid var(--orange)}
 .btn-submit.btn-ghost:hover{background:var(--orange);color:#fff}
 .way-rows{margin-top:2.6rem;border-top:1px solid var(--border)}
-.way-row{display:grid;grid-template-columns:152px minmax(200px,30%) 1fr;gap:1.6rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:background .3s}
+.way-row{display:grid;grid-template-columns:150px minmax(220px,34%) 1fr;gap:1.6rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:background .3s}
 .way-row:hover{background:linear-gradient(90deg,rgba(255,102,0,.05),transparent)}
 .way-tag{font-family:var(--fd);font-size:1.26rem;font-weight:800;letter-spacing:-.01em;line-height:1.3;background:none;border:none;padding:0;text-align:left;white-space:nowrap;align-self:start}
 .way-tag.t-s{color:#0369a1}
@@ -823,7 +823,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="portal-step portal-detail" id="ps-startup" style="display:none">
     <button class="portal-back" onclick="showStep('ps-select')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg><span data-en="Back" data-zh="返回">Back</span></button>
     <div class="portal-ey" data-en="Deal Submission" data-zh="案源申請">Deal Submission</div>
-    <h2 class="portal-h" data-en="Submit your deal." data-zh="提交你的案源。">Submit your deal.</h2>
+    <h2 class="portal-h" data-en="Submit your deal" data-zh="提交你的案源">Submit your deal</h2>
     <div class="portal-info-grid">
       <div>
         <p class="portal-sub" style="margin-bottom:1.4rem" data-en="We review every submission personally. We look for:" data-zh="每份申請均由團隊親自審閱。我們看的是：">We review every submission personally. We look for:</p>
@@ -894,10 +894,8 @@ footer{background:#060F1E;padding:72px 0 0}
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">&#10005;</button>
-  <a href="#network" onclick="closeMob()" data-en="Operators" data-zh="高管網絡">Operators</a>
-  <a href="operators.html" onclick="closeMob()" data-en="Network" data-zh="完整名冊" style="padding-left:2rem;opacity:.75;font-size:.95rem">Network</a>
-  <a href="#about" onclick="closeMob()" data-en="The Model" data-zh="運作模式">The Model</a>
-  <a href="#tiers" onclick="closeMob()" data-en="Tiers" data-zh="投資層級">Tiers</a>
+  <a href="#network" onclick="closeMob()" data-en="Network" data-zh="網絡">Network</a>
+  <a href="#about" onclick="closeMob()" data-en="Model" data-zh="運作">Model</a>
   <a href="#global" onclick="closeMob()" data-en="Global" data-zh="出海">Global</a>
   <a href="#team" onclick="closeMob()" data-en="Team" data-zh="團隊">Team</a>
   <a href="#faq" onclick="closeMob()" data-en="FAQ" data-zh="FAQ">FAQ</a>
@@ -910,14 +908,13 @@ footer{background:#060F1E;padding:72px 0 0}
 <!-- NAV -->
 <nav id="nav" class="hero-nav">
   <a class="logo" href="/" onclick="if(!event.metaKey&&!event.ctrlKey&&!event.shiftKey){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'','/');}">
-    <div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div>
+    <div class="lm">ES</div>
     <span class="logo-text">EvoScale Capital</span>
     
   </a>
   <ul class="nav-links">
-    <li class="has-dropdown"><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a><div class="nav-dropdown"><a href="operators.html" data-en="Network" data-zh="完整名冊">Network</a></div></li>
-    <li><a href="#about" data-en="The Model" data-zh="運作模式">The Model</a></li>
-    <li><a href="#tiers" data-en="Tiers" data-zh="投資層級">Tiers</a></li>
+    <li><a href="#network" data-en="Network" data-zh="網絡">Network</a></li>
+    <li><a href="#about" data-en="Model" data-zh="運作">Model</a></li>
     <li><a href="#global" data-en="Global" data-zh="出海">Global</a></li>
     <li><a href="#team" data-en="Team" data-zh="團隊">Team</a></li>
     <li><a href="#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
@@ -1170,7 +1167,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="submit-orb"></div>
   <div class="submit-inner">
     <div class="submit-ey reveal" data-en="Ready to move?" data-zh="準備好了嗎？">Ready to move?</div>
-    <h2 class="submit-h reveal" data-en="Submit your deal." data-zh="提交你的案源。">Submit your deal.</h2>
+    <h2 class="submit-h reveal" data-en="Submit your deal" data-zh="提交你的案源">Submit your deal</h2>
     <p class="submit-sub reveal" data-en="If you're building B2B with serious enterprise ambitions, this could be your shortest path to several-million-dollar business." data-zh="如果你正在打造 B2B 並有明確的企業端野心，這裡可能是你通往數百萬營收的最短路徑。">If you're building B2B with serious enterprise ambitions, this could be your shortest path to several-million-dollar business.</p>
     <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem" class="reveal">
       <button onclick="location.href='apply.html'" class="btn-submit">
@@ -1203,7 +1200,7 @@ footer{background:#060F1E;padding:72px 0 0}
     <div class="way-rows">
       <div class="way-row reveal">
         <div class="way-tag t-s" data-en="Startup" data-zh="新創團隊">Startup</div>
-        <div class="way-when" data-en="You already have customers paying, and you want bigger ones" data-zh="已經有客戶在付錢，想打進更大的客戶">You already have customers paying, and you want bigger ones</div>
+        <div class="way-when" data-en="You have paying customers, want bigger ones" data-zh="已經有付費客戶，想打進更大的">You have paying customers, want bigger ones</div>
         <div class="way-what">
           <h4 data-en="Pitch at the Deal Room" data-zh="上 Deal Room 提案">Pitch at the Deal Room</h4>
           <p data-en="The last Friday of every month, in front of the operator network. B2B and B2C both get looked at." data-zh="每個月最後一個星期五，面對整個 operator 網絡。B2B 與 B2C 都看。">The last Friday of every month, in front of the operator network. B2B and B2C both get looked at.</p>
@@ -1211,7 +1208,7 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="way-row reveal">
         <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You want to see evaluated deals every month, and be findable by this group" data-zh="想每個月看到經過評估的案子，也想被這群人找到">You want to see evaluated deals every month, and be findable by this group</div>
+        <div class="way-when" data-en="You want evaluated deals every month" data-zh="想固定看到評估過的案子">You want evaluated deals every month</div>
         <div class="way-what">
           <h4 data-en="Annual membership" data-zh="年費會員">Annual membership</h4>
           <p data-en="A seat at the Deal Room, our written analysis before each session, and the summary afterwards." data-zh="Deal Room 的席位、場次前的分析、場次後的匯總。">A seat at the Deal Room, our written analysis before each session, and the summary afterwards.</p>
@@ -1219,7 +1216,7 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="way-row reveal">
         <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You want to invest alongside this group without sourcing deals yourself" data-zh="想跟這群人一起投，但不想自己找案子">You want to invest alongside this group without sourcing deals yourself</div>
+        <div class="way-when" data-en="You want to co-invest, not source" data-zh="想一起投，但不想自己找案">You want to co-invest, not source</div>
         <div class="way-what">
           <h4 data-en="Co-investment" data-zh="共同投資">Co-investment</h4>
           <p data-en="A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time." data-zh="會員權利。我們評估完，逐案開放。每一案跟或不跟都是你自己決定。">A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time.</p>
@@ -1227,7 +1224,7 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="way-row reveal">
         <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You have spent long enough in one industry to have a view worth recording" data-zh="在一個產業待得夠久，判斷值得被留下來">You have spent long enough in one industry to have a view worth recording</div>
+        <div class="way-when" data-en="You have real depth in one industry" data-zh="在一個產業待得夠久">You have real depth in one industry</div>
         <div class="way-what">
           <h4 data-en="Founding Council" data-zh="創始委員會">Founding Council</h4>
           <p data-en="Publish an industry view under your own name as an investor. Join the quarterly committee." data-zh="以投資人身分，用你的名字發表一個產業的觀點。參與季度委員會。">Publish an industry view under your own name as an investor. Join the quarterly committee.</p>
@@ -1235,7 +1232,7 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="way-row reveal">
         <div class="way-tag t-c" data-en="Corporate" data-zh="企業">Corporate</div>
-        <div class="way-when" data-en="You already know the problem or the technology you are looking for" data-zh="內部已經有明確的題目或技術需求">You already know the problem or the technology you are looking for</div>
+        <div class="way-when" data-en="You have a defined problem inside" data-zh="內部已有明確的題目">You have a defined problem inside</div>
         <div class="way-what">
           <h4 data-en="Corporate membership, matched to your problem" data-zh="企業會員 · 命題對接">Corporate membership, matched to your problem</h4>
           <p data-en="Give us the problem. We look through our pipeline and the partner network." data-zh="把題目給我們。我們從案源與生態夥伴裡找人。">Give us the problem. We look through our pipeline and the partner network.</p>
@@ -1243,21 +1240,14 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
       <div class="way-row reveal">
         <div class="way-tag t-a" data-en="Anyone" data-zh="不限身分">Anyone</div>
-        <div class="way-when" data-en="You know a team that deserves this room" data-zh="手上有值得站上這個場的團隊">You know a team that deserves this room</div>
+        <div class="way-when" data-en="You know a team worth this room" data-zh="手上有值得站上這場的團隊">You know a team worth this room</div>
         <div class="way-what">
           <h4 data-en="Refer them in" data-zh="案源推薦">Refer them in</h4>
           <p data-en="Send them over. We evaluate." data-zh="介紹過來，我們評估。">Send them over. We evaluate.</p>
         </div>
       </div>
     </div>
-    <div class="way-cta reveal">
-      <div class="way-cta-t" data-en="Not sure which one fits?" data-zh="不確定哪一種適合你？">Not sure which one fits?</div>
-      <p data-en="Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do." data-zh="來信講一下你想做什麼。我們會告訴你哪一種比較合，或者坦白說都不合。">Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do.</p>
-      <div class="way-btns">
-        <a class="way-b b-solid" href="membership.html" data-en="Apply for membership" data-zh="會員申請">Apply for membership</a>
-        <a class="way-b" href="mailto:vincent@evoscalecapital.com?subject=EvoScale" data-en="Email us a question" data-zh="來信詢問">Email us a question</a>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -1280,23 +1270,25 @@ footer{background:#060F1E;padding:72px 0 0}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="ft-logo"><div class="lm"><div class="lm-b"></div><div class="lm-b"></div><div class="lm-b"></div></div><span class="ft-logo-text">EvoScale Capital</span></div>
+        <div class="ft-logo"><div class="lm">ES</div><span class="ft-logo-text">EvoScale Capital</span></div>
 <div class="ft-zhname" style="font-size:.82rem;color:var(--muted,#8A93A0);margin-top:.25rem;letter-spacing:.02em">一春資本</div>
 <div class="ft-social" style="display:flex;gap:.85rem;margin-top:.9rem">
   <a href="https://www.linkedin.com/company/evoscale-capital/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:var(--muted,#8A93A0);display:inline-flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
   <a href="https://www.facebook.com/profile.php?id=61593171164016" target="_blank" rel="noopener" aria-label="Facebook" style="color:var(--muted,#8A93A0);display:inline-flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
 </div>
-        <div class="ft-tagline" data-en="Enterprise Channel. Day One. Co-invest with operators who mentor founders on enterprise go-to-market." data-zh="一春資本｜企業通路，第一天起。與指導創辦人企業銷售的高管共同投資。">Enterprise Channel. Day One. Co-invest with operators who mentor founders on enterprise go-to-market.</div>
         <a class="ft-email" href="mailto:boice@evoscalecapital.com" style="display:block">boice@evoscalecapital.com</a>
         <a class="ft-email" href="vc-copilot/" target="_blank" rel="noopener" style="display:block;margin-top:.3rem">vincent@evoscalecapital.com</a>
       </div>
       <nav class="ft-nav"><h5 data-en="Navigate" data-zh="導覽">Navigate</h5><ul>
-        <li><a href="#network" data-en="Operators" data-zh="高管網絡">Operators</a></li>
-        <li><a href="#about" data-en="The Model" data-zh="運作模式">The Model</a></li>
-        <li><a href="#tiers" data-en="Investment Tiers" data-zh="投資層級">Investment Tiers</a></li>
+        <li><a href="#network" data-en="Network" data-zh="網絡">Network</a></li>
+        <li><a href="operators.html" data-en="Full roster" data-zh="完整名冊">Full roster</a></li>
+        <li><a href="#about" data-en="Model" data-zh="運作">Model</a></li>
+        <li><a href="#tiers" data-en="Investment tiers" data-zh="投資層級">Investment tiers</a></li>
+        <li><a href="#ways" data-en="Ways to work together" data-zh="合作方式">Ways to work together</a></li>
       </ul></nav>
       <div class="ft-nav"><h5 data-en="Get Started" data-zh="開始合作">Get Started</h5>
         <button onclick="location.href='apply.html'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:var(--orange);color:#fff;border-radius:var(--r-btn);cursor:pointer;border:none" data-en="Submit Your Deal →" data-zh="提交案源 →">Submit Your Deal →</button>
+        <button onclick="location.href='membership.html'" style="font-family:var(--fb);font-weight:700;font-size:.88rem;padding:10px 22px;background:transparent;color:var(--orange);border-radius:var(--r-btn);cursor:pointer;border:2px solid var(--orange);margin-top:.55rem;display:block" data-en="Membership →" data-zh="會員申請 →">Membership →</button>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1422,7 +1414,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.ge
 /* ── 簡報式鍵盤導覽：方向鍵／PageUp-Down 一頁一頁跳到下一段（比照 Trinity）── */
 (function(){
   var NAV_OFF=68; // 固定 nav 高度
-  var IDS=['hero','network','about','tiers','gallery','partners','global','team','submit','faq'];
+  var IDS=['hero','network','about','tiers','global','team','submit','ways','faq'];
   function steps(){ // 只取看得到的段（跳過 display:none 的 gallery／partners）
     return IDS.map(function(id){return document.getElementById(id);})
       .filter(function(el){return el && el.offsetParent!==null && getComputedStyle(el).display!=='none';});
