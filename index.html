@@ -158,7 +158,7 @@ img{max-width:100%;display:block}
 /* COMMON */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
 .eyebrow::before{content:'';width:20px;height:2px;background:var(--orange);border-radius:2px;flex-shrink:0}
-.section-h{font-family:var(--fd);font-weight:800;font-size:clamp(2.4rem,4.5vw,4rem);line-height:1.06;letter-spacing:-.02em;color:var(--text);margin-bottom:1.25rem}
+.section-h{font-family:var(--fd);font-weight:800;font-size:clamp(2.4rem,4.5vw,4rem);line-height:1.06;letter-spacing:-.02em;color:var(--text);margin-bottom:1.25rem;text-wrap:balance}
 .section-p{font-size:1.1rem;color:var(--text-3);line-height:1.75;max-width:580px}
 @media(max-width:680px){#about .section-p{white-space:normal!important}}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-weight:700;font-size:1rem;padding:16px 32px;border-radius:var(--r-btn);background:var(--orange);color:#fff;transition:background .25s,transform .25s,box-shadow .25s;border:none;cursor:pointer;position:relative;overflow:hidden}
@@ -242,11 +242,11 @@ img{max-width:100%;display:block}
 .way-rows{margin-top:2.6rem;border-top:1px solid var(--border)}
 .way-row{display:grid;grid-template-columns:152px minmax(200px,30%) 1fr;gap:1.6rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:background .3s}
 .way-row:hover{background:linear-gradient(90deg,rgba(255,102,0,.05),transparent)}
-.way-tag{font-family:var(--fb);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;text-align:center;white-space:nowrap;align-self:start}
-.way-tag.t-s{color:#0369a1;background:#e0f2fe;border:1px solid #bae6fd}
-.way-tag.t-i{color:#b45309;background:#fef3c7;border:1px solid #fde68a}
-.way-tag.t-c{color:#3730a3;background:#e0e7ff;border:1px solid #c7d2fe}
-.way-tag.t-a{color:#3f6212;background:#ecfccb;border:1px solid #d9f99d}
+.way-tag{font-family:var(--fd);font-size:1.26rem;font-weight:800;letter-spacing:-.01em;line-height:1.3;background:none;border:none;padding:0;text-align:left;white-space:nowrap;align-self:start}
+.way-tag.t-s{color:#0369a1}
+.way-tag.t-i{color:#b45309}
+.way-tag.t-c{color:#3730a3}
+.way-tag.t-a{color:#3f6212}
 .way-when{font-size:1.02rem;color:var(--text-2);line-height:1.6;font-weight:500;padding-top:2.04rem}
 @media(max-width:820px){.way-when{padding-top:0}}
 .way-what h4{font-family:var(--fd);font-weight:800;font-size:1.26rem;color:var(--orange);letter-spacing:-.01em;margin-bottom:.4rem;line-height:1.3}
@@ -807,10 +807,10 @@ footer{background:#060F1E;padding:72px 0 0}
         <div class="role-label" data-en="B2B Startup" data-zh="B2B 新創">B2B Startup</div>
         <div class="role-desc" data-en="Submit your deal for review" data-zh="提交案源申請">Submit your deal for review</div>
       </div>
-      <div class="role-card" onclick="showStep('ps-exec')">
+      <div class="role-card" onclick="location.href='membership.html'">
         <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="role-label" data-en="Enterprise Executive" data-zh="外商高管">Enterprise Executive</div>
-        <div class="role-desc" data-en="Join as an operator LP" data-zh="加入成為 LP">Join as an operator LP</div>
+        <div class="role-desc" data-en="Apply for membership" data-zh="會員申請">Apply for membership</div>
       </div>
       <div class="role-card" onclick="showStep('ps-partner')">
         <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -945,7 +945,7 @@ footer{background:#060F1E;padding:72px 0 0}
       <p class="hero-sub" data-bind-en="brand.positioning_en" data-bind-zh="brand.positioning_zh" data-en="Taiwan's first Sales-Driven syndicate. 50+ senior operators turning personal influence into enterprise deals — and capital returns." data-zh="全台首創 Sales-Driven 投資模式。50+ 位業務高管把個人影響力轉化為高槓桿資本報酬，帶你從個位數客戶走向億級規模">50+ senior operators from Meta, Oracle, Google and AWS co-invest in B2B startups. They don't just write checks; they mentor you through enterprise go-to-market.</p>
       <div class="hero-ctas">
         <button onclick="location.href='apply.html'" class="btn-primary" data-en="Submit Your Deal →" data-zh="提交案源">Submit Your Deal →</button>
-        <button onclick="openPortal('ps-exec')" class="btn-outline" data-en="Join as Operator" data-zh="加入成為高管 LP">Join as Operator</button>
+        <button onclick="location.href='membership.html'" class="btn-outline" data-en="Membership" data-zh="會員申請">Membership</button>
       </div>
       <a href="insights/index.html" style="display:inline-block;margin:-2.5rem auto 3.5rem;color:rgba(255,255,255,.6);font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:2px;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'" data-en="Read our Insights →" data-zh="閱讀我們的觀點 →">Read our Insights →</a>
       <div class="hero-stats">
@@ -1196,7 +1196,7 @@ footer{background:#060F1E;padding:72px 0 0}
 <!-- ══ 合作方式（2026-08-25 重做，2026-08-31 上線） ══ -->
 <section id="ways" style="padding:110px 0;background:var(--white);position:relative">
   <div class="container">
-    <div class="reveal" style="max-width:640px">
+    <div class="reveal" style="max-width:860px">
       <div class="eyebrow" data-en="How we work together" data-zh="合作方式">How we work together</div>
       <h2 class="section-h" data-en="Find the way that fits you" data-zh="找到最適合你的合作方式">Find the way that fits you</h2>
     </div>
@@ -1261,43 +1261,7 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-<!-- ══ 會員方案（2026-08-25 新增，2026-08-31 上線） ══ -->
-<section id="membership" style="padding:110px 0;background:#FAFBFF;position:relative">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <div class="eyebrow" data-en="Membership" data-zh="會員方案">Membership</div>
-      <h2 class="section-h" data-en="Annual membership. Applications stay open." data-zh="年費制，申請隨時開放">Annual membership. Applications stay open.</h2>
-      <p class="section-p" style="margin:0 auto" data-en="Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits." data-zh="先來信。我們會先了解你的背景與想參與的方式，雙方都覺得合適，再說明入會流程。">Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits.</p>
-    </div>
-    <div class="plan-grid">
-      <div class="plan-card reveal d1">
-        <h3 data-en="Individual" data-zh="個人會員">Individual</h3>
-        <div class="plan-who" data-en="Angel investors and senior executives joining in their own name" data-zh="以個人身分參與的天使投資人與企業高階主管">Angel investors and senior executives joining in their own name</div>
-        <div class="plan-price">NT$80,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
-        <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="A seat at every monthly Deal Room" data-zh="每一場 Deal Room 的席位">A seat at every monthly Deal Room</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Our own written analysis on each team, sent before the session You can drop it into the AI Deal Copilot and talk it through." data-zh="每一隊一份我方自製的分析，場次前寄出，可以丟進 AI Deal Copilot 一起討論">Our own written analysis on each team, sent before the session You can drop it into the AI Deal Copilot and talk it through.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="The operator network itself, and the introductions it makes" data-zh="operator 網絡本身，以及它促成的引薦">The operator network itself, and the introductions it makes</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="You can refer teams into the Deal Room" data-zh="可以把團隊推薦進 Deal Room">You can refer teams into the Deal Room</span></li>
-        </ul>
-        <a class="plan-cta" href="membership.html" data-en="Apply as an individual" data-zh="申請個人會員">Apply as an individual</a>
-      </div>
-      <div class="plan-card feature reveal d2">
-        <div class="plan-flag" data-en="3 seats" data-zh="三席">3 seats</div>
-        <h3 data-en="Corporate" data-zh="企業會員">Corporate</h3>
-        <div class="plan-who" data-en="Corporate groups and Taiwan&#39;s largest companies. Two named seats." data-zh="企業集團與本土百大企業。兩位代表席次。">Corporate groups and Taiwan&#39;s largest companies. Two named seats.</div>
-        <div class="plan-price">NT$100,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
-        <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Everything in the individual membership, for two people" data-zh="個人會員的全部權益，兩個人都有">Everything in the individual membership, for two people</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Send whichever two people the agenda calls for" data-zh="依當月議題指派最適合的兩位出席">Send whichever two people the agenda calls for</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Bring us a problem and we will look for it in our pipeline" data-zh="把你要解的題丟進來，我們從案源與生態夥伴裡找人">Bring us a problem and we will look for it in our pipeline</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Your brand on the wall, in the room and on this site" data-zh="品牌露出：現場與官網的生態夥伴牆">Your brand on the wall, in the room and on this site</span></li>
-          </ul>
-        <a class="plan-cta" href="membership.html" data-en="Apply as a company" data-zh="申請企業會員">Apply as a company</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 
 <!-- FAQ -->
