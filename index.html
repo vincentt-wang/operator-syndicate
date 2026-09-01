@@ -75,7 +75,10 @@ img{max-width:100%;display:block}
 .nav-dropdown a:hover{border-color:var(--orange);color:var(--orange)!important;background:var(--orange-pale)}
 #nav.hero-nav .nav-links a{color:rgba(255,255,255,.65)}
 #nav.hero-nav .nav-links a:hover{color:#fff}
-.nav-right{display:flex;align-items:center;gap:1rem;flex-shrink:0}
+.nav-right{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.btn-nav.ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
+.btn-nav.ghost:hover{background:var(--orange);color:#fff}
+@media(max-width:1180px){.btn-nav.ghost{display:none}}
 .btn-lang{font-size:.9rem;font-weight:700;letter-spacing:.04em;color:var(--orange);border:1.5px solid var(--orange);border-radius:20px;padding:6px 16px;transition:all .2s;font-family:var(--fb);background:rgba(255,102,0,.06)}
 .btn-lang:hover{color:#fff;background:var(--orange);border-color:var(--orange)}
 #nav.hero-nav .btn-lang{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.2)}
@@ -244,7 +247,8 @@ img{max-width:100%;display:block}
 .way-tag.t-i{color:#b45309;background:#fef3c7;border:1px solid #fde68a}
 .way-tag.t-c{color:#3730a3;background:#e0e7ff;border:1px solid #c7d2fe}
 .way-tag.t-a{color:#3f6212;background:#ecfccb;border:1px solid #d9f99d}
-.way-when{font-size:1.02rem;color:var(--text-2);line-height:1.6;font-weight:500}
+.way-when{font-size:1.02rem;color:var(--text-2);line-height:1.6;font-weight:500;padding-top:2.04rem}
+@media(max-width:820px){.way-when{padding-top:0}}
 .way-what h4{font-family:var(--fd);font-weight:800;font-size:1.26rem;color:var(--orange);letter-spacing:-.01em;margin-bottom:.4rem;line-height:1.3}
 .way-what p{font-size:1rem;color:var(--text-3);line-height:1.7}
 .way-cta{margin-top:3rem;background:var(--orange-pale);border:1px solid rgba(255,102,0,.2);border-radius:var(--r);padding:2.2rem 2.4rem;text-align:center}
@@ -899,6 +903,7 @@ footer{background:#060F1E;padding:72px 0 0}
   <a href="#faq" onclick="closeMob()" data-en="FAQ" data-zh="FAQ">FAQ</a>
   <a href="insights/index.html" onclick="closeMob()" data-en="Insights" data-zh="觀點">Insights</a>
   <button class="mob-cta" onclick="closeMob();location.href='apply.html'" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
+  <button class="mob-cta" onclick="closeMob();location.href='membership.html'" style="background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange);margin-top:.6rem" data-en="Membership" data-zh="會員申請">Membership</button>
   <button class="btn-lang" onclick="toggleLang();closeMob()" id="mobLangBtn">CH</button>
 </div>
 
@@ -920,6 +925,7 @@ footer{background:#060F1E;padding:72px 0 0}
   </ul>
   <div class="nav-right">
     <button class="btn-lang" onclick="toggleLang()" id="langBtn">CH</button>
+    <button onclick="location.href='membership.html'" class="btn-nav ghost" data-en="Membership" data-zh="會員申請">Membership</button>
     <button onclick="location.href='apply.html'" class="btn-nav" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</button>
   </div>
   <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
@@ -1062,124 +1068,9 @@ footer{background:#060F1E;padding:72px 0 0}
   </div>
 </section>
 
-<!-- ══ 合作方式（2026-08-25 重做，2026-08-31 上線） ══ -->
-<section id="ways" style="padding:110px 0;background:var(--white);position:relative">
-  <div class="container">
-    <div class="reveal" style="max-width:640px">
-      <div class="eyebrow" data-en="How we work together" data-zh="合作方式">How we work together</div>
-      <h2 class="section-h" data-en="Find the row that sounds like you" data-zh="先找到跟你現在最像的那一列">Find the row that sounds like you</h2>
-      <p class="section-p" data-en="People come here for different reasons and we work with each of them differently. Tell us which row you are on when you write to us, and we can skip a meeting." data-zh="每個人來的理由不一樣，合作的方式也不一樣。來信的時候告訴我們你在哪一列，可以少開一次會。">People come here for different reasons and we work with each of them differently. Tell us which row you are on when you write to us, and we can skip a meeting.</p>
-    </div>
-    <div class="way-rows">
-      <div class="way-row reveal">
-        <div class="way-tag t-s" data-en="Startup" data-zh="新創團隊">Startup</div>
-        <div class="way-when" data-en="You already have customers paying, and you want bigger ones" data-zh="已經有客戶在付錢，想打進更大的客戶">You already have customers paying, and you want bigger ones</div>
-        <div class="way-what">
-          <h4 data-en="Pitch at the Deal Room" data-zh="上 Deal Room 提案">Pitch at the Deal Room</h4>
-          <p data-en="The last Friday of every month, in front of the operator network. B2B and B2C both get looked at." data-zh="每個月最後一個星期五，面對整個 operator 網絡。B2B 與 B2C 都看。">The last Friday of every month, in front of the operator network. B2B and B2C both get looked at.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You want to see evaluated deals every month, and be findable by this group" data-zh="想每個月看到經過評估的案子，也想被這群人找到">You want to see evaluated deals every month, and be findable by this group</div>
-        <div class="way-what">
-          <h4 data-en="Annual membership" data-zh="年費會員">Annual membership</h4>
-          <p data-en="A seat at the Deal Room, our written analysis before each session, and the summary afterwards. The seat is what the membership buys." data-zh="Deal Room 的席位、場次前的分析、場次後的匯總。席位就是會費買的東西。">A seat at the Deal Room, our written analysis before each session, and the summary afterwards. The seat is what the membership buys.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You want to invest alongside this group without sourcing deals yourself" data-zh="想跟這群人一起投，但不想自己找案子">You want to invest alongside this group without sourcing deals yourself</div>
-        <div class="way-what">
-          <h4 data-en="Co-investment" data-zh="共同投資">Co-investment</h4>
-          <p data-en="A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time." data-zh="會員權利。我們評估完，逐案開放。每一案跟或不跟都是你自己決定。">A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
-        <div class="way-when" data-en="You have spent long enough in one industry to have a view worth recording" data-zh="在一個產業待得夠久，判斷值得被留下來">You have spent long enough in one industry to have a view worth recording</div>
-        <div class="way-what">
-          <h4 data-en="Founding Council" data-zh="創始委員會">Founding Council</h4>
-          <p data-en="Publish an industry view under your own name as an investor. Join the quarterly committee, and carry more weight when deals are reviewed. Terms are discussed one on one." data-zh="以投資人身分，用你的名字發表一個產業的觀點。參與季度委員會，在案件評選上有較高的權重。條件一對一談。">Publish an industry view under your own name as an investor. Join the quarterly committee, and carry more weight when deals are reviewed. Terms are discussed one on one.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-c" data-en="Corporate" data-zh="企業">Corporate</div>
-        <div class="way-when" data-en="You already know the problem or the technology you are looking for" data-zh="內部已經有明確的題目或技術需求">You already know the problem or the technology you are looking for</div>
-        <div class="way-what">
-          <h4 data-en="Corporate membership, matched to your problem" data-zh="企業會員 · 命題對接">Corporate membership, matched to your problem</h4>
-          <p data-en="Give us the problem. We look through our pipeline and the partner network, and arrange a PoC if it gets that far." data-zh="把題目給我們。我們從案源與生態夥伴裡找人，走得到 PoC 就安排 PoC。">Give us the problem. We look through our pipeline and the partner network, and arrange a PoC if it gets that far.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-c" data-en="Corporate" data-zh="企業">Corporate</div>
-        <div class="way-when" data-en="Your team knows it wants to do something, but the problem is not defined yet" data-zh="知道要做點什麼，但內部還沒把題目整理出來">Your team knows it wants to do something, but the problem is not defined yet</div>
-        <div class="way-what">
-          <h4 data-en="Corporate membership, starting with the problem itself" data-zh="企業會員 · 先把題目定出來">Corporate membership, starting with the problem itself</h4>
-          <p data-en="We sit down first and work out what the problem actually is, what form the collaboration takes, and who signs off internally. Looking for teams comes after that." data-zh="先坐下來把問題到底是什麼、合作長什麼樣、內部誰拍板講清楚。找團隊是後面的事。">We sit down first and work out what the problem actually is, what form the collaboration takes, and who signs off internally. Looking for teams comes after that.</p>
-        </div>
-      </div>
-      <div class="way-row reveal">
-        <div class="way-tag t-a" data-en="Anyone" data-zh="不限身分">Anyone</div>
-        <div class="way-when" data-en="You know a team that deserves this room" data-zh="手上有值得站上這個場的團隊">You know a team that deserves this room</div>
-        <div class="way-what">
-          <h4 data-en="Refer them in" data-zh="案源推薦">Refer them in</h4>
-          <p data-en="Send them over. We evaluate. If they make the agenda, the relationship you have with them is still yours." data-zh="介紹過來，我們評估。排上議程的話，你跟他們原本的關係還是你的。">Send them over. We evaluate. If they make the agenda, the relationship you have with them is still yours.</p>
-        </div>
-      </div>
-    </div>
-    <div class="way-cta reveal">
-      <div class="way-cta-t" data-en="Not sure which row you are on?" data-zh="不確定自己在哪一列？">Not sure which row you are on?</div>
-      <p data-en="Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do." data-zh="來信講一下你想做什麼。我們會告訴你哪一種比較合，或者坦白說都不合。">Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do.</p>
-      <div class="way-btns">
-        <a class="way-b b-solid" href="membership.html" data-en="Apply for membership" data-zh="會員申請">Apply for membership</a>
-        <a class="way-b" href="mailto:vincent@evoscalecapital.com?subject=EvoScale" data-en="Email us a question" data-zh="來信詢問">Email us a question</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ══ 會員方案（2026-08-25 新增，2026-08-31 上線） ══ -->
-<section id="membership" style="padding:110px 0;background:#FAFBFF;position:relative">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <div class="eyebrow" data-en="Membership" data-zh="會員方案">Membership</div>
-      <h2 class="section-h" data-en="Annual membership. Applications stay open." data-zh="年費制，申請隨時開放">Annual membership. Applications stay open.</h2>
-      <p class="section-p" style="margin:0 auto" data-en="Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits." data-zh="先來信。我們會先了解你的背景與想參與的方式，雙方都覺得合適，再說明入會流程。">Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits.</p>
-    </div>
-    <div class="plan-grid">
-      <div class="plan-card reveal d1">
-        <h3 data-en="Individual" data-zh="個人會員">Individual</h3>
-        <div class="plan-who" data-en="Angel investors and senior executives joining in their own name" data-zh="以個人身分參與的天使投資人與企業高階主管">Angel investors and senior executives joining in their own name</div>
-        <div class="plan-price">NT$80,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
-        <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="A seat at every monthly Deal Room" data-zh="每一場 Deal Room 的席位">A seat at every monthly Deal Room</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Our own written analysis on each team, sent before the session" data-zh="每一隊一份我方自製的分析，場次前寄出">Our own written analysis on each team, sent before the session</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Post-session summary: where the room disagreed, who committed what" data-zh="會後匯總：這一輪的分歧在哪，誰承諾了什麼">Post-session summary: where the room disagreed, who committed what</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="AI Deal Copilot to work through the reports with" data-zh="AI Deal Copilot，可以拿報告丟進去一起討論">AI Deal Copilot to work through the reports with</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="The operator network itself, and the introductions it makes" data-zh="operator 網絡本身，以及它促成的引薦">The operator network itself, and the introductions it makes</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="You can refer teams into the Deal Room" data-zh="可以把團隊推薦進 Deal Room">You can refer teams into the Deal Room</span></li>
-        </ul>
-        <a class="plan-cta" href="apply.html" data-en="Apply as an individual" data-zh="申請個人會員">Apply as an individual</a>
-      </div>
-      <div class="plan-card feature reveal d2">
-        <div class="plan-flag" data-en="3 seats" data-zh="三席">3 seats</div>
-        <h3 data-en="Corporate" data-zh="企業會員">Corporate</h3>
-        <div class="plan-who" data-en="Corporate groups and Taiwan&#39;s largest companies. Two named seats." data-zh="企業集團與本土百大企業。兩位代表席次。">Corporate groups and Taiwan&#39;s largest companies. Two named seats.</div>
-        <div class="plan-price">NT$100,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
-        <ul class="plan-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Everything in the individual membership, for two people" data-zh="個人會員的全部權益，兩個人都有">Everything in the individual membership, for two people</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Send whichever two people the agenda calls for" data-zh="依當月議題指派最適合的兩位出席">Send whichever two people the agenda calls for</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Bring us a problem and we will look for it in our pipeline" data-zh="把你要解的題丟進來，我們從案源與生態夥伴裡找人">Bring us a problem and we will look for it in our pipeline</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Your brand on the wall, in the room and on this site" data-zh="品牌露出：現場與官網的生態夥伴牆">Your brand on the wall, in the room and on this site</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="The monthly Operator Notes column and the annual review" data-zh="每月 Operator Notes 專欄與年度回顧">The monthly Operator Notes column and the annual review</span></li>
-        </ul>
-        <a class="plan-cta" href="apply.html" data-en="Apply as a company" data-zh="申請企業會員">Apply as a company</a>
-      </div>
-    </div>
-    <p class="plan-note reveal" data-en="Membership is reviewed each year. If a year goes by and you cannot point to something you got out of it, we would rather you told us than renewed quietly." data-zh="會員資格每年檢視一次。如果一年過去你講不出自己拿到了什麼，我們寧可你直接說，不要默默續約。">Membership is reviewed each year. If a year goes by and you cannot point to something you got out of it, we would rather you told us than renewed quietly.</p>
-  </div>
-</section>
+
+
 
 <!-- GLOBE -->
 <!-- PARTNERS -->
@@ -1301,6 +1192,113 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
   </div>
 </section>
+
+<!-- ══ 合作方式（2026-08-25 重做，2026-08-31 上線） ══ -->
+<section id="ways" style="padding:110px 0;background:var(--white);position:relative">
+  <div class="container">
+    <div class="reveal" style="max-width:640px">
+      <div class="eyebrow" data-en="How we work together" data-zh="合作方式">How we work together</div>
+      <h2 class="section-h" data-en="Find the way that fits you" data-zh="找到最適合你的合作方式">Find the way that fits you</h2>
+    </div>
+    <div class="way-rows">
+      <div class="way-row reveal">
+        <div class="way-tag t-s" data-en="Startup" data-zh="新創團隊">Startup</div>
+        <div class="way-when" data-en="You already have customers paying, and you want bigger ones" data-zh="已經有客戶在付錢，想打進更大的客戶">You already have customers paying, and you want bigger ones</div>
+        <div class="way-what">
+          <h4 data-en="Pitch at the Deal Room" data-zh="上 Deal Room 提案">Pitch at the Deal Room</h4>
+          <p data-en="The last Friday of every month, in front of the operator network. B2B and B2C both get looked at." data-zh="每個月最後一個星期五，面對整個 operator 網絡。B2B 與 B2C 都看。">The last Friday of every month, in front of the operator network. B2B and B2C both get looked at.</p>
+        </div>
+      </div>
+      <div class="way-row reveal">
+        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
+        <div class="way-when" data-en="You want to see evaluated deals every month, and be findable by this group" data-zh="想每個月看到經過評估的案子，也想被這群人找到">You want to see evaluated deals every month, and be findable by this group</div>
+        <div class="way-what">
+          <h4 data-en="Annual membership" data-zh="年費會員">Annual membership</h4>
+          <p data-en="A seat at the Deal Room, our written analysis before each session, and the summary afterwards." data-zh="Deal Room 的席位、場次前的分析、場次後的匯總。">A seat at the Deal Room, our written analysis before each session, and the summary afterwards.</p>
+        </div>
+      </div>
+      <div class="way-row reveal">
+        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
+        <div class="way-when" data-en="You want to invest alongside this group without sourcing deals yourself" data-zh="想跟這群人一起投，但不想自己找案子">You want to invest alongside this group without sourcing deals yourself</div>
+        <div class="way-what">
+          <h4 data-en="Co-investment" data-zh="共同投資">Co-investment</h4>
+          <p data-en="A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time." data-zh="會員權利。我們評估完，逐案開放。每一案跟或不跟都是你自己決定。">A member right. We finish the evaluation, then open each deal one at a time. In or out is your call, every time.</p>
+        </div>
+      </div>
+      <div class="way-row reveal">
+        <div class="way-tag t-i" data-en="Individual" data-zh="個人">Individual</div>
+        <div class="way-when" data-en="You have spent long enough in one industry to have a view worth recording" data-zh="在一個產業待得夠久，判斷值得被留下來">You have spent long enough in one industry to have a view worth recording</div>
+        <div class="way-what">
+          <h4 data-en="Founding Council" data-zh="創始委員會">Founding Council</h4>
+          <p data-en="Publish an industry view under your own name as an investor. Join the quarterly committee." data-zh="以投資人身分，用你的名字發表一個產業的觀點。參與季度委員會。">Publish an industry view under your own name as an investor. Join the quarterly committee.</p>
+        </div>
+      </div>
+      <div class="way-row reveal">
+        <div class="way-tag t-c" data-en="Corporate" data-zh="企業">Corporate</div>
+        <div class="way-when" data-en="You already know the problem or the technology you are looking for" data-zh="內部已經有明確的題目或技術需求">You already know the problem or the technology you are looking for</div>
+        <div class="way-what">
+          <h4 data-en="Corporate membership, matched to your problem" data-zh="企業會員 · 命題對接">Corporate membership, matched to your problem</h4>
+          <p data-en="Give us the problem. We look through our pipeline and the partner network." data-zh="把題目給我們。我們從案源與生態夥伴裡找人。">Give us the problem. We look through our pipeline and the partner network.</p>
+        </div>
+      </div>
+      <div class="way-row reveal">
+        <div class="way-tag t-a" data-en="Anyone" data-zh="不限身分">Anyone</div>
+        <div class="way-when" data-en="You know a team that deserves this room" data-zh="手上有值得站上這個場的團隊">You know a team that deserves this room</div>
+        <div class="way-what">
+          <h4 data-en="Refer them in" data-zh="案源推薦">Refer them in</h4>
+          <p data-en="Send them over. We evaluate." data-zh="介紹過來，我們評估。">Send them over. We evaluate.</p>
+        </div>
+      </div>
+    </div>
+    <div class="way-cta reveal">
+      <div class="way-cta-t" data-en="Not sure which one fits?" data-zh="不確定哪一種適合你？">Not sure which one fits?</div>
+      <p data-en="Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do." data-zh="來信講一下你想做什麼。我們會告訴你哪一種比較合，或者坦白說都不合。">Write to us and say what you are trying to do. We will tell you which one fits, or that none of them do.</p>
+      <div class="way-btns">
+        <a class="way-b b-solid" href="membership.html" data-en="Apply for membership" data-zh="會員申請">Apply for membership</a>
+        <a class="way-b" href="mailto:vincent@evoscalecapital.com?subject=EvoScale" data-en="Email us a question" data-zh="來信詢問">Email us a question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 會員方案（2026-08-25 新增，2026-08-31 上線） ══ -->
+<section id="membership" style="padding:110px 0;background:#FAFBFF;position:relative">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow" data-en="Membership" data-zh="會員方案">Membership</div>
+      <h2 class="section-h" data-en="Annual membership. Applications stay open." data-zh="年費制，申請隨時開放">Annual membership. Applications stay open.</h2>
+      <p class="section-p" style="margin:0 auto" data-en="Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits." data-zh="先來信。我們會先了解你的背景與想參與的方式，雙方都覺得合適，再說明入會流程。">Write to us first. We will get to know your background and how you want to take part, and only walk you through joining once both sides think it fits.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card reveal d1">
+        <h3 data-en="Individual" data-zh="個人會員">Individual</h3>
+        <div class="plan-who" data-en="Angel investors and senior executives joining in their own name" data-zh="以個人身分參與的天使投資人與企業高階主管">Angel investors and senior executives joining in their own name</div>
+        <div class="plan-price">NT$80,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="A seat at every monthly Deal Room" data-zh="每一場 Deal Room 的席位">A seat at every monthly Deal Room</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Our own written analysis on each team, sent before the session You can drop it into the AI Deal Copilot and talk it through." data-zh="每一隊一份我方自製的分析，場次前寄出，可以丟進 AI Deal Copilot 一起討論">Our own written analysis on each team, sent before the session You can drop it into the AI Deal Copilot and talk it through.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="The operator network itself, and the introductions it makes" data-zh="operator 網絡本身，以及它促成的引薦">The operator network itself, and the introductions it makes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="You can refer teams into the Deal Room" data-zh="可以把團隊推薦進 Deal Room">You can refer teams into the Deal Room</span></li>
+        </ul>
+        <a class="plan-cta" href="membership.html" data-en="Apply as an individual" data-zh="申請個人會員">Apply as an individual</a>
+      </div>
+      <div class="plan-card feature reveal d2">
+        <div class="plan-flag" data-en="3 seats" data-zh="三席">3 seats</div>
+        <h3 data-en="Corporate" data-zh="企業會員">Corporate</h3>
+        <div class="plan-who" data-en="Corporate groups and Taiwan&#39;s largest companies. Two named seats." data-zh="企業集團與本土百大企業。兩位代表席次。">Corporate groups and Taiwan&#39;s largest companies. Two named seats.</div>
+        <div class="plan-price">NT$100,000<span data-en=" / year" data-zh=" / 年"> / year</span></div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Everything in the individual membership, for two people" data-zh="個人會員的全部權益，兩個人都有">Everything in the individual membership, for two people</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Send whichever two people the agenda calls for" data-zh="依當月議題指派最適合的兩位出席">Send whichever two people the agenda calls for</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Bring us a problem and we will look for it in our pipeline" data-zh="把你要解的題丟進來，我們從案源與生態夥伴裡找人">Bring us a problem and we will look for it in our pipeline</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Your brand on the wall, in the room and on this site" data-zh="品牌露出：現場與官網的生態夥伴牆">Your brand on the wall, in the room and on this site</span></li>
+          </ul>
+        <a class="plan-cta" href="membership.html" data-en="Apply as a company" data-zh="申請企業會員">Apply as a company</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- FAQ -->
 <section id="faq" style="padding:120px 0;background:var(--navy)">
