@@ -533,9 +533,12 @@ function doSearch(){filterPosts();}
 function clearSearch(){var qi=document.getElementById('q');if(qi){qi.value='';qi.focus();}filterPosts();}
 function setTag(tag){curTag=tag;var grp=document.querySelector('.chips[data-for="'+curAud+'"]');grp.querySelectorAll('.chip').forEach(function(ch){ch.classList.toggle('active',ch.getAttribute('data-tag')===tag);});var posts=document.getElementById('posts');posts.style.opacity='0';setTimeout(function(){filterPosts();posts.style.opacity='1';},160);}
 function setAud(aud){var qi=document.getElementById('q');if(qi)qi.value='';curAud=aud;curTag='all';document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===aud);});setAudData(aud);positionGlide();showChips(aud);var posts=document.getElementById('posts'),hero=document.getElementById('hero');posts.style.opacity='0';hero.style.opacity='0';setTimeout(function(){filterPosts();applyL(document.documentElement.lang);posts.style.opacity='1';hero.style.opacity='1';},200);try{localStorage.setItem('evoAud',aud);}catch(e){}syncURL();}
-(function(){var a='founder';try{var p=new URLSearchParams(location.search);var q=(p.get('aud')||'').toLowerCase();if(q==='b2b')q='founder';if(q==='b2c'||q==='founder'||q==='investor'||q==='operator'){a=q;}else{var s=localStorage.getItem('evoAud');if(s==='investor'||s==='founder'||s==='operator'||s==='b2c')a=s;}}catch(e){}
+(function(){var a='founder';try{var p=new URLSearchParams(location.search);var q=(p.get('aud')||'').toLowerCase();if(q==='b2b')q='founder';/* 2026-09-02 修：白名單漏了 expert，所以 ?aud=expert 與 localStorage 存的 expert   都會被打回預設的 founder，Operator Notes 一重新整理就跳到 For B2B Founders。 */
+  var OK=['b2c','founder','investor','operator','expert'];
+  if(OK.indexOf(q)>=0){a=q;}else{var s=localStorage.getItem('evoAud');if(OK.indexOf(s)>=0)a=s;}}catch(e){}
   document.querySelectorAll('.aud-btn').forEach(function(b){b.addEventListener('click',function(){setAud(b.getAttribute('data-aud'));});});
   document.querySelectorAll('.chip').forEach(function(ch){ch.addEventListener('click',function(){setTag(ch.getAttribute('data-tag'));});});
+  try{localStorage.setItem('evoAud',a);}catch(e){}   // 用網址參數進來的也要記住，下次不帶參數才不會跳回預設
   curAud=a;curTag='all';
   document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===a);});
   setAudData(a);showChips(a);filterPosts();applyL(document.documentElement.lang);
