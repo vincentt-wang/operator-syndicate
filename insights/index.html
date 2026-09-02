@@ -29,21 +29,21 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.top{background:var(--navy-2);border-bottom:1px solid var(--border);padding:1.1rem 6vw;position:sticky;top:0;z-index:10}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);height:68px;padding:0 6vw;position:sticky;top:0;z-index:10}
 .top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.4rem}
 .top-in{max-width:1240px}
-.top-nav{list-style:none;display:flex;gap:1.5rem;margin:0 auto;padding:0}
-.top-nav a{font-family:var(--fb);font-size:.92rem;font-weight:600;color:var(--mut);text-decoration:none;transition:color .2s}
+.top-nav{list-style:none;display:flex;gap:2rem;margin:0 auto;padding:0}
+.top-nav a{font-family:var(--fb);font-size:1rem;font-weight:600;color:var(--mut);text-decoration:none;transition:color .2s}
 .top-nav a:hover,.top-nav a.on{color:#fff}
-.tb{font-family:var(--fb);font-weight:700;font-size:.88rem;padding:8px 17px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;white-space:nowrap}
+.tb{font-family:var(--fb);font-weight:700;font-size:1rem;padding:10px 22px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;white-space:nowrap}
 .tb.ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
 .tb.ghost:hover{background:var(--orange);color:#fff}
 @media(max-width:1080px){.top-nav{display:none}.tb.ghost{display:none}}
 
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1rem}
-.brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}.brand .lm b{height:2px;background:var(--orange);border-radius:2px;display:block}.brand .lm b:nth-child(1){width:13px}.brand .lm b:nth-child(2){width:20px}.brand .lm b:nth-child(3){width:13px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1.1rem}
+.brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .top-r{display:flex;align-items:center;gap:1.1rem}
-.lang{background:none;border:1px solid var(--orange);color:var(--orange);border-radius:18px;padding:4px 13px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:inherit}
+.lang{background:none;border:1.5px solid var(--orange);color:var(--orange);border-radius:20px;padding:6px 16px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit}
 .back{font-size:.86rem;color:var(--mut);text-decoration:none}.back:hover{color:#fff}
 main{max-width:920px;margin:0 auto;padding:3.5rem 6vw 4rem}
 .ey{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem}
@@ -164,7 +164,7 @@ body.searching #scount{display:block}
 <p data-en="TSMC&#39;s own numbers put 77% of Q4 2025 wafer revenue in nodes at 7nm and below, and about 10% of its 2026 capex into specialty technologies. That 10% is the entire budget line for the processes most hardware startups actually need." data-zh="台積電自己的數字顯示，2025 年第四季有 77% 的晶圓營收來自 7 奈米以下製程，而 2026 年資本支出只有約 10% 分給特殊製程。那 10% 就是多數硬體新創真正需要的那幾種製程的全部預算。">TSMC&#39;s own numbers put 77% of Q4 2025 wafer revenue in nodes at 7nm and below, and about 10% of its 2026 capex into specialty technologies.</p>
 <div class="meta" data-en="Operator Notes · 8 min · September 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 9 月">Operator Notes · 8 min · September 2026</div>
 </a>
-<a class="post" data-aud="expert" data-tag="all" href="salestech-the-number-nobody-checks.html">
+<a class="post light" data-aud="expert" data-tag="all" href="salestech-the-number-nobody-checks.html">
 <div class="ctop"><span class="cnum">01</span><span class="tag" data-en="Sales Tech" data-zh="Sales Tech">Sales Tech</span></div>
 <h2 data-en="The Number Nobody Checks: What Enterprises Actually Spend on AI for Sales" data-zh="沒有人查的那個數字：企業到底花多少錢買 AI 賣東西">The Number Nobody Checks: What Enterprises Actually Spend on AI for Sales</h2>
 <p data-en="Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all. What the verifiable numbers say about adoption, seats and where the wall actually came from." data-zh="市場報告把這個品類估在 219 億到 253 億美元之間。而唯一一份把企業 AI 支出按部門拆開的調查，裡面根本沒有銷售這一項。用查得到的數字談採用率、席位，以及那道牆到底是誰蓋的。">Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all.</p>
@@ -525,7 +525,7 @@ function positionGlide(){var a=document.querySelector('.aud-btn.active');var g=d
 function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';var qi=document.getElementById('q');if(qi){var ph=qi.getAttribute('data-ph-'+l);if(ph)qi.placeholder=ph;}positionGlide();try{localStorage.setItem('evoLang',l);}catch(e){}if(document.body.classList.contains('searching'))filterPosts();}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');syncURL();}
 function syncURL(){try{history.replaceState(null,'','?aud='+curAud+(document.documentElement.lang==='zh'?'&lang=zh':''));}catch(e){}}
-(function(){try{var p=new URLSearchParams(location.search);if((p.get('lang')||'').toLowerCase()==='zh'||location.hash==='#zh'){applyL('zh');}}catch(e){}})();
+(function(){try{var p=new URLSearchParams(location.search);var q=(p.get('lang')||'').toLowerCase();if(q==='zh'||location.hash==='#zh'){applyL('zh');}else if(q==='en'){applyL('en');}else{var s=localStorage.getItem('evoLang')||localStorage.getItem('os-lang');if(s==='zh')applyL('zh');}}catch(e){}})();
 function setAudData(aud){var mk=aud==='investor'?'i':aud==='operator'?'o':aud==='b2c'?'c':aud==='expert'?'x':'f';document.querySelectorAll('[data-f-en]').forEach(function(e){e.setAttribute('data-en',e.getAttribute('data-'+mk+'-en'));e.setAttribute('data-zh',e.getAttribute('data-'+mk+'-zh'));});}
 function showChips(aud){document.querySelectorAll('.chips').forEach(function(g){g.style.display=g.getAttribute('data-for')===aud?'flex':'none';});var grp=document.querySelector('.chips[data-for="'+aud+'"]');if(!grp)return;grp.querySelectorAll('.chip').forEach(function(ch){var tg=ch.getAttribute('data-tag');ch.classList.remove('active');if(tg==='all'){ch.style.display='';return;}var n=document.querySelectorAll('.post[data-aud="'+aud+'"][data-tag="'+tg+'"]:not(.soon)').length;ch.style.display=n>0?'':'none';});grp.querySelector('.chip[data-tag="all"]').classList.add('active');}
 function filterPosts(){var qi=document.getElementById('q');var query=qi?qi.value.trim().toLowerCase():'';document.body.classList.toggle('searching',!!query);if(query){var n=0;document.querySelectorAll('.post').forEach(function(p){var show=(p.dataset.search||'').indexOf(query)>=0;p.style.display=show?'':'none';if(show)n++;});var sc=document.getElementById('scount');if(sc){sc.textContent=document.documentElement.lang==='zh'?(n?('找到 '+n+' 篇相關文章'):'找不到相關文章，換個關鍵字試試'):(n?(n+(n>1?' results':' result')):'No matches, try another keyword');}}else{document.querySelectorAll('.post').forEach(function(p){var show=p.getAttribute('data-aud')===curAud&&(curTag==='all'||p.getAttribute('data-tag')===curTag);p.style.display=show?'':'none';});}}
