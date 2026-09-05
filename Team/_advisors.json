@@ -1,0 +1,38 @@
+{
+  "_說明": "顧問名單正典。職稱一律以本人在 LINE 對話中親口給的寫法為準，不用 LINE 顯示名稱。2026-09-05 建立。",
+  "_上線狀態": "on=已在官網顧問區；pending=尚未同意，不可上線",
+  "顧問": [
+    {"id":"will","姓名":"Will Lin","中文名":"查無（本人未提供）",
+     "公司":"Michael Page","職稱_zh":"Director, Michael Page Taiwan","職稱_en":"Director, Michael Page Taiwan",
+     "產業":"FutureOfWork","linkedin":"https://tw.linkedin.com/in/mp-will-lin","照片":"Team/Will.jpg",
+     "狀態":"on","同意依據":"2026-09-03 10:54 本人回「2 可以」（照片）；13:04 回「1也沒問題 Director, Michael Page Taiwan」（職稱）",
+     "備註":"產業別由 Boice 2026-09-02 從 HRTech 改為 FutureOfWork，原話「HR tech感覺對你太窄」"},
+
+    {"id":"sabrina","姓名":"Sabrina Chiu","中文名":"邱依虹",
+     "公司":"BIPO","職稱_zh":"BIPO 台灣區副總經理","職稱_en":"BIPO 台灣區副總經理",
+     "產業":"HRTech","linkedin":"https://www.linkedin.com/in/sabrina-chiu-tw/","照片":"Team/Sabrina.jpg",
+     "狀態":"on","同意依據":"2026-09-03 11:53 本人回「可以的 謝謝！」，同時涵蓋職稱與照片兩題",
+     "備註":"英文職稱本人未提供，中英兩版一律用中文原寫法，不要自行翻譯"},
+
+    {"id":"sam","姓名":"Sam Su 蘇俊熹","中文名":"蘇俊熹",
+     "公司":"Salesforce","職稱_zh":"企業用戶事業部副總經理","職稱_en":"Regional Sales Director",
+     "產業":"SalesTech","linkedin":"https://www.linkedin.com/in/jiunhsisamsu/","照片":"Team/Sam.jpg",
+     "狀態":"on","同意依據":"2026-09-03 11:05 回「照片沒問題的」；11:49 給職稱「Regional Sales Director 企業用戶事業部副總經理」",
+     "備註":"中英職稱是他自己給的兩行，分別對應兩個語系"},
+
+    {"id":"wesley","姓名":"Wesley Hsieh 謝偉志","中文名":"謝偉志",
+     "公司":"GlobalFoundries 格芯","職稱_zh":"格芯 GlobalFoundries 台灣區總經理","職稱_en":"格芯 GlobalFoundries 台灣區總經理",
+     "產業":"ChipTech","linkedin":"https://www.linkedin.com/in/wesley-hsieh-25311663/","照片":"Team/Wesley.jpg",
+     "狀態":"on","同意依據":"2026-09-05 Vincent 判定可上並會截圖給本人確認。本人對 2026-09-03 10:46 那則照片職稱訊息尚未回覆",
+     "備註":"職稱是我方提案的寫法，本人尚未逐字確認。截圖給他時要一併確認這一行。另外 ChipTech 或 SemiTech 的命名 Boice 8/28 問過沒答"},
+
+    {"id":"price","姓名":"Price Lu","中文名":"查無（本人未提供，2026-09-03 問過他沒回答）",
+     "公司":"SAP","職稱_zh":"業務副總經理","職稱_en":"查無（本人未提供）",
+     "產業":"BizTech","linkedin":"https://www.linkedin.com/in/price-lu-32bb5271/","照片":"05_內部文件/_待同意素材/Price_SAP.jpg",
+     "狀態":"pending",
+     "同意依據":"尚未同意。2026-09-03 10:49 原話「能不能直接放上公司名稱跟職稱，這我得先內部問一下，有些內規還是得問清楚以免踩到雷」；18:50「這個應該有取得公司同意，我來問問」",
+     "備註":"職稱已更正：不是業務總監，是業務副總經理，本人 2026-09-03 當場更正。照片已下載但收在網站目錄外，同意前不要移進 01_網站"}
+  ],
+  "_角色用詞": "一律寫「顧問」，不寫「產業代表」。依據 Boice 2026-09-03 10:51 原話「這邊會用顧問 and LP們，所以詢問公司可以說當顧問來協助新創」，他們拿去跟自己公司報備的說法必須跟官網一致。",
+  "_版面參考": "Boice 2026-09-03 11:08 指定參考 Stage 2 Capital 的顧問名錄排法"
+}
