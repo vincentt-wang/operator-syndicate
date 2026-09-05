@@ -753,8 +753,8 @@ footer{background:#060F1E;padding:72px 0 0}
 #team .cred-item{color:rgba(255,255,255,.72)!important}
 #team .advisors-wrap{border-top-color:rgba(255,255,255,.12)!important}
 /* Advisors — 翻轉卡片。2026-09-05 新增，四欄一排，之後補到八位剛好兩排。
-   職稱放在卡片最上方（Vincent 指定），滑鼠移入翻面看顧問角色說明。
-   觸控裝置沒有 hover，所以另外用 .is-flipped 由點擊切換。 */
+   抬頭固定兩行：第一行公司、第二行職稱（Vincent 指定），這樣每張卡的頭像會對齊在同一橫線。
+   2026-09-05 拿掉翻轉背面，改成單面，LinkedIn 連結移到卡片最底。 */
 .adv-wrap{margin-top:3.4rem;padding-top:2.6rem;border-top:1px solid rgba(255,255,255,.12)}
 .adv-ey{font-family:var(--fb);font-size:.86rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem}
 .adv-sub{color:rgba(255,255,255,.55);font-size:1.02rem;line-height:1.7;margin-bottom:1.9rem}
@@ -762,14 +762,10 @@ footer{background:#060F1E;padding:72px 0 0}
 .adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
 @media(max-width:1000px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.adv-grid{grid-template-columns:1fr}}
-.adv-card{perspective:1200px;min-height:288px;cursor:pointer}
-.adv-inner{position:relative;width:100%;height:100%;min-height:288px;transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
-.adv-card:hover .adv-inner,.adv-card.is-flipped .adv-inner{transform:rotateY(180deg)}
-.adv-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
- border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:1.35rem 1.25rem;
- background:rgba(255,255,255,.045);display:flex;flex-direction:column;align-items:center;text-align:center}
-.adv-card:hover .adv-face{border-color:rgba(255,102,0,.34)}
-.adv-back{transform:rotateY(180deg);justify-content:flex-start;background:rgba(255,255,255,.075)}
+.adv-card{min-height:262px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.14);
+ border-radius:16px;padding:1.35rem 1.25rem;display:flex;flex-direction:column;align-items:center;
+ text-align:center;transition:border-color .25s,background .25s}
+.adv-card:hover{border-color:rgba(255,102,0,.34);background:rgba(255,255,255,.07)}
 .adv-head{margin-bottom:.9rem;width:100%;height:3.1em;display:flex;flex-direction:column;justify-content:center;gap:.1em}
 .adv-org{font-family:var(--fb);font-size:.9rem;font-weight:700;letter-spacing:.02em;color:#fff;
  line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -779,11 +775,11 @@ footer{background:#060F1E;padding:72px 0 0}
  border:2px solid rgba(255,255,255,.18)}
 .adv-av img{width:100%;height:100%;object-fit:cover;display:block}
 .adv-name{font-family:var(--fd);font-weight:700;font-size:1.12rem;color:#fff;line-height:1.3}
-.adv-vert{margin-top:auto;font-family:var(--fb);font-size:.86rem;font-weight:700;letter-spacing:.08em;
+.adv-vert{margin-top:.55rem;font-family:var(--fb);font-size:.86rem;font-weight:700;letter-spacing:.08em;
  text-transform:uppercase;color:rgba(255,255,255,.42)}
-.adv-back .adv-bname{font-family:var(--fd);font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:.6rem}
-.adv-desc{font-size:.95rem;line-height:1.72;color:rgba(255,255,255,.74);text-align:left;flex:1}
-.adv-li{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-family:var(--fb);
+
+
+.adv-li{display:inline-flex;align-items:center;gap:.4rem;margin-top:auto;font-family:var(--fb);
  font-size:.88rem;font-weight:600;color:#fff;background:rgba(255,255,255,.14);border-radius:20px;
  padding:7px 15px;text-decoration:none;transition:background .22s}
 .adv-li:hover{background:var(--orange)}
@@ -1190,80 +1186,48 @@ footer{background:#060F1E;padding:72px 0 0}
       </div>
     </div>
     <div class="adv-wrap reveal">
-      <div class="adv-ey" data-en="Advisory Board" data-zh="顧問委員會">Advisory Board</div>
-      <p class="adv-sub" data-en="Operators who advise all founders in their own field, more verticals joining." data-zh="在自己的產業裡帶過團隊的人，以顧問身分協助創辦人，其餘領域陸續加入。">Operators who advise all founders in their own field, more verticals joining.</p>
+      <div class="adv-ey" data-en="Our networks" data-zh="我們的網絡">Our networks</div>
+      <p class="adv-sub" data-en="Consultants and LPs" data-zh="顧問與 LP">Consultants and LPs</p>
       <div class="adv-grid">
       <div class="adv-card reveal">
-        <div class="adv-inner">
-          <div class="adv-face">
-            <div class="adv-head">
-              <div class="adv-org" data-en="Salesforce" data-zh="Salesforce">Salesforce</div>
-              <div class="adv-role" data-en="Regional Sales Director" data-zh="企業用戶事業部副總經理">Regional Sales Director</div>
-            </div>
-            <div class="adv-av"><img src="Team/Sam.jpg" alt="Sam Su" loading="lazy" width="78" height="78"></div>
-            <div class="adv-name">Sam Su</div>
-            <div class="adv-vert">SalesTech</div>
-          </div>
-          <div class="adv-face adv-back">
-            <div class="adv-bname">Sam Su</div>
-            <div class="adv-desc" data-en="Enterprise sales organisations and process. Advises founders on building a repeatable motion instead of relying on the founder to close." data-zh="企業銷售組織與流程。以顧問身分協助創辦人建立可複製的業務打法，而不是每一單都靠創辦人自己收。">Enterprise sales organisations and process. Advises founders on building a repeatable motion instead of relying on the founder to close.</div>
-            <a href="https://www.linkedin.com/in/jiunhsisamsu/" target="_blank" rel="noopener" class="adv-li" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-          </div>
+        <div class="adv-head">
+          <div class="adv-org" data-en="Salesforce" data-zh="Salesforce">Salesforce</div>
+          <div class="adv-role" data-en="Regional Sales Director" data-zh="企業用戶事業部副總經理">Regional Sales Director</div>
         </div>
+        <div class="adv-av"><img src="Team/Sam.jpg" alt="Sam Su" loading="lazy" width="78" height="78"></div>
+        <div class="adv-name">Sam Su</div>
+        <div class="adv-vert">SalesTech</div>
+        <a href="https://www.linkedin.com/in/jiunhsisamsu/" target="_blank" rel="noopener" class="adv-li"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
       </div>
       <div class="adv-card reveal">
-        <div class="adv-inner">
-          <div class="adv-face">
-            <div class="adv-head">
-              <div class="adv-org" data-en="GlobalFoundries Taiwan" data-zh="格芯 GlobalFoundries">GlobalFoundries Taiwan</div>
-              <div class="adv-role" data-en="General Manager" data-zh="台灣區總經理">General Manager</div>
-            </div>
-            <div class="adv-av"><img src="Team/Wesley.jpg" alt="Wesley Hsieh" loading="lazy" width="78" height="78"></div>
-            <div class="adv-name">Wesley Hsieh</div>
-            <div class="adv-vert">ChipTech</div>
-          </div>
-          <div class="adv-face adv-back">
-            <div class="adv-bname">Wesley Hsieh</div>
-            <div class="adv-desc" data-en="Semiconductor manufacturing and supply chain. Advises founders on where a hardware idea meets the reality of a fab." data-zh="半導體製造與供應鏈。以顧問身分協助創辦人看清楚一個硬體想法落到晶圓廠時會遇到什麼現實。">Semiconductor manufacturing and supply chain. Advises founders on where a hardware idea meets the reality of a fab.</div>
-            <a href="https://www.linkedin.com/in/wesley-hsieh-25311663/" target="_blank" rel="noopener" class="adv-li" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-          </div>
+        <div class="adv-head">
+          <div class="adv-org" data-en="GlobalFoundries Taiwan" data-zh="格芯 GlobalFoundries">GlobalFoundries Taiwan</div>
+          <div class="adv-role" data-en="General Manager" data-zh="台灣區總經理">General Manager</div>
         </div>
+        <div class="adv-av"><img src="Team/Wesley.jpg" alt="Wesley Hsieh" loading="lazy" width="78" height="78"></div>
+        <div class="adv-name">Wesley Hsieh</div>
+        <div class="adv-vert">ChipTech</div>
+        <a href="https://www.linkedin.com/in/wesley-hsieh-25311663/" target="_blank" rel="noopener" class="adv-li"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
       </div>
       <div class="adv-card reveal">
-        <div class="adv-inner">
-          <div class="adv-face">
-            <div class="adv-head">
-              <div class="adv-org" data-en="Michael Page Taiwan" data-zh="Michael Page Taiwan">Michael Page Taiwan</div>
-              <div class="adv-role" data-en="Director" data-zh="Director">Director</div>
-            </div>
-            <div class="adv-av"><img src="Team/Will.jpg" alt="Will Lin" loading="lazy" width="78" height="78"></div>
-            <div class="adv-name">Will Lin</div>
-            <div class="adv-vert">FutureOfWork</div>
-          </div>
-          <div class="adv-face adv-back">
-            <div class="adv-bname">Will Lin</div>
-            <div class="adv-desc" data-en="Talent markets and the future of work. Advises founders on hiring structure and how a team should be built as it scales." data-zh="人才市場與未來工作型態。以顧問身分協助創辦人看懂用人結構，以及團隊在放大過程中該怎麼長。">Talent markets and the future of work. Advises founders on hiring structure and how a team should be built as it scales.</div>
-            <a href="https://tw.linkedin.com/in/mp-will-lin" target="_blank" rel="noopener" class="adv-li" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-          </div>
+        <div class="adv-head">
+          <div class="adv-org" data-en="Michael Page Taiwan" data-zh="Michael Page Taiwan">Michael Page Taiwan</div>
+          <div class="adv-role" data-en="Director" data-zh="Director">Director</div>
         </div>
+        <div class="adv-av"><img src="Team/Will.jpg" alt="Will Lin" loading="lazy" width="78" height="78"></div>
+        <div class="adv-name">Will Lin</div>
+        <div class="adv-vert">FutureOfWork</div>
+        <a href="https://tw.linkedin.com/in/mp-will-lin" target="_blank" rel="noopener" class="adv-li"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
       </div>
       <div class="adv-card reveal">
-        <div class="adv-inner">
-          <div class="adv-face">
-            <div class="adv-head">
-              <div class="adv-org" data-en="BIPO Taiwan" data-zh="BIPO 台灣">BIPO Taiwan</div>
-              <div class="adv-role" data-en="Deputy General Manager" data-zh="副總經理">Deputy General Manager</div>
-            </div>
-            <div class="adv-av"><img src="Team/Sabrina.jpg" alt="Sabrina Chiu" loading="lazy" width="78" height="78"></div>
-            <div class="adv-name">Sabrina Chiu</div>
-            <div class="adv-vert">HRTech</div>
-          </div>
-          <div class="adv-face adv-back">
-            <div class="adv-bname">Sabrina Chiu</div>
-            <div class="adv-desc" data-en="Cross-border employment and HR systems. Advises founders on hiring across markets and the compliance that comes with it." data-zh="跨境雇用與人資系統。以顧問身分協助創辦人處理跨市場聘用，以及隨之而來的法遵問題。">Cross-border employment and HR systems. Advises founders on hiring across markets and the compliance that comes with it.</div>
-            <a href="https://www.linkedin.com/in/sabrina-chiu-tw/" target="_blank" rel="noopener" class="adv-li" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
-          </div>
+        <div class="adv-head">
+          <div class="adv-org" data-en="BIPO Taiwan" data-zh="BIPO 台灣">BIPO Taiwan</div>
+          <div class="adv-role" data-en="Deputy General Manager" data-zh="副總經理">Deputy General Manager</div>
         </div>
+        <div class="adv-av"><img src="Team/Sabrina.jpg" alt="Sabrina Chiu" loading="lazy" width="78" height="78"></div>
+        <div class="adv-name">Sabrina Chiu</div>
+        <div class="adv-vert">HRTech</div>
+        <a href="https://www.linkedin.com/in/sabrina-chiu-tw/" target="_blank" rel="noopener" class="adv-li"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg><span>LinkedIn</span></a>
       </div>
       </div>
     </div>
@@ -2343,16 +2307,5 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
 })();
 </script>
 
-<script>
-/* 觸控裝置沒有 hover，讓顧問卡片可以點擊翻面。滑鼠裝置維持 hover 翻面。 */
-(function(){
-  document.querySelectorAll('.adv-card').forEach(function(c){
-    c.addEventListener('click',function(e){
-      if(e.target.closest('a')) return;
-      c.classList.toggle('is-flipped');
-    });
-  });
-})();
-</script>
 </body>
 </html>
