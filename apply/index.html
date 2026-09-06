@@ -538,7 +538,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
 /* ===== Config ===== */
 /* SUBMIT_MODE:
    'formsubmit' — emails the questionnaire + deck link to BOTH recipients via
-                  formsubmit.co (free, native CC). No backend. Current mode.
+                  formsubmit.co（免費，每個地址各送一次）。無後端。目前模式。
    'worker'     — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
 var SUBMIT_MODE = 'formsubmit';
 // 2026-09-06 改成兩個獨立收件人，不再靠 _cc。理由同 membership：
@@ -816,7 +816,7 @@ function deckLinkMissing(){
   setTimeout(function(){ el.focus(); }, 400);
 }
 
-/* formsubmit.co: emails questionnaire + deck link to BOTH recipients (TO + CC). No backend. */
+/* formsubmit.co：問卷與 deck 連結各寄一次給兩個收件人（不用 CC）。無後端。 */
 async function submitViaFormsubmit(answers){
   normalizeDeckLink();
   answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';

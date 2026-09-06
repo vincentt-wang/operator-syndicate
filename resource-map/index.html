@@ -437,17 +437,26 @@ $('langBtn').addEventListener('click',function(){
   if($('done').style.display==='block'){try{drawCard();}catch(e){}}
 });
 
-var FS_TO='vincent@evoscalecapital.com',FS_CC='boice@evoscalecapital.com';
+/* 2026-09-06 兩個收件人各送一次，不再靠 _cc（/ajax/ 端點對底線欄位沒有文件保證）。
+   另外原本只要 fetch 沒 throw 就顯示已送出，FormSubmit 回 success:"false" 時也會顯示成功，
+   現在改成必須真的有一個收件人回 success 才算送出。 */
+var FS_RECIPIENTS=['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
 $('submitBtn').addEventListener('click',function(){var u=U(),b=this,se=$('suberr');se.classList.remove('show');
   if(!S.name.trim()){se.textContent=u.needName;se.classList.add('show');return;}
   b.disabled=true;b.textContent=u.submitting;
-  var fd=new FormData();
-  fd.append('_subject',u.subj+S.name.trim());fd.append('_cc',FS_CC);fd.append('_captcha','false');fd.append('_template','box');
-  fd.append('name',S.name.trim());fd.append('inventory',output());fd.append('_json',JSON.stringify(S));
-  fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FS_TO),{method:'POST',headers:{Accept:'application/json'},body:fd})
-    .then(function(r){return r.json();})
-    .then(function(){b.classList.add('ok');b.textContent=u.submitOk;})
-    .catch(function(){b.disabled=false;b.textContent=u.submit;se.textContent=u.submitErr;se.classList.add('show');});
+  function build(){var fd=new FormData();
+    fd.append('_subject',u.subj+S.name.trim());fd.append('_captcha','false');fd.append('_template','box');
+    fd.append('name',S.name.trim());fd.append('inventory',output());fd.append('_json',JSON.stringify(S));
+    return fd;}
+  Promise.all(FS_RECIPIENTS.map(function(addr){
+    return fetch('https://formsubmit.co/ajax/'+encodeURIComponent(addr),{method:'POST',headers:{Accept:'application/json'},body:build()})
+      .then(function(r){return r.json();})
+      .then(function(j){return j&&(j.success===true||j.success==='true');})
+      .catch(function(){return false;});
+  })).then(function(rs){
+    if(rs.indexOf(true)>=0){b.classList.add('ok');b.textContent=u.submitOk;}
+    else{b.disabled=false;b.textContent=u.submit;se.textContent=u.submitErr;se.classList.add('show');}
+  });
 });
 $('imgBtn').addEventListener('click',function(){var u=U(),b=this,cv=$('card');
   try{cv.toBlob(function(blob){if(!blob){b.textContent=u.longPress;return;}
