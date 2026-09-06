@@ -426,13 +426,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
 
 <script>
 /* ===== Config ===== */
-// 2026-09-06 改成兩個獨立收件人，不再靠 _cc。
-// Vincent 收不到會員申請信。查下來程式碼有帶 _cc，線上與本機也一致，
-// 但 FormSubmit 的文件雖然有 _cc，它的 AJAX 章節從頭到尾沒提到任何底線開頭的特殊欄位，
-// 也就是 _cc 在 /ajax/ 端點上是沒有文件保證的行為。申請就是這樣安靜掉的。
-// 現在對每個地址各送一次，各自是主收件人，任一成功就算送出成功。
-// 注意：FormSubmit 每個收件地址第一次收到表單時會先寄一封啟用信，要點過才會開始送。
-var FORMSUBMIT_RECIPIENTS = ['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
+var FORMSUBMIT_TO = 'boice@evoscalecapital.com';        // primary recipient
+var FORMSUBMIT_CC = 'vincent@evoscalecapital.com';      // CC — both get every application
 var DRAFT_KEY = 'evoscale-membership-draft';
 
 /* ===== Bilingual (shares os-lang with the main site) ===== */
@@ -563,6 +558,7 @@ function buildSubmission(answers){
   var fd=new FormData();
   var who=(answers.company||'').trim() || (answers.name||'').trim() || 'Unknown';
   fd.append('_subject', 'New membership application — '+who);
+  fd.append('_cc', FORMSUBMIT_CC);
   fd.append('_template', 'table');
   fd.append('_captcha', 'false');
   Object.keys(answers).forEach(function(k){
@@ -580,18 +576,10 @@ async function submitApplication(){
   }
   setBusy(true);
   try{
-    // 每個收件人各送一次，各自帶自己的 FormData（不重複使用同一個 body）。
-    // 任一成功就算送出成功，申請人不該因為其中一個信箱有問題而被擋下。
-    var okAny=false;
-    for(var ri=0; ri<FORMSUBMIT_RECIPIENTS.length; ri++){
-      try{
-        var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_RECIPIENTS[ri]),
-          {method:'POST',headers:{Accept:'application/json'},body:buildSubmission(answers)});
-        var jr=await res.json().catch(function(){return {};});
-        if(res.ok && (jr.success===true || jr.success==='true')) okAny=true;
-      }catch(e){ /* 這個收件人失敗，繼續試下一個 */ }
-    }
-    if(!okAny) throw 0;
+    var fd=buildSubmission(answers);
+    var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_TO),{method:'POST',headers:{Accept:'application/json'},body:fd});
+    var jr=await res.json().catch(function(){return {};});
+    if(!res.ok || !(jr.success===true || jr.success==='true')) throw 0;
     localStorage.removeItem(DRAFT_KEY);
     setBusy(false);
     document.getElementById('bar').style.width='100%';

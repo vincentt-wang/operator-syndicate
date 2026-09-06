@@ -541,11 +541,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
                   formsubmit.co (free, native CC). No backend. Current mode.
    'worker'     — Cloudflare Worker + R2 (direct file upload, isolation). See worker/DEPLOY.md. */
 var SUBMIT_MODE = 'formsubmit';
-// 2026-09-06 改成兩個獨立收件人，不再靠 _cc。理由同 membership：
-// FormSubmit 的 AJAX 端點沒有任何文件保證 _cc 會生效，申請就是這樣安靜掉的。
-// 每個地址各送一次，任一成功就算送出成功。
-// 注意：每個收件地址第一次收到表單時，FormSubmit 會先寄啟用信，點過才會開始送。
-var FORMSUBMIT_RECIPIENTS = ['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
+var FORMSUBMIT_TO = 'boice@evoscalecapital.com';        // primary recipient
+var FORMSUBMIT_CC = 'vincent@evoscalecapital.com';      // CC — both get every submission
 var API_BASE = '/api';            // used only in 'worker' mode
 var DRAFT_KEY = 'evoscale-apply-draft';
 var MAX_FILE_MB = (SUBMIT_MODE === 'worker') ? 40 : 5;
@@ -823,28 +820,18 @@ async function submitViaFormsubmit(answers){
   if(!(answers.deck_link||'').trim()){ return deckLinkMissing(); }
   setBusy(true);
   try{
-    var mkFd=function(){
-      var fd=new FormData();
-      fd.append('_subject', 'New deal submission — '+(answers.company||'Unknown'));
-      fd.append('_template', 'table');
-      fd.append('_captcha', 'false');
-      Object.keys(answers).forEach(function(k){
-        var v=answers[k]; if(Array.isArray(v)) v=v.join(', '); if(typeof v==='boolean') v=v?'yes':'no';
-        fd.append(k, v==null?'':String(v));
-      });
-      return fd;
-    };
-    // 每個收件人各送一次，各自帶自己的 FormData。任一成功就算送出成功。
-    var okAny=false;
-    for(var ri=0; ri<FORMSUBMIT_RECIPIENTS.length; ri++){
-      try{
-        var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_RECIPIENTS[ri]),
-          {method:'POST',headers:{Accept:'application/json'},body:mkFd()});
-        var jr=await res.json().catch(function(){return {};});
-        if(res.ok && (jr.success===true || jr.success==='true')) okAny=true;
-      }catch(e){ /* 這個收件人失敗，繼續試下一個 */ }
-    }
-    if(!okAny) throw 0;
+    var fd=new FormData();
+    fd.append('_subject', 'New deal submission — '+(answers.company||'Unknown'));
+    fd.append('_cc', FORMSUBMIT_CC);
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    Object.keys(answers).forEach(function(k){
+      var v=answers[k]; if(Array.isArray(v)) v=v.join(', '); if(typeof v==='boolean') v=v?'yes':'no';
+      fd.append(k, v==null?'':String(v));
+    });
+    var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_TO),{method:'POST',headers:{Accept:'application/json'},body:fd});
+    var jr=await res.json().catch(function(){return {};});
+    if(!res.ok || !(jr.success===true || jr.success==='true')) throw 0;
     localStorage.removeItem(DRAFT_KEY);
     showSuccess(null);
   }catch(err){

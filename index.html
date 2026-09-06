@@ -1992,7 +1992,7 @@ function toggleBrief(id){var s=document.getElementById(id);if(!s)return;var b=s.
       ctx.beginPath();ctx.arc(CX,CY,hubR,0,Math.PI*2);ctx.fillStyle=disk;ctx.fill();
       // gradient rim (top gold → bottom deep orange)
       var rim=ctx.createLinearGradient(CX,CY-hubR,CX,CY+hubR);
-      rim.addColorStop(0,'#FFC982');rim.addColorStop(.5,'#FF7A1A');rim.addColorStop(1,'#D9540A');
+      rim.addColorStop(0,'#FFC982');rim.addColorStop(.5,'#FF6600');rim.addColorStop(1,'#D9540A');
       ctx.beginPath();ctx.arc(CX,CY,hubR,0,Math.PI*2);ctx.strokeStyle=rim;ctx.lineWidth=2.5;ctx.stroke();
       // inner hairline for depth
       ctx.beginPath();ctx.arc(CX,CY,hubR-4,0,Math.PI*2);ctx.strokeStyle='rgba(255,190,110,.16)';ctx.lineWidth=1;ctx.stroke();
