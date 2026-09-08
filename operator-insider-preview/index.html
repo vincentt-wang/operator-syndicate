@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operator Insider | EvoScale Capital 一春資本</title>
+<meta name="description" content="Operator Insider: industry judgement written by the operators who still run the business. One vertical, one operator, one piece a month.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--orange-d:#E55A00;--navy:#1B1714;--navy-2:#262019;--ink:#E8EDF2;--mut:#A99F90;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.7;-webkit-font-smoothing:antialiased;font-size:1rem}
+html[lang=zh] body{line-height:1.85}
+a{color:inherit}
+.top{background:var(--navy-2);border-bottom:1px solid var(--border);height:68px;padding:0 6vw;position:sticky;top:0;z-index:10}
+.top-in{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;height:100%}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:#fff;font-size:1.1rem}
+.brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:.02em;flex:none}
+.top-nav{list-style:none;display:flex;gap:1.7rem;margin:0 auto;padding:0}
+.top-nav a{font-size:1rem;font-weight:600;color:var(--mut);text-decoration:none;transition:color .2s;white-space:nowrap}
+.top-nav a:hover,.top-nav a.on{color:#fff}
+.top-nav a.on{color:var(--orange-2)}
+.top-r{display:flex;align-items:center;gap:1rem}
+.lang{background:none;border:1.5px solid var(--orange);color:var(--orange);border-radius:20px;padding:6px 16px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}
+.tb{font-family:var(--fb);font-weight:700;font-size:1rem;padding:10px 22px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;white-space:nowrap}
+@media(max-width:1180px){.top-nav{display:none}}
+@media(max-width:720px){.tb{display:none}}
+
+main{max-width:1120px;margin:0 auto;padding:3.4rem 6vw 4rem}
+.devbar{max-width:1120px;margin:1.6rem auto 0;padding:0 6vw}
+.devbar-in{border:1px solid rgba(255,140,66,.42);border-left:5px solid var(--orange);border-radius:12px;background:rgba(255,102,0,.08);padding:1rem 1.2rem;font-size:1rem;line-height:1.65;color:#F2D9C2}
+.devbar-in b{color:#fff}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.2rem,5vw,3.2rem);color:#fff;letter-spacing:-.02em;margin-bottom:.9rem;line-height:1.15}
+.sub{color:var(--mut);font-size:1.15rem;max-width:660px;margin-bottom:2.6rem}
+
+/* two-lane explainer */
+.lane.here
+.lane-f b{color:var(--orange-2)}
+@media(max-width:760px){}
+
+/* vertical filter */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2.4rem}
+.chip{border:1px solid var(--border);background:transparent;color:var(--mut);font-family:inherit;font-weight:600;font-size:1rem;padding:.48rem 1.1rem;border-radius:20px;cursor:pointer;transition:border-color .2s,color .2s,background .2s;white-space:nowrap}
+.chip:hover{border-color:rgba(255,140,66,.55);color:#fff}
+.chip.active{background:rgba(255,102,0,.16);border-color:var(--orange);color:var(--orange-2)}
+
+/* industry group */
+.grp{margin-bottom:2.8rem}
+.grp-h{display:flex;align-items:baseline;gap:.9rem;padding-bottom:.7rem;margin-bottom:1.4rem;border-bottom:1px solid var(--border)}
+.grp-t{font-family:var(--fd);font-weight:800;font-size:1.5rem;color:#fff;white-space:nowrap}
+.grp-s{font-size:1rem;color:var(--mut)}
+@media(max-width:600px){.grp-h{flex-direction:column;gap:.2rem}}
+
+/* operator card */
+.oc{display:grid;grid-template-columns:96px 1fr;gap:1.4rem;text-decoration:none;background:linear-gradient(165deg,#2A241C,#1F1A14);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:1.7rem;box-shadow:0 14px 36px rgba(0,0,0,.34);transition:border-color .22s,transform .22s,box-shadow .22s}
+.oc:hover{border-color:rgba(255,140,66,.5);transform:translateY(-4px);box-shadow:0 22px 48px rgba(0,0,0,.42)}
+.oc-face{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.18)}
+.oc-top{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:.5rem}
+.oc-n{font-family:var(--fd);font-weight:800;font-size:1.35rem;color:#fff;white-space:nowrap}
+.oc-tag{font-size:1rem;font-weight:700;letter-spacing:.06em;color:var(--orange-2);border:1px solid rgba(255,140,66,.4);border-radius:14px;padding:.1rem .7rem;white-space:nowrap}
+.oc-role{font-size:1rem;color:var(--mut);margin-bottom:1rem;line-height:1.55}
+.oc-h{font-family:var(--fd);font-weight:700;color:#fff;font-size:1.3rem;line-height:1.35;margin-bottom:.5rem}
+.oc-p{font-size:1rem;color:rgba(232,237,242,.72);line-height:1.7;margin-bottom:.9rem}
+.oc-foot{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;font-size:1rem;color:var(--mut)}
+.oc-read{color:var(--orange-2);font-weight:700;white-space:nowrap}
+.oc-li{display:inline-flex;align-items:center;gap:.4rem;color:#7FB3E8;font-weight:600;text-decoration:none;white-space:nowrap}
+.oc-li svg{width:17px;height:17px;fill:currentColor;flex:none}
+.oc-li:hover{color:#fff}
+.oc.pending{border-color:rgba(199,123,42,.55)}
+.oc-warn{margin-top:.9rem;padding:.75rem .95rem;border-radius:10px;background:rgba(199,123,42,.14);border:1px solid rgba(199,123,42,.45);font-size:1rem;line-height:1.6;color:#F0C89B}
+.oc-warn b{color:#FFDCB4}
+@media(max-width:600px){.oc{grid-template-columns:1fr;gap:1rem}.oc-face{width:80px;height:80px}.oc-n{white-space:normal}}
+
+footer{text-align:center;padding:2.4rem 6vw;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><span class="lm">ES</span>EvoScale Capital</a>
+  <ul class="top-nav">
+    <li><a href="../index.html#network" data-en="Network" data-zh="網絡">Network</a></li>
+    <li><a href="../index.html#about" data-en="Model" data-zh="運作">Model</a></li>
+    <li><a href="../index.html#global" data-en="Global" data-zh="出海">Global</a></li>
+    <li><a href="../index.html#team" data-en="Team" data-zh="團隊">Team</a></li>
+    <li><a href="../insights/index.html" data-en="Insights" data-zh="觀點">Insights</a></li>
+    <li><a href="index.html" class="on" data-en="Operator Insider" data-zh="Operator Insider">Operator Insider</a></li>
+  </ul>
+  <div class="top-r">
+    <button class="lang" id="lt" onclick="toggleL()">CH</button>
+    <a class="tb" href="../../apply.html" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</a>
+  </div>
+</div></div>
+
+<main>
+  <div class="ey" data-en="Operator Insider" data-zh="Operator Insider">Operator Insider</div>
+  <h1 data-en="Operators, on the record." data-zh="高管具名，寫他自己那一行。">Operators, on the record.</h1>
+  <p class="sub" data-en="One vertical. One operator. Their name on it." data-zh="一個產業一位高管，掛自己的名字。">One vertical. One operator. Their name on it.</p>
+
+
+  <div class="chips" id="chips">
+    <button class="chip active" data-v="all" onclick="setV('all')" data-en="All verticals" data-zh="全部產業">All verticals</button>
+    <button class="chip" data-v="SalesTech" onclick="setV('SalesTech')">SalesTech</button>
+    <button class="chip" data-v="ChipTech" onclick="setV('ChipTech')">ChipTech</button>
+    <button class="chip" data-v="BizTech" onclick="setV('BizTech')">BizTech</button>
+    <button class="chip" data-v="HRTech" onclick="setV('HRTech')">HRTech</button>
+    <button class="chip" data-v="FutureOfWork" onclick="setV('FutureOfWork')">FutureOfWork</button>
+  </div>
+
+  <!-- ══ SalesTech ══ -->
+  <section class="grp" data-v="SalesTech">
+    <div class="grp-h">
+      <div class="grp-t">SalesTech</div>
+      <div class="grp-s" data-en="Enterprise sales technology and how a buying budget is actually approved"
+        data-zh="企業銷售科技，以及一筆採購預算實際上是怎麼被核准的">Enterprise sales technology and how a buying budget is actually approved</div>
+    </div>
+    <a class="oc" href="articles/salestech-the-number-nobody-checks.html">
+      <img class="oc-face" src="../Team/Sam.jpg" alt="Sam Su" width="96" height="96" loading="lazy">
+      <div>
+        <div class="oc-top"><span class="oc-n">Sam Su</span><span class="oc-tag">SalesTech</span></div>
+        <div class="oc-role" data-en="Regional Sales Director, Salesforce" data-zh="Salesforce 企業用戶事業部副總經理">Regional Sales Director, Salesforce</div>
+        <div class="oc-h" data-en="AI Has No Budget Line" data-zh="AI 沒有那一欄預算">AI Has No Budget Line</div>
+        <div class="oc-p" data-en="The one survey that breaks enterprise AI spend down by department does not list sales at all, and the reason is that nobody can forecast the bill."
+          data-zh="唯一一份把企業 AI 支出按部門拆開的調查，裡面根本沒有銷售這一項，原因是沒有人算得出這筆帳單。">The one survey that breaks enterprise AI spend down by department does not list sales at all.</div>
+        <div class="oc-foot">
+          <span class="oc-read" data-en="Read the piece &rarr;" data-zh="讀這一篇 &rarr;">Read the piece &rarr;</span>
+          <span class="oc-li" onclick="go(event,'https://www.linkedin.com/in/jiunhsisamsu/')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>LinkedIn</span>
+          <span data-en="8 min &middot; September 2026" data-zh="8 分鐘 &middot; 2026 年 9 月">8 min &middot; September 2026</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ══ ChipTech ══ -->
+  <section class="grp" data-v="ChipTech">
+    <div class="grp-h">
+      <div class="grp-t">ChipTech</div>
+      <div class="grp-s" data-en="Semiconductor manufacturing, process nodes and who actually takes the order"
+        data-zh="半導體製造、製程選擇，以及訂單最後是誰接下來">Semiconductor manufacturing, process nodes and who actually takes the order</div>
+    </div>
+    <a class="oc" href="articles/chiptech-the-foundry-nobody-pitches.html">
+      <img class="oc-face" src="../Team/Wesley.jpg" alt="Wesley Hsieh" width="96" height="96" loading="lazy">
+      <div>
+        <div class="oc-top"><span class="oc-n">Wesley Hsieh</span><span class="oc-tag">ChipTech</span></div>
+        <div class="oc-role" data-en="General Manager, GlobalFoundries Taiwan" data-zh="格芯 GlobalFoundries 台灣區總經理">General Manager, GlobalFoundries Taiwan</div>
+        <div class="oc-h" data-en="Not the Default Choice" data-zh="當你不是預設選項">Not the Default Choice</div>
+        <div class="oc-p" data-en="The customer already has a default answer, and it is not you. What that changes about the first meeting."
+          data-zh="客戶心裡已經有一個預設答案，而那不是你。這件事改變了第一次見面該談什麼。">The customer already has a default answer, and it is not you.</div>
+        <div class="oc-foot">
+          <span class="oc-read" data-en="Read the piece &rarr;" data-zh="讀這一篇 &rarr;">Read the piece &rarr;</span>
+          <span class="oc-li" onclick="go(event,'https://www.linkedin.com/in/wesley-hsieh-25311663/')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>LinkedIn</span>
+          <span data-en="8 min &middot; September 2026" data-zh="8 分鐘 &middot; 2026 年 9 月">8 min &middot; September 2026</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ══ BizTech ══ -->
+  <section class="grp" data-v="BizTech">
+    <div class="grp-h">
+      <div class="grp-t">BizTech</div>
+      <div class="grp-s" data-en="Enterprise systems, data readiness and why an AI project stops moving"
+        data-zh="企業系統、資料整備，以及一個 AI 專案為什麼會停下來">Enterprise systems, data readiness and why an AI project stops moving</div>
+    </div>
+    <a class="oc pending" href="articles/biztech-ai-stalls-in-the-systems.html">
+      <img class="oc-face" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23D9D2C4'/%3E%3Ccircle cx='60' cy='46' r='21' fill='%23A99F90'/%3E%3Cpath d='M18 116c0-24 19-40 42-40s42 16 42 40z' fill='%23A99F90'/%3E%3C/svg%3E" alt="placeholder" width="96" height="96">
+      <div>
+        <div class="oc-top"><span class="oc-n">Price Lu</span><span class="oc-tag">BizTech</span></div>
+        <div class="oc-role" data-en="SAP &middot; title pending the author's own confirmation" data-zh="SAP 業務副總經理（職稱待本人與公司確認）">SAP &middot; title pending the author's own confirmation</div>
+        <div class="oc-h" data-en="Five Ways a Deal Dies" data-zh="合約的五種結束方式">Five Ways a Deal Dies</div>
+        <div class="oc-p" data-en="Gartner puts 30% of generative AI projects as abandoned after proof of concept, and a 2026 survey of 300 executives found AI reaches only 45% of company data."
+          data-zh="Gartner 預估 30% 的生成式 AI 專案會在概念驗證後被放棄，2026 年一份訪問 300 位主管的調查發現 AI 平均只能取用企業 45% 的資料。">Gartner puts 30% of generative AI projects as abandoned after proof of concept.</div>
+        <div class="oc-warn" data-en="<b>Demo card, not approved.</b> Price Lu has not agreed to be named with his company and title. His own words: he needs to check internal policy first. The photo is a grey placeholder, and his real photo is deliberately kept outside the website folder."
+          data-zh="<b>示範用卡片，尚未同意。</b>Price Lu 還沒同意具名連同公司與職稱一起刊出，他的原話是要先問過公司內規。這裡的頭像是灰色佔位圖，他本人的照片刻意收在網站目錄外。"><b>Demo card, not approved.</b> Price Lu has not agreed to be named with his company and title.</div>
+        <div class="oc-foot">
+          <span class="oc-read" data-en="Read the piece &rarr;" data-zh="讀這一篇 &rarr;">Read the piece &rarr;</span>
+          <span data-en="8 min &middot; September 2026" data-zh="8 分鐘 &middot; 2026 年 9 月">8 min &middot; September 2026</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ══ HRTech ══ -->
+  <section class="grp" data-v="HRTech">
+    <div class="grp-h">
+      <div class="grp-t">HRTech</div>
+      <div class="grp-s" data-en="Cross-border employment, compliance exposure and what an EOR really absorbs"
+        data-zh="跨境僱傭、法遵曝險，以及 EOR 真正吸收掉的是什麼">Cross-border employment, compliance exposure and what an EOR really absorbs</div>
+    </div>
+    <a class="oc" href="articles/hrtech-cross-border-hiring-is-not-payroll.html">
+      <img class="oc-face" src="../Team/Sabrina.jpg" alt="Sabrina Chiu" width="96" height="96" loading="lazy">
+      <div>
+        <div class="oc-top"><span class="oc-n">Sabrina Chiu</span><span class="oc-tag">HRTech</span></div>
+        <div class="oc-role" data-en="Deputy General Manager, BIPO Taiwan" data-zh="BIPO 台灣區副總經理">Deputy General Manager, BIPO Taiwan</div>
+        <div class="oc-h" data-en="Why Good Teams Say No" data-zh="為什麼好團隊說不">Why Good Teams Say No</div>
+        <div class="oc-p" data-en="An Employer of Record is not a payroll outsourcer. What it absorbs is labour law compliance, tax exposure and how the employment relationship is classified."
+          data-zh="EOR 不是代發薪水的外包商。它真正吸收掉的是勞動法遵、稅務曝險與僱傭關係怎麼被認定。">An Employer of Record is not a payroll outsourcer.</div>
+        <div class="oc-foot">
+          <span class="oc-read" data-en="Read the piece &rarr;" data-zh="讀這一篇 &rarr;">Read the piece &rarr;</span>
+          <span class="oc-li" onclick="go(event,'https://www.linkedin.com/in/sabrina-chiu-tw/')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>LinkedIn</span>
+          <span data-en="8 min &middot; September 2026" data-zh="8 分鐘 &middot; 2026 年 9 月">8 min &middot; September 2026</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ══ FutureOfWork ══ -->
+  <section class="grp" data-v="FutureOfWork">
+    <div class="grp-h">
+      <div class="grp-t">FutureOfWork</div>
+      <div class="grp-s" data-en="Talent flow as a leading indicator, read before any financial statement says it"
+        data-zh="把人才流動當成領先指標，在財報講出來之前先讀到">Talent flow as a leading indicator, read before any financial statement says it</div>
+    </div>
+    <a class="oc" href="articles/futureofwork-turnover-before-the-balance-sheet.html">
+      <img class="oc-face" src="../Team/Will.jpg" alt="Will Lin" width="96" height="96" loading="lazy">
+      <div>
+        <div class="oc-top"><span class="oc-n">Will Lin</span><span class="oc-tag">FutureOfWork</span></div>
+        <div class="oc-role" data-en="Director, Michael Page Taiwan" data-zh="Director, Michael Page Taiwan">Director, Michael Page Taiwan</div>
+        <div class="oc-h" data-en="Hiring Moves First" data-zh="招募比財報早">Hiring Moves First</div>
+        <div class="oc-p" data-en="Gallup puts the annual cost of voluntary turnover at US$1 trillion, and replacing an executive can run to 213% of salary. Who a company is quietly losing reads earlier than any filing."
+          data-zh="Gallup 估計自願性離職每年造成一兆美元損失，換掉一位高階主管最高要花年薪的 213%。一家公司正在悄悄流失誰，讀起來比任何一份財報都快。">Gallup puts the annual cost of voluntary turnover at US$1 trillion.</div>
+        <div class="oc-foot">
+          <span class="oc-read" data-en="Read the piece &rarr;" data-zh="讀這一篇 &rarr;">Read the piece &rarr;</span>
+          <span class="oc-li" onclick="go(event,'https://tw.linkedin.com/in/mp-will-lin')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>LinkedIn</span>
+          <span data-en="8 min &middot; September 2026" data-zh="8 分鐘 &middot; 2026 年 9 月">8 min &middot; September 2026</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+</main>
+
+<footer data-en="EvoScale Capital &middot; Operator Insider &middot; dev preview, not published." data-zh="EvoScale Capital 一春資本 &middot; Operator Insider &middot; 示範版，未上線。">EvoScale Capital &middot; Operator Insider &middot; dev preview, not published.</footer>
+
+<script>
+function go(e,url){e.preventDefault();e.stopPropagation();window.open(url,'_blank','noopener');}
+function setV(v){
+  document.querySelectorAll('#chips .chip').forEach(function(c){c.classList.toggle('active',c.getAttribute('data-v')===v);});
+  document.querySelectorAll('section.grp').forEach(function(g){g.style.display=(v==='all'||g.getAttribute('data-v')===v)?'':'none';});
+}
+function applyL(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-en]').forEach(function(e){
+    var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');
+    if(v===null)return; e.innerHTML=v;
+  });
+  document.getElementById('lt').textContent=l==='zh'?'EN':'CH';
+  try{localStorage.setItem('evoLang',l);}catch(e){}
+}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+(function(){try{var p=new URLSearchParams(location.search);var q=(p.get('lang')||'').toLowerCase();
+if(q==='zh'||location.hash==='#zh'){applyL('zh');}else if(q==='en'){applyL('en');}
+else{var s=localStorage.getItem('evoLang');if(s==='zh')applyL('zh');}}catch(e){}})();
+</script>
+</body>
+</html>

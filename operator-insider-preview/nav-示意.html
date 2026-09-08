@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>導覽列示意 · Operator Insider | EvoScale Capital</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF6600;--orange-2:#FF8C42;--orange-d:#E55A00;--navy:#1B1714;--navy-2:#262019;--ink:#E8EDF2;--mut:#A99F90;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.75;font-size:1rem;-webkit-font-smoothing:antialiased}
+html[lang=zh] body{line-height:1.9}
+a{color:inherit}
+main{max-width:1080px;margin:0 auto;padding:3rem 6vw 4rem}
+.ey{font-size:1rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.9rem}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,2.7rem);color:#fff;line-height:1.18;margin-bottom:.8rem;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:1.12rem;max-width:640px;margin-bottom:2.6rem}
+h2{font-family:var(--fd);font-weight:800;font-size:1.5rem;color:#fff;margin:2.8rem 0 .5rem;white-space:nowrap}
+.h2note{color:var(--mut);font-size:1rem;margin-bottom:1.2rem}
+
+/* nav mock */
+.mock{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--navy-2);margin-bottom:1rem}
+.mock-lab{display:flex;align-items:center;gap:.7rem;padding:.7rem 1.2rem;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);font-size:1rem;color:var(--mut)}
+.pill{font-size:1rem;font-weight:700;padding:.1rem .7rem;border-radius:12px;white-space:nowrap}
+.pill.now{background:rgba(169,159,144,.18);color:var(--mut)}
+.pill.new{background:rgba(255,102,0,.18);color:var(--orange-2)}
+.pill.rec{background:rgba(21,128,61,.22);color:#6EE7A0}
+.navbar{display:flex;align-items:center;gap:1.2rem;padding:1rem 1.4rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--fd);font-weight:800;color:#fff;font-size:1.05rem;white-space:nowrap}
+.brand .lm{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:16px;flex:none}
+.nl{display:flex;gap:1.35rem;list-style:none;margin:0 auto;flex-wrap:wrap;padding:0}
+.nl li{font-size:1rem;font-weight:600;color:var(--mut);white-space:nowrap}
+.nl li.hi{color:var(--orange-2);position:relative}
+.nl li.hi::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--orange)}
+.nr{display:flex;gap:.7rem;align-items:center}
+.btn{font-size:1rem;font-weight:700;padding:8px 18px;border-radius:999px;background:var(--orange);color:#fff;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
+.btn.lang{background:none;border:1.5px solid var(--orange);color:var(--orange);padding:6px 14px}
+@media(max-width:900px){.nl{margin:0;width:100%;order:3}.nr{order:2;margin-left:auto}}
+
+/* drop-down variant */
+.dd{position:relative;display:inline-block}
+.ddm{margin-top:.9rem;border:1px solid rgba(255,140,66,.4);border-radius:12px;background:#221C16;padding:.6rem;width:290px}
+.ddm div{padding:.55rem .8rem;border-radius:8px;font-size:1rem}
+.ddm div.on{background:rgba(255,102,0,.14);color:var(--orange-2);font-weight:700}
+.ddm small{display:block;color:var(--mut);font-size:1rem;font-weight:400;line-height:1.5;margin-top:.15rem}
+
+/* comparison */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem}
+.opt{border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;background:var(--navy-2);display:flex;flex-direction:column;min-height:190px}
+.opt.pick{border-color:rgba(110,231,160,.45)}
+.opt h3{font-family:var(--fd);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:.5rem;white-space:nowrap}
+.opt p{font-size:1rem;color:rgba(232,237,242,.76);line-height:1.7}
+.opt .verdict{margin-top:auto;padding-top:.9rem;font-size:1rem;color:var(--mut)}
+.opt .verdict b{color:#6EE7A0}
+.opt.no .verdict b{color:#F0A87A}
+@media(max-width:760px){.opts{grid-template-columns:1fr}.opt h3{white-space:normal}h2{white-space:normal}}
+
+.note{margin-top:2.6rem;border:1px solid rgba(255,140,66,.35);border-left:5px solid var(--orange);border-radius:12px;background:rgba(255,102,0,.07);padding:1.1rem 1.3rem;font-size:1rem;line-height:1.7;color:#F2D9C2}
+.note b{color:#fff}
+.langbar{position:fixed;right:1.2rem;bottom:1.2rem;z-index:20}
+.langbar button{background:var(--orange);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:1rem;padding:10px 20px;border-radius:999px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+</style>
+</head>
+<body>
+<main>
+  <div class="ey" data-en="Navigation mock-up" data-zh="導覽列示意">Navigation mock-up</div>
+  <h1 data-en="Where Operator Insider sits in the top nav" data-zh="Operator Insider 放在導覽列的哪裡">Where Operator Insider sits in the top nav</h1>
+  <p class="sub" data-en="A mock-up only. The production navigation has not been touched. Two placements are drawn below, with a recommendation."
+     data-zh="這只是示意圖，正式站的導覽列完全沒有動。下面畫了兩種放法，並附上建議。">A mock-up only. The production navigation has not been touched.</p>
+
+  <h2 data-en="Today" data-zh="現在">Today</h2>
+  <p class="h2note" data-en="Read straight off the live index.html on 8 September 2026."
+     data-zh="2026 年 9 月 8 日直接讀線上 index.html 抄下來的。">Read straight off the live index.html on 8 September 2026.</p>
+  <div class="mock">
+    <div class="mock-lab"><span class="pill now" data-en="Live" data-zh="線上現況">Live</span><span data-en="Six links, plus two buttons on the right" data-zh="六個連結，右邊兩顆按鈕">Six links, plus two buttons on the right</span></div>
+    <div class="navbar">
+      <div class="brand"><span class="lm">ES</span>EvoScale Capital</div>
+      <ul class="nl">
+        <li data-en="Network" data-zh="網絡">Network</li>
+        <li data-en="Model" data-zh="運作">Model</li>
+        <li data-en="Global" data-zh="出海">Global</li>
+        <li data-en="Team" data-zh="團隊">Team</li>
+        <li>FAQ</li>
+        <li data-en="Insights" data-zh="觀點">Insights</li>
+      </ul>
+      <div class="nr"><span class="btn lang">CH</span><span class="btn ghost" data-en="Membership" data-zh="會員申請">Membership</span><span class="btn" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</span></div>
+    </div>
+  </div>
+
+  <h2 data-en="Option A · a tab of its own" data-zh="做法 A · 自己一個分頁">Option A &middot; a tab of its own</h2>
+  <p class="h2note" data-en="What Boice asked for: a completely new tab, separate from Insights."
+     data-zh="Boice 要的就是這個：完全新的一個 tab，跟觀點分開。">What Boice asked for: a completely new tab, separate from Insights.</p>
+  <div class="mock">
+    <div class="mock-lab"><span class="pill new" data-en="Proposed" data-zh="提案">Proposed</span><span class="pill rec" data-en="Recommended" data-zh="建議採用">Recommended</span><span data-en="Seven links. FAQ moves down into the footer to keep the row from wrapping." data-zh="七個連結。FAQ 往下移到頁尾，這一列才不會擠到換行。">Seven links.</span></div>
+    <div class="navbar">
+      <div class="brand"><span class="lm">ES</span>EvoScale Capital</div>
+      <ul class="nl">
+        <li data-en="Network" data-zh="網絡">Network</li>
+        <li data-en="Model" data-zh="運作">Model</li>
+        <li data-en="Global" data-zh="出海">Global</li>
+        <li data-en="Team" data-zh="團隊">Team</li>
+        <li data-en="Insights" data-zh="觀點">Insights</li>
+        <li class="hi">Operator Insider</li>
+      </ul>
+      <div class="nr"><span class="btn lang">CH</span><span class="btn ghost" data-en="Membership" data-zh="會員申請">Membership</span><span class="btn" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</span></div>
+    </div>
+  </div>
+
+  <h2 data-en="Option B · a menu under Insights" data-zh="做法 B · 掛在觀點底下的選單">Option B &middot; a menu under Insights</h2>
+  <p class="h2note" data-en="Keeps the row at six links. The section is one hover away instead of one click."
+     data-zh="這一列維持六個連結。代價是這一區要先滑過去才看得到，不是點一下就到。">Keeps the row at six links.</p>
+  <div class="mock">
+    <div class="mock-lab"><span class="pill new" data-en="Alternative" data-zh="備案">Alternative</span><span data-en="Same six links, Insights opens a two-item menu" data-zh="一樣六個連結，觀點展開成兩項選單">Same six links, Insights opens a two-item menu</span></div>
+    <div class="navbar">
+      <div class="brand"><span class="lm">ES</span>EvoScale Capital</div>
+      <ul class="nl">
+        <li data-en="Network" data-zh="網絡">Network</li>
+        <li data-en="Model" data-zh="運作">Model</li>
+        <li data-en="Global" data-zh="出海">Global</li>
+        <li data-en="Team" data-zh="團隊">Team</li>
+        <li>FAQ</li>
+        <li class="hi dd" data-en="Insights &#9662;" data-zh="觀點 &#9662;">Insights &#9662;</li>
+      </ul>
+      <div class="nr"><span class="btn lang">CH</span><span class="btn ghost" data-en="Membership" data-zh="會員申請">Membership</span><span class="btn" data-en="Submit Your Deal" data-zh="提交案源">Submit Your Deal</span></div>
+    </div>
+  </div>
+  <div class="ddm">
+    <div data-en="EvoScale Insights<small>Our own read, signed by the firm</small>" data-zh="一春觀點<small>我們自己的判斷，掛公司的名字</small>">EvoScale Insights<small>Our own read, signed by the firm</small></div>
+    <div class="on" data-en="Operator Insider<small>Written by the operator, signed by the operator</small>" data-zh="Operator Insider<small>高管本人執筆，掛他自己的名字</small>">Operator Insider<small>Written by the operator, signed by the operator</small></div>
+  </div>
+
+  <h2 data-en="Which one" data-zh="選哪一個">Which one</h2>
+  <div class="opts">
+    <div class="opt pick">
+      <h3 data-en="Option A" data-zh="做法 A">Option A</h3>
+      <p data-en="A separate tab is the only version that makes the two kinds of authorship visible before anyone clicks. It is also the version Boice described. The cost is one more link in a row that is already at six, which is why FAQ moves to the footer."
+        data-zh="只有獨立一個 tab，才能在還沒點進去之前就讓人看出這是兩種不同的作者。這也是 Boice 講的那個版本。代價是這一列本來就已經六個連結，所以把 FAQ 移到頁尾。">A separate tab is the only version that makes the two kinds of authorship visible before anyone clicks.</p>
+      <div class="verdict" data-en="Verdict: <b>go with this</b>" data-zh="結論：<b>建議走這個</b>">Verdict: <b>go with this</b></div>
+    </div>
+    <div class="opt no">
+      <h3 data-en="Option B" data-zh="做法 B">Option B</h3>
+      <p data-en="Tidier, and it does keep FAQ where it is. But it files Operator Insider as a sub-page of Insights, which is the opposite of what the section is for. Worth keeping as a fallback if the row turns out to be too tight on smaller laptops."
+        data-zh="比較整齊，也不用動 FAQ。但它等於把 Operator Insider 歸成觀點的子頁，跟這一區存在的理由正好相反。如果小尺寸筆電上那一列真的擠，再拿這個當備案。">Tidier, but it files Operator Insider as a sub-page of Insights.</p>
+      <div class="verdict" data-en="Verdict: <b>fallback only</b>" data-zh="結論：<b>只當備案</b>">Verdict: <b>fallback only</b></div>
+    </div>
+  </div>
+
+  <div class="note" data-en="<b>One thing to confirm.</b> The brief described the current nav as About / Insights / Deals / Membership / Operator / Contact. The live navigation actually reads Network / Model / Global / Team / FAQ / Insights, with Membership and Submit Your Deal as buttons on the right. The mock-ups above follow the live version. If the nav is due to be renamed as well, that is a separate decision and this page should be redrawn after it."
+    data-zh="<b>有一件事要確認。</b>需求裡把現在的導覽列寫成關於、觀點、案源、會員、Operator、聯絡。線上實際的導覽列是網絡、運作、出海、團隊、FAQ、觀點，右邊另外兩顆按鈕是會員申請與提交案源。上面的示意圖照線上實際的版本畫。如果導覽列本身也要改名，那是另一個決定，改完之後這一頁要重畫。"><b>One thing to confirm.</b> The brief described a different current nav from what is live.</div>
+</main>
+
+<div class="langbar"><button id="lt" onclick="toggleL()">CH</button></div>
+<script>
+function applyL(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-en]').forEach(function(e){
+    var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');
+    if(v===null)return; e.innerHTML=v;
+  });
+  document.getElementById('lt').textContent=l==='zh'?'EN':'CH';
+  try{localStorage.setItem('evoLang',l);}catch(e){}
+}
+function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');}
+(function(){try{var s=localStorage.getItem('evoLang');if(s==='zh')applyL('zh');}catch(e){}})();
+</script>
+</body>
+</html>
