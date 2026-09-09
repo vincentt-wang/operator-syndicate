@@ -33,3 +33,8 @@ _pending-newsroom/
 insights/_*.html
 newsroom/
 Team/名片/
+
+# 本機工具與備份，不上公開 repo
+_bak_en_260909/
+_contrast_check.js
+_sync-bound-copy.js

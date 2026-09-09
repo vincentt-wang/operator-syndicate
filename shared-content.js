@@ -16,7 +16,7 @@ window.OS_CONTENT = {
     tagline_en_2: "We Scale.",
     tagline_zh_1: "不只是投資",
     tagline_zh_2: "我們帶你做大",
-    positioning_en: "Taiwan's first operator-led syndicate. We're built to grow your revenue, from breaking into enterprise to scaling beyond it, with 50+ operators who've already done it.",
+    positioning_en: "Taiwan's first operator-led syndicate. We help you break into enterprise accounts and scale past them, backed by more than 50 operators who have done it themselves.",
     positioning_zh: "全台首創 Operator-Led 投資飛輪。我們為放大你的營收而生，從打進企業到突破規模天花板，靠的是 50+ 位走過這條路的營運者。",
     // 2026-07-15：原為「Launching June 2026／2026 年 6 月 Launch」，該日期已過，改用邀請制框架（不綁日期）。
     // 只有 pitch.html 讀這兩個 key（index.html／operators.html 未使用）。
@@ -30,7 +30,7 @@ window.OS_CONTENT = {
     stat: "100%",
     headline_en: "Every deal. Every time.",
     headline_zh: "每一筆投資，每一次都動用網絡",
-    body_en: "We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. 100% of our investments involve the network, not just the check.",
+    body_en: "We match seasoned go-to-market operators to the exact strategic and operational needs of each B2B company we back — joining as advisors, board members, or hands-on executives. Every investment we make puts the network to work, not just a check.",
     body_zh: "我們把資深 go-to-market 營運者，精準對接每家投組公司的策略與營運需求——以顧問、董事或實際操盤的高管身分加入。100% 的投資都有網絡參與，不只是一張支票。",
   },
 
@@ -56,13 +56,13 @@ window.OS_CONTENT = {
   // ── RaaS 三柱 ─────────────────────────────────────
   pillars: [
     { title_en: "Network Alpha", title_zh: "Network Alpha",
-      desc_en: "Your enterprise relationships are your alpha. We measure, deploy, and monetize operator network value.",
+      desc_en: "Your enterprise relationships are the alpha. We measure them, put them to work, and turn them into returns.",
       desc_zh: "你的企業關係就是你的 Alpha。我們衡量、部署並變現高管網絡價值。" },
     { title_en: "Revenue Intelligence Architecture", title_zh: "營收智能架構",
-      desc_en: "A repeatable system for B2B revenue growth: sales strategy, procurement navigation, and AI-augmented coaching, engineered by operators who have scaled it.",
+      desc_en: "A repeatable system for B2B revenue growth: sales strategy, procurement navigation, and AI-assisted coaching, built by operators who have run it themselves.",
       desc_zh: "可複製的 B2B 營收成長系統：業務策略、採購引導，以及由實戰高管打造的 AI 輔助教練機制。" },
     { title_en: "Operator-Led Community", title_zh: "高管社群",
-      desc_en: "Taiwan's highest-density community of senior sales executives who love tech and investing.",
+      desc_en: "The densest concentration of senior sales executives in Taiwan, all of them active in technology and investing.",
       desc_zh: "台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子。" },
   ],
 
@@ -121,7 +121,7 @@ window.OS_CONTENT = {
     operators_en: "Senior Operators", operators_zh: "資深高管",
     exits_en: "Founder Exits",         exits_zh: "團隊出場實績",
     tiers_en: "Investment Tiers",      tiers_zh: "投資層級",
-    cycle_en: "Enterprise Cycle Cut",  cycle_zh: "縮短的銷售週期",
+    cycle_en: "Sales Cycle Reduction",  cycle_zh: "縮短的銷售週期",
   },
 
   // ── 跑馬燈內容 ────────────────────────────────────
@@ -133,10 +133,10 @@ window.OS_CONTENT = {
     { q_en: "What B2B startups are a good fit?",
       q_zh: "什麼樣的 B2B 新創適合申請？",
       a_en: "B2B products where an operator LP can directly accelerate the enterprise sales cycle. Ideally: a specific target enterprise customer, early traction, and a founder who moves fast. Both Tier 1 (seed/early) and Tier 2 (pre-IPO) companies may apply.",
-      a_zh: "高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、早期牽引力，以及能快速行動的創辦人。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。" },
+      a_zh: "高管 LP 能直接加速企業銷售週期的 B2B 產品。理想條件：明確的目標大廠、已有初期成績，以及能快速行動的創辦人。Tier 1（種子/早期）與 Tier 2（上市前）公司均可申請。" },
     { q_en: "How is this different from traditional VC?",
       q_zh: "這跟傳統創投有什麼不同？",
-      a_en: "Traditional VCs provide capital and advice. EvoScale Capital provides capital plus direct enterprise channel access. Operators mentor founders on enterprise go-to-market from decades of experience, so the edge in B2B comes from understanding how enterprises actually buy.",
+      a_en: "Traditional VCs provide capital and advice. EvoScale Capital provides capital plus direct enterprise channel access. Operators coach founders on enterprise go-to-market from decades of firsthand experience. In B2B, the edge comes from understanding how enterprises actually buy.",
       a_zh: "傳統創投提供資金與建議。EvoScale Capital 提供資金加上直接的企業通路。運營者以數十年經驗指導創辦人做企業銷售，B2B 的優勢來自真正搞懂企業怎麼採購。" },
     { q_en: "What happens after I submit?",
       q_zh: "提交之後會發生什麼？",
@@ -144,11 +144,11 @@ window.OS_CONTENT = {
       a_zh: "每份申請都由團隊親自審閱。若有初步契合度，會安排簡短通話。通過篩選的案源經快速評估後分配給相關高管 LP。所有申請嚴格保密。" },
     { q_en: "How does the deal review process work?",
       q_zh: "案源審核流程是什麼樣子？",
-      a_en: "Every qualified deal first goes through a rapid initial assessment that gives operator LPs the key signals to weigh in within minutes. Once the LPs reach consensus, the deal advances to the Investment Committee for formal due diligence. The early read stays fast and operator-led, while the deeper DD stays rigorous.",
+      a_en: "Every qualified deal first goes through a rapid initial assessment that gives operator LPs the key signals to weigh in within minutes. Once the LPs reach consensus, the deal advances to the Investment Committee for formal due diligence. The early read stays fast and operator-led. The full diligence stays rigorous.",
       a_zh: "每個合格案源會先經過快速初步評估，讓高管 LP 在幾分鐘內掌握關鍵訊號做出判斷。當 LP 評估達成共識後，案源就進入投審會進行正式的盡職調查（DD）。前期判斷快速、由高管主導，後段的 DD 仍然嚴謹。" },
     { q_en: "When does EvoScale meet, and how can I take part?",
       q_zh: "EvoScale 多久聚會一次？我能怎麼參與？",
-      a_en: "Two recurring gatherings anchor the community. EvoScale 01: The Operator-Led Blueprint brings founding members together to align on how the syndicate works. The Dealroom runs on the last Friday of each month, where three startups that fit our sweet spot pitch to the operator network. Submit a deal or express interest to join the next one.",
+      a_en: "Two recurring gatherings anchor the community. EvoScale 01: The Operator-Led Blueprint brings founding members together to align on how the syndicate works. The Dealroom runs on the last Friday of each month, where three startups that fit our thesis present to the operator network. Submit a deal or express interest to join the next one.",
       a_zh: "兩場固定聚會構成社群的節奏。EvoScale 01：The Operator-Led Blueprint 讓創始成員齊聚，對齊飛輪的運作機制；Dealroom 案源交易室則在每月最後一個星期五舉行，由三家符合我們 Sweet Spot 的新創向高管網絡簡報。歡迎提交案源或表達加入意願，參與下一場。" },
   ],
 };
