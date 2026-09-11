@@ -64,13 +64,13 @@
       "中文名": "查無（本人未提供，2026-09-03 問過他沒回答）",
       "公司": "SAP",
       "職稱_zh": "業務副總經理",
-      "職稱_en": "查無（本人未提供）",
+      "職稱_en": "Vice President, Sales",
       "產業": "BizTech",
       "linkedin": "https://www.linkedin.com/in/price-lu-32bb5271/",
-      "照片": "05_內部文件/_待同意素材/Price_SAP.jpg",
-      "狀態": "pending",
-      "同意依據": "尚未同意。2026-09-03 10:49 原話「能不能直接放上公司名稱跟職稱，這我得先內部問一下，有些內規還是得問清楚以免踩到雷」；18:50「這個應該有取得公司同意，我來問問」",
-      "備註": "職稱已更正：不是業務總監，是業務副總經理，本人 2026-09-03 當場更正。照片已下載但收在網站目錄外，同意前不要移進 01_網站"
+      "照片": "Team/Price.jpg",
+      "狀態": "on",
+      "同意依據": "2026-09-11 Vincent 轉述本人已同意公司名與職稱一起刊出，並提供 LinkedIn https://www.linkedin.com/in/price-lu-32bb5271/ 。**這一格是 Vincent 轉述，不是本人原話截圖**，先前的保留意見（2026-09-03「我得先內部問一下，有些內規還是得問清楚以免踩到雷」）以此解除。",
+      "備註": "職稱已更正：不是業務總監，是業務副總經理，本人 2026-09-03 當場更正。**英文職稱 Vice President, Sales 是我方 2026-09-11 翻譯的，本人沒給過英文寫法，要跟他確認。**照片 2026-09-11 從 05_內部文件/_待同意素材/ 移進 01_網站/Team/。"
     },
     {
       "id": "ming",
@@ -80,11 +80,11 @@
       "職稱_zh": "前 TNL Mediagene 營運長 · 達思智能總經理",
       "職稱_en": "Former COO, TNL Mediagene · GM, 達思智能",
       "產業": "MediaTech",
-      "linkedin": "",
+      "linkedin": "https://www.linkedin.com/in/mingyuehwang",
       "照片": "Team/Ming.jpg",
       "狀態": "on",
       "同意依據": "2026-09-11 Messenger 本人親口：Vincent 問「前公司的也可以，如果前公司要怎麼放？」他回「就放『前 TNL Mediagene 營運長 / 達思智能總經理』」。截圖存於 04_生態與合作/01_總控台/_研究/260911_顧問同意依據/",
-      "備註": "**LinkedIn 網址本人尚未給**，他說「我再給你 LinkedIn，等我一下明天給」，卡片先不掛連結。**他 LinkedIn 現職顯示 Conde Nast Taiwan**，但他指定用前公司的寫法，以本人指定為準。**英文職稱是我方寫的，達思智能的英文名查無，暫留中文，要跟本人確認。**產業別 MediaTech 是我方暫定，等 Boice 或本人確認。"
+      "備註": "LinkedIn 網址 2026-09-11 已取得（原始連結帶 utm 追蹤參數，已去掉只留帳號路徑）。**他 LinkedIn 現職顯示 Conde Nast Taiwan**，但他指定用前公司的寫法，以本人指定為準。**英文職稱是我方寫的，達思智能的英文名查無，暫留中文，要跟本人確認。**產業別 MediaTech 是我方暫定，等 Boice 或本人確認。"
     },
     {
       "id": "jennifer",
@@ -94,11 +94,11 @@
       "職稱_zh": "Managing Partner, Preprican Advisory",
       "職稱_en": "Managing Partner, Preprican Advisory",
       "產業": "Tech M&A",
-      "linkedin": "",
+      "linkedin": "https://www.linkedin.com/in/jennifer-huang-07551337/",
       "照片": "Team/Jennifer.jpg",
       "狀態": "on",
       "同意依據": "2026-09-10 Messenger 本人親口：Vincent 問「公司名給我一下，然後放 managing Partner」，她回「Preprican Advisory」；同段她自己也說「我都放 managing partner」。截圖存於 04_生態與合作/01_總控台/_研究/260911_顧問同意依據/",
-      "備註": "**公司名有兩種寫法**：她 LinkedIn 個人頁寫 Preprican Partners，但她給 Vincent 的是 Preprican Advisory，官網以本人指定的 Advisory 為準。**LinkedIn 網址尚未取得**（只有 App 截圖，沒有帳號網址），卡片先不掛連結。LinkedIn 個人頁另載：Managing Partner 自 2022-03 起、Wharton、曾任職 Appier（與 Vincent 2018-02 至 2021-11 重疊）、關注者 2,609。產業別 Tech M&A 取自她 LinkedIn 自述 headline「Tech enthusiast | Tech companies M&A」。"
+      "備註": "**公司名有兩種寫法**：她 LinkedIn 個人頁寫 Preprican Partners，但她給 Vincent 的是 Preprican Advisory，官網以本人指定的 Advisory 為準。LinkedIn 網址 2026-09-11 由 Vincent 提供，卡片已掛上。LinkedIn 個人頁另載：Managing Partner 自 2022-03 起、Wharton、曾任職 Appier（與 Vincent 2018-02 至 2021-11 重疊）、關注者 2,609。產業別 Tech M&A 取自她 LinkedIn 自述 headline「Tech enthusiast | Tech companies M&A」。"
     }
   ],
   "_角色用詞": "一律寫「顧問」，不寫「產業代表」。依據 Boice 2026-09-03 10:51 原話「這邊會用顧問 and LP們，所以詢問公司可以說當顧問來協助新創」，他們拿去跟自己公司報備的說法必須跟官網一致。",
