@@ -70,7 +70,7 @@ footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top
 .matrix-grid>div{padding:.9rem 1rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
 .matrix-grid>div.rowlabel{font-weight:700;color:var(--navy);font-size:1rem;background:transparent}
 .matrix-grid>div.colhead{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.08rem;background:rgba(255,102,0,.08);border-radius:8px 8px 0 0}
-.matrix-grid>div.cell{font-size:.98rem;color:var(--ink);line-height:1.5}
+.matrix-grid>div.cell{font-size:1rem;color:var(--ink);line-height:1.5}
 .matrix-grid>div.cell .ic{display:flex;align-items:flex-start;gap:.5rem}
 .matrix-grid>div.cell svg{flex:none;margin-top:.2rem}
 @media(max-width:640px){.matrix-grid{grid-template-columns:1fr;min-width:0}
@@ -120,6 +120,28 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 .opi-li-btn svg{width:18px;height:18px;fill:currentColor}
 @media(max-width:600px){.opi-author{flex-direction:column}.opi-connect{flex-direction:column;align-items:flex-start}}
 </style>
+<style>
+/* ── v2: 情境圖 / 數據區 / 動畫 ── */
+.scene{margin:2.4rem 0}
+.scene svg{width:100%;height:auto;display:block;max-width:520px;margin:0 auto;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}
+.scene figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.85rem;font-style:italic;line-height:1.6}
+.dband{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
+.dband-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem;line-height:1.35}
+.dband-s{font-size:1rem;color:var(--mut);margin-bottom:1.6rem;line-height:1.6}
+.dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.dstat{display:flex;flex-direction:column;min-width:0}
+.dstat .n{font-family:var(--fd);font-weight:800;color:var(--orange-d);font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.dstat .k{font-size:1rem;font-weight:700;color:var(--navy);margin-top:.55rem;line-height:1.45;overflow-wrap:anywhere}
+.dstat .d{font-size:1rem;color:var(--ink);opacity:.84;margin-top:.4rem;line-height:1.6;overflow-wrap:anywhere}
+@media(max-width:820px){.dgrid{grid-template-columns:repeat(2,1fr);gap:1.7rem}}
+@media(max-width:520px){.dgrid{grid-template-columns:1fr;gap:1.5rem}.dband{padding:1.5rem 1.2rem}}
+.rv-t{transition:opacity .6s ease-out,transform .6s ease-out}
+.rv-t.rv-off{opacity:0;transform:translateY(12px)}
+@media(prefers-reduced-motion:reduce){
+  .rv-t,.rv-t.rv-off{opacity:1!important;transform:none!important;transition:none!important}
+  .draw{stroke-dasharray:none!important;stroke-dashoffset:0!important;transition:none!important}
+}
+</style>
 </head>
 <body>
 <div class="top"><div class="top-in">
@@ -144,33 +166,55 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 </div>
 
 
-  <figure>
-    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An iceberg diagram: payroll visible above the waterline, three risk layers hidden below">
-      <rect width="720" height="300" fill="#262019"/>
-      <path d="M330 60 h60 v34 h-60 z" fill="none" stroke="#9FB0C3" stroke-width="2.6"/>
-      <line x1="345" y1="60" x2="345" y2="42" stroke="#9FB0C3" stroke-width="2.6"/>
-      <line x1="375" y1="60" x2="375" y2="42" stroke="#9FB0C3" stroke-width="2.6"/>
-      <text x="360" y="30" font-size="17" fill="#5E6E80" text-anchor="middle" data-en="Payroll run" data-zh="發薪作業">Payroll run</text>
-      <line x1="40" y1="130" x2="680" y2="130" stroke="#E55A00" stroke-width="2" stroke-dasharray="7 6"/>
-      <text x="60" y="120" font-size="16" fill="#E55A00" data-en="What the founder sees" data-zh="創辦人看得到的">What the founder sees</text>
-      <path d="M120 150 h130 v34 h-130 z" fill="none" stroke="#3C4A5E" stroke-width="2.6"/>
-      <text x="185" y="171" font-size="16" fill="#243244" text-anchor="middle" data-en="Labor law compliance" data-zh="勞動法遵">Labor law compliance</text>
-      <path d="M295 190 h150 v34 h-150 z" fill="none" stroke="#3C4A5E" stroke-width="2.6"/>
-      <text x="370" y="211" font-size="16" fill="#243244" text-anchor="middle" data-en="Tax exposure" data-zh="稅務風險">Tax exposure</text>
-      <path d="M470 232 h180 v34 h-180 z" fill="none" stroke="#3C4A5E" stroke-width="2.6"/>
-      <text x="560" y="253" font-size="16" fill="#243244" text-anchor="middle" data-en="Employment classification" data-zh="僱傭關係認定">Employment classification</text>
-      <text x="60" y="285" font-size="16" fill="#5E6E80" data-en="What the EOR actually manages" data-zh="EOR 真正在管的東西">What the EOR actually manages</text>
+
+
+  <figure class="scene rv-t">
+    <svg viewBox="0 0 420 478" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six gates a cross-border hire passes before the first payroll run">
+      <rect x="22" y="398" width="382" height="68" rx="12" fill="rgba(255,102,0,.12)" stroke="#FF8C42" stroke-width="2"/>
+      <path class="draw" d="M44,30 L44,417" fill="none" stroke="#5C7186" stroke-width="2.5"/>
+    <circle cx="44" cy="37" r="8" fill="#5C7186"/>
+    <text x="76" y="44" font-size="23" font-weight="700" fill="#F2F5F8" data-en="Offer accepted" data-zh="候選人接受錄取">Offer accepted</text>
+    <text x="76" y="70" font-size="20" fill="#9FB0C3" data-en="The date everyone has in mind" data-zh="所有人心裡都有這個日期">The date everyone has in mind</text>
+    <circle cx="44" cy="113" r="8" fill="#5C7186"/>
+    <text x="76" y="120" font-size="23" font-weight="700" fill="#F2F5F8" data-en="Which entity employs them" data-zh="由哪一個法人聘僱">Which entity employs them</text>
+    <text x="76" y="146" font-size="20" fill="#9FB0C3" data-en="Own entity, an EOR, or neither" data-zh="自己的公司、EOR，或兩者皆非">Own entity, an EOR, or neither</text>
+    <circle cx="44" cy="189" r="8" fill="#5C7186"/>
+    <text x="76" y="196" font-size="23" font-weight="700" fill="#F2F5F8" data-en="Employment or a service" data-zh="算僱傭還是算承攬">Employment or a service</text>
+    <text x="76" y="222" font-size="20" fill="#9FB0C3" data-en="Control decides, not the title" data-zh="由實際控制關係決定，不是標題">Control decides, not the title</text>
+    <circle cx="44" cy="265" r="8" fill="#5C7186"/>
+    <text x="76" y="272" font-size="23" font-weight="700" fill="#F2F5F8" data-en="Where the tax lands" data-zh="稅務義務落在哪一邊">Where the tax lands</text>
+    <text x="76" y="298" font-size="20" fill="#9FB0C3" data-en="The work itself can create it" data-zh="工作內容本身就可能造成義務">The work itself can create it</text>
+    <circle cx="44" cy="341" r="8" fill="#5C7186"/>
+    <text x="76" y="348" font-size="23" font-weight="700" fill="#F2F5F8" data-en="Statutory enrolment" data-zh="法定加保與提繳">Statutory enrolment</text>
+    <text x="76" y="374" font-size="20" fill="#9FB0C3" data-en="Starts on day one, not later" data-zh="第一天就開始，不是之後才開始">Starts on day one, not later</text>
+    <circle cx="44" cy="417" r="10" fill="#FF6600"/>
+    <text x="76" y="424" font-size="23" font-weight="700" fill="#FF8C42" data-en="Payroll run" data-zh="發薪作業">Payroll run</text>
+    <text x="76" y="450" font-size="20" fill="#FFC880" data-en="The only gate in most budgets" data-zh="多數預算裡只有這一格">The only gate in most budgets</text>
     </svg>
-    <figcaption data-en="One visible transaction. Three risk layers sitting underneath it, in ascending order of what they cost to get wrong." data-zh="一個看得到的動作，底下壓著三層風險，越往下，做錯的代價越大。">One visible transaction. Three risk layers sitting underneath it, in ascending order of what they cost to get wrong.</figcaption>
+    <figcaption data-en="Six gates stand between an accepted offer and a first day of work. Only the last one is a payroll calculation, and it is usually the only one anybody budgeted for." data-zh="從候選人點頭到真正上工，中間站著六道關卡。只有最後一道是薪資計算，而它通常是唯一被編進預算的那一道。">Six gates stand between an accepted offer and a first day of work. Only the last one is a payroll calculation, and it is usually the only one anybody budgeted for.</figcaption>
   </figure>
 
   <p class="lede" data-en="A startup's first cross-border hire usually gets budgeted like a vendor contract: pick an Employer of Record, sign, and the payroll problem is considered solved. What the EOR actually stands between the company and is three separate exposures, whether the work sits inside a compliant employment relationship, whether the arrangement creates a tax obligation in the worker's country, and whether a labor authority would call this person an employee no matter what the paperwork says. <span class='hl'>Get the order wrong and the company finds out after the bill for it arrives, not before.</span>" data-zh="新創第一次做跨境聘僱，通常把它當成一張供應商合約來編預算：找一家 EOR，簽約，發薪的問題就算解決了。EOR 真正擋在公司與員工中間的，其實是三層各自獨立的風險：這份工作有沒有落在一段合法的僱傭關係裡、這個安排會不會在對方國家造成稅務義務、以及不管紙本合約怎麼寫，勞動主管機關會不會直接認定這個人就是員工。<span class='hl'>順序一旦搞錯，公司通常是帳單來了才發現問題，不是帳單來之前。</span>">A startup's first cross-border hire usually gets budgeted like a vendor contract: pick an Employer of Record, sign, and the payroll problem is considered solved. What the EOR actually stands between the company and is three separate exposures, whether the work sits inside a compliant employment relationship, whether the arrangement creates a tax obligation in the worker's country, and whether a labor authority would call this person an employee no matter what the paperwork says. <span class='hl'>Get the order wrong and the company finds out after the bill for it arrives, not before.</span></p>
-<div class="opi-quote">
+<div class="opi-quote rv-t">
   <div class="opi-q-lead" data-en="Sabrina Chiu says" data-zh="Sabrina Chiu 認為">Sabrina Chiu says</div>
   <blockquote cite="https://www.linkedin.com/in/sabrina-chiu-tw/" data-en="A company using a contractor structure to avoid the cost of employment is making a bet on enforcement risk in a country it may not have visited." data-zh="一家公司用承攬結構來省下僱傭的成本，等於在一個自己可能連去都沒去過的國家，賭執法風險有多大。">A company using a contractor structure to avoid the cost of employment is making a bet on enforcement risk in a country it may not have visited.</blockquote>
   <div class="opi-q-cite"><img class="opi-face-s" src="../../Team/Sabrina.jpg" alt="Sabrina Chiu" width="32" height="32" loading="lazy"><span data-en="Sabrina Chiu, Deputy General Manager, BIPO Taiwan" data-zh="Sabrina Chiu，BIPO 台灣區副總經理">Sabrina Chiu, Deputy General Manager, BIPO Taiwan</span></div>
   <p class="opi-q-note" data-en="Pulled from the article text. Not yet signed off word for word by the author." data-zh="本段取自文章原文，尚未經本人逐字確認。">Pulled from the article text. Not yet signed off word for word by the author.</p>
 </div>
+
+  <div class="dband rv-t">
+    <div class="dband-t" data-en="The four numbers this piece turns on" data-zh="撐起這篇的四個數字">The four numbers this piece turns on</div>
+    <div class="dband-s" data-en="Each one is a structural count taken from the argument above, not a market statistic." data-zh="每一個都是上面那段論述的結構計數，不是市場統計。">Each one is a structural count taken from the argument above, not a market statistic.</div>
+    <div class="dgrid">
+      <div class="dstat"><div class="n" data-count="6">6</div><div class="k" data-en="Gates before day one" data-zh="上工前的關卡">Gates before day one</div><div class="d" data-en="Five of them are settled before payroll is ever run, and not one of them sends an invoice." data-zh="其中五道在發薪之前就已經決定了，而且沒有一道會寄帳單過來。">Five of them are settled before payroll is ever run, and not one of them sends an invoice.</div></div>
+      <div class="dstat"><div class="n" data-count="3">3</div><div class="k" data-en="Separate exposures" data-zh="各自獨立的風險">Separate exposures</div><div class="d" data-en="Employment status, tax and classification are three problems, not three names for one." data-zh="僱傭合法性、稅務、關係認定是三個問題，不是同一個問題的三種叫法。">Employment status, tax and classification are three problems, not three names for one.</div></div>
+      <div class="dstat"><div class="n" data-count="1">1</div><div class="k" data-en="Visible transaction" data-zh="看得見的動作">Visible transaction</div><div class="d" data-en="Only the payroll line lands on a budget sheet. The other layers land on a legal one." data-zh="只有發薪這一條會落在預算表上，其他幾層落在法律文件上。">Only the payroll line lands on a budget sheet. The other layers land on a legal one.</div></div>
+      <div class="dstat"><div class="n" data-count="0">0</div><div class="k" data-en="Weight of the contract title" data-zh="合約標題的效力">Weight of the contract title</div><div class="d" data-en="A subordination test reads who directs the work, never what the document is called." data-zh="從屬性測試讀的是誰在指揮這份工作，不是這份文件叫什麼名字。">A subordination test reads who directs the work, never what the document is called.</div></div>
+    </div>
+    <div class="dsource" data-en="Illustrative structure only. The statutory rates cited elsewhere in this piece carry their own sources." data-zh="此處數字為本文論述的結構示意。文中引用的法定費率另有出處。">Illustrative structure only. The statutory rates cited elsewhere in this piece carry their own sources.</div>
+  </div>
+
+
 
 
   <h2 data-en="What changes the answer is not a new rule" data-zh="讓答案改變的不是一條新法規">What changes the answer is not a new rule</h2>
@@ -192,7 +236,24 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <p data-en="Lay the three common hiring structures side by side and the sequencing problem becomes visible. A local entity puts every layer of risk on the company but also gives it full control. An EOR is supposed to absorb the labor law and payroll layer by standing in as the legal employer, but it does not erase a badly structured relationship, it only relabels who is holding it. An independent contractor arrangement looks like it avoids all three risks, that is exactly why founders reach for it first, and it is also the structure regulators are trained to test first." data-zh="把三種常見的聘僱結構並排放，順序的問題就看得出來了。本地公司把每一層風險都放在公司自己身上，但也換來完整的控制權。EOR理論上該把勞動法與發薪這層風險吸收掉，因為它變成法律上的雇主，但這不會把一段結構本來就有問題的關係變乾淨，只是換了個人扛著。獨立承攬看起來把三層風險都閃掉了，這正是創辦人第一個想到它的原因，也正因為如此，它是監管機關最先拿來檢驗的那種結構。">Lay the three common hiring structures side by side and the sequencing problem becomes visible. A local entity puts every layer of risk on the company but also gives it full control. An EOR is supposed to absorb the labor law and payroll layer by standing in as the legal employer, but it does not erase a badly structured relationship, it only relabels who is holding it. An independent contractor arrangement looks like it avoids all three risks, that is exactly why founders reach for it first, and it is also the structure regulators are trained to test first.</p>
 
-  <div class="matrix">
+  <figure class="scene rv-t">
+    <svg viewBox="0 0 420 306" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Payroll sits above the waterline; three risk layers sit below it">
+      <rect x="135" y="24" width="150" height="42" rx="9" fill="none" stroke="#9FB0C3" stroke-width="2.6"/>
+      <text x="210" y="52" font-size="21" font-weight="700" text-anchor="middle" fill="#F2F5F8" data-en="Payroll run" data-zh="發薪作業">Payroll run</text>
+      <path class="draw" d="M20,96 L400,96" fill="none" stroke="#FF8C42" stroke-width="2.4" stroke-dasharray="7 6"/>
+      <text x="400" y="88" font-size="20" text-anchor="end" fill="#FF8C42" data-en="What the founder sees" data-zh="創辦人看得到的">What the founder sees</text>
+      <text x="20" y="124" font-size="20" fill="#9FB0C3" data-en="What has to be managed" data-zh="底下真正要管的">What has to be managed</text>
+      <rect x="20" y="140" width="262" height="44" rx="9" fill="rgba(255,255,255,.04)" stroke="#5C7186" stroke-width="2.4"/>
+      <text x="36" y="168" font-size="21" fill="#E8EDF2" data-en="Labor law compliance" data-zh="勞動法遵">Labor law compliance</text>
+      <rect x="20" y="196" width="320" height="44" rx="9" fill="rgba(255,255,255,.05)" stroke="#5C7186" stroke-width="2.4"/>
+      <text x="36" y="224" font-size="21" fill="#E8EDF2" data-en="Tax exposure" data-zh="稅務風險">Tax exposure</text>
+      <rect x="20" y="252" width="380" height="44" rx="9" fill="rgba(255,255,255,.06)" stroke="#5C7186" stroke-width="2.4"/>
+      <text x="36" y="280" font-size="21" fill="#E8EDF2" data-en="Employment classification" data-zh="僱傭關係認定">Employment classification</text>
+    </svg>
+    <figcaption data-en="One visible transaction. Three risk layers sitting underneath it, widening in the order of what they cost to get wrong." data-zh="一個看得到的動作，底下壓著三層風險，越往下越寬，做錯的代價也越大。">One visible transaction. Three risk layers sitting underneath it, widening in the order of what they cost to get wrong.</figcaption>
+  </figure>
+
+  <div class="matrix rv-t">
     <div class="matrix-t" data-en="Three hiring structures, ranked by who holds the risk" data-zh="三種聘僱結構，按誰扛風險排列">Three hiring structures, ranked by who holds the risk</div>
     <div class="matrix-s" data-en="A structural comparison, not a recommendation of any specific vendor or provider." data-zh="這是結構對照，不是在推薦任何特定供應商。">A structural comparison, not a recommendation of any specific vendor or provider.</div>
     <div class="matrix-grid">
@@ -230,7 +291,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <p data-en="Operator-led investing means looking at a hiring plan the way someone who has sat on both sides of the employment relationship would, having built an HR function inside a company and having sold HR technology to companies building one. From that seat, the recurring pattern is not that founders skip diligence, it is that they run it in the wrong order. <span class='hl'>Legal classification and statutory cost get checked after a hire is already live</span>, usually once someone asks why the payroll run does not match the offer letter. The fix is not a longer compliance checklist. It is moving the labor law question, and the tax question, ahead of the payroll question, before the first cross-border offer goes out, not after the first invoice does." data-zh="operator-led 的投資方式，會用一個曾經待在僱傭關係兩邊的人的角度看一份聘僱計畫：在公司內部建過人資功能，也賣過人資科技給正在建人資功能的公司。從這個位置看，重複出現的模式不是創辦人跳過盡職調查，而是順序做反了。<span class='hl'>法律上的僱傭關係認定與法定成本，往往是等一個人已經開始上班之後才被拿出來查</span>，通常是有人問為什麼實際發薪跟聘僱信對不上。要修正的不是加長合規檢查表，而是把勞動法與稅務的問題，排在發薪問題之前，在第一份跨境聘僱通知書發出去以前先問，不是第一張帳單來了以後才問。">Operator-led investing means looking at a hiring plan the way someone who has sat on both sides of the employment relationship would, having built an HR function inside a company and having sold HR technology to companies building one. From that seat, the recurring pattern is not that founders skip diligence, it is that they run it in the wrong order. <span class='hl'>Legal classification and statutory cost get checked after a hire is already live</span>, usually once someone asks why the payroll run does not match the offer letter. The fix is not a longer compliance checklist. It is moving the labor law question, and the tax question, ahead of the payroll question, before the first cross-border offer goes out, not after the first invoice does.</p>
   <p data-en="For a HRTech company selling into this problem, the product worth underwriting is not the payroll dashboard, dashboards are commoditized and every competitor has one. <span class='hl'>The defensible layer is the sequencing logic itself</span>: knowing which jurisdiction's subordination test applies, which permanent establishment trigger the role in question could hit, and which statutory floor changes the moment a headcount plan crosses a border. That knowledge does not show up on a feature comparison chart, and it is exactly the kind of operating detail that is hard to fake and hard to copy quickly." data-zh="對一家在解決這個問題的 HRTech 公司來說，真正值得評估的產品不是發薪儀表板，儀表板早就商品化了，每個對手都有一個。<span class='hl'>真正有防禦力的那一層是順序背後的判斷邏輯本身</span>：知道哪個司法管轄區的從屬性測試適用、這個職位可能踩到哪一種常設機構的觸發條件、聘僱計畫一跨境法定底線會怎麼變。這種知識不會出現在功能比較表上，卻正是那種很難假裝、也很難被快速複製的實戰細節。">For a HRTech company selling into this problem, the product worth underwriting is not the payroll dashboard, dashboards are commoditized and every competitor has one. <span class='hl'>The defensible layer is the sequencing logic itself</span>: knowing which jurisdiction's subordination test applies, which permanent establishment trigger the role in question could hit, and which statutory floor changes the moment a headcount plan crosses a border. That knowledge does not show up on a feature comparison chart, and it is exactly the kind of operating detail that is hard to fake and hard to copy quickly.</p>
 
-  <div class="calc" id="calc">
+  <div class="calc rv-t" id="calc">
     <div class="calc-h" data-en="Size the floor yourself" data-zh="自己算一次成本底線">Size the floor yourself</div>
     <p class="calc-s" data-en="For a company hiring directly in Taiwan: monthly salary times headcount times the 6% statutory pension floor. This is only the pension line, before National Health Insurance, labor insurance, or the cost of a misclassification getting corrected." data-zh="適用於直接在台灣聘僱的情境：月薪乘上人數，再乘上法定6%退休金底線。這只是退休金這一條，還沒算進健保、勞保，或誤判僱傭關係之後被更正的成本。">For a company hiring directly in Taiwan: monthly salary times headcount times the 6% statutory pension floor. This is only the pension line, before National Health Insurance, labor insurance, or the cost of a misclassification getting corrected.</p>
     <div class="calc-row"><label for="sal" data-en="Monthly salary per hire (NT$)" data-zh="每位員工月薪（新台幣）">Monthly salary per hire (NT$)</label>
@@ -245,7 +306,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <p data-en="The category is not glamorous, and the invoice for getting it wrong rarely comes due on the day of the mistake. <span class='hl'>It comes due on the day someone finally reads the contract closely</span>, and that is usually much later, and much more expensive, than the day it was signed." data-zh="這個題目不吸睛，做錯了以後，帳單通常也不會在犯錯那天就寄到。<span class='hl'>帳單會在有人終於把合約仔細讀一遍的那天才寄到</span>，而那一天通常晚很多，代價也貴很多。">The category is not glamorous, and the invoice for getting it wrong rarely comes due on the day of the mistake. <span class='hl'>It comes due on the day someone finally reads the contract closely</span>, and that is usually much later, and much more expensive, than the day it was signed.</p>
 
-  <div class="opi-quote">
+  <div class="opi-quote rv-t">
   <div class="opi-q-lead" data-en="Sabrina Chiu says" data-zh="Sabrina Chiu 認為">Sabrina Chiu says</div>
   <blockquote cite="https://www.linkedin.com/in/sabrina-chiu-tw/" data-en="A misclassification does not cost what it would have cost to do it properly." data-zh="認定錯誤的代價，不等於當初做對要花的錢。">A misclassification does not cost what it would have cost to do it properly.</blockquote>
   <div class="opi-q-cite"><img class="opi-face-s" src="../../Team/Sabrina.jpg" alt="Sabrina Chiu" width="32" height="32" loading="lazy"><span data-en="Sabrina Chiu, Deputy General Manager, BIPO Taiwan" data-zh="Sabrina Chiu，BIPO 台灣區副總經理">Sabrina Chiu, Deputy General Manager, BIPO Taiwan</span></div>
@@ -307,6 +368,47 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
   sal.addEventListener('input',draw); hc.addEventListener('input',draw);
   var lt=document.getElementById('lt'); if(lt)lt.addEventListener('click',function(){setTimeout(draw,20)});
   draw();
+})();
+</script>
+<script>
+/* v2 motion: fade-in-up (IntersectionObserver), count-up, svg draw.
+   JS off  -> no .rv-off class is ever added, so everything stays visible. */
+(function(){
+  var d=document, items=[].slice.call(d.querySelectorAll('.rv-t'));
+  var reduce=false; try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  function count(root){
+    [].slice.call(root.querySelectorAll('[data-count]')).forEach(function(n){
+      if(n.getAttribute('data-done'))return; n.setAttribute('data-done','1');
+      var t=parseFloat(n.getAttribute('data-count'))||0;
+      if(reduce||!t){n.textContent=String(t);return;}
+      var s0=null;
+      function step(ts){ if(s0===null)s0=ts; var p=Math.min(1,(ts-s0)/1200);
+        n.textContent=String(Math.round(t*(1-Math.pow(1-p,3)))); if(p<1)requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  }
+  function draw(root){
+    [].slice.call(root.querySelectorAll('.draw')).forEach(function(p){
+      if(p.getAttribute('data-done'))return; p.setAttribute('data-done','1');
+      if(reduce)return; var L=0; try{L=p.getTotalLength();}catch(e){return;} if(!L)return;
+      var dash=p.getAttribute('stroke-dasharray');
+      p.style.transition='none'; p.style.strokeDasharray=L+' '+L; p.style.strokeDashoffset=L;
+      p.getBoundingClientRect();
+      p.style.transition='stroke-dashoffset 1s ease-out'; p.style.strokeDashoffset='0';
+      if(dash){setTimeout(function(){p.style.transition='none';p.style.strokeDasharray=dash;p.style.strokeDashoffset='0';},1100);}
+    });
+  }
+  function show(el){ el.classList.remove('rv-off'); count(el); draw(el); }
+  if(!items.length)return;
+  if(reduce||!('IntersectionObserver' in window)){ items.forEach(show); return; }
+  items.forEach(function(el){el.classList.add('rv-off');});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -80px 0px',threshold:0});
+  items.forEach(function(el){io.observe(el);});
+  setTimeout(function(){ items.forEach(function(el){
+    var r=el.getBoundingClientRect(); if(r.top < (window.innerHeight||0)){ show(el); io.unobserve(el); }
+  }); },1500);
 })();
 </script>
 </body>

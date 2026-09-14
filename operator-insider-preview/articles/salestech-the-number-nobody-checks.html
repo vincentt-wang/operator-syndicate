@@ -38,7 +38,7 @@ a{color:inherit}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.1rem}
 .brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .top-r{display:flex;align-items:center;gap:1.1rem}
-.lang{background:none;border:1.5px solid var(--orange);color:var(--orange-d);border-radius:20px;padding:6px 16px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit}
+.lang{background:none;border:1.5px solid var(--orange);color:var(--orange-d);border-radius:20px;padding:6px 16px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}
 .back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
 article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
 .ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
@@ -48,9 +48,10 @@ h1{font-family:var(--fd);font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-h
 article h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:var(--navy);margin:2.8rem 0 1rem;letter-spacing:-.01em}
 article p{font-size:1.1rem;color:var(--ink);margin-bottom:1.3rem}
 article strong{color:var(--navy)}
-.ref{color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(229,90,0,.32)}
+.ref{overflow-wrap:anywhere;color:var(--orange-d);text-decoration:none;border-bottom:1px solid rgba(229,90,0,.32)}
 figure{margin:2.4rem 0}
 figure svg{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:14px;background:var(--bg-2)}
+.opi-scene-w svg{max-width:520px;margin-left:auto;margin-right:auto}
 figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;font-style:italic}
 /* data chart (HTML/CSS so text never shrinks below 16px) */
 .dchart{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.9rem 1.7rem;margin:2.4rem 0}
@@ -63,7 +64,7 @@ figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;fo
 .cmp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.3rem;align-items:end}
 .cmp-col{display:flex;flex-direction:column;justify-content:flex-end}
 .cmp-bar{border-radius:10px 10px 0 0;width:100%;min-height:2.6rem;display:flex;align-items:flex-start;justify-content:center;padding-top:.65rem}
-.cmp-bar .tag{font-family:var(--fd);font-weight:800;font-size:.95rem;line-height:1.25;color:#fff;text-align:center;padding:0 .5rem;white-space:normal;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.cmp-bar .tag{font-family:var(--fd);font-weight:800;font-size:1rem;line-height:1.25;color:#fff;text-align:center;padding:0 .5rem;white-space:normal;text-shadow:0 1px 2px rgba(0,0,0,.25)}
 .cmp-name{font-weight:700;font-size:1.05rem;color:var(--navy);margin:.8rem 0 .35rem}
 .cmp-d{font-size:1rem;color:var(--ink);line-height:1.5}
 @media(max-width:640px){
@@ -90,7 +91,7 @@ figcaption{color:var(--mut);font-size:1rem;text-align:center;margin-top:.8rem;fo
 .related a{display:block;color:var(--ink);text-decoration:none;padding:.7rem 0;border-bottom:1px solid var(--border);font-weight:600;font-size:1.05rem}.related a:hover{color:var(--orange-d)}
 .related .soon{color:var(--mut);font-weight:400;font-size:1rem}
 footer{text-align:center;padding:2rem;color:var(--mut);font-size:1rem;border-top:1px solid var(--border)}
-@media(max-width:600px){.dstat-grid{grid-template-columns:1fr;gap:1.6rem}.dstat{flex-direction:row;align-items:baseline;gap:1rem}.dstat .n{font-size:2.3rem;flex-shrink:0;width:5rem}.dstat .d{margin-top:0}}
+@media(max-width:600px){.dstat-grid{grid-template-columns:1fr;gap:1.6rem}.dstat .n{font-size:2.3rem;white-space:nowrap}}
 .hl{color:#8A3A00;font-weight:600;background:linear-gradient(180deg,transparent 56%,rgba(255,162,72,.42) 56%,rgba(255,162,72,.42) 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 </style>
 <style>
@@ -138,6 +139,19 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 .opi-li-btn svg{width:18px;height:18px;fill:currentColor}
 @media(max-width:600px){.opi-author{flex-direction:column}.opi-connect{flex-direction:column;align-items:flex-start}}
 </style>
+<style>
+.opi-scene svg{max-width:400px;margin-left:auto;margin-right:auto}
+</style>
+<style>
+/* ── v2 motion (2026-09-14). Hidden state is added by JS, so with JS off everything stays visible. ── */
+.anim-init{opacity:0;transform:translateY(12px);transition:opacity .6s ease-out,transform .6s ease-out}
+.anim-init.anim-in{opacity:1;transform:none}
+.draw-init{transition:stroke-dashoffset 1s ease-out}
+@media(prefers-reduced-motion:reduce){
+  .anim-init,.anim-init.anim-in{opacity:1!important;transform:none!important;transition:none!important}
+  .draw-init{stroke-dashoffset:0!important;transition:none!important}
+}
+</style>
 </head>
 <body>
 <div class="top"><div class="top-in">
@@ -160,29 +174,36 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
     <div class="opi-au-t" data-en="Regional Sales Director, Salesforce" data-zh="企業用戶事業部副總經理">Regional Sales Director, Salesforce</div>
     <a class="opi-li" href="https://www.linkedin.com/in/jiunhsisamsu/" target="_blank" rel="noopener nofollow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg><span data-en="LinkedIn profile" data-zh="LinkedIn 個人頁">LinkedIn profile</span></a></div>
 </div>
-<figure>
-    <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img"
-         aria-label="A tall reported market number beside a much smaller verified one">
-      <rect width="720" height="240" fill="#F4F7FB"/>
-      <rect x="86" y="34" width="128" height="168" rx="4" fill="none" stroke="#9FB0C3" stroke-width="3" stroke-dasharray="9 8"/>
-      <text x="150" y="222" font-size="17" fill="#5E6E80" text-anchor="middle"
-            data-en="Reported" data-zh="報告寫的">Reported</text>
-      <rect x="296" y="150" width="128" height="52" rx="4" fill="none" stroke="#E55A00" stroke-width="3"/>
-      <text x="360" y="222" font-size="17" fill="#E55A00" text-anchor="middle"
-            data-en="Leaders added up" data-zh="龍頭加總">Leaders added up</text>
-      <line x1="470" y1="196" x2="470" y2="196" stroke="#FF6600" stroke-width="3"/>
-      <rect x="506" y="192" width="128" height="10" rx="3" fill="none" stroke="#FF6600" stroke-width="3"/>
-      <text x="570" y="222" font-size="17" fill="#FF6600" text-anchor="middle"
-            data-en="Named in the survey" data-zh="調查裡列出的">Named in the survey</text>
-      <line x1="60" y1="202" x2="668" y2="202" stroke="#9FB0C3" stroke-width="2"/>
-      <circle cx="570" cy="176" r="8" fill="none" stroke="#FF6600" stroke-width="3"/>
-      <line x1="565" y1="171" x2="575" y2="181" stroke="#FF6600" stroke-width="3"/>
-      <line x1="575" y1="171" x2="565" y2="181" stroke="#FF6600" stroke-width="3"/>
-    </svg>
-    <figcaption data-en="Three ways to size the same category. The third one is the line a buyer has to write, and it is empty."
-      data-zh="同一個品類的三種量法。第三種是買方自己要填的那一欄，而它是空的。">
-      Three ways to size the same category. The third one is the line a buyer has to write, and it is empty.</figcaption>
-  </figure>
+<figure class="opi-scene" data-anim>
+<svg viewBox="0 0 336 452" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="the path an enterprise AI budget takes through an organisation">
+  <rect x="14" y="6" width="308" height="66" rx="12" fill="none" stroke="#3C4A5E" stroke-opacity=".32" stroke-width="1.5"/>
+  <text x="32" y="32" font-size="17" fill="#E55A00" data-en="Where you walk in" data-zh="你進門的地方">Where you walk in</text>
+  <text x="32" y="60" font-size="19" font-weight="700" fill="#1B1714" data-en="The sales leader" data-zh="業務主管">The sales leader</text>
+  <path d="M168 74 V88" stroke="#3C4A5E" stroke-opacity=".45" stroke-width="2" data-draw/>
+  <text x="168" y="106" font-size="17" fill="#5E6E80" text-anchor="middle" data-en="Per seat, a fixed annual fee" data-zh="按席位計價，一筆固定年費">Per seat, a fixed annual fee</text>
+  <path d="M168 114 V122" stroke="#3C4A5E" stroke-opacity=".45" stroke-width="2"/>
+  <path d="M162 118 L168 126 L174 118 Z" fill="#3C4A5E" fill-opacity=".45"/>
+  <rect x="14" y="126" width="308" height="66" rx="12" fill="none" stroke="#3C4A5E" stroke-opacity=".32" stroke-width="1.5"/>
+  <text x="32" y="152" font-size="17" fill="#5E6E80" data-en="Where it is approved today" data-zh="現在核准的地方">Where it is approved today</text>
+  <text x="32" y="180" font-size="19" font-weight="700" fill="#1B1714" data-en="The department budget" data-zh="部門預算">The department budget</text>
+  <path d="M168 194 V208" stroke="#FF6600" stroke-width="2" data-draw/>
+  <text x="168" y="226" font-size="17" fill="#E55A00" text-anchor="middle" data-en="Priced by usage, the number moves" data-zh="改成用量計價，數字開始會動">Priced by usage, the number moves</text>
+  <path d="M168 234 V242" stroke="#FF6600" stroke-width="2"/>
+  <path d="M162 238 L168 246 L174 238 Z" fill="#FF6600"/>
+  <rect x="14" y="246" width="308" height="66" rx="12" fill="none" stroke="#3C4A5E" stroke-opacity=".32" stroke-width="1.5"/>
+  <text x="32" y="272" font-size="17" fill="#5E6E80" data-en="Who reviews it now" data-zh="現在要過的關">Who reviews it now</text>
+  <text x="32" y="300" font-size="19" font-weight="700" fill="#1B1714" data-en="Platform and security" data-zh="平台與資安">Platform and security</text>
+  <path d="M168 314 V328" stroke="#FF6600" stroke-width="2" data-draw/>
+  <text x="168" y="346" font-size="17" fill="#5E6E80" text-anchor="middle" data-en="A forecast needs an owner" data-zh="預測需要有人負責">A forecast needs an owner</text>
+  <path d="M168 354 V362" stroke="#FF6600" stroke-width="2"/>
+  <path d="M162 358 L168 366 L174 358 Z" fill="#FF6600"/>
+  <rect x="14" y="366" width="308" height="80" rx="12" fill="#FF6600" fill-opacity=".07" stroke="#FF6600" stroke-width="2.5"/>
+  <text x="32" y="390" font-size="17" fill="#E55A00" data-en="Who actually signs" data-zh="真正簽字的人">Who actually signs</text>
+  <text x="32" y="414" font-size="19" font-weight="700" fill="#1B1714" data-en="The CFO" data-zh="財務長">The CFO</text>
+  <text x="32" y="438" font-size="17" fill="#E55A00" data-en="No ceiling, no signature" data-zh="沒有上限就沒有簽字">No ceiling, no signature</text>
+</svg>
+<figcaption data-en="Illustrative. The window you walk into is not the window that decides." data-zh="示意圖。你進門的那個窗口，不是做決定的那個窗口。">Illustrative. The window you walk into is not the window that decides.</figcaption>
+</figure>
   <p class="lede" data-en="Every survey of enterprise AI spending asks the same question: is the tool worth it. The enterprises actually deciding are stuck one question earlier. <span class='hl'>They cannot tell their CFO what it will cost next year.</span>" data-zh="每一份企業 AI 支出調查問的都是同一題：這個工具值不值得。但真正在做決定的企業，卡在更前面一題。<span class='hl'>他們沒辦法告訴財務長，明年這一筆要花多少。</span>">Every survey of enterprise AI spending asks the same question: is the tool worth it. The enterprises actually deciding are stuck one question earlier. <span class='hl'>They cannot tell their CFO what it will cost next year.</span></p>
 <div class="opi-quote">
   <div class="opi-q-lead" data-en="Sam Su says" data-zh="Sam Su 認為">Sam Su says</div>
@@ -194,8 +215,53 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <h2 data-en="Six categories, and Sales is not one of them" data-zh="六個類別，沒有銷售">Six categories, and Sales is not one of them</h2>
   <p data-en="Menlo's 2025 report puts total enterprise generative AI spend at US$37 billion, up from US$11.5 billion in 2024. Of that, US$7.3 billion is departmental. The breakdown: coding US$4.0 billion (55%), IT US$700 million, marketing US$660 million, customer success US$630 million, design 7%, HR 5%. Read the list again. <span class='hl'>There is no line for sales.</span>" data-zh="Menlo 的 2025 年報告把企業生成式 AI 總支出估在 370 億美元，2024 年是 115 億。其中 73 億屬於部門型支出，拆開來是：程式開發 40 億（佔 55%）、IT 7 億、行銷 6.6 億、客戶成功 6.3 億、設計 7%、人資 5%。<span class='hl'>把這份清單再讀一次，裡面沒有銷售這一項。</span>">Menlo's 2025 report puts total enterprise generative AI spend at US$37 billion, up from US$11.5 billion in 2024. Of that, US$7.3 billion is departmental. The breakdown: coding US$4.0 billion (55%), IT US$700 million, marketing US$660 million, customer success US$630 million, design 7%, HR 5%. Read the list again. <span class='hl'>There is no line for sales.</span></p>
   <p data-en="This is not proof that nobody buys AI for sales. It is proof that in a survey designed to find where enterprise AI budget goes, <span class='hl'>sales did not clear the bar to become its own line item</span>. For a category that market reports size in the tens of billions, that is a meaningful silence." data-zh="這不代表沒有人買 AI 銷售工具。它代表的是：在一份專門調查企業 AI 預算流向的研究裡，<span class='hl'>銷售連一個獨立的支出項目都排不上</span>。對一個被市場報告估到幾百億美元的品類來說，這個沉默本身就是資訊。">This is not proof that nobody buys AI for sales. It is proof that in a survey designed to find where enterprise AI budget goes, <span class='hl'>sales did not clear the bar to become its own line item</span>. For a category that market reports size in the tens of billions, that is a meaningful silence.</p>
+<div class="dchart" data-anim>
+  <div class="dchart-t" data-en="Three numbers from the same year" data-zh="同一年的三個數字">Three numbers from the same year</div>
+  <div class="dchart-s" data-en="Every one of them is published. Read them in order and the line that is missing becomes visible." data-zh="每一個都有出處。照順序讀一遍，那條不存在的預算線就會浮出來。">Every one of them is published. Read them in order and the line that is missing becomes visible.</div>
+  <div class="dstat-grid">
+    <div class="dstat">
+      <div class="n" data-en="US$<span class='cnt' data-to='37'>37</span>B" data-zh="<span class='cnt' data-to='370'>370</span> 億美元">US$<span class='cnt' data-to='37'>37</span>B</div>
+      <div class="d" data-en="Total enterprise generative AI spend in the 2025 survey. This is the figure everyone quotes." data-zh="2025 年調查裡的企業生成式 AI 總支出。這是所有人引用的那個數字。">Total enterprise generative AI spend in the 2025 survey. This is the figure everyone quotes.</div>
+    </div>
+    <div class="dstat">
+      <div class="n" data-en="US$<span class='cnt' data-to='7.3' data-dec='1'>7.3</span>B" data-zh="<span class='cnt' data-to='73'>73</span> 億美元">US$<span class='cnt' data-to='7.3' data-dec='1'>7.3</span>B</div>
+      <div class="d" data-en="The part that sits inside department budgets. It splits into six categories and sales is not one of them." data-zh="其中真正落在部門預算裡的部分。它拆成六個類別，銷售不在裡面。">The part that sits inside department budgets. It splits into six categories and sales is not one of them.</div>
+    </div>
+    <div class="dstat">
+      <div class="n" data-en="<span class='cnt' data-to='1'>1</span>%" data-zh="<span class='cnt' data-to='1'>1</span>%"><span class='cnt' data-to='1'>1</span>%</div>
+      <div class="d" data-en="AI SDR adoption across the B2B companies surveyed in early 2025. The tool said to be replacing the work is in one company out of a hundred." data-zh="2025 年初受訪 B2B 公司的 AI SDR 採用率。那個被說要取代人的工具，一百家裡只有一家在用。">AI SDR adoption across the B2B companies surveyed in early 2025. The tool said to be replacing the work is in one company out of a hundred.</div>
+    </div>
+  </div>
+  <div class="dsource" data-en="Menlo Ventures (2025); The Bridge Group (2025), as cited in this article." data-zh="資料來源：Menlo Ventures（2025）、The Bridge Group（2025），與本文引用同一份。">Menlo Ventures (2025); The Bridge Group (2025), as cited in this article.</div>
+</div>
+  <figure class="opi-scene-w" data-anim>
+    <svg viewBox="0 0 420 278" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="A tall reported market number beside a much smaller verified one">
+      <rect width="420" height="278" fill="#F4F7FB"/>
+      <rect x="36" y="34" width="84" height="168" rx="4" fill="none" stroke="#9FB0C3" stroke-width="3" stroke-dasharray="9 8"/>
+      <rect x="168" y="150" width="84" height="52" rx="4" fill="none" stroke="#E55A00" stroke-width="3"/>
+      <rect x="300" y="192" width="84" height="10" rx="3" fill="none" stroke="#FF6600" stroke-width="3"/>
+      <line x1="20" y1="202" x2="400" y2="202" stroke="#9FB0C3" stroke-width="2"/>
+      <circle cx="342" cy="174" r="9" fill="none" stroke="#FF6600" stroke-width="3"/>
+      <line x1="337" y1="169" x2="347" y2="179" stroke="#FF6600" stroke-width="3"/>
+      <line x1="347" y1="169" x2="337" y2="179" stroke="#FF6600" stroke-width="3"/>
+      <text x="78" y="232" font-size="20" fill="#5E6E80" text-anchor="middle"
+            data-en="Reported" data-zh="報告寫的">Reported</text>
+      <text x="210" y="232" font-size="20" fill="#E55A00" text-anchor="middle"
+            data-en="Leaders" data-zh="龍頭加總">Leaders</text>
+      <text x="210" y="258" font-size="20" fill="#E55A00" text-anchor="middle"
+            data-en="added up" data-zh=" ">added up</text>
+      <text x="342" y="232" font-size="20" fill="#FF6600" text-anchor="middle"
+            data-en="Named in" data-zh="調查裡">Named in</text>
+      <text x="342" y="258" font-size="20" fill="#FF6600" text-anchor="middle"
+            data-en="the survey" data-zh="列出的">the survey</text>
+    </svg>
+    <figcaption data-en="Three ways to size the same category. The third one is the line a buyer has to write, and it is empty."
+      data-zh="同一個品類的三種量法。第三種是買方自己要填的那一欄，而它是空的。">
+      Three ways to size the same category. The third one is the line a buyer has to write, and it is empty.</figcaption>
+  </figure>
   <h2 data-en="Two readings of that gap. The second one explains more." data-zh="那個落差有兩種讀法，第二種解釋力更強">Two readings of that gap. The second one explains more.</h2>
-  <p data-en="There is a second way to check. Take the public revenue of the biggest companies in this space and add them: ZoomInfo US$1.25 billion, Gong over US$500 million, Clari and Salesloft roughly US$450 million combined, 6sense about US$265 million, Outreach about US$250 million, Clay US$100 million. That is roughly US$2.8 billion. Add estimates for Seismic and Highspot and it reaches the mid US$3 billions. <span class='hl'>A category reported at US$21.9 to 25.3 billion, and the entire leader group accounts for one seventh of it.</span> Nobody can say who holds the other six sevenths." data-zh="還有第二種查法：把這個賽道裡最大幾家公司的公開營收全部加起來。ZoomInfo 12.5 億美元、Gong 逾 5 億、Clari 與 Salesloft 合併後約 4.5 億、6sense 約 2.65 億、Outreach 約 2.5 億、Clay 1 億，合計約 28 億美元。再把 Seismic 與 Highspot 的估計值加進去，大約落在 36 億上下。<span class='hl'>一個被說成 219 億到 253 億美元的市場，龍頭群加起來只有它的七分之一。</span>剩下那七分之六在誰手上，沒有人說得出來。">There is a second way to check. Take the public revenue of the biggest companies in this space and add them: ZoomInfo US$1.25 billion, Gong over US$500 million, Clari and Salesloft roughly US$450 million combined, 6sense about US$265 million, Outreach about US$250 million, Clay US$100 million. That is roughly US$2.8 billion. Add estimates for Seismic and Highspot and it reaches the mid US$3 billions. <span class='hl'>A category reported at US$21.9 to 25.3 billion, and the entire leader group accounts for one seventh of it.</span> Nobody can say who holds the other six sevenths.</p>
+  <p data-en="There is a second way to check. Take the public revenue of the biggest companies in this space and add them: ZoomInfo US$1.25 billion, Gong over US$500 million, Clari and Salesloft roughly US$450 million combined, 6sense about US$265 million, Outreach about US$250 million, Clay US$100 million. That is roughly US$2.8 billion. Add estimates for Seismic and Highspot and it reaches the mid US$3 billions. <span class='hl'>A category reported at US$21.9 to 25.3 billion, and the entire leader group accounts for one seventh of it.</span> Nobody can say who holds the other six sevenths." data-zh="還有第二種查法：把這個市場裡最大幾家公司的公開營收全部加起來。ZoomInfo 12.5 億美元、Gong 逾 5 億、Clari 與 Salesloft 合併後約 4.5 億、6sense 約 2.65 億、Outreach 約 2.5 億、Clay 1 億，合計約 28 億美元。再把 Seismic 與 Highspot 的估計值加進去，大約落在 36 億上下。<span class='hl'>一個被說成 219 億到 253 億美元的市場，龍頭群加起來只有它的七分之一。</span>剩下那七分之六在誰手上，沒有人說得出來。">There is a second way to check. Take the public revenue of the biggest companies in this space and add them: ZoomInfo US$1.25 billion, Gong over US$500 million, Clari and Salesloft roughly US$450 million combined, 6sense about US$265 million, Outreach about US$250 million, Clay US$100 million. That is roughly US$2.8 billion. Add estimates for Seismic and Highspot and it reaches the mid US$3 billions. <span class='hl'>A category reported at US$21.9 to 25.3 billion, and the entire leader group accounts for one seventh of it.</span> Nobody can say who holds the other six sevenths.</p>
   <p data-en="The difference is definitional. The larger figures fold in contact center voice analytics, which is a different buyer with a different budget. That is not wrong, but it means <span class='hl'>the headline number answers a different question than the one an investor is asking</span>." data-zh="差別出在定義。比較大的那個數字把客服中心的語音分析算了進來，而那是另一群買方、另一個預算池。這樣算不能說錯，但它回答的問題<span class='hl'>跟投資人想問的那一題不是同一題</span>。">The difference is definitional. The larger figures fold in contact center voice analytics, which is a different buyer with a different budget. That is not wrong, but it means <span class='hl'>the headline number answers a different question than the one an investor is asking</span>.</p>
   <p data-en="That is the first reading: the category is smaller than the reports claim. The second reading explains more of what is actually happening. <span class='hl'>A category does not become a budget line until someone can write a number next to it.</span> Sales AI is not missing from the survey because nobody wants it. It is missing because the person who would have to forecast it cannot."
      data-zh="那是第一種讀法：這個品類比報告寫的小。第二種讀法解釋得更多。<span class='hl'>一個品類要先有人填得出旁邊那個數字，它才會變成一條預算線。</span>銷售這一格在調查裡缺席，不是因為沒有人想要，是因為<span class='hl'>那個要替它做預測的人，做不出來。</span>">That is the first reading: the category is smaller than the reports claim. The second reading explains more of what is actually happening. <span class='hl'>A category does not become a budget line until someone can write a number next to it.</span></p>
@@ -203,11 +269,11 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <p data-en="The Bridge Group surveyed 351 B2B companies in early 2025. AI SDRs appeared as a distinct category for the first time, at <span class='hl'>1% of respondents</span>. In the same study, SDR quota attainment came in at 60%, the lowest across ten editions of the research." data-zh="Bridge Group 在 2025 年初調查了 351 家 B2B 公司。AI SDR 第一次出現成為一個獨立類別，比例是<span class='hl'>受訪者的 1%</span>。同一份研究裡，SDR 的達標率是 60%，是這份研究十個版本以來的最低點。">The Bridge Group surveyed 351 B2B companies in early 2025. AI SDRs appeared as a distinct category for the first time, at <span class='hl'>1% of respondents</span>. In the same study, SDR quota attainment came in at 60%, the lowest across ten editions of the research.</p>
   <p data-en="Those two numbers sit oddly together. Human sales development is having its hardest year on record, and <span class='hl'>the technology said to be replacing it is in one company out of a hundred</span>. Whatever is pressing on sales teams, it is not yet AI taking the work." data-zh="這兩個數字放在一起很不協調。人類的業務開發正在經歷有紀錄以來最難的一年，而<span class='hl'>那個被說成要取代它的技術，一百家裡只有一家在用</span>。不論現在壓在業務團隊身上的是什麼，都還不是 AI 把工作拿走。">Those two numbers sit oddly together. Human sales development is having its hardest year on record, and <span class='hl'>the technology said to be replacing it is in one company out of a hundred</span>. Whatever is pressing on sales teams, it is not yet AI taking the work.</p>
   <h2 data-en="One year, three directions" data-zh="同一年，三個方向">One year, three directions</h2>
-  <p data-en="2025 and 2026 <span class='hl'>split this category three ways</span>, and each split is documented." data-zh="2025 到 2026 年<span class='hl'>把這個賽道劈成三個方向</span>，每一個方向都有紀錄可查。">2025 and 2026 <span class='hl'>split this category three ways</span>, and each split is documented.</p>
+  <p data-en="2025 and 2026 <span class='hl'>split this category three ways</span>, and each split is documented." data-zh="2025 到 2026 年<span class='hl'>把這個市場劈成三個方向</span>，每一個方向都有紀錄可查。">2025 and 2026 <span class='hl'>split this category three ways</span>, and each split is documented.</p>
   <p data-en="<b>Gong is accelerating and still repriced.</b> ARR passed US$500 million with more than 5,000 customers, growing over 55% year on year. Its 2021 Series E valued it at US$7.25 billion. A secondary transaction reported by Calcalist in November 2025 put it near US$4.5 billion, a discount of about 38%. Gong has not confirmed that transaction." data-zh="<b>Gong 在加速，估值卻被壓。</b>年經常性收入突破 5 億美元、客戶超過 5,000 家、年增逾 55%。2021 年的 Series E 投後估值是 72.5 億美元。Calcalist 在 2025 年 11 月報導的一筆次級市場交易把它定在約 45 億美元，折價約 38%。這筆交易 Gong 自己未曾證實。"><b>Gong is accelerating and still repriced.</b> ARR passed US$500 million with more than 5,000 customers, growing over 55% year on year. Its 2021 Series E valued it at US$7.25 billion. A secondary transaction reported by Calcalist in November 2025 put it near US$4.5 billion, a discount of about 38%. Gong has not confirmed that transaction.</p>
   <p data-en="<b>ZoomInfo is losing altitude.</b> FY2025 revenue of US$1.2495 billion, up 3%, with net revenue retention at 90%. On 11 May 2026 it cut guidance and laid off 600 people, about 20% of the company; the stock fell about 33% the next day. On 31 July 2026 its market capitalization was US$973 million, <span class='hl'>less than one times revenue</span>." data-zh="<b>ZoomInfo 在失速。</b>2025 會計年度營收 12.495 億美元、年增 3%，淨收入留存率 90%。2026 年 5 月 11 日下修財測並裁員 600 人，約全球 20%，隔日股價跌約 33%。2026 年 7 月 31 日的市值是 9.73 億美元，<span class='hl'>不到一倍營收</span>。"><b>ZoomInfo is losing altitude.</b> FY2025 revenue of US$1.2495 billion, up 3%, with net revenue retention at 90%. On 11 May 2026 it cut guidance and laid off 600 people, about 20% of the company; the stock fell about 33% the next day. On 31 July 2026 its market capitalization was US$973 million, <span class='hl'>less than one times revenue</span>.</p>
-  <p data-en="<b>Clay went the other way.</b> From US$1 million to US$100 million ARR in two years, 14,000 customers, and a tender offer in January 2026 pricing the company at US$5 billion. Same year, same category, three completely different outcomes." data-zh="<b>Clay 走的是另一個方向。</b>兩年從 100 萬美元做到 1 億美元的年經常性收入，14,000 家客戶，2026 年 1 月的一次員工股權要約把公司定價在 50 億美元。同一年，同一個賽道，三個完全不同的結局。"><b>Clay went the other way.</b> From US$1 million to US$100 million ARR in two years, 14,000 customers, and a tender offer in January 2026 pricing the company at US$5 billion. Same year, same category, three completely different outcomes.</p>
-  <div class="cmp">
+  <p data-en="<b>Clay went the other way.</b> From US$1 million to US$100 million ARR in two years, 14,000 customers, and a tender offer in January 2026 pricing the company at US$5 billion. Same year, same category, three completely different outcomes." data-zh="<b>Clay 走的是另一個方向。</b>兩年從 100 萬美元做到 1 億美元的年經常性收入，14,000 家客戶，2026 年 1 月的一次員工股權要約把公司定價在 50 億美元。同一年，同一個市場，三個完全不同的結局。"><b>Clay went the other way.</b> From US$1 million to US$100 million ARR in two years, 14,000 customers, and a tender offer in January 2026 pricing the company at US$5 billion. Same year, same category, three completely different outcomes.</p>
+  <div class="cmp" data-anim>
     <div class="cmp-col">
       <div class="cmp-bar" style="height:56px;background:#3C4A5E"><span class="tag" data-en="Repriced" data-zh="被壓估值">Repriced</span></div>
       <div class="cmp-name" data-en="Gong · accelerating" data-zh="Gong · 在加速">Gong · accelerating</div>
@@ -243,14 +309,14 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <h2 data-en="The wall was not built by AI" data-zh="那道牆不是 AI 蓋的">The wall was not built by AI</h2>
   <p data-en="The story of AI flooding inboxes with outbound email is only half right. From 1 February 2024 Gmail and Yahoo required bulk senders to authenticate with DMARC, keep spam complaint rates below 0.30%, and offer one click unsubscribe. Outlook made equivalent requirements mandatory through 2025. <span class='hl'>The thing that made cold outbound stop working was the mailbox providers, not the sending tools.</span> Any AI product whose value depends on sending more email is priced against a channel that has already been closed." data-zh="AI 讓外撥信件淹沒收件匣，這個說法只對一半。從 2024 年 2 月 1 日起，Gmail 與 Yahoo 要求大量寄信者通過 DMARC 驗證、把垃圾投訴率壓在 0.30% 以下、提供一鍵取消訂閱。Outlook 在 2025 年間陸續全面強制同等要求。<span class='hl'>真正讓冷式外撥失效的是收信平台，不是寄信工具。</span>任何價值建立在「多寄一點信」上的 AI 產品，賣的是一條已經被關起來的通路。">The story of AI flooding inboxes with outbound email is only half right. From 1 February 2024 Gmail and Yahoo required bulk senders to authenticate with DMARC, keep spam complaint rates below 0.30%, and offer one click unsubscribe. Outlook made equivalent requirements mandatory through 2025. <span class='hl'>The thing that made cold outbound stop working was the mailbox providers, not the sending tools.</span> Any AI product whose value depends on sending more email is priced against a channel that has already been closed.</p>
-  <p data-en="The clearest cautionary tale in this category is 11x. In March 2025 TechCrunch reported that ZoomInfo and Airtable were listed as customers on 11x's website without being customers. A ZoomInfo spokesperson told TechCrunch: <span class='hl'>&quot;During the pilot, 11x's product performed significantly worse than our SDR employees, and we did not move forward afterward.&quot;</span> That sentence came from a public company that sells AI sales tools itself." data-zh="這個賽道裡最尖銳的一個警訊來自 11x。2025 年 3 月，TechCrunch 報導 ZoomInfo 與 Airtable 被列在 11x 官網的客戶名單上，而兩家都不是它的客戶。ZoomInfo 的發言人對 TechCrunch 說：<span class='hl'>「試用期間，11x 的產品表現明顯不如我們自己的 SDR 員工，之後我們沒有繼續。」</span>這句話出自一家自己也在賣 AI 銷售工具的上市公司。">The clearest cautionary tale in this category is 11x. In March 2025 TechCrunch reported that ZoomInfo and Airtable were listed as customers on 11x's website without being customers. A ZoomInfo spokesperson told TechCrunch: <span class='hl'>"During the pilot, 11x's product performed significantly worse than our SDR employees, and we did not move forward afterward."</span> That sentence came from a public company that sells AI sales tools itself.</p>
+  <p data-en="The clearest cautionary tale in this category is 11x. In March 2025 TechCrunch reported that ZoomInfo and Airtable were listed as customers on 11x's website without being customers. A ZoomInfo spokesperson told TechCrunch: <span class='hl'>&quot;During the pilot, 11x's product performed significantly worse than our SDR employees, and we did not move forward afterward.&quot;</span> That sentence came from a public company that sells AI sales tools itself." data-zh="這個市場裡最尖銳的一個警訊來自 11x。2025 年 3 月，TechCrunch 報導 ZoomInfo 與 Airtable 被列在 11x 官網的客戶名單上，而兩家都不是它的客戶。ZoomInfo 的發言人對 TechCrunch 說：<span class='hl'>「試用期間，11x 的產品表現明顯不如我們自己的 SDR 員工，之後我們沒有繼續。」</span>這句話出自一家自己也在賣 AI 銷售工具的上市公司。">The clearest cautionary tale in this category is 11x. In March 2025 TechCrunch reported that ZoomInfo and Airtable were listed as customers on 11x's website without being customers. A ZoomInfo spokesperson told TechCrunch: <span class='hl'>"During the pilot, 11x's product performed significantly worse than our SDR employees, and we did not move forward afterward."</span> That sentence came from a public company that sells AI sales tools itself.</p>
   <h2 data-en="What this means if you are selling into enterprises" data-zh="如果你正在把東西賣進大企業，這代表什麼">What this means if you are selling into enterprises</h2>
   <p data-en="<b>First, sell the ceiling before you sell the outcome.</b> A buyer who cannot forecast the cost cannot get the approval, however good the outcome is. Bring the cap to the first meeting, not the third." data-zh="<b>第一，先賣上限，再賣成效。</b>一個算不出成本的買方拿不到核准，成效再好都一樣。把上限帶到第一次會議，不要留到第三次。">First, sell the ceiling before you sell the outcome. Bring the cap to the first meeting, not the third.</p>
   <p data-en="<b>Second, find out which budget line the money comes from.</b> A tool bought from the sales budget and a tool bought from the IT budget have different approval paths and different ceilings. Consumption pricing usually pushes the purchase from the first to the second, and that is a longer road than most vendors plan for." data-zh="<b>第二，問清楚這筆錢從哪一條預算線出。</b>從業務預算買的工具，跟從 IT 預算買的工具，審核路徑不同、天花板也不同。用量計價通常會把這筆採購從前者推到後者，而那條路比多數廠商預期的長。">Second, find out which budget line the money comes from. Consumption pricing usually pushes the purchase from the sales budget to the IT budget.</p>
   <p data-en="<b>Third, treat adoption claims as claims.</b> The only adoption figure in this article backed by a named survey is that 1%. The churn numbers circulating for AI SDR products trace back, every time, to content marketing with no original source." data-zh="<b>第三，把採用率的宣稱當成宣稱。</b>本文唯一有具名調查支撐的採用數字就是那個 1%。網路上流傳的 AI SDR 流失率數字，追下去每一次都來自沒有原始出處的內容行銷。">Third, treat adoption claims as claims.</p>
-  <p data-en="The category is real and someone will win it. But the number that decides who wins is not on the cover of a market report. <span class='hl'>It is the one the buyer has to put in front of their CFO.</span>" data-zh="這個賽道是真的，最後也會有人贏。只是決定誰會贏的那個數字，不在市場報告的封面上。<span class='hl'>它在買方要拿去給財務長看的那一頁上。</span>">The category is real and someone will win it. <span class='hl'>But the number that decides who wins is the one the buyer has to put in front of their CFO.</span></p>
+  <p data-en="The category is real and someone will win it. But the number that decides who wins is not on the cover of a market report. <span class='hl'>It is the one the buyer has to put in front of their CFO.</span>" data-zh="這個市場是真的，最後也會有人贏。只是決定誰會贏的那個數字，不在市場報告的封面上。<span class='hl'>它在買方要拿去給財務長看的那一頁上。</span>">The category is real and someone will win it. <span class='hl'>But the number that decides who wins is the one the buyer has to put in front of their CFO.</span></p>
 
-  <div class="calc" id="capCalc">
+  <div class="calc" id="capCalc" data-anim>
     <div class="calc-h" data-en="Work out the ceiling" data-zh="先把上限算出來">Work out the ceiling</div>
     <p class="calc-s" data-en="Resolved conversations per month, multiplied by the per-conversation price, multiplied by twelve. This is the number your CFO is going to ask for, so bring it to the first meeting."
       data-zh="每月已解決的對話數，乘上每次的計價，乘以十二。這就是財務長會跟你要的那個數字，所以第一次開會就帶著它。">Resolved conversations per month, multiplied by the per-conversation price, multiplied by twelve. This is the number your CFO is going to ask for, so bring it to the first meeting.</p>
@@ -306,6 +372,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
     cv.addEventListener('input',run); rt.addEventListener('input',run); st.addEventListener('input',run);
     document.addEventListener('click',function(e){ if(e.target && e.target.id==='lt') setTimeout(run,20); });
     run();
+    document.addEventListener('DOMContentLoaded',run);   /* the language script runs later in the page; re-read it once the DOM is done */
   })();
   </script>
   <div class="opi-quote">
@@ -315,7 +382,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <p class="opi-q-note" data-en="Pulled from the article text. Not yet signed off word for word by the author." data-zh="本段取自文章原文，尚未經本人逐字確認。">Pulled from the article text. Not yet signed off word for word by the author.</p>
 </div>
 <div class="cta">
-    <h3 data-en="If you are building in this category" data-zh="如果你正在做這個賽道">If you are building in this category</h3>
+    <h3 data-en="If you are building in this category" data-zh="如果你正在做這個市場">If you are building in this category</h3>
     <p data-en="We read B2B deals where the buyer is an enterprise sales organization. If you already bring a ceiling to the first meeting, and you know who signs it, we would like to see the deal."
       data-zh="我們看的 B2B 案子，買方多半是企業的銷售組織。如果你第一次開會就帶得出上限、而且知道那個數字誰簽，我們很想看看這個案子。">We read B2B deals where the buyer is an enterprise sales organization. If you already bring a ceiling to the first meeting, and you know who signs it, we would like to see the deal.</p>
     <a class="cta-btn" href="../../apply.html" data-en="Share your deal &rarr;" data-zh="與我們分享 &rarr;">Share your deal &rarr;</a>
@@ -343,6 +410,54 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "x4ewf64gyt");
+</script>
+<script>
+/* v2 motion: fade-in-up on scroll, number count-up, svg line draw. */
+(function(){
+  var ANIM = true;                                  /* set false to disable every v2 motion */
+  if(!ANIM) return;
+  if(!('IntersectionObserver' in window)) return;
+  try{ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; }catch(e){}
+  var A = function(n){ return Array.prototype.slice.call(n); };
+  var blocks = A(document.querySelectorAll('[data-anim]'));
+  if(!blocks.length) return;
+  blocks.forEach(function(el){ el.classList.add('anim-init'); });
+  A(document.querySelectorAll('[data-draw]')).forEach(function(el){
+    var L=0; try{ L=el.getTotalLength(); }catch(e){ return; }
+    if(!L) return;
+    el.style.strokeDasharray=L; el.style.strokeDashoffset=L; el.classList.add('draw-init');
+  });
+  function countUp(el){
+    if(el.getAttribute('data-done')) return;
+    el.setAttribute('data-done','1');
+    var to=parseFloat(el.getAttribute('data-to')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    if(isNaN(to)) return;
+    var t0=null, dur=1200;
+    function step(t){
+      if(t0===null) t0=t;
+      var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=(to*e).toFixed(dec);
+      if(p<1) requestAnimationFrame(step); else el.textContent=to.toFixed(dec);
+    }
+    requestAnimationFrame(step);
+  }
+  function play(el){
+    el.classList.add('anim-in');
+    A(el.querySelectorAll('[data-to]')).forEach(countUp);
+    var ls=A(el.querySelectorAll('[data-draw]'));
+    if(ls.length) requestAnimationFrame(function(){ ls.forEach(function(l){ l.style.strokeDashoffset='0'; }); });
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ play(en.target); io.unobserve(en.target); } });
+  },{rootMargin:'0px 0px -80px 0px',threshold:0});
+  blocks.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){                            /* failsafe: never leave on-screen content hidden */
+    A(document.querySelectorAll('.anim-init:not(.anim-in)')).forEach(function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight && r.bottom>0){ io.unobserve(el); play(el); }
+    });
+  },2200);
+})();
 </script>
 </body>
 </html>
