@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Noto+Serif+TC:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Capable Teams Still Keep Cross-Border Hiring In House","description":"Every guide to cross-border hiring lists the risks. The more useful question is why a capable HR team reads that same list and still decides to keep the work in house.","datePublished":"2026-09-02","dateModified":"2026-09-02","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/operator-insider-preview/articles/hrtech-cross-border-hiring-is-not-payroll.html"},"author":{"@type":"Person","@id":"https://evoscalecapital.com/operator-insider-preview/articles/hrtech-cross-border-hiring-is-not-payroll.html#author","name":"Sabrina Chiu","jobTitle":"Deputy General Manager, BIPO Taiwan","worksFor":{"@type":"Organization","name":"BIPO"},"sameAs":["https://www.linkedin.com/in/sabrina-chiu-tw/"]},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"一春資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"HRTech","wordCount":1850,"citation":["Labor Standards Act (Taiwan), Article 2","Labor Pension Act (Taiwan), Article 14","National Health Insurance Act (Taiwan), Article 27","OECD Model Tax Convention on Income and on Capital, Article 5"],"keywords":"Employer of Record, EOR, cross-border hiring, HRTech, Labor Standards Act"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Capable Teams Still Keep Cross-Border Hiring In House","description":"Every guide to cross-border hiring lists the risks. The more useful question is why a capable HR team reads that same list and still decides to keep the work in house.","datePublished":"2026-09-02","dateModified":"2026-09-15","mainEntityOfPage":{"@type":"WebPage","@id":"https://evoscalecapital.com/operator-insider-preview/articles/hrtech-cross-border-hiring-is-not-payroll.html"},"author":{"@type":"Person","@id":"https://evoscalecapital.com/operator-insider-preview/articles/hrtech-cross-border-hiring-is-not-payroll.html#author","name":"Sabrina Chiu","jobTitle":"Deputy General Manager, BIPO Taiwan","worksFor":{"@type":"Organization","name":"BIPO"},"sameAs":["https://www.linkedin.com/in/sabrina-chiu-tw/"]},"publisher":{"@type":"Organization","name":"EvoScale Capital","alternateName":"一春資本","logo":{"@type":"ImageObject","url":"https://evoscalecapital.com/og-cover.png"}},"image":"https://evoscalecapital.com/og-cover.png","articleSection":"HRTech","wordCount":1850,"citation":["Labor Standards Act (Taiwan), Article 2","Labor Pension Act (Taiwan), Article 14","National Health Insurance Act (Taiwan), Article 27","OECD Model Tax Convention on Income and on Capital, Article 5"],"keywords":"Employer of Record, EOR, cross-border hiring, HRTech, Labor Standards Act"}</script>
 <style>
 :root{--orange:#FF6600;--orange-d:#FF8C42;--navy:#F2F5F8;--ink:#E8EDF2;--mut:#9FB0C3;--bg:#1B1714;--bg-2:#262019;--border:rgba(255,255,255,.1);--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,7 +38,7 @@ a{color:inherit}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.1rem}
 .brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .top-r{display:flex;align-items:center;gap:1.1rem}
-.lang{background:none;border:1.5px solid var(--orange);color:var(--orange-d);border-radius:20px;padding:6px 16px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit}
+.lang{background:none;border:1.5px solid var(--orange);color:var(--orange-d);border-radius:20px;padding:6px 16px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}
 .back{font-size:1rem;color:var(--mut);text-decoration:none;white-space:nowrap}.back:hover{color:var(--navy)}
 article{max-width:760px;margin:0 auto;padding:3.5rem 6vw 4rem}
 .ey{font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);margin-bottom:1.2rem}
@@ -147,7 +147,8 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
         改成 nowrap，並在 520px 以下只顯示 EvoScale（ES 標記仍在，品牌識別不受影響）。
    二、.dsource 原本是斜體右對齊，在左對齊的內文裡看起來像壞掉的段落，改成左對齊正體
         並加一條分隔線，讓它讀起來像圖註而不是內文。 */
-.brand{white-space:nowrap}
+.brand{white-space:nowrap;gap:0}
+.brand .lm{margin-right:10px}
 .top-in{gap:1rem}
 @media(max-width:520px){
   .brand{font-size:1rem;gap:7px}
@@ -158,6 +159,50 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 }
 .dsource{text-align:left;font-style:normal;margin-top:1.4rem;padding-top:.9rem;
   border-top:1px solid var(--border)}
+
+/* ══ 2.0（2026-09-15）新增的圖表與計算器元件 ══
+   資料圖一律 HTML 加 CSS，不用手刻座標的 SVG：字級由 CSS 決定所以跨斷點一致，
+   數值放在自己的格線欄位裡所以結構上不可能疊到長條。 */
+.dchart{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;
+  padding:1.9rem 1.7rem;margin:2.4rem 0}
+.dchart-t{font-family:var(--fd);font-weight:700;font-size:1.3rem;color:var(--navy);margin-bottom:.35rem}
+.dchart-s{font-size:1rem;color:var(--mut);margin-bottom:1.4rem;line-height:1.5}
+.bkey{font-size:1rem;color:var(--mut);margin-bottom:.9rem;line-height:1.55}
+.bkey em{font-style:normal;color:var(--navy);font-weight:700}
+.bchart{margin-top:.2rem}
+.brow{display:grid;grid-template-columns:minmax(0,9.6rem) minmax(0,1fr) 4.2rem;
+  align-items:center;gap:.9rem;padding:.36rem 0}
+.brow .lab{font-size:1rem;line-height:1.3;color:var(--mut);text-align:right}
+.brow .trk{position:relative;height:1.25rem;background:rgba(127,127,127,.26);border-radius:3px}
+.brow .trk i{display:block;height:100%;border-radius:3px;background:#9FB0C3}
+.brow .trk b{position:absolute;top:-.34rem;bottom:-.34rem;width:0;border-left:1.5px dashed rgba(159,176,195,.75)}
+.brow .val{font-size:1rem;font-weight:700;color:#7d8b99;font-variant-numeric:tabular-nums;text-align:right}
+.brow.hi .trk i{background:var(--orange)}
+.brow.hi .lab{color:var(--navy)}
+.brow.hi .val{color:var(--orange-d)}
+@media(max-width:520px){
+  .brow{grid-template-columns:1fr 4.2rem;gap:.15rem .7rem;padding:.5rem 0}
+  .brow .lab{grid-column:1/-1;text-align:left;color:var(--navy);font-weight:500}
+}
+/* 堆疊條 */
+.stackwrap{margin-top:.4rem}
+.stack{display:flex;height:2.2rem;border-radius:4px;overflow:hidden;background:rgba(127,127,127,.26)}
+.stack span{display:block}
+.stackkey{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.9rem;font-size:1rem}
+.stackkey b{display:inline-flex;align-items:center;gap:.5rem;font-weight:400;color:var(--ink)}
+.stackkey i{width:.8rem;height:.8rem;border-radius:2px;flex:none}
+.stackkey u{text-decoration:none;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+/* 計算器分布條 */
+.costbar{margin-top:1.1rem}
+.costbar .cb{display:flex;height:1.9rem;border-radius:4px;overflow:hidden;background:rgba(127,127,127,.26)}
+.costbar .cb span{display:block}
+.cblab{display:flex;justify-content:space-between;font-size:1rem;margin-top:.5rem;
+  font-variant-numeric:tabular-nums;color:var(--mut)}
+.cblab b{color:var(--navy)}
+.cliff{font-size:1rem;color:var(--mut);margin-top:.8rem;line-height:1.6}
+.cliff b{color:var(--orange-d)}
+.calc-big{font-variant-numeric:tabular-nums}
+.calc-row output{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -172,7 +217,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 <article>
   <div class="ey" data-en="Operator Insider &middot; HRTech" data-zh="Operator Insider &middot; HRTech">Operator Insider &middot; HRTech</div>
   <h1 data-en="Why Capable Teams Still Keep Cross-Border Hiring In House" data-zh="跨境僱用，有能力的團隊為什麼還是自己做">Why Capable Teams Still Keep Cross-Border Hiring In House</h1>
-  <div class="byline" data-en="Operator Insider &middot; HRTech &middot; 8 min read &middot; September 2026" data-zh="Operator Insider &middot; HRTech &middot; 8 分鐘閱讀 &middot; 2026 年 9 月">Operator Insider &middot; HRTech &middot; 8 min read &middot; September 2026</div>
+  <div class="byline" data-en="Operator Insider &middot; HRTech &middot; 11 min read &middot; September 2026" data-zh="Operator Insider &middot; HRTech &middot; 11 分鐘閱讀 &middot; 2026 年 9 月">Operator Insider &middot; HRTech &middot; 11 min read &middot; September 2026</div>
 
 <div class="opi-author">
   <img class="opi-face" src="../../Team/Sabrina.jpg" alt="Sabrina Chiu" width="78" height="78" loading="lazy">
@@ -221,14 +266,14 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <div class="dband rv-t">
     <div class="dband-t" data-en="The four numbers this piece turns on" data-zh="撐起這篇的四個數字">The four numbers this piece turns on</div>
-    <div class="dband-s" data-en="Each one is a structural count taken from the argument above, not a market statistic." data-zh="每一個都是上面那段論述的結構計數，不是市場統計。">Each one is a structural count taken from the argument above, not a market statistic.</div>
+    <div class="dband-s" data-en="All four are statutory Taiwanese rates for 2026, taken from the Bureau of Labor Insurance and the statutes themselves. Sources at the foot of the piece." data-zh="四個都是 115 年度的台灣法定數字，取自勞保局與法條本身。來源在文末。">All four are statutory Taiwanese rates for 2026, taken from the Bureau of Labor Insurance and the statutes themselves. Sources at the foot of the piece.</div>
     <div class="dgrid">
-      <div class="dstat"><div class="n" data-count="6">6</div><div class="k" data-en="Gates before day one" data-zh="上工前的關卡">Gates before day one</div><div class="d" data-en="Five of them are settled before payroll is ever run, and not one of them sends an invoice." data-zh="其中五道在發薪之前就已經決定了，而且沒有一道會寄帳單過來。">Five of them are settled before payroll is ever run, and not one of them sends an invoice.</div></div>
-      <div class="dstat"><div class="n" data-count="3">3</div><div class="k" data-en="Separate exposures" data-zh="各自獨立的風險">Separate exposures</div><div class="d" data-en="Employment status, tax and classification are three problems, not three names for one." data-zh="僱傭合法性、稅務、關係認定是三個問題，不是同一個問題的三種叫法。">Employment status, tax and classification are three problems, not three names for one.</div></div>
-      <div class="dstat"><div class="n" data-count="1">1</div><div class="k" data-en="Visible transaction" data-zh="看得見的動作">Visible transaction</div><div class="d" data-en="Only the payroll line lands on a budget sheet. The other layers land on a legal one." data-zh="只有發薪這一條會落在預算表上，其他幾層落在法律文件上。">Only the payroll line lands on a budget sheet. The other layers land on a legal one.</div></div>
-      <div class="dstat"><div class="n" data-count="0">0</div><div class="k" data-en="Weight of the contract title" data-zh="合約標題的效力">Weight of the contract title</div><div class="d" data-en="A subordination test reads who directs the work, never what the document is called." data-zh="從屬性測試讀的是誰在指揮這份工作，不是這份文件叫什麼名字。">A subordination test reads who directs the work, never what the document is called.</div></div>
+      <div class="dstat"><div class="n" data-count="14.87">14.87</div><div class="k" data-en="Percent, employer's statutory load" data-zh="百分比，雇主的法定負擔">Percent, employer's statutory load</div><div class="d" data-en="Labour insurance, employment insurance, occupational injury and pension, for a salary of NT$40,000. National Health Insurance sits on top and is not in this figure." data-zh="勞保、就保、職災、勞退四項合計，以月薪四萬計。健保疊在這之上，沒有算進這個數字。">Labour insurance, employment insurance, occupational injury and pension, for a salary of NT$40,000. National Health Insurance sits on top and is not in this figure.</div></div>
+      <div class="dstat"><div class="n" data-count="4.36">4.36</div><div class="k" data-en="The same four rates, at NT$300,000" data-zh="同樣四項費率，月薪三十萬時">The same four rates, at NT$300,000</div><div class="d" data-en="Nothing changed except the salary. Three of the four tables stop counting at a ceiling, so the load falls as pay rises." data-zh="除了薪水什麼都沒變。四張表裡有三張到了天花板就不再往上算，所以薪水越高，負擔比例越低。">Nothing changed except the salary. Three of the four tables stop counting at a ceiling, so the load falls as pay rises.</div></div>
+      <div class="dstat"><div class="n" data-count="4">4</div><div class="k" data-en="Times, the fine for not enrolling someone" data-zh="倍，漏保的罰鍰">Times, the fine for not enrolling someone</div><div class="d" data-en="Four times the premium the employer should have paid, counted from the day of hire, plus compensation for whatever the worker lost." data-zh="以雇主原本應負擔的保險費計算，從僱用之日起算的四倍，另外還要賠償勞工的損失。">Four times the premium the employer should have paid, counted from the day of hire, plus compensation for whatever the worker lost.</div></div>
+      <div class="dstat"><div class="n" data-count="17.8">17.8</div><div class="k" data-en="Times, the spread in injury premiums" data-zh="倍，職災費率的行業差距">Times, the spread in injury premiums</div><div class="d" data-en="Between the safest and the riskiest of the 55 industry classifications. The same headcount costs different money depending on what you wrote on the form." data-zh="55 個行業分類裡最低與最高的差距。同樣的人數，因為表格上填的行業不同，付的錢就不一樣。">Between the safest and the riskiest of the 55 industry classifications. The same headcount costs different money depending on what you wrote on the form.</div></div>
     </div>
-    <div class="dsource" data-en="Illustrative structure only. The statutory rates cited elsewhere in this piece carry their own sources." data-zh="此處數字為本文論述的結構示意。文中引用的法定費率另有出處。">Illustrative structure only. The statutory rates cited elsewhere in this piece carry their own sources.</div>
+    <div class="dsource" data-en="Bureau of Labor Insurance, 2026 rates and premium-sharing table; Labor Insurance Act Article 72; Labor Occupational Accident Insurance and Protection Act Article 16; Labor Pension Act Article 14. The 14.87 and 4.36 figures are computed from those published rates using the Bureau's own formula, which was checked against its published worked example." data-zh="勞動部勞工保險局 115 年度費率與保險費負擔比例表；勞工保險條例第 72 條；勞工職業災害保險及保護法第 16 條；勞工退休金條例第 14 條。14.87 與 4.36 這兩個數字是用上述公布費率照勞保局自己的算式算出來的，算式已與勞保局公布的計算範例核對吻合。">Bureau of Labor Insurance, 2026 rates and premium-sharing table; Labor Insurance Act Article 72; Labor Occupational Accident Insurance and Protection Act Article 16; Labor Pension Act Article 14.</div>
   </div>
 
 
@@ -243,9 +288,45 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 <p data-en="Three answers come up more than any other, and none of them is ignorance of the rules. <b>The volume is not there yet.</b> Two people in one market does not justify a vendor relationship, and the person deciding knows it. <b>Control feels cheaper than it is.</b> Keeping it in house looks free because the cost is absorbed by people already on payroll. <b>The failure mode is invisible from the inside.</b> Nothing goes wrong for two years, and two years of nothing feels like proof." data-zh="有三個答案出現得比其他都多，而且沒有一個是因為不懂法規。<b>量還不夠。</b>一個市場只有兩個人，撐不起一段廠商關係，做決定的人自己很清楚。<b>自己做感覺比較便宜。</b>留在內部看起來像不用錢，因為成本被本來就在薪資名冊上的人吸收掉了。<b>出事的樣子從內部看不見。</b>兩年都沒出事，而兩年的沒出事，感覺起來就像證明。">Three answers come up more than any other, and none of them is ignorance of the rules.</p>
   <p data-en="This is not a uniquely Taiwanese habit. Most jurisdictions that regulate employment run some version of the same substance-over-form test, they differ in name and in how aggressively regulators enforce it, but the underlying question, who actually controls the work, is close to universal. <span class='hl'>A company using a contractor structure to avoid the cost of employment is making a bet on enforcement risk in a country it may not have visited.</span>" data-zh="這不是台灣獨有的習慣。多數有規範僱傭關係的司法管轄區，都跑某一種版本的「實質重於形式」測試，各地叫法不同、主管機關執法的力道也不同，但底層那個問題，也就是誰真的在控制這份工作，幾乎是通用的。<span class='hl'>一家公司用承攬結構來省下僱傭的成本，等於在一個自己可能連去都沒去過的國家，賭執法風險有多大。</span>">This is not a uniquely Taiwanese habit. Most jurisdictions that regulate employment run some version of the same substance-over-form test, they differ in name and in how aggressively regulators enforce it, but the underlying question, who actually controls the work, is close to universal. <span class='hl'>A company using a contractor structure to avoid the cost of employment is making a bet on enforcement risk in a country it may not have visited.</span></p>
 
+  <div class="dchart rv-t">
+  <div class="dchart-t" data-en="What getting it wrong costs" data-zh="弄錯的價格">What getting it wrong costs</div>
+  <div class="dchart-s" data-en="Fines are set as a multiple of the premium that should have been paid, not as a flat amount. The bigger the payroll, the bigger the fine." data-zh="罰鍰是用「原本應該繳的保險費」的倍數算，不是一個固定金額。薪資規模越大，罰得越多。">Fines are set as a multiple of the premium that should have been paid, not as a flat amount. The bigger the payroll, the bigger the fine.</div>
+  <div class="bchart">
+    <div class="brow hi"><span class="lab" data-en="Not enrolling someone at all" data-zh="完全沒有辦理投保">Not enrolling someone at all</span><span class="trk"><i class="rng" style="position:absolute;left:0.0%;width:100.0%;border-radius:3px"></i></span><span class="val" data-en="4&times;" data-zh="4 倍">4&times;</span></div>
+    <div class="brow hi"><span class="lab" data-en="Under-reporting the insured salary" data-zh="投保薪資以多報少">Under-reporting the insured salary</span><span class="trk"><i class="rng" style="position:absolute;left:0.0%;width:100.0%;border-radius:3px"></i></span><span class="val" data-en="4&times;" data-zh="4 倍">4&times;</span></div>
+    <div class="brow hi"><span class="lab" data-en="Not enrolling for health insurance" data-zh="沒有辦理健保投保">Not enrolling for health insurance</span><span class="trk"><i class="rng" style="position:absolute;left:50.0%;width:50.0%;border-radius:3px"></i></span><span class="val" data-en="2 to 4&times;" data-zh="2 到 4 倍">2 to 4&times;</span></div>
+    <div class="brow"><span class="lab" data-en="Passing the employer share to the worker" data-zh="把雇主該付的保費轉嫁給勞工">Passing the employer share to the worker</span><span class="trk"><i class="rng" style="position:absolute;left:0.0%;width:50.0%;border-radius:3px"></i></span><span class="val" data-en="2&times;" data-zh="2 倍">2&times;</span></div>
+  </div>
+  <p class="bkey" style="margin-top:1.1rem" data-en="Late pension contributions work differently again: a <em>3 percent</em> surcharge for every day late, capped once it reaches the full amount owed." data-zh="勞退遲繳又是另一套：每逾一日加徵 <em>3%</em> 滯納金，加到應提繳金額的一倍為止。">Late pension contributions work differently again: a <em>3 percent</em> surcharge for every day late, capped once it reaches the full amount owed.</p>
+  <div class="dsource" data-en="Labor Insurance Act Article 72, paragraphs 1 to 3; National Health Insurance Act Article 84, paragraph 1; Labor Pension Act Article 53, paragraph 1. Each multiple has its own base, stated in the statute; they are not multiples of salary." data-zh="勞工保險條例第 72 條第 1 至 3 項；全民健康保險法第 84 條第 1 項；勞工退休金條例第 53 條第 1 項。每一個倍數各有各的基數，法條裡都寫明了，那不是薪水的倍數。">Labor Insurance Act Article 72, paragraphs 1 to 3; National Health Insurance Act Article 84, paragraph 1; Labor Pension Act Article 53, paragraph 1. Each multiple has its own base, stated in the statute; they are not multiples of salary.</div>
+</div>
+
   <h2 data-en="The cost floor that shows up after the pilot, not during it" data-zh="試跑期間不會出現，之後才會出現的成本底線">The cost floor that shows up after the pilot, not during it</h2>
-  <p data-en="Two numbers in Taiwan law are worth knowing before quoting a hiring cost to a founder. Under <strong>Article 14 of the Labor Pension Act</strong>, an employer must contribute at least <span class='hl'>6% of an employee's monthly wage</span> into that employee's individual pension account, on top of gross salary. Under <strong>Article 27 of the National Health Insurance Act</strong>, for a standard salaried employee the employer, as the insured unit, bears <span class='hl'>70% of the National Health Insurance premium</span>, with the employee paying the remaining 30%. Neither number is a service fee an EOR charges. Both are a floor set by statute, and they apply whether the hire is made through a local entity, an EOR, or gets misclassified as a contractor and later reclassified." data-zh="在跟創辦人報聘僱成本之前，台灣法律裡有兩個數字值得先弄清楚。依<strong>勞工退休金條例第14條</strong>，雇主必須在勞工每月工資之外，額外提繳不低於工資<span class='hl'>6%</span>的金額進勞工的個人退休金專戶。依<strong>全民健康保險法第27條</strong>，一般受僱者的健保費，由雇主（投保單位）負擔<span class='hl'>70%</span>，被保險人自付30%。這兩個數字都不是EOR收的服務費，而是法律訂下的底線，不管是透過本地公司聘僱、透過EOR聘僱，還是先當成承攬、後來被重新認定為僱傭，全部都適用。">Two numbers in Taiwan law are worth knowing before quoting a hiring cost to a founder. Under <strong>Article 14 of the Labor Pension Act</strong>, an employer must contribute at least <span class='hl'>6% of an employee's monthly wage</span> into that employee's individual pension account, on top of gross salary. Under <strong>Article 27 of the National Health Insurance Act</strong>, for a standard salaried employee the employer, as the insured unit, bears <span class='hl'>70% of the National Health Insurance premium</span>, with the employee paying the remaining 30%. Neither number is a service fee an EOR charges. Both are a floor set by statute, and they apply whether the hire is made through a local entity, an EOR, or gets misclassified as a contractor and later reclassified.</p>
+  <p data-en="Two numbers in Taiwan law are worth knowing before quoting a hiring cost to a founder. Under <strong>Article 14 of the Labor Pension Act</strong>, an employer must contribute at least <span class='hl'>6% of an employee's monthly wage</span> into that employee's individual pension account, on top of gross salary. Under <strong>Article 27 of the National Health Insurance Act</strong>, for an ordinary salaried employee the employer, as the insured unit, bears <span class='hl'>60% of the National Health Insurance premium</span>, the employee pays 30 percent and central government covers the remaining 10 percent. Neither number is a service fee an EOR charges. Both are a floor set by statute, and they apply whether the hire is made through a local entity, an EOR, or gets misclassified as a contractor and later reclassified." data-zh="在跟創辦人報聘僱成本之前，台灣法律裡有兩個數字值得先弄清楚。依<strong>勞工退休金條例第14條</strong>，雇主必須在勞工每月工資之外，額外提繳不低於工資<span class='hl'>6%</span>的金額進勞工的個人退休金專戶。依<strong>全民健康保險法第27條</strong>，一般受僱者的健保費，由雇主（投保單位）負擔<span class='hl'>60%</span>，被保險人自付30%，其餘10%由中央政府補助。這兩個數字都不是EOR收的服務費，而是法律訂下的底線，不管是透過本地公司聘僱、透過EOR聘僱，還是先當成承攬、後來被重新認定為僱傭，全部都適用。">Two numbers in Taiwan law are worth knowing before quoting a hiring cost to a founder. Under <strong>Article 14 of the Labor Pension Act</strong>, an employer must contribute at least <span class='hl'>6% of an employee's monthly wage</span> into that employee's individual pension account, on top of gross salary. Under <strong>Article 27 of the National Health Insurance Act</strong>, for an ordinary salaried employee the employer, as the insured unit, bears <span class='hl'>60% of the National Health Insurance premium</span>, the employee pays 30 percent and central government covers the remaining 10 percent. Neither number is a service fee an EOR charges. Both are a floor set by statute, and they apply whether the hire is made through a local entity, an EOR, or gets misclassified as a contractor and later reclassified.</p>
   <p data-en="The reason this matters for sequencing is that a startup pricing its first hire off the gross salary line will be short by a predictable, statutory percentage the moment payroll actually runs, and <span class='hl'>short again if the arrangement is later reclassified from contractor to employee</span>, because the pension and insurance obligations apply retroactively to the period the relationship existed, not from the date it was corrected." data-zh="這件事跟順序有關，是因為一家新創如果只用毛薪那個數字去估第一個海外聘僱的成本，真正開始發薪的那一刻，就會少估一個可預期的法定百分比。如果這段關係後來<span class='hl'>被從承攬重新認定為僱傭，還會再少估一次</span>，因為退休金與保險的義務是回溯到關係實際存在的那段期間，不是從被更正的那天才開始算。">The reason this matters for sequencing is that a startup pricing its first hire off the gross salary line will be short by a predictable, statutory percentage the moment payroll actually runs, and <span class='hl'>short again if the arrangement is later reclassified from contractor to employee</span>, because the pension and insurance obligations apply retroactively to the period the relationship existed, not from the date it was corrected.</p>
+
+  <div class="dchart rv-t">
+  <div class="dchart-t" data-en="What an employer actually pays, on top of the salary" data-zh="薪水之外，雇主實際上還付了什麼">What an employer actually pays, on top of the salary</div>
+  <div class="dchart-s" data-en="Taiwan, statutory rates for 2026. These are the employer's share only; the employee pays a separate share on the first two." data-zh="台灣，115 年度法定費率。這裡只算雇主那一份，前兩項員工另外有自己要負擔的部分。">Taiwan, statutory rates for 2026. These are the employer's share only; the employee pays a separate share on the first two.</div>
+  <div class="stackwrap"><div class="stack"><span style="width:54.14%;background:#FF6600"></span><span style="width:4.71%;background:#FF8C42"></span><span style="width:0.81%;background:#C25A12"></span><span style="width:40.35%;background:#5E6E80"></span></div>
+    <div class="stackkey"><b><i style="background:#FF6600"></i><span data-en="Labour insurance" data-zh="勞工保險">Labour insurance</span><u>&nbsp;8.05%</u></b><b><i style="background:#FF8C42"></i><span data-en="Employment insurance" data-zh="就業保險">Employment insurance</span><u>&nbsp;0.70%</u></b><b><i style="background:#C25A12"></i><span data-en="Occupational injury" data-zh="職業災害保險">Occupational injury</span><u>&nbsp;0.12%</u></b><b><i style="background:#5E6E80"></i><span data-en="Pension" data-zh="勞工退休金">Pension</span><u>&nbsp;6.00%</u></b><b><i style="background:transparent"></i><span data-en="Total" data-zh="合計">Total</span><u>&nbsp;14.87%</u></b></div></div>
+  <p class="bkey" style="margin-top:1.1rem" data-en="National Health Insurance sits on top of all four. The employer carries <em>60 percent</em> of that premium by statute, but the 2026 rate itself is not published anywhere we could reach, so it is deliberately absent from this figure rather than estimated." data-zh="健保疊在這四項之上。法律規定投保單位負擔 <em>60%</em>，但 115 年度的費率本身我們查不到公開來源，所以這張圖是刻意留空，不是用估的。">National Health Insurance sits on top of all four. The employer carries <em>60 percent</em> of that premium by statute, but the 2026 rate itself is not published anywhere we could reach, so it is deliberately absent from this figure rather than estimated.</p>
+  <div class="dsource" data-en="Bureau of Labor Insurance, 2026 premium rates and the published premium-sharing table; Labor Occupational Accident Insurance and Protection Act Article 16; Labor Pension Act Article 14. The occupational injury figure shown is for computer programming and information services, 0.05 percent for the industry plus the flat 0.07 percent commuting rate. National Health Insurance Act Article 27 sets the 60 percent employer share." data-zh="勞動部勞工保險局 115 年度費率與保險費負擔比例表；勞工職業災害保險及保護法第 16 條；勞工退休金條例第 14 條。圖上的職災費率取電腦程式設計諮詢及資訊服務業，行業別 0.05% 加上全行業一律的上下班 0.07%。健保的投保單位負擔 60% 見全民健康保險法第 27 條。">Bureau of Labor Insurance, 2026 premium rates and the published premium-sharing table; Labor Occupational Accident Insurance and Protection Act Article 16; Labor Pension Act Article 14. The occupational injury figure shown is for computer programming and information services, 0.05 percent for the industry plus the flat 0.07 percent commuting rate. National Health Insurance Act Article 27 sets the 60 percent employer share.</div>
+</div>
+
+  <div class="calc rv-t" id="calc">
+    <div class="calc-h" data-en="Work out the real number yourself" data-zh="自己算一次真正的數字">Work out the real number yourself</div>
+    <p class="calc-s" data-en="Four statutory lines, 2026 rates, employer share only. Health insurance is not in here because the rate is not published anywhere we could reach. Move the salary and watch what happens at 45,800, at 72,800 and at 150,000." data-zh="四條法定項目，115 年度費率，只算雇主那一份。健保沒有放進來，因為費率我們查不到公開來源。拉動薪水，看 45,800、72,800、150,000 這三個點發生什麼事。">Four statutory lines, 2026 rates, employer share only. Health insurance is not in here because the rate is not published anywhere we could reach. Move the salary and watch what happens at 45,800, at 72,800 and at 150,000.</p>
+    <div class="calc-row"><label for="sSal" data-en="Monthly salary" data-zh="月薪">Monthly salary</label>
+      <input type="range" id="sSal" min="30000" max="350000" step="1000" value="60000"><output id="sSalO"></output></div>
+    <div class="calc-row"><label for="sInd" data-en="Industry, for the injury premium" data-zh="行業別，決定職災費率">Industry, for the injury premium</label>
+      <input type="range" id="sInd" min="0" max="3" step="1" value="0"><output id="sIndO"></output></div>
+    <div class="costbar"><div class="cb" id="sBar"></div>
+      <div class="stackkey" id="sKey"></div></div>
+    <div class="calc-out"><div class="calc-big" id="sBig"></div><div class="calc-cmp" id="sCmp"></div></div>
+    <div class="cliff" id="sCliff"></div>
+    <div class="dsource" data-en="Bureau of Labor Insurance 2026 rates: labour insurance 11.5 percent with the employer carrying 70 percent, employment insurance 1 percent with the employer carrying 70 percent, occupational injury carried entirely by the employer, pension at the 6 percent statutory floor. Ceilings are the published bracket tables: 45,800 for labour and employment insurance, 72,800 for occupational injury, 150,000 for pension. The brackets step rather than rise smoothly, so treat this as the shape of the curve, not a payroll quote." data-zh="勞保局 115 年度費率：勞保 11.5% 雇主負擔七成、就保 1% 雇主負擔七成、職災全額由雇主負擔、勞退採 6% 法定底線。天花板取自公布的級距表：勞保與就保 45,800、職災 72,800、勞退 150,000。級距是跳階不是平滑上升，所以這裡看的是曲線的形狀，不是一份薪資報價。">Bureau of Labor Insurance 2026 rates: labour insurance 11.5 percent with the employer carrying 70 percent, employment insurance 1 percent with the employer carrying 70 percent, occupational injury carried entirely by the employer, pension at the 6 percent statutory floor. Ceilings are the published bracket tables: 45,800 for labour and employment insurance, 72,800 for occupational injury, 150,000 for pension. The brackets step rather than rise smoothly, so treat this as the shape of the curve, not a payroll quote.</div>
+  </div>
 
   <h2 data-en="The tax question that has a name and a definition" data-zh="有名字、有定義的那個稅務問題">The tax question that has a name and a definition</h2>
   <p data-en="The third layer has a formal name in international tax law: permanent establishment. <strong>Article 5 of the OECD Model Tax Convention on Income and on Capital</strong> sets out when a foreign company's presence in a country becomes a taxable one, and one of the routes it lists, the agency permanent establishment under Article 5, paragraphs 5 and 6, is triggered when a person habitually concludes contracts on the company's behalf, regardless of whether that company ever rented an office. A remote employee closing deals, signing local agreements, or acting with authority on the company's behalf can create exactly this kind of taxable presence in the country where they sit." data-zh="第三層風險在國際租稅法裡有一個正式的名字，叫做常設機構。<strong>OECD income and capital 稅務範本協定第5條</strong>訂出一家外國公司在某個國家的存在，什麼時候會變成需要課稅的存在，其中一條路徑，也就是第5條第5項與第6項規定的代理型常設機構，只要有人習慣性地代表這家公司簽訂合約，就會被觸發，不管這家公司有沒有真的租過辦公室。一位遠端員工只要在代表公司談成交易、簽本地合約、或以有權代表的身分行事，就可能在他所在的國家，創造出這種需要課稅的存在。">The third layer has a formal name in international tax law: permanent establishment. <strong>Article 5 of the OECD Model Tax Convention on Income and on Capital</strong> sets out when a foreign company's presence in a country becomes a taxable one, and one of the routes it lists, the agency permanent establishment under Article 5, paragraphs 5 and 6, is triggered when a person habitually concludes contracts on the company's behalf, regardless of whether that company ever rented an office. A remote employee closing deals, signing local agreements, or acting with authority on the company's behalf can create exactly this kind of taxable presence in the country where they sit.</p>
@@ -304,20 +385,32 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <p data-en="Read the misclassification row again. It is the only row where the answer does not depend on which vendor a company picks, it depends on what the work actually looks like day to day. <span class='hl'>An EOR contract does not fix a relationship where the company is directing daily tasks, setting hours, and integrating the worker into internal systems while calling them a contractor on paper.</span> It just moves that same fact pattern onto a different legal employer." data-zh="再讀一次僱傭關係誤判那一列。這是唯一一列，答案不看公司選哪家供應商，而是看這份工作實際上每天長什麼樣子。<span class='hl'>如果公司每天在指派工作、訂定工時、把這個人整合進內部系統，紙上卻寫著承攬，換一個 EOR 當法定雇主，並不會修正這段關係。</span>只是把同一個事實模式，搬到另一個法定雇主身上而已。">Read the misclassification row again. It is the only row where the answer does not depend on which vendor a company picks, it depends on what the work actually looks like day to day. <span class='hl'>An EOR contract does not fix a relationship where the company is directing daily tasks, setting hours, and integrating the worker into internal systems while calling them a contractor on paper.</span> It just moves that same fact pattern onto a different legal employer.</p>
 
+  <h2 data-en="Change country and it is not the rate that changes" data-zh="換一個國家，變的不是費率">Change country and it is not the rate that changes</h2>
+
+  <p data-en="At least the Taiwanese table is public, and it only moves once a year. What makes this hard is that crossing a border does not change the numbers on that table. It changes which table exists." data-zh="台灣這張表至少是公開的，而且一年只動一次。真正麻煩的地方在於，跨過一條國界，變的不是那張表上的數字，是那張表本身換了一張。">At least the Taiwanese table is public, and it only moves once a year. What makes this hard is that crossing a border does not change the numbers on that table. It changes which table exists.</p>
+
+  <p data-en="Japan is the clearest case. Setting up the entity, enrolling people in insurance and running payroll are all reserved by law for licensed professionals, the gyoseishoshi and the sharoshi. It does not matter that you already have an HR team; without the local licence they cannot do it either. So the question is not which vendor to use. It is how many." data-zh="日本是最清楚的例子。設立公司、辦理投保、發薪水，這幾件事法律規定要有執照的士業才能做，行政書士與社會保險勞務士。你公司裡已經有人資夥伴也沒有用，沒有當地執照一樣不能碰。所以問題不是要找哪一家廠商，是要找幾家。">Japan is the clearest case. Setting up the entity, enrolling people in insurance and running payroll are all reserved by law for licensed professionals, the gyoseishoshi and the sharoshi. It does not matter that you already have an HR team; without the local licence they cannot do it either. So the question is not which vendor to use. It is how many.</p>
+
+  <p data-en="Recruiting there runs on a different rail as well. People do not find work through job platforms, they go through an intermediary. Post the role yourself and very little comes back. Budget for roughly double what the same seniority costs in Taiwan, because tax and social insurance take a large share before the person sees anything. And because lifetime employment is still the norm, contractor arrangements are a hard sell, which is exactly the thing an employer-of-record arrangement depends on." data-zh="那邊的招募也走另一條軌。日本人不透過求職平台找工作，一定走中間人。你自己在平台上刊職缺，回來的履歷非常少。預算要用台灣同樣職級的兩倍去抓，因為稅跟社會保險在人拿到錢之前就先扣掉很大一塊。而且終身雇用還是主流，大家不喜歡當 contractor，偏偏那正是 EOR（名義雇主）這套安排的前提。">Recruiting there runs on a different rail as well. People do not find work through job platforms, they go through an intermediary. Post the role yourself and very little comes back. Budget for roughly double what the same seniority costs in Taiwan, because tax and social insurance take a large share before the person sees anything. And because lifetime employment is still the norm, contractor arrangements are a hard sell, which is exactly the thing an employer-of-record arrangement depends on.</p>
+
+  <p data-en="Thailand is easier in most ways and still has its own rail: pay runs fortnightly, and that comes up in the first conversation rather than the last. Several markets in the region still require paper filings in person. Not every country has online enrolment." data-zh="泰國多數地方比較好處理，但一樣有自己的軌：薪水習慣雙週發，而且這件事是在第一次談的時候就會被提出來，不是最後才講。區域裡還有幾個市場到現在仍然要跑紙本。不是每一個國家都有網路加退保。">Thailand is easier in most ways and still has its own rail: pay runs fortnightly, and that comes up in the first conversation rather than the last. Several markets in the region still require paper filings in person. Not every country has online enrolment.</p>
+
+  <p data-en="None of these is a payroll question. Every one of them is settled before the first payslip exists." data-zh="這裡面沒有一條是算薪水的問題。每一條都在第一張薪資單出現之前就已經決定了。">None of these is a payroll question. Every one of them is settled before the first payslip exists.</p>
+
+  <div class="opi-quote rv-t">
+    <p class="opi-q-lead" data-en="Everyone talks about recruiting when they talk about going overseas. But past recruiting, it is the employment itself where the devil is in the detail." data-zh="講到海外通常只聽到談招募，但招募以外，海外任用才是魔鬼藏在細節裡。">Everyone talks about recruiting when they talk about going overseas. But past recruiting, it is the employment itself where the devil is in the detail.</p>
+    <div class="opi-q-cite" data-en="Sabrina Chiu, LinkedIn, April 2023" data-zh="邱依虹，LinkedIn，2023 年 4 月">Sabrina Chiu, LinkedIn, April 2023</div>
+    <div class="opi-q-note" data-en="The point of an employer-of-record arrangement is to let a company test a market without standing up an entity first. That is a good reason to use one. It is not a reason to skip the question of who handles the local filings, because a platform that only puts your hire on its own books leaves you looking for a second vendor to do everything else." data-zh="EOR（名義雇主）的意義，是讓公司在還沒有設立實體之前就能試一個市場。那是很好的使用理由。但那不是跳過「當地文書誰來處理」這一題的理由，因為一個只把你的人掛在他們公司底下的平台，會讓你回頭再找第二家廠商處理其餘所有的事。">The point of an employer-of-record arrangement is to let a company test a market without standing up an entity first. That is a good reason to use one. It is not a reason to skip the question of who handles the local filings, because a platform that only puts your hire on its own books leaves you looking for a second vendor to do everything else.</div>
+  </div>
+
+  <p data-en="So the first question is not which country. It is whether this is a trial or a plan. A trial genuinely suits an employer of record. A plan does not, and the two get confused because the paperwork looks the same in month one." data-zh="所以第一題不是去哪一個國家，是這一次到底是去試水溫，還是已經有一個完整的規劃。試水溫確實很適合用 EOR。有完整規劃就不適合，而這兩件事之所以容易被搞混，是因為第一個月的文書作業看起來一模一樣。">So the first question is not which country. It is whether this is a trial or a plan. A trial genuinely suits an employer of record. A plan does not, and the two get confused because the paperwork looks the same in month one.</p>
+
+
   <h2 data-en="Where EvoScale reads this" data-zh="一春的角度">Where EvoScale reads this</h2>
   <p data-en="Operator-led investing means looking at a hiring plan the way someone who has sat on both sides of the employment relationship would, having built an HR function inside a company and having sold HR technology to companies building one. From that seat, the recurring pattern is not that founders skip diligence, it is that they run it in the wrong order. <span class='hl'>Legal classification and statutory cost get checked after a hire is already live</span>, usually once someone asks why the payroll run does not match the offer letter. The fix is not a longer compliance checklist. It is moving the labor law question, and the tax question, ahead of the payroll question, before the first cross-border offer goes out, not after the first invoice does." data-zh="operator-led 的投資方式，會用一個曾經待在僱傭關係兩邊的人的角度看一份聘僱計畫：在公司內部建過人資功能，也賣過人資科技給正在建人資功能的公司。從這個位置看，重複出現的模式不是創辦人跳過盡職調查，而是順序做反了。<span class='hl'>法律上的僱傭關係認定與法定成本，往往是等一個人已經開始上班之後才被拿出來查</span>，通常是有人問為什麼實際發薪跟聘僱信對不上。要修正的不是加長合規檢查表，而是把勞動法與稅務的問題，排在發薪問題之前，在第一份跨境聘僱通知書發出去以前先問，不是第一張帳單來了以後才問。">Operator-led investing means looking at a hiring plan the way someone who has sat on both sides of the employment relationship would, having built an HR function inside a company and having sold HR technology to companies building one. From that seat, the recurring pattern is not that founders skip diligence, it is that they run it in the wrong order. <span class='hl'>Legal classification and statutory cost get checked after a hire is already live</span>, usually once someone asks why the payroll run does not match the offer letter. The fix is not a longer compliance checklist. It is moving the labor law question, and the tax question, ahead of the payroll question, before the first cross-border offer goes out, not after the first invoice does.</p>
   <p data-en="For a HRTech company selling into this problem, the product worth underwriting is not the payroll dashboard, dashboards are commoditized and every competitor has one. <span class='hl'>The defensible layer is the sequencing logic itself</span>: knowing which jurisdiction's subordination test applies, which permanent establishment trigger the role in question could hit, and which statutory floor changes the moment a headcount plan crosses a border. That knowledge does not show up on a feature comparison chart, and it is exactly the kind of operating detail that is hard to fake and hard to copy quickly." data-zh="對一家在解決這個問題的 HRTech 公司來說，真正值得評估的產品不是發薪儀表板，儀表板早就商品化了，每個對手都有一個。<span class='hl'>真正有防禦力的那一層是順序背後的判斷邏輯本身</span>：知道哪個司法管轄區的從屬性測試適用、這個職位可能踩到哪一種常設機構的觸發條件、聘僱計畫一跨境法定底線會怎麼變。這種知識不會出現在功能比較表上，卻正是那種很難假裝、也很難被快速複製的實戰細節。">For a HRTech company selling into this problem, the product worth underwriting is not the payroll dashboard, dashboards are commoditized and every competitor has one. <span class='hl'>The defensible layer is the sequencing logic itself</span>: knowing which jurisdiction's subordination test applies, which permanent establishment trigger the role in question could hit, and which statutory floor changes the moment a headcount plan crosses a border. That knowledge does not show up on a feature comparison chart, and it is exactly the kind of operating detail that is hard to fake and hard to copy quickly.</p>
 
-  <div class="calc rv-t" id="calc">
-    <div class="calc-h" data-en="Size the floor yourself" data-zh="自己算一次成本底線">Size the floor yourself</div>
-    <p class="calc-s" data-en="For a company hiring directly in Taiwan: monthly salary times headcount times the 6% statutory pension floor. This is only the pension line, before National Health Insurance, labor insurance, or the cost of a misclassification getting corrected." data-zh="適用於直接在台灣聘僱的情境：月薪乘上人數，再乘上法定6%退休金底線。這只是退休金這一條，還沒算進健保、勞保，或誤判僱傭關係之後被更正的成本。">For a company hiring directly in Taiwan: monthly salary times headcount times the 6% statutory pension floor. This is only the pension line, before National Health Insurance, labor insurance, or the cost of a misclassification getting corrected.</p>
-    <div class="calc-row"><label for="sal" data-en="Monthly salary per hire (NT$)" data-zh="每位員工月薪（新台幣）">Monthly salary per hire (NT$)</label>
-      <input type="range" id="sal" min="30000" max="150000" step="5000" value="50000"><output id="salo">50,000</output></div>
-    <div class="calc-row"><label for="hc" data-en="Number of hires" data-zh="聘僱人數">Number of hires</label>
-      <input type="range" id="hc" min="1" max="20" step="1" value="3"><output id="hco">3</output></div>
-    <div class="calc-out"><div class="calc-big" id="cbig">NT$9,000 / mo</div><div class="calc-cmp" id="ccmp"></div></div>
-    <div class="dsource" data-en="Formula: salary &times; headcount &times; 6%, the statutory floor under Labor Pension Act Article 14. Employer-side National Health Insurance (Article 27), labor insurance, and retroactive cost from misclassification sit on top of this and are not included." data-zh="公式：月薪 &times; 人數 &times; 6%，即勞工退休金條例第14條的法定底線。雇主端的健保負擔（第27條）、勞保，以及誤判僱傭關係後回溯補繳的成本都疊加在這條線之上，尚未計入。">Formula: salary &times; headcount &times; 6%, the statutory floor under Labor Pension Act Article 14. Employer-side National Health Insurance (Article 27), labor insurance, and retroactive cost from misclassification sit on top of this and are not included.</div>
-  </div>
+  
 
   <p data-en="None of this argues against hiring across borders, it argues for pricing the whole decision correctly the first time. A founder who treats an EOR as a payroll vendor will still get a functioning payroll run. What they will not get, unless they ask for it specifically, is a clear answer on which labor law applies, whether the role creates a taxable presence somewhere else, and whether the underlying relationship would survive a subordination test if anyone ever looked closely. Those three questions cost nothing to ask before the offer letter goes out." data-zh="這篇文章的重點不是勸人不要跨境聘僱，而是主張把整個決定第一次就算對。一個把 EOR 當成發薪供應商的創辦人，還是會拿到一份能跑得動的發薪作業。但如果沒有主動問，他不會拿到的是：哪個國家的勞動法適用、這個職位會不會在別的國家造成需要課稅的存在、以及底層這段關係如果真的被仔細檢視，撐不撐得過從屬性測試。這三個問題，在聘僱信發出去之前先問，不用花一毛錢。">None of this argues against hiring across borders, it argues for pricing the whole decision correctly the first time. A founder who treats an EOR as a payroll vendor will still get a functioning payroll run. What they will not get, unless they ask for it specifically, is a clear answer on which labor law applies, whether the role creates a taxable presence somewhere else, and whether the underlying relationship would survive a subordination test if anyone ever looked closely. Those three questions cost nothing to ask before the offer letter goes out.</p>
 
@@ -385,6 +478,53 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
   sal.addEventListener('input',draw); hc.addEventListener('input',draw);
   var lt=document.getElementById('lt'); if(lt)lt.addEventListener('click',function(){setTimeout(draw,20)});
   draw();
+})();
+</script>
+<script>
+/* 雇主法定成本。費率與天花板全部取自勞保局 115 年度公布資料，見圖下 dsource。
+   算式是勞保局自己的：雇主實付 ＝ 投保薪資 × 費率 × 分擔比例。 */
+(function(){
+  var IND=[['Information services','電腦程式設計諮詢及資訊服務業',0.05],
+           ['Construction','建築工程業',0.50],
+           ['Water transport','水上運輸業',0.80],
+           ['Oil, gas and quarrying','石油及天然氣礦業、砂石採取',0.89]];
+  var COMMUTE=0.07, C1=45800, C2=72800, C3=150000;
+  var $=function(i){return document.getElementById(i);};
+  var S=$('sSal'), I=$('sInd');
+  if(!S) return;
+  function zh(){return document.documentElement.lang==='zh';}
+  function money(n){return 'NT$'+Math.round(n).toLocaleString('en-US');}
+  function render(){
+    var w=+S.value, ind=IND[+I.value], r=(ind[2]+COMMUTE)/100;
+    var lab=Math.min(w,C1)*0.0875, inj=Math.min(w,C2)*r, pen=Math.min(w,C3)*0.06;
+    var tot=lab+inj+pen, pct=tot/w*100;
+    $('sSalO').textContent=money(w);
+    $('sIndO').textContent=(zh()?ind[1]:ind[0])+'　'+ind[2].toFixed(2)+'%';
+    var segs=[[lab,'#FF6600'],[inj,'#C25A12'],[pen,'#5E6E80']];
+    $('sBar').innerHTML=segs.map(function(s){
+      return '<span style="width:'+(s[0]/tot*100).toFixed(2)+'%;background:'+s[1]+'"></span>';}).join('');
+    var nm=zh()?['勞保與就保','職業災害','勞工退休金']:['Labour + employment','Occupational injury','Pension'];
+    $('sKey').innerHTML=segs.map(function(s,k){
+      return '<b><i style="background:'+s[1]+'"></i>'+nm[k]+'<u>&nbsp;'+money(s[0])+'</u></b>';}).join('')
+      +'<b><i style="background:transparent"></i>'+(zh()?'合計':'Total')+'<u>&nbsp;'+money(tot)+'</u></b>';
+    $('sBig').textContent=pct.toFixed(2)+'%';
+    $('sCmp').innerHTML= zh()
+      ? ('每付 '+money(w)+' 的薪水，雇主另外要付 <b>'+money(tot)+'</b>。這還沒有算健保。')
+      : ('For every '+money(w)+' of salary, the employer pays <b>'+money(tot)+'</b> more. Health insurance is still not in that.');
+    var hit=[];
+    if(w>C1) hit.push(zh()?'勞保與就保在 45,800 就停住了':'labour and employment insurance stopped at 45,800');
+    if(w>C2) hit.push(zh()?'職災在 72,800 停住':'occupational injury stopped at 72,800');
+    if(w>C3) hit.push(zh()?'勞退在 150,000 停住':'pension stopped at 150,000');
+    $('sCliff').innerHTML = hit.length
+      ? ((zh()?'已經越過的天花板：':'Ceilings already crossed: ')+hit.join(zh()?'、':'; ')
+         +(zh()?'。<b>薪水繼續往上，這幾條不會跟著上去</b>，所以比例會一路掉。'
+              :'. <b>Those lines do not rise with the salary any more</b>, so the percentage keeps falling.'))
+      : (zh()?'目前還沒碰到任何一張表的天花板，所以比例維持在最高點。'
+             :'No ceiling has been reached yet, so the percentage is at its maximum.');
+  }
+  [S,I].forEach(function(e){e.addEventListener('input',render);});
+  new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  render();
 })();
 </script>
 <script>
