@@ -203,6 +203,16 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 .cliff b{color:var(--orange-d)}
 .calc-big{font-variant-numeric:tabular-nums}
 .calc-row output{white-space:nowrap}
+
+/* 選項用按鈕，不用滑桿。滑桿只留給薪水這種連續值。 */
+.pickrow{margin-bottom:1.1rem}
+.picklab{font-size:1rem;opacity:.9;margin-bottom:.55rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips button{font:inherit;font-size:1rem;line-height:1.25;padding:.5rem .85rem;border-radius:999px;
+  border:1px solid var(--border);background:transparent;color:var(--ink);cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s}
+.chips button:hover{border-color:var(--orange)}
+.chips button[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:700}
 </style>
 </head>
 <body>
@@ -319,8 +329,8 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
     <p class="calc-s" data-en="Four statutory lines, 2026 rates, employer share only. Health insurance is not in here because the rate is not published anywhere we could reach. Move the salary and watch what happens at 45,800, at 72,800 and at 150,000." data-zh="四條法定項目，115 年度費率，只算雇主那一份。健保沒有放進來，因為費率我們查不到公開來源。拉動薪水，看 45,800、72,800、150,000 這三個點發生什麼事。">Four statutory lines, 2026 rates, employer share only. Health insurance is not in here because the rate is not published anywhere we could reach. Move the salary and watch what happens at 45,800, at 72,800 and at 150,000.</p>
     <div class="calc-row"><label for="sSal" data-en="Monthly salary" data-zh="月薪">Monthly salary</label>
       <input type="range" id="sSal" min="30000" max="350000" step="1000" value="60000"><output id="sSalO"></output></div>
-    <div class="calc-row"><label for="sInd" data-en="Industry, for the injury premium" data-zh="行業別，決定職災費率">Industry, for the injury premium</label>
-      <input type="range" id="sInd" min="0" max="3" step="1" value="0"><output id="sIndO"></output></div>
+    <div class="pickrow"><div class="picklab" data-en="Industry, for the injury premium" data-zh="行業別，決定職災費率">Industry, for the injury premium</div>
+      <div class="chips" id="sIndChips" role="group" aria-label="Industry"></div></div>
     <div class="costbar"><div class="cb" id="sBar"></div>
       <div class="stackkey" id="sKey"></div></div>
     <div class="calc-out"><div class="calc-big" id="sBig"></div><div class="calc-cmp" id="sCmp"></div></div>
@@ -490,16 +500,24 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
            ['Oil, gas and quarrying','石油及天然氣礦業、砂石採取',0.89]];
   var COMMUTE=0.07, C1=45800, C2=72800, C3=150000;
   var $=function(i){return document.getElementById(i);};
-  var S=$('sSal'), I=$('sInd');
-  if(!S) return;
+  var S=$('sSal'), C=$('sIndChips');
+  if(!S||!C) return;
+  var pick=0;
+  function chips(){
+    C.innerHTML=IND.map(function(x,i){
+      return '<button type="button" data-i="'+i+'" aria-pressed="'+(pick===i)+'">'
+        +(document.documentElement.lang==='zh'?x[1]:x[0])+'　'+x[2].toFixed(2)+'%</button>';}).join('');
+    C.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){pick=+b.dataset.i;render();});});
+  }
   function zh(){return document.documentElement.lang==='zh';}
   function money(n){return 'NT$'+Math.round(n).toLocaleString('en-US');}
   function render(){
-    var w=+S.value, ind=IND[+I.value], r=(ind[2]+COMMUTE)/100;
+    var w=+S.value, ind=IND[pick], r=(ind[2]+COMMUTE)/100;
+    chips();
     var lab=Math.min(w,C1)*0.0875, inj=Math.min(w,C2)*r, pen=Math.min(w,C3)*0.06;
     var tot=lab+inj+pen, pct=tot/w*100;
     $('sSalO').textContent=money(w);
-    $('sIndO').textContent=(zh()?ind[1]:ind[0])+'　'+ind[2].toFixed(2)+'%';
     var segs=[[lab,'#FF6600'],[inj,'#C25A12'],[pen,'#5E6E80']];
     $('sBar').innerHTML=segs.map(function(s){
       return '<span style="width:'+(s[0]/tot*100).toFixed(2)+'%;background:'+s[1]+'"></span>';}).join('');
@@ -522,7 +540,7 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
       : (zh()?'目前還沒碰到任何一張表的天花板，所以比例維持在最高點。'
              :'No ceiling has been reached yet, so the percentage is at its maximum.');
   }
-  [S,I].forEach(function(e){e.addEventListener('input',render);});
+  S.addEventListener('input',render);
   new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   render();
 })();
