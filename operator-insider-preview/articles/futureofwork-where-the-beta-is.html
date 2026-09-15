@@ -34,7 +34,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.8
 html[lang=zh] body{line-height:1.95}
 a{color:inherit}
 .top{background:rgba(243,234,217,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:68px;padding:0 6vw;position:sticky;top:0;z-index:10}
-.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:800;color:var(--navy);font-size:1.1rem}
 .brand .lm{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--orange);color:#fff;font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.02em;flex:none}
 .top-r{display:flex;align-items:center;gap:1.1rem}
@@ -184,11 +184,109 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
    其他五篇是把 SVG 放在沒有內距的 figure 裡達到同一件事，這裡選擇保留卡片的分組。 */
 .dchart > svg{display:block;width:calc(100% + 3.4rem);margin-left:-1.7rem;max-width:none}
 @media(min-width:620px){.dchart > svg{width:100%;margin-left:0;max-width:560px;margin-right:auto}}
+
+/* ══ 2.0 版面修正（2026-09-15）══
+   三張資料圖原本是手刻座標的 SVG。問題有兩個而且都修不掉：
+   一、文字寬度隨語言與字型變動，數值標籤會疊到隔壁的長條，桌機與手機各疊各的。
+   二、viewBox 會隨容器縮放，桌機上圖表字被放大到 27px，比 16px 的內文還大。
+   所以資料圖改用 HTML 與 CSS 畫：字級由 CSS 決定，跨斷點一致；數值放在自己的格子裡，
+   結構上不可能重疊。示意圖（不是資料圖）仍留 SVG。 */
+
+/* 頂列：手機上「EvoScale Capital」原本會斷成兩行，把頂列撐成 130px */
+.brand{white-space:nowrap}
+@media(max-width:520px){
+  .brand{font-size:1rem;gap:7px}
+  .bn2{display:none}
+  .brand .lm{width:26px;height:26px;font-size:12px}
+  .top{padding:0 4vw}
+  .top-r{gap:.7rem}
+  .back{font-size:1rem}
+}
+
+/* 關鍵數字：四個放三欄會留一個孤兒，改成兩欄兩列，高度對齊 */
+.dstat-grid.four{grid-template-columns:repeat(2,1fr);gap:1.6rem 2rem}
+.dstat .n{white-space:nowrap}
+.dstat{padding-top:1.1rem;border-top:2px solid var(--orange)}
+@media(max-width:600px){.dstat-grid.four{grid-template-columns:1fr}}
+
+/* 圖表來源：原本是斜體右對齊，看起來像壞掉的段落 */
+.dsource{text-align:left;font-style:normal;font-size:1rem;line-height:1.6;
+  margin-top:1.4rem;padding-top:.9rem;border-top:1px solid var(--border)}
+
+/* ── 長條圖 ── */
+.bchart{margin-top:.2rem}
+.brow{display:grid;grid-template-columns:minmax(0,8.6rem) minmax(0,1fr) 3.2rem;
+  align-items:center;gap:.9rem;padding:.34rem 0}
+.brow .lab{font-size:1rem;line-height:1.3;color:var(--mut);text-align:right}
+.brow .trk{position:relative;height:1.25rem;background:rgba(0,0,0,.06);border-radius:3px}
+.brow .trk i{display:block;height:100%;border-radius:3px;background:#9FB0C3}
+.brow .trk b{position:absolute;top:-.34rem;bottom:-.34rem;width:0;border-left:1.5px dashed #8b97a5}
+.brow .val{font-size:1rem;font-weight:700;color:#7d8b99;font-variant-numeric:tabular-nums;text-align:right}
+.brow.hi .trk i{background:var(--orange)}
+.brow.hi .lab{color:var(--navy)}
+.brow.hi .val{color:var(--orange-d)}
+.bkey{font-size:1rem;color:var(--mut);margin-bottom:.8rem}
+.bkey em{font-style:normal;color:var(--navy);font-weight:700}
+@media(max-width:520px){
+  .brow{grid-template-columns:1fr 3.2rem;gap:.15rem .7rem;padding:.5rem 0}
+  .brow .lab{grid-column:1/-1;text-align:left;color:var(--navy);font-weight:500}
+}
+
+/* ── 區間圖（十分位）── */
+.brow .trk s{position:absolute;top:50%;width:.8rem;height:.8rem;margin:-.4rem 0 0 -.4rem;
+  border-radius:50%;background:var(--orange);text-decoration:none}
+.brow .trk i.rng{position:absolute;border-radius:3px;opacity:.5}
+.brow.lo .trk i.rng{background:#9FB0C3}
+.brow.lo .trk s{background:#7d8b99}
+.brow .ends{display:flex;justify-content:space-between;font-size:1rem;color:var(--mut);
+  font-variant-numeric:tabular-nums;margin-top:.1rem}
+
+/* ── 兩軌對照圖 ── */
+.tchart{display:grid;grid-template-columns:minmax(0,9.4rem) minmax(0,1fr) minmax(0,1fr);
+  gap:.55rem 1.1rem;align-items:center;margin-top:.2rem}
+.tchart .th{font-size:1rem;font-weight:700;padding-bottom:.35rem;border-bottom:1px solid var(--border);align-self:stretch;display:flex;align-items:flex-end}
+.tchart .th.a{color:var(--orange-d)}
+.tchart .th.b{color:#7d8b99}
+.tchart .m{font-size:1rem;color:var(--mut);line-height:1.3}
+.tcell{display:flex;align-items:center;gap:.6rem}
+.tcell .trk{position:relative;flex:1;height:1.15rem;background:rgba(0,0,0,.06);border-radius:3px}
+.tcell .trk i{display:block;height:100%;border-radius:3px}
+.tcell .v{font-size:1rem;font-weight:700;font-variant-numeric:tabular-nums;flex:none;min-width:2.6rem;text-align:right}
+.tcell.a .trk i{background:var(--orange)}.tcell.a .v{color:var(--orange-d)}
+.tcell.b .trk i{background:#5E6E80}.tcell.b .v{color:#7d8b99}
+@media(max-width:560px){
+  .tchart{grid-template-columns:1fr 1fr;gap:.3rem .9rem}
+  .tchart .m{grid-column:1/-1;color:var(--navy);font-weight:500;margin-top:.7rem}
+  .tchart .th{font-size:1rem}
+}
+
+/* 示意圖在桌機上不要被放大到字比內文大 */
+.opi-scene-w svg{max-width:440px}
+
+/* ── 計算器：分布條 ── */
+.dist{margin-bottom:1.3rem}
+.dist .dh{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.45rem}
+.dist .dh b{font-size:1rem;color:var(--navy)}
+.dist .dh em{font-style:normal;font-size:1rem;font-weight:700}
+.dist.a .dh em{color:var(--orange-d)}
+.dist.b .dh em{color:#7d8b99}
+.dtrk{position:relative;height:1.4rem;background:rgba(0,0,0,.07);border-radius:3px;overflow:hidden}
+.dtrk i{display:block;height:100%;border-radius:3px 0 0 3px}
+.dist.a .dtrk i{background:var(--orange)}
+.dist.b .dtrk i{background:#8b97a5}
+.dtrk u{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.55);text-decoration:none}
+.dtrk s{position:absolute;top:-2px;bottom:-2px;width:3px;margin-left:-1.5px;background:var(--navy);text-decoration:none;border-radius:2px}
+.dends{display:flex;justify-content:space-between;font-size:1rem;color:var(--mut);
+  font-variant-numeric:tabular-nums;margin-top:.28rem}
+.calc-big{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.calc-big .vs{font-size:1.1rem;font-weight:600;color:var(--mut)}
+.calc-big .pb{color:#7d8b99}
+.calc-row output{white-space:nowrap}
 </style>
 </head>
 <body>
 <div class="top"><div class="top-in">
-<a class="brand" href="../../index.html"><span class="lm">ES</span>EvoScale Capital</a>
+<a class="brand" href="../../index.html"><span class="lm">ES</span>EvoScale<span class="bn2">&nbsp;Capital</span></a>
 <div class="top-r"><a class="back" href="../index.html" data-en="&larr; Operator Insider" data-zh="&larr; Operator Insider">&larr; Operator Insider</a>
 <button class="lang" id="lt" onclick="toggleL()">CH</button></div>
 </div></div>
@@ -240,7 +338,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <p data-en="One detail is worth holding on to. Over the same period, employers reported feeling calmer about skill disruption, not more anxious: the share of core skills they expect to change within five years fell from 44 percent to 39 percent. What people feel is settling down. What the job postings actually show is speeding up." data-zh="有一個細節值得記住。同一段期間，雇主主觀感覺到的技能動盪其實在降溫，不是升溫：他們預期五年內會改變的核心技能比例，從 44% 降到 39%。人的感覺在平靜下來，職缺上實際量到的卻在加速。">One detail is worth holding on to. Over the same period, employers reported feeling calmer about skill disruption, not more anxious: the share of core skills they expect to change within five years fell from 44 percent to 39 percent. What people feel is settling down. What the job postings actually show is speeding up.</p>
 
-<div class="dstat-grid" data-anim>
+<div class="dstat-grid four" data-anim>
   <div class="dstat">
     <div class="n" data-en="<span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%" data-zh="<span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%"><span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%</div>
     <div class="d" data-en="The same AI skill, priced in consumer markets and then in the public sector. The skill does not change between those two numbers." data-zh="同一項 AI 技能，在消費市場產業與在政府公部門的薪資溢價。這兩個數字之間，技能本身沒有變。">The same AI skill, priced in consumer markets and then in the public sector. The skill does not change between those two numbers.</div>
@@ -265,35 +363,18 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <div class="dchart" data-anim>
   <div class="dchart-t" data-en="The same AI skill, eight industries" data-zh="同一項 AI 技能，八個產業">The same AI skill, eight industries</div>
-  <div class="dchart-s" data-en="Wage premium for roles requiring AI skills, against comparable roles in the same industry that do not. The dashed line is the 62 percent average across all sixteen industries measured." data-zh="要求 AI 技能的職缺，相對同產業不要求 AI 技能的可比職缺的薪資溢價。虛線是全部十六個產業的平均 62%。">Wage premium for roles requiring AI skills, against comparable roles in the same industry that do not. The dashed line is the 62 percent average across all sixteen industries measured.</div>
-<svg viewBox="0 0 420 274" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI skill wage premium by industry">
-  <text x="146" y="64" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Consumer" data-zh="消費市場">Consumer</text>
-  <rect x="156" y="52" width="190.0" height="17" rx="2" fill="#FF6600"/>
-  <text x="353.0" y="65" fill="#FF6600" font-size="20" font-weight="700">118%</text>
-  <text x="146" y="90" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Tech &amp; media" data-zh="科技媒體">Tech &amp; media</text>
-  <rect x="156" y="78" width="135.3" height="17" rx="2" fill="#FF6600"/>
-  <text x="298.3" y="91" fill="#FF6600" font-size="20" font-weight="700">84%</text>
-  <text x="146" y="116" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Energy" data-zh="能源">Energy</text>
-  <rect x="156" y="104" width="120.8" height="17" rx="2" fill="#FF6600"/>
-  <text x="283.8" y="117" fill="#FF6600" font-size="20" font-weight="700">75%</text>
-  <text x="146" y="142" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Manufacturing" data-zh="製造">Manufacturing</text>
-  <rect x="156" y="130" width="117.5" height="17" rx="2" fill="#FF6600"/>
-  <text x="280.5" y="143" fill="#FF6600" font-size="20" font-weight="700">73%</text>
-  <text x="146" y="168" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Prof. services" data-zh="專業服務">Prof. services</text>
-  <rect x="156" y="156" width="107.9" height="17" rx="2" fill="#9FB0C3"/>
-  <text x="270.9" y="169" fill="#9FB0C3" font-size="20" font-weight="700">67%</text>
-  <text x="146" y="194" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Finance" data-zh="金融服務">Finance</text>
-  <rect x="156" y="182" width="85.3" height="17" rx="2" fill="#9FB0C3"/>
-  <text x="248.3" y="195" fill="#9FB0C3" font-size="20" font-weight="700">53%</text>
-  <text x="146" y="220" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Health" data-zh="健康產業">Health</text>
-  <rect x="156" y="208" width="59.6" height="17" rx="2" fill="#9FB0C3"/>
-  <text x="222.6" y="221" fill="#9FB0C3" font-size="20" font-weight="700">37%</text>
-  <text x="146" y="246" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Public sector" data-zh="政府公部門">Public sector</text>
-  <rect x="156" y="234" width="25.8" height="17" rx="2" fill="#9FB0C3"/>
-  <text x="188.8" y="247" fill="#9FB0C3" font-size="20" font-weight="700">16%</text>
-  <line x1="255.8" y1="44" x2="255.8" y2="262" stroke="#5E6E80" stroke-width="1.2" stroke-dasharray="4 5"/>
-  <text x="255.8" y="38" fill="#9FB0C3" font-size="20" text-anchor="middle">62%</text>
-</svg>
+  <div class="dchart-s" data-en="Wage premium for roles requiring AI skills, against comparable roles in the same industry that do not." data-zh="要求 AI 技能的職缺，相對同產業不要求 AI 技能的可比職缺的薪資溢價。">Wage premium for roles requiring AI skills, against comparable roles in the same industry that do not.</div>
+  <div class="bkey" data-en="The dashed line is the <em>62%</em> average across all sixteen industries measured." data-zh="虛線是全部十六個產業的平均 <em>62%</em>。">The dashed line is the <em>62%</em> average across all sixteen industries measured.</div>
+  <div class="bchart">
+    <div class="brow hi"><span class="lab" data-en="Consumer" data-zh="消費市場">Consumer</span><span class="trk"><b style="left:52.54%"></b><i style="width:100.00%"></i></span><span class="val">118%</span></div>
+    <div class="brow hi"><span class="lab" data-en="Tech &amp; media" data-zh="科技媒體">Tech &amp; media</span><span class="trk"><b style="left:52.54%"></b><i style="width:71.19%"></i></span><span class="val">84%</span></div>
+    <div class="brow hi"><span class="lab" data-en="Energy" data-zh="能源">Energy</span><span class="trk"><b style="left:52.54%"></b><i style="width:63.56%"></i></span><span class="val">75%</span></div>
+    <div class="brow hi"><span class="lab" data-en="Manufacturing" data-zh="製造">Manufacturing</span><span class="trk"><b style="left:52.54%"></b><i style="width:61.86%"></i></span><span class="val">73%</span></div>
+    <div class="brow"><span class="lab" data-en="Prof. services" data-zh="專業服務">Prof. services</span><span class="trk"><b style="left:52.54%"></b><i style="width:56.78%"></i></span><span class="val">67%</span></div>
+    <div class="brow"><span class="lab" data-en="Finance" data-zh="金融服務">Finance</span><span class="trk"><b style="left:52.54%"></b><i style="width:44.92%"></i></span><span class="val">53%</span></div>
+    <div class="brow"><span class="lab" data-en="Health" data-zh="健康產業">Health</span><span class="trk"><b style="left:52.54%"></b><i style="width:31.36%"></i></span><span class="val">37%</span></div>
+    <div class="brow"><span class="lab" data-en="Public sector" data-zh="政府公部門">Public sector</span><span class="trk"><b style="left:52.54%"></b><i style="width:13.56%"></i></span><span class="val">16%</span></div>
+  </div>
   <div class="dsource" data-en="PwC, 2026 Global AI Jobs Barometer (15 June 2026). Built on the Lightcast job postings database, 2025 postings across 27 countries. Taiwan is not in that country list. PwC sells AI transformation advisory, so read the framing accordingly; the underlying postings data is third party." data-zh="PwC《2026 Global AI Jobs Barometer》（2026-06-15）。以 Lightcast 職缺資料庫 2025 年職缺為基礎，涵蓋 27 國，該國家名單不含台灣。PwC 本身賣 AI 轉型顧問服務，切分方式由它自訂，底層職缺資料為第三方。">PwC, 2026 Global AI Jobs Barometer (15 June 2026). Built on the Lightcast job postings database, 2025 postings across 27 countries. Taiwan is not in that country list. PwC sells AI transformation advisory, so read the framing accordingly; the underlying postings data is third party.</div>
 </div>
 
@@ -311,32 +392,15 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <div class="dchart" data-anim>
   <div class="dchart-t" data-en="The spread inside an industry, against the gap between industries" data-zh="產業內部的分散，對比產業之間的差距">The spread inside an industry, against the gap between industries</div>
-  <div class="dchart-s" data-en="Each bar runs from the tenth to the ninetieth percentile of annual total pay. The dot is the median. Same official table, same year, same population." data-zh="每一條從全年總薪資的第 10 十分位拉到第 90 十分位，圓點是中位數。同一張官方統計表、同一年、同一母體。">Each bar runs from the tenth to the ninetieth percentile of annual total pay. The dot is the median. Same official table, same year, same population.</div>
-<svg viewBox="0 0 420 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="pay deciles by industry in Taiwan">
-  <line x1="219.3" y1="58" x2="219.3" y2="236" stroke="#FF8C42" stroke-width="1.3" stroke-dasharray="4 5"/>
-  <text x="219.3" y="46" fill="#FF8C42" font-size="20" text-anchor="middle">61.0</text>
-  <text x="140" y="82" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Finance" data-zh="金融保險">Finance</text>
-  <line x1="203.8" y1="76" x2="376.1" y2="76" stroke="#FF6600" stroke-width="8" stroke-linecap="round" opacity=".38"/>
-  <circle cx="275.7" cy="76" r="6" fill="#FF6600"/>
-  <text x="275.7" y="62" fill="#FF6600" font-size="20" font-weight="700" text-anchor="middle">110.6</text>
-  <text x="140" y="116" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Electronics" data-zh="電子零組件">Electronics</text>
-  <line x1="208.1" y1="110" x2="393.8" y2="110" stroke="#FF6600" stroke-width="8" stroke-linecap="round" opacity=".38"/>
-  <circle cx="249.5" cy="110" r="6" fill="#FF6600"/>
-  <text x="249.5" y="96" fill="#FF6600" font-size="20" font-weight="700" text-anchor="middle">87.6</text>
-  <text x="140" y="150" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="ICT &amp; media" data-zh="資通訊業">ICT &amp; media</text>
-  <line x1="200.7" y1="144" x2="339.7" y2="144" stroke="#FF6600" stroke-width="8" stroke-linecap="round" opacity=".38"/>
-  <circle cx="241.7" cy="144" r="6" fill="#FF6600"/>
-  <text x="241.7" y="130" fill="#FF6600" font-size="20" font-weight="700" text-anchor="middle">80.7</text>
-  <text x="140" y="184" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Manufacturing" data-zh="製造業">Manufacturing</text>
-  <line x1="191.7" y1="178" x2="308.8" y2="178" stroke="#FF6600" stroke-width="8" stroke-linecap="round" opacity=".38"/>
-  <circle cx="214.8" cy="178" r="6" fill="#FF6600"/>
-  <text x="214.8" y="164" fill="#FF6600" font-size="20" font-weight="700" text-anchor="middle">57.0</text>
-  <text x="140" y="218" fill="#9FB0C3" font-size="20" text-anchor="end" data-en="Education" data-zh="教育業">Education</text>
-  <line x1="187.5" y1="212" x2="219.3" y2="212" stroke="#9FB0C3" stroke-width="8" stroke-linecap="round" opacity=".38"/>
-  <circle cx="193.4" cy="212" r="6" fill="#9FB0C3"/>
-  <text x="193.4" y="198" fill="#9FB0C3" font-size="20" font-weight="700" text-anchor="middle">38.2</text>
-  <text x="22" y="254" fill="#FF8C42" font-size="20" data-en="Education top 10% = ICT bottom 30%" data-zh="教育業前 10% = 資通訊業後 30%">Education top 10% = ICT bottom 30%</text>
-</svg>
+  <div class="dchart-s" data-en="Annual total pay by industry, 2024. Same official table, same year, same population." data-zh="各產業全年總薪資，2024 年。同一張官方統計表、同一年、同一母體。">Annual total pay by industry, 2024. Same official table, same year, same population.</div>
+  <div class="bkey" data-en="Each bar runs from the tenth to the ninetieth percentile; the dot is the median. The dashed line sits at <em>61.0</em>, where education&rsquo;s top ten percent meets ICT&rsquo;s bottom thirty. Annual total pay, NT$10,000." data-zh="每一條從第 10 十分位拉到第 90 十分位，圓點是中位數。虛線在 <em>61.0</em>，那裡是教育業的前 10% 與資通訊業的後 30% 相遇的地方。全年總薪資，單位萬元。">Each bar runs from the tenth to the ninetieth percentile; the dot is the median. The dashed line sits at <em>61.0</em>, where education&rsquo;s top ten percent meets ICT&rsquo;s bottom thirty. Annual total pay, NT$10,000.</div>
+  <div class="bchart">
+    <div class="brow hi"><span class="lab" data-en="Finance" data-zh="金融保險">Finance</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:21.50%;width:68.95%"></i><s style="left:50.27%"></s></span><span class="val">110.6</span></div>
+    <div class="brow hi"><span class="lab" data-en="Electronics" data-zh="電子零組件">Electronics</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:23.23%;width:74.27%"></i><s style="left:39.82%"></s></span><span class="val">87.6</span></div>
+    <div class="brow hi"><span class="lab" data-en="ICT &amp; media" data-zh="資通訊業">ICT &amp; media</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:20.27%;width:55.59%"></i><s style="left:36.68%"></s></span><span class="val">80.7</span></div>
+    <div class="brow hi"><span class="lab" data-en="Manufacturing" data-zh="製造業">Manufacturing</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:16.68%;width:46.82%"></i><s style="left:25.91%"></s></span><span class="val">57.0</span></div>
+    <div class="brow lo"><span class="lab" data-en="Education" data-zh="教育業">Education</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:15.00%;width:12.73%"></i><s style="left:17.36%"></s></span><span class="val">38.2</span></div>
+  </div>
   <div class="dsource" data-en="Directorate-General of Budget, Accounting and Statistics, Taiwan. Pay deciles for employees in industry and services, 2024, from the official pay portal. The decile series and the median table cross-check exactly, so both can be read on one axis. One caveat: the first three deciles in education are the identical figure, so the spread shown for education is a floor, not a precise value." data-zh="行政院主計總處，113 年工業及服務業受僱員工全年總薪資十分位數，取自薪情平臺。十分位序列與中位數統計表逐格吻合，因此兩者可以放在同一個座標軸上。一個但書：教育業的第 1、2、3 十分位是同一個數字，低端被一條線頂住，所以圖上教育業的分散幅度是下限不是精確值。">Directorate-General of Budget, Accounting and Statistics, Taiwan. Pay deciles for employees in industry and services, 2024, from the official pay portal. The decile series and the median table cross-check exactly, so both can be read on one axis. One caveat: the first three deciles in education are the identical figure, so the spread shown for education is a floor, not a precise value.</div>
 </div>
 
@@ -359,30 +423,23 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 <div class="dchart" data-anim>
   <div class="dchart-t" data-en="Two tracks, not two outcomes" data-zh="兩條軌，不是兩種結局">Two tracks, not two outcomes</div>
   <div class="dchart-s" data-en="AI is not sorting roles into replaced and safe. It is sorting them into roles that now need more expert judgement, and roles that now need less. The two tracks have been paying differently for five years." data-zh="AI 不是把職缺分成會被取代與不會。是分成現在更需要專業判斷的，與現在更不需要的。這兩條軌已經給了五年不一樣的價格。">AI is not sorting roles into replaced and safe. It is sorting them into roles that now need more expert judgement, and roles that now need less. The two tracks have been paying differently for five years.</div>
-<svg viewBox="0 0 420 246" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="professionalised versus democratised job tracks">
-  <text x="22" y="32" fill="#FF6600" font-size="20" font-weight="700" data-en="Pushed towards expertise" data-zh="被推向更專業">Pushed towards expertise</text>
-  <text x="400" y="32" fill="#9FB0C3" font-size="20" font-weight="700" text-anchor="end" data-en="Pushed away" data-zh="被推向更不專業">Pushed away</text>
-  <text x="22" y="78" fill="#5E6E80" font-size="20" data-en="Share of postings" data-zh="占全部職缺">Share of postings</text>
-  <rect x="196" y="64" width="40" height="18" rx="2" fill="#FF6600"/>
-  <text x="242" y="78" fill="#FF6600" font-size="20" font-weight="700">22%</text>
-  <rect x="300" y="64" width="58" height="18" rx="2" fill="#3C4A5E"/>
-  <text x="364" y="78" fill="#9FB0C3" font-size="20" font-weight="700">52%</text>
-  <text x="22" y="126" fill="#5E6E80" font-size="20" data-en="Pay growth 21-25" data-zh="薪資成長">Pay growth 21-25</text>
-  <rect x="196" y="112" width="66" height="18" rx="2" fill="#FF6600"/>
-  <text x="268" y="126" fill="#FF6600" font-size="20" font-weight="700">37%</text>
-  <rect x="300" y="112" width="58" height="18" rx="2" fill="#3C4A5E"/>
-  <text x="364" y="126" fill="#9FB0C3" font-size="20" font-weight="700">26%</text>
-  <text x="22" y="174" fill="#5E6E80" font-size="20" data-en="Postings 18-25" data-zh="職缺數成長">Postings 18-25</text>
-  <rect x="196" y="160" width="70" height="18" rx="2" fill="#FF6600"/>
-  <text x="272" y="174" fill="#FF6600" font-size="20" font-weight="700">39%</text>
-  <rect x="300" y="160" width="30" height="18" rx="2" fill="#3C4A5E"/>
-  <text x="336" y="174" fill="#9FB0C3" font-size="20" font-weight="700">17%</text>
-  <text x="22" y="222" fill="#5E6E80" font-size="20" data-en="Skills 18-25" data-zh="要求技能數">Skills 18-25</text>
-  <rect x="196" y="208" width="86" height="18" rx="2" fill="#FF6600"/>
-  <text x="288" y="222" fill="#FF6600" font-size="20" font-weight="700">68%</text>
-  <rect x="300" y="208" width="42" height="18" rx="2" fill="#3C4A5E"/>
-  <text x="348" y="222" fill="#9FB0C3" font-size="20" font-weight="700">33%</text>
-</svg>
+  <div class="tchart">
+  <div class="th"></div>
+  <div class="th a" data-en="Needs more expertise" data-zh="被推向更專業">Needs more expertise</div>
+  <div class="th b" data-en="Needs less expertise" data-zh="被推向更不專業">Needs less expertise</div>
+  <div class="m" data-en="Share of all postings" data-zh="占全部職缺">Share of all postings</div>
+  <div class="tcell a"><span class="trk"><i style="width:32.4%"></i></span><span class="v">22%</span></div>
+  <div class="tcell b"><span class="trk"><i style="width:76.5%"></i></span><span class="v">52%</span></div>
+  <div class="m" data-en="Pay growth 2021-25" data-zh="薪資成長 2021-25">Pay growth 2021-25</div>
+  <div class="tcell a"><span class="trk"><i style="width:54.4%"></i></span><span class="v">37%</span></div>
+  <div class="tcell b"><span class="trk"><i style="width:38.2%"></i></span><span class="v">26%</span></div>
+  <div class="m" data-en="Postings 2018-25" data-zh="職缺數成長 2018-25">Postings 2018-25</div>
+  <div class="tcell a"><span class="trk"><i style="width:57.4%"></i></span><span class="v">39%</span></div>
+  <div class="tcell b"><span class="trk"><i style="width:25.0%"></i></span><span class="v">17%</span></div>
+  <div class="m" data-en="Skills demanded 2018-25" data-zh="要求技能數 2018-25">Skills demanded 2018-25</div>
+  <div class="tcell a"><span class="trk"><i style="width:100.0%"></i></span><span class="v">68%</span></div>
+  <div class="tcell b"><span class="trk"><i style="width:48.5%"></i></span><span class="v">33%</span></div>
+  </div>
   <div class="dsource" data-en="PwC, 2026 Global AI Jobs Barometer (15 June 2026). The trend series uses only the six countries with Lightcast coverage back to 2012, a narrower sample than the headline report. Expertise scores follow Teeselink and Carey (2026)." data-zh="PwC《2026 Global AI Jobs Barometer》（2026-06-15）。趨勢線只採用 Lightcast 自 2012 年起有資料的六個國家，樣本比報告主體窄。專業度分數採 Teeselink 與 Carey（2026）的方法。">PwC, 2026 Global AI Jobs Barometer (15 June 2026). The trend series uses only the six countries with Lightcast coverage back to 2012, a narrower sample than the headline report. Expertise scores follow Teeselink and Carey (2026).</div>
 </div>
 
@@ -466,17 +523,18 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
 /* Site default is English on every load. The toggle is session-only — visitors must actively switch to Chinese; the page never auto-opens in Chinese. */
 </script>
 <script>
-/* 同一筆薪水，兩個產業。十分位全部取自主計總處 113 年官方統計，見圖下 dsource。 */
+/* 同一筆薪水，兩個產業。十分位全部取自主計總處 113 年官方統計，見圖下 dsource。
+   名稱一律用純文字（不是 HTML 實體），因為是用 textContent 寫進去的。 */
 (function(){
   var IND=[
    ['All employees','全體受僱員工',[32.96,38.10,43.20,48.73,54.57,62.76,75.34,95.92,133.61]],
-   ['Finance &amp; insurance','金融及保險業',[47.27,64.09,79.50,93.44,110.56,127.47,146.38,165.44,199.03]],
-   ['Publishing, media &amp; ICT','出版影音及資通訊業',[44.59,54.21,61.11,70.03,80.74,93.64,112.94,139.80,166.87]],
-   ['Electricity &amp; gas','電力及燃氣供應業',[54.23,73.02,88.49,100.38,109.07,116.41,131.78,145.77,169.24]],
-   ['Professional &amp; technical services','專業科學及技術服務業',[33.10,39.93,47.50,54.70,65.38,74.88,89.44,112.51,148.09]],
+   ['Finance & insurance','金融及保險業',[47.27,64.09,79.50,93.44,110.56,127.47,146.38,165.44,199.03]],
+   ['Publishing, media & ICT','出版影音及資通訊業',[44.59,54.21,61.11,70.03,80.74,93.64,112.94,139.80,166.87]],
+   ['Electricity & gas','電力及燃氣供應業',[54.23,73.02,88.49,100.38,109.07,116.41,131.78,145.77,169.24]],
+   ['Professional & technical','專業科學及技術服務業',[33.10,39.93,47.50,54.70,65.38,74.88,89.44,112.51,148.09]],
    ['Manufacturing','製造業',[36.70,41.71,45.94,51.07,56.97,65.87,78.91,101.48,139.74]],
    ['Electronic components','電子零組件製造業',[51.11,56.84,66.82,72.84,87.64,103.92,130.38,157.04,214.50]],
-   ['Accommodation &amp; food','住宿及餐飲業',[20.52,29.10,34.34,36.52,41.46,48.11,52.82,59.38,72.50]],
+   ['Accommodation & food','住宿及餐飲業',[20.52,29.10,34.34,36.52,41.46,48.11,52.82,59.38,72.50]],
    ['Education','教育業',[32.96,32.96,32.96,34.88,38.22,41.65,45.39,50.69,61.02]]];
   var $=function(i){return document.getElementById(i);};
   var A=$('bA'),B=$('bB'),W=$('bW');
@@ -488,31 +546,34 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
     for(var i=0;i<8;i++){ if(w<=d[i+1]) return 10*(i+1)+10*(w-d[i])/(d[i+1]-d[i]); }
     return Math.min(99,90+10*(w-d[8])/(d[8]-d[7]));
   }
-  function axis(x,w,col){
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function axis(x,w,hot){
     var d=x[2], p=pct(d,w), lo=d[0], hi=d[8], sp=hi-lo;
     var at=Math.max(0,Math.min(100,(w-lo)/sp*100));
-    var top=Math.round(100-p);
-    return '<div style="margin-bottom:1rem">'
-      +'<div style="font-size:1rem;margin-bottom:.35rem"><b>'+nm(x)+'</b>　<span style="color:'+col+';font-weight:700">'
-      +(zh()?('前 '+top+'%'):('top '+top+'%'))+'</span></div>'
-      +'<div style="position:relative;height:16px;border-radius:3px;background:linear-gradient(90deg,#2A3442,'+col+')">'
-      +'<div style="position:absolute;left:'+at+'%;top:-5px;width:3px;height:26px;background:#fff;border-radius:2px"></div></div>'
-      +'<div style="display:flex;justify-content:space-between;font-size:.95rem;opacity:.6;margin-top:.3rem;font-variant-numeric:tabular-nums">'
-      +'<span>'+d[0].toFixed(1)+'</span><span>'+d[4].toFixed(1)+'</span><span>'+d[8].toFixed(1)+'</span></div></div>';
+    var top=Math.round(100-p), cls=hot?'a':'b';
+    var ticks='';
+    for(var i=1;i<8;i++) ticks+='<u style="left:'+((d[i]-lo)/sp*100).toFixed(1)+'%"></u>';
+    return '<div class="dist '+cls+'">'
+      +'<div class="dh"><b>'+esc(nm(x))+'</b><em>'+(zh()?('前 '+top+'%'):('top '+top+'%'))+'</em></div>'
+      +'<div class="dtrk"><i style="width:'+at.toFixed(1)+'%"></i>'+ticks
+      +'<s style="left:'+at.toFixed(1)+'%"></s></div>'
+      +'<div class="dends"><span>'+lo.toFixed(1)+'</span><span>'+d[4].toFixed(1)+'</span><span>'+hi.toFixed(1)+'</span></div></div>';
   }
   function render(){
     var a=IND[+A.value], b=IND[+B.value], w=+W.value;
     $('bAO').textContent=nm(a); $('bBO').textContent=nm(b);
-    $('bWO').textContent=w.toFixed(0)+(zh()?' 萬':'');
-    $('bViz').innerHTML=axis(a,w,'#FF6600')+axis(b,w,'#9FB0C3');
+    $('bWO').textContent=zh()?(w.toFixed(0)+' 萬'):('NT$'+w.toFixed(0)+'0k');
+    $('bViz').innerHTML=axis(a,w,true)+axis(b,w,false);
     var pa=Math.round(100-pct(a[2],w)), pb=Math.round(100-pct(b[2],w));
-    $('bBig').textContent=zh()?('前 '+pa+'%　對　前 '+pb+'%'):('top '+pa+'%　vs　top '+pb+'%');
-    var gap=pb-pa, c;
+    $('bBig').innerHTML= zh()
+      ? '<span class="pa">前 '+pa+'%</span><span class="vs">對上</span><span class="pb">前 '+pb+'%</span>'
+      : '<span class="pa">top '+pa+'%</span><span class="vs">vs</span><span class="pb">top '+pb+'%</span>';
+    var gap=pb-pa, c, nb=esc(nm(b));
     if(+A.value===+B.value) c=zh()?'兩邊選了同一個產業，把其中一個拉開才看得出差別。':'Both sliders are on the same industry. Move one of them.';
-    else if(gap>8) c=zh()?('同一筆薪水，換到'+nm(b)+'就掉了 <b>'+gap+' 個百分點</b>。中間沒有任何一件事跟你的能力有關。')
-                         :('The same salary drops <b>'+gap+' percentage points</b> when it is read against '+nm(b)+'. Nothing in between has anything to do with your ability.');
-    else if(gap<-8) c=zh()?('同一筆薪水，換到'+nm(b)+'反而往前 <b>'+(-gap)+' 個百分點</b>。這一格是市場給的，不是你多做了什麼。')
-                          :('The same salary moves <b>'+(-gap)+' percentage points</b> higher when read against '+nm(b)+'. That move is the market, not extra effort.');
+    else if(gap>8) c=zh()?('同一筆薪水，換到'+nb+'就掉了 <b>'+gap+' 個百分點</b>。中間沒有任何一件事跟你的能力有關。')
+                         :('The same salary drops <b>'+gap+' percentage points</b> when it is read against '+nb+'. Nothing in between has anything to do with your ability.');
+    else if(gap<-8) c=zh()?('同一筆薪水，換到'+nb+'反而往前 <b>'+(-gap)+' 個百分點</b>。這一格是市場給的，不是你多做了什麼。')
+                          :('The same salary moves <b>'+(-gap)+' percentage points</b> higher when read against '+nb+'. That move is the market, not extra effort.');
     else c=zh()?'這兩個產業對這個數字的看法差不多。這種情況下，位置不是重點，分布裡的位子才是。'
                :'These two industries price that figure about the same. Here, position is not the story. Where you sit in the distribution is.';
     $('bCmp').innerHTML=c;
