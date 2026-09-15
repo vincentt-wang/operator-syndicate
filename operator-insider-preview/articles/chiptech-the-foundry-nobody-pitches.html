@@ -175,11 +175,28 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   .anim-init,.anim-init.anim-in{opacity:1!important;transform:none!important;transition:none!important}
   .draw-init{stroke-dashoffset:0!important;transition:none!important}
 }
+
+/* ── 版面缺陷修正（2026-09-15，六篇一起）──
+   一、手機上「EvoScale Capital」會斷成兩行，把 68px 的頂列塞到 63px，視覺上貼滿。
+        改成 nowrap，並在 520px 以下只顯示 EvoScale（ES 標記仍在，品牌識別不受影響）。
+   二、.dsource 原本是斜體右對齊，在左對齊的內文裡看起來像壞掉的段落，改成左對齊正體
+        並加一條分隔線，讓它讀起來像圖註而不是內文。 */
+.brand{white-space:nowrap}
+.top-in{gap:1rem}
+@media(max-width:520px){
+  .brand{font-size:1rem;gap:7px}
+  .brand .lm{width:26px;height:26px;font-size:12px}
+  .bn2{display:none}
+  .top{padding:0 4vw}
+  .top-r{gap:.7rem}
+}
+.dsource{text-align:left;font-style:normal;margin-top:1.4rem;padding-top:.9rem;
+  border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
 <div class="top"><div class="top-in">
-<a class="brand" href="../../index.html"><span class="lm">ES</span>EvoScale Capital</a>
+<a class="brand" href="../../index.html"><span class="lm">ES</span>EvoScale<span class="bn2">&nbsp;Capital</span></a>
 <div class="top-r"><a class="back" href="../index.html" data-en="&larr; Operator Insider" data-zh="&larr; Operator Insider">&larr; Operator Insider</a>
 <button class="lang" id="lt" onclick="toggleL()">CH</button></div>
 </div></div>
