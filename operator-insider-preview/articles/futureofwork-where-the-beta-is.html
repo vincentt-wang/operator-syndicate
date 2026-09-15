@@ -313,6 +313,11 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 .scenekey .k-alpha{border-top-color:#9FB0C3}
 .scenekey .k-line{border-top-width:1.7px;border-top-style:dashed;border-top-color:#8b97a5}
 .opi-scene-w figcaption{font-size:1rem;color:var(--mut);margin-top:.9rem;line-height:1.6}
+
+/* 關鍵數字的兩個數要有對比，不然 118 比 16 看起來像同一件事 */
+.dstat .n .kpA{color:var(--orange-d)}
+.dstat .n .kpB{color:#7d8b99}
+.dstat .n .kpS{color:var(--mut);font-weight:400;font-size:.8em;padding:0 .12em}
 </style>
 </head>
 <body>
@@ -341,9 +346,9 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <line x1="26" y1="178" x2="26" y2="22" stroke="#7d8b99" stroke-width="1.6"/>
   <line x1="26" y1="46" x2="384" y2="46" stroke="#8b97a5" stroke-width="1.4" stroke-dasharray="6 7"/>
   <path d="M44 170 C 130 162, 205 128, 262 88 S 336 50, 372 47" fill="none" stroke="#9FB0C3" stroke-width="3.4" stroke-linecap="round" data-draw/>
-  <path d="M44 170 L 92 170 L 92 48 L 372 47" fill="none" stroke="#FF6600" stroke-width="3.4" stroke-linecap="round" data-draw/>
+  <path d="M44 170 C 66 170, 80 167, 88 150 C 96 128, 100 74, 112 58 C 122 46, 160 47, 200 47 L 372 47" fill="none" stroke="#FF6600" stroke-width="3.4" stroke-linecap="round" data-draw/>
   <circle cx="44" cy="170" r="5.5" fill="#FF6600"/>
-  <circle cx="92" cy="170" r="5.5" fill="#FF6600"/>
+  <circle cx="99" cy="104" r="5.5" fill="#FF6600"/>
 </svg>
 <div class="scenekey">
   <b><i class="k-beta"></i><span data-en="Beta: one decision" data-zh="Beta：一個決定">Beta: one decision</span></b>
@@ -373,26 +378,26 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <div class="dstat-grid four" data-anim>
   <div class="dstat">
-    <div class="n" data-en="<span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%" data-zh="<span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%"><span class='cnt' data-to='118'>118</span>% / <span class='cnt' data-to='16'>16</span>%</div>
-    <div class="d" data-en="The same AI skill, priced in consumer markets and then in the public sector. The skill does not change between those two numbers." data-zh="同一項 AI 技能，在消費市場產業與在政府公部門的薪資溢價。這兩個數字之間，技能本身沒有變。">The same AI skill, priced in consumer markets and then in the public sector. The skill does not change between those two numbers.</div>
+    <div class="n" data-en="<span class='kpA'><span class='cnt' data-to='118'>118</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='16'>16</span>%</span>" data-zh="<span class='kpA'><span class='cnt' data-to='118'>118</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='16'>16</span>%</span>"><span class='kpA'><span class='cnt' data-to='118'>118</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='16'>16</span>%</span></div>
+    <div class="d" data-en="The premium on AI skills in consumer markets, and in the public sector. Each is measured against non-AI roles inside that same industry, so these are two internal gaps, not two price tags on one person." data-zh="AI 技能在消費市場產業與在政府公部門的薪資溢價。兩個數字各自對照的是同產業內不要求 AI 的職缺，所以這是兩個產業各自的內部價差，不是同一個人的兩張標價。">The premium on AI skills in consumer markets, and in the public sector. Each is measured against non-AI roles inside that same industry, so these are two internal gaps, not two price tags on one person.</div>
   </div>
   <div class="dstat">
-    <div class="n" data-en="<span class='cnt' data-to='35'>35</span>% / <span class='cnt' data-to='20'>20</span>%" data-zh="<span class='cnt' data-to='35'>35</span>% / <span class='cnt' data-to='20'>20</span>%"><span class='cnt' data-to='35'>35</span>% / <span class='cnt' data-to='20'>20</span>%</div>
+    <div class="n" data-en="<span class='kpA'><span class='cnt' data-to='35'>35</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='20'>20</span>%</span>" data-zh="<span class='kpA'><span class='cnt' data-to='35'>35</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='20'>20</span>%</span>"><span class='kpA'><span class='cnt' data-to='35'>35</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='20'>20</span>%</span></div>
     <div class="d" data-en="Taiwan asks the same question. Employers in optoelectronics say they would add 35 percent for an existing employee with AI development skills. In semiconductors, 20 percent." data-zh="台灣問的是同一道題。光電及光學業說願意為具 AI 開發技能的現職員工加碼 35%，半導體業是 20%。">Taiwan asks the same question. Employers in optoelectronics say they would add 35 percent for an existing employee with AI development skills. In semiconductors, 20 percent.</div>
   </div>
   <div class="dstat">
-    <div class="n" data-en="<span class='cnt' data-to='22'>22</span>% / <span class='cnt' data-to='52'>52</span>%" data-zh="<span class='cnt' data-to='22'>22</span>% / <span class='cnt' data-to='52'>52</span>%"><span class='cnt' data-to='22'>22</span>% / <span class='cnt' data-to='52'>52</span>%</div>
+    <div class="n" data-en="<span class='kpA'><span class='cnt' data-to='22'>22</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='52'>52</span>%</span>" data-zh="<span class='kpA'><span class='cnt' data-to='22'>22</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='52'>52</span>%</span>"><span class='kpA'><span class='cnt' data-to='22'>22</span>%</span><span class='kpS'> / </span><span class='kpB'><span class='cnt' data-to='52'>52</span>%</span></div>
     <div class="d" data-en="Share of postings AI is pushing towards deeper expertise, against the share it is pushing the other way. Most roles are on the second track." data-zh="被 AI 推向更需要專業判斷的職缺比例，對比被推向更不需要專業的比例。多數職缺在第二條軌上。">Share of postings AI is pushing towards deeper expertise, against the share it is pushing the other way. Most roles are on the second track.</div>
   </div>
   <div class="dstat">
-    <div class="n" data-en="<span class='cnt' data-to='48'>48</span>% &rarr; <span class='cnt' data-to='27'>27</span>%" data-zh="<span class='cnt' data-to='48'>48</span>% &rarr; <span class='cnt' data-to='27'>27</span>%"><span class='cnt' data-to='48'>48</span>% &rarr; <span class='cnt' data-to='27'>27</span>%</div>
+    <div class="n" data-en="<span class='kpA'><span class='cnt' data-to='48'>48</span>%</span><span class='kpS'> &rarr; </span><span class='kpB'><span class='cnt' data-to='27'>27</span>%</span>" data-zh="<span class='kpA'><span class='cnt' data-to='48'>48</span>%</span><span class='kpS'> &rarr; </span><span class='kpB'><span class='cnt' data-to='27'>27</span>%</span>"><span class='kpA'><span class='cnt' data-to='48'>48</span>%</span><span class='kpS'> &rarr; </span><span class='kpB'><span class='cnt' data-to='27'>27</span>%</span></div>
     <div class="d" data-en="The pay step from capable to genuinely specialised, then from specialised to the very top. Depth pays less at the end than it does in the middle." data-zh="從有基礎走到相當專業的中位數薪資增幅，再從相當專業走到頂尖專業的增幅。深度在最後一段反而給得少。">The pay step from capable to genuinely specialised, then from specialised to the very top. Depth pays less at the end than it does in the middle.</div>
   </div>
 </div>
 
-<h2 data-en="The same skill, priced seven times apart" data-zh="同一項技能，兩個市場差七倍">The same skill, priced seven times apart</h2>
+<h2 data-en="Two markets, seven times the premium" data-zh="同樣三個字，八個產業給的加價差七倍">Two markets, seven times the premium</h2>
 
-<p data-en="Take one skill and hold it still. Move it across industries and watch what happens to its price." data-zh="拿一項技能，把它固定住。換個產業，看它的價格怎麼變。">Take one skill and hold it still. Move it across industries and watch what happens to its price.</p>
+<p data-en="Write the same three letters into a job ad and the size of the pay bump differs by a factor of seven, depending on the industry reading it." data-zh="同樣三個字寫進職缺，八個產業願意加的價差七倍。">Write the same three letters into a job ad and the size of the pay bump differs by a factor of seven, depending on the industry reading it.</p>
 
 <div class="dchart" data-anim>
   <div class="dchart-t" data-en="The same AI skill, eight industries" data-zh="同一項 AI 技能，八個產業">The same AI skill, eight industries</div>
@@ -411,7 +416,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
   <div class="dsource" data-en="PwC, 2026 Global AI Jobs Barometer (15 June 2026). Built on the Lightcast job postings database, 2025 postings across 27 countries. Taiwan is not in that country list. PwC sells AI transformation advisory, so read the framing accordingly; the underlying postings data is third party." data-zh="PwC《2026 Global AI Jobs Barometer》（2026-06-15）。以 Lightcast 職缺資料庫 2025 年職缺為基礎，涵蓋 27 國，該國家名單不含台灣。PwC 本身賣 AI 轉型顧問服務，切分方式由它自訂，底層職缺資料為第三方。">PwC, 2026 Global AI Jobs Barometer (15 June 2026). Built on the Lightcast job postings database, 2025 postings across 27 countries. Taiwan is not in that country list. PwC sells AI transformation advisory, so read the framing accordingly; the underlying postings data is third party.</div>
 </div>
 
-<p data-en="<span class='hl'>The skill belongs to you. The price belongs to the market.</span> That sentence is the whole of Beta, and the chart above is what it looks like when someone measures it." data-zh="<span class='hl'>技能是你的。價格是市場的。</span>這句話就是 Beta 的全部，而上面那張圖是有人真的去量過之後長的樣子。"><span class='hl'>The skill belongs to you. The price belongs to the market.</span> That sentence is the whole of Beta, and the chart above is what it looks like when someone measures it.</p>
+<p data-en="<span class='hl'>The skill belongs to you. What a market will pay to add it belongs to the market.</span> One caveat the chart cannot show: these are eight internal gaps, each measured against its own baseline. The absolute salaries across those industries are a separate question, and a far smaller one than seven times." data-zh="<span class='hl'>技能是你的，市場願意為它加多少價是市場的。</span>有一件這張圖說不了的事要先講：這八個數字是八個產業各自的內部價差，各自對照自己的基準線。跨產業的絕對薪資是另一個問題，而且差距遠小於七倍。"><span class='hl'>The skill belongs to you. What a market will pay to add it belongs to the market.</span> One caveat the chart cannot show: these are eight internal gaps, each measured against its own baseline. The absolute salaries across those industries are a separate question, and a far smaller one than seven times.</p>
 
 <p data-en="Taiwan is not in that dataset, so we asked the local version separately. Among 909 Taiwanese employers surveyed, 75 percent said they would pay more for AI development skills, and the premium they named ranged from 3 percent to 35 percent depending on the industry. Note what that survey measures: what employers say they are willing to add, not what landed in anyone's account." data-zh="台灣不在那份資料裡，所以要另外看在地版。一份針對 909 家台灣企業人資的調查裡，75% 說願意為 AI 開發技能多付錢，而他們說出來的加碼幅度依產業從 3% 到 35% 不等。要注意這份調查量的是什麼：企業說願意加多少，不是誰的帳戶真的多入帳多少。">Taiwan is not in that dataset, so we asked the local version separately. Among 909 Taiwanese employers surveyed, 75 percent said they would pay more for AI development skills, and the premium they named ranged from 3 percent to 35 percent depending on the industry. Note what that survey measures: what employers say they are willing to add, not what landed in anyone's account.</p>
 
@@ -419,7 +424,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <p data-en="If the argument stopped at the chart above it would read as a pitch for switching industries, and the Taiwanese numbers say something more interesting than that." data-zh="如果論述停在上面那張圖，這篇就變成一則叫人換產業的推銷。台灣的數字講的事，比那有意思得多。">If the argument stopped at the chart above it would read as a pitch for switching industries, and the Taiwanese numbers say something more interesting than that.</p>
 
-<p data-en="Start with the gap everyone quotes. In 2024, the median annual pay in finance and insurance was NT$1.106m. In education it was NT$382,000. That is a gap of NT$723,000 between two industries, and it is the number that usually ends the discussion." data-zh="先看大家都在引的那個差距。2024 年，金融及保險業的全年總薪資中位數是 110.6 萬，教育業是 38.2 萬。兩個產業之間差 72.3 萬，而這通常就是討論結束的地方。">Start with the gap everyone quotes. In 2024, the median annual pay in finance and insurance was NT$1.106m. In education it was NT$382,000. That is a gap of NT$723,000 between two industries, and it is the number that usually ends the discussion.</p>
+<p data-en="Start with the gap everyone quotes. In 2024, the median annual pay in finance and insurance was NT$1.106m. In education it was NT$382,000. That education figure needs a label the table carries and most people never read: it excludes every public and private school above primary level, so it is cram schools, kindergartens and tutoring centres, not teachers. That is a gap of NT$723,000 between two industries, and it is the number that usually ends the discussion." data-zh="先看大家都在引的那個差距。2024 年，金融及保險業的全年總薪資中位數是 110.6 萬，教育業是 38.2 萬。教育業這一格有一個統計表自己標了、但幾乎沒有人讀到的但書：它不含小學以上各級公私立學校，所以裡面是補習班、才藝班、幼兒園，不是學校老師。兩個產業之間差 72.3 萬，而這通常就是討論結束的地方。">Start with the gap everyone quotes. In 2024, the median annual pay in finance and insurance was NT$1.106m. In education it was NT$382,000. That education figure needs a label the table carries and most people never read: it excludes every public and private school above primary level, so it is cram schools, kindergartens and tutoring centres, not teachers. That is a gap of NT$723,000 between two industries, and it is the number that usually ends the discussion.</p>
 
 <p data-en="Now look inside each of them instead." data-zh="現在改看每一個產業的內部。">Now look inside each of them instead.</p>
 
@@ -432,14 +437,14 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
     <div class="brow hi"><span class="lab" data-en="Electronics" data-zh="電子零組件">Electronics</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:23.23%;width:74.27%"></i><s style="left:39.82%"></s></span><span class="val">87.6</span></div>
     <div class="brow hi"><span class="lab" data-en="ICT &amp; media" data-zh="資通訊業">ICT &amp; media</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:20.27%;width:55.59%"></i><s style="left:36.68%"></s></span><span class="val">80.7</span></div>
     <div class="brow hi"><span class="lab" data-en="Manufacturing" data-zh="製造業">Manufacturing</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:16.68%;width:46.82%"></i><s style="left:25.91%"></s></span><span class="val">57.0</span></div>
-    <div class="brow lo"><span class="lab" data-en="Education" data-zh="教育業">Education</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:15.00%;width:12.73%"></i><s style="left:17.36%"></s></span><span class="val">38.2</span></div>
+    <div class="brow lo"><span class="lab" data-en="Education (excl. schools)" data-zh="教育業（不含各級學校）">Education (excl. schools)</span><span class="trk"><b style="left:27.73%"></b><i class="rng" style="left:15.00%;width:12.73%"></i><s style="left:17.36%"></s></span><span class="val">38.2</span></div>
   </div>
   <div class="dsource" data-en="Directorate-General of Budget, Accounting and Statistics, Taiwan. Pay deciles for employees in industry and services, 2024, from the official pay portal. The decile series and the median table cross-check exactly, so both can be read on one axis. One caveat: the first three deciles in education are the identical figure, so the spread shown for education is a floor, not a precise value." data-zh="行政院主計總處，113 年工業及服務業受僱員工全年總薪資十分位數，取自薪情平臺。十分位序列與中位數統計表逐格吻合，因此兩者可以放在同一個座標軸上。一個但書：教育業的第 1、2、3 十分位是同一個數字，低端被一條線頂住，所以圖上教育業的分散幅度是下限不是精確值。">Directorate-General of Budget, Accounting and Statistics, Taiwan. Pay deciles for employees in industry and services, 2024, from the official pay portal. The decile series and the median table cross-check exactly, so both can be read on one axis. One caveat: the first three deciles in education are the identical figure, so the spread shown for education is a floor, not a precise value.</div>
 </div>
 
 <p data-en="Inside finance and insurance, the distance from the tenth percentile to the ninetieth is NT$1.518m. That is more than twice the gap between the two industries. Inside education it is NT$281,000, under four tenths of it. Same table, same year, same definition." data-zh="金融及保險業內部，從第 10 十分位到第 90 十分位相差 151.8 萬。那是兩個產業之間差距的兩倍以上。教育業內部只差 28.1 萬，不到四成。同一張表、同一年、同一個定義。">Inside finance and insurance, the distance from the tenth percentile to the ninetieth is NT$1.518m. That is more than twice the gap between the two industries. Inside education it is NT$281,000, under four tenths of it. Same table, same year, same definition.</p>
 
-<p data-en="So the honest answer to whether Beta beats Alpha is that it depends entirely on which square you are standing in. In finance, the spread inside the industry dwarfs the gap between industries, and Alpha is the main event. In education, the spread has been flattened, and there is very little room for effort to show up in the number at all." data-zh="所以 Beta 有沒有贏過 Alpha，誠實的答案是完全看你站在哪一格。在金融業，產業內部的分散遠大於產業之間的差距，主角是 Alpha。在教育業，分布本身被壓扁了，努力幾乎沒有空間反映在那個數字上。">So the honest answer to whether Beta beats Alpha is that it depends entirely on which square you are standing in. In finance, the spread inside the industry dwarfs the gap between industries, and Alpha is the main event. In education, the spread has been flattened, and there is very little room for effort to show up in the number at all.</p>
+<p data-en="So the honest answer to whether Beta beats Alpha is that it depends entirely on which square you are standing in. In finance, the spread inside the industry dwarfs the gap between industries, and Alpha is the main event. In education the spread looks flattened, but the reason is worth reading properly: the tenth, twentieth and thirtieth percentiles are all the identical figure, NT$329,640, which is NT$27,470 a month. The all-employee tenth percentile is that same NT$329,640. When two different populations land on the same number to the last digit, that is an institutional floor, not a feature of the industry. Three in ten people in that column are sitting on it." data-zh="所以 Beta 有沒有贏過 Alpha，誠實的答案是完全看你站在哪一格。在金融業，產業內部的分散遠大於產業之間的差距，主角是 Alpha。在教育業，分布看起來被壓扁了，但壓扁的原因值得讀清楚：第 10、第 20、第 30 十分位是同一個數字 329,640 元，換算每月 27,470 元整。而全體受僱員工的第 10 十分位也是同一個 329,640。兩個不同母體撞到同一個數字到個位數都不差，那是一條制度線，不是這個行業的特性。那一欄有三成的人就坐在那條線上。">So the honest answer to whether Beta beats Alpha is that it depends entirely on which square you are standing in. In finance, the spread inside the industry dwarfs the gap between industries, and Alpha is the main event. In education the spread looks flattened, but the reason is worth reading properly: the tenth, twentieth and thirtieth percentiles are all the identical figure, NT$329,640, which is NT$27,470 a month. The all-employee tenth percentile is that same NT$329,640. When two different populations land on the same number to the last digit, that is an institutional floor, not a feature of the industry. Three in ten people in that column are sitting on it.</p>
 
 <p data-en="Which turns the whole question around. Choosing an industry does not buy you a higher median. <span class='hl'>It buys you a distribution in which effort still counts.</span> Beta is not a substitute for Alpha. <span class='hl'>Beta sets how much room your Alpha has to work in.</span>" data-zh="這把整個問題翻了過來。選產業買到的不是更高的中位數，<span class='hl'>是一個努力還算數的分布。</span>Beta 不是 Alpha 的替代品。<span class='hl'>Beta 決定的是你的 Alpha 有多大的作用空間。</span>">Which turns the whole question around. Choosing an industry does not buy you a higher median. <span class='hl'>It buys you a distribution in which effort still counts.</span> Beta is not a substitute for Alpha. <span class='hl'>Beta sets how much room your Alpha has to work in.</span></p>
 
@@ -496,7 +501,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <div class="calc" id="calc" data-anim>
   <div class="calc-h" data-en="The same salary, two industries" data-zh="同一筆薪水，兩個產業">The same salary, two industries</div>
-  <p class="calc-s" data-en="Percentile positions come from the official Taiwanese pay deciles for 2024. Nothing here is modelled; your figure is simply read against the published distribution for each industry." data-zh="百分位位置取自主計總處 113 年官方薪資十分位。這裡沒有任何模型，只是把你的數字放到各產業已公布的分布上讀一次。">Percentile positions come from the official Taiwanese pay deciles for 2024. Nothing here is modelled; your figure is simply read against the published distribution for each industry.</p>
+  <p class="calc-s" data-en="Percentile positions come from the official Taiwanese pay deciles for 2024. The statistics office publishes nine points; everything between them here is linear interpolation, and anything past the tenth or ninetieth percentile is extrapolated. Read the result as an approximation, not a ranking." data-zh="百分位位置取自主計總處 113 年官方薪資十分位。主計總處只公布九個點，中間的位置是線性內插算出來的，低於第 10 或高於第 90 十分位的部分是外推。這個結果請當成近似值，不是名次。">Percentile positions come from the official Taiwanese pay deciles for 2024. The statistics office publishes nine points; everything between them here is linear interpolation, and anything past the tenth or ninetieth percentile is extrapolated. Read the result as an approximation, not a ranking.</p>
 
   <div class="pickrow"><div class="picklab" data-en="Your industry" data-zh="你現在的產業">Your industry</div>
     <div class="chips" id="bAChips" role="group" aria-label="Your industry"></div></div>
@@ -568,11 +573,11 @@ function toggleL(){var nl=document.documentElement.lang==='zh'?'en':'zh';applyL(
    ['Manufacturing','製造業',[36.70,41.71,45.94,51.07,56.97,65.87,78.91,101.48,139.74]],
    ['Electronic components','電子零組件製造業',[51.11,56.84,66.82,72.84,87.64,103.92,130.38,157.04,214.50]],
    ['Accommodation & food','住宿及餐飲業',[20.52,29.10,34.34,36.52,41.46,48.11,52.82,59.38,72.50]],
-   ['Education','教育業',[32.96,32.96,32.96,34.88,38.22,41.65,45.39,50.69,61.02]]];
+   ['Education (excl. schools)','教育業（不含各級學校）',[32.96,32.96,32.96,34.88,38.22,41.65,45.39,50.69,61.02]]];
   var $=function(i){return document.getElementById(i);};
   var CA=$('bAChips'), CB=$('bBChips'), W=$('bW');
   if(!CA) return;
-  var sel={a:8,b:2};
+  var sel={a:5,b:1};
   function chips(box,key,cls){
     box.className='chips'+(cls?' '+cls:'');
     box.innerHTML=IND.map(function(x,i){
