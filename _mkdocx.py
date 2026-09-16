@@ -66,10 +66,23 @@ def build(src, outdir=None, notes_file=None):
             if line.startswith('#'): add(doc, line.lstrip('# ').strip(), style='Heading 2')
             else: add(doc, line, italic=True)
 
+    # 每個 section 後面留一個「你的修改」空欄。
+    # Vincent 2026-09-15：「每一段、每個 section，它可以分開改⋯⋯不改的話就留空白」。
+    def slot(doc, n, lang):
+        lab = ('第 %d 段　你的修改' % n) if lang=='zh' else ('Section %d — your edits' % n)
+        hint = ('這一段不用改就整段留白。要改的話直接在這裡寫，不必動上面的原文。'
+                if lang=='zh' else
+                'Leave this blank if the section is fine. Write your version here; no need to touch the text above.')
+        p1=doc.add_paragraph(); r=p1.add_run('▸ '+lab); r.bold=True
+        r.font.color.rgb=RGBColor(0xC2,0x41,0x0C)
+        add(doc, hint, italic=True, grey=True)
+        doc.add_paragraph()   # 留白讓人寫
+        doc.add_paragraph('_'*58)
+
     for lang,title in (('zh','中文版'),('en','English version')):
         doc.add_page_break()
         doc.add_heading(title, 1)
-        pend=[]
+        pend=[]; secn=0; started=False
         def flush():
             if pend:
                 add(doc, '圖內文字：'+'　｜　'.join(pend), italic=True, grey=True, indent=0.3)
@@ -79,14 +92,20 @@ def build(src, outdir=None, notes_file=None):
             if not s: continue
             if k=='label': pend.append(s); continue
             flush()
-            if k=='h1': add(doc, s, style='Heading 1')
-            elif k in ('h2','h3'): add(doc, s, style='Heading 2')
+            if k in ('h2','h3'):
+                if started: slot(doc, secn, lang)
+                secn+=1; started=True
+                add(doc, s, style='Heading 2')
+            elif k=='h1': add(doc, s, style='Heading 1')
             elif k=='fig': add(doc, '[圖／互動] '+s, bold=True)
             elif k=='quote': add(doc, s, italic=True, indent=0.4)
             elif k=='note': add(doc, s, italic=True, grey=True)
             elif k=='ref': add(doc, s, grey=True)
-            else: add(doc, s)
+            else:
+                if not started: secn+=1; started=True
+                add(doc, s)
         flush()
+        if started: slot(doc, secn, lang)
 
     outdir=outdir or os.path.dirname(src)
     base=os.path.splitext(os.path.basename(src))[0]

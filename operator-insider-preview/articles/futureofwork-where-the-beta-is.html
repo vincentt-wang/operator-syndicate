@@ -318,6 +318,13 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 .dstat .n .kpA{color:var(--orange-d)}
 .dstat .n .kpB{color:#7d8b99}
 .dstat .n .kpS{color:var(--mut);font-weight:400;font-size:.8em;padding:0 .12em}
+
+/* 自我批判區塊：自己先戳破自己的數字，那個弱點就變成可信度 */
+.selfcrit{border:1px solid var(--border);border-left:4px solid #8A3A00;border-radius:0 12px 12px 0;
+  background:rgba(138,58,0,.06);padding:1.6rem 1.7rem;margin:2.4rem 0}
+.selfcrit h3{font-family:var(--fd);font-weight:700;font-size:1.15rem;color:#8A3A00;margin-bottom:.7rem}
+.selfcrit p{font-size:1.05rem;line-height:1.75}
+.selfcrit p+p{margin-top:.9rem}
 </style>
 </head>
 <body>
@@ -329,7 +336,7 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 <article>
 <div class="ey" data-en="Operator Insider &middot; FutureOfWork" data-zh="Operator Insider &middot; FutureOfWork">Operator Insider &middot; FutureOfWork</div>
 <h1 data-en="Where the Beta Is" data-zh="未來人才的 Beta 在哪裡">Where the Beta Is</h1>
-<div class="byline" data-en="Operator Insider &middot; FutureOfWork &middot; 9 min read &middot; September 2026" data-zh="Operator Insider &middot; FutureOfWork &middot; 9 分鐘閱讀 &middot; 2026 年 9 月">Operator Insider &middot; FutureOfWork &middot; 9 min read &middot; September 2026</div>
+<div class="byline" data-en="Operator Insider &middot; FutureOfWork &middot; 10 min read &middot; September 2026" data-zh="Operator Insider &middot; FutureOfWork &middot; 10 分鐘閱讀 &middot; 2026 年 9 月">Operator Insider &middot; FutureOfWork &middot; 10 min read &middot; September 2026</div>
 
 <div class="opi-author">
   <img class="opi-face" src="../../Team/Will.jpg" alt="Will Lin" width="78" height="78" loading="lazy">
@@ -528,11 +535,26 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
 <p data-en="<span class='hl'>Effort decides how fast you swim. Position decides where you end up.</span>" data-zh="<span class='hl'>努力決定你游得多快；位置，決定你游向哪裡。</span>"><span class='hl'>Effort decides how fast you swim. Position decides where you end up.</span></p>
 
-<h2 data-en="Where EvoScale reads this" data-zh="一春的角度">Where EvoScale reads this</h2>
+<div class="selfcrit">
+  <h3 data-en="The weakest number in this piece, named by us before someone else does" data-zh="這篇最弱的一個數字，我們自己先講">The weakest number in this piece, named by us before someone else does</h3>
+  <p data-en="The education column is the one doing the most work in this article, and it is the one a reader should push back on hardest." data-zh="教育業那一欄在這篇裡承擔最多論證，而它也是最該被讀者反問的那一欄。">The education column is the one doing the most work in this article, and it is the one a reader should push back on hardest.</p>
+  <p data-en="The official table excludes every public and private school above primary level. What is left is cram schools, kindergartens and tutoring centres. So when this piece says a teacher at the top of education earns what someone in the bottom third of ICT earns, it is not talking about teachers at all. We flagged it on the chart, but the honest version is blunter: that column should probably not be labelled education." data-zh="那張官方統計表把小學以上的公私立學校全部排除在外，剩下的是補習班、才藝班、幼兒園。所以這篇說「教育業做到前 10% 等於資通訊業的後 30%」時，講的根本不是老師。我們在圖上標了但書，<span class='hl'>誠實的版本更直白：那一欄大概不該叫做教育業。</span>">The official table excludes every public and private school above primary level. What is left is cram schools, kindergartens and tutoring centres. So when this piece says a teacher at the top of education earns what someone in the bottom third of ICT earns, it is not talking about teachers at all. We flagged it on the chart, but the honest version is blunter: that column should probably not be labelled education.</p>
+  <p data-en="The argument survives without it. Finance against manufacturing makes the same point with no caveat attached, and the decile spread inside finance does not depend on the education row at all. We kept the education column because the flattened distribution is genuinely unusual and worth showing. Read it as one industry classification behaving oddly, not as a statement about anyone&rsquo;s teacher." data-zh="拿掉它這篇仍然成立。金融對製造講的是同一件事，而且沒有任何但書；金融業內部的分位差距也完全不依賴教育業那一列。留著它是因為那個被壓扁的分布本身罕見、值得看。請把它讀成一個行業分類的異常，不是關於任何人的老師的結論。">The argument survives without it. Finance against manufacturing makes the same point with no caveat attached, and the decile spread inside finance does not depend on the education row at all. We kept the education column because the flattened distribution is genuinely unusual and worth showing. Read it as one industry classification behaving oddly, not as a statement about anyone&rsquo;s teacher.</p>
+</div>
 
-<p data-en="An operator-led fund reads talent the way other people read filings. Where senior people are moving, and which functions a company has started paying up for, both show up months before any of it reaches a financial statement. <span class='hl'>A company will redraft a forecast. It will not open a role it does not need.</span>" data-zh="operator-led 的基金看人才，跟別人看財報是同一件事。資深的人往哪裡移動、一家公司開始為哪個職能加價，這兩件事都會比財務報表早好幾個月出現。<span class='hl'>一家公司會重寫財測，但不會開一個自己不需要的職缺。</span>">An operator-led fund reads talent the way other people read filings. Where senior people are moving, and which functions a company has started paying up for, both show up months before any of it reaches a financial statement. <span class='hl'>A company will redraft a forecast. It will not open a role it does not need.</span></p>
+  <h2 data-en="What to do this week, for nothing" data-zh="這週可以做的一件事，不用花錢">What to do this week, for nothing</h2>
 
-<p data-en="Which makes the same chart useful from the other side of the table. If an industry's Beta is rising, its hiring shows it first. Read enough of those, and you are reading momentum rather than reacting to it." data-zh="所以同一張圖，從桌子的另一邊看一樣有用。一個產業的 Beta 在上升，它的徵才會最先顯示出來。看夠多這種訊號，你讀的就是動能本身，而不是在對動能做出反應。">Which makes the same chart useful from the other side of the table. If an industry's Beta is rising, its hiring shows it first. Read enough of those, and you are reading momentum rather than reacting to it.</p>
+  <p data-en="None of this needs a budget, a mentor or a plan. It needs one afternoon and a published table." data-zh="這件事不需要預算、不需要導師、也不需要規劃。需要的是一個下午和一張公開的表。">None of this needs a budget, a mentor or a plan. It needs one afternoon and a published table.</p>
+
+  <p data-en="Take last year&rsquo;s total pay, the figure on your tax filing rather than your monthly salary, and read it against the official decile table for your own industry. That tells you where you sit among people doing roughly what you do. Then read the same figure against one adjacent industry, the one you could plausibly move into without retraining. If the two positions are close, your industry is not the constraint and the work is to go deeper. If they are far apart, you have just measured your Beta, and the number is larger than most people assume." data-zh="拿去年的全年總薪資，是報稅那張上的數字不是月薪，放到自己這一行的官方十分位表上讀一次。那告訴你在做差不多事情的人裡面，你排在哪。然後把同一個數字放到一個鄰近產業上再讀一次，挑那個不用重新受訓就換得過去的。<span class='hl'>兩個位置接近，代表你的產業不是限制，該做的是往深處走。兩個位置差很遠，你剛剛就量到了自己的 Beta</span>，而那個數字通常比多數人以為的大。">Take last year&rsquo;s total pay, the figure on your tax filing rather than your monthly salary, and read it against the official decile table for your own industry. That tells you where you sit among people doing roughly what you do. Then read the same figure against one adjacent industry, the one you could plausibly move into without retraining. If the two positions are close, your industry is not the constraint and the work is to go deeper. If they are far apart, you have just measured your Beta, and the number is larger than most people assume.</p>
+
+  <p data-en="The calculator above does that in about a minute. Doing it by hand on the published table takes ten, and you will remember it longer." data-zh="上面那個計算器一分鐘就算得出來。自己翻公開的表格算要十分鐘，但你會記得比較久。">The calculator above does that in about a minute. Doing it by hand on the published table takes ten, and you will remember it longer.</p>
+
+  <h2 data-en="Where EvoScale reads this" data-zh="一春的角度">Where EvoScale reads this</h2>
+
+<p data-en="An operator-led fund reads talent the way other people read filings. Where senior people are moving, and which functions a company has started paying up for, both show up months before any of it reaches a financial statement. <span class='hl'>A company will redraft a forecast. Opening a role it does not need costs considerably more, though anyone in this trade knows the ghost posting exists and every platform carries them. So the signal is never a single advert. It is the same function moving in the same direction for several months.</span>" data-zh="operator-led 的基金看人才，跟別人看財報是同一件事。資深的人往哪裡移動、一家公司開始為哪個職能加價，這兩件事都會比財務報表早好幾個月出現。<span class='hl'>一家公司會重寫財測。開一個不需要的職缺成本高得多，雖然這一行都知道那種缺確實存在，掛著不收人的職缺每個平台上都有。所以要讀的不是單一則職缺，是同一個職能連續幾個月的動向。</span>">An operator-led fund reads talent the way other people read filings. Where senior people are moving, and which functions a company has started paying up for, both show up months before any of it reaches a financial statement. <span class='hl'>A company will redraft a forecast. Opening a role it does not need costs considerably more, though anyone in this trade knows the ghost posting exists and every platform carries them. So the signal is never a single advert. It is the same function moving in the same direction for several months.</span></p>
+
+<p data-en="Which makes the same chart useful from the other side of the table. If an industry's Beta is rising, its hiring shows it first. <span class='hl'>It also makes one mistake easy to name, because we have made it: reading a hot sector as a strong company.</span> A rising Beta lifts the mediocre operator in that sector too, and the hiring data does not tell you which one you are looking at." data-zh="所以同一張圖，從桌子的另一邊看一樣有用。一個產業的 Beta 在上升，它的徵才會最先顯示出來。<span class='hl'>這也讓一個錯誤變得好指認，因為我們自己犯過：把產業熱讀成這家公司強。</span>Beta 上升的時候，那個產業裡平庸的經營者也一起被抬上去，而徵才資料不會告訴你眼前這一家是哪一種。">Which makes the same chart useful from the other side of the table. If an industry's Beta is rising, its hiring shows it first. <span class='hl'>It also makes one mistake easy to name, because we have made it: reading a hot sector as a strong company.</span> A rising Beta lifts the mediocre operator in that sector too, and the hiring data does not tell you which one you are looking at.</p>
 
 <div class="cta">
   <h3 data-en="If people are your constraint" data-zh="如果人才是你的瓶頸">If people are your constraint</h3>
