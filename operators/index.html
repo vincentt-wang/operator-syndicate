@@ -367,7 +367,8 @@ function ecoToggle(){var sec=document.getElementById("ecoSection");ecoApply(sec.
 </footer>
 
 <script src="../shared-content.js?v=24"></script>
-<script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('opLogoWall');if(!w)return;var h='';items.forEach(function(it){var mh=it.wh||44;var inner=it.l?'<img src="'+it.l+'" style="max-height:'+mh+'px;max-width:100%" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="op-logo-cell">'+inner+'</div>';});w.innerHTML=h;})();</script>
+<!-- 2026-09-21 修：marquee 的 logo 路徑是相對路徑（assets/logos/...），本頁 9/1 搬進 operators/ 資料夾後會解析成 /operators/assets/... 而 404，這裡補成從根目錄算。 -->
+<script>(function(){var items=(window.OS_CONTENT&&window.OS_CONTENT.marquee)||[];var w=document.getElementById('opLogoWall');if(!w)return;var h='';items.forEach(function(it){var mh=it.wh||44;var src=it.l&&!/^(https?:)?\//.test(it.l)?'/'+it.l:it.l;var inner=it.l?'<img src="'+src+'" style="max-height:'+mh+'px;max-width:100%" alt="'+it.n+'">':'<span class="lw-name">'+it.n+'</span>';if(it.u)inner='<a href="'+it.u+'" target="_blank" rel="noopener">'+inner+'</a>';h+='<div class="op-logo-cell">'+inner+'</div>';});w.innerHTML=h;})();</script>
 <script>
 /* ═══════════════════════════════════════════════
    OPERATOR DATA — edit this array to add/update members
