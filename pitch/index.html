@@ -474,7 +474,7 @@ function slidesInstHTML(){
       </div>
     </div>
     <div class="inst-marq-label" data-en="An operator network drawn from" data-zh="高管網絡橫跨">An operator network drawn from</div>
-    <div class="inst-marq"><div class="inst-marq-track">${C.marquee.map(function(m){return '<img src="'+m.l+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px">';}).join('')}${C.marquee.map(function(m){return '<img src="'+m.l+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px" aria-hidden="true">';}).join('')}</div></div>
+    <div class="inst-marq"><div class="inst-marq-track">${C.marquee.map(function(m){return '<img src="'+(/^(https?:)?\//.test(m.l)?m.l:'/'+m.l)+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px">';}).join('')}${C.marquee.map(function(m){return '<img src="'+(/^(https?:)?\//.test(m.l)?m.l:'/'+m.l)+'" alt="'+m.n+'" style="height:'+Math.round(m.h*.7)+'px" aria-hidden="true">';}).join('')}</div></div>
   </section>`,
 
   // I-07 — INVESTMENT TIERS (coverage framing)
