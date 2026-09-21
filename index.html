@@ -758,7 +758,7 @@ footer{background:#060F1E;padding:72px 0 0}
 .adv-wrap{margin-top:3.4rem;padding-top:2.6rem;border-top:1px solid rgba(255,255,255,.12)}
 .adv-ey{font-family:var(--fb);font-size:.86rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem}
 .adv-sub{color:rgba(255,255,255,.55);font-size:1.02rem;line-height:1.7;margin-bottom:1.9rem}
-@media(min-width:900px){.adv-sub{white-space:nowrap}}
+.adv-sub-l{display:block;word-break:keep-all;overflow-wrap:anywhere} /* 2026-09-21：副標改成兩句，一句一行 */
 .adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
 @media(max-width:1000px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.adv-grid{grid-template-columns:1fr}}
@@ -1187,7 +1187,7 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
     <div class="adv-wrap reveal">
       <div class="adv-ey" data-en="Our networks" data-zh="我們的網絡">Our networks</div>
-      <p class="adv-sub" data-en="Consultants and LPs" data-zh="顧問與 LP">Consultants and LPs</p>
+      <p class="adv-sub"><span class="adv-sub-l" data-en="EvoScale has the most complete network of senior executives in Taiwan." data-zh="一春資本擁有全台最完整的​高階經理人網絡。">EvoScale has the most complete network of senior executives in Taiwan.</span><span class="adv-sub-l" data-en="Our consultants and LPs come from every major industry, each personally committed to helping startups grow." data-zh="我們的顧問與 LP 來自各大產業，每一位都親自投入，協助新創成長。">Our consultants and LPs come from every major industry, each personally committed to helping startups grow.</span></p>
       <div class="adv-grid">
       <div class="adv-card reveal">
         <div class="adv-head">
