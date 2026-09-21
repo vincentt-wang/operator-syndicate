@@ -59,11 +59,11 @@ window.OS_CONTENT = {
       desc_en: "Your enterprise relationships are the alpha. We measure them, put them to work, and turn them into returns.",
       desc_zh: "你的企業關係就是你的 Alpha。我們衡量、部署並變現高管網絡價值。" },
     { title_en: "Revenue Intelligence Architecture", title_zh: "營收智能架構",
-      desc_en: "A repeatable system for B2B revenue growth: sales strategy, procurement navigation, and AI-assisted coaching, built by operators who have run it themselves.",
-      desc_zh: "可複製的 B2B 營收成長系統：業務策略、採購引導，以及由實戰高管打造的 AI 輔助教練機制。" },
+      desc_en: "Capital, operating experience and relationships, built into one clear, systematic growth framework.",
+      desc_zh: "將資金、實戰與人脈科學化整合進清晰的成長框架。" },
     { title_en: "Operator-Led Community", title_zh: "高管社群",
-      desc_en: "The densest concentration of senior sales executives in Taiwan, all of them active in technology and investing.",
-      desc_zh: "台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子。" },
+      desc_en: "The densest concentration of senior sales executives in Taiwan, all of them active in technology and investing. Members who roll up their sleeves are rewarded through Spring Credit.",
+      desc_zh: "台灣最高密度的頂尖業務高管社群，集結熱愛科技與投資的精英圈子。實際下場幫忙的會員，由 Spring Credit 信用點數機制回饋。" },
   ],
 
   // ── Track Record ──────────────────────────────────
