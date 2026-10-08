@@ -393,6 +393,10 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
 
   <script>
   (function(){
+    /* 2026-10-08：這段原本直接抓元素，而 script 的位置排在計算器前面，
+       於是 if(!cv) return 每次都提前退出，拉桿從來沒綁上事件。
+       改成等 DOM 備妥再初始化，元件之後再搬位置也不會再壞。 */
+    function init(){
     var cv=document.getElementById('cConv'), rt=document.getElementById('cRate'), ov=document.getElementById('cOver');
     if(!cv) return;
     function fmt(n){ if(n>=1e6) return 'US$'+(n/1e6).toFixed(2)+'M'; if(n>=1e3) return 'US$'+Math.round(n/1e3)+'K'; return 'US$'+Math.round(n); }
@@ -418,7 +422,9 @@ html[lang=zh] .opi-quote blockquote{line-height:1.7}
     cv.addEventListener('input',run); rt.addEventListener('input',run); ov.addEventListener('input',run);
     document.addEventListener('click',function(e){ if(e.target && e.target.id==='lt') setTimeout(run,20); });
     run();
-    document.addEventListener('DOMContentLoaded',run);   /* the language script runs later in the page; re-read it once the DOM is done */
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+    else init();
   })();
   </script>
   
