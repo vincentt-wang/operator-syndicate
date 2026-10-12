@@ -13,7 +13,7 @@ Every submission is evaluated objectively through a D-F-V framework (Desirabilit
 - What founders get: capital, an operator network, and direct B2B enterprise procurement/channel access
 - Evaluation: objective D-F-V (Desirability, Feasibility, Viability) assessment; every applicant receives a one-page A4 evaluation
 - Who can apply: Tier 1 (seed / early stage) and Tier 2 (pre-IPO) B2B companies
-- Community cadence: a monthly Dealroom on the last Friday of each month, where three fitting startups pitch to the operator network
+- Community cadence: a monthly Dealroom on the last Thursday of each month, where three fitting startups pitch to the operator network
 - Enterprises represented in the founding council include NVIDIA, Microsoft, AWS, IBM, Salesforce, UBS, GlobalFoundries, Sharp, Dentsu, LINE, IDC, Appier, and iPassMoney
 - Team: Boice Lin (Founder & Managing Partner), Vincent Wang (Founding AO & Content Manager)
 - Membership is by invitation; operators are added selectively based on fit and capacity
