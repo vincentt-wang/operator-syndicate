@@ -89,6 +89,13 @@ body.searching .aud-switch,body.searching #hero{opacity:.35;transition:opacity .
 body.searching .chips{display:none!important}
 #scount{display:none;color:var(--orange-2);font-size:.92rem;margin:-.4rem 0 1.5rem;font-weight:600}
 body.searching #scount{display:block}
+.post.oc{display:grid;grid-template-columns:96px 1fr;gap:1.4rem;align-items:start}
+.oc-face{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.18)}
+.oc-top{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:.35rem}
+.oc-n{font-family:var(--fd);font-weight:800;font-size:1.35rem;color:#fff;white-space:nowrap}
+.oc-role{font-size:1rem;color:var(--mut);margin-bottom:.8rem;line-height:1.55}
+.post.oc .oc-role,.post.oc h2,.post.oc p,.post.oc .meta{text-wrap:pretty}.post.oc .tag{font-size:1rem}.post.oc p{font-size:1rem}.post.oc .meta{font-size:1rem}
+@media(max-width:600px){.post.oc{grid-template-columns:1fr;gap:1rem}.oc-face{width:80px;height:80px}}
 </style>
 </head>
 <body>
@@ -100,7 +107,7 @@ body.searching #scount{display:block}
     <li><a href="/#global" data-en="Global" data-zh="出海">Global</a></li>
     <li><a href="/#team" data-en="Team" data-zh="團隊">Team</a></li>
     <li><a href="/#faq" data-en="FAQ" data-zh="FAQ">FAQ</a></li>
-    <li><a href="/insights/" class="on" data-en="Insights" data-zh="觀點">Insights</a></li>
+    <li><a href="/insights/?aud=expert" class="on" data-en="Insights" data-zh="觀點">Insights</a></li>
   </ul>
   <div class="top-r">
     <button class="lang" id="lt" onclick="toggleL()">CH</button>
@@ -119,16 +126,16 @@ body.searching #scount{display:block}
 
   <div class="aud-switch">
     <span class="aud-glide"></span>
-    <button class="aud-btn active" data-aud="founder" data-en="For B2B Founders" data-zh="給創辦人·B2B">For B2B Founders</button>
+    <button class="aud-btn active" data-aud="expert" data-en="Operator Notes" data-zh="高管專欄">Operator Notes</button>
+    <button class="aud-btn" data-aud="founder" data-en="For B2B Founders" data-zh="給創辦人·B2B">For B2B Founders</button>
     <button class="aud-btn" data-aud="b2c" data-en="For B2C Founders" data-zh="給創辦人·B2C">For B2C Founders</button>
     <button class="aud-btn" data-aud="investor" data-en="For Investors" data-zh="給投資人">For Investors</button>
     <button class="aud-btn" data-aud="operator" data-en="For Operators" data-zh="給經理人">For Operators</button>
-<button class="aud-btn" data-aud="expert" data-en="Operator Notes" data-zh="高管專欄">Operator Notes</button>
   </div>
 
   <div id="hero">
     <h1 data-f-en="Perspectives on building B2B that scales." data-f-zh="關於打造可規模化 B2B 的觀點。" data-i-en="Perspectives on backing B2B that scales." data-i-zh="關於投資 B2B 新創的觀點。" data-o-en="From building B2B to backing it." data-o-zh="從打造 B2B，到投資 B2B。" data-x-en="What the industry looks like from the inside." data-x-zh="這一行從裡面看，是什麼樣子" data-c-en="Perspectives on building consumer products that grow." data-c-zh="關於打造能持續成長的消費產品的觀點。" data-en="Perspectives on building B2B that scales." data-zh="關於打造可規模化 B2B 的觀點。">Perspectives on building B2B that scales.</h1>
-    <p class="sub" data-f-en="Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team." data-f-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。" data-i-en="Learn to read a B2B deal the way the best investors do." data-i-zh="像最好的投資人那樣，讀懂一個 B2B 案子。" data-x-en="One author per industry, one article a month. Each still runs the business they write about." data-x-zh="五個產業各一位作者，每月一篇。他寫的那門生意，他自己正在做。" data-o-en="Turn a career of building and selling B2B into the judgment of an investor." data-o-zh="把一輩子打造與銷售 B2B 的歷練，變成一個投資人的判斷力。" data-c-en="Acquisition, retention and brand for founders selling to consumers, from the EvoScale team." data-c-zh="獲客、留存與品牌，給賣給消費者的創業者，來自 EvoScale 團隊。" data-en="Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team." data-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。">Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team.</p>
+    <p class="sub" data-f-en="Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team." data-f-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。" data-i-en="Learn to read a B2B deal the way the best investors do." data-i-zh="像最好的投資人那樣，讀懂一個 B2B 案子。" data-x-en="One industry, one senior operator, one piece a month." data-x-zh="一個產業一位業界高管，每月一篇。" data-o-en="Turn a career of building and selling B2B into the judgment of an investor." data-o-zh="把一輩子打造與銷售 B2B 的歷練，變成一個投資人的判斷力。" data-c-en="Acquisition, retention and brand for founders selling to consumers, from the EvoScale team." data-c-zh="獲客、留存與品牌，給賣給消費者的創業者，來自 EvoScale 團隊。" data-en="Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team." data-zh="Go-to-market、企業通路與高管主導投資，來自 EvoScale 團隊。">Go-to-market, enterprise channel access, and operator-led investing, from the EvoScale team.</p>
   </div>
 
   <div class="chips" data-for="founder">
@@ -158,31 +165,35 @@ body.searching #scount{display:block}
   </div>
 
   <div id="posts">
+<a class="post oc" data-aud="expert" data-tag="all" href="hrtech-cross-border-hiring-is-not-payroll.html">
+<img class="oc-face" src="../Team/Sabrina.jpg" alt="Sabrina Chiu" width="96" height="96" loading="lazy">
+<div>
+<div class="oc-top"><span class="oc-n">Sabrina Chiu</span><span class="tag" data-en="HRTech" data-zh="HRTech">HRTech</span></div>
+<div class="oc-role" data-en="Former Country Manager, BIPO Taiwan" data-zh="BIPO 前台灣區總經理">Former Country Manager, BIPO Taiwan</div>
+<h2 data-en="Cross-border hiring: why capable teams still do it themselves" data-zh="跨境聘雇，有能力的團隊為什麼還是自己做">Cross-border hiring: why capable teams still do it themselves</h2>
+<p data-en="A first cross-border hire usually gets budgeted like any vendor contract: find an Employer of Record, get payroll out, done. Is it really that simple?" data-zh="通常第一次做跨境聘雇，大家多半把它當成一般的供應商合約來編預算：找一家 EOR 廠商，薪水發得出去就搞定了。事情真有這麼簡單？">A first cross-border hire usually gets budgeted like any vendor contract: find an Employer of Record, get payroll out, done. Is it really that simple?</p>
+<div class="meta" data-en="Operator Notes · 6 min · October 2026" data-zh="高管專欄 · 6 分鐘 · 2026 年 10 月">Operator Notes · 6 min · October 2026</div>
+</div>
+</a>
 <a class="post light" data-aud="expert" data-tag="all" href="biztech-ai-stalls-in-the-systems.html">
-<div class="ctop"><span class="cnum">05</span><span class="tag" data-en="BizTech" data-zh="BizTech">BizTech</span></div>
+<div class="ctop"><span class="cnum">04</span><span class="tag" data-en="BizTech" data-zh="BizTech">BizTech</span></div>
 <h2 data-en="AI Adoption Stalls Long Before the Systems: Five Ways an Enterprise Deal Ends" data-zh="AI 落地卡住的地方比系統更早：一筆企業合約的五種結束方式">AI Adoption Stalls Long Before the Systems: Five Ways an Enterprise Deal Ends</h2>
 <p data-en="Gartner says 30% of generative AI projects are abandoned after proof of concept. A 2026 survey of 300 executives found AI can reach only 45% of company data on average." data-zh="Gartner 預估 30% 的生成式 AI 專案會在概念驗證後被放棄。2026 年一份訪問 300 位主管的調查發現，AI 平均只能取用企業 45% 的資料。">Gartner says 30% of generative AI projects are abandoned after proof of concept. A 2026 survey of 300 executives found AI can reach only 45% of company data on average.</p>
 <div class="meta" data-en="Operator Notes · 8 min · September 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 9 月">Operator Notes · 8 min · September 2026</div>
 </a>
-<a class="post" data-aud="expert" data-tag="all" href="hrtech-cross-border-hiring-is-not-payroll.html">
-<div class="ctop"><span class="cnum">04</span><span class="tag" data-en="HRTech" data-zh="HRTech">HRTech</span></div>
-<h2 data-en="Cross-Border Hiring: Why Competent Teams Still Keep It In House" data-zh="跨境聘僱不是發薪水那麼簡單：為什麼夠格的團隊還是選擇自己做">Cross-Border Hiring: Why Competent Teams Still Keep It In House</h2>
-<p data-en="An Employer of Record is not a payroll outsourcer. What it actually absorbs is labor law compliance, tax exposure and employment classification, and getting the order wrong costs money first." data-zh="EOR 不是代發薪水的外包商。它真正吸收掉的是勞動法遵、稅務曝險與僱傭關係認定，順序用錯會先賠錢才發現。">An Employer of Record is not a payroll outsourcer. What it actually absorbs is labor law compliance, tax exposure and employment classification, and getting the order wrong costs money first.</p>
-<div class="meta" data-en="Operator Notes · 8 min · September 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 9 月">Operator Notes · 8 min · September 2026</div>
-</a>
-<a class="post light" data-aud="expert" data-tag="all" href="futureofwork-turnover-before-the-balance-sheet.html">
+<a class="post" data-aud="expert" data-tag="all" href="futureofwork-turnover-before-the-balance-sheet.html">
 <div class="ctop"><span class="cnum">03</span><span class="tag" data-en="FutureOfWork" data-zh="FutureOfWork">FutureOfWork</span></div>
 <h2 data-en="Hiring Moves Before the Balance Sheet Does: Reading Two Recruitment Lines" data-zh="招募動作比財報更早：怎麼讀一家公司的兩條招募線">Hiring Moves Before the Balance Sheet Does: Reading Two Recruitment Lines</h2>
 <p data-en="Gallup puts the annual cost of voluntary turnover at US$1 trillion, and replacing an executive can run up to 213% of salary. Who a company is quietly losing reads earlier than any filing." data-zh="Gallup 估計自願性離職每年造成一兆美元損失，換掉一位高階主管最高要花年薪的 213%。一家公司正在悄悄流失誰，讀起來比任何一份財報都快。">Gallup puts the annual cost of voluntary turnover at US$1 trillion, and replacing an executive can run up to 213% of salary. Who a company is quietly losing reads earlier than any filing.</p>
 <div class="meta" data-en="Operator Notes · 8 min · September 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 9 月">Operator Notes · 8 min · September 2026</div>
 </a>
-<a class="post" data-aud="expert" data-tag="all" href="chiptech-the-foundry-nobody-pitches.html">
+<a class="post light" data-aud="expert" data-tag="all" href="chiptech-the-foundry-nobody-pitches.html">
 <div class="ctop"><span class="cnum">02</span><span class="tag" data-en="ChipTech" data-zh="ChipTech">ChipTech</span></div>
 <h2 data-en="The Foundry Nobody Pitches: Selling When You Are Not the Default Choice" data-zh="沒人提案的那座晶圓廠：當你不是客戶的預設選項">The Foundry Nobody Pitches: Selling When You Are Not the Default Choice</h2>
 <p data-en="TSMC&#39;s own numbers put 77% of Q4 2025 wafer revenue in nodes at 7nm and below, and about 10% of its 2026 capex into specialty technologies. That 10% is the entire budget line for the processes most hardware startups actually need." data-zh="台積電自己的數字顯示，2025 年第四季有 77% 的晶圓營收來自 7 奈米以下製程，而 2026 年資本支出只有約 10% 分給特殊製程。那 10% 就是多數硬體新創真正需要的那幾種製程的全部預算。">TSMC&#39;s own numbers put 77% of Q4 2025 wafer revenue in nodes at 7nm and below, and about 10% of its 2026 capex into specialty technologies.</p>
 <div class="meta" data-en="Operator Notes · 8 min · September 2026" data-zh="高管專欄 · 8 分鐘 · 2026 年 9 月">Operator Notes · 8 min · September 2026</div>
 </a>
-<a class="post light" data-aud="expert" data-tag="all" href="salestech-the-number-nobody-checks.html">
+<a class="post" data-aud="expert" data-tag="all" href="salestech-the-number-nobody-checks.html">
 <div class="ctop"><span class="cnum">01</span><span class="tag" data-en="Sales Tech" data-zh="Sales Tech">Sales Tech</span></div>
 <h2 data-en="The Number Nobody Checks: Why Enterprise AI Has No Budget Line" data-zh="沒有人查的那個數字：為什麼企業 AI 支出編不出預算科目">The Number Nobody Checks: Why Enterprise AI Has No Budget Line</h2>
 <p data-en="Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all. What the verifiable numbers say about adoption, seats and where the wall actually came from." data-zh="市場報告把這個品類估在 219 億到 253 億美元之間。而唯一一份把企業 AI 支出按部門拆開的調查，裡面根本沒有銷售這一項。用查得到的數字談採用率、席位，以及那道牆到底是誰蓋的。">Market reports size this category between US$21.9B and US$25.3B. The one survey that breaks enterprise AI spend down by department does not list Sales at all.</p>
@@ -538,7 +549,7 @@ body.searching #scount{display:block}
 <div class="author-link" style="text-align:center;margin:48px auto 0;max-width:760px;padding:22px 0;border-top:1px solid var(--border)"><a href="author/vincent-wang.html" rel="author" style="color:var(--mut);text-decoration:none;font-size:.95rem;letter-spacing:.02em" data-en="All articles by Vincent Wang →" data-zh="王玉宇 Vincent Wang 的全部文章 →">王玉宇 Vincent Wang 的全部文章 →</a></div>
 <footer data-en="EvoScale Capital · Enterprise Channel. Day One." data-zh="EvoScale Capital · 一春資本 · 企業通路，第一天就到位。">EvoScale Capital · Enterprise Channel. Day One.</footer>
 <script>
-var curAud='founder',curTag='all';
+var curAud='expert',curTag='all';
 function positionGlide(){var a=document.querySelector('.aud-btn.active');var g=document.querySelector('.aud-glide');if(!a||!g)return;g.style.left=a.offsetLeft+'px';g.style.width=a.offsetWidth+'px';}
 function applyL(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){var v=l==='zh'?e.getAttribute('data-zh'):e.getAttribute('data-en');if(v!==null)e.innerHTML=v;});document.getElementById('lt').textContent=l==='zh'?'EN':'CH';var qi=document.getElementById('q');if(qi){var ph=qi.getAttribute('data-ph-'+l);if(ph)qi.placeholder=ph;}positionGlide();try{localStorage.setItem('evoLang',l);}catch(e){}if(document.body.classList.contains('searching'))filterPosts();}
 function toggleL(){applyL(document.documentElement.lang==='zh'?'en':'zh');syncURL();}
@@ -551,7 +562,7 @@ function doSearch(){filterPosts();}
 function clearSearch(){var qi=document.getElementById('q');if(qi){qi.value='';qi.focus();}filterPosts();}
 function setTag(tag){curTag=tag;var grp=document.querySelector('.chips[data-for="'+curAud+'"]');grp.querySelectorAll('.chip').forEach(function(ch){ch.classList.toggle('active',ch.getAttribute('data-tag')===tag);});var posts=document.getElementById('posts');posts.style.opacity='0';setTimeout(function(){filterPosts();posts.style.opacity='1';},160);}
 function setAud(aud){var qi=document.getElementById('q');if(qi)qi.value='';curAud=aud;curTag='all';document.querySelectorAll('.aud-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-aud')===aud);});setAudData(aud);positionGlide();showChips(aud);var posts=document.getElementById('posts'),hero=document.getElementById('hero');posts.style.opacity='0';hero.style.opacity='0';setTimeout(function(){filterPosts();applyL(document.documentElement.lang);posts.style.opacity='1';hero.style.opacity='1';},200);try{localStorage.setItem('evoAud',aud);}catch(e){}syncURL();}
-(function(){var a='founder';try{var p=new URLSearchParams(location.search);var q=(p.get('aud')||'').toLowerCase();if(q==='b2b')q='founder';/* 2026-09-02 修：白名單漏了 expert，所以 ?aud=expert 與 localStorage 存的 expert   都會被打回預設的 founder，Operator Notes 一重新整理就跳到 For B2B Founders。 */
+(function(){var a='expert';try{var p=new URLSearchParams(location.search);var q=(p.get('aud')||'').toLowerCase();if(q==='b2b')q='founder';/* 2026-09-02 修：白名單漏了 expert，所以 ?aud=expert 與 localStorage 存的 expert   都會被打回預設的 founder，Operator Notes 一重新整理就跳到 For B2B Founders。 */
   var OK=['b2c','founder','investor','operator','expert'];
   if(OK.indexOf(q)>=0){a=q;}else{var s=localStorage.getItem('evoAud');if(OK.indexOf(s)>=0)a=s;}}catch(e){}
   document.querySelectorAll('.aud-btn').forEach(function(b){b.addEventListener('click',function(){setAud(b.getAttribute('data-aud'));});});
