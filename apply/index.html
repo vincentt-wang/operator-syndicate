@@ -816,12 +816,15 @@ function deckLinkMissing(){
   setTimeout(function(){ el.focus(); }, 400);
 }
 
+/* 2026-10-19 備份：每筆表單另外存一份到一春自己的收件程式（Cloudflare KV），信照舊走 FormSubmit。這一份不影響畫面成功與否，信沒到時可以拿來對帳 */
+function esBackup(form,subject,fields){try{fetch('https://evoscale-forms.comicbnb.workers.dev/submit',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({form:form,subject:subject,fields:fields})}).catch(function(){});}catch(e){}}
 /* formsubmit.co：問卷與 deck 連結各寄一次給兩個收件人（不用 CC）。無後端。 */
 async function submitViaFormsubmit(answers){
   normalizeDeckLink();
   answers.deck_link=(document.querySelector('[name="deck_link"]')||{}).value||'';
   if(!(answers.deck_link||'').trim()){ return deckLinkMissing(); }
   setBusy(true);
+  esBackup('apply','New deal submission — '+(answers.company||'Unknown'),answers);
   try{
     var mkFd=function(){
       var fd=new FormData();

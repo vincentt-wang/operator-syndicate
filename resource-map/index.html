@@ -440,10 +440,12 @@ $('langBtn').addEventListener('click',function(){
 /* 2026-09-06 兩個收件人各送一次，不再靠 _cc（/ajax/ 端點對底線欄位沒有文件保證）。
    另外原本只要 fetch 沒 throw 就顯示已送出，FormSubmit 回 success:"false" 時也會顯示成功，
    現在改成必須真的有一個收件人回 success 才算送出。 */
+/* 2026-10-19 備份：每筆表單另外存一份到一春自己的收件程式（Cloudflare KV），信照舊走 FormSubmit。這一份不影響畫面成功與否，信沒到時可以拿來對帳 */
+function esBackup(form,subject,fields){try{fetch('https://evoscale-forms.comicbnb.workers.dev/submit',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({form:form,subject:subject,fields:fields})}).catch(function(){});}catch(e){}}
 var FS_RECIPIENTS=['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
 $('submitBtn').addEventListener('click',function(){var u=U(),b=this,se=$('suberr');se.classList.remove('show');
   if(!S.name.trim()){se.textContent=u.needName;se.classList.add('show');return;}
-  b.disabled=true;b.textContent=u.submitting;
+  b.disabled=true;b.textContent=u.submitting;esBackup('resource-map',u.subj+S.name.trim(),{name:S.name.trim(),inventory:output(),state:JSON.stringify(S)});
   function build(){var fd=new FormData();
     fd.append('_subject',u.subj+S.name.trim());fd.append('_captcha','false');fd.append('_template','box');
     fd.append('name',S.name.trim());fd.append('inventory',output());fd.append('_json',JSON.stringify(S));
