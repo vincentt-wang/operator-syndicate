@@ -1,240 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="zh-Hant" data-lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EvoScale Deal Room · Presenter Guide</title>
+<title>一春資本 Deal Room｜簡報團隊說明</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Everything a presenting team needs for the EvoScale Capital Deal Room: time, venue, format and what to submit.">
-<meta property="og:title" content="EvoScale Deal Room · Presenter Guide">
-<meta property="og:description" content="Time, venue, format and what to submit before the session.">
+<meta property="og:title" content="一春資本 Deal Room｜簡報團隊說明">
 <meta property="og:image" content="https://evoscalecapital.com/og-cover.png">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;700&family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --orange:#FF6600;--orange-2:#E55A00;--orange-pale:#FFF7ED;
-  --navy:#0A1628;--text:#0B1623;--text-2:#2D3748;--text-3:#5A6A7A;
-  --bg:#F7F9FB;--white:#fff;--border:rgba(11,22,35,.09);
-  --fd:'Playfair Display','Noto Serif TC',serif;
-  --fb:'DM Sans','Noto Sans TC',sans-serif;
-}
+:root{--or:#FF6600;--or2:#E55A00;--orp:#FFF4EA;--navy:#0A1628;--tx:#0B1623;--tx2:#334155;--tx3:#64748B;--bg:#F6F7F9;--line:rgba(11,22,35,.1);
+--fd:'Playfair Display','Noto Serif TC',serif;--fb:'DM Sans','Noto Sans TC',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+body{font-family:var(--fb);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
 a{color:inherit}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.lm{width:34px;height:34px;border-radius:8px;background:var(--orange);color:#fff;font-weight:800;font-family:var(--fd);display:flex;align-items:center;justify-content:center;font-size:.95rem}
-.logo span{font-family:var(--fd);font-weight:800;font-size:1.05rem}
-#lang{font-family:var(--fb);font-weight:700;font-size:.9rem;letter-spacing:.04em;border:1.5px solid var(--orange);background:var(--white);color:var(--orange-2);border-radius:20px;padding:6px 16px;cursor:pointer}
-#lang:hover{background:var(--orange);color:#fff}
-.hero{background:var(--navy);color:#fff;border-radius:18px;padding:36px 28px 30px;margin-top:6px}
-.kick{color:#FF8C42;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
-.hero h1{font-family:var(--fd);font-size:2.1rem;line-height:1.2;margin:10px 0 12px}
-.hero p{color:#C9D3DF;font-size:1.02rem}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0 22px}
-.fact{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px}
-.fact b{display:block;font-size:1.08rem}
-.fact small{color:#9FB0C3;font-size:.82rem}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:.95rem;border-radius:999px;padding:11px 20px;border:1.5px solid var(--orange)}
-.btn.p{background:var(--orange);color:#fff}
-.btn.p:hover{background:var(--orange-2)}
-.btn.g{color:#fff;border-color:rgba(255,255,255,.45)}
-.btn.g:hover{border-color:#fff}
-.btn.o{color:var(--orange-2);background:var(--white)}
-.btn.o:hover{background:var(--orange-pale)}
-section{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 26px 24px;margin-top:16px}
-.num{display:inline-block;color:var(--orange);font-weight:800;font-size:.85rem;letter-spacing:.1em}
-section h2{font-family:var(--fd);font-size:1.45rem;line-height:1.3;margin:4px 0 14px}
-section p,section li{color:var(--text-2);font-size:1rem}
-ul.dot{list-style:none}
-ul.dot li{position:relative;padding-left:18px;margin:7px 0}
-ul.dot li::before{content:"";position:absolute;left:2px;top:.68em;width:7px;height:7px;border-radius:50%;background:var(--orange)}
-.bar{display:flex;border-radius:10px;overflow:hidden;margin:4px 0 20px;font-weight:700;font-size:.92rem}
-.bar div{flex:1;padding:12px 14px}
-.bar .a{background:var(--orange);color:#fff}
-.bar .b{background:var(--orange-pale);color:var(--orange-2)}
-.bar small{display:block;font-weight:500;opacity:.85;font-size:.8rem}
-ol.parts{list-style:none;counter-reset:p}
-ol.parts li{counter-increment:p;position:relative;padding:12px 0 12px 44px;border-top:1px solid var(--border)}
-ol.parts li:first-child{border-top:0}
-ol.parts li::before{content:counter(p);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-ol.parts b{display:block;color:var(--text)}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.chips span{background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:4px 12px;font-size:.86rem;color:var(--text-2)}
-.lbl{font-size:.86rem;color:var(--text-3);margin-top:14px}
-.files{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 18px}
-.file{border:1px solid var(--border);border-radius:12px;padding:16px;background:var(--bg)}
-.file b{display:block;font-size:1.05rem;margin-bottom:2px}
-.file .who{display:inline-block;font-size:.8rem;font-weight:700;border-radius:6px;padding:2px 8px;margin:4px 0 8px}
-.file .who.priv{background:#EEF2F7;color:var(--navy)}
-.file .who.pub{background:var(--orange-pale);color:var(--orange-2)}
-.file p{font-size:.93rem}
-.how{font-size:.93rem;color:var(--text-3);margin-top:8px;border-top:1px dashed var(--border);padding-top:8px}
-.how em{font-style:normal;font-weight:700;color:var(--text)}
-footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40px}
-.mem{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}
-.mem div{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-.mem b{display:block;font-size:.95rem;color:var(--text)}
-.mem span{font-size:.86rem;color:var(--text-3)}
-.memnote{font-size:.82rem;color:var(--text-3);margin-top:10px}
-.ppl{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
-.p{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
-.p>div{flex:1;min-width:0}
-.p b{display:block;font-size:.95rem;color:var(--text)}
-.p span{display:block;font-size:.86rem;color:var(--text-3)}
-.p.off{opacity:.55}
-.tg{font-style:normal;font-size:.74rem;font-weight:700;border-radius:6px;padding:2px 7px;white-space:nowrap}
-.tg.onsite{background:var(--orange-pale);color:var(--orange-2)}
-.tg.online{background:#E8F1FB;color:#1E5AA8}
-.tg.absent{background:#EEF2F7;color:var(--text-3)}
-.li{flex:none;width:26px;height:26px;border-radius:6px;background:#0A66C2;color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;text-decoration:none}
-.locked{font-size:.9rem;color:var(--text-3);background:var(--bg);border:1px dashed var(--border);border-radius:10px;padding:12px 14px;margin-top:12px}
-.mt{font-size:.82rem;color:var(--text-3);align-self:center}
-@media (max-width:600px){
-  .ppl{grid-template-columns:1fr}
-  .wrap{padding:0 16px}
-  .hero{padding:28px 20px 24px}
-  .hero h1{font-size:1.7rem}
-  .facts{grid-template-columns:1fr}
-  .files{grid-template-columns:1fr}
-  section{padding:22px 18px 20px}
-  .btn{flex:1 1 100%;justify-content:center}
-}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--fd);font-weight:800}
+.lm{width:30px;height:30px;border-radius:7px;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+#lang{font:700 .85rem var(--fb);border:1.5px solid var(--or);background:#fff;color:var(--or2);border-radius:20px;padding:5px 14px;cursor:pointer}
+.hero{background:var(--navy);color:#fff;border-radius:16px;padding:24px 20px 20px}
+.kick{color:#FF8C42;font-weight:700;font-size:.78rem;letter-spacing:.1em}
+.hero h1{font-family:var(--fd);font-size:1.65rem;line-height:1.25;margin:6px 0 14px}
+.when{display:flex;flex-direction:column;gap:6px;font-size:1rem}
+.when b{font-weight:700}
+.when span{color:#AFC0D3}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{flex:1 1 0;min-width:140px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font:700 .92rem var(--fb);border-radius:999px;padding:11px 14px;border:1.5px solid var(--or);cursor:pointer;background:none;color:inherit}
+.btn.p{background:var(--or);color:#fff}
+.btn.g{color:#fff;border-color:rgba(255,255,255,.4)}
+.btn.o{color:var(--or2);background:#fff}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-top:12px}
+.card h2{font-family:var(--fd);font-size:1.2rem;margin-bottom:10px}
+.card p{color:var(--tx2);font-size:.95rem}
+.bar{display:flex;border-radius:10px;overflow:hidden;font-weight:700;font-size:.88rem;text-align:center}
+.bar div{padding:10px 6px}
+.bar div{white-space:nowrap}.bar .a{flex:10;background:var(--or);color:#fff}.bar .b{flex:8;background:var(--orp);color:var(--or2)}.bar .c{flex:3;background:#EEF1F4;color:var(--tx3)}
+@media (max-width:480px){.hero .btn{flex:1 1 100%}}
+ol.st{list-style:none;counter-reset:s;margin-top:4px}
+ol.st li{counter-increment:s;position:relative;padding:9px 0 9px 36px;border-top:1px solid var(--line);color:var(--tx2);font-size:.95rem}
+ol.st li:first-child{border-top:0}
+ol.st li::before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center}
+ol.st b{color:var(--tx);display:block}
+.note{font-size:.85rem;color:var(--tx3);margin-top:8px}
+footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 </style>
 </head>
 <body>
 <div class="wrap">
-
-<header class="top">
-  <a class="logo" href="https://evoscalecapital.com/"><div class="lm">ES</div><span data-en="EvoScale Capital" data-zh="一春資本 EvoScale">EvoScale Capital</span></a>
-  <button id="lang" type="button" aria-label="Switch language">中文</button>
-</header>
-
+<header><a class="logo" href="https://evoscalecapital.com/"><span class="lm">ES</span><span data-zh="一春資本" data-en="EvoScale Capital">一春資本</span></a><button id="lang" type="button">English</button></header>
 <div class="hero">
-  <div class="kick" data-en="Deal Room · Presenter Guide" data-zh="Deal Room · 新創簡報說明">Deal Room · Presenter Guide</div>
-  <h1 data-en="Welcome to the October Deal Room" data-zh="歡迎來 10 月的 Deal Room">Welcome to the October Deal Room</h1>
-  <p data-en="Hi, this is Vincent from EvoScale Capital. Thank you for joining us! Everything you need for the day is on this page: when and where, how your 20 minutes work, and the two files to send before the session." data-zh="您好，我是一春資本的 Vincent，謝謝您們願意來 Deal Room！當天需要知道的都在這一頁：時間地點、20 分鐘怎麼分配，以及會前要上傳的兩份資料。">Hi, this is Vincent from EvoScale Capital. Thank you for joining us! Everything you need for the day is on this page: when and where, how your 20 minutes work, and the two files to send before the session.</p>
-  <div class="facts">
-    <div class="fact"><small data-en="Date" data-zh="日期">Date</small><b data-en="Thu, 29 Oct 2026" data-zh="10/29（四）">Thu, 29 Oct 2026</b></div>
-    <div class="fact"><small data-en="Time (Taipei, GMT+8)" data-zh="時間">Time (Taipei, GMT+8)</small><b>12:00 – 14:00</b></div>
-    <div class="fact"><small data-en="Where" data-zh="地點">Where</small><b data-en="食寓森鄰, Taipei · lunch" data-zh="食寓森鄰（台北）· 午餐場">食寓森鄰, Taipei · lunch</b></div>
-  </div>
-  <div class="btns">
-    <a class="btn p" href="#submit" data-en="What to submit ↓" data-zh="要上傳什麼 ↓">What to submit ↓</a>
-    <a class="btn g" href="https://maps.app.goo.gl/X5vUUF3AbzaxpJT3A" target="_blank" rel="noopener" data-en="Open venue in Google Maps ↗" data-zh="在 Google 地圖開啟地點 ↗">Open venue in Google Maps ↗</a>
-  </div>
+  <div class="kick" data-zh="DEAL ROOM · 簡報團隊說明" data-en="DEAL ROOM · PRESENTER GUIDE">DEAL ROOM · 簡報團隊說明</div>
+  <h1 data-zh="謝謝你們來 10 月的 Deal Room" data-en="Welcome to the October Deal Room">謝謝你們來 10 月的 Deal Room</h1>
+  <div class="when"><b><span data-zh="10/29（四）12:00–14:00" data-en="Thu 29 Oct · 12:00–14:00 (Taipei)">10/29（四）12:00–14:00</span></b><span data-zh="食寓森鄰（台北），12:00 開始報到取餐" data-en="食寓森鄰, Taipei · lunch from 12:00">食寓森鄰（台北），12:00 開始報到取餐</span></div>
+  <div class="btns"><a class="btn g" href="https://maps.app.goo.gl/X5vUUF3AbzaxpJT3A" target="_blank" rel="noopener"><span data-zh="Google 地圖 ↗" data-en="Open in Google Maps ↗">Google 地圖 ↗</span></a></div>
 </div>
-
-<section>
-  <span class="num">01</span>
-  <h2 data-en="Who you'll meet" data-zh="現場會有誰">Who you'll meet</h2>
-  <ul class="dot">
-    <li data-en="EvoScale members, most of them senior executives currently in corporate roles. Some join online." data-zh="一春成員，多半是現職的企業高階主管，部分成員線上參加">EvoScale members, most of them senior executives currently in corporate roles. Some join online.</li>
-    <li data-en="Three startups present in this session, and all three teams stay for the full two hours" data-zh="同場共三隊新創，三隊都會全程在場">Three startups present in this session, and all three teams stay for the full two hours</li>
-  </ul>
-  <div id="who"><div class="locked" data-en="The attendee list opens from the full link we sent in your chat." data-zh="出席名單請從我們傳到對話裡的完整連結開啟。">The attendee list opens from the full link we sent in your chat.</div></div>
-</section>
-
-<section>
-  <span class="num">02</span>
-  <h2 data-en="Your 20 minutes" data-zh="您的 20 分鐘">Your 20 minutes</h2>
-  <div class="bar">
-    <div class="a"><small data-en="First" data-zh="前段">First</small><span data-en="10 min pitch" data-zh="簡報 10 分鐘">10 min pitch</span></div>
-    <div class="b"><small data-en="Then" data-zh="後段">Then</small><span data-en="10 min Q&amp;A" data-zh="問答 10 分鐘">10 min Q&amp;A</span></div>
-  </div>
-  <p data-en="To help our members get to know you in 10 minutes, we suggest three parts:" data-zh="簡報建議分三段，幫成員在 10 分鐘內認識您們：">To help our members get to know you in 10 minutes, we suggest three parts:</p>
-  <ol class="parts">
-    <li><b data-en="Why this problem matters" data-zh="為什麼要解決這個問題">Why this problem matters</b><span data-en="The pain point in numbers, market size and trends" data-zh="量化的痛點、市場大小與趨勢">The pain point in numbers, market size and trends</span></li>
-    <li><b data-en="What you've proven so far" data-zh="已經做成了什麼">What you've proven so far</b><span data-en="What has already worked, what you plan to replicate and scale next, and where you could use our help" data-zh="哪些方案已經驗證成功，接下來準備複製和放大哪些，哪裡需要我們幫忙">What has already worked, what you plan to replicate and scale next, and where you could use our help</span></li>
-    <li><b data-en="What you need" data-zh="需要哪些資源">What you need</b><span data-en="Competitive landscape, team, projections, and how you'd like EvoScale to help" data-zh="競爭態勢、團隊、未來預測，以及您希望一春怎麼幫上忙">Competitive landscape, team, projections, and how you'd like EvoScale to help</span></li>
+<div class="card">
+  <h2 data-zh="你的 20 分鐘" data-en="Your 20 minutes">你的 20 分鐘</h2>
+  <div class="bar"><div class="a"><span data-zh="簡報 10 分" data-en="Pitch 10">簡報 10 分</span></div><div class="b"><span data-zh="問答 8 分" data-en="Q&amp;A 8">問答 8 分</span></div><div class="c"><span data-zh="換場" data-en="Switch">換場</span></div></div>
+  <ol class="st">
+    <li><b data-zh="為什麼要解決這個問題" data-en="Why this problem matters">為什麼要解決這個問題</b><span data-zh="量化的痛點、市場大小與趨勢" data-en="The pain in numbers, market size and trends">量化的痛點、市場大小與趨勢</span></li>
+    <li><b data-zh="已經做成了什麼" data-en="What you have proven">已經做成了什麼</b><span data-zh="哪些已經驗證成功，接下來複製放大哪些" data-en="What already works and what you will scale next">哪些已經驗證成功，接下來複製放大哪些</span></li>
+    <li><b data-zh="需要哪些資源" data-en="What you need">需要哪些資源</b><span data-zh="競爭、團隊、預測，以及希望一春怎麼幫" data-en="Competition, team, projections, and how EvoScale can help">競爭、團隊、預測，以及希望一春怎麼幫</span></li>
   </ol>
-  <div class="lbl" data-en="Building blocks you can draw on" data-zh="元素上可以參考">Building blocks you can draw on</div>
-  <div class="chips"><span>Hook</span><span>Problem</span><span>Solution</span><span>Market</span><span>Traction</span><span>Business Model</span><span>Competition</span><span>Team</span><span>Financials</span><span>Ask</span></div>
-</section>
-
-<section>
-  <span class="num">03</span>
-  <h2 data-en="On the day" data-zh="當天怎麼進行">On the day</h2>
-  <ol class="parts">
-    <li><b data-en="Present from your own laptop" data-zh="用自己的電腦投影">Present from your own laptop</b><span data-en="Bring your laptop and charger. We'll connect it to the screen on site." data-zh="請帶筆電和充電器，現場我們幫您接上螢幕。">Bring your laptop and charger. We'll connect it to the screen on site.</span></li>
-    <li><b data-en="Join the online meeting before your turn" data-zh="上台前先加入線上會議">Join the online meeting before your turn</b><span data-en="Some members join online. Before your turn, join the Google Meet on the laptop you present from, with its mic and speakers off (our room mic picks up the sound), then share your screen when you start." data-zh="部分成員在線上參加。輪到您之前，請用投影的那台電腦加入 Google Meet，麥克風和喇叭先關（聲音由現場的會議麥克風收），開始簡報時分享畫面。">Some members join online. Before your turn, join the Google Meet on the laptop you present from, with its mic and speakers off (our room mic picks up the sound), then share your screen when you start.</span></li>
-    <li><b data-en="Running order" data-zh="出場順序">Running order</b><span data-en="Dentall presents last. We'll post the order of the other two teams here once it's set." data-zh="Dentall 排最後一組，另外兩組的順序確定後會更新在這裡。">Dentall presents last. We'll post the order of the other two teams here once it's set.</span></li>
-  </ol>
-  <div class="btns" id="meet" style="margin-top:14px"><div class="locked" data-en="The meeting link opens from the full link we sent in your chat." data-zh="線上會議連結請從我們傳到對話裡的完整連結開啟。">The meeting link opens from the full link we sent in your chat.</div></div>
-</section>
-
-<section id="submit">
-  <span class="num">04</span>
-  <h2 data-en="Two files to send before the session" data-zh="會前請上傳兩份資料">Two files to send before the session</h2>
-  <div class="files">
-    <div class="file">
-      <b data-en="Detailed deck" data-zh="詳細版">Detailed deck</b>
-      <span class="who priv" data-en="Only Vincent and Boice see this" data-zh="只有 Vincent 跟 Boice 會看">Only Vincent and Boice see this</span>
-      <p data-en="Feel free to include fuller numbers here." data-zh="可以放比較完整的數字。">Feel free to include fuller numbers here.</p>
-      <div class="how" data-en="Paste the link in <em>Pitch deck link</em> on the last step of the form." data-zh="在表單最後一步的 <em>Pitch deck link</em> 欄貼上連結。">Paste the link in <em>Pitch deck link</em> on the last step of the form.</div>
-    </div>
-    <div class="file">
-      <b>Sales Deck</b>
-      <span class="who pub" data-en="Shared with our members" data-zh="會分享給 LP 成員">Shared with our members</span>
-      <p data-en="We send it to members ahead of time so they can get to know you before the day." data-zh="讓大家會前先認識您們。">We send it to members ahead of time so they can get to know you before the day.</p>
-      <div class="how" data-en="Add the link under <em>Supplementary</em> in the form, or just send it to us in our chat." data-zh="貼在表單的 <em>Supplementary</em> 補充欄，或直接傳到我們的對話裡即可。">Add the link under <em>Supplementary</em> in the form, or just send it to us in our chat.</div>
-    </div>
-  </div>
-  <div class="btns">
-    <a class="btn p" href="https://evoscalecapital.com/apply/" target="_blank" rel="noopener" data-en="Go to the submission form ↗" data-zh="前往官網上傳 ↗">Go to the submission form ↗</a>
-    <a class="btn o" href="https://evoscalecapital.com/" target="_blank" rel="noopener" data-en="Visit evoscalecapital.com ↗" data-zh="看看一春官網 ↗">Visit evoscalecapital.com ↗</a>
-  </div>
-</section>
-
-<section>
-  <span class="num">05</span>
-  <h2 data-en="Anything unclear?" data-zh="有不清楚的地方嗎？">Anything unclear?</h2>
-  <p data-en="Happy to set up a 30 minute online call so we can prepare well together. Just message me in our chat, or write to <a href=&quot;mailto:vincent@evoscalecapital.com&quot;>vincent@evoscalecapital.com</a>. Thank you, and see you on the 29th!" data-zh="歡迎我們約一個 30 分鐘線上聊聊，讓我們準備得更到位！直接在對話裡跟我說，或寫信到 <a href=&quot;mailto:vincent@evoscalecapital.com&quot;>vincent@evoscalecapital.com</a>。謝謝，10/29 見！">Happy to set up a 30 minute online call so we can prepare well together. Just message me in our chat, or write to <a href="mailto:vincent@evoscalecapital.com">vincent@evoscalecapital.com</a>. Thank you, and see you on the 29th!</p>
-</section>
-
-<footer>EvoScale Capital 一春資本</footer>
+  <p class="note" data-zh="問答由現場成員提問，多半是現職企業高階主管。" data-en="Q&amp;A comes from members in the room, mostly senior corporate executives.">問答由現場成員提問，多半是現職企業高階主管。</p>
 </div>
-
-<!--SEALED:START--><script id="sealed" type="application/octet-stream">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</script><!--SEALED:END-->
+<div class="card">
+  <h2 data-zh="當天怎麼進行" data-en="On the day">當天怎麼進行</h2>
+  <ol class="st">
+    <li><b data-zh="12:00 報到取餐" data-en="12:00 Arrive and grab lunch">12:00 報到取餐</b><span data-zh="三隊全程在場" data-en="All three teams stay for the full session">三隊全程在場</span></li>
+    <li><b data-zh="三隊依序上台" data-en="Three teams present in turn">三隊依序上台</b><span data-zh="每隊 20 分鐘，Dentall 排最後一組，另外兩隊的順序會再通知" data-en="20 minutes each. Dentall goes last; we will confirm the order of the other two">每隊 20 分鐘，Dentall 排最後一組，另外兩隊的順序會再通知</span></li>
+    <li><b data-zh="14:00 結束" data-en="14:00 Close">14:00 結束</b><span data-zh="會後有興趣的成員會加入你們的團隊群" data-en="Interested members will join your team chat afterwards">會後有興趣的成員會加入你們的團隊群</span></li>
+  </ol>
+</div>
+<div class="card">
+  <h2 data-zh="用自己的電腦投影" data-en="Present from your own laptop">用自己的電腦投影</h2>
+  <ol class="st">
+    <li><b data-zh="帶筆電和充電器" data-en="Bring your laptop and charger">帶筆電和充電器</b><span data-zh="現場我們幫你接上螢幕" data-en="We will connect it to the screen on site">現場我們幫你接上螢幕</span></li>
+    <li><b data-zh="上台前先加入 Google Meet" data-en="Join the Google Meet before your turn">上台前先加入 Google Meet</b><span data-zh="用投影的那台電腦加入，麥克風和喇叭先關，部分成員在線上看" data-en="On the laptop you present from, with mic and speakers off. Some members join online">用投影的那台電腦加入，麥克風和喇叭先關，部分成員在線上看</span></li>
+    <li><b data-zh="開始簡報時分享畫面" data-en="Share your screen when you start">開始簡報時分享畫面</b><span data-zh="線上的成員才看得到" data-en="So online members can follow">線上的成員才看得到</span></li>
+  </ol>
+  <p class="note" data-zh="Meet 連結在團隊群的訊息裡。" data-en="The Meet link is in your team chat.">Meet 連結在團隊群的訊息裡。</p>
+</div>
+<div class="card">
+  <h2 data-zh="會前請給我們簡報" data-en="Send us your deck before the day">會前請給我們簡報</h2>
+  <p data-zh="Sales Deck 會分享給成員先認識你們，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。" data-en="Your sales deck goes to members so they can get to know you; just drop it in the team chat. A detailed deck is only for Vincent and Boice; add it as the Pitch deck link on our form.">Sales Deck 會分享給成員先認識你們，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。</p>
+  <div class="btns"><a class="btn o" href="https://evoscalecapital.com/apply/" target="_blank" rel="noopener"><span data-zh="前往官網表單 ↗" data-en="Go to the form ↗">前往官網表單 ↗</span></a></div>
+</div>
+<footer><span data-zh="有問題直接在團隊群問我們，或寫信到 vincent@evoscalecapital.com" data-en="Questions? Ask us in the team chat or email vincent@evoscalecapital.com">有問題直接在團隊群問我們，或寫信到 vincent@evoscalecapital.com</span></footer>
+</div>
 <script>
 (function(){
-  var btn=document.getElementById('lang');
+  var b=document.getElementById('lang'),T={"zh":"一春資本 Deal Room｜簡報團隊說明","en":"EvoScale Deal Room · Presenter Guide"};
   function set(l){
-    document.documentElement.setAttribute('data-lang',l);
-    document.documentElement.lang=l==='zh'?'zh-Hant':'en';
-    document.querySelectorAll('[data-en]').forEach(function(e){e.innerHTML=e.getAttribute('data-'+l);});
-    btn.textContent=l==='zh'?'EN':'中文';
-    document.title=l==='zh'?'一春資本 Deal Room｜新創簡報說明':'EvoScale Deal Room · Presenter Guide';
+    document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l==='en'?'en':'zh-Hant';
+    document.querySelectorAll('[data-zh]').forEach(function(e){e.innerHTML=e.getAttribute('data-'+l)});
+    b.textContent=l==='en'?'中文':'English';document.title=T[l];
     try{localStorage.setItem('dr_lang',l)}catch(e){}
+    if(window.drRender)window.drRender(l);
   }
-  var q=new URLSearchParams(location.search).get('lang'), saved=null;
-  try{saved=localStorage.getItem('dr_lang')}catch(e){}
-  var l=q==='zh'||q==='en'?q:(saved||'en');
-  if(l!=='en')set(l);
-  btn.addEventListener('click',function(){set(document.documentElement.getAttribute('data-lang')==='zh'?'en':'zh');});
-  window.drSet=set;
-})();
-(function(){
-  var m=/[#&]k=([A-Za-z0-9_-]+)/.exec(location.hash), el=document.getElementById('sealed');
-  if(!m||!el||!window.crypto||!crypto.subtle)return;
-  function b(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
-  var raw=b(el.textContent.trim());
-  crypto.subtle.importKey('raw',b(m[1]),'AES-GCM',false,['decrypt']).then(function(k){
-    return crypto.subtle.decrypt({name:'AES-GCM',iv:raw.slice(0,12)},k,raw.slice(12));
-  }).then(function(buf){
-    var d=JSON.parse(new TextDecoder().decode(buf));
-    document.getElementById('who').innerHTML=d.who;
-    document.getElementById('meet').innerHTML=d.meet;
-    var l=document.documentElement.getAttribute('data-lang');
-    if(l!=='en')window.drSet(l);
-  }).catch(function(){});
+  window.drLang=function(){return document.documentElement.getAttribute('data-lang')};
+  var q=new URLSearchParams(location.search).get('lang'),s=null;try{s=localStorage.getItem('dr_lang')}catch(e){}
+  var l=(q==='en'||q==='zh')?q:(s||'zh'); if(l!=='zh')set(l);
+  b.addEventListener('click',function(){set(window.drLang()==='en'?'zh':'en')});
 })();
 </script>
 </body>
