@@ -56,6 +56,18 @@ ol.st b{color:var(--tx);display:block}
 .elc .h b{font-size:1rem}.elc .h span{color:var(--tx3);font-size:.85rem}
 .elc p{font-size:.92rem;color:var(--tx2);margin-top:4px}
 .elc p em{font-style:normal;font-weight:700;color:var(--tx)}
+.dfv{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.dfv .row{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:10px 12px}
+.dfv .lab{flex:none;width:76px;line-height:1.25}
+.dfv .lab b{display:inline-block;width:22px;height:22px;border-radius:6px;color:#fff;text-align:center;font-size:.8rem;line-height:22px;margin-right:4px}
+.dfv .lab span{font-weight:700;font-size:.88rem}
+.dfv .lab i{display:block;font-style:normal;font-size:.72rem;color:var(--tx3);margin-top:3px}
+.dfv .chs{display:flex;flex-wrap:wrap;gap:6px}
+.dfv .ch{font-weight:700;font-size:.82rem;border-radius:999px;padding:5px 10px;background:#fff;border:1.5px solid}
+.dfv .ch.br{border-style:dashed;opacity:.8}
+.dfv .d{background:#FFF4EA}.dfv .d b{background:#FF6600}.dfv .d .ch{border-color:#FF6600;color:#C2410C}
+.dfv .f{background:#E8F3F6}.dfv .f b{background:#0E6E86}.dfv .f .ch{border-color:#0E6E86;color:#0E6E86}
+.dfv .v{background:#EEF0F7}.dfv .v b{background:#0A1628}.dfv .v .ch{border-color:#0A1628;color:#0A1628}
 footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 </style>
 </head>
@@ -76,15 +88,15 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
     <li><b data-zh="已經做成了什麼" data-en="What you have proven">已經做成了什麼</b><span data-zh="哪些已經驗證成功，接下來複製放大哪些" data-en="What already works and what you will scale next">哪些已經驗證成功，接下來複製放大哪些</span></li>
     <li><b data-zh="需要哪些資源" data-en="What you need">需要哪些資源</b><span data-zh="競爭、團隊、預測，以及希望一春怎麼幫" data-en="Competition, team, projections, and how EvoScale can help">競爭、團隊、預測，以及希望一春怎麼幫</span></li>
   </ol>
-    <p class="note" style="margin-top:14px;font-weight:700;color:var(--tx)" data-zh="簡報的十個關鍵元素，點開看說明" data-en="Ten building blocks of a pitch. Tap one to see what it covers.">簡報的十個關鍵元素，點開看說明</p>
-  <div class="els" id="els"></div>
-  <div class="elc" id="elc"></div>
+    <p class="note" style="margin-top:14px;font-weight:700;color:var(--tx)" data-zh="簡報的關鍵元素" data-en="Building blocks of your pitch">簡報的關鍵元素</p>
+  <div class="dfv"><div class="row d"><div class="lab"><b>D</b><span data-zh="欲求性" data-en="Desirability">欲求性</span><i data-zh="有沒有人真的需要" data-en="Does anyone really need this">有沒有人真的需要</i></div><div class="chs"><span class="ch">Hook</span><span class="ch">Problem</span><span class="ch">Solution</span><span class="ch">Market</span></div></div><div class="row f"><div class="lab"><b>F</b><span data-zh="可行性" data-en="Feasibility">可行性</span><i data-zh="做不做得起來" data-en="Can it be built and sold">做不做得起來</i></div><div class="chs"><span class="ch br">Market</span><span class="ch">Why Now</span><span class="ch">Traction</span><span class="ch">Business</span><span class="ch">Competition</span></div></div><div class="row v"><div class="lab"><b>V</b><span data-zh="存續性" data-en="Viability">存續性</span><i data-zh="能不能長久走下去" data-en="Can it last and scale">能不能長久走下去</i></div><div class="chs"><span class="ch br">Competition</span><span class="ch">Team</span><span class="ch">Financials</span><span class="ch">Milestone</span><span class="ch">Ask</span></div></div></div>
+  <p class="note" data-zh="虛線框是銜接兩段的元素。Why Now 與 Milestone 是一春建議補上的。" data-en="Dashed items bridge two stages. Why Now and Milestone are ones we suggest adding.">虛線框是銜接兩段的元素。Why Now 與 Milestone 是一春建議補上的。</p>
 </div>
 <div class="card">
   <h2 data-zh="當天怎麼進行" data-en="On the day">當天怎麼進行</h2>
   <ol class="st">
     <li><b data-zh="12:00 報到取餐" data-en="12:00 Arrive and grab lunch">12:00 報到取餐</b><span data-zh="三隊全程在場" data-en="All three teams stay for the full session">三隊全程在場</span></li>
-    <li><b data-zh="三隊依序上台" data-en="Three teams present in turn">三隊依序上台</b><span data-zh="每隊 20 分鐘：BRICKS 第一組、Dentall 最後一組，中間那一組下週公布" data-en="20 minutes each: BRICKS first, Dentall last, the middle slot announced next week">每隊 20 分鐘：BRICKS 第一組、Dentall 最後一組，中間那一組下週公布</span></li>
+    <li><b data-zh="三隊依序上台" data-en="Three teams present in turn">三隊依序上台</b><span data-zh="每隊 20 分鐘：第一組 BRICKS、第二組 Q-Bid（全程英文）、第三組 Dentall" data-en="20 minutes each: BRICKS first, Q-Bid second (in English), Dentall third">每隊 20 分鐘：第一組 BRICKS、第二組 Q-Bid（全程英文）、第三組 Dentall</span></li>
     <li><b data-zh="14:00 結束" data-en="14:00 Close">14:00 結束</b><span data-zh="會後我們會把團隊群開放給有興趣的一春夥伴" data-en="Afterwards we open your team chat to interested EvoScale partners">會後我們會把團隊群開放給有興趣的一春夥伴</span></li>
   </ol>
 </div>
@@ -118,21 +130,6 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
   var q=new URLSearchParams(location.search).get('lang'),s=null;try{s=localStorage.getItem('dr_lang')}catch(e){}
   var l=(q==='en'||q==='zh')?q:(s||'zh'); if(l!=='zh')set(l);
   b.addEventListener('click',function(){set(window.drLang()==='en'?'zh':'en')});
-})();
-</script>
-<script>
-(function(){
-  var E=[{"n": "01", "k": "Hook", "zh": "抓住注意力", "en": "Grab attention", "gz": "前 5 秒讓聽眾決定要不要聽下去", "ge": "In the first five seconds, give the room a reason to keep listening", "tz": "用一個問句、一個數字，或一句反直覺的話開場", "te": "Open with a question, a number or a counter-intuitive claim"}, {"n": "02", "k": "Problem", "zh": "痛點定義", "en": "Define the pain", "gz": "讓聽眾說：對，就是這個問題", "ge": "Get the room to say: yes, that is exactly the problem", "tz": "具體情境，加上現有解法哪裡不夠", "te": "A specific scenario, plus where current solutions fall short"}, {"n": "03", "k": "Solution", "zh": "解決方案", "en": "The solution", "gz": "講結果，不講功能，一句話說清楚", "ge": "Lead with the outcome, not the features, in one sentence", "tz": "可以用類比：我們是某某產業的 Uber", "te": "An analogy helps: we are the Uber of X"}, {"n": "04", "k": "Market", "zh": "市場規模", "en": "Market size", "gz": "證明這個問題值得解決", "ge": "Show the problem is worth solving", "tz": "TAM、SAM、SOM 由大到小，講清楚先切哪一塊", "te": "TAM, SAM, SOM from large to small, and which slice you enter first"}, {"n": "05", "k": "Traction", "zh": "成長動能", "en": "Traction", "gz": "用數字證明市場真的要", "ge": "Prove real demand with numbers", "tz": "營收、付費客戶、留存或回購，挑最強的一兩個", "te": "Revenue, paying customers, retention or repeat purchase; lead with your strongest one or two"}, {"n": "06", "k": "Business", "zh": "怎麼賺錢", "en": "Business model", "gz": "講清楚怎麼收錢與單位經濟", "ge": "Explain how you make money and the unit economics", "tz": "每一筆或每一個客戶賺多少，取得成本和終身價值", "te": "Margin per transaction or per customer, CAC versus LTV"}, {"n": "07", "k": "Competition", "zh": "競爭分析", "en": "Competition", "gz": "講差異，不要說沒有競爭者", "ge": "Show how you are different; never claim there is no competition", "tz": "用競爭矩陣，選對你有利的兩個軸", "te": "Use a competition matrix with the two axes that matter to buyers"}, {"n": "08", "k": "Team", "zh": "為什麼是你們", "en": "Why you", "gz": "讓人相信你們做得到", "ge": "Make the room believe you can execute", "tz": "相關經歷，加上團隊互補的能力", "te": "Relevant track record and complementary skills"}, {"n": "09", "k": "Financials", "zh": "財務規劃", "en": "Financials", "gz": "說明資金用途與里程碑", "ge": "Show use of funds and milestones", "tz": "未來 12 到 18 個月，時間點要具體", "te": "The next 12 to 18 months, with specific dates"}, {"n": "10", "k": "Ask", "zh": "你需要什麼", "en": "The ask", "gz": "清楚說出下一步", "ge": "State a clear next step", "tz": "具體的資源、用途，以及對方能得到什麼", "te": "Specific resources, what they are for, and what the other side gets"}], box=document.getElementById('els'), c=document.getElementById('elc'), cur=-1;
-  E.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.textContent=e.k;b.onclick=function(){cur=(cur===i?-1:i);draw()};box.appendChild(b)});
-  function draw(){
-    var l=window.drLang?window.drLang():'zh', bs=box.children;
-    for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',i===cur);
-    if(cur<0){c.classList.remove('on');return}
-    var e=E[cur], zh=l!=='en';
-    c.innerHTML='<div class="h"><i>'+e.n+'</i><b>'+e.k+'</b>'+((zh||e.en!==e.k)?'<span>'+(zh?e.zh:e.en)+'</span>':'')+'</div><p><em>'+(zh?'目的：':'Goal: ')+'</em>'+(zh?e.gz:e.ge)+'</p><p><em>'+(zh?'做法：':'How: ')+'</em>'+(zh?e.tz:e.te)+'</p>';
-    c.classList.add('on');
-  }
-  window.drRender=draw;
 })();
 </script>
 </body>
