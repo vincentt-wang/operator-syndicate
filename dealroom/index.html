@@ -84,7 +84,21 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
 .mem b{display:block;font-size:.95rem;color:var(--text)}
 .mem span{font-size:.86rem;color:var(--text-3)}
 .memnote{font-size:.82rem;color:var(--text-3);margin-top:10px}
+.ppl{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+.p{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.p>div{flex:1;min-width:0}
+.p b{display:block;font-size:.95rem;color:var(--text)}
+.p span{display:block;font-size:.86rem;color:var(--text-3)}
+.p.off{opacity:.55}
+.tg{font-style:normal;font-size:.74rem;font-weight:700;border-radius:6px;padding:2px 7px;white-space:nowrap}
+.tg.onsite{background:var(--orange-pale);color:var(--orange-2)}
+.tg.online{background:#E8F1FB;color:#1E5AA8}
+.tg.absent{background:#EEF2F7;color:var(--text-3)}
+.li{flex:none;width:26px;height:26px;border-radius:6px;background:#0A66C2;color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.locked{font-size:.9rem;color:var(--text-3);background:var(--bg);border:1px dashed var(--border);border-radius:10px;padding:12px 14px;margin-top:12px}
+.mt{font-size:.82rem;color:var(--text-3);align-self:center}
 @media (max-width:600px){
+  .ppl{grid-template-columns:1fr}
   .wrap{padding:0 16px}
   .hero{padding:28px 20px 24px}
   .hero h1{font-size:1.7rem}
@@ -122,11 +136,10 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
   <span class="num">01</span>
   <h2 data-en="Who you'll meet" data-zh="現場會有誰">Who you'll meet</h2>
   <ul class="dot">
-    <li data-en="About 20 EvoScale members, most of them senior executives currently in corporate roles" data-zh="約二十位一春成員，多半是現職的企業高階主管">About 20 EvoScale members, most of them senior executives currently in corporate roles</li>
+    <li data-en="EvoScale members, most of them senior executives currently in corporate roles. Some join online." data-zh="一春成員，多半是現職的企業高階主管，部分成員線上參加">EvoScale members, most of them senior executives currently in corporate roles. Some join online.</li>
     <li data-en="Three startups present in this session, and all three teams stay for the full two hours" data-zh="同場共三隊新創，三隊都會全程在場">Three startups present in this session, and all three teams stay for the full two hours</li>
   </ul>
-  <div class="lbl" data-en="Some of the members and advisors you may meet (company and role)" data-zh="可能會遇到的部分成員與顧問（公司與職稱）">Some of the members and advisors you may meet (company and role)</div>
-  <!--MEMBERS:START--><div class="mem"><div><b>Michael Page</b><span data-en="Director, Michael Page Taiwan" data-zh="Director, Michael Page Taiwan">Director, Michael Page Taiwan</span></div><div><b>BIPO</b><span data-en="Former Country Manager, BIPO Taiwan" data-zh="BIPO 前台灣區總經理">Former Country Manager, BIPO Taiwan</span></div><div><b>Salesforce</b><span data-en="Regional Sales Director, Salesforce" data-zh="企業用戶事業部副總經理">Regional Sales Director, Salesforce</span></div><div><b>GlobalFoundries 格芯</b><span data-en="General Manager, GlobalFoundries Taiwan" data-zh="格芯 GlobalFoundries 台灣區總經理">General Manager, GlobalFoundries Taiwan</span></div><div><b>TNL Mediagene</b><span data-en="Former COO, TNL Mediagene · GM, 達思智能" data-zh="前 TNL Mediagene 營運長 · 達思智能總經理">Former COO, TNL Mediagene · GM, 達思智能</span></div><div><b>Preprican Advisory</b><span data-en="Managing Partner, Preprican Advisory" data-zh="Managing Partner, Preprican Advisory">Managing Partner, Preprican Advisory</span></div><div><b>NVIDIA</b><span data-en="Senior Engineer" data-zh="資深工程師">Senior Engineer</span></div><div><b>MetAI</b><span data-en="Head of GTM" data-zh="Head of GTM">Head of GTM</span></div><div><b>Angible</b><span data-en="Founder &amp; CEO" data-zh="創辦人暨執行長">Founder &amp; CEO</span></div><div><b>91APP</b><span data-en="SVP" data-zh="資深副總經理">SVP</span></div><div><b>Yourator</b><span data-en="Former COO" data-zh="前營運長">Former COO</span></div></div><div class="memnote" data-en="Names are kept private. Who attends varies by session. Updated 2026-10-22." data-zh="不列姓名；每場出席的成員不同。更新於 2026-10-22。">Names are kept private. Who attends varies by session. Updated 2026-10-22.</div><!--MEMBERS:END-->
+  <div id="who"><div class="locked" data-en="The attendee list opens from the full link we sent in your chat." data-zh="出席名單請從我們傳到對話裡的完整連結開啟。">The attendee list opens from the full link we sent in your chat.</div></div>
 </section>
 
 <section>
@@ -146,8 +159,19 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
   <div class="chips"><span>Hook</span><span>Problem</span><span>Solution</span><span>Market</span><span>Traction</span><span>Business Model</span><span>Competition</span><span>Team</span><span>Financials</span><span>Ask</span></div>
 </section>
 
-<section id="submit">
+<section>
   <span class="num">03</span>
+  <h2 data-en="On the day" data-zh="當天怎麼進行">On the day</h2>
+  <ol class="parts">
+    <li><b data-en="Present from your own laptop" data-zh="用自己的電腦投影">Present from your own laptop</b><span data-en="Bring your laptop and charger. We'll connect it to the screen on site." data-zh="請帶筆電和充電器，現場我們幫您接上螢幕。">Bring your laptop and charger. We'll connect it to the screen on site.</span></li>
+    <li><b data-en="Join the online meeting before your turn" data-zh="上台前先加入線上會議">Join the online meeting before your turn</b><span data-en="Some members join online. Before your turn, join the Google Meet on the laptop you present from, with its mic and speakers off (our room mic picks up the sound), then share your screen when you start." data-zh="部分成員在線上參加。輪到您之前，請用投影的那台電腦加入 Google Meet，麥克風和喇叭先關（聲音由現場的會議麥克風收），開始簡報時分享畫面。">Some members join online. Before your turn, join the Google Meet on the laptop you present from, with its mic and speakers off (our room mic picks up the sound), then share your screen when you start.</span></li>
+    <li><b data-en="Running order" data-zh="出場順序">Running order</b><span data-en="Dentall presents last. We'll post the order of the other two teams here once it's set." data-zh="Dentall 排最後一組，另外兩組的順序確定後會更新在這裡。">Dentall presents last. We'll post the order of the other two teams here once it's set.</span></li>
+  </ol>
+  <div class="btns" id="meet" style="margin-top:14px"><div class="locked" data-en="The meeting link opens from the full link we sent in your chat." data-zh="線上會議連結請從我們傳到對話裡的完整連結開啟。">The meeting link opens from the full link we sent in your chat.</div></div>
+</section>
+
+<section id="submit">
+  <span class="num">04</span>
   <h2 data-en="Two files to send before the session" data-zh="會前請上傳兩份資料">Two files to send before the session</h2>
   <div class="files">
     <div class="file">
@@ -170,7 +194,7 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
 </section>
 
 <section>
-  <span class="num">04</span>
+  <span class="num">05</span>
   <h2 data-en="Anything unclear?" data-zh="有不清楚的地方嗎？">Anything unclear?</h2>
   <p data-en="Happy to set up a 30 minute online call so we can prepare well together. Just message me in our chat, or write to <a href=&quot;mailto:vincent@evoscalecapital.com&quot;>vincent@evoscalecapital.com</a>. Thank you, and see you on the 29th!" data-zh="歡迎我們約一個 30 分鐘線上聊聊，讓我們準備得更到位！直接在對話裡跟我說，或寫信到 <a href=&quot;mailto:vincent@evoscalecapital.com&quot;>vincent@evoscalecapital.com</a>。謝謝，10/29 見！">Happy to set up a 30 minute online call so we can prepare well together. Just message me in our chat, or write to <a href="mailto:vincent@evoscalecapital.com">vincent@evoscalecapital.com</a>. Thank you, and see you on the 29th!</p>
 </section>
@@ -178,6 +202,7 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
 <footer>EvoScale Capital 一春資本</footer>
 </div>
 
+<!--SEALED:START--><script id="sealed" type="application/octet-stream">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</script><!--SEALED:END-->
 <script>
 (function(){
   var btn=document.getElementById('lang');
@@ -194,6 +219,22 @@ footer{color:var(--text-3);font-size:.85rem;text-align:center;padding:28px 0 40p
   var l=q==='zh'||q==='en'?q:(saved||'en');
   if(l!=='en')set(l);
   btn.addEventListener('click',function(){set(document.documentElement.getAttribute('data-lang')==='zh'?'en':'zh');});
+  window.drSet=set;
+})();
+(function(){
+  var m=/[#&]k=([A-Za-z0-9_-]+)/.exec(location.hash), el=document.getElementById('sealed');
+  if(!m||!el||!window.crypto||!crypto.subtle)return;
+  function b(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+  var raw=b(el.textContent.trim());
+  crypto.subtle.importKey('raw',b(m[1]),'AES-GCM',false,['decrypt']).then(function(k){
+    return crypto.subtle.decrypt({name:'AES-GCM',iv:raw.slice(0,12)},k,raw.slice(12));
+  }).then(function(buf){
+    var d=JSON.parse(new TextDecoder().decode(buf));
+    document.getElementById('who').innerHTML=d.who;
+    document.getElementById('meet').innerHTML=d.meet;
+    var l=document.documentElement.getAttribute('data-lang');
+    if(l!=='en')window.drSet(l);
+  }).catch(function(){});
 })();
 </script>
 </body>
