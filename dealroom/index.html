@@ -46,6 +46,16 @@ ol.st li:first-child{border-top:0}
 ol.st li::before{content:counter(s);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center}
 ol.st b{color:var(--tx);display:block}
 .note{font-size:.85rem;color:var(--tx3);margin-top:8px}
+.els{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.els button{font:700 .84rem var(--fb);border:1px solid var(--line);background:var(--bg);color:var(--tx2);border-radius:999px;padding:6px 11px;cursor:pointer}
+.els button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.elc{display:none;margin-top:10px;border:1px solid var(--line);border-left:3px solid var(--or);border-radius:10px;padding:12px 14px;background:#fff}
+.elc.on{display:block}
+.elc .h{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.elc .h i{font-style:normal;font-weight:800;color:var(--or2);font-size:.8rem}
+.elc .h b{font-size:1rem}.elc .h span{color:var(--tx3);font-size:.85rem}
+.elc p{font-size:.92rem;color:var(--tx2);margin-top:4px}
+.elc p em{font-style:normal;font-weight:700;color:var(--tx)}
 footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 </style>
 </head>
@@ -66,28 +76,30 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
     <li><b data-zh="已經做成了什麼" data-en="What you have proven">已經做成了什麼</b><span data-zh="哪些已經驗證成功，接下來複製放大哪些" data-en="What already works and what you will scale next">哪些已經驗證成功，接下來複製放大哪些</span></li>
     <li><b data-zh="需要哪些資源" data-en="What you need">需要哪些資源</b><span data-zh="競爭、團隊、預測，以及希望一春怎麼幫" data-en="Competition, team, projections, and how EvoScale can help">競爭、團隊、預測，以及希望一春怎麼幫</span></li>
   </ol>
-  <p class="note" data-zh="問答由現場成員提問，多半是現職企業高階主管。" data-en="Q&amp;A comes from members in the room, mostly senior corporate executives.">問答由現場成員提問，多半是現職企業高階主管。</p>
+    <p class="note" style="margin-top:14px;font-weight:700;color:var(--tx)" data-zh="簡報的十個關鍵元素，點開看說明" data-en="Ten building blocks of a pitch. Tap one to see what it covers.">簡報的十個關鍵元素，點開看說明</p>
+  <div class="els" id="els"></div>
+  <div class="elc" id="elc"></div>
 </div>
 <div class="card">
   <h2 data-zh="當天怎麼進行" data-en="On the day">當天怎麼進行</h2>
   <ol class="st">
     <li><b data-zh="12:00 報到取餐" data-en="12:00 Arrive and grab lunch">12:00 報到取餐</b><span data-zh="三隊全程在場" data-en="All three teams stay for the full session">三隊全程在場</span></li>
-    <li><b data-zh="三隊依序上台" data-en="Three teams present in turn">三隊依序上台</b><span data-zh="每隊 20 分鐘，Dentall 排最後一組，另外兩隊的順序會再通知" data-en="20 minutes each. Dentall goes last; we will confirm the order of the other two">每隊 20 分鐘，Dentall 排最後一組，另外兩隊的順序會再通知</span></li>
-    <li><b data-zh="14:00 結束" data-en="14:00 Close">14:00 結束</b><span data-zh="會後有興趣的成員會加入你們的團隊群" data-en="Interested members will join your team chat afterwards">會後有興趣的成員會加入你們的團隊群</span></li>
+    <li><b data-zh="三隊依序上台" data-en="Three teams present in turn">三隊依序上台</b><span data-zh="每隊 20 分鐘：BRICKS 第一組、Dentall 最後一組，中間那一組下週公布" data-en="20 minutes each: BRICKS first, Dentall last, the middle slot announced next week">每隊 20 分鐘：BRICKS 第一組、Dentall 最後一組，中間那一組下週公布</span></li>
+    <li><b data-zh="14:00 結束" data-en="14:00 Close">14:00 結束</b><span data-zh="會後我們會把團隊群開放給有興趣的一春夥伴" data-en="Afterwards we open your team chat to interested EvoScale partners">會後我們會把團隊群開放給有興趣的一春夥伴</span></li>
   </ol>
 </div>
 <div class="card">
   <h2 data-zh="用自己的電腦投影" data-en="Present from your own laptop">用自己的電腦投影</h2>
   <ol class="st">
     <li><b data-zh="帶筆電和充電器" data-en="Bring your laptop and charger">帶筆電和充電器</b><span data-zh="現場我們幫你接上螢幕" data-en="We will connect it to the screen on site">現場我們幫你接上螢幕</span></li>
-    <li><b data-zh="上台前先加入 Google Meet" data-en="Join the Google Meet before your turn">上台前先加入 Google Meet</b><span data-zh="用投影的那台電腦加入，麥克風和喇叭先關，部分成員在線上看" data-en="On the laptop you present from, with mic and speakers off. Some members join online">用投影的那台電腦加入，麥克風和喇叭先關，部分成員在線上看</span></li>
-    <li><b data-zh="開始簡報時分享畫面" data-en="Share your screen when you start">開始簡報時分享畫面</b><span data-zh="線上的成員才看得到" data-en="So online members can follow">線上的成員才看得到</span></li>
+    <li><b data-zh="上台前先加入 Google Meet" data-en="Join the Google Meet before your turn">上台前先加入 Google Meet</b><span data-zh="用投影的那台電腦加入，麥克風和喇叭先關" data-en="On the laptop you present from, with mic and speakers off">用投影的那台電腦加入，麥克風和喇叭先關</span></li>
+    <li><b data-zh="開始簡報時分享畫面" data-en="Share your screen when you start">開始簡報時分享畫面</b><span data-zh="線上參加的人才看得到" data-en="So everyone joining online can follow">線上參加的人才看得到</span></li>
   </ol>
-  <p class="note" data-zh="Meet 連結在團隊群的訊息裡。" data-en="The Meet link is in your team chat.">Meet 連結在團隊群的訊息裡。</p>
+  <div class="btns"><a class="btn p" href="https://meet.google.com/drj-bcbv-thr" target="_blank" rel="noopener" data-zh="加入 Google Meet ↗" data-en="Join the Google Meet ↗">加入 Google Meet ↗</a></div>
 </div>
 <div class="card">
   <h2 data-zh="會前請給我們簡報" data-en="Send us your deck before the day">會前請給我們簡報</h2>
-  <p data-zh="Sales Deck 會分享給成員先認識你們，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。" data-en="Your sales deck goes to members so they can get to know you; just drop it in the team chat. A detailed deck is only for Vincent and Boice; add it as the Pitch deck link on our form.">Sales Deck 會分享給成員先認識你們，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。</p>
+  <p data-zh="Sales Deck 會在會前分享給一春夥伴，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。" data-en="Your sales deck is shared with EvoScale partners before the day; just drop it in the team chat. A detailed deck is only for Vincent and Boice; add it as the Pitch deck link on our form.">Sales Deck 會在會前分享給一春夥伴，直接傳到團隊群就好；詳細版只給 Vincent 和 Boice，可以貼在官網表單的 Pitch deck link。</p>
   <div class="btns"><a class="btn o" href="https://evoscalecapital.com/apply/" target="_blank" rel="noopener"><span data-zh="前往官網表單 ↗" data-en="Go to the form ↗">前往官網表單 ↗</span></a></div>
 </div>
 <footer><span data-zh="有問題直接在團隊群問我們，或寫信到 vincent@evoscalecapital.com" data-en="Questions? Ask us in the team chat or email vincent@evoscalecapital.com">有問題直接在團隊群問我們，或寫信到 vincent@evoscalecapital.com</span></footer>
@@ -106,6 +118,21 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
   var q=new URLSearchParams(location.search).get('lang'),s=null;try{s=localStorage.getItem('dr_lang')}catch(e){}
   var l=(q==='en'||q==='zh')?q:(s||'zh'); if(l!=='zh')set(l);
   b.addEventListener('click',function(){set(window.drLang()==='en'?'zh':'en')});
+})();
+</script>
+<script>
+(function(){
+  var E=[{"n": "01", "k": "Hook", "zh": "抓住注意力", "en": "Grab attention", "gz": "前 5 秒讓聽眾決定要不要聽下去", "ge": "In the first five seconds, give the room a reason to keep listening", "tz": "用一個問句、一個數字，或一句反直覺的話開場", "te": "Open with a question, a number or a counter-intuitive claim"}, {"n": "02", "k": "Problem", "zh": "痛點定義", "en": "Define the pain", "gz": "讓聽眾說：對，就是這個問題", "ge": "Get the room to say: yes, that is exactly the problem", "tz": "具體情境，加上現有解法哪裡不夠", "te": "A specific scenario, plus where current solutions fall short"}, {"n": "03", "k": "Solution", "zh": "解決方案", "en": "The solution", "gz": "講結果，不講功能，一句話說清楚", "ge": "Lead with the outcome, not the features, in one sentence", "tz": "可以用類比：我們是某某產業的 Uber", "te": "An analogy helps: we are the Uber of X"}, {"n": "04", "k": "Market", "zh": "市場規模", "en": "Market size", "gz": "證明這個問題值得解決", "ge": "Show the problem is worth solving", "tz": "TAM、SAM、SOM 由大到小，講清楚先切哪一塊", "te": "TAM, SAM, SOM from large to small, and which slice you enter first"}, {"n": "05", "k": "Traction", "zh": "成長動能", "en": "Traction", "gz": "用數字證明市場真的要", "ge": "Prove real demand with numbers", "tz": "營收、付費客戶、留存或回購，挑最強的一兩個", "te": "Revenue, paying customers, retention or repeat purchase; lead with your strongest one or two"}, {"n": "06", "k": "Business", "zh": "怎麼賺錢", "en": "Business model", "gz": "講清楚怎麼收錢與單位經濟", "ge": "Explain how you make money and the unit economics", "tz": "每一筆或每一個客戶賺多少，取得成本和終身價值", "te": "Margin per transaction or per customer, CAC versus LTV"}, {"n": "07", "k": "Competition", "zh": "競爭分析", "en": "Competition", "gz": "講差異，不要說沒有競爭者", "ge": "Show how you are different; never claim there is no competition", "tz": "用競爭矩陣，選對你有利的兩個軸", "te": "Use a competition matrix with the two axes that matter to buyers"}, {"n": "08", "k": "Team", "zh": "為什麼是你們", "en": "Why you", "gz": "讓人相信你們做得到", "ge": "Make the room believe you can execute", "tz": "相關經歷，加上團隊互補的能力", "te": "Relevant track record and complementary skills"}, {"n": "09", "k": "Financials", "zh": "財務規劃", "en": "Financials", "gz": "說明資金用途與里程碑", "ge": "Show use of funds and milestones", "tz": "未來 12 到 18 個月，時間點要具體", "te": "The next 12 to 18 months, with specific dates"}, {"n": "10", "k": "Ask", "zh": "你需要什麼", "en": "The ask", "gz": "清楚說出下一步", "ge": "State a clear next step", "tz": "具體的資源、用途，以及對方能得到什麼", "te": "Specific resources, what they are for, and what the other side gets"}], box=document.getElementById('els'), c=document.getElementById('elc'), cur=-1;
+  E.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.textContent=e.k;b.onclick=function(){cur=(cur===i?-1:i);draw()};box.appendChild(b)});
+  function draw(){
+    var l=window.drLang?window.drLang():'zh', bs=box.children;
+    for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',i===cur);
+    if(cur<0){c.classList.remove('on');return}
+    var e=E[cur], zh=l!=='en';
+    c.innerHTML='<div class="h"><i>'+e.n+'</i><b>'+e.k+'</b>'+((zh||e.en!==e.k)?'<span>'+(zh?e.zh:e.en)+'</span>':'')+'</div><p><em>'+(zh?'目的：':'Goal: ')+'</em>'+(zh?e.gz:e.ge)+'</p><p><em>'+(zh?'做法：':'How: ')+'</em>'+(zh?e.tz:e.te)+'</p>';
+    c.classList.add('on');
+  }
+  window.drRender=draw;
 })();
 </script>
 </body>
