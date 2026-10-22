@@ -6,5 +6,6 @@ Disallow: /operators/
 Disallow: /operators.html
 Disallow: /resource-map/
 Disallow: /operator-insider-preview/
+Disallow: /dealroom/
 
 Sitemap: https://evoscalecapital.com/sitemap.xml
