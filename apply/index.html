@@ -280,6 +280,10 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         <input class="ctrl" name="founders" data-en-ph="Jane Doe, CEO & Co-founder" data-zh-ph="例：王小明，執行長暨共同創辦人">
         <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
       </div>
+      <div class="field">
+        <label class="flabel"><span data-en="Co-founders" data-zh="共同創辦人">Co-founders</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+        <textarea class="ctrl" name="cofounders" rows="2" data-en-ph="Name, title, LinkedIn for each co-founder. Leave blank if you are a solo founder." data-zh-ph="每位寫姓名、職稱、LinkedIn；只有一位創辦人就留空"></textarea>
+      </div>
       <div class="row2">
         <div class="field" data-required>
           <label class="flabel" data-en="Contact email" data-zh="聯絡 email">Contact email<span class="req">●</span></label>
@@ -297,9 +301,13 @@ select.ctrl option{background:var(--navy-2);color:#fff}
           <input class="ctrl" name="line_id" data-en-ph="Your LINE ID" data-zh-ph="你的 LINE ID">
         </div>
         <div class="field">
-          <label class="flabel"><span data-en="Founder LinkedIn" data-zh="創辦人 LinkedIn">Founder LinkedIn</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
-          <input class="ctrl" name="linkedin" type="url" data-en-ph="https://linkedin.com/in/..." data-zh-ph="https://linkedin.com/in/...">
+          <label class="flabel"><span data-en="WhatsApp" data-zh="WhatsApp">WhatsApp</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+          <input class="ctrl" name="whatsapp" data-en-ph="+65 ..." data-zh-ph="+886 ...">
         </div>
+      </div>
+      <div class="field">
+        <label class="flabel"><span data-en="Founder LinkedIn" data-zh="創辦人 LinkedIn">Founder LinkedIn</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+        <input class="ctrl" name="linkedin" type="url" data-en-ph="https://linkedin.com/in/..." data-zh-ph="https://linkedin.com/in/...">
       </div>
       <div class="field">
         <label class="flabel"><span data-en="Company website" data-zh="公司網站">Company website</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
