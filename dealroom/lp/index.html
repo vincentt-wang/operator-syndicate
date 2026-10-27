@@ -178,5 +178,8 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
   document.addEventListener('keydown',function(ev){if(ev.key==='Escape')close()});
 })();
 </script>
+<script>/* 2026-10-27 點擊統計：只記哪一頁、哪個元素被點，送到一春自己的收件程式（evoscale-forms /hit），不收任何個人資料 */
+(function(P){function lab(t){var x=t.getAttribute('data-track')||t.getAttribute('data-im')||t.getAttribute('data-ai')&&('ai-'+t.getAttribute('data-ai'))||t.getAttribute('data-cp')&&('copy-'+t.getAttribute('data-cp'))||t.getAttribute('data-sw')||'';if(!x){x=(t.getAttribute('href')||'').replace(/^https?:\/\//,'').split(/[?#]/)[0]||'';var s=(t.innerText||'').replace(/\s+/g,' ').trim().slice(0,30);x=s?(s+(x?' | '+x.slice(0,40):'')):x}return x.slice(0,60)}
+document.addEventListener('click',function(e){var t=e.target.closest('a,button,summary,[data-im]');if(!t)return;var k=lab(t);if(!k)return;try{navigator.sendBeacon('https://evoscale-forms.comicbnb.workers.dev/hit',new Blob([JSON.stringify({p:P,k:k})],{type:'text/plain'}))}catch(_){}},true);})('lp');</script>
 </body>
 </html>
