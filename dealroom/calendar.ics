@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EvoScale Capital//Deal Room//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:dealroom-20261029@evoscalecapital.com
+DTSTAMP:20261029T034500Z
+DTSTART:20261029T034500Z
+DTEND:20261029T060000Z
+SUMMARY:EvoScale Deal Room 第 03 場
+LOCATION:食寓森鄰
+DESCRIPTION:線上參加：https://meet.google.com/drj-bcbv-thr\n地圖：h
+ ttps://maps.app.goo.gl/X5vUUF3AbzaxpJT3A\n會前資料：https://evoscalec
+ apital.com/dealroom/lp/
+URL:https://evoscalecapital.com/dealroom/lp/
+END:VEVENT
+END:VCALENDAR
