@@ -39,6 +39,9 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .bar{display:flex;border-radius:10px;overflow:hidden;font-weight:700;font-size:.88rem;text-align:center}
 .bar div{padding:10px 6px}
 .bar div{white-space:nowrap}.bar .a{flex:10;background:var(--or);color:#fff}.bar .b{flex:10;background:var(--orp);color:var(--or2)}.bar .c{flex:3;background:#EEF1F4;color:var(--tx3)}
+.bar.sw button{flex:1;border:0;font:700 .88rem var(--fb);padding:10px 6px;cursor:pointer;white-space:nowrap;background:var(--orp);color:var(--or2)}
+.bar.sw button.on{background:var(--or);color:#fff}
+.st.qa li span{display:block}.st.qa .tagq{display:inline-block;font-size:.72rem;font-weight:700;color:var(--tx3);border:1px solid var(--line);border-radius:999px;padding:0 8px;margin:2px 0 3px}
 @media (max-width:480px){.hero .btn{flex:1 1 100%}}
 ol.st{list-style:none;counter-reset:s;margin-top:4px}
 ol.st li{counter-increment:s;position:relative;padding:9px 0 9px 36px;border-top:1px solid var(--line);color:var(--tx2);font-size:.95rem}
@@ -84,7 +87,8 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 </div>
 <div class="card">
   <h2 data-zh="你的 20 分鐘" data-en="Your 20 minutes">你的 20 分鐘</h2>
-  <div class="bar"><div class="a"><span data-zh="簡報 10 分" data-en="Pitch 10">簡報 10 分</span></div><div class="b"><span data-zh="問答 10 分" data-en="Q&amp;A 10">問答 10 分</span></div></div>
+  <div class="bar sw" role="tablist"><button type="button" class="a on" data-sw="pitch" role="tab"><span data-zh="簡報 10 分" data-en="Pitch 10">簡報 10 分</span></button><button type="button" class="b" data-sw="qa" role="tab"><span data-zh="問答 10 分" data-en="Q&amp;A 10">問答 10 分</span></button></div>
+  <div class="swp" data-p="pitch">
   <ol class="st">
     <li><b data-zh="為什麼要解決這個問題" data-en="Why this problem matters">為什麼要解決這個問題</b><span data-zh="量化的痛點、市場大小與趨勢" data-en="The pain in numbers, market size and trends">量化的痛點、市場大小與趨勢</span></li>
     <li><b data-zh="已經做成了什麼" data-en="What you have proven">已經做成了什麼</b><span data-zh="哪些已經驗證成功，接下來複製放大哪些" data-en="What already works and what you will scale next">哪些已經驗證成功，接下來複製放大哪些</span></li>
@@ -93,6 +97,11 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
     <p class="note" style="margin-top:14px;font-weight:700;color:var(--tx)">Pitch building blocks</p>
   <div class="dfv"><div class="row d"><div class="lab"><b>D</b><span>Desirability</span><i>Does anyone really need this</i></div><div class="chs"><span class="ch">Hook</span><span class="ch">Problem</span><span class="ch">Solution</span><span class="ch">Market</span></div></div><div class="row f"><div class="lab"><b>F</b><span>Feasibility</span><i>Can it be built and sold</i></div><div class="chs"><span class="ch br">Market</span><span class="ch">Why Now</span><span class="ch">Traction</span><span class="ch">Business</span><span class="ch">Competition</span></div></div><div class="row v"><div class="lab"><b>V</b><span>Viability</span><i>Can it last and scale</i></div><div class="chs"><span class="ch br">Competition</span><span class="ch">Team</span><span class="ch">Financials</span><span class="ch">Milestone</span><span class="ch">Ask</span></div></div></div>
   <p class="note">Dashed items bridge two stages.</p>
+  </div>
+  <div class="swp" data-p="qa" hidden>
+  <p class="note" style="margin-top:12px" data-zh="整理自前幾場 LP 最常問的方向，不是針對你們的客製題。每一題都可能被往下追問，數字準備好會很加分。" data-en="Compiled from what LPs asked most in earlier sessions; not tailored to your company. Any of these may be followed up in detail, so have the numbers ready.">整理自前幾場 LP 最常問的方向，不是針對你們的客製題。每一題都可能被往下追問，數字準備好會很加分。</p>
+  <ol class="st qa"><li><b data-zh="這個痛點有多痛？" data-en="How painful is the problem?">這個痛點有多痛？</b><span class="tagq">Hook · Problem</span><span data-zh="常被追問：客戶現在用什麼方法解決、每年花多少錢或人力；有沒有實際訪談或付費的證據。" data-en="Follow-ups: How customers solve it today and what it costs them in money or headcount; evidence from interviews or payments.">常被追問：客戶現在用什麼方法解決、每年花多少錢或人力；有沒有實際訪談或付費的證據。</span></li><li><b data-zh="跟現在的做法或對手比，差在哪裡？" data-en="What is different from today’s way or competitors?">跟現在的做法或對手比，差在哪裡？</b><span class="tagq">Solution</span><span data-zh="常被追問：客戶為什麼願意換、換的成本多高；哪一點是別人做不到的。" data-en="Follow-ups: Why customers would switch, what switching costs them, and what others cannot copy.">常被追問：客戶為什麼願意換、換的成本多高；哪一點是別人做不到的。</span></li><li><b data-zh="市場規模怎麼算出來的？" data-en="How did you size the market?">市場規模怎麼算出來的？</b><span class="tagq">Market</span><span data-zh="常被追問：TAM、SAM、SOM 各用什麼假設；從哪一群客戶切入，客戶數乘客單價算不算得出來。" data-en="Follow-ups: The assumptions behind TAM, SAM and SOM; which segment you start with, and whether customers × price adds up.">常被追問：TAM、SAM、SOM 各用什麼假設；從哪一群客戶切入，客戶數乘客單價算不算得出來。</span></li><li><b data-zh="目前的付費客戶與營收是多少？" data-en="What are your paying customers and revenue today?">目前的付費客戶與營收是多少？</b><span class="tagq">Traction</span><span data-zh="常被追問：「合作」「簽約」「試用」各是哪一種；有沒有續約、回購或擴大採購。" data-en="Follow-ups: Which are partners, signed contracts or pilots; renewals, repeat orders or expansions.">常被追問：「合作」「簽約」「試用」各是哪一種；有沒有續約、回購或擴大採購。</span></li><li><b data-zh="誰付錢、怎麼收、毛利多少？" data-en="Who pays, how, and at what margin?">誰付錢、怎麼收、毛利多少？</b><span class="tagq">Business Model</span><span data-zh="常被追問：收費方式與客單價；平台型會被問 GMV 和營收怎麼分開算、抽成是多少。" data-en="Follow-ups: Pricing and ticket size; marketplaces get asked to separate GMV from revenue and state the take rate.">常被追問：收費方式與客單價；平台型會被問 GMV 和營收怎麼分開算、抽成是多少。</span></li><li><b data-zh="客戶怎麼來，第一個客戶的方法能複製嗎？" data-en="How do you win customers, and does it repeat?">客戶怎麼來，第一個客戶的方法能複製嗎？</b><span class="tagq">Go-to-market</span><span data-zh="常被追問：獲客成本、成交要多久；換到下一個客戶或下一個市場，還走不走得通。" data-en="Follow-ups: Acquisition cost and sales cycle; whether the first win repeats with the next customer or market.">常被追問：獲客成本、成交要多久；換到下一個客戶或下一個市場，還走不走得通。</span></li><li><b data-zh="競爭者是誰，護城河在哪裡？" data-en="Who competes, and what is your moat?">競爭者是誰，護城河在哪裡？</b><span class="tagq">Competition</span><span data-zh="常被追問：大公司或既有業者也做的話怎麼辦；資料、通路、技術哪一項守得住。" data-en="Follow-ups: What happens if incumbents move in; whether data, channels or technology keep you ahead.">常被追問：大公司或既有業者也做的話怎麼辦；資料、通路、技術哪一項守得住。</span></li><li><b data-zh="為什麼是這個團隊？" data-en="Why is this the right team?">為什麼是這個團隊？</b><span class="tagq">Team</span><span data-zh="常被追問：誰全職、誰負責業務與技術；關鍵職缺還缺哪一塊。" data-en="Follow-ups: Who is full-time, who owns sales and technology, and which key roles are still open.">常被追問：誰全職、誰負責業務與技術；關鍵職缺還缺哪一塊。</span></li><li><b data-zh="每月燒多少、還能撐多久、這輪要什麼？" data-en="Burn, runway, and what this round is for?">每月燒多少、還能撐多久、這輪要什麼？</b><span class="tagq">Financials · Ask</span><span data-zh="常被追問：損益兩平怎麼算；本輪金額、估值依據、資金用途與下一個里程碑。" data-en="Follow-ups: How you get to breakeven; the round size, valuation basis, use of funds and the next milestone.">常被追問：損益兩平怎麼算；本輪金額、估值依據、資金用途與下一個里程碑。</span></li></ol>
+  </div>
 </div>
 <div class="card">
   <h2 data-zh="當天怎麼進行" data-en="On the day">當天怎麼進行</h2>
@@ -134,6 +143,7 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
   var q=new URLSearchParams(location.search).get('lang'),s=null;try{s=localStorage.getItem('dr_lang')}catch(e){}
   var l=(q==='en'||q==='zh')?q:(s||'zh'); if(l!=='zh')set(l);
   b.addEventListener('click',function(){set(window.drLang()==='en'?'zh':'en')});
+  document.querySelectorAll('[data-sw]').forEach(function(t){t.addEventListener('click',function(){var k=t.getAttribute('data-sw');document.querySelectorAll('[data-sw]').forEach(function(x){x.classList.toggle('on',x===t)});document.querySelectorAll('.swp').forEach(function(p){p.hidden=p.getAttribute('data-p')!==k})})});
 })();
 </script>
 </body>
