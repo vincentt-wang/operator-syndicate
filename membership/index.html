@@ -581,19 +581,20 @@ async function submitApplication(){
     return;
   }
   setBusy(true);
-  esBackup('membership','New membership application',answers);
   try{
-    // 每個收件人各送一次，各自帶自己的 FormData（不重複使用同一個 body）。
-    // 任一成功就算送出成功，申請人不該因為其中一個信箱有問題而被擋下。
-    var okAny=false;
-    for(var ri=0; ri<FORMSUBMIT_RECIPIENTS.length; ri++){
-      try{
-        var res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(FORMSUBMIT_RECIPIENTS[ri]),
-          {method:'POST',headers:{Accept:'application/json'},body:buildSubmission(answers)});
-        var jr=await res.json().catch(function(){return {};});
-        if(res.ok && (jr.success===true || jr.success==='true')) okAny=true;
-      }catch(e){ /* 這個收件人失敗，繼續試下一個 */ }
-    }
+    // 2026-10-28：FormSubmit 實測每封要 55 秒才回應，原本兩個收件人依序等，申請人要卡在「送出中」快兩分鐘，
+    // 關掉頁面就等於沒送。改成：兩封信同時送（keepalive，頁面關掉也會送完），
+    // 一春自己的備份（Cloudflare KV）存好就算送出成功；備份失敗時才等 FormSubmit 的結果。
+    var mails=FORMSUBMIT_RECIPIENTS.map(function(to){
+      return fetch('https://formsubmit.co/ajax/'+encodeURIComponent(to),
+        {method:'POST',keepalive:true,headers:{Accept:'application/json'},body:buildSubmission(answers)})
+        .then(function(res){return res.json().then(function(j){return res.ok&&(j.success===true||j.success==='true');},function(){return false;});},function(){return false;});
+    });
+    var backup=fetch('https://evoscale-forms.comicbnb.workers.dev/submit',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},
+        body:JSON.stringify({form:'membership',subject:'New membership application',fields:answers})})
+      .then(function(r){return r.json();}).then(function(j){return !!(j&&j.stored);},function(){return false;});
+    var okAny=await backup;
+    if(!okAny){ var rs=await Promise.all(mails); okAny=rs.indexOf(true)>=0; }
     if(!okAny) throw 0;
     localStorage.removeItem(DRAFT_KEY);
     setBusy(false);
