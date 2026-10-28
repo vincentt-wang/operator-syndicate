@@ -186,5 +186,102 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 <script>/* 2026-10-27 點擊統計：只記哪一頁、哪個元素被點，送到一春自己的收件程式（evoscale-forms /hit），不收任何個人資料 */
 (function(P){function lab(t){var x=t.getAttribute('data-track')||t.getAttribute('data-im')||t.getAttribute('data-ai')&&('ai-'+t.getAttribute('data-ai'))||t.getAttribute('data-cp')&&('copy-'+t.getAttribute('data-cp'))||t.getAttribute('data-sw')||'';if(!x){x=(t.getAttribute('href')||'').replace(/^https?:\/\//,'').split(/[?#]/)[0]||'';var s=(t.innerText||'').replace(/\s+/g,' ').trim().slice(0,30);x=s?(s+(x?' | '+x.slice(0,40):'')):x}return x.slice(0,60)}
 document.addEventListener('click',function(e){var t=e.target.closest('a,button,summary,[data-im]');if(!t)return;var k=lab(t);if(!k)return;try{navigator.sendBeacon('https://evoscale-forms.comicbnb.workers.dev/hit',new Blob([JSON.stringify({p:P,k:k})],{type:'text/plain'}))}catch(_){}},true);})('lp');</script>
+<!--LIVE:START-->
+<style>
+#live{position:sticky;top:0;z-index:60;margin:0 -16px 10px;padding:10px 16px 12px;background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:none}
+#live.on{display:block}
+#live .lt{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font:700 .86rem var(--fb);color:var(--tx)}
+#live .lt b{color:var(--or2)}
+#live .lt span{font-weight:500;color:var(--tx3);font-size:.78rem}#live .lt .rm{white-space:nowrap}#live .lt>div{min-width:0}
+#live .tr{position:relative;height:8px;border-radius:99px;background:#EEF0F3;margin:9px 0 6px;overflow:visible}
+#live .fl{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:linear-gradient(90deg,#FFB27A,var(--or));transition:width 1s linear}
+#live .dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--or);box-shadow:0 0 0 4px rgba(255,102,0,.18);transition:left 1s linear}
+#live .tk{position:absolute;top:-2px;width:2px;height:12px;background:#fff}
+#live .lb{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font:600 .66rem/1.25 var(--fb);color:var(--tx3)}
+#live .lb i{font-style:normal;text-align:center}#live .lb i:first-child{text-align:left}#live .lb i:last-child{text-align:right}
+#live .lb i b{display:block;font-weight:800}
+#live .lb i.done{color:var(--tx2)}#live .lb i.cur{color:var(--or2)}
+#live .ev{display:none;margin-top:8px;width:100%;border:0;border-radius:999px;padding:10px 14px;background:var(--or);color:#fff;font:800 .9rem var(--fb);cursor:pointer;animation:livePulse 1.6s ease-in-out infinite}
+#live.after .ev{display:block}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,102,0,.45)}50%{box-shadow:0 0 0 9px rgba(255,102,0,0)}}
+@media (prefers-reduced-motion:reduce){#live .ev{animation:none}#live .fl,#live .dot{transition:none}}
+#evpop{position:fixed;inset:0;z-index:90;display:none;align-items:flex-end;justify-content:center;background:rgba(10,22,40,.55);padding:16px}
+#evpop.on{display:flex;animation:popBg .25s ease}
+#evpop .bx{position:relative;width:100%;max-width:420px;background:#fff;border-radius:18px;padding:20px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:popUp .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes popBg{from{opacity:0}to{opacity:1}}@keyframes popUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+#evpop .x{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:#F1F3F5;font:700 1rem var(--fb);color:var(--tx2);cursor:pointer}
+#evpop .k{font:800 .72rem var(--fb);letter-spacing:.14em;color:var(--or2)}
+#evpop h3{font:800 1.25rem var(--fb);margin:6px 34px 6px 0;color:var(--tx)}
+#evpop p{font:500 .88rem/1.55 var(--fb);color:var(--tx2);margin:0}
+#evpop a.pv{display:block;margin:14px 0 12px;border:1.5px solid var(--line);border-radius:14px;padding:12px;text-decoration:none;color:inherit;background:var(--bg)}
+#evpop a.pv:hover{border-color:var(--or)}
+#evpop .pvh{display:flex;align-items:center;gap:8px;font:700 .8rem var(--fb);color:var(--tx3)}
+#evpop .pvh b{width:9px;height:9px;border-radius:50%;background:var(--or)}
+#evpop .pvb{margin-top:10px;display:grid;gap:7px}
+#evpop .pvb div{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font:700 .84rem var(--fb);color:var(--tx)}
+#evpop .pvb div span{font:600 .74rem var(--fb);color:var(--tx3)}
+#evpop .go{display:block;text-align:center;text-decoration:none;border-radius:999px;padding:12px 14px;background:var(--or);color:#fff;font:800 .95rem var(--fb)}
+#evpop .later{display:block;margin:8px auto 0;border:0;background:none;color:var(--tx3);font:600 .84rem var(--fb);cursor:pointer;padding:6px}
+</style>
+<script>
+/* 10/29 Deal Room 現場進度條與會後評估表提醒（2026-10-28 Vincent）。
+   只在台北時間 10/29 11:00–15:00 出現；12:00 起進度條依時間往右跑。13:30 自由交流開始後跳一次評估表預覽（每個分頁一次，可關），進度條下方常駐脈動按鈕。
+   時段只用頁面上已公告的：11:45 進場取餐、12:15 三隊依序上台、13:30 自由交流、14:00 結束。不寫每隊的分鐘數（沒有公告）。
+   測試：網址加 ?demo=13:31 會假裝現在是 10/29 13:31；加 &popreset=1 清掉「已跳過」紀錄。 */
+(function(){
+  var EVAL='https://evoscalecapital.com/eval/', DAY='2026-10-29', A=11*60+45, Z=14*60, POPAT=13*60+30;
+  var ST=[[A,'進場取餐','Doors & lunch'],[12*60+15,'三隊上台','Pitches'],[POPAT,'自由交流','Networking'],[Z,'結束','Close']];
+  var CUR=[[0,'11:45 開放進場取餐','Doors and lunch open at 11:45'],[A,'進場取餐中，12:15 開始','Lunch is being served; we start at 12:15'],
+           [12*60+15,'三隊依序上台：BRICKS → Q-Bid → Dentall','Teams pitching: BRICKS → Q-Bid → Dentall'],[POPAT,'自由交流，離開前請填評估表','Networking; please fill in the feedback form before you go'],[Z,'已結束，謝謝大家','That is a wrap, thank you']];
+  var qs=new URLSearchParams(location.search), demo=qs.get('demo');
+  if(qs.get('popreset'))try{sessionStorage.removeItem('dr_evpop')}catch(e){}
+  function now(){ // 台北時間（UTC+8，不用使用者時區）
+    if(demo&&/^\d{1,2}:\d{2}$/.test(demo)){var p=demo.split(':');return {d:DAY,m:+p[0]*60+ +p[1]}}
+    var t=new Date(Date.now()+8*3600e3);return {d:t.toISOString().slice(0,10),m:t.getUTCHours()*60+t.getUTCMinutes()+t.getUTCSeconds()/60}}
+  function zh(){return document.documentElement.getAttribute('data-lang')!=='en'}
+  function hm(m){m=Math.floor(m);return Math.floor(m/60)+':'+('0'+m%60).slice(-2)}
+  var bar=document.createElement('div');bar.id='live';bar.setAttribute('role','status');bar.setAttribute('aria-live','polite');
+  bar.innerHTML='<div class="lt"><div><b class="nw"></b> <span class="cl"></span></div><span class="rm"></span></div><div class="tr"><div class="fl"></div></div><div class="lb"></div><button type="button" class="ev"></button>';
+  var tr=bar.querySelector('.tr'),lb=bar.querySelector('.lb');
+  ST.forEach(function(s){var x=(s[0]-A)/(Z-A)*100;if(x>0&&x<100){var t=document.createElement('div');t.className='tk';t.style.left=x+'%';tr.appendChild(t)}
+    var i=document.createElement('i');lb.appendChild(i)});
+  var dot=document.createElement('div');dot.className='dot';tr.appendChild(dot);
+  var wrap=document.querySelector('.wrap'),hd=wrap&&wrap.querySelector('header');if(hd)hd.insertAdjacentElement('afterend',bar);else document.body.prepend(bar);
+  var pop=document.createElement('div');pop.id='evpop';pop.setAttribute('role','dialog');pop.setAttribute('aria-modal','true');
+  pop.innerHTML='<div class="bx"><button type="button" class="x" aria-label="close">✕</button><div class="k">DEAL ROOM 10/29</div><h3></h3><p class="ds"></p>'+
+    '<a class="pv" target="_blank" rel="noopener" href="'+EVAL+'"><div class="pvh"><b></b><span class="pt"></span></div><div class="pvb"><div>BRICKS<span class="r"></span></div><div>Q-Bid<span class="r"></span></div><div>Dentall 台灣牙e通<span class="r"></span></div></div></a>'+
+    '<a class="go" target="_blank" rel="noopener" href="'+EVAL+'"></a><button type="button" class="later"></button></div>';
+  document.body.appendChild(pop);
+  function text(){var z=zh();
+    pop.querySelector('h3').textContent=z?'離開前請填會後評估表':'Before you go: the feedback form';
+    pop.querySelector('.ds').textContent=z?'三隊一起填，每個月同一個網址。評估表只進一春內部，不會轉給團隊。':'One form covers all three teams, same link every month. It stays inside EvoScale and is not shared with the teams.';
+    pop.querySelector('.pt').textContent=z?'會後評估表 · 預覽':'Feedback form · preview';
+    [].forEach.call(pop.querySelectorAll('.r'),function(r){r.textContent=z?'痛點 · 可複製 · 燈號 · 能幫什麼':'Pain · scale · verdict · how you can help'});
+    pop.querySelector('.go').textContent=z?'填評估表 ↗':'Open the form ↗';
+    pop.querySelector('.later').textContent=z?'稍後再填':'Later';
+    bar.querySelector('.ev').textContent=z?'填會後評估表 ↗':'Fill in the feedback form ↗';
+    [].forEach.call(lb.children,function(i,k){i.innerHTML='<b>'+hm(ST[k][0])+'</b>'+(z?ST[k][1]:ST[k][2])})}
+  function close(){pop.classList.remove('on');try{sessionStorage.setItem('dr_evpop','1')}catch(e){}}
+  pop.querySelector('.x').onclick=close;pop.querySelector('.later').onclick=close;
+  pop.addEventListener('click',function(e){if(e.target===pop)close()});
+  [].forEach.call(pop.querySelectorAll('a'),function(a){a.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&pop.classList.contains('on'))close()});
+  bar.querySelector('.ev').onclick=function(){window.open(EVAL,'_blank','noopener')};
+  function tick(){var n=now(),on=n.d===DAY&&n.m>=11*60&&n.m<15*60;bar.classList.toggle('on',on);if(!on)return;
+    var z=zh(),m=n.m,f=Math.min(Math.max((m-A)/(Z-A),0),1);
+    bar.querySelector('.fl').style.width=(f*100)+'%';dot.style.left=(f*100)+'%';
+    var c=CUR[0];CUR.forEach(function(s){if(m>=s[0])c=s});
+    bar.querySelector('.nw').textContent=(z?'現在 ':'Now ')+hm(m);bar.querySelector('.cl').textContent=z?c[1]:c[2];
+    var nx=null;ST.forEach(function(s){if(nx===null&&s[0]>m)nx=s});
+    bar.querySelector('.rm').textContent=nx?((z?'再 ':'')+Math.ceil(nx[0]-m)+(z?' 分到'+nx[1]:' min to '+nx[2].toLowerCase())):'';
+    [].forEach.call(lb.children,function(i,k){i.className=m>=ST[k][0]?((k===ST.length-1||m<ST[k+1][0])?'cur':'done'):''});
+    bar.classList.toggle('after',m>=POPAT);
+    var seen=null;try{seen=sessionStorage.getItem('dr_evpop')}catch(e){}
+    if(m>=POPAT&&m<16*60&&!seen&&!pop.classList.contains('on')){pop.classList.add('on')}}
+  text();tick();setInterval(tick,15000);
+  new MutationObserver(function(){text();tick()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+})();
+</script>
+<!--LIVE:END-->
 </body>
 </html>
