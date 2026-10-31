@@ -47,3 +47,4 @@ operator-insider-preview/articles/_archive/
 
 # ── 2026-09-21：底線開頭的資料檔是內部正典，永不上線（Team/_advisors.json 曾被公開，含同意紀錄與不可上線的人名）──
 **/_*.json
+.wrangler/
