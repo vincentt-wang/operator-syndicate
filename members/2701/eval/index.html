@@ -160,7 +160,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">3H4sX5H/c9XRPnJPam5i7HiMS12q7EsEEN9+KW2Wvv9qyN0gLNG/HRXki+GCypDaZFEQ5QqxoNK01x1ZIb1tzjPLN3HBLKZ4mPNgQC/z53FBPfvVbhxHSyausg+olJR+nseyo0dxhi9sr0s3lpzra/f7vqy21YdaH7zC0UiHGSSQ0KjAVhRnHq5WQN3rjHtRro/mzShxF/4lOC5Ze1KdvWFNlfWp27BS2yqajNGjpz79Ngpn2hwl3pL7YSSQRUfFUUrtVBpZJP/pJpVqTKNcy2VDSNYK+7Wdhl9iBKpc4lCZBh0qp1EUh6S9iD/JVL854HUpdkhmT5AZZOmzaa1YiZuwiLnq9IoyLRu1OX8OzMUiZaxy2Av+PSqnqE2hooxKvP6KMv/FBVPg1sge1+R77kRDuUfuUBOkHY+81U31YeKbfRCGxkv831mhrRUVnH9QBu/OkC9ie64nsSb+kyWJqeiK4F2wtP4vFhpVc/0sZjzkOkaBVond3BDSaGUDJNthsIfT22/7WSjipT3sKwCmm7SeEoVkjsdh/yucmrOLe88z2k2nfwlLtb05TMRZfF2QaL/G</script>
+<script id="sealed" type="application/octet-stream">Uhgo79FFS9+WTaZcyf4AcTD3gbGybBznnOcBvVEgDn4+RcVKAfaMNtH0pPRYdlKdHhZlxbZVQup7NLUjoNr3LUsmPhv0xZsoNNZdcsT6sRi8Z7j1eps6/vX4LbhEn5M7iZleaYZYtkr3FffvEJc6ube6pIJWDemzcRMWFQrt30fbJ5yzNzYKX+bHpk63vW/w/4LnPxW1JAfCD790QokMy3/gdtUMFABMpuKao8EHIJivjjxiyxjP7EbJeL3Hq6wg/myr8VfBBpBYBeigXZMtHF7Dd34Sij/mCywCgqNY0ENwGLPMlfdnga07Q/+eqBhQaESOb+gcildcqhK1czUOXMnrnSDnfQnwu5rY9IMeMgf1mk+M6kefFg37iaxSWZ+oGxiliOCGpLuKkj/0MD5DRrtm1iLqOkskOkdBwUYFAYcEutCGvc5LrlRPIaDIAgcLlTnsTVaLLtlgu0mFHzBZAwnpCdn7O0x6VdwfStIfOrwJodBxTOMRVkWYEWIkuFjjgsLJDAk5ppGAdEdULUuImQatIuseUgPNJ8EA5Yh6B1gJOWB+3D/XDeqhTorFIXD4xT7p</script>
 <script>
 window.ESA=function(o){
 var WK='https://evoscale-forms.comicbnb.workers.dev',KS='es_m_sess',CID="554476703763-7q35gngcrm0b7m5a86qlfa40fv6ll1s8.apps.googleusercontent.com";
@@ -206,7 +206,7 @@ function enter(j){
  var b=Uint8Array.from(atob(el.textContent.trim()),function(c){return c.charCodeAt(0)});
  crypto.subtle.importKey('raw',new TextEncoder().encode(j.code),'PBKDF2',false,['deriveKey']).then(function(k){return crypto.subtle.deriveKey({name:'PBKDF2',salt:b.slice(0,16),iterations:200000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt'])})
  .then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b.slice(16,28)},k,b.slice(28))})
- .then(function(x){o.start(JSON.parse(new TextDecoder().decode(x)),{user:user,rec:j.rec||null})},function(){gerr('內容暫時打不開，請稍後再試。','The content could not be opened. Please try again shortly.')})}
+ .then(function(x){o.start(JSON.parse(new TextDecoder().decode(x)),{user:user,rec:j.rec||null,known:j.known||null})},function(){gerr('內容暫時打不開，請稍後再試。','The content could not be opened. Please try again shortly.')})}
 function boot(){
  var s=ls(KS);if(!s)return showLogin();
  fetch(WK+'/me',{headers:{'X-Session':s}}).then(function(r){
