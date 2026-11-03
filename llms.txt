@@ -1,6 +1,6 @@
 # EvoScale Capital
 
-> EvoScale Capital (一春資本) is Taiwan's first operator-led venture syndicate. 50+ senior operators from Fortune 500 tech giants and Taiwan's top 100 enterprises co-invest in B2B startups and open enterprise procurement doors from day one.
+> EvoScale Capital (一春資本) is Taiwan's first operator-led venture syndicate. Senior operators from Fortune 500 tech companies and Taiwan's top 100 enterprises co-invest in B2B startups and open enterprise procurement doors from day one.
 
 EvoScale Capital invests more than capital. Alongside funding, portfolio companies gain an operator network and direct enterprise channel access: the operators personally know the decision-makers at the exact companies a startup is trying to sell to. The thesis is that early alpha in B2B comes from changing the odds by putting founders in the room.
 
@@ -9,7 +9,7 @@ Every submission is evaluated objectively through a D-F-V framework (Desirabilit
 ## Key facts
 
 - Category: operator-led venture syndicate, focused on B2B startups
-- Network: 50+ senior (VP/GM-level) operators from Fortune 500 tech giants and Taiwan's top 100 enterprises
+- Network: senior (VP/GM-level) operators from Fortune 500 tech giants and Taiwan's top 100 enterprises
 - What founders get: capital, an operator network, and direct B2B enterprise procurement/channel access
 - Evaluation: objective D-F-V (Desirability, Feasibility, Viability) assessment; every applicant receives a one-page A4 evaluation
 - Who can apply: Tier 1 (seed / early stage) and Tier 2 (pre-IPO) B2B companies
