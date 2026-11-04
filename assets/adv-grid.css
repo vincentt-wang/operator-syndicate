@@ -1,0 +1,12 @@
+/* 人物卡片（首頁、operators 共用）2026-11-04：改成置中換行，最後一排不滿四張時置中；上方加產業篩選 */
+.adv-wrap .adv-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem}
+.adv-wrap .adv-grid>.adv-card{flex:0 0 calc((100% - 3.3rem)/4);min-width:0}
+.adv-wrap .adv-grid>.adv-card[hidden]{display:none}
+@media(max-width:1000px){.adv-wrap .adv-grid>.adv-card{flex-basis:calc((100% - 1.1rem)/2)}}
+@media(max-width:560px){.adv-wrap .adv-grid>.adv-card{flex-basis:100%}}
+.adv-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
+.adv-chip{font-family:var(--fb);font-size:.84rem;font-weight:700;letter-spacing:.03em;line-height:1;padding:9px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.72);cursor:pointer;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.adv-chip:hover{border-color:rgba(255,102,0,.6);color:#fff}
+.adv-chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.adv-chip:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+@media(max-width:560px){.adv-filter{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 1.3rem;padding:0 16px 4px;scrollbar-width:none}.adv-filter::-webkit-scrollbar{display:none}}
