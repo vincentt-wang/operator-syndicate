@@ -222,7 +222,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         <h3 data-en="The form" data-zh="問卷">The form</h3>
         <ul>
           <li data-en="About 12 questions. Your answers save as you go, so you can come back to finish later." data-zh="約 12 題，作答會自動存草稿，可以分次填。">About 12 questions. Your answers save as you go, so you can come back to finish later.</li>
-          <li data-en="Whether we introduce you to partners in our network is up to you. It's an optional box at the end." data-zh="要不要讓我們介紹給合作夥伴，由你在最後決定，不勾也可以。">Whether we introduce you to partners in our network is up to you. It's an optional box at the end.</li>
+          <li data-en="Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck stays with Vincent and Boice." data-zh="要不要放進精選案例分享給夥伴，由你在最後決定；詳細 Deck 只有 Vincent 和 Boice 看。">Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck stays with Vincent and Boice.</li>
         </ul>
       </div>
       <div class="card">
@@ -250,7 +250,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
       <span class="note-line" id="resumeNote" style="display:none" data-en="A saved draft was found and restored." data-zh="偵測到先前的草稿，已自動帶回。">A saved draft was found and restored.</span>
     </div>
-    <p class="note-line" data-en="Your data is used only for evaluation. We keep it for 12 months and delete it on request." data-zh="你的資料僅用於評估，保留 12 個月，可隨時要求刪除。">Your data is used only for evaluation. We keep it for 12 months and delete it on request.</p>
+    <p class="note-line" data-en="Your data is used for evaluation, matching and the sharing you agree to. We keep it for 12 months and delete it on request." data-zh="你的資料用於評估、配對與你同意的分享，保留 12 個月，可隨時要求刪除。">Your data is used for evaluation, matching and the sharing you agree to. We keep it for 12 months and delete it on request.</p>
   </section>
 
   <!-- ───────────── STAGE 2 · QUESTIONNAIRE ───────────── -->
@@ -464,11 +464,11 @@ select.ctrl option{background:var(--navy-2);color:#fff}
 
       <label class="consent">
         <input type="checkbox" name="consent_referral">
-        <span class="ctxt" data-en="Optional: if there's a fit, you may introduce me to partners in EvoScale's network." data-zh="（選填）適合的話，可以把我介紹給一春的合作夥伴。">Optional: if there's a fit, you may introduce me to partners in EvoScale's network.</span>
+        <span class="ctxt" data-en="Optional: EvoScale may share our public summary in its monthly featured teams with ecosystem partners. If a partner is interested, EvoScale asks us first before any introduction." data-zh="（選填）同意一春把我們的可公開簡介放進每月精選案例，分享給生態夥伴；有夥伴感興趣，一春會先問過我們再引薦。">Optional: EvoScale may share our public summary in its monthly featured teams with ecosystem partners. If a partner is interested, EvoScale asks us first before any introduction.</span>
       </label>
       <span id="errConsentRef" hidden></span>
 
-      <p class="privacy" data-en="Privacy: your data is used only for evaluation and matching. We retain it for 12 months and delete it on request. Contact privacy@evoscalecapital.com." data-zh="隱私：你的資料僅用於評估與配對，保留 12 個月，可隨時要求刪除。聯絡 privacy@evoscalecapital.com。">Privacy: your data is used only for evaluation and matching. We retain it for 12 months and delete it on request. Contact privacy@evoscalecapital.com.</p>
+      <p class="privacy" data-en="Your detailed pitch deck is seen only by Vincent and Boice. Without your consent we never share confidential material or financials with anyone; if you are invited to a Deal Room, you decide whether members see the detailed deck. Data is used for evaluation, matching and the sharing you agree to, kept 12 months, deleted on request. Contact privacy@evoscalecapital.com." data-zh="詳細 Pitch Deck 只有 Vincent 和 Boice 看。沒有你們同意，我們不會把 Confidential 資料或財務數字給任何人；受邀到 Deal Room 時，要不要給現場成員看，由你們決定。資料用於評估、配對與你同意的分享，保留 12 個月，可隨時要求刪除。聯絡 privacy@evoscalecapital.com。">Your detailed pitch deck is seen only by Vincent and Boice. Without your consent we never share confidential material or financials with anyone; if you are invited to a Deal Room, you decide whether members see the detailed deck. Data is used for evaluation, matching and the sharing you agree to, kept 12 months, deleted on request. Contact privacy@evoscalecapital.com.</p>
     </div>
 
     </form>
@@ -483,15 +483,22 @@ select.ctrl option{background:var(--navy-2);color:#fff}
   <section class="stage" id="stage-upload">
     <div class="eyebrow" data-en="Final step" data-zh="最後一步">Final step</div>
     <h1 data-en="Share your deck." data-zh="提供你的 Deck。">Share your deck.</h1>
-    <p class="lead" data-en="Share a 10- to 15-page pitch deck by link. Add any supplementary material that helps us evaluate." data-zh="以連結提供一份 10 至 15 頁的 Pitch Deck。可附上任何有助評估的補充資料。">Share a 10- to 15-page pitch deck by link. Add any supplementary material that helps us evaluate.</p>
+    <p class="lead" data-en="Two links: a detailed deck only we see, and an optional public summary we can share with partners." data-zh="兩個連結：一份只有我們看的詳細 Deck，一份可以分享給夥伴的簡介（選填）。">Two links: a detailed deck only we see, and an optional public summary we can share with partners.</p>
 
     <div class="field">
-      <label class="flabel" data-en="Pitch deck link (10–15 pages)" data-zh="Pitch Deck 連結（10–15 頁）">Pitch deck link (10–15 pages)<span class="req">●</span></label>
-      <p class="hint" data-en="Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login." data-zh="貼上 Google Drive、Dropbox 或 Notion 連結。請確認不需登入即可開啟。">Paste a Google Drive, Dropbox, or Notion link. Make sure it opens without a login.</p>
+      <label class="flabel" data-en="Detailed pitch deck link (10–15 pages, financials welcome)" data-zh="詳細 Pitch Deck 連結（10–15 頁，可含財務）">Detailed pitch deck link (10–15 pages, financials welcome)<span class="req">●</span></label>
+      <p class="hint" data-en="Only Vincent and Boice see this. Paste a Google Drive, Dropbox, or Notion link that opens without a login." data-zh="只有 Vincent 和 Boice 看。貼上 Google Drive、Dropbox 或 Notion 連結，請確認不需登入即可開啟。">Only Vincent and Boice see this. Paste a Google Drive, Dropbox, or Notion link that opens without a login.</p>
       <input class="ctrl" name="deck_link" type="text" inputmode="url" autocomplete="url" spellcheck="false" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
       <div class="err" id="errDeckLink" style="display:none" data-en="Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there." data-zh="請把 Deck 連結貼在上面這一格。想用 email 給也可以，寄到 vincent@evoscalecapital.com 我們接手處理。">Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there.</div>
       <div class="err" id="errDeckMoved" style="display:none" data-en="It looks like you pasted a link in the supplementary box below. Use it as your deck link?" data-zh="看起來你把連結貼在下面的補充資料那格了。要用它當 Deck 連結嗎？">It looks like you pasted a link in the supplementary box below. Use it as your deck link?</div>
       <button type="button" id="btnUseNotesLink" class="btn ghost" style="display:none;margin-top:8px" data-en="Use that link" data-zh="用那個連結">Use that link</button>
+    </div>
+
+    <!-- 11/05 可公開簡介：會放進每月精選案例給生態夥伴看 -->
+    <div class="field">
+      <label class="flabel"><span data-en="Public summary link" data-zh="可公開簡介連結">Public summary link</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
+      <p class="hint" data-en="A one-pager or a sales deck of up to 5 pages. We may share it with partners in our monthly featured teams, so leave out financials and valuation." data-zh="一頁簡介或 5 頁內的 sales deck，可能放進每月精選案例給夥伴看，請不要放財務與估值。">A one-pager or a sales deck of up to 5 pages. We may share it with partners in our monthly featured teams, so leave out financials and valuation.</p>
+      <input class="ctrl" name="promo_link" type="text" inputmode="url" autocomplete="url" spellcheck="false" data-en-ph="https://..." data-zh-ph="https://...">
     </div>
 
     <!-- Supplementary as links/notes (Web3Forms trial mode) -->
@@ -714,7 +721,7 @@ function collectAnswers(){
     else data[el.name]=el.value;
   });
   // upload-stage fields live outside #appForm
-  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
+  ['deck_link','promo_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el) data[n]=el.value; });
   return data;
 }
 function saveDraft(){
@@ -735,7 +742,7 @@ function restoreDraft(){
     else el.value=a[el.name];
     if(el.value) any=true;
   });
-  ['deck_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el && (n in a)){ el.value=a[n]; if(a[n]) any=true; } });
+  ['deck_link','promo_link','extra_notes'].forEach(function(n){ var el=document.querySelector('[name="'+n+'"]'); if(el && (n in a)){ el.value=a[n]; if(a[n]) any=true; } });
   var ol=document.querySelector('[name="one_liner"]'); if(ol) countOneLiner(ol);
   return any;
 }
@@ -907,7 +914,7 @@ async function submitViaWorker(answers){
 }
 
 /* ===== Init ===== */
-function isTracked(t){ return t && t.closest && (t.closest('#appForm') || (t.name==='deck_link') || (t.name==='extra_notes')); }
+function isTracked(t){ return t && t.closest && (t.closest('#appForm') || (t.name==='deck_link') || (t.name==='promo_link') || (t.name==='extra_notes')); }
 document.addEventListener('input', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
 document.addEventListener('change', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); } });
 (function start(){
