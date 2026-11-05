@@ -172,6 +172,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
   main{padding:34px 18px 80px}
   .hd-link.site{display:none}
 }
+.cbs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 </style>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "766d2a2b8e7c479eba3f8fe21c4779d1"}'></script>
@@ -222,25 +223,29 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         <h3 data-en="The form" data-zh="問卷">The form</h3>
         <ul>
           <li data-en="About 12 questions. Your answers save as you go, so you can come back to finish later." data-zh="約 12 題，作答會自動存草稿，可以分次填。">About 12 questions. Your answers save as you go, so you can come back to finish later.</li>
-          <li data-en="Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck stays with Vincent and Boice." data-zh="要不要放進精選案例分享給夥伴，由你在最後決定；詳細 Deck 只有 Vincent 和 Boice 看。">Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck stays with Vincent and Boice.</li>
+          <li data-en="Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck is for internal review." data-zh="要不要放進精選案例分享給夥伴，由你在最後決定；詳細 Deck 原則上僅供內部評估。">Whether we feature you to partners is up to you. It's an optional box at the end. Your detailed deck is for internal review.</li>
         </ul>
       </div>
       <div class="card">
         <h3 data-en="The deck" data-zh="Pitch Deck">The deck</h3>
         <ul>
           <li data-en="At the last step, share a pitch deck of 10 to 15 pages. Anything the form doesn't ask, the deck can cover." data-zh="最後一步提供 10 到 15 頁的 Pitch Deck，問卷沒問到的，放在 Deck 裡就好。">At the last step, share a pitch deck of 10 to 15 pages. Anything the form doesn't ask, the deck can cover.</li>
-          <li data-en="The list below is only a guide. Not every item fits every business, and none of it is required." data-zh="下面的清單只是參考，不是每一項都適用，也沒有一項是必填。">The list below is only a guide. Not every item fits every business, and none of it is required.</li>
+          
         </ul>
       </div>
     </div>
 
     <div class="checklist">
       <div class="checklist-hd">
-        <h4 data-en="What a deck usually covers" data-zh="Deck 通常會講的內容">What a deck usually covers</h4>
+        <h4 data-en="What a deck usually covers (12 items)" data-zh="Deck 通常會講的 12 件事">What a deck usually covers (12 items)</h4>
+        <div class="cbs"><button class="copy-btn" id="copyAI" onclick="copyPrompt()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+          <span data-en="Copy AI prompt" data-zh="複製 AI 提示詞">Copy AI prompt</span>
+        </button>
         <button class="copy-btn" id="copyChk" onclick="copyChecklist()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <span data-en="Copy" data-zh="複製">Copy</span>
-        </button>
+          <span data-en="Copy list" data-zh="複製清單">Copy list</span>
+        </button></div>
       </div>
       <pre id="chkText"></pre>
     </div>
@@ -385,12 +390,12 @@ select.ctrl option{background:var(--navy-2);color:#fff}
       <div class="field" data-required data-group="product_stage">
         <div class="flabel" data-en="Product stage" data-zh="產品階段">Product stage<span class="req">●</span></div>
         <div class="chips">
-          <label class="chip"><input type="radio" name="product_stage" value="concept"><span data-en="Concept" data-zh="概念">Concept</span></label>
-          <label class="chip"><input type="radio" name="product_stage" value="prototype"><span data-en="Prototype" data-zh="原型">Prototype</span></label>
-          <label class="chip"><input type="radio" name="product_stage" value="mvp"><span data-en="MVP · Beta" data-zh="MVP·Beta">MVP · Beta</span></label>
-          <label class="chip"><input type="radio" name="product_stage" value="launched"><span data-en="Launched" data-zh="已上線">Launched</span></label>
-          <label class="chip"><input type="radio" name="product_stage" value="pmf"><span data-en="Product-market fit" data-zh="達到 PMF">Product-market fit</span></label>
-          <label class="chip"><input type="radio" name="product_stage" value="scaling"><span data-en="Scaling" data-zh="規模化成長">Scaling</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="concept"><span data-en="Idea" data-zh="方向">Idea</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="prototype"><span data-en="Prototype" data-zh="Prototype">Prototype</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="mvp"><span data-en="MVP" data-zh="MVP">MVP</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="poc"><span data-en="POC" data-zh="POC">POC</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="gtm"><span data-en="GTM" data-zh="GTM">GTM</span></label>
+          <label class="chip"><input type="radio" name="product_stage" value="scaling"><span data-en="Scaling" data-zh="Scaling">Scaling</span></label>
           <label class="chip"><input type="radio" name="product_stage" value="other"><span data-en="Other" data-zh="其他">Other</span></label>
         </div>
         <input class="ctrl" name="product_stage_note" style="margin-top:12px" data-en-ph="Anything to add (optional)" data-zh-ph="想補充的話（選填）">
@@ -456,11 +461,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         <input class="ctrl" name="time_sensitivity" data-en-ph="e.g. closing the round by Aug; other term sheets" data-zh-ph="例：8 月前要 close；已有其他 term sheet">
       </div>
 
-      <label class="consent">
-        <input type="checkbox" name="consent_ai">
-        <span class="ctxt" data-en="I agree EvoScale may use AI to help organize my application. People make the decisions." data-zh="我同意一春用 AI 協助整理我的資料，判斷仍由人來做。">I agree EvoScale may use AI to help organize my application. People make the decisions.</span>
-      </label>
-      <div class="err" id="errConsentAi" style="display:none;margin:-8px 0 14px" data-en="Please check this box to submit." data-zh="勾選這一項才能送出。">Please check this box to submit.</div>
+      
+      
 
       <label class="consent">
         <input type="checkbox" name="consent_referral">
@@ -468,7 +470,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
       </label>
       <span id="errConsentRef" hidden></span>
 
-      <p class="privacy" data-en="Your detailed pitch deck is seen only by Vincent and Boice. Without your consent we never share confidential material or financials with anyone; if you are invited to a Deal Room, you decide whether members see the detailed deck. Data is used for evaluation, matching and the sharing you agree to, kept 12 months, deleted on request. Contact privacy@evoscalecapital.com." data-zh="詳細 Pitch Deck 只有 Vincent 和 Boice 看。沒有你們同意，我們不會把 Confidential 資料或財務數字給任何人；受邀到 Deal Room 時，要不要給現場成員看，由你們決定。資料用於評估、配對與你同意的分享，保留 12 個月，可隨時要求刪除。聯絡 privacy@evoscalecapital.com。">Your detailed pitch deck is seen only by Vincent and Boice. Without your consent we never share confidential material or financials with anyone; if you are invited to a Deal Room, you decide whether members see the detailed deck. Data is used for evaluation, matching and the sharing you agree to, kept 12 months, deleted on request. Contact privacy@evoscalecapital.com.</p>
+      <p class="privacy" data-en="Your detailed deck is, in principle, for EvoScale's internal review by Vincent and Boice; we will ask before sharing it with any third party. If you are invited to a Deal Room, you decide whether members see it. EvoScale relies on the information you provide, does not verify it, and nothing here is an offer or commitment to invest. Data is kept 12 months and deleted on request. Contact privacy@evoscalecapital.com." data-zh="詳細 Pitch Deck 原則上僅供 Vincent 與 Boice 內部評估；需要提供給第三方時，會先徵得你們同意。受邀到 Deal Room 時，是否提供給現場成員，由你們決定。一春依你提供的資料評估，不負查核之責，本表單與後續往來均不構成投資承諾。資料保留 12 個月，可隨時要求刪除。聯絡 privacy@evoscalecapital.com。">Your detailed deck is, in principle, for EvoScale's internal review by Vincent and Boice; we will ask before sharing it with any third party. If you are invited to a Deal Room, you decide whether members see it. EvoScale relies on the information you provide, does not verify it, and nothing here is an offer or commitment to invest. Data is kept 12 months and deleted on request. Contact privacy@evoscalecapital.com.</p>
     </div>
 
     </form>
@@ -483,11 +485,11 @@ select.ctrl option{background:var(--navy-2);color:#fff}
   <section class="stage" id="stage-upload">
     <div class="eyebrow" data-en="Final step" data-zh="最後一步">Final step</div>
     <h1 data-en="Share your deck." data-zh="提供你的 Deck。">Share your deck.</h1>
-    <p class="lead" data-en="Two links: a detailed deck only we see, and an optional public summary we can share with partners." data-zh="兩個連結：一份只有我們看的詳細 Deck，一份可以分享給夥伴的簡介（選填）。">Two links: a detailed deck only we see, and an optional public summary we can share with partners.</p>
+    <p class="lead" data-en="Two links: a detailed deck for our internal review, and an optional public summary we can share with partners." data-zh="兩個連結：一份內部評估用的詳細 Deck，一份可以分享給夥伴的簡介（選填）。">Two links: a detailed deck for our internal review, and an optional public summary we can share with partners.</p>
 
     <div class="field">
       <label class="flabel" data-en="Detailed pitch deck link (10–15 pages, financials welcome)" data-zh="詳細 Pitch Deck 連結（10–15 頁，可含財務）">Detailed pitch deck link (10–15 pages, financials welcome)<span class="req">●</span></label>
-      <p class="hint" data-en="Only Vincent and Boice see this. Paste a Google Drive, Dropbox, or Notion link that opens without a login." data-zh="只有 Vincent 和 Boice 看。貼上 Google Drive、Dropbox 或 Notion 連結，請確認不需登入即可開啟。">Only Vincent and Boice see this. Paste a Google Drive, Dropbox, or Notion link that opens without a login.</p>
+      <p class="hint" data-en="For internal review by Vincent and Boice. Paste a Google Drive, Dropbox, or Notion link that opens without a login." data-zh="原則上僅供 Vincent 與 Boice 內部評估。貼上 Google Drive、Dropbox 或 Notion 連結，請確認不需登入即可開啟。">For internal review by Vincent and Boice. Paste a Google Drive, Dropbox, or Notion link that opens without a login.</p>
       <input class="ctrl" name="deck_link" type="text" inputmode="url" autocomplete="url" spellcheck="false" data-en-ph="https://drive.google.com/..." data-zh-ph="https://drive.google.com/...">
       <div class="err" id="errDeckLink" style="display:none" data-en="Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there." data-zh="請把 Deck 連結貼在上面這一格。想用 email 給也可以，寄到 vincent@evoscalecapital.com 我們接手處理。">Paste your deck link in the field above. If you would rather send it by email, write to vincent@evoscalecapital.com and we will take it from there.</div>
       <div class="err" id="errDeckMoved" style="display:none" data-en="It looks like you pasted a link in the supplementary box below. Use it as your deck link?" data-zh="看起來你把連結貼在下面的補充資料那格了。要用它當 Deck 連結嗎？">It looks like you pasted a link in the supplementary box below. Use it as your deck link?</div>
@@ -604,27 +606,20 @@ function applyLang(l){
 function toggleLang(){ applyLang(lang==='en'?'zh':'en'); }
 
 /* ===== Deck self-check checklist (one-click copy) ===== */
-var CHK_EN = "A guide, not a checklist. Share what you can; anything you'd rather discuss later is fine.\n\n"+
-"1. Problem: who has it, and how much it hurts\n"+
-"2. Solution: what you do, and how it differs from today's options\n"+
-"3. Customers and market: who buys, and how big it is\n"+
-"4. Why now\n"+
-"5. Traction: revenue, customers, partners\n"+
-"6. Business model and competition\n"+
-"7. Team: why you\n"+
-"8. Financials and next milestones\n"+
-"9. This round: how much, and what it's for";
-var CHK_ZH = "這份是參考，不是檢查表。能講的先講，暫時不方便的之後再談也沒問題。\n\n"+
-"1. 問題：誰在痛、有多痛\n"+
-"2. 解決方案：你怎麼做、跟現有做法差在哪\n"+
-"3. 客戶與市場：賣給誰、市場多大\n"+
-"4. 為什麼是現在\n"+
-"5. 營運進展：營收、客戶、合作\n"+
-"6. 商業模式與競爭\n"+
-"7. 團隊：為什麼是你們\n"+
-"8. 財務與下一個里程碑\n"+
-"9. 這一輪：募多少、錢用在哪";
+var CHK_EN = "A guide, not a checklist. Include what applies; anything sensitive can wait. About 15 slides, 10 minutes.\n\nThree that always come up\n1. Pain: who hurts, in money or time\n2. Repeatability: can the play that landed customer one run again\n3. Ask: the raise, equity released, post-money; what each of three or four buckets buys; the non-money ask (resources, who to meet)\n\nNine more, any order, where they apply\n4. Product: the steps from first contact to payment, and who signs off\n5. Unit Economics: revenue, variable cost and what is left after CAC per order or customer, plus break-even volume (with currency and period)\n6. Traction: three or more comparable periods, GMV or recognized revenue\n7. Retention: repeat rate, renewal or NRR; say so if it is one-off\n8. Market Size: TAM, SAM, SOM with the arithmetic, GMV or revenue\n9. Competition: competitors you can name, how you differ, where they are stronger\n10. Comparables: whether this model has worked elsewhere, and who bought those companies\n11. Runway: monthly burn, months of cash, how far this round extends it, break-even year\n12. Team: how the founders came to this market, and the seat you most want to fill";
+var CHK_ZH = "這份是參考，不是檢查表。適用才放，暫時不方便的之後再談。約 15 頁、10 分鐘。\n\n必講三件\n1. Pain 痛點：誰在痛，換算成金額或時間\n2. Repeatability 可複製：賣進第一個客戶的做法，能不能照著再做一次\n3. Ask 需求：本輪募多少、釋出多少股權、投後估值；錢分三到四塊各買到什麼；錢以外要什麼資源、要見誰\n\n其餘九項，順序自由\n4. Product 產品：從第一次接觸到付錢經過哪幾步、誰拍板\n5. Unit Economics 單位經濟：一筆訂單或一個客戶收多少、變動成本、扣掉 CAC 後剩多少，做到幾筆打平（標幣別與期間）\n6. Traction 實際成績：三期以上可比較的營收或交易額，註明 GMV 或認列營收\n7. Retention 留存：回購率、續約率或 NRR；一次性生意直接說不適用\n8. Market Size 市場：TAM、SAM、SOM 附算式，標明交易額或營收\n9. Competition 競爭：叫得出名字的對手、差在哪、對方強在哪\n10. Comparables 對標與退場：這個模式在別的市場有沒有跑出來、被誰買走或上市\n11. Runway 財務與跑道：每月燒多少、還能撐幾個月、這輪延長到何時、何時損益兩平\n12. Team 團隊：創辦人怎麼走進這個市場、最想補的位置";
+/* 11/05：同一份清單包成 AI 提示詞，創辦人可以先跟 AI 對一次 */
+var PRM_EN = "Act as an investor who has read hundreds of early-stage decks. I will paste our pitch deck or company overview. Go through the 12 items below one by one and, for each, tell me: whether we cover it, whether it is specific enough (numbers, currency, period), and the one question an investor is most likely to ask. End with the three things we should fix first.\n\n" + CHK_EN.split('\n\n').slice(1).join('\n\n') + "\n\nHere is our material:\n";
+var PRM_ZH = "請你扮演一位看過上百份早期新創簡報的投資人。我會貼上我們的 Pitch Deck 或公司介紹，請依下面 12 項逐項檢查，每一項回答三件事：有沒有講到、夠不夠具體（有沒有數字、幣別、期間）、投資人最可能追問的一個問題。最後列出最該先補的三件事。\n\n" + CHK_ZH.split('\n\n').slice(1).join('\n\n') + "\n\n以下是我們的內容：\n";
 function renderChecklist(){ var p=document.getElementById('chkText'); if(p) p.textContent = lang==='zh'?CHK_ZH:CHK_EN; }
+function copyPrompt(){
+  var txt = lang==='zh'?PRM_ZH:PRM_EN, btn=document.getElementById('copyAI');
+  navigator.clipboard.writeText(txt).then(function(){
+    btn.classList.add('done');
+    btn.querySelector('span').textContent = lang==='zh'?'已複製':'Copied';
+    setTimeout(function(){ btn.classList.remove('done'); applyLang(lang); }, 1800);
+  });
+}
 function copyChecklist(){
   var txt = lang==='zh'?CHK_ZH:CHK_EN, btn=document.getElementById('copyChk');
   navigator.clipboard.writeText(txt).then(function(){
@@ -689,15 +684,6 @@ function validatePage(n){
     f.classList.toggle('invalid', !good);
     if(!good && ok){ ok=false; f.scrollIntoView({block:'center',behavior:'smooth'}); }
   });
-  // Page 4: only the AI consent is required; referral consent is optional (2026-10-22)
-  if(n===4){
-    var ai=document.querySelector('[name="consent_ai"]'), rf=document.querySelector('[name="consent_referral"]');
-    document.getElementById('errConsentAi').style.display = ai.checked?'none':'block';
-    if(!ai.checked){
-      if(ok){ ai.closest('.consent').scrollIntoView({block:'center',behavior:'smooth'}); }
-      ok=false;
-    }
-  }
   return ok;
 }
 
@@ -793,11 +779,6 @@ async function submitApplication(){
   setSubmitErr('');
   clearDeckErrors(); setSubmitErr('');
   var answers=collectAnswers();
-  if(!answers.consent_ai){
-    setSubmitErr(lang==='zh'?'請回到問卷第 4 頁勾選 AI 協助整理那一項。':'Please go back to page 4 and tick the AI consent box.');
-    var se=document.getElementById('errSubmit'); if(se) se.scrollIntoView({block:'center',behavior:'smooth'});
-    return;
-  }
   if(SUBMIT_MODE!=='worker') return submitViaFormsubmit(answers);
   return submitViaWorker(answers);
 }
