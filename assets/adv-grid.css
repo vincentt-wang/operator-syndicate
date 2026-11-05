@@ -5,7 +5,8 @@
 .adv-wrap .adv-grid>.adv-card[hidden]{display:none}
 .adv-wrap .adv-grid>.adv-br{flex:0 0 100%;height:0;margin:0;padding:0}
 @media(max-width:1000px){.adv-wrap .adv-grid>.adv-card{flex-basis:calc((100% - 2.2rem)/3)}
- .adv-wrap .adv-grid .adv-head{height:auto;min-height:5.8em}
+}
+@media(max-width:1180px){.adv-wrap .adv-grid .adv-head{height:auto;min-height:5.8em}
  .adv-wrap .adv-grid .adv-org,.adv-wrap .adv-grid .adv-role{white-space:normal;overflow:visible;text-overflow:clip;text-wrap:balance}}
 @media(max-width:680px){.adv-wrap .adv-grid .adv-head{min-height:0}}
 @media(max-width:680px){.adv-wrap .adv-grid>.adv-card{flex-basis:100%}}
