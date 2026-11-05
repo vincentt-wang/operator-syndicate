@@ -1,2 +1,29 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EvoScale</title>
-<script>location.replace('https://es-hq.pages.dev/'+location.hash)</script></head><body></body></html>
+<!-- 11/05 內部總部入口：先去 es-hq，沒登入會被送回這裡（?login=1）用 Google 登入，拿到 ID token 交給 es-hq 驗證名單。這個網域是 Google 用戶端的授權來源。 -->
+<style>
+:root{--or:#FF6600;--navy:#0A1628;--tx:#0B1623;--tx3:#64748B;--bg:#F6F7F9;--line:rgba(11,22,35,.12)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:16px}
+.c{width:100%;max-width:380px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 22px;text-align:center}
+.lm{width:44px;height:44px;border-radius:11px;background:var(--navy);color:var(--or);font-weight:800;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+h1{font-size:1.25rem;margin:0 0 4px}p{margin:6px 0;color:var(--tx3);font-size:.95rem}
+#g{display:flex;justify-content:center;min-height:44px;margin:18px 0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:22px;border:1.5px solid var(--or);background:var(--or);color:#fff;font:700 1rem inherit;margin-top:12px;cursor:pointer}
+.u{word-break:break-all;user-select:all;font-size:.85rem}
+</style></head><body><div class="c" id="c"><div class="lm">ES</div><h1>一春內部總部</h1><p id="m">只有 Vincent 與 Boice 的 Google 帳號能打開。</p><div id="g"></div></div>
+<script>
+(function(){
+var CID='554476703763-7q35gngcrm0b7m5a86qlfa40fv6ll1s8.apps.googleusercontent.com',HQ='https://es-hq.pages.dev/';
+var q=new URLSearchParams(location.search);
+if(!q.has('login')){location.replace(HQ+location.hash);return}
+history.replaceState(null,'',location.pathname+'?login=1');
+var UA=navigator.userAgent||'',INAPP=/\bLine\/|FBAN|FBAV|FB_IAB|Instagram|MicroMessenger|Messenger|; wv\)/i.test(UA);
+var m=document.getElementById('m'),g=document.getElementById('g');
+if(INAPP){var u=location.origin+location.pathname;m.textContent='App 裡不能用 Google 登入。請複製網址，用 Google Chrome 打開。';
+ g.innerHTML='<div><button class="btn" id="cp" type="button">複製網址</button><p class="u">'+u+'</p></div>';
+ document.getElementById('cp').onclick=function(){var b=this;var ok=function(){b.textContent='已複製，貼到 Chrome 打開'};if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,function(){prompt('',u)});else prompt('',u)};return}
+var s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;
+s.onload=function(){google.accounts.id.initialize({client_id:CID,auto_select:true,callback:function(r){if(r&&r.credential)location.replace(HQ+'auth#'+r.credential)}});
+ google.accounts.id.renderButton(g,{theme:'outline',size:'large',shape:'pill',text:'signin_with',width:280,locale:'zh-TW'});google.accounts.id.prompt()};
+s.onerror=function(){m.textContent='Google 登入載入失敗，請重新整理。'};document.head.appendChild(s);
+})();
+</script></body></html>
