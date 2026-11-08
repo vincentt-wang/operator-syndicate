@@ -94,17 +94,19 @@ h2.blk{font-family:var(--fd);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);le
 .dk-f li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--orange)}
 .dk-sub{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 18px 0;border-top:1px solid var(--line);padding-top:16px;font-size:16px;font-weight:700;color:#fff}
 .dk-note{font-size:14px;font-weight:500;color:var(--w-3)}
-.dk-grid{list-style:none;margin:0;padding:12px 18px 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.dk-grid li{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:28px 1fr;column-gap:8px;row-gap:2px;align-content:start;opacity:0;transform:translateY(6px);animation:dkIn .4s var(--ease) forwards;animation-delay:calc(200ms + var(--i)*35ms);transition:border-color .2s,background .2s}
-.dk-grid li:hover{border-color:rgba(255,140,66,.4);background:rgba(255,140,66,.06)}
+.dk-grid{margin:0;padding:12px 18px 18px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:row dense;gap:10px}
+.dk-h{display:flex;flex-direction:column;gap:2px;padding:6px 2px 2px;grid-row:1}.dk-h b{font-size:16px;color:var(--orange-3);white-space:nowrap}.dk-h span{font-size:13px;color:var(--w-3);white-space:nowrap}
+.dk-fact{grid-template-columns:1fr !important;border-style:dashed !important;background:transparent !important}.dk-fact .d{margin-top:0}.dk-fact .src{font-size:12px;color:var(--w-3);margin-top:6px}
+.dk-grid .dk-it{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:28px 1fr;column-gap:8px;row-gap:2px;align-content:start;opacity:0;transform:translateY(6px);animation:dkIn .4s var(--ease) forwards;animation-delay:calc(200ms + var(--i)*35ms);transition:border-color .2s,background .2s}
+.dk-grid .dk-it:hover{border-color:rgba(255,140,66,.4);background:rgba(255,140,66,.06)}
 .dk-grid .n{grid-row:1 / span 3;font-family:var(--fb);font-variant-numeric:tabular-nums lining-nums;font-weight:800;font-size:15px;color:var(--orange-3);line-height:1.5}
 .dk-grid .t{font-size:16px;font-weight:700;color:#fff;white-space:nowrap}
 .dk-grid .e{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--w-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dk-grid .d{text-wrap:pretty;font-size:14.5px;line-height:1.55;color:var(--w-2);margin-top:4px}
 @keyframes dkIn{to{opacity:1;transform:none}}
-@media(max-width:860px){.dk-focus{grid-template-columns:1fr}.dk-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.dk-focus,.dk-grid{padding-left:14px;padding-right:14px}.dk-sub{padding-left:14px;padding-right:14px}.dk-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.dk-f,.dk-grid li{animation:none;opacity:1;transform:none}}
+@media(max-width:860px){.dk-focus{grid-template-columns:1fr}.dk-grid{grid-template-columns:1fr}.dk-grid>*{grid-column:1 !important;grid-row:auto !important}.dk-h{padding-top:12px}}
+@media(max-width:560px){.dk-focus,.dk-grid{padding-left:14px;padding-right:14px}.dk-sub{padding-left:14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){.dk-f,.dk-grid .dk-it{animation:none;opacity:1;transform:none}}
 
 /* buttons */
 .btn-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:36px}
@@ -267,8 +269,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         </button></div>
       </div>
       <div class="dk-focus" id="dkFocus"></div>
-      <div class="dk-sub"><span data-en="What a deck usually covers (12 items)" data-zh="Deck 通常會講的 12 件事">What a deck usually covers (12 items)</span><span class="dk-note" data-en="A guide, not a checklist. Include what applies." data-zh="參考用，適用才放。">A guide, not a checklist. Include what applies.</span></div>
-      <ol class="dk-grid" id="dkGrid"></ol>
+      <div class="dk-sub"><span data-en="The 14 parts of a pitch" data-zh="Pitch 的 14 個元素">The 14 parts of a pitch</span><span class="dk-note" data-en="A guide, not a checklist. Include what applies." data-zh="參考用，適用才放。">A guide, not a checklist. Include what applies.</span></div>
+      <div class="dk-grid" id="dkGrid" role="list"></div>
     </div>
 
     <div class="btn-row">
@@ -627,7 +629,7 @@ function applyLang(l){
 function toggleLang(){ applyLang(lang==='en'?'zh':'en'); }
 
 /* ===== Deck self-check checklist (one-click copy) ===== */
-/* 11/05 Vincent：先看三件事（痛點趨勢、複製擴張、可行退場），後面是 Deck 常見的 12 件事；文字只住這裡，複製清單與 AI 提示詞都從這份產生 */
+/* 11/05 Vincent：先看三件事（痛點趨勢、複製擴張、可行退場），後面是 Pitch 的 14 個元素（11/08）；文字只住這裡，複製清單與 AI 提示詞都從這份產生 */
 var DK_FOCUS = [
  {zh:'痛點趨勢',en:'The problem',li:[
   ['在解決什麼問題、誰在痛','What problem you solve, and who has it'],
@@ -638,38 +640,51 @@ var DK_FOCUS = [
   ['現在是不是已經在 GTM 階段','Whether you are already in go-to-market'],
   ['最想接觸的企業客戶或通路是誰','The enterprise customers or channels you most want to reach']]},
  {zh:'可行退場',en:'The economics',li:[
-  ['單位經濟：每筆收多少、扣完成本剩多少','Unit economics: revenue per order and what is left after costs'],
+  ['單位經濟：一單的毛利扣掉獲客成本剩多少','Unit economics: margin per order after acquisition cost'],
   ['競爭：叫得出名字的對手、差在哪','Competition: named rivals and how you differ'],
   ['退場與需求：可能被誰買走，這輪要多少錢與資源','Exit and ask: who might buy you, and what this round needs']]}
 ];
-var DK_ITEMS = [
- ['痛點強度','Pain','誰在痛，換算成金額或時間','Who hurts, in money or time'],
- ['市場規模','Market Size','TAM、SAM、SOM 附算式，標明交易額或營收','TAM, SAM, SOM with the arithmetic, GMV or revenue'],
- ['產品流程','Product','從接觸到付錢經過哪幾步、誰拍板','The steps from first contact to payment, and who signs off'],
- ['營運成績','Traction','三期以上可比較的營收或交易額，註明 GMV 或認列營收','Three or more comparable periods, GMV or recognized revenue'],
- ['可否複製','Repeatability','賣進第一個客戶的做法，能不能照著再做一次','Whether the play that landed customer one can run again'],
- ['客戶留存','Retention','回購率、續約率或 NRR；一次性生意直接說不適用','Repeat rate, renewal or NRR; say so if it is one-off'],
- ['單位經濟','Unit Economics','一筆訂單或一個客戶收多少、變動成本、扣掉 CAC 後剩多少，做到幾筆打平','Revenue, variable cost and what is left after CAC per order or customer, plus break-even volume'],
- ['競爭對手','Competition','叫得出名字的對手、差在哪、對方強在哪','Competitors you can name, how you differ, where they are stronger'],
- ['對標退場','Comparables','這個模式在別的市場有沒有跑出來、被誰買走或上市','Whether this model has worked elsewhere, and who bought those companies'],
- ['財務跑道','Runway','每月燒多少、還能撐幾個月、這輪延長到何時、何時損益兩平','Monthly burn, months of cash, how far this round extends it, break-even year'],
- ['本輪需求','Ask','募多少、釋出多少股權、投後估值；錢分三到四塊各買到什麼；錢以外要見誰','The raise, equity, post-money; what each of three or four buckets buys; who you want to meet'],
- ['團隊背景','Team','創辦人怎麼走進這個市場、最想補誰','How the founders came to this market, and the seat you most want to fill']
+/* 11/08 Vincent：對齊 Founder 0→1 Lab 的 Pitch 14 個元素，分故事、證據、人與錢三組；可否複製在上面第二張卡，產品流程併進商業模式 */
+var DK_GROUPS = [
+ {zh:'故事',en:'Story',szh:'先讓人看見誰在痛',sen:'Show who is hurting first',items:[
+  ['一句定位','Hook','一句話講你幫誰解決什麼','One line on who you help and with what'],
+  ['痛點強度','Problem','誰在痛、現在怎麼將就，換算成金額或時間','Who hurts and how they cope today, in money or time'],
+  ['解法成果','Solution','客戶用了得到什麼結果，不列功能','The outcome customers get, not a feature list'],
+  ['為何現在','Why Now','什麼變了，現在才做得成','What changed that makes this possible now'],
+  ['市場規模','Market','找得到幾個有這個痛的客戶；TAM、SAM、SOM 附算式','How many customers with this pain you can reach; TAM, SAM, SOM with the arithmetic']]},
+ {zh:'證據',en:'Evidence',szh:'數字再小都比預測強',sen:'Small real numbers beat forecasts',items:[
+  ['營運成績','Traction','已經發生的數字，三期以上可比較，註明 GMV 或認列營收','Numbers that already happened, three or more comparable periods, GMV or recognized revenue'],
+  ['商業模式','Business Model','誰付錢、誰拍板、怎麼收、一年收幾次','Who pays, who signs off, how you charge and how often'],
+  ['單位經濟','Unit Economics','一單或一個客戶的毛利扣掉獲客成本剩多少，做到幾筆打平','Margin per order or customer after acquisition cost, and the break-even volume'],
+  ['客戶留存','Retention','過一個月還在用的比例；B2B 看續約率或 NRR，一次性生意直接說不適用','Share still using you after a month; renewal or NRR for B2B; say so if it is one-off'],
+  ['競爭對手','Competition','叫得出名字的對手、你差在哪、對方強在哪','Rivals you can name, how you differ, where they are stronger']]},
+ {zh:'人與錢',en:'People and money',szh:'投資人在這裡停最久',sen:'Where investors spend the most time',items:[
+  ['團隊背景','Team','為什麼是你們、別人拿不走的是什麼、最想補誰','Why you, what no one can take from you, the seat you most want to fill'],
+  ['財務跑道','Financials & Runway','每月燒多少、撐得到哪個里程碑、何時損益兩平','Monthly burn, the milestone it gets you to, the break-even year'],
+  ['對標退場','Comparables','同樣的模式在別的市場誰跑出來、被誰買走或上市','Who made this model work elsewhere, and who bought them or took them public'],
+  ['本輪需求','Ask','募多少、買到哪個里程碑，錢分三到四塊；錢以外想見誰','The raise and the milestone it buys, in three or four buckets; who you want to meet beyond money']],
+  fact:['投資人平均 3 分 44 秒看完一份簡報，停最久的是 Financials、Team、Competition。','Investors spend 3 minutes 44 seconds on an average deck, and the longest on financials, team and competition.','DocSend 與哈佛商學院，2015','DocSend and Harvard Business School, 2015']}
 ];
+var DK_ITEMS = [].concat.apply([],DK_GROUPS.map(function(g){return g.items}));
 function dkText(zh){
   var o=[zh?'這份是參考，不是檢查表。適用才放，暫時不方便的之後再談。約 15 頁、10 分鐘。':'A guide, not a checklist. Include what applies; anything sensitive can wait. About 15 slides, 10 minutes.'];
   o.push((zh?'我們先看的三件事\n':'What we look for first\n')+DK_FOCUS.map(function(f,i){return (i+1)+'. '+(zh?f.zh:f.en)+(zh?'：':': ')+f.li.map(function(l){return zh?l[0]:l[1]}).join(zh?'；':'; ')}).join('\n'));
-  o.push((zh?'Deck 通常會講的 12 件事\n':'What a deck usually covers (12 items)\n')+DK_ITEMS.map(function(t,i){return (i+1)+'. '+(zh?t[1]+' '+t[0]+'：'+t[2]:t[1]+': '+t[3])}).join('\n'));
+  var n=0;
+  o.push((zh?'Pitch 的 14 個元素\n':'The 14 parts of a pitch\n')+DK_GROUPS.map(function(g){return (zh?g.zh+'（'+g.szh+'）':g.en+' ('+g.sen+')')+'\n'+g.items.map(function(t){n++;return n+'. '+(zh?t[1]+' '+t[0]+'：'+t[2]:t[1]+': '+t[3])}).join('\n')}).join('\n'));
   return o.join('\n\n');
 }
 var CHK_EN = dkText(false), CHK_ZH = dkText(true);
-var PRM_EN = "Act as an investor who has read hundreds of early-stage decks. I will paste our pitch deck or company overview. First, judge the three things below that investors look at first. Then go through the 12 items one by one and, for each, tell me: whether we cover it, whether it is specific enough (numbers, currency, period), and the one question an investor would most likely ask. End with the three things we should fix first.\n\n" + CHK_EN.split('\n\n').slice(1).join('\n\n') + "\n\nHere is our material:\n";
-var PRM_ZH = "請你扮演一位看過上百份早期新創簡報的投資人。我會貼上我們的 Pitch Deck 或公司介紹。先就下面「先看的三件事」各給一段判斷，再依 12 項逐項檢查，每一項回答三件事：有沒有講到、夠不夠具體（有沒有數字、幣別、期間）、投資人最可能追問的一個問題。最後列出最該先補的三件事。\n\n" + CHK_ZH.split('\n\n').slice(1).join('\n\n') + "\n\n以下是我們的內容：\n";
+var PRM_EN = "Act as an investor who has read hundreds of early-stage decks. I will paste our pitch deck or company overview. First, judge the three things below that investors look at first. Then go through the 14 parts one by one and, for each, tell me: whether we cover it, whether it is specific enough (numbers, currency, period), and the one question an investor would most likely ask. End with the three things we should fix first.\n\n" + CHK_EN.split('\n\n').slice(1).join('\n\n') + "\n\nHere is our material:\n";
+var PRM_ZH = "請你扮演一位看過上百份早期新創簡報的投資人。我會貼上我們的 Pitch Deck 或公司介紹。先就下面「先看的三件事」各給一段判斷，再依 14 個元素逐項檢查，每一項回答三件事：有沒有講到、夠不夠具體（有沒有數字、幣別、期間）、投資人最可能追問的一個問題。最後列出最該先補的三件事。\n\n" + CHK_ZH.split('\n\n').slice(1).join('\n\n') + "\n\n以下是我們的內容：\n";
 function renderChecklist(){
   var zh=lang==='zh', e=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
   var f=document.getElementById('dkFocus'), g=document.getElementById('dkGrid');
   if(f) f.innerHTML=DK_FOCUS.map(function(x,i){return '<div class="dk-f" style="--i:'+i+'"><div class="n">0'+(i+1)+'</div><h5>'+e(zh?x.zh:x.en)+'</h5><ul>'+x.li.map(function(l){return '<li>'+e(zh?l[0]:l[1])+'</li>'}).join('')+'</ul></div>'}).join('');
-  if(g) g.innerHTML=DK_ITEMS.map(function(t,i){return '<li style="--i:'+i+'"><span class="n">'+(i+1)+'</span><span class="t">'+e(zh?t[0]:t[1])+'</span>'+(zh?'<span class="e">'+e(t[1])+'</span>':'')+'<span class="d">'+e(zh?t[2]:t[3])+'</span></li>'}).join('');
+  var n=0,k=0;
+  if(g) g.innerHTML=DK_GROUPS.map(function(G,c){var h='<div class="dk-h" style="grid-column:'+(c+1)+'"><b>'+e(zh?G.zh:G.en)+'</b><span>'+e(zh?G.szh:G.sen)+'</span></div>';
+    h+=G.items.map(function(t){n++;k++;return '<div class="dk-it" role="listitem" style="--i:'+k+';grid-column:'+(c+1)+'"><span class="n">'+n+'</span><span class="t">'+e(zh?t[0]:t[1])+'</span>'+(zh?'<span class="e">'+e(t[1])+'</span>':'')+'<span class="d">'+e(zh?t[2]:t[3])+'</span></div>'}).join('');
+    if(G.fact){k++;h+='<div class="dk-it dk-fact" style="--i:'+k+';grid-column:'+(c+1)+'"><span class="d">'+e(zh?G.fact[0]:G.fact[1])+'</span><span class="src">'+e(zh?G.fact[2]:G.fact[3])+'</span></div>'}
+    return h}).join('');
 }
 function copyPrompt(){
   var txt = lang==='zh'?PRM_ZH:PRM_EN, btn=document.getElementById('copyAI');
