@@ -632,37 +632,37 @@ function toggleLang(){ applyLang(lang==='en'?'zh':'en'); }
 /* 11/05 Vincent：先看三件事（痛點趨勢、複製擴張、可行退場），後面是 Pitch 的 14 個元素（11/08）；文字只住這裡，複製清單與 AI 提示詞都從這份產生 */
 var DK_FOCUS = [
  {zh:'痛點趨勢',en:'The problem',li:[
-  ['在解決什麼問題、誰在痛','What problem you solve, and who has it'],
-  ['痛點換算成金額或時間','The pain in money or time'],
-  ['市場趨勢與規模，為什麼是現在','Market trend and size, and why now']]},
+  ['要解決的問題，以及受影響的對象','The problem you solve, and who it affects'],
+  ['痛點換算成的金額或時間成本','What the problem costs in money or time'],
+  ['市場趨勢與規模，以及為什麼是現在','Market trend and size, and why now']]},
  {zh:'複製擴張',en:'The playbook',li:[
-  ['賣進第一個客戶的做法能否再做一次','Whether the play that landed customer one runs again'],
-  ['現在是不是已經在 GTM 階段','Whether you are already in go-to-market'],
-  ['最想接觸的企業客戶或通路是誰','The enterprise customers or channels you most want to reach']]},
+  ['拿下第一個客戶的方式能否複製','Whether the way you won your first customer can be repeated'],
+  ['是否已進入 GTM 階段','Whether you have reached go-to-market'],
+  ['希望接觸的企業客戶或通路','The enterprise customers or channels you hope to reach']]},
  {zh:'可行退場',en:'The economics',li:[
-  ['單位經濟：一單的毛利扣掉獲客成本剩多少','Unit economics: margin per order after acquisition cost'],
-  ['競爭：叫得出名字的對手、差在哪','Competition: named rivals and how you differ'],
-  ['退場與需求：可能被誰買走，這輪要多少錢與資源','Exit and ask: who might buy you, and what this round needs']]}
+  ['單位經濟：每筆訂單扣除獲客成本後的毛利','Unit economics: margin per order after acquisition cost'],
+  ['競爭：主要競爭者與彼此的差異','Competition: your main competitors and how you differ'],
+  ['退場與需求：可能的併購方，以及本輪的資金與資源需求','Exit and ask: likely acquirers, and what this round needs in capital and support']]}
 ];
 /* 11/08 Vincent：對齊 Founder 0→1 Lab 的 Pitch 14 個元素，分故事、證據、人與錢三組；可否複製在上面第二張卡，產品流程併進商業模式 */
 var DK_GROUPS = [
- {zh:'故事',en:'Story',szh:'先讓人看見誰在痛',sen:'Show who is hurting first',items:[
-  ['一句定位','Hook','一句話講你幫誰解決什麼','One line on who you help and with what'],
-  ['痛點強度','Problem','誰在痛、現在怎麼將就，換算成金額或時間','Who hurts and how they cope today, in money or time'],
-  ['解法成果','Solution','客戶用了得到什麼結果，不列功能','The outcome customers get, not a feature list'],
-  ['為何現在','Why Now','什麼變了，現在才做得成','What changed that makes this possible now'],
-  ['市場規模','Market','找得到幾個有這個痛的客戶；TAM、SAM、SOM 附算式','How many customers with this pain you can reach; TAM, SAM, SOM with the arithmetic']]},
- {zh:'證據',en:'Evidence',szh:'數字再小都比預測強',sen:'Small real numbers beat forecasts',items:[
-  ['營運成績','Traction','已經發生的數字，三期以上可比較，註明 GMV 或認列營收','Numbers that already happened, three or more comparable periods, GMV or recognized revenue'],
-  ['商業模式','Business Model','誰付錢、誰拍板、怎麼收、一年收幾次','Who pays, who signs off, how you charge and how often'],
-  ['單位經濟','Unit Economics','一單或一個客戶的毛利扣掉獲客成本剩多少，做到幾筆打平','Margin per order or customer after acquisition cost, and the break-even volume'],
-  ['客戶留存','Retention','過一個月還在用的比例；B2B 看續約率或 NRR，一次性生意直接說不適用','Share still using you after a month; renewal or NRR for B2B; say so if it is one-off'],
-  ['競爭對手','Competition','叫得出名字的對手、你差在哪、對方強在哪','Rivals you can name, how you differ, where they are stronger']]},
- {zh:'人與錢',en:'People and money',szh:'投資人在這裡停最久',sen:'Where investors spend the most time',items:[
-  ['團隊背景','Team','為什麼是你們、別人拿不走的是什麼、最想補誰','Why you, what no one can take from you, the seat you most want to fill'],
-  ['財務跑道','Financials & Runway','每月燒多少、撐得到哪個里程碑、何時損益兩平','Monthly burn, the milestone it gets you to, the break-even year'],
-  ['對標退場','Comparables','同樣的模式在別的市場誰跑出來、被誰買走或上市','Who made this model work elsewhere, and who bought them or took them public'],
-  ['本輪需求','Ask','募多少、買到哪個里程碑，錢分三到四塊；錢以外想見誰','The raise and the milestone it buys, in three or four buckets; who you want to meet beyond money']],
+ {zh:'故事',en:'Story',szh:'先讓人看見問題',sen:'Start with the problem',items:[
+  ['一句定位','Hook','用一句話說明為誰解決什麼問題','One sentence on who you help and what you solve'],
+  ['痛點強度','Problem','受影響的對象、目前的因應方式，以及換算成的金額或時間成本','Who is affected, how they cope today, and what it costs in money or time'],
+  ['解法成果','Solution','客戶使用後得到的具體成果','The concrete outcome customers get'],
+  ['為何現在','Why Now','哪些條件改變，讓這件事在現在做得成','What has changed that makes this possible now'],
+  ['市場規模','Market','可觸及的目標客戶數量；TAM、SAM、SOM 與推算方式','How many target customers you can reach; TAM, SAM and SOM with how you got there']]},
+ {zh:'證據',en:'Evidence',szh:'已發生的數字比預測更有說服力',sen:'Real results carry more weight than forecasts',items:[
+  ['營運成績','Traction','已實現的營運數字，建議三期以上可比較，並註明 GMV 或認列營收','Results to date, ideally three or more comparable periods, marked as GMV or recognized revenue'],
+  ['商業模式','Business Model','由誰付費、誰做決策，以及收費方式與頻率','Who pays, who decides, and how and how often you charge'],
+  ['單位經濟','Unit Economics','每筆訂單或每位客戶扣除獲客成本後的毛利，以及損益兩平所需的量','Margin per order or customer after acquisition cost, and the volume needed to break even'],
+  ['客戶留存','Retention','客戶持續使用的比例；B2B 可用續約率或 NRR 呈現','How many customers keep using you; renewal rate or NRR for B2B'],
+  ['競爭對手','Competition','主要競爭者、彼此的差異，以及對方的優勢','Your main competitors, how you differ, and where they are strong']]},
+ {zh:'人與錢',en:'People and money',szh:'投資人最常停留的部分',sen:'Where investors spend the most time',items:[
+  ['團隊背景','Team','團隊的背景與獨特優勢，以及接下來希望補強的角色','Your background and edge, and the role you most want to add next'],
+  ['財務跑道','Financials & Runway','每月支出、資金可支撐到的里程碑，以及預計損益兩平的時間','Monthly burn, the milestone your cash reaches, and when you expect to break even'],
+  ['對標退場','Comparables','相似模式在其他市場的發展，以及被併購或上市的案例','How similar models have done in other markets, including acquisitions and IPOs'],
+  ['本輪需求','Ask','本輪募資金額、資金用途與預計達成的里程碑，以及資金以外希望接觸的資源','The raise, how you will use it and the milestone it reaches, plus the support you hope for beyond capital']],
   fact:['投資人平均 3 分 44 秒看完一份簡報，停最久的是 Financials、Team、Competition。','Investors spend 3 minutes 44 seconds on an average deck, and the longest on financials, team and competition.','DocSend 與哈佛商學院，2015','DocSend and Harvard Business School, 2015']}
 ];
 var DK_ITEMS = [].concat.apply([],DK_GROUPS.map(function(g){return g.items}));
