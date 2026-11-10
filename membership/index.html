@@ -256,6 +256,7 @@ select.ctrl option{background:var(--navy-2);color:#fff}
     </div>
 
     <form id="appForm" novalidate>
+    <input type="hidden" name="source" id="srcIn" value="site">
 
     <!-- PAGE 1 -->
     <div class="qpage on" data-page="1">
@@ -335,6 +336,20 @@ select.ctrl option{background:var(--navy-2);color:#fff}
           <span class="pb">
             <span class="pt"><span data-en="Not sure yet. I would rather talk first." data-zh="還不確定，想先聊聊">Not sure yet. I would rather talk first.</span></span>
             <span class="pd" data-en="We talk first, see if it fits, then pick the right tier." data-zh="先認識，看看合不合適，之後再決定用哪一種身分。">We talk first, see if it fits, then pick the right tier.</span>
+          </span>
+        </label>
+        <label class="pick">
+          <input type="radio" name="membership_type" value="paid_member">
+          <span class="pb">
+            <span class="pt"><span data-en="I am already a paying member" data-zh="已經是付費會員">I am already a paying member</span></span>
+            <span class="pd" data-en="No need to pick a plan again. Go on to the next page and tell us a bit more about you." data-zh="不用再選方案，往下一頁讓我們多認識你就好。">No need to pick a plan again. Go on to the next page and tell us a bit more about you.</span>
+          </span>
+        </label>
+        <label class="pick">
+          <input type="radio" name="membership_type" value="guest">
+          <span class="pb">
+            <span class="pt"><span data-en="Taking part as a guest for now" data-zh="先以來賓身分參與">Taking part as a guest for now</span></span>
+            <span class="pd" data-en="Not joining for now. We would still like to know where you could help." data-zh="暫時不入會，也想知道你在哪些地方幫得上忙。">Not joining for now. We would still like to know where you could help.</span>
           </span>
         </label>
         <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
@@ -522,6 +537,7 @@ function validatePage(n){
 
 /* ===== Draft autosave (localStorage) ===== */
 var saveTimer=null;
+(function(){try{var v=new URLSearchParams(location.search).get('from')||'';if(/^[a-z0-9_-]{1,24}$/i.test(v)){var e=document.getElementById('srcIn');if(e)e.value=v}}catch(e){}})();
 function collectAnswers(){
   var f=document.getElementById('appForm'), data={};
   f.querySelectorAll('input,textarea,select').forEach(function(el){
@@ -542,7 +558,7 @@ function restoreDraft(){
   var d; try{ d=JSON.parse(raw); }catch(e){ return false; }
   var a=d.a||{}, any=false, f=document.getElementById('appForm');
   f.querySelectorAll('input,textarea,select').forEach(function(el){
-    if(!el.name || !(el.name in a)) return;
+    if(!el.name || !(el.name in a) || el.name==='source') return;   /* 來源碼以這次打開的網址為準，不用草稿蓋掉 */
     if(el.type==='checkbox'){ el.checked=!!a[el.name]; }
     else if(el.type==='radio'){ el.checked=(a[el.name]===el.value); }
     else el.value=a[el.name];
