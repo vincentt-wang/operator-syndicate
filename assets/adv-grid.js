@@ -1,6 +1,5 @@
 /* 人物卡片篩選與排列（首頁、operators 共用）2026-11-04
-   排列：依可見張數與欄數平均分排，各排張數最多差一張（13 張 4/3/3/3、10 張 4/3/3、5 張 3/2），
-         避免最後一排只剩一張。寬度 4 欄（>1000）、3 欄（681 到 1000）、1 欄（手機），不用 2 欄，因為奇數張一定剩一張。
+   排列：每排滿欄（電腦 4 張），剩下的在最後一排置中（11/14 Vincent：不要變成 3 個人一排）。寬度 4 欄（>1000）、3 欄（681 到 1000）、1 欄（手機），不用 2 欄，因為奇數張一定剩一張。
    篩選：不屬於的卡先淡出，留下的卡滑到新位置，新出現的卡由下往上淡入（FLIP）。 */
 (function () {
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,9 +10,8 @@
     var vis = Array.prototype.filter.call(grid.querySelectorAll('.adv-card'), function (c) { return !c.hidden; });
     var n = vis.length, c = cols();
     if (c < 2 || n <= c) return;
-    var r = Math.ceil(n / c), q = Math.floor(n / r), rem = n % r, i = 0;
-    for (var k = 0; k < r - 1; k++) {
-      i += q + (k < rem ? 1 : 0);
+    // 11/14 Vincent：每排固定滿 c 張（電腦 4 張），剩下的放最後一排置中；不再平均分成 3 張一排
+    for (var i = c; i < n; i += c) {
       var br = document.createElement('span'); br.className = 'adv-br'; br.setAttribute('aria-hidden', 'true');
       vis[i - 1].after(br);
     }
