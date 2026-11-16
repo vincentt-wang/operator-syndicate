@@ -392,7 +392,7 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
       <div class="field" data-inv>
         <label class="flabel"><span data-en="Company name" data-zh="公司抬頭">Company name</span><span class="opt" data-en="optional" data-zh="選填">optional</span><span class="req" hidden>●</span></label>
         <input class="ctrl" name="inv_title" data-en-ph="Acme Taiwan Co., Ltd." data-zh-ph="例：艾克米股份有限公司">
-        <div class="err" data-en="Please fill in the company name too." data-zh="請一併填公司抬頭。">Please fill in the company name too.</div>
+        <div class="err" data-en="Please fill in the company name." data-zh="請填公司抬頭。">Please fill in the company name.</div>
       </div>
       <div class="field" data-inv data-pattern="^\d{8}$">
         <label class="flabel"><span data-en="Tax ID" data-zh="統一編號">Tax ID</span><span class="opt" data-en="optional" data-zh="選填">optional</span><span class="req" hidden>●</span></label>
@@ -634,8 +634,9 @@ function liveFields(){
 }
 function updateProgress(){
   /* 11/16 QA：原本只算看得到的欄位，第 3 頁就到 100%。改成照步數：前面已完成的頁＋這一頁填了多少 */
-  var reqs=liveFields(), done=reqs.filter(fieldOk).length;
+  /* 11/17 QA：分子分母只算這一頁的必填欄（原本把全部頁一起算，想先聊聊第 2 頁一進來就 81%） */
   var now=+document.getElementById('pgNow').textContent||1, tot=+document.getElementById('pgTot').textContent||1;
+  var cur=flow()[now-1], reqs=liveFields().filter(function(f){var q=f.closest('.qpage');return q&&q.getAttribute('data-page')==String(cur)}), done=reqs.filter(fieldOk).length;
   var pct=Math.round(((now-1)+(reqs.length?done/reqs.length:0))/tot*100);
   document.getElementById('pgPct').textContent = pct;
   document.getElementById('progFill').style.width = pct+'%';

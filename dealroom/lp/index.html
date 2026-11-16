@@ -251,7 +251,7 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
     el.onclick=function(ev){if(ev.target===el)el.classList.remove('on')};
   };
   var b=document.getElementById('gemBtn');if(!b||!kind)return;
-  if(kind==='line'){b.setAttribute('data-zh','在 LINE 裡打不開 Gemini，點這裡改用瀏覽器開');b.setAttribute('data-en','Gemini won’t open in LINE. Tap to use your browser');b.href=W.ext();b.removeAttribute('target')}
+  if(kind==='line'){b.setAttribute('data-zh','LINE 裡打不開 Gemini，改用瀏覽器開');b.setAttribute('data-en','Gemini won’t open in LINE. Tap to use your browser');b.href=W.ext();b.removeAttribute('target')}
   else{b.setAttribute('data-zh','開啟 AI Deal Copilot（這個 App 裡可能打不開）');b.setAttribute('data-en','Open AI Deal Copilot (may not work in this app)')}
   b.innerHTML=b.getAttribute(zh()?'data-zh':'data-en');
   b.addEventListener('click',function(ev){ev.preventDefault();if(kind==='line'){location.href=W.ext()}else W.sheet(false)});

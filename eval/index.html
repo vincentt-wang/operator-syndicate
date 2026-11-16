@@ -187,7 +187,7 @@ if(P&&q.has('direct')&&!P.x){location.replace(P.u+location.search);return}   /* 
 var ST={today:['今天這一場','Today'],recent:['剛結束的這一場','Just finished'],next:['下一場','Next session']};
 var h='';
 if(P)h+='<section class="card ehp">'+T(ST[st][0],ST[st][1],'span','class="st"')+T(P.zh,P.en,'h2')+(P.tz?T(P.tz,P.te,'p','class="tm"'):'')
- +'<a class="btn" id="ehgo" href="'+esc(P.u)+'">'+T('填這一場的評估表','Fill in this session\'s evaluation')+'</a></section>';
+ +'<a class="btn" id="ehgo" href="'+esc(P.u)+'">'+(st==='next'?T('先看這一場的評估表','Preview this session\'s evaluation'):T('填這一場的評估表','Fill in this session\'s evaluation'))+'</a></section>';   /* 11/17 QA：還沒開場就寫「填」會讓人疑惑 */
 var R=S.filter(function(x){return x.d<t&&x!==P}).reverse();
 if(R.length)h+='<section class="card ehub">'+T('之前的場次','Earlier sessions','h2')+'<ul class="ehl">'+R.map(function(x){
  return '<li><a href="'+esc(x.u)+'"'+(x.x?' target="_blank" rel="noopener"':'')+'><span class="w"><b>'+T(x.zh,x.en)+'</b>'+(x.tz?T(x.tz,x.te,'small'):'')+'</span>'+(x.x?T('Google 表單','Google Form','span','class="gf"'):'')+'<span class="ar" aria-hidden="true">›</span></a></li>'}).join('')+'</ul></section>';

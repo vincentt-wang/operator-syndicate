@@ -203,7 +203,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">JZG6acnU0cjclnHiR62w81smBwyAm4qnJVSlSVpnCgtAZI4UWKUL/9wvdyaU4lgbpoNlXGBHJ+PwOZYzAfhhpUcLBwLRATqGMZNDN4WtRLNZvXDFXbCWQUGaJP0wwKHjvU1nFvUQ1zSihzuwR/jxnWDZu21ZsC8HJgrHvkNfZ68bBE1x3HRl64yniySyqYTwfE+kXPHp0OOfci698bhAWiP0ItSWGKjvUrZEZTuTMLokuHdjHWu5JTrrDA1jSfhoGaTSWv8mNqhHGndt3Na5FveEct6aeg+zqOxh7XXuUjOhhBSOE5dzdQ4aI2We67xOFGJpsK53rSCnXvivj9bnx4euhLzi4tPX7ZCcvkNc6lpR1hS17HpZr+xv9Fun0y/CXDeapFCl7Judmbp2zlxGpkLvxveGN11iwcwQ84PNoqJ+gwne/hiolGZS70BIM3PkoW2U1hrI/OzdBL3LJ7yRIzJTfTmI3bndwEPoh0tpa6yJ2Ve69XGaA7XxLLTSgnPkAFeIeXBI7nfLuosKmtPoG74DCaM8aDgDx35TU3wKm5hbTfYC7p9ZmTdT/STGd5reN4gq3BGZ6fW8fanx0aaG/8Oc</script>
+<script id="sealed" type="application/octet-stream">niWoDzfN2yQGgFr3ymj+UjlbFE7XImIZbl2xSDKosqn1TcjUKtrHeddxdAjPUs8nvhdo4gjpfLD8WXrFH19AOZ3Ny3eZ4xKL6LS7qGrv5lQJV+pKdwKbPKJOLnwH82D1TbkBmlbJJGXzH5ObRmf/H7xQ2bQmciUg46AZbW3EQJshCZR38xnFC0XhDIpiHoS9nP/NmjCJxgXLx8QMvOmizTDrWG0aotNOyNSJOEGeliKKitjZVwQiM2VplN7UincVloVUMReY/kgK7R/0ztdleVaSXTOUJtqMBrlc/l5Vh77rCJ+JIs1keodXyVTsCk6quLVR2IIEcefwu5LSR+1XrPJeDaLpqCSibSpYgemkkda1omaBs3DYpHmGnEhEADTiGOPeD0cBDFd//Y9KJfOW4cnre/xq5ZAWQAU9We3KdfqDrMEGUB1TuMAnH6MIykAXxj6HUWjQcPm4owOJN1JTm4w/N0xgMBFXCRaroK1yAbEHM9fVqOnIozj1fOjN+Q6zz1N/St1aocgjnfd5GeBE2wu9DLH9kcfGVH5PD5e+6Dn7LVzROBb/Tt5W/LWml0QbMIsNxz7qox4n2nsiYLzTi6yv</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -224,7 +224,7 @@ function blocked(){ls(KS,null);acct.hidden=true;o.clear();card(T('一春成員�
 function renderBtn(){var b=document.getElementById('gbtn');if(!b||!window.google||!google.accounts)return;b.innerHTML='';google.accounts.id.renderButton(b,{theme:'outline',size:'large',shape:'pill',text:'signin_with',width:280,locale:o.lang()==='en'?'en':'zh-TW'})}
 function initGis(){
  if(!gisOn){gisOn=true;google.accounts.id.initialize({client_id:CID,callback:onCred,auto_select:true,ux_mode:'popup'})}
- renderBtn();try{google.accounts.id.prompt()}catch(e){}}
+ renderBtn();if(!/\/eval\//.test(location.pathname)){try{google.accounts.id.prompt()}catch(e){}}}   /* 11/17 QA：評估表頁不跳 Google 浮層，浮層會蓋住姓名公司職稱三格 */
 function loadGis(){
  if(window.google&&google.accounts&&google.accounts.id)return initGis();
  var s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.onload=function(){if(window.google&&google.accounts)initGis()};
