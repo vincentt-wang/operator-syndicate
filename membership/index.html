@@ -236,7 +236,7 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
       </button>
       <button type="button" class="path" data-path="pay">
         <span class="pt" data-en="I've decided to join" data-zh="我決定入會，要付費">I've decided to join</span>
-        <span class="pd" data-en="Choose a plan and your invoice details. Bank details follow." data-zh="選方案、填發票資料，送出後就看到匯款帳戶。">Choose a plan and your invoice details. Bank details follow.</span>
+        <span class="pd" data-en="Choose a plan, add a receipt name if you need one. Bank details follow." data-zh="選方案，需要的話填收據抬頭，送出後就看到匯款帳戶。">Choose a plan, add a receipt name if you need one. Bank details follow.</span>
       </button>
     </div>
     <p class="note-line"><span data-en="Already a paying member?" data-zh="已經是付費會員？">Already a paying member?</span> <a class="ln" href="/members/" data-en="Sign in to the members area" data-zh="直接登入成員專區">Sign in to the members area</a></p>
@@ -384,37 +384,20 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
       </div>
     </div>
 
-    <!-- 要付費：發票 -->
+    <!-- 要付費：收據抬頭（11/16 Vincent：沒有證據一春天使有開電子發票，改成中性的選填欄位；欄位名 invoice 不變，2＝不需要、3＝要抬頭與統編） -->
     <div class="qpage" data-page="invoice">
-      <h2 data-en="Invoice" data-zh="發票">Invoice</h2>
-      <p class="sub" data-en="Issued as an e-invoice to your email once payment clears." data-zh="款項確認入帳後，開立電子發票寄到你的信箱。">Issued as an e-invoice to your email once payment clears.</p>
-      <div class="field" data-required data-group="invoice" data-if="plan=individual">
-        <div class="flabel"><span data-en="Invoice type" data-zh="發票開立形式">Invoice type</span><span class="req">●</span></div>
-        <div class="chips">
-          <label class="chip"><input type="radio" name="invoice" value="2"><span data-en="Personal (two-part)" data-zh="個人（二聯式）">Personal (two-part)</span></label>
-          <label class="chip"><input type="radio" name="invoice" value="3"><span data-en="Company (three-part, with tax ID)" data-zh="公司（三聯式，需統編）">Company (three-part, with tax ID)</span></label>
-        </div>
-        <div class="err" data-en="Please choose one." data-zh="請選擇一項。">Please choose one.</div>
+      <h2 data-en="Need a company name or tax ID on the receipt?" data-zh="需要收據抬頭或統編嗎？">Need a company name or tax ID on the receipt?</h2>
+      <p class="sub" data-if="plan=individual" data-en="Optional. Leave blank if you do not need one." data-zh="選填，不需要可以留白。">Optional. Leave blank if you do not need one.</p>
+      <p class="sub" data-if="plan=corporate" data-en="Corporate membership is paid by the company, so please fill in both." data-zh="企業會員由公司付款，請填公司抬頭與統編。">Corporate membership is paid by the company, so please fill in both.</p>
+      <div class="field" data-inv>
+        <label class="flabel"><span data-en="Company name" data-zh="公司抬頭">Company name</span><span class="opt" data-en="optional" data-zh="選填">optional</span><span class="req" hidden>●</span></label>
+        <input class="ctrl" name="inv_title" data-en-ph="Acme Taiwan Co., Ltd." data-zh-ph="例：艾克米股份有限公司">
+        <div class="err" data-en="Please fill in the company name too." data-zh="請一併填公司抬頭。">Please fill in the company name too.</div>
       </div>
-      <p class="hint" data-if="plan=corporate" data-en="Corporate membership is invoiced to the company, three-part with tax ID." data-zh="企業會員由企業付款，開三聯式發票。">Corporate membership is invoiced to the company, three-part with tax ID.</p>
-      <div class="sub-blk" data-if="inv=3">
-        <div class="field" data-required>
-          <label class="flabel"><span data-en="Company name on the invoice" data-zh="公司抬頭">Company name on the invoice</span><span class="req">●</span></label>
-          <input class="ctrl" name="inv_title" data-en-ph="Acme Taiwan Co., Ltd." data-zh-ph="例：艾克米股份有限公司">
-          <div class="err" data-en="This field is required." data-zh="此欄位為必填。">This field is required.</div>
-        </div>
-        <div class="field" data-required data-pattern="^\d{8}$">
-          <label class="flabel"><span data-en="Tax ID" data-zh="統一編號">Tax ID</span><span class="req">●</span></label>
-          <input class="ctrl" name="inv_taxid" inputmode="numeric" maxlength="8" data-en-ph="8 digits" data-zh-ph="8 位數字">
-          <div class="err" data-en="Eight digits." data-zh="統一編號是 8 位數字。">Eight digits.</div>
-        </div>
-      </div>
-      <div class="sub-blk" data-if="inv=2">
-        <div class="field" data-pattern="^(/[0-9A-Z.+-]{7})?$">
-          <label class="flabel"><span data-en="Mobile barcode carrier" data-zh="手機條碼載具">Mobile barcode carrier</span><span class="opt" data-en="optional" data-zh="選填">optional</span></label>
-          <input class="ctrl" name="inv_carrier" maxlength="8" autocapitalize="characters" data-en-ph="/ABC1234" data-zh-ph="例：/ABC1234">
-          <div class="err" data-en="A carrier code is a slash plus seven characters." data-zh="載具是斜線加 7 碼。">A carrier code is a slash plus seven characters.</div>
-        </div>
+      <div class="field" data-inv data-pattern="^\d{8}$">
+        <label class="flabel"><span data-en="Tax ID" data-zh="統一編號">Tax ID</span><span class="opt" data-en="optional" data-zh="選填">optional</span><span class="req" hidden>●</span></label>
+        <input class="ctrl" name="inv_taxid" inputmode="numeric" maxlength="8" data-en-ph="8 digits" data-zh-ph="8 位數字">
+        <div class="err" data-en="Eight digits, filled in with the company name." data-zh="統一編號是 8 位數字，請跟公司抬頭一起填。">Eight digits, filled in with the company name.</div>
       </div>
     </div>
 
@@ -432,7 +415,7 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
 <p><b>【3. 商業保密協議（NDA）】</b></p>
 <p>會員透過一春資本所接觸之未公開商業資訊、財務數據、創辦人簡報及同儕討論，均屬商業機密，未經許可嚴禁對外公開、洩漏或私下繞道接觸。</p>
 <p><b>【4. 會期與退費原則】</b></p>
-<p>會籍自款項付訖確認日起算為期一年。會費繳納後恕不接受中途終止退費。款項確認入帳後將依登記資訊開立電子發票。</p>
+<p>會籍自款項付訖確認日起算為期一年。會費繳納後恕不接受中途終止退費。</p>
       </div>
       <label class="consent">
         <input type="checkbox" name="consent_terms">
@@ -550,7 +533,7 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
 <script>
 /* ===== Config ===== */
 // 2026-09-06 改成兩個獨立收件人，不再靠 _cc（FormSubmit 的 AJAX 端點對 _cc 沒有文件保證）。每個地址各送一次，各自是主收件人。
-// 2026-11-16 週會：第一題三選一分流。look 先來看看（五欄）、talk 想多聊（加三題與時段，送出後才看到會費）、pay 要付費（方案、發票、條款，送出後列匯款帳戶，再用專屬連結回報後五碼）。
+// 2026-11-16 週會：第一題三選一分流。look 先來看看（五欄）、talk 想多聊（加三題與時段，送出後才看到會費）、pay 要付費（方案、收據抬頭、條款，送出後列匯款帳戶，再用專屬連結回報後五碼）。
 // 資料先存一春自己的收件程式 /join（同一筆，回報匯款寫回同一筆），每一步都用 FormSubmit 寄 Vincent 與 Boice。
 var FORMSUBMIT_RECIPIENTS = ['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
 var WK = 'https://evoscale-forms.comicbnb.workers.dev';
@@ -612,19 +595,23 @@ function showPage(i){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function nextPage(){
+  syncConditional();
   if(!validatePage(pageEl(idx))) return;
   if(idx<flow().length-1) showPage(idx+1); else submitApplication();
 }
 function prevPage(){ if(idx>0) showPage(idx-1); else goStage('stage-intro'); }
 
-/* ===== 條件欄位：企業會員第二位代表、發票二聯三聯 ===== */
+/* ===== 條件欄位：企業會員第二位代表、收據抬頭（企業必填，個人選填但抬頭統編要成對） ===== */
 function radioVal(n){ var e=document.querySelector('#appForm [name="'+n+'"]:checked'); return e?e.value:''; }
-function invType(){ return radioVal('plan')==='corporate'?'3':radioVal('invoice'); }
+function invVal(n){ var e=document.querySelector('#appForm [name="'+n+'"]'); return e?e.value.trim():''; }
+function invType(){ return (radioVal('plan')==='corporate'||invVal('inv_title')||invVal('inv_taxid'))?'3':'2'; }
 function syncConditional(){
   var st={plan:radioVal('plan'), inv:invType()};
   document.querySelectorAll('#appForm [data-if]').forEach(function(el){
     var c=el.getAttribute('data-if').split('='); el.hidden = st[c[0]]!==c[1];
   });
+  var need=st.inv==='3';
+  document.querySelectorAll('#appForm [data-inv]').forEach(function(f){ f.toggleAttribute('data-required',need); f.querySelector('.opt').hidden=need; f.querySelector('.req').hidden=!need; });
 }
 function visible(el){ return !el.closest('[hidden]') && !(el.closest('[data-paths]') && el.closest('[data-paths]').style.display==='none'); }
 
@@ -635,7 +622,7 @@ function fieldOk(f){
   var v=c.value.trim();
   if(f.hasAttribute('data-required') && v==='') return false;
   if(v && c.type==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return false;
-  if(v && f.dataset.pattern && !new RegExp(f.dataset.pattern).test(c.name==='inv_carrier'?v.toUpperCase():v)) return false;
+  if(v && f.dataset.pattern && !new RegExp(f.dataset.pattern).test(v)) return false;
   return true;
 }
 function liveFields(){
@@ -672,8 +659,8 @@ function money(n){ return 'NT$'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 function paySummary(){
   var box=document.getElementById('paySum'); if(!box) return;
   var p=PLAN_INFO[radioVal('plan')]; if(PATH!=='pay'||!p){ box.innerHTML=''; return; }
-  var inv=invType()==='3'?L('三聯式，','Three-part, ')+(document.querySelector('[name="inv_title"]').value.trim()||'')+' '+(document.querySelector('[name="inv_taxid"]').value.trim()||''):L('二聯式','Two-part');
-  box.innerHTML='<div><span>'+esc(L('方案','Plan'))+'</span><b>'+esc(L(p.zh,p.en))+'</b></div><div><span>'+esc(L('應付金額','Amount due'))+'</span><b>'+money(p.amount)+'</b></div><div><span>'+esc(L('發票','Invoice'))+'</span><b>'+esc(inv)+'</b></div>';
+  var inv=invType()==='3'?(invVal('inv_title')+' '+invVal('inv_taxid')).trim():L('不需要','Not needed');
+  box.innerHTML='<div><span>'+esc(L('方案','Plan'))+'</span><b>'+esc(L(p.zh,p.en))+'</b></div><div><span>'+esc(L('應付金額','Amount due'))+'</span><b>'+money(p.amount)+'</b></div><div><span>'+esc(L('收據抬頭','Receipt name'))+'</span><b>'+esc(inv)+'</b></div>';
 }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 
@@ -733,10 +720,10 @@ function mail(subject, rows, auto){
   return Promise.all(sends);
 }
 var FIELD_ZH = { name:'姓名', company:'公司', title:'職稱', email:'Email', contact:'手機或 LINE', referral:'怎麼認識我們', industries:'最熟的產業', doors_open:'打得開門的公司或部門',
-  one_year:'一年後想拿到什麼', call_time:'方便聊的時段', rep2_name:'第二位代表', rep2_title:'第二位代表職稱', rep2_email:'第二位代表 Email', inv_title:'公司抬頭', inv_taxid:'統一編號', inv_carrier:'手機載具', source:'來源' };
+  one_year:'一年後想拿到什麼', call_time:'方便聊的時段', rep2_name:'第二位代表', rep2_title:'第二位代表職稱', rep2_email:'第二位代表 Email', inv_title:'公司抬頭', inv_taxid:'統一編號', source:'來源' };
 function mailRows(a){
   var r={'路線':PATH_LABEL[PATH][0]};
-  if(PATH==='pay'){ var p=PLAN_INFO[a.plan]; r['方案']=p?p.zh+' '+money(p.amount):''; r['發票']=invType()==='3'?'三聯式':'二聯式'; }
+  if(PATH==='pay'){ var p=PLAN_INFO[a.plan]; r['方案']=p?p.zh+' '+money(p.amount):''; r['收據抬頭']=invType()==='3'?'要（抬頭與統編見下方）':'不需要'; }
   Object.keys(FIELD_ZH).forEach(function(k){ if(a[k]) r[FIELD_ZH[k]]=a[k]; });
   return r;
 }
@@ -744,9 +731,9 @@ async function submitApplication(){
   setErr('errSubmit','');
   var a=collectAnswers(); if(a._honey) return;
   var fields={}; Object.keys(a).forEach(function(k){ if(k==='_honey'||k==='path') return; var v=a[k]; if(typeof v==='boolean') v=v?'yes':''; if(v!=='' && v!=null) fields[k]=String(v).trim(); });
-  if(fields.inv_carrier) fields.inv_carrier=fields.inv_carrier.toUpperCase();
-  if(PATH==='pay'){ fields.invoice=invType(); if(fields.invoice!=='3'){ delete fields.inv_title; delete fields.inv_taxid; } else delete fields.inv_carrier; if(fields.plan!=='corporate'){ delete fields.rep2_name; delete fields.rep2_title; delete fields.rep2_email; } }
-  else { ['plan','invoice','inv_title','inv_taxid','inv_carrier','rep2_name','rep2_title','rep2_email','consent_terms'].forEach(function(k){ delete fields[k]; }); }
+  delete fields.inv_carrier; delete fields.invoice;
+  if(PATH==='pay'){ fields.invoice=invType(); if(fields.invoice!=='3'){ delete fields.inv_title; delete fields.inv_taxid; } if(fields.plan!=='corporate'){ delete fields.rep2_name; delete fields.rep2_title; delete fields.rep2_email; } }
+  else { ['plan','invoice','inv_title','inv_taxid','rep2_name','rep2_title','rep2_email','consent_terms'].forEach(function(k){ delete fields[k]; }); }
   if(PATH==='look'){ ['industries','doors_open','one_year','call_time','consent_membership'].forEach(function(k){ delete fields[k]; }); }
   fields.lang=lang;
   setBusy('btnNext',true);
@@ -837,7 +824,7 @@ function clearFixed(e){
 }
 document.addEventListener('input', clearFixed);
 document.addEventListener('change', clearFixed);
-document.addEventListener('input', function(e){ if(isTracked(e.target)){ saveDraft(); updateProgress(); paySummary(); } });
+document.addEventListener('input', function(e){ if(isTracked(e.target)){ if(/^inv_/.test(e.target.name||'')) syncConditional(); saveDraft(); updateProgress(); paySummary(); } });
 document.addEventListener('change', function(e){ if(isTracked(e.target)){ syncConditional(); saveDraft(); updateProgress(); paySummary(); } });
 document.querySelectorAll('.path').forEach(function(b){ b.addEventListener('click', function(){ choosePath(b.getAttribute('data-path')); }); });
 document.getElementById('payCopy').addEventListener('click', function(){
