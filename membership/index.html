@@ -646,8 +646,10 @@ function liveFields(){
   return out;
 }
 function updateProgress(){
+  /* 11/16 QA：原本只算看得到的欄位，第 3 頁就到 100%。改成照步數：前面已完成的頁＋這一頁填了多少 */
   var reqs=liveFields(), done=reqs.filter(fieldOk).length;
-  var pct=reqs.length?Math.round(done/reqs.length*100):0;
+  var now=+document.getElementById('pgNow').textContent||1, tot=+document.getElementById('pgTot').textContent||1;
+  var pct=Math.round(((now-1)+(reqs.length?done/reqs.length:0))/tot*100);
   document.getElementById('pgPct').textContent = pct;
   document.getElementById('progFill').style.width = pct+'%';
   document.getElementById('bar').style.width = (12 + pct*0.85)+'%';
