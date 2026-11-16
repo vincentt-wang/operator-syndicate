@@ -187,6 +187,12 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 .eh{margin-top:var(--gap)}.eh h2{font-size:1.15rem}
 .eerr{color:#B42318;font-weight:700;font-size:.95rem;margin-top:12px}.eerr[hidden]{display:none}
 #ef .card{margin-top:var(--gap)}
+.fmo{margin-top:4px}.fmo[hidden]{display:none}
+.idc{display:grid;gap:4px;margin-top:14px;text-align:left}.idw{border:1px solid var(--line);border-radius:14px;padding:16px}.idw h3{margin:0 0 4px;font-size:1.1rem;color:var(--navy)}
+.idw .gn{margin-top:4px}.idw .fd{margin-top:12px}.idw .btn{margin-top:14px;width:100%}.ida .gbtn{justify-content:flex-start}
+.idor{text-align:center;color:var(--tx3);font-weight:700;padding:6px 0}
+.op{font-weight:400;color:var(--tx3)}.idw input[aria-invalid="true"]{border-color:#B42318;outline:1px solid #B42318}
+.idme{font-weight:700;color:var(--navy);margin-top:4px;overflow-wrap:anywhere}
 </style>
 </head>
 <body data-r="dr_0128">
@@ -197,7 +203,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">BUjM/VJ0s/2YebGqbjzWvYxrfWmGl8fBxO+i7pYJpiJmGN2/Vf+nl+8XxB4lWszDudw+yeDodsNfGITupO04d/djIdfpO01EF/814xK7+d7XwaRS25ZOVf9JypogqmiziUEBUqbZ/hfGovimT0ZtGHEZAKEWeKdDGDKE23db8l+FeawERwG3CFAJmVeq8v48biXy6nShdqrqKob67ESjdlpznRZTcGq/BXCm3HZHjfuLszjqehzwL3kf6Z4TvG5K2KWbnxFtYEdS091i4fRPJKKoMsbuyIVbnfUUJiJlCQZ773vW5fjFKaPaBpvrt3SEeFDEHDGJYfVvpyfZ4VxJ6SPHsZE73sZ8w4oGg0XDRo/zNbQMH2R1es6DuduviX4LkBiXgg7bfHOQ0exbvzlnPPnXsIHd+V0NesMrXipCZZmRIOjED+iwqxfwFRFmRSH0iydTQ+vEYgaHgCI+4O+1dTOMKLy3gQgKkFvHu8eEhGwIWA1PR4RODBer2fYZlkyBlhr7Sn1R1SrJdQbmyzqh4UwJ879RsGEAY+Y2+71gvhXL/Wtjmzy6pyvdzmqaDEJ0FiybT7qI0uSKliGFnJXdEytB</script>
+<script id="sealed" type="application/octet-stream">JZG6acnU0cjclnHiR62w81smBwyAm4qnJVSlSVpnCgtAZI4UWKUL/9wvdyaU4lgbpoNlXGBHJ+PwOZYzAfhhpUcLBwLRATqGMZNDN4WtRLNZvXDFXbCWQUGaJP0wwKHjvU1nFvUQ1zSihzuwR/jxnWDZu21ZsC8HJgrHvkNfZ68bBE1x3HRl64yniySyqYTwfE+kXPHp0OOfci698bhAWiP0ItSWGKjvUrZEZTuTMLokuHdjHWu5JTrrDA1jSfhoGaTSWv8mNqhHGndt3Na5FveEct6aeg+zqOxh7XXuUjOhhBSOE5dzdQ4aI2We67xOFGJpsK53rSCnXvivj9bnx4euhLzi4tPX7ZCcvkNc6lpR1hS17HpZr+xv9Fun0y/CXDeapFCl7Judmbp2zlxGpkLvxveGN11iwcwQ84PNoqJ+gwne/hiolGZS70BIM3PkoW2U1hrI/OzdBL3LJ7yRIzJTfTmI3bndwEPoh0tpa6yJ2Ve69XGaA7XxLLTSgnPkAFeIeXBI7nfLuosKmtPoG74DCaM8aDgDx35TU3wKm5hbTfYC7p9ZmTdT/STGd5reN4gq3BGZ6fW8fanx0aaG/8Oc</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -253,6 +259,7 @@ function guest(lead,foot){
    bad('送出沒有成功，請稍後再試。','Submission failed. Please try again.')})
   .catch(function(){b.disabled=false;bad('連線有問題，請稍後再試。','Connection problem. Please try again.')})})}
 function showLogin(){
+ if(o.idGate)return idGate();
  var head=T('一春成員專區','EvoScale Members','h2')+T('用 Google 帳號登入後，就能看每月場次與預約','Sign in with Google to see the monthly sessions and book a seat','p');
  if(!CID){card(head+T('登入功能設定中，稍後開放','Sign-in is being set up and will open soon','p','class="gn"'));return}
  if(INAPP){var ext=location.pathname+'?openExternalBrowser=1',clean=location.origin+location.pathname;bk('inapp_view');
@@ -273,6 +280,35 @@ function showLogin(){
   return}
  card(head+'<div id="gbtn" class="gbtn"></div><p id="gerr" class="gerr" role="alert" hidden></p>'+T('只用來確認身分與記錄預約。','Used only to confirm your identity and record your booking.','p','class="gn"')+guestLink());
  bindGuest();loadGis()}
+/* 11/16 Vincent：評估表先確認身分，兩條路擇一：Google 登入，或填姓名、公司、職稱（三格必填）。LINE 等內建瀏覽器不能 Google 登入，改成填表優先，Google 那條給「用瀏覽器開啟」 */
+function idGate(){
+ var sv=(o.idLoad&&o.idLoad())||{},U=new URL(location.href);U.searchParams.set('openExternalBrowser','1');var ext=U.pathname+U.search+U.hash;
+ var fld=function(id,zh,en,ac,v,opt){return '<div class="fd"><label>'+T(zh,en)+(opt?T('（選填）',' (optional)','span','class="op"'):'')+'<input id="'+id+'" autocomplete="'+ac+'"'+(id==='idem'?' type="email" inputmode="email"':'')+' value="'+esc(v||'')+'"></label></div>'};
+ var B='<div class="idw idb">'+T('填姓名、公司、職稱','Enter your name, company and title','h3')
+  +(INAPP?T('LINE 裡不能用 Google 登入，直接填這三格就好。','Google sign-in does not work inside LINE, so just fill in these three.','p','class="gn"'):T('不用登入，三格都要填。','No sign-in needed. All three are required.','p','class="gn"'))
+  +fld('idnm','姓名','Full name','name',sv.name)+fld('idco','公司','Company','organization',sv.co)+fld('idti','職稱','Title','organization-title',sv.ti)+fld('idem','Email','Email','email',sv.email,1)
+  +'<p id="iderr" class="gerr" role="alert" hidden></p><button type="button" class="btn" id="idgo">'+T('開始填寫','Start')+'</button></div>';
+ var Ag=INAPP?('<div class="idw ida">'+T('用 Google 登入','Sign in with Google','h3')+T('要用 Google 登入，請改用手機的瀏覽器打開這一頁。','To sign in with Google, open this page in your phone\'s browser.','p','class="gn"')
+   +(ISLINE?'<a class="btn o" href="'+esc(ext)+'" id="idext">'+T('用瀏覽器開啟','Open in browser')+'</a>':'<button type="button" class="btn o" id="iabcp">'+T('複製連結','Copy link')+'</button>')+'</div>')
+  :('<div class="idw ida">'+T('用 Google 登入','Sign in with Google','h3')+T('登入後我們就知道是你，不用再填資料。','Once you sign in we know it is you, nothing else to fill in.','p','class="gn"')
+   +(CID?'<div id="gbtn" class="gbtn"></div>':T('登入功能設定中','Sign-in is being set up','p','class="gn"'))+'<p id="gerr" class="gerr" role="alert" hidden></p></div>');
+ var OR='<div class="idor">'+T('或','or')+'</div>';
+ card(T('先讓我們知道你是誰','First, tell us who you are','h2')+T('兩種方式選一種，選好就開始填。','Pick one of the two, then start.','p')
+  +'<div class="idc'+(INAPP?' inapp':'')+'">'+(INAPP?B+OR+Ag:Ag+OR+B)+'</div>');
+ bk(INAPP?'eval_gate_inapp':'eval_gate');
+ var go=document.getElementById('idgo'),er=document.getElementById('iderr');
+ go.addEventListener('click',function(){
+  var g=function(i){return document.getElementById(i).value.trim()},miss=[];
+  [['idnm','姓名','name'],['idco','公司','company'],['idti','職稱','title']].forEach(function(x){var el=document.getElementById(x[0]),bad=!g(x[0]);el.setAttribute('aria-invalid',bad?'true':'false');if(bad)miss.push(x)});
+  var em=g('idem').toLowerCase(),emBad=em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);document.getElementById('idem').setAttribute('aria-invalid',emBad?'true':'false');
+  if(miss.length){er.innerHTML=T('請填'+miss.map(function(x){return x[1]}).join('、')+'。','Please enter your '+miss.map(function(x){return x[2]}).join(', ')+'.');er.hidden=false;document.getElementById(miss[0][0]).focus();return}
+  if(emBad){er.innerHTML=T('Email 格式看起來不對，不填也可以。','That email does not look right. You can also leave it blank.');er.hidden=false;document.getElementById('idem').focus();return}
+  var id={name:g('idnm').slice(0,80),co:g('idco').slice(0,80),ti:g('idti').slice(0,80),email:em};if(o.idSave)o.idSave(id);bk('eval_guest_ok');
+  gate.innerHTML='';o.guestFn(INAPP,id)});
+ var cb=document.getElementById('iabcp');if(cb)cb.addEventListener('click',function(){bk('inapp_copy');var clean=location.origin+location.pathname,done=function(){cb.innerHTML=T('已複製，貼到瀏覽器打開','Copied. Paste it into your browser')};if(navigator.clipboard)navigator.clipboard.writeText(clean).then(done,function(){prompt('',clean)});else prompt('',clean)});
+ var ie=document.getElementById('idext');if(ie)ie.addEventListener('click',function(){bk('inapp_ext')});
+ if(!INAPP&&CID)loadGis();
+ if(o.preview&&o.preview())o.guestFn(INAPP,null)}
 function onCred(resp){
  if(!resp||!resp.credential)return;var e=document.getElementById('gerr');if(e)e.hidden=true;
  fetch(WK+'/auth/google',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({credential:resp.credential})})
@@ -302,7 +338,7 @@ function boot(){
   if(r.status===403)return blocked();
   return r.json().then(function(j){if(j&&j.ok)enter(j);else showLogin()})})
  .catch(function(){card(T('一春成員專區','EvoScale Members','h2')+T('連線暫時有問題，請稍後再試。','Connection problem. Please try again shortly.','p'))})}
-return {boot:boot,sess:function(){return ls(KS)},user:function(){return user},relang:renderBtn,
+return {boot:boot,again:showLogin,sess:function(){return ls(KS)},user:function(){return user},relang:renderBtn,
  expired:function(){ls(KS,null);location.reload()},blocked:blocked}
 };
 </script>
@@ -315,14 +351,19 @@ var q=new URLSearchParams(location.search).get('lang'),L=(q==='en'||q==='zh')?q:
 function apply(l){document.documentElement.lang=l==='en'?'en':'zh-Hant';document.querySelectorAll('[data-zh]').forEach(function(e){e.textContent=e.getAttribute('data-'+l)});document.getElementById('lang').textContent=l==='en'?'中文':'English';ls('dr_lang',l)}
 apply(L);
 var onLang=null,A=ESA({lang:function(){return L},apply:function(){apply(L)},start:start,clear:function(){box.innerHTML=''},
- guestTxt:['不用 Google 登入，直接填評估表','Fill it in without signing in'],
- guestFn:function(inapp){start(JSON.parse(document.getElementById('evd').textContent),null,inapp)}});
+ guestTxt:['不用 Google 登入，直接填評估表','Fill it in without signing in'],idGate:true,
+ preview:function(){return new URLSearchParams(location.search).has('direct')},   /* 總部 ?direct=1：身分區塊下面先把題目攤開來看，送出前仍要選一種身分 */
+ idLoad:function(){var g=gsGet();return {name:g.name||'',co:g.co||'',ti:g.ti||(g.co?'':g.ct||''),email:g.email||''}},
+ idSave:function(id){var g=gsGet();g.name=id.name;g.co=id.co;g.ti=id.ti;g.email=id.email;gsPut(g)},
+ guestFn:function(inapp,id){start(JSON.parse(document.getElementById('evd').textContent),null,inapp,id)}});
+function gsGet(){try{return JSON.parse(localStorage.getItem('es_eval_g')||'{}')||{}}catch(e){return {}}}
+function gsPut(g){try{localStorage.setItem('es_eval_g',JSON.stringify(g))}catch(e){}}
 document.getElementById('lang').addEventListener('click',function(){L=L==='en'?'zh':'en';apply(L);A.relang();if(onLang)onLang()});
 A.boot();
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function T(zh,en,tag,attr){tag=tag||'span';return '<'+tag+(attr?' '+attr:'')+' data-zh="'+esc(zh)+'" data-en="'+esc(en)+'">'+esc(L==='en'?en:zh)+'</'+tag+'>'}
-function start(d,auth,inapp){
- box.innerHTML=d.html;apply(L);var G=!auth;   /* 11/10：G=不登入填寫，姓名與 Email 自己填，送到 /eval */
+function start(d,auth,inapp,id){
+ box.innerHTML=d.html;apply(L);var G=!auth;id=id||null;   /* 11/10：G=不登入填寫，姓名與 Email 自己填，送到 /eval */
  var n=new Date(),today=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2)+'-'+('0'+n.getDate()).slice(-2);
  /* 11/16 Vincent：誰說當天才開放？隨時都能看能填。拿掉日期閘門 */
  if(!d.has)return;
@@ -330,31 +371,30 @@ function start(d,auth,inapp){
  wait.hidden=true;f.hidden=false;
  var DK='es_eval_d_'+d.id;   /* 11/16：草稿存在這支手機，下次打開帶回；不登入的人不顯示歷史 */
  if(!G){var me=(A.user()||{}).email||'';if(me){var ei=document.createElement('p');ei.className='eid';ei.innerHTML=T('送出帳號：'+me,'Sending as '+me);f.insertBefore(ei,f.firstChild)}}
- var GK2='es_eval_g',gs=(function(){try{return JSON.parse(localStorage.getItem(GK2)||'{}')}catch(e){return {}}})();
+ var gs=gsGet(),IDK=id?(id.email||(id.name+'|'+id.co+'|'+id.ti)).toLowerCase():'';
  if(G){var gid=document.createElement('section');gid.className='card gid';
-  gid.innerHTML=(inapp?T('LINE 裡不能用 Google 登入，直接在這裡填就好。','Google sign-in does not work inside LINE, so just fill it in here.','p','class="qd"'):'')
-   +'<div class="fd"><label>'+T('姓名','Name')+'<input id="gname" autocomplete="name"></label></div>'
-   +'<div class="fd"><label>'+T('公司與職稱','Company and title')+'<input id="gct" autocomplete="organization-title"></label></div>'
-   +'<div class="fd"><label>Email<input id="gemail" type="email" autocomplete="email"></label></div>'
-   +'<input id="ghoney" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">';
-  f.insertBefore(gid,f.firstChild);document.getElementById('gname').value=gs.name||'';document.getElementById('gct').value=gs.ct||'';document.getElementById('gemail').value=gs.email||''}
+  gid.innerHTML=id?(T('填寫人','Answering as','p','class="ql"')+'<p class="idme">'+esc(id.name)+'　'+esc(id.co)+'　'+esc(id.ti)+(id.email?'　'+esc(id.email):'')+'</p><p class="gn"><a href="#" id="idchg">'+T('改身分','Change')+'</a></p>')
+   :T('這是預覽。要送出，請先在上面選 Google 登入，或填姓名、公司、職稱。','This is a preview. To send it, first sign in with Google above or enter your name, company and title.','p','class="qd"');
+  f.insertBefore(gid,f.firstChild);var ch=document.getElementById('idchg');if(ch)ch.addEventListener('click',function(e){e.preventDefault();draft();box.innerHTML='';A.again();scrollTo(0,0)})}
  var cards=[].slice.call(f.querySelectorAll('.ec')),saved=false;
  function val(q){
   var f_=q.getAttribute('data-f');
   if(f_==='help')return [].map.call(q.querySelectorAll('.pl[aria-pressed="true"]'),function(b){return b.getAttribute('data-v')});
   if(f_==='insight')return q.querySelector('textarea').value.trim();
   var b=q.querySelector('[aria-pressed="true"]');return b?b.getAttribute('data-v'):''}
+ function fmtVal(){var q=f.querySelector('.q[data-f="fmt"]');if(!q)return null;var b=q.querySelector('[aria-pressed="true"]'),v=b?b.getAttribute('data-v'):'';return {v:v,o:v==='其他'?q.querySelector('textarea').value.trim().slice(0,300):''}}
+ function fmtShow(){var q=f.querySelector('.q[data-f="fmt"]');if(!q)return;var b=q.querySelector('[aria-pressed="true"]');q.querySelector('.fmo').hidden=!(b&&b.getAttribute('data-v')==='其他')}
  function teamVal(c){var o={};[].forEach.call(c.querySelectorAll('.q'),function(q){o[q.getAttribute('data-f')]=val(q)});return o}
  function filled(v){return !!(v.pmf||v.scale||v.overall||(v.help&&v.help.length)||v.insight)}
- function mark(){cards.forEach(function(c){c.querySelector('.fl').hidden=!filled(teamVal(c))})}
+ function mark(){cards.forEach(function(c){c.querySelector('.fl').hidden=!filled(teamVal(c))});fmtShow()}
  f.addEventListener('click',function(ev){
   var b=ev.target.closest('.sb,.ob,.pl');if(!b)return;ev.preventDefault();
   var on=b.getAttribute('aria-pressed')==='true';
-  if(b.classList.contains('pl')){b.setAttribute('aria-pressed',on?'false':'true')}
+  if(b.classList.contains('pl')&&!b.classList.contains('fm')){b.setAttribute('aria-pressed',on?'false':'true')}
   else{[].forEach.call(b.parentNode.querySelectorAll('[aria-pressed]'),function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',on?'false':'true')}
   mark();draft();done.hidden=true});
  f.addEventListener('input',function(){mark();draft();done.hidden=true});
- function collect(){var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});return {teams:teams,note:document.getElementById('enote').value.trim().slice(0,500),talk:talkVal()}}
+ function collect(){var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});return {teams:teams,note:document.getElementById('enote').value.trim().slice(0,500),talk:talkVal(),fmt:fmtVal()}}
  function draft(){ls(DK,JSON.stringify(collect()))}
  function set(rec,isDraft){
   if(!rec)return;if(!isDraft)saved=true;
@@ -363,8 +403,10 @@ function start(d,auth,inapp){
     if(k==='insight'){q.querySelector('textarea').value=x||''}
     else if(k==='help'){[].forEach.call(q.querySelectorAll('.pl'),function(b){b.setAttribute('aria-pressed',(x||[]).indexOf(b.getAttribute('data-v'))>=0?'true':'false')})}
     else{[].forEach.call(q.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',x&&b.getAttribute('data-v')===String(x)?'true':'false')})}})});
-  document.getElementById('enote').value=rec.note||'';var et=document.getElementById('etalk');if(et)et.value=rec.talk||'';mark();if(saved)go.innerHTML=T('更新評估表','Update evaluation')}
- function fromDraft(){var x=null;try{x=JSON.parse(ls(DK)||'null')}catch(e){}if(!x)return;if(G&&(gs.t||{})[d.id])saved=true;set(x,true)}
+  document.getElementById('enote').value=rec.note||'';var et=document.getElementById('etalk');if(et)et.value=rec.talk||'';
+  var fq=f.querySelector('.q[data-f="fmt"]'),fv=rec.fmt||{};if(fq){[].forEach.call(fq.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',fv.v&&b.getAttribute('data-v')===fv.v?'true':'false')});fq.querySelector('textarea').value=fv.o||''}
+  mark();if(saved)go.innerHTML=T('更新評估表','Update evaluation')}
+ function fromDraft(){var x=null;try{x=JSON.parse(ls(DK)||'null')}catch(e){}if(!x)return;if(G&&IDK&&gs.k===IDK&&(gs.t||{})[d.id])saved=true;set(x,true)}
  function when(iso){var t=new Date(iso);if(isNaN(t))return '';return (t.getMonth()+1)+'/'+t.getDate()+' '+('0'+t.getHours()).slice(-2)+':'+('0'+t.getMinutes()).slice(-2)}
  function nextBtn(){var x=d.next;if(!x)return '';return '<a class="btn sm" href="/members/?book='+encodeURIComponent(x.id)+'">'+T('預約下一場 '+x.zh,'Book the next one · '+x.en)+'</a>'}
  function sc(x){return x?[x,x==='不評'?'Skip':x]:['-','-']}
@@ -374,6 +416,7 @@ function start(d,auth,inapp){
     +(hp.length?'<dd>'+T('能幫：'+hp.join('、'),'Help: '+hp.map(function(z){return lab.help[z]||z}).join(', '))+'</dd>':'')
     +(x.insight?'<dd>'+T('關鍵洞察：','Key insight: ')+esc(x.insight)+'</dd>':'')});
   if(d.talk&&v.talk)h+='<dt>'+T(d.talk.zh,d.talk.en)+'</dt><dd>'+esc(v.talk)+'</dd>';
+  var fl=d.fmt&&v.fmt&&v.fmt.v?(d.fmt.opts[v.fmt.v]||[v.fmt.v,v.fmt.v]):null;if(fl)h+='<dt>'+T(d.fmt.zh,d.fmt.en)+'</dt><dd>'+T(fl[0],fl[1])+(v.fmt.o?'：'+esc(v.fmt.o):'')+'</dd>';
   if(v.note)h+='<dt>'+T('這一場整體','The whole session')+'</dt><dd>'+esc(v.note)+'</dd>';
   return h+'</dl>'}
  function mine(v){return '<details class="emi"><summary>'+T('看我填過的','See what I sent')+'</summary>'+sumHtml(v)+'</details>'}
@@ -394,33 +437,31 @@ function start(d,auth,inapp){
   var was=done.hidden;done.hidden=false;if(was){var c=done.cloneNode(true);done.parentNode.replaceChild(c,done);done=c}done.focus({preventScroll:true});done.scrollIntoView({behavior:'smooth',block:'nearest'})}
  onLang=function(){if(!done.hidden&&lastDone)showDone(lastDone[0],lastDone[1])};
  var RECIP=['boice@evoscalecapital.com','vincent@evoscalecapital.com'];
- function txt(teams,note){
+ function txt(teams,note,fm){
   var out=[];d.teams.forEach(function(t){var v=teams[t.key]||{};
    out.push('【'+t.zh+'】\nPMF：'+(v.pmf||'-')+'\nScale：'+(v.scale||'-')+'\n整體評價：'+(v.overall||'-')+'\n能幫上什麼：'+((v.help||[]).join('、')||'-')+'\n關鍵洞察：'+(v.insight||'-'))});
   var tv=talkVal();if(document.getElementById('etalk'))out.push('【分享回饋】\n'+(tv||'-'));
+  if(fm)out.push('【場次形式】\n'+(fm.v||'-')+(fm.o?'：'+fm.o:''));
   out.push('【整場意見】\n'+(note||'-'));return out.join('\n\n')}
- function mail(name,email,teams,note,ct){
+ function mail(name,email,teams,note,ct,fm){
   RECIP.forEach(function(to){var fd=new FormData();fd.append('_subject','會後評估表 '+d.date+' '+name);fd.append('_template','table');fd.append('_captcha','false');
-   fd.append('name',name);if(ct)fd.append('company_title',ct);fd.append('email',email);fd.append('session',d.date);fd.append('evaluation',txt(teams,note));fd.append('lang',L);
+   fd.append('name',name);if(ct)fd.append('company_title',ct);fd.append('email',email);fd.append('session',d.date);fd.append('evaluation',txt(teams,note,fm));fd.append('lang',L);
    fetch('https://formsubmit.co/ajax/'+encodeURIComponent(to),{method:'POST',keepalive:true,headers:{Accept:'application/json'},body:fd}).catch(function(){})})}
  f.addEventListener('submit',function(ev){
   ev.preventDefault();err.hidden=true;done.hidden=true;
-  var cv=collect(),teams=cv.teams,note=cv.note,body={s:d.id,teams:teams,note:note,talk:cv.talk,lang:L};
+  var cv=collect(),teams=cv.teams,note=cv.note,body={s:d.id,teams:teams,note:note,talk:cv.talk,fmt:cv.fmt?cv.fmt.v:'',fmt_o:cv.fmt?cv.fmt.o:'',lang:L};
   if(G){
-   var gn=document.getElementById('gname').value.trim(),ge=document.getElementById('gemail').value.trim().toLowerCase();
-   var gc=document.getElementById('gct').value.trim();
-   if(!gn)return fail('請填姓名。','Please enter your name.');
-   if(!gc)return fail('請填公司與職稱。','Please enter your company and title.');
-   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ge))return fail('Email 格式看起來不對。','That email does not look right.');
-   body.name=gn;body.ct=gc.slice(0,120);body.email=ge;body._honey=document.getElementById('ghoney').value;var tk=(gs.t||{})[d.id];if(tk&&gs.email===ge)body.t=tk;
+   if(!id){var gt=document.getElementById('gate');if(gt)gt.scrollIntoView({behavior:'smooth',block:'start'});return fail('送出前，請先在最上面選 Google 登入，或填姓名、公司、職稱。','Before sending, sign in with Google at the top or enter your name, company and title.')}
+   var gn=id.name,ge=id.email,gc=id.co+' '+id.ti;
+   body.name=gn;body.company=id.co;body.title=id.ti;body.ct=gc.slice(0,120);body.email=ge;var tk=(gs.t||{})[d.id];if(tk&&gs.k===IDK)body.t=tk;
    go.disabled=true;
    fetch(WK+'/eval',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body)})
    .then(function(r){return r.json().then(function(j){return j&&j.ok?j:null},function(){return null})},function(){return null})
    .then(function(j){go.disabled=false;
     if(!j)return fail('沒有送出成功，稍後再試，或來信 vincent@evoscalecapital.com。','That did not go through. Try again shortly, or email vincent@evoscalecapital.com.');
-    gs.name=gn;gs.ct=gc;gs.email=ge;gs.t=gs.t||{};gs.t[d.id]=j.t;try{localStorage.setItem(GK2,JSON.stringify(gs))}catch(e){}
+    gs=gsGet();if(gs.k!==IDK)gs.t={};gs.k=IDK;gs.t=gs.t||{};gs.t[d.id]=j.t;gsPut(gs);
     draft();showDone(!j.created,cv);saved=true;go.innerHTML=T('更新評估表','Update evaluation');
-    if(!/@qa\.invalid$/.test(ge))mail(gn,ge,teams,note,gc)});
+    if(!/@qa\.invalid$/.test(ge))mail(gn,ge,teams,note,gc,cv.fmt)});
    return}
   go.disabled=true;
   fetch(WK+'/eval2',{method:'POST',headers:{'Content-Type':'text/plain','X-Session':A.sess()||''},body:JSON.stringify(body)})
@@ -431,8 +472,8 @@ function start(d,auth,inapp){
    go.disabled=false;if(j&&j.stop)return;
    if(!j)return fail('沒有送出成功，稍後再試，或來信 vincent@evoscalecapital.com。','That did not go through. Try again shortly, or email vincent@evoscalecapital.com.');
    var u=A.user()||{};ls(DK,null);showDone(typeof j.created==='boolean'?!j.created:saved,cv);saved=true;go.innerHTML=T('更新評估表','Update evaluation');
-   mail(u.name||u.email||'',u.email||'',teams,note)})});
+   mail(u.name||u.email||'',u.email||'',teams,note,'',cv.fmt)})});
 }
 })();
 </script>
-<script>(function(){var n=0,t=setInterval(function(){var a=document.getElementById('glk')||document.querySelector('#gate .btn.o');if(a){clearInterval(t);a.click()}else if(++n>40)clearInterval(t)},150)})();</script></body></html>
+</body></html>
