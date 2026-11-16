@@ -189,7 +189,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">QHwYaq+2JGHVUWG97OB/Ri6YiRQ9LcDTaVxvJ0qx4MbQJiKtotiFhHd9Zkh6E0xahXZYgf9A95jyVpt3tkd9vuLnSe7L1HZD4U4PbojKPMgBqeKaLrpiy7ifsmV73VuwM/IPD88duVKEXFXOGMK2H7+xPsIEBzpOJcMMqhIUGHAfwEaCo5PRwYpG1czd48JSGgEziZMT4zk56dT8ZIj95bVfycMDKqiVb94nVkt4/PbbXvlHtToV0R3z7eCi3AjJzSKiZ3rA898FkQ3Or+YYQd3R5OUZgfFyCvd2ff/gzOyJkdrady/G9N5A1ID6g4WVEtlgjNCoiFKwGhfJJqTBxESYLeAk7FQ1T3kbQMz4KE5L9O5E+U8I1QLM/LcWYyC1G1W8g6oWrYLTJPMMAUG3Lsy3AsS6hgVPgVN72v4Qin+IQ1SdMNMPu0g8EokGyA7ySjn01Va56RpQXG2OjcUimniimpnNtjFB/FslXJxrDmPVlm4ceXlwywAvEt+DLGrSx7YvUVAit9zIrHZc2KNh4F7IcR+RALMJ0CcokF3D1eB3tdizZJlxBS2i4renD+6GD1hb</script>
+<script id="sealed" type="application/octet-stream">aBuT4HJmULSYTrifhuonM9Y38qEKIQG18Wm+XTUAJNjZ8Q8pCQSsf37HSUUIPUqnkGGaRRE8seWnFlJYpB9v/uz83a5gNEA4quPhjpr2IfKARxTHdcsyoW+h/x4Jd8HW+sojoTMPBvBsqErWNKH5U6b2CjeZMB9jrBfCJoKvdFSlkqtFhFzA+V7cZwc2ge+OA/VYcZSoE2WWd/3IPBLy3jOjotKxjEIbJ5IOHJZ7l3zr2jCJtgfSribpLBYdbDG3G9ewBUi6iVyAOlIYh1Mbhj7HeozN2OQVVMfoVP5EXRl3EefmQblbWjOG33FmlABnmPb+OznSFxTRif52DIIWAZVz6ODdNtaijL5M3RyIwkC25VZ7Sr+mUxMLzFl1U9jchuv/CEK24nnzX5z5TD5wIcNPvMYgaGg2IucxSe9kWHaDAitjqRHJBJIHYAenCabP2FvC146OFp9kpEplsdOeAeD5U3vo1t9fe31iKH3XjTKySsZc21MsOWK7t4G7UiAhPfnqmajAFWlpUvT4JVYQC8dTd9GQl4pRUo07KVIACa5gw08N68nG0kOTrlNr3zB738en</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的評估表會在當天開放。\" data-en=\"This session&#x27;s evaluation opens on the day.\">這一場的評估表會在當天開放。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -322,9 +322,10 @@ function start(d,auth,inapp){
  if(G){var gid=document.createElement('section');gid.className='card gid';
   gid.innerHTML=(inapp?T('LINE 裡不能用 Google 登入，直接在這裡填就好。','Google sign-in does not work inside LINE, so just fill it in here.','p','class="qd"'):'')
    +'<div class="fd"><label>'+T('姓名','Name')+'<input id="gname" autocomplete="name"></label></div>'
+   +'<div class="fd"><label>'+T('公司與職稱','Company and title')+'<input id="gct" autocomplete="organization-title"></label></div>'
    +'<div class="fd"><label>Email<input id="gemail" type="email" autocomplete="email"></label></div>'
    +'<input id="ghoney" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">';
-  f.insertBefore(gid,f.firstChild);document.getElementById('gname').value=gs.name||'';document.getElementById('gemail').value=gs.email||''}
+  f.insertBefore(gid,f.firstChild);document.getElementById('gname').value=gs.name||'';document.getElementById('gct').value=gs.ct||'';document.getElementById('gemail').value=gs.email||''}
  var cards=[].slice.call(f.querySelectorAll('.ec')),saved=false;
  function val(q){
   var f_=q.getAttribute('data-f');
@@ -348,10 +349,11 @@ function start(d,auth,inapp){
     if(k==='insight'){q.querySelector('textarea').value=x||''}
     else if(k==='help'){[].forEach.call(q.querySelectorAll('.pl'),function(b){b.setAttribute('aria-pressed',(x||[]).indexOf(b.getAttribute('data-v'))>=0?'true':'false')})}
     else{[].forEach.call(q.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',x&&b.getAttribute('data-v')===String(x)?'true':'false')})}})});
-  document.getElementById('enote').value=rec.note||'';mark();go.innerHTML=T('更新評估表','Update evaluation')}
+  document.getElementById('enote').value=rec.note||'';var et=document.getElementById('etalk');if(et)et.value=rec.talk||'';mark();go.innerHTML=T('更新評估表','Update evaluation')}
  if(!G)fetch(WK+'/eval2?s='+encodeURIComponent(d.id),{headers:{'X-Session':A.sess()||''}}).then(function(r){
   if(r.status===401){A.expired();return null}if(r.status===403){A.blocked();return null}
   return r.json().then(function(j){return j&&j.ok?j.rec:null},function(){return null})}).then(set,function(){});
+ function talkVal(){var et=document.getElementById('etalk');return et?et.value.trim().slice(0,500):''}
  function fail(zh,en){err.innerHTML=T(zh,en);err.hidden=false}
  var lastDone=false;
  function showDone(upd){lastDone=upd;document.getElementById('edt').innerHTML=upd?T('評估表已更新','Evaluation updated'):T('評估表已送出','Evaluation received');
@@ -362,28 +364,31 @@ function start(d,auth,inapp){
  function txt(teams,note){
   var out=[];d.teams.forEach(function(t){var v=teams[t.key]||{};
    out.push('【'+t.zh+'】\nPMF：'+(v.pmf||'-')+'\nScale：'+(v.scale||'-')+'\n整體評價：'+(v.overall||'-')+'\n能幫上什麼：'+((v.help||[]).join('、')||'-')+'\n關鍵洞察：'+(v.insight||'-'))});
+  var tv=talkVal();if(document.getElementById('etalk'))out.push('【分享回饋】\n'+(tv||'-'));
   out.push('【整場意見】\n'+(note||'-'));return out.join('\n\n')}
- function mail(name,email,teams,note){
+ function mail(name,email,teams,note,ct){
   RECIP.forEach(function(to){var fd=new FormData();fd.append('_subject','會後評估表 '+d.date+' '+name);fd.append('_template','table');fd.append('_captcha','false');
-   fd.append('name',name);fd.append('email',email);fd.append('session',d.date);fd.append('evaluation',txt(teams,note));fd.append('lang',L);
+   fd.append('name',name);if(ct)fd.append('company_title',ct);fd.append('email',email);fd.append('session',d.date);fd.append('evaluation',txt(teams,note));fd.append('lang',L);
    fetch('https://formsubmit.co/ajax/'+encodeURIComponent(to),{method:'POST',keepalive:true,headers:{Accept:'application/json'},body:fd}).catch(function(){})})}
  f.addEventListener('submit',function(ev){
   ev.preventDefault();err.hidden=true;done.hidden=true;
   var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});
-  var note=document.getElementById('enote').value.trim().slice(0,500),body={s:d.id,teams:teams,note:note,lang:L};
+  var note=document.getElementById('enote').value.trim().slice(0,500),body={s:d.id,teams:teams,note:note,talk:talkVal(),lang:L};
   if(G){
    var gn=document.getElementById('gname').value.trim(),ge=document.getElementById('gemail').value.trim().toLowerCase();
+   var gc=document.getElementById('gct').value.trim();
    if(!gn)return fail('請填姓名。','Please enter your name.');
+   if(!gc)return fail('請填公司與職稱。','Please enter your company and title.');
    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ge))return fail('Email 格式看起來不對。','That email does not look right.');
-   body.name=gn;body.email=ge;body._honey=document.getElementById('ghoney').value;var tk=(gs.t||{})[d.id];if(tk&&gs.email===ge)body.t=tk;
+   body.name=gn;body.ct=gc.slice(0,120);body.email=ge;body._honey=document.getElementById('ghoney').value;var tk=(gs.t||{})[d.id];if(tk&&gs.email===ge)body.t=tk;
    go.disabled=true;
    fetch(WK+'/eval',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body)})
    .then(function(r){return r.json().then(function(j){return j&&j.ok?j:null},function(){return null})},function(){return null})
    .then(function(j){go.disabled=false;
     if(!j)return fail('沒有送出成功，稍後再試，或來信 vincent@evoscalecapital.com。','That did not go through. Try again shortly, or email vincent@evoscalecapital.com.');
-    gs.name=gn;gs.email=ge;gs.t=gs.t||{};gs.t[d.id]=j.t;try{localStorage.setItem(GK2,JSON.stringify(gs))}catch(e){}
+    gs.name=gn;gs.ct=gc;gs.email=ge;gs.t=gs.t||{};gs.t[d.id]=j.t;try{localStorage.setItem(GK2,JSON.stringify(gs))}catch(e){}
     showDone(!j.created);saved=true;go.innerHTML=T('更新評估表','Update evaluation');
-    if(!/@qa\.invalid$/.test(ge))mail(gn,ge,teams,note)});
+    if(!/@qa\.invalid$/.test(ge))mail(gn,ge,teams,note,gc)});
    return}
   go.disabled=true;
   fetch(WK+'/eval2',{method:'POST',headers:{'Content-Type':'text/plain','X-Session':A.sess()||''},body:JSON.stringify(body)})
