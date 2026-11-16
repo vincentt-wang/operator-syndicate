@@ -197,7 +197,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">nEDB6cbUIeaxHIMaAIIdh8OCXL59fqv0jwAGSJHwoG5S+tnV5XqSLGIrPnBA2HKfOhiCMZYiEvOYnVkgyrPyCFbM1e33BTcnLOH/ZuOp5ua9VbMQ9QAbUAJ+wWVRsNpSzjW2ZE+8E0ilxTkZV4g6kz1/De4ijadCpN3rI5trHqRcR/u13MoMNy586zAYThARL8r2NqDjOBDEqGHOaBtpC7edx5+A3qCHKM9giJ1JFVTqs8wY5EtAJZwiF3JGErCS7ye0XFFETLmfClH/exSayVsTpfKN2Yfd+D+WQ+Db2OjRKWo1J+Tqz5u5dXVSeGXOqM2HGxOZx6HAEc8ld6DhJKZlNSgIoANVhZia8nSMZdry4EGU6TXlui144ncYOtfhwlQ4X48wvuzaYK4Hk+T4NpnYPmjG3OewlqjjjPfqbHvYERaVbBq4kTefnAgUlDyZev3/GUMIkDwFsWeThqtLUY4Os29QqBupnRWtEdPwhq8vPDG8n+y/1ppTWlGtnz1i5Ed/v8YZynPH2ML9IhtcyvC0D81we3nLmXs6A0hPSumvd9Kzi7fKJCRlvL/IYINo3MbO</script>
+<script id="sealed" type="application/octet-stream">IkMNo33wsYNQGOX0FsMtMNYYOkODVD7parvQhGfnv3GCAhTB6wAXYInUPs43lEjaj6EeAk0n3vwtbEY6t0ICjqWq+aYcKEyNVnKCXWQ/31+hyzNhrPkpi8sQ9RDw82mOYii+5QgFzSo2MIxBbnim0OnHldGq9kDquWY83IJjujjFOQwlVtNjG1gVy/39lBoCDbQbKr77t2+VqAFQC2/FsCsCklyVQ722LeceLuQ3wOSrAYyJBSWDpizTZqAX934HZHVd7Ez32ZhEF6xY+TBkSGNa68X6QrLMnXKbvaLzhA9w4BvzgO0rBkYw9CytWL8MrVNDTmPjeEWBu4JZHItvuZVGTNqZGe44lK29UenNLVP1KbmjuyKGBuUyyFokXPmkRSyGXTLYyG3w4yLGszt1SG8yiMy0Mvzn/FLeXuY1BDQbLO7A1pJU+r8zGJWRHt5pZruiWsDXsCHOq3X1v9a9ddR/pkzgoHpffZSR4BJNfzw99TzSpND/XYyQYeEVQUuOxRXiSgsmSo4fv2jorktdFEr31T+xq6Mci99fGAIOHv++wtP9d263eo7YlPm6Ca/k48T1</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的評估表會在當天開放。\" data-en=\"This session&#x27;s evaluation opens on the day.\">這一場的評估表會在當天開放。<\/span><\/p><\/section>", "id": "dr_1217", "date": "2026-12-18", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -324,9 +324,11 @@ function T(zh,en,tag,attr){tag=tag||'span';return '<'+tag+(attr?' '+attr:'')+' d
 function start(d,auth,inapp){
  box.innerHTML=d.html;apply(L);var G=!auth;   /* 11/10：G=不登入填寫，姓名與 Email 自己填，送到 /eval */
  var n=new Date(),today=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2)+'-'+('0'+n.getDate()).slice(-2);
- if(!d.has||d.date>today)return;
+ var PV=/[?&]direct=1/.test(location.search)&&d.has&&d.date>today;   /* 11/16 Vincent：後台要能先看到題目；?direct=1 且還沒到當天＝預覽，不能送出 */
+ if(!d.has||(d.date>today&&!PV))return;
  var f=document.getElementById('ef'),wait=document.getElementById('evw'),err=document.getElementById('eerr'),go=document.getElementById('ego'),done=document.getElementById('edone');
  wait.hidden=true;f.hidden=false;
+ if(PV){var pb=document.createElement('p');pb.className='ein';pb.style.cssText='background:#FFF3E6;border:1px solid #FFB27A;color:#7A2E0A;border-radius:12px;padding:10px 14px;font-weight:700';pb.textContent=L==='en'?'Preview: the form opens on the day of the session.':'預覽：這份評估表在活動當天開放填寫，現在只能看題目。';f.insertBefore(pb,f.firstChild);[].forEach.call(f.querySelectorAll('button[type=submit],#ego'),function(x){x.disabled=true;x.style.opacity='.5'});f.addEventListener('submit',function(e){e.preventDefault();e.stopImmediatePropagation()},true)}
  var DK='es_eval_d_'+d.id;   /* 11/16：草稿存在這支手機，下次打開帶回；不登入的人不顯示歷史 */
  if(!G){var me=(A.user()||{}).email||'';if(me){var ei=document.createElement('p');ei.className='eid';ei.innerHTML=T('送出帳號：'+me,'Sending as '+me);f.insertBefore(ei,f.firstChild)}}
  var GK2='es_eval_g',gs=(function(){try{return JSON.parse(localStorage.getItem(GK2)||'{}')}catch(e){return {}}})();
@@ -434,4 +436,4 @@ function start(d,auth,inapp){
 }
 })();
 </script>
-</body></html>
+<script>(function(){if(!/[?&]direct=1/.test(location.search))return;var n=0,t=setInterval(function(){var a=document.getElementById('glk')||document.querySelector('#gate .btn.o');if(a){clearInterval(t);a.click()}else if(++n>40)clearInterval(t)},150)})();</script></body></html>
