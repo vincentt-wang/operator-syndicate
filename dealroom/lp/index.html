@@ -195,7 +195,7 @@ footer{text-align:center;color:var(--tx3);font-size:.82rem;margin-top:22px}
 .flow.live li.now b,.flow.done li b{padding-right:58px}
 .flow.done .fp i{display:none}
 @media(prefers-reduced-motion:reduce){.btn.pulse,.btn.pulse:hover{animation:none}.tm .sb,.tm .sh .cv::before,.tm .sh .sn,.tm a.lkb,.tm button.act,.tm button.act .go,.flow .fp,.flow.live li{transition:none}.flow .fp i::after{animation:none;display:none}.tm a.lkb:hover,.tm button.act:hover{transform:none}}
-</style></head>
+</style><style id="postev">.cd[hidden]{display:none!important}</style><script id="postev-js">document.addEventListener('DOMContentLoaded',function(){/* 11/18：散場後主按鈕改成會後評估表，倒數不留空框 */var END=Date.parse('2026-11-26T14:30:00+08:00'),q=new URLSearchParams(location.search).get('now'),t=Date.now();if(q){if(!/(Z|[+-]\d\d:?\d\d)$/.test(q))q=(q.length===16?q+':00':q)+'+08:00';var x=Date.parse(q);if(!isNaN(x))t=x}if(t<END)return;[].forEach.call(document.querySelectorAll('a.btn'),function(a){if(/\/members\/?$/.test(a.getAttribute('href')||'')&&/預約|Book/.test(a.textContent)){a.href='https://evoscalecapital.com/eval/';a.setAttribute('data-zh','填會後評估表 ↗');a.setAttribute('data-en','Fill in the post-event form ↗');a.textContent=/^en/.test(document.documentElement.getAttribute('data-lang')||document.documentElement.lang||'')?'Fill in the post-event form ↗':'填會後評估表 ↗';a.classList.remove('pulse')}})});</script></head>
 <body>
 <div class="wrap"><!--CLOSED:START--><!--CLOSED:END-->
 <header><a class="logo" href="https://evoscalecapital.com/"><span class="lm">ES</span><span data-zh="一春資本" data-en="EvoScale Capital">一春資本</span></a><button id="lang" type="button">English</button></header>
