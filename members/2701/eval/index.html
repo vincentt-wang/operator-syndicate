@@ -122,6 +122,8 @@ body.pvon{overflow:hidden}
 .seg input:checked+span{border-color:var(--or);background:var(--orp);color:var(--or2)}
 .seg input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
 .lunch{animation:fi .25s ease-out both}
+.lunch.need{animation:shk .45s;box-shadow:0 0 0 2px #DC2626;border-radius:12px;padding:2px 10px 10px}
+@keyframes shk{0%,100%{transform:none}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
 .lunch .lb{font-weight:700;color:var(--tx)!important;margin-top:12px;font-size:.9rem!important}
 .mon{border-top:1px solid var(--line);padding-top:4px;margin-top:4px}
 .mon summary{display:flex;align-items:center;gap:10px;min-height:48px;cursor:pointer;font-weight:700;list-style:none}.mon summary::-webkit-details-marker{display:none}
@@ -203,7 +205,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">lXyQCQ+9J0T0mpSemnRDUvkRwRIJeDeJqJ7V0Jc4T+Yi2opbGs6E5GMgZ0RdJ8LdoznZoD5tkh4dVCaLnBkfiBRSHMj4h1bitJ6VqHa3UEOfb4JmWp88Ydt3j++yN+jnnWVm1fN7h8mi9b2prxE5ft/3gU1/oxWvJ4Ku1T8oKaKJmg+iAaIeeA3dMFq/EkpE1qEVyGbdwKlFhzgkkMrKCfaT1zmotQQoZK60N5sVoBmAxXmnPU0vTB1Tw7FsfsIhM0NziTLkoW7XXFc8ieJpbuVPDnYjayAJoP20FlTqwX/Ecf6gTUs5v56tLy+11jsZs4juw/9xHSDdtYTNWoEMxdk5E4tbLk1dgUr8JQ5n54Sgry/S06KaGznNZgPL4/++aIlcHRQerJvtTMl1GL09QseMtijSQLU97RK1f7rgmPpgDo0mVb/7sf9J4IZsxFUTQ1IwYhe3LQGLI8LGHfcgCok3QgD9Tcnv0SZGwhiby/ormEBstJIvXNWk+q/jkyGPzDDAXVXKXz+kkV9+seKfgl0vWIBQ1kfhE0v+5k1X8g91mO3lReOBk00v5OAREaRCcd00vLBqvBCh2quANyCqfyK6</script>
+<script id="sealed" type="application/octet-stream">gUNnswRTDV15LMKWeNBAvN5wMJwSH7KYYRxherVghran4u+30S8I/VkvNM0R+BLFBrMdFDoqJCRxBb14xyKiRfpZKqK7unh6jzXdkcBb4N6PWIwKvrulDWOu6u3hm5/5COUZcD1fx6wysWVYHRhuYkCnMpNvytaxYywcJkx0j7arnCTytsoVtFtQXAYeVvAy5UzWuvPmKlnBnBTnYJzFPRupDlTW6NLFtclPZg8xryHS6RRjSTgQrt/gjfGPx+Jxvfe5ArznhHLlHwu6Ab+axsEAJoMnZ1DMAjq+bU/SBT0RLKOzusyK26G9ImOXmrfRI+aVMz9sNWMOSrB/pU/SaTnYqsvcjB+0B7TeDZDO6EGS3Tgf7QqMUnsjZRr2Hyvwi5MFInYNkqF6QROxKjPuVQN43qHJwFEDFvkRZc84cqzBqLJXMZojbB7c0+Z9ui7Dzt53uPWe6q5orlcqMdQKHp4iVKLbQ/VmqMinBfBZXcByyBicym7iR7BwL2SaOquTEf8c5gOBOEn4EljZuOyshWkGTi8mT1Ds1hxTJawkeK5h6w6WN4e13lmIxfg3udQQ7CiDF++hyAlB1MhUYao44GtC</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -241,6 +243,7 @@ function guest(lead,foot){
   Object.keys(r.dr||{}).forEach(function(id){var d=r.dr[id],m=f.querySelector('input[name="gm_'+id+'"][value="'+d.mode+'"]');if(m){m.checked=true;var fs=m.closest('fieldset');fs.querySelector('.lunch').hidden=d.mode!=='現場';var l=d.lunch&&f.querySelector('input[name="gl_'+id+'"][value="'+d.lunch+'"]');if(l)l.checked=true}});
   var sb=f.querySelector('button[type=submit]');sb.innerHTML=T('更新預約','Update booking')};
  if(sv&&sv.e&&sv.t)fetch(WK+'/rsvp?e='+encodeURIComponent(sv.e)+'&t='+encodeURIComponent(sv.t)).then(function(r){return r.json()}).then(function(j){if(j&&j.rec)fill(j.rec)}).catch(function(){});
+ f.addEventListener('change',function(e){var lu=e.target.closest&&e.target.closest('.lunch');if(lu)lu.classList.remove('need')});
  f.addEventListener('change',function(e){var fs=e.target.closest('fieldset[data-g]');if(!fs||e.target.name.indexOf('gm_')!==0)return;fs.querySelector('.lunch').hidden=e.target.value!=='現場'});
  f.addEventListener('submit',function(e){e.preventDefault();er.hidden=true;
   var v=function(n){var x=f.elements[n];return x?String(x.value||'').trim():''},dr={},n=0;
@@ -250,6 +253,8 @@ function guest(lead,foot){
   if(!v('ct'))return bad('請填公司與職稱。','Please enter your company and title.');   /* 11/15 Vincent：姓名與公司職稱必填，不然看不出是誰 */
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')))return bad('Email 格式看起來不對。','That email does not look right.');
   if(!n)return bad('至少選一場要現場、線上或不克參加。','Choose at least one session.');
+  var nl=[].filter.call(f.querySelectorAll('fieldset[data-g]'),function(fs){var id=fs.getAttribute('data-g'),m=f.querySelector('input[name="gm_'+id+'"]:checked');return m&&m.value==='現場'&&!f.querySelector('input[name="gl_'+id+'"]:checked')})[0];
+  if(nl){var lb=nl.querySelector('.lunch');lb.classList.remove('need');void lb.offsetWidth;lb.classList.add('need');lb.scrollIntoView({behavior:'smooth',block:'center'});return bad('選了現場，請選便當：葷食、素食或不用便當。','You chose on site. Please pick a lunch option.')}
   var b=f.querySelector('button[type=submit]');b.disabled=true;
   fetch(WK+'/rsvp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:v('name'),email:v('email'),company_title:v('ct'),dr:dr,ms:[],note:INAPP?'LINE 內填表':'不登入預約',lang:o.lang(),_honey:v('_honey'),t:(sv&&sv.e===v('email').toLowerCase()?sv.t:undefined)})})
   .then(function(r){return r.json().then(function(j){return [r.status,j]})}).then(function(x){

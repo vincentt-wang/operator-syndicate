@@ -122,6 +122,8 @@ body.pvon{overflow:hidden}
 .seg input:checked+span{border-color:var(--or);background:var(--orp);color:var(--or2)}
 .seg input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
 .lunch{animation:fi .25s ease-out both}
+.lunch.need{animation:shk .45s;box-shadow:0 0 0 2px #DC2626;border-radius:12px;padding:2px 10px 10px}
+@keyframes shk{0%,100%{transform:none}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
 .lunch .lb{font-weight:700;color:var(--tx)!important;margin-top:12px;font-size:.9rem!important}
 .mon{border-top:1px solid var(--line);padding-top:4px;margin-top:4px}
 .mon summary{display:flex;align-items:center;gap:10px;min-height:48px;cursor:pointer;font-weight:700;list-style:none}.mon summary::-webkit-details-marker{display:none}
