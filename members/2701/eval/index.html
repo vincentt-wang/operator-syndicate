@@ -203,7 +203,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">niWoDzfN2yQGgFr3ymj+UjlbFE7XImIZbl2xSDKosqn1TcjUKtrHeddxdAjPUs8nvhdo4gjpfLD8WXrFH19AOZ3Ny3eZ4xKL6LS7qGrv5lQJV+pKdwKbPKJOLnwH82D1TbkBmlbJJGXzH5ObRmf/H7xQ2bQmciUg46AZbW3EQJshCZR38xnFC0XhDIpiHoS9nP/NmjCJxgXLx8QMvOmizTDrWG0aotNOyNSJOEGeliKKitjZVwQiM2VplN7UincVloVUMReY/kgK7R/0ztdleVaSXTOUJtqMBrlc/l5Vh77rCJ+JIs1keodXyVTsCk6quLVR2IIEcefwu5LSR+1XrPJeDaLpqCSibSpYgemkkda1omaBs3DYpHmGnEhEADTiGOPeD0cBDFd//Y9KJfOW4cnre/xq5ZAWQAU9We3KdfqDrMEGUB1TuMAnH6MIykAXxj6HUWjQcPm4owOJN1JTm4w/N0xgMBFXCRaroK1yAbEHM9fVqOnIozj1fOjN+Q6zz1N/St1aocgjnfd5GeBE2wu9DLH9kcfGVH5PD5e+6Dn7LVzROBb/Tt5W/LWml0QbMIsNxz7qox4n2nsiYLzTi6yv</script>
+<script id="sealed" type="application/octet-stream">lXyQCQ+9J0T0mpSemnRDUvkRwRIJeDeJqJ7V0Jc4T+Yi2opbGs6E5GMgZ0RdJ8LdoznZoD5tkh4dVCaLnBkfiBRSHMj4h1bitJ6VqHa3UEOfb4JmWp88Ydt3j++yN+jnnWVm1fN7h8mi9b2prxE5ft/3gU1/oxWvJ4Ku1T8oKaKJmg+iAaIeeA3dMFq/EkpE1qEVyGbdwKlFhzgkkMrKCfaT1zmotQQoZK60N5sVoBmAxXmnPU0vTB1Tw7FsfsIhM0NziTLkoW7XXFc8ieJpbuVPDnYjayAJoP20FlTqwX/Ecf6gTUs5v56tLy+11jsZs4juw/9xHSDdtYTNWoEMxdk5E4tbLk1dgUr8JQ5n54Sgry/S06KaGznNZgPL4/++aIlcHRQerJvtTMl1GL09QseMtijSQLU97RK1f7rgmPpgDo0mVb/7sf9J4IZsxFUTQ1IwYhe3LQGLI8LGHfcgCok3QgD9Tcnv0SZGwhiby/ormEBstJIvXNWk+q/jkyGPzDDAXVXKXz+kkV9+seKfgl0vWIBQ1kfhE0v+5k1X8g91mO3lReOBk00v5OAREaRCcd00vLBqvBCh2quANyCqfyK6</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -281,6 +281,8 @@ function showLogin(){
  card(head+'<div id="gbtn" class="gbtn"></div><p id="gerr" class="gerr" role="alert" hidden></p>'+T('只用來確認身分與記錄預約。','Used only to confirm your identity and record your booking.','p','class="gn"')+guestLink());
  bindGuest();loadGis()}
 /* 11/16 Vincent：評估表先確認身分，兩條路擇一：Google 登入，或填姓名、公司、職稱（三格必填）。LINE 等內建瀏覽器不能 Google 登入，改成填表優先，Google 那條給「用瀏覽器開啟」 */
+/* 11/18 Vincent：評估表登入鈕要用 Chrome 開，不是手機預設瀏覽器；保留 ?direct 與 # */
+function crmU(){var u=new URL(location.href);u.searchParams.delete('openExternalBrowser');var q=u.search+u.hash;return AND?'intent://'+u.host+u.pathname+u.search+'#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url='+encodeURIComponent(u.href)+';end':'googlechromes://'+u.host+u.pathname+q}
 function idGate(){
  var sv=(o.idLoad&&o.idLoad())||{},U=new URL(location.href);U.searchParams.set('openExternalBrowser','1');var ext=U.pathname+U.search+U.hash;
  var fld=function(id,zh,en,ac,v,opt){return '<div class="fd"><label>'+T(zh,en)+(opt?T('（選填）',' (optional)','span','class="op"'):'')+'<input id="'+id+'" autocomplete="'+ac+'"'+(id==='idem'?' type="email" inputmode="email"':'')+' value="'+esc(v||'')+'"></label></div>'};
@@ -288,8 +290,9 @@ function idGate(){
   +(INAPP?T('LINE 裡不能用 Google 登入，直接填這三格就好。','Google sign-in does not work inside LINE, so just fill in these three.','p','class="gn"'):T('不用登入，三格都要填。','No sign-in needed. All three are required.','p','class="gn"'))
   +fld('idnm','姓名','Full name','name',sv.name)+fld('idco','公司','Company','organization',sv.co)+fld('idti','職稱','Title','organization-title',sv.ti)+fld('idem','Email','Email','email',sv.email,1)
   +'<p id="iderr" class="gerr" role="alert" hidden></p><button type="button" class="btn" id="idgo">'+T('開始填寫','Start')+'</button></div>';
- var Ag=INAPP?('<div class="idw ida">'+T('用 Google 登入','Sign in with Google','h3')+T('要用 Google 登入，請改用手機的瀏覽器打開這一頁。','To sign in with Google, open this page in your phone\'s browser.','p','class="gn"')
-   +(ISLINE?'<a class="btn o" href="'+esc(ext)+'" id="idext">'+T('用瀏覽器開啟','Open in browser')+'</a>':'<button type="button" class="btn o" id="iabcp">'+T('複製連結','Copy link')+'</button>')+'</div>')
+ var Ag=INAPP?('<div class="idw ida">'+T('用 Google 登入','Sign in with Google','h3')+T('LINE 裡不能用 Google 登入，請用 Chrome 打開這一頁再登入。','Google sign-in does not work inside LINE. Open this page in Chrome to sign in.','p','class="gn"')
+   +'<a class="btn o" href="'+esc(crmU())+'" id="idcrm">'+T('用 Chrome 開啟','Open in Chrome')+'</a>'
+   +(ISLINE?'<p class="gn"><a href="'+esc(ext)+'" id="idext">'+T('沒有 Chrome？用手機的瀏覽器開啟','No Chrome? Open in your phone\'s browser')+'</a></p>':'<button type="button" class="btn o" id="iabcp">'+T('複製連結','Copy link')+'</button>')+'</div>')
   :('<div class="idw ida">'+T('用 Google 登入','Sign in with Google','h3')+T('登入後我們就知道是你，不用再填資料。','Once you sign in we know it is you, nothing else to fill in.','p','class="gn"')
    +(CID?'<div id="gbtn" class="gbtn"></div>':T('登入功能設定中','Sign-in is being set up','p','class="gn"'))+'<p id="gerr" class="gerr" role="alert" hidden></p></div>');
  var OR='<div class="idor">'+T('或','or')+'</div>';
@@ -306,7 +309,7 @@ function idGate(){
   var id={name:g('idnm').slice(0,80),co:g('idco').slice(0,80),ti:g('idti').slice(0,80),email:em};if(o.idSave)o.idSave(id);bk('eval_guest_ok');
   gate.innerHTML='';o.guestFn(INAPP,id)});
  var cb=document.getElementById('iabcp');if(cb)cb.addEventListener('click',function(){bk('inapp_copy');var clean=location.origin+location.pathname,done=function(){cb.innerHTML=T('已複製，貼到瀏覽器打開','Copied. Paste it into your browser')};if(navigator.clipboard)navigator.clipboard.writeText(clean).then(done,function(){prompt('',clean)});else prompt('',clean)});
- var ie=document.getElementById('idext');if(ie)ie.addEventListener('click',function(){bk('inapp_ext')});
+ var ie=document.getElementById('idext');if(ie)ie.addEventListener('click',function(){bk('inapp_ext')});var ic=document.getElementById('idcrm');if(ic)ic.addEventListener('click',function(){bk('inapp_chrome')});
  if(!INAPP&&CID)loadGis();
  if(o.preview&&o.preview())o.guestFn(INAPP,null)}
 function onCred(resp){
@@ -472,7 +475,7 @@ function start(d,auth,inapp,id){
    go.disabled=false;if(j&&j.stop)return;
    if(!j)return fail('沒有送出成功，稍後再試，或來信 vincent@evoscalecapital.com。','That did not go through. Try again shortly, or email vincent@evoscalecapital.com.');
    var u=A.user()||{};ls(DK,null);showDone(typeof j.created==='boolean'?!j.created:saved,cv);saved=true;go.innerHTML=T('更新評估表','Update evaluation');
-   mail(u.name||u.email||'',u.email||'',teams,note,'',cv.fmt)})});
+   mail(u.name||u.email||'',u.email||'',teams,note,((auth&&auth.known)||{}).company_title||'',cv.fmt)})});   /* 11/18 登入填的通知信也帶公司職稱 */
 }
 })();
 </script>
