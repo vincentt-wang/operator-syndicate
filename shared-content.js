@@ -113,8 +113,8 @@ window.OS_CONTENT = {
     en: "I spent 20 years at the front lines of enterprise sales. Every time I helped a startup land a major account, I kept asking: what if the people who know how to sell were also writing the checks? That's EvoScale Capital.",
     zh: "我在企業業務最前線待了 20 年。每次幫新創拿下大客戶，我都在問：如果真正懂得怎麼賣的人，同時也是寫支票的那個呢？這就是 EvoScale Capital。",
     name: "Boice Lin",
-    role_en: "Founder · EvoScale Capital",
-    role_zh: "發起人 · EvoScale Capital",
+    role_en: "Founder & Managing Partner · EvoScale Capital",
+    role_zh: "Founder & Managing Partner · EvoScale Capital",
   },
   // ── Stats 標籤 ────────────────────────────────────
   statLabels: {
@@ -126,7 +126,7 @@ window.OS_CONTENT = {
 
   // ── 跑馬燈內容 ────────────────────────────────────
   // Ordered by global prominence (Fortune 500 / Global 500) then Taiwan Top 100 — lays out as a clean 5×3 wall.
-  marquee: [{n:'Microsoft',l:'assets/logos/microsoft.svg',h:32,wh:46,u:'https://www.microsoft.com'},{n:'AWS',l:'assets/logos/aws.svg',h:40,wh:50,u:'https://aws.amazon.com'},{n:'Oracle',l:'assets/logos/oracle.svg',h:46,wh:62,u:'https://www.oracle.com'},{n:'IBM',l:'assets/logos/ibm.svg',h:28,wh:40,u:'https://www.ibm.com'},{n:'SAP',l:'assets/logos/sap.svg',h:54,wh:68,u:'https://www.sap.com'},{n:'NVIDIA',l:'assets/logos/nvidia.svg',h:52,wh:64,u:'https://www.nvidia.com'},{n:'Salesforce',l:'assets/logos/salesforce.svg',h:50,wh:60,u:'https://www.salesforce.com'},{n:'UBS',l:'assets/logos/UBS.png?v=2',h:34,wh:52,u:'https://www.ubs.com'},{n:'Sharp',l:'assets/logos/sharp.svg?v=2',h:28,wh:40,u:'https://global.sharp'},{n:'Dentsu',l:'assets/logos/dentsu.svg',h:30,wh:42,u:'https://www.dentsu.com'},{n:'LINE',l:'assets/logos/line.svg',h:48,wh:60,u:'https://line.me'},{n:'GlobalFoundries',l:'assets/logos/globalfoundries.svg',h:28,wh:38,u:'https://gf.com'},{n:'IDC',l:'assets/logos/IDC.png?v=2',h:32,wh:50,u:'https://www.idc.com'},{n:'Appier',l:'assets/logos/Appier.png?v=3',h:38,wh:54,u:'https://www.appier.com'},{n:'TutorABC',l:'assets/logos/tutorabc.svg',h:30,wh:44,u:'https://www.tutorabc.com'},{n:'iPassMoney',l:'assets/logos/ipassmoney.png',h:44,wh:52,u:'https://www.i-pass.com.tw/en'}],
+  marquee: [{n:'Microsoft',l:'assets/logos/microsoft.svg',h:32,wh:46,u:'https://www.microsoft.com'},{n:'AWS',l:'assets/logos/aws.svg',h:40,wh:50,u:'https://aws.amazon.com'},{n:'Oracle',l:'assets/logos/oracle.svg',h:46,wh:62,u:'https://www.oracle.com'},{n:'IBM',l:'assets/logos/ibm.svg',h:28,wh:40,u:'https://www.ibm.com'},{n:'SAP',l:'assets/logos/sap.svg',h:54,wh:68,u:'https://www.sap.com'},{n:'NVIDIA',l:'assets/logos/nvidia.svg',h:52,wh:64,u:'https://www.nvidia.com'},{n:'Salesforce',l:'assets/logos/salesforce.svg',h:50,wh:60,u:'https://www.salesforce.com'},{n:'UBS',l:'assets/logos/UBS.png?v=2',h:34,wh:52,u:'https://www.ubs.com'},{n:'Sharp',l:'assets/logos/sharp.svg?v=2',h:28,wh:40,u:'https://global.sharp'},{n:'Dentsu',l:'assets/logos/dentsu.svg',h:30,wh:42,u:'https://www.dentsu.com'},{n:'GlobalFoundries',l:'assets/logos/globalfoundries.svg',h:28,wh:38,u:'https://gf.com'},{n:'IDC',l:'assets/logos/IDC.png?v=2',h:32,wh:50,u:'https://www.idc.com'},{n:'Appier',l:'assets/logos/Appier.png?v=3',h:38,wh:54,u:'https://www.appier.com'},{n:'TutorABC',l:'assets/logos/tutorabc.svg',h:30,wh:44,u:'https://www.tutorabc.com'},{n:'iPassMoney',l:'assets/logos/ipassmoney.png',h:44,wh:52,u:'https://www.i-pass.com.tw/en'}],
 
   // ── FAQ ───────────────────────────────────────────
   faq: [
