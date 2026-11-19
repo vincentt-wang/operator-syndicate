@@ -447,7 +447,7 @@ img{max-width:100%;display:block}
 .ss-stat{text-align:center}
 .ss-n{font-family:var(--fd);font-weight:800;font-size:1.6rem;color:var(--text)}
 .ss-l{font-size:.95rem;color:var(--text-4);letter-spacing:.04em;font-family:var(--fb)}
-.ss-div{width:1px;height:44px;background:var(--border);align-self:center}
+.stat-sub{opacity:.75;margin-top:.1rem;letter-spacing:0}.submit-stats{flex-wrap:nowrap}.submit-stats .ss-stat{flex:0 1 auto;min-width:0}.submit-stats .stat-sub{white-space:nowrap}@media(max-width:640px){.submit-stats{flex-direction:column;align-items:center;gap:1.1rem}.submit-stats .ss-div{display:none}}.ss-div{width:1px;height:44px;background:var(--border);align-self:center}
 
 /* FAQ */
 #faq{padding:120px 0;background:var(--bg)}
@@ -872,8 +872,8 @@ footer{background:#060F1E;padding:72px 0 0}
           <li><strong data-en="A founder who moves fast" data-zh="能快速行動的創辦人">A founder who moves fast</strong></li>
         </ul>
         <div class="portal-stats">
-          <div><div class="portal-stat-n">1:1</div><div class="portal-stat-l" data-en="Operator Review" data-zh="高管親審">Operator Review</div></div>
-          <div><div class="portal-stat-n">100%</div><div class="portal-stat-l" data-en="Confidential" data-zh="嚴格保密">Confidential</div></div>
+          <div><div class="portal-stat-n">1</div><div class="portal-stat-l" data-en="Deal Room a month" data-zh="每月 Deal Room 場次">Deal Room a month</div></div>
+          <div><div class="portal-stat-n">10 + 10</div><div class="portal-stat-l" data-en="Minutes: pitch and Q&amp;A" data-zh="分鐘：簡報與問答">Minutes: pitch and Q&amp;A</div></div>
         </div>
       </div>
       <form class="pform" action="https://formsubmit.co/boice@evoscalecapital.com" data-recipients="boice@evoscalecapital.com,vincent@evoscalecapital.com" method="POST" onsubmit="pSubmit(event)"><input type="hidden" name="_autoresponse" value="Thanks for submitting your deal to EvoScale Capital. We review every submission personally and will be in touch soon."><input type="hidden" name="_subject" value="New deal submission — EvoScale Capital"><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -903,7 +903,7 @@ footer{background:#060F1E;padding:72px 0 0}
           <li><span data-en="Your enterprise channel is what you bring" data-zh="你的企業通路就是你的加值能力">Your enterprise channel is what you bring</span></li>
           <li><span data-en="No board seats, no ongoing time commitment" data-zh="無需董事席位或固定時間投入">No board seats, no ongoing time commitment</span></li>
         </ul>
-        <div class="portal-stats"><div><div class="portal-stat-n">1:1</div><div class="portal-stat-l" data-en="Operator Review" data-zh="高管親審">Operator Review</div></div><div><div class="portal-stat-n">2–3</div><div class="portal-stat-l" data-en="Deals / Month" data-zh="案源 / 月">Deals / Month</div></div></div>
+        <div class="portal-stats"><div><div class="portal-stat-n">1</div><div class="portal-stat-l" data-en="Deal Room a month" data-zh="每月 Deal Room 場次">Deal Room a month</div></div><div><div class="portal-stat-n">3</div><div class="portal-stat-l" data-en="Startups per session" data-zh="每場上台新創">Startups per session</div><div class="portal-stat-l stat-sub" data-en="or 2 plus an investing talk" data-zh="或 2 隊加 1 場投資分享">or 2 plus an investing talk</div></div></div>
       </div>
       <form class="pform" action="https://formsubmit.co/boice@evoscalecapital.com" data-recipients="boice@evoscalecapital.com,vincent@evoscalecapital.com" method="POST" onsubmit="pSubmit(event, 'eSuccessMsg')"><input type="hidden" name="_autoresponse" value="Thanks for your interest in joining EvoScale Capital. Boice will reach out within 3 business days."><input type="hidden" name="_subject" value="New operator interest — EvoScale Capital"><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div><div class="pform-label" data-en="Your Name" data-zh="姓名">Your Name</div><input class="pinput" name="name" type="text" required placeholder="Jane Chen"></div>
@@ -1411,11 +1411,11 @@ footer{background:#060F1E;padding:72px 0 0}
     </div>
     <p class="reveal" style="text-align:center;font-size:1rem;color:var(--text-3);margin-bottom:3rem" data-en="Startups on the left. Investors and corporates on the right." data-zh="新創走左邊，投資人與企業走右邊。">Startups on the left. Investors and corporates on the right.</p>
     <div class="submit-stats reveal">
-      <div class="ss-stat"><div class="ss-n">1:1</div><div class="ss-l" data-en="OPERATOR REVIEW" data-zh="高管親審">OPERATOR REVIEW</div></div>
+      <div class="ss-stat"><div class="ss-n">1</div><div class="ss-l" data-en="DEAL ROOM / MONTH" data-zh="每月 Deal Room 場次">DEAL ROOM / MONTH</div></div>
       <div class="ss-div"></div>
-      <div class="ss-stat"><div class="ss-n">100%</div><div class="ss-l" data-en="CONFIDENTIAL" data-zh="嚴格保密">CONFIDENTIAL</div></div>
+      <div class="ss-stat"><div class="ss-n">3</div><div class="ss-l" data-en="STARTUPS / SESSION" data-zh="每場上台新創">STARTUPS / SESSION</div><div class="ss-l stat-sub" data-en="or 2 plus an investing talk" data-zh="或 2 隊加 1 場投資分享">or 2 plus an investing talk</div></div>
       <div class="ss-div"></div>
-      <div class="ss-stat"><div class="ss-n">2–3</div><div class="ss-l" data-en="DEALS / MONTH" data-zh="案源 / 月">DEALS / MONTH</div></div>
+      <div class="ss-stat"><div class="ss-n">10 + 10</div><div class="ss-l" data-en="MIN: PITCH + Q&amp;A" data-zh="分鐘：簡報與問答">MIN: PITCH + Q&amp;A</div></div>
     </div>
   </div>
 </section>
