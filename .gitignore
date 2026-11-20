@@ -49,3 +49,15 @@ operator-insider-preview/articles/_archive/
 **/_*.json
 .wrangler/
 _archive/
+
+# ── 2026-11-20 資安審查：底線開頭的工具與資料檔一律不上線（_mkdoc.py、_mkdocx.py、_預覽/ 曾被公開）──
+**/_*.py
+**/_*.sh
+_預覽/
+# 舊版 apply Worker（evoscale-apply，已改用 12_表單後端 的 evoscale-forms），設定檔不放公開 repo
+worker/
+# 評案與簡報原檔永不上線（2026-06-13 曾整夾進過 repo，歷史裡還在）
+Review/
+
+# 主線今天的本機備份夾，跟 _archive/ 一樣不上線（11/20 資安審查：它沒被 ignore，git add -A 會把備份推上公開 repo）
+_archive_local/

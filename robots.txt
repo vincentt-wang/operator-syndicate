@@ -9,5 +9,11 @@ Disallow: /operator-insider-preview/
 Disallow: /dealroom/
 Disallow: /deals/
 Disallow: /eval/
+Disallow: /members/
+Disallow: /meet/
+Disallow: /pool/
+Disallow: /hq/
+Disallow: /lp/
+Disallow: /vc-copilot/
 
 Sitemap: https://evoscalecapital.com/sitemap.xml
