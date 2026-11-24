@@ -205,7 +205,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">O5H7j7K4i4Zt10H11nMn0gwZ0zF9WpVW3ttGJif003MUD7ehkXSAdVkchfJpOvz22RmtuY2oxRar+BRb97GGjW8ydOJVDSvdHtcKKYib8KItZ6+vmtkh/kynIlM2AK8g1wRNiJAdvQdP3wDxmKIaTidbsMfAu2ogjoSb3h1CW5bNY+t48NApQbL79oXfm/xabZo5BZtPaci7xMEjWTqB6PtVxjgXY0M7yBVUOQsD3VYFFpljGcsiAP3NSqUslLRTBPsdFMNGsvg0+LQxCt2gTmIu3NiMbzA6K2qHYrkzFduwwPE91F64gV1Fj2x/sT2rnT44ZtY6oU0D1xCqzVy0wsraGP1HQN0+P5lqTa8Srsq7HBSCUV7L9VUjQlLuQwMO75tBJUORHEtNRNBxttDPsrlU/ulhNKDkyPLLTNpUDK9Q4UsT+f/GCyPMETs447L4T4yLrhRKNdbj8kVWoSwsMHwm6YmdCLv/bKJw6+VFgC1laVEDI9AGbvXIa31DwZimsXAni4F1YJ6+PGcmh6GD47v1VFO9TWJyyTUIYK83LGogq/GitzS8t9Hh4vUqg6jNsdSd4tP7lKxfWi5N+DP1lqyv</script>
+<script id="sealed" type="application/octet-stream">uwGsCrM9+YPFx83rdeylhnRpcGdsN83ds0C9H+tB/Psjdr1QBebosW+egYCBmFj+m1Hs+yjST6q1OnbrI2cyYHZc3ypQOoxDPPR9VZJ+yVSliLOEajpmEScxQ9A+2KRPaG6eNJwvNhMgLKcb+8Beis+m6b9n3DPF0vqec9EJ3bME5Kf1u5/4cm08bUSinRu8kLZnuHD/uY4rQKztlC9SI9JyyRJQF0kYUysMceKkYchkakOYniuvA7U0gXjeMKot8LZiwSgttqyUbaycjBXdtbAuePv+aKFDnhCdDnWDC7ebdGEMdCYF3rJs/ohrowq7ZGada8lRb1bzVsqEN9CU2vqGdyh3cvQC3jZeope8+eqoXRZGGJaSrUO23k/F4MBHl5XHkKG6NoXKh3CPx3ul7/Z2CvgTdeUG6A0zDmGiXoaSlX3ZNI873bTfrpa9WirhoHARPiNrRzDodJBCLFzIvVRtOOiqBO4ZOdNcMwwJN9QWMeVx5lypnVAGve06rxla4Z5AdYYrkVj33ZLMoJkvabZusd/TrZlmgngSxzrZcE6qaIZKBI2WH6FCdkFvONOGruE7aacvMzEh+Dhziy3DwwRS</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_0128", "date": "2027-01-28", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -407,7 +407,7 @@ function start(d,auth,inapp,id){
   if(b.classList.contains('pl')&&!b.classList.contains('fm')){b.setAttribute('aria-pressed',on?'false':'true')}
   else{[].forEach.call(b.parentNode.querySelectorAll('[aria-pressed]'),function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',on?'false':'true')}
   mark();draft();done.hidden=true});
- f.addEventListener('input',function(ev){if(ev.target&&ev.target.removeAttribute)ev.target.removeAttribute('aria-invalid');mark();draft();done.hidden=true});
+ f.addEventListener('input',function(ev){if(ev.target&&ev.target.removeAttribute)ev.target.removeAttribute('aria-invalid');err.hidden=true;mark();draft();done.hidden=true});
  function collect(){var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});return {teams:teams,note:document.getElementById('enote').value.trim().slice(0,500),talk:talkVal(),fmt:fmtVal(),rate:rateVal()}}
  function draft(){ls(DK,JSON.stringify(collect()))}
  function set(rec,isDraft){
