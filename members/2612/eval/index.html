@@ -189,7 +189,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 .eh{margin-top:var(--gap)}.eh h2{font-size:1.15rem}
 .eerr{color:#B42318;font-weight:700;font-size:.95rem;margin-top:12px}.eerr[hidden]{display:none}
 #ef .card{margin-top:var(--gap)}
-.fmo{margin-top:4px}.fmo[hidden]{display:none}
+.fmo{margin-top:4px}.fmo[hidden]{display:none}.hpo{margin-top:4px}.hpo[hidden]{display:none}.q textarea[aria-invalid="true"]{border-color:#B42318;outline:1px solid #B42318}
 .idc{display:grid;gap:4px;margin-top:14px;text-align:left}.idw{border:1px solid var(--line);border-radius:14px;padding:16px}.idw h3{margin:0 0 4px;font-size:1.1rem;color:var(--navy)}
 .idw .gn{margin-top:4px}.idw .fd{margin-top:12px}.idw .btn{margin-top:14px;width:100%}.ida .gbtn{justify-content:flex-start}
 .idor{text-align:center;color:var(--tx3);font-weight:700;padding:6px 0}
@@ -205,7 +205,7 @@ img.el{background:#fff;border:1px solid var(--line);padding:4px}
 <div id="body"></div>
 <footer><span  data-zh="一春成員限定，請勿外傳" data-en="For EvoScale members only. Please do not forward.">一春成員限定，請勿外傳</span></footer>
 </div>
-<script id="sealed" type="application/octet-stream">Vab707DxtaKFQC9LLWy2okyQDgH+NFl8aD7r+puhBCzUb52hylT096HQ4Em4VKUs4gOw05r9/0EuJ/kkBknW9tYDIhmk/YfnRPTaanJz+YArAFrWrgsK+jGv1U+s+gpwRdr7/ZiX9GtslADTqQNHkdS6xHofs7WxiP7Cfhn4umSG2YUdHeArhsjfKWLc+RrahgJ9GBXalfBws4Wzoxp05CO351JD4QGAiK1HOzA+nFh1CpfWKRR3AvvYLfGaIlitJ8vJ3PQp7BpJA29lD6VtI1tbgcvtYLwd+PXp+BxXnJYmjjCei8XowZR6PRfyO0LvcryDC8hrihJI38BXJ9Qtt+ajGP4kJMfIpNpvRqZvSb96tA87wDZxnTxvF9kYG+bCXEoNJrtcZxKgYGb+9aKD8lSR7ULncikOMFHmWGojZHjSXmUL1WnPs7JMaL6WRwSAQ/b8THB2fNSDdECVROIYwYWLFT/nK24/CguHokyUONmwmtPsUiK2MfwM+daMm9/5nouWOz8//C3IJXuiAIfC9/TqJ4R86dd/E6ijMwhF4Yi+N3V61N5L032Bq2aaP+rvsLZDKrwmevJpo7xbKHh61uYE</script>
+<script id="sealed" type="application/octet-stream">082LeJkmg++8S/Aw+BwTEHiuorbrx3jCzncik23hyt8EC+HVxOQRkNeR6EfBDiG+Ftk4xDCwQA0kDvNFOxTfYLls92aLxNB9M6x3E24gmfzKjLd+F9GCmZcsbo2MIn5VJRaSL+77wAgj+NC2paVBTj2j/w1xBuKMS5FuGgzqS1vEDqsrOdSEAjRVmW9OkRe1NcbaSBQI5u2tT/EOeO1NIOfFvDIAccBVe5x95h+/dFkLKyTbhKwTwPpJerxNfS9hQxi2OvRAMaXYk/Ivr7rlMA1mG23bJU83sauMm3dGRGfkxWYMbDulXHaA0ko/BrNdwdcpq2QwqyBxgJO7MiZ0eTeiEVK9guFnd9kpQL++PYRIYrPt++YdRuwvnYjSUTNL7BxOvaCa2unFhKFnE/SWsHTOUMsKkvWmAaLfjQPeYU3EAG+cFOSLd3YPTbMTvubk2r6OFoS2r/085x0U7dLfle54H8klPid7y9FjvKXyz/N8pxNjnO+Xt3cPZIqSvXJIdI89LLwllhVr1XzXEnHzW6kmX5G4eNtXIBuWCqljcsSeKq+nfPpIDwEdbOGGx9ZYb4DejwBv0rq8djyWSnfhqbYV</script>
 <script id="evd" type="application/json">{"html": "<section class=\"card\" id=\"evw\"><h2><span  data-zh=\"會後評估表\" data-en=\"Post-session evaluation\">會後評估表<\/span><\/h2><p><span  data-zh=\"這一場的隊伍確定後會放上評估題目。\" data-en=\"Questions go up once the teams are confirmed.\">這一場的隊伍確定後會放上評估題目。<\/span><\/p><\/section>", "id": "dr_1217", "date": "2026-12-18", "has": false}</script>
 <script>
 window.ESA=function(o){
@@ -391,30 +391,35 @@ function start(d,auth,inapp,id){
  function val(q){
   var f_=q.getAttribute('data-f');
   if(f_==='help')return [].map.call(q.querySelectorAll('.pl[aria-pressed="true"]'),function(b){return b.getAttribute('data-v')});
+  if(f_==='help_o')return '';
   if(f_==='insight')return q.querySelector('textarea').value.trim();
   var b=q.querySelector('[aria-pressed="true"]');return b?b.getAttribute('data-v'):''}
  function fmtVal(){var q=f.querySelector('.q[data-f="fmt"]');if(!q)return null;var b=q.querySelector('[aria-pressed="true"]'),v=b?b.getAttribute('data-v'):'';return {v:v,o:v==='其他'?q.querySelector('textarea').value.trim().slice(0,300):''}}
  function fmtShow(){var q=f.querySelector('.q[data-f="fmt"]');if(!q)return;var b=q.querySelector('[aria-pressed="true"]');q.querySelector('.fmo').hidden=!(b&&b.getAttribute('data-v')==='其他')}
- function teamVal(c){var o={};[].forEach.call(c.querySelectorAll('.q'),function(q){o[q.getAttribute('data-f')]=val(q)});return o}
+ function teamVal(c){var o={};[].forEach.call(c.querySelectorAll('.q'),function(q){o[q.getAttribute('data-f')]=val(q)});var ho=c.querySelector('.hpo textarea');o.help_o=(o.help||[]).indexOf('其他')>=0&&ho?ho.value.trim().slice(0,200):'';return o}
+ function hpoShow(){cards.forEach(function(c){var on=!!c.querySelector('.q[data-f="help"] .pl[data-v="其他"][aria-pressed="true"]'),w=c.querySelector('.hpo');if(w){var was=w.hidden;w.hidden=!on;if(on&&was){var ta=w.querySelector('textarea');setTimeout(function(){try{ta.focus({preventScroll:true})}catch(e){}},0)}}})}
+ function rateVal(){var b=f.querySelector('.q[data-f="rate"] [aria-pressed="true"]');return b?b.getAttribute('data-v'):''}
  function filled(v){return !!(v.pmf||v.scale||v.overall||(v.help&&v.help.length)||v.insight)}
- function mark(){cards.forEach(function(c){c.querySelector('.fl').hidden=!filled(teamVal(c))});fmtShow()}
+ function mark(){cards.forEach(function(c){c.querySelector('.fl').hidden=!filled(teamVal(c))});fmtShow();hpoShow()}
  f.addEventListener('click',function(ev){
   var b=ev.target.closest('.sb,.ob,.pl');if(!b)return;ev.preventDefault();
   var on=b.getAttribute('aria-pressed')==='true';
   if(b.classList.contains('pl')&&!b.classList.contains('fm')){b.setAttribute('aria-pressed',on?'false':'true')}
   else{[].forEach.call(b.parentNode.querySelectorAll('[aria-pressed]'),function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',on?'false':'true')}
   mark();draft();done.hidden=true});
- f.addEventListener('input',function(){mark();draft();done.hidden=true});
- function collect(){var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});return {teams:teams,note:document.getElementById('enote').value.trim().slice(0,500),talk:talkVal(),fmt:fmtVal()}}
+ f.addEventListener('input',function(ev){if(ev.target&&ev.target.removeAttribute)ev.target.removeAttribute('aria-invalid');mark();draft();done.hidden=true});
+ function collect(){var teams={};cards.forEach(function(c){teams[c.getAttribute('data-k')]=teamVal(c)});return {teams:teams,note:document.getElementById('enote').value.trim().slice(0,500),talk:talkVal(),fmt:fmtVal(),rate:rateVal()}}
  function draft(){ls(DK,JSON.stringify(collect()))}
  function set(rec,isDraft){
   if(!rec)return;if(!isDraft)saved=true;
   cards.forEach(function(c){var v=(rec.teams||{})[c.getAttribute('data-k')];if(!v)return;
    [].forEach.call(c.querySelectorAll('.q'),function(q){var k=q.getAttribute('data-f'),x=v[k];
     if(k==='insight'){q.querySelector('textarea').value=x||''}
+    else if(k==='help'){[].forEach.call(q.querySelectorAll('.pl'),function(b){b.setAttribute('aria-pressed',(x||[]).indexOf(b.getAttribute('data-v'))>=0?'true':'false')});var ho=q.querySelector('.hpo textarea');if(ho)ho.value=v.help_o||''}
     else if(k==='help'){[].forEach.call(q.querySelectorAll('.pl'),function(b){b.setAttribute('aria-pressed',(x||[]).indexOf(b.getAttribute('data-v'))>=0?'true':'false')})}
     else{[].forEach.call(q.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',x&&b.getAttribute('data-v')===String(x)?'true':'false')})}})});
   document.getElementById('enote').value=rec.note||'';var et=document.getElementById('etalk');if(et)et.value=rec.talk||'';
+  var rq=f.querySelector('.q[data-f="rate"]');if(rq)[].forEach.call(rq.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',rec.rate&&b.getAttribute('data-v')===String(rec.rate)?'true':'false')});
   var fq=f.querySelector('.q[data-f="fmt"]'),fv=rec.fmt||{};if(fq){[].forEach.call(fq.querySelectorAll('[data-v]'),function(b){b.setAttribute('aria-pressed',fv.v&&b.getAttribute('data-v')===fv.v?'true':'false')});fq.querySelector('textarea').value=fv.o||''}
   mark();if(saved)go.innerHTML=T('更新評估表','Update evaluation')}
  function fromDraft(){var x=null;try{x=JSON.parse(ls(DK)||'null')}catch(e){}if(!x)return;if(G&&IDK&&gs.k===IDK&&(gs.t||{})[d.id])saved=true;set(x,true)}
@@ -424,11 +429,11 @@ function start(d,auth,inapp,id){
  function sumHtml(v){var lab=d.lab||{help:{},ov:{}},h='<dl>';
   d.teams.forEach(function(t){var x=(v.teams||{})[t.key]||{},ov=lab.ov[x.overall],p=sc(x.pmf),q=sc(x.scale),hp=x.help||[];
    h+='<dt>'+T(t.zh,t.en)+'</dt><dd>'+T('PMF '+p[0]+'　Scale '+q[0]+'　'+(ov?ov[0]:'整體評價未選'),'PMF '+p[1]+' · Scale '+q[1]+' · '+(ov?ov[1]:'No overall view'))+'</dd>'
-    +(hp.length?'<dd>'+T('能幫：'+hp.join('、'),'Help: '+hp.map(function(z){return lab.help[z]||z}).join(', '))+'</dd>':'')
+    +(hp.length?'<dd>'+T('能幫：'+hp.join('、')+(x.help_o?'（'+x.help_o+'）':''),'Help: '+hp.map(function(z){return lab.help[z]||z}).join(', ')+(x.help_o?' ('+x.help_o+')':''))+'</dd>':'')
     +(x.insight?'<dd>'+T('關鍵洞察：','Key insight: ')+esc(x.insight)+'</dd>':'')});
   if(d.talk&&v.talk)h+='<dt>'+T(d.talk.zh,d.talk.en)+'</dt><dd>'+esc(v.talk)+'</dd>';
   var fl=d.fmt&&v.fmt&&v.fmt.v?(d.fmt.opts[v.fmt.v]||[v.fmt.v,v.fmt.v]):null;if(fl)h+='<dt>'+T(d.fmt.zh,d.fmt.en)+'</dt><dd>'+T(fl[0],fl[1])+(v.fmt.o?'：'+esc(v.fmt.o):'')+'</dd>';
-  if(v.note)h+='<dt>'+T('這一場整體','The whole session')+'</dt><dd>'+esc(v.note)+'</dd>';
+  if(v.rate||v.note)h+='<dt>'+T('這一場整體','The whole session')+'</dt><dd>'+(v.rate?T(v.rate+' 分','Score '+v.rate)+(v.note?'　':''):'')+esc(v.note||'')+'</dd>';
   return h+'</dl>'}
  function mine(v){return '<details class="emi"><summary>'+T('看我填過的','See what I sent')+'</summary>'+sumHtml(v)+'</details>'}
  function prev(rec){var c=document.createElement('section');c.className='card eh';
@@ -450,17 +455,21 @@ function start(d,auth,inapp,id){
  var RECIP=['quenice1215@gmail.com','boice@evoscalecapital.com','vincent@evoscalecapital.com'];
  function txt(teams,note,fm){
   var out=[];d.teams.forEach(function(t){var v=teams[t.key]||{};
-   out.push('【'+t.zh+'】\nPMF：'+(v.pmf||'-')+'\nScale：'+(v.scale||'-')+'\n整體評價：'+(v.overall||'-')+'\n能幫上什麼：'+((v.help||[]).join('、')||'-')+'\n關鍵洞察：'+(v.insight||'-'))});
+   out.push('【'+t.zh+'】\nPMF：'+(v.pmf||'-')+'\nScale：'+(v.scale||'-')+'\n整體評價：'+(v.overall||'-')+'\n能幫上什麼：'+((v.help||[]).join('、')||'-')+(v.help_o?'（'+v.help_o+'）':'')+'\n關鍵洞察：'+(v.insight||'-'))});
   var tv=talkVal();if(document.getElementById('etalk'))out.push('【分享回饋】\n'+(tv||'-'));
   if(fm)out.push('【場次形式】\n'+(fm.v||'-')+(fm.o?'：'+fm.o:''));
-  out.push('【整場意見】\n'+(note||'-'));return out.join('\n\n')}
+  var rv=rateVal();out.push('【整場意見】\n'+(rv?'整體體驗 '+rv+' 分\n':'')+(note||'-'));return out.join('\n\n')}
  function mail(name,email,teams,note,ct,fm){
   RECIP.forEach(function(to){var fd=new FormData();fd.append('_subject','會後評估表 '+d.date+' '+name);fd.append('_template','table');fd.append('_captcha','false');
    fd.append('name',name);if(ct)fd.append('company_title',ct);fd.append('email',email);fd.append('session',d.date);fd.append('evaluation',txt(teams,note,fm));fd.append('lang',L);
    fetch('https://formsubmit.co/ajax/'+encodeURIComponent(to),{method:'POST',keepalive:true,headers:{Accept:'application/json'},body:fd}).catch(function(){})})}
  f.addEventListener('submit',function(ev){
   ev.preventDefault();err.hidden=true;done.hidden=true;
-  var cv=collect(),teams=cv.teams,note=cv.note,body={s:d.id,teams:teams,note:note,talk:cv.talk,fmt:cv.fmt?cv.fmt.v:'',fmt_o:cv.fmt?cv.fmt.o:'',lang:L};
+  var cv=collect(),teams=cv.teams,note=cv.note,body={s:d.id,teams:teams,note:note,talk:cv.talk,fmt:cv.fmt?cv.fmt.v:'',fmt_o:cv.fmt?cv.fmt.o:'',rate:cv.rate,lang:L};
+  /* 11/24 Vincent：選了「其他」就要寫出能幫什麼 */
+  var miss=cards.filter(function(c){var v=teamVal(c);return (v.help||[]).indexOf('其他')>=0&&!v.help_o})[0];
+  if(miss){miss.open=true;var mt=miss.querySelector('.hpo textarea');mt.setAttribute('aria-invalid','true');mt.scrollIntoView({behavior:'smooth',block:'center'});try{mt.focus({preventScroll:true})}catch(e){}
+   return fail('選了「其他」，請寫一下能幫上什麼。','You picked Other. Please tell us how you could help.')}
   if(G){
    if(!id){var gt=document.getElementById('gate');if(gt)gt.scrollIntoView({behavior:'smooth',block:'start'});return fail('送出前，請先在最上面選 Google 登入，或填姓名、公司、職稱。','Before sending, sign in with Google at the top or enter your name, company and title.')}
    var gn=id.name,ge=id.email,gc=id.co+' '+id.ti;
