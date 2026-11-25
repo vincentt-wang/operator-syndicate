@@ -675,10 +675,10 @@ var DK_GROUPS = [
   fact:['投資人平均 3 分 44 秒看完一份簡報，停最久的是 Financials、Team、Competition。','Investors spend 3 minutes 44 seconds on an average deck, and the longest on financials, team and competition.','DocSend 與哈佛商學院，2015','DocSend and Harvard Business School, 2015']}
 ];
 /* 11/25 Vincent：強調格式不用照這份，想透露多少由團隊決定；創辦人頁同步這一句 */
-var DK_FREE = {zh:'格式不用照這份。想透露多少由你決定：適用的放，還不方便講的之後再談，用你自己的簡報就好。',en:"You don't need to follow this format. Share what you're comfortable sharing: include what applies, leave anything sensitive for later, and use your own deck."};
+var DK_FREE = {zh:'這份清單是參考，不是固定格式。用你們最自在的方式呈現就好，暫時不方便公開的部分，之後再聊也可以。簡報剛好有談到這些，LP 和投資人通常更快認識你們。',en:"This list is a guide, not a template. Any format that feels natural to you works, and anything you'd rather not share yet can wait until later. When a deck covers these points, LPs and investors usually get to know your team faster."};
 var DK_ITEMS = [].concat.apply([],DK_GROUPS.map(function(g){return g.items}));
 function dkText(zh){
-  var o=[zh?DK_FREE.zh+'約 15 頁、10 分鐘。':DK_FREE.en+' About 15 slides, 10 minutes.'];
+  var o=[zh?DK_FREE.zh+'簡報約 15 頁、10 分鐘。':DK_FREE.en+' About 15 slides, 10 minutes.'];
   o.push((zh?'我們先看的三件事\n':'What we look for first\n')+DK_FOCUS.map(function(f,i){return (i+1)+'. '+(zh?f.zh:f.en)+(zh?'：':': ')+f.li.map(function(l){return zh?l[0]:l[1]}).join(zh?'；':'; ')}).join('\n'));
   var n=0;
   o.push((zh?'Pitch 的 14 個元素\n':'The 14 parts of a pitch\n')+DK_GROUPS.map(function(g){return (zh?g.zh+'（'+g.szh+'）':g.en+' ('+g.sen+')')+'\n'+g.items.map(function(t){n++;return n+'. '+(zh?t[1]+' '+t[0]+'：'+t[2]:t[1]+': '+t[3])}).join('\n')}).join('\n'));
