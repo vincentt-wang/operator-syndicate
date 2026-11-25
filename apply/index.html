@@ -94,6 +94,14 @@ h2.blk{font-family:var(--fd);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);le
 .dk-f li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--orange)}
 .dk-sub{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 18px 0;border-top:1px solid var(--line);padding-top:16px;font-size:16px;font-weight:700;color:#fff}
 .dk-note{font-size:14px;font-weight:500;color:var(--w-3)}
+/* 11/25 Vincent：三組用不同色系（對齊創辦人頁：故事橘、證據青、人與錢紫），先看三件事同樣三色 */
+.dk-g0{--c:#FF8C42;--c2:255,140,66}.dk-g1{--c:#38C3D6;--c2:56,195,214}.dk-g2{--c:#B69CFF;--c2:182,156,255}
+.dk-focus .dk-f{background:linear-gradient(160deg,rgba(var(--c2),.16),rgba(255,255,255,.02));border-color:rgba(var(--c2),.35)}.dk-focus .dk-f .n{color:var(--c)}.dk-focus .dk-f li::before{background:var(--c)}
+.dk-grid .dk-h b{color:var(--c)}.dk-grid .dk-h{border-bottom:3px solid var(--c);padding-bottom:8px;margin-bottom:2px}
+.dk-grid .dk-it.dk-g0,.dk-grid .dk-it.dk-g1,.dk-grid .dk-it.dk-g2{background:rgba(var(--c2),.08);border-color:rgba(var(--c2),.28)}
+.dk-grid .dk-it.dk-g0:hover,.dk-grid .dk-it.dk-g1:hover,.dk-grid .dk-it.dk-g2:hover{background:rgba(var(--c2),.15);border-color:rgba(var(--c2),.55)}.dk-grid .dk-it .n{color:var(--c)}
+.dk-free{margin:14px 18px 2px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.06);border-left:4px solid var(--orange);font-size:16px;line-height:1.6;font-weight:600;color:#fff;text-wrap:pretty}
+@media(max-width:560px){.dk-free{margin-left:14px;margin-right:14px}}
 .dk-grid{margin:0;padding:12px 18px 18px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:row dense;gap:10px}
 .dk-h{display:flex;flex-direction:column;gap:2px;padding:6px 2px 2px;grid-row:1}.dk-h b{font-size:16px;color:var(--orange-3);white-space:nowrap}.dk-h span{font-size:13px;color:var(--w-3);white-space:nowrap}
 .dk-fact{grid-template-columns:1fr !important;border-style:dashed !important;background:transparent !important}.dk-fact .d{margin-top:0}.dk-fact .src{font-size:12px;color:var(--w-3);margin-top:6px}
@@ -269,7 +277,8 @@ select.ctrl option{background:var(--navy-2);color:#fff}
         </button></div>
       </div>
       <div class="dk-focus" id="dkFocus"></div>
-      <div class="dk-sub"><span data-en="The 14 parts of a pitch" data-zh="Pitch 的 14 個元素">The 14 parts of a pitch</span><span class="dk-note" data-en="A guide, not a checklist. Include what applies." data-zh="參考用，適用才放。">A guide, not a checklist. Include what applies.</span></div>
+      <div class="dk-sub"><span data-en="The 14 parts of a pitch" data-zh="Pitch 的 14 個元素">The 14 parts of a pitch</span></div>
+      <p class="dk-free" id="dkFree"></p>
       <div class="dk-grid" id="dkGrid" role="list"></div>
     </div>
 
@@ -665,9 +674,11 @@ var DK_GROUPS = [
   ['本輪需求','Ask','本輪募資金額、資金用途與預計達成的里程碑，以及資金以外希望接觸的資源','The raise, how you will use it and the milestone it reaches, plus the support you hope for beyond capital']],
   fact:['投資人平均 3 分 44 秒看完一份簡報，停最久的是 Financials、Team、Competition。','Investors spend 3 minutes 44 seconds on an average deck, and the longest on financials, team and competition.','DocSend 與哈佛商學院，2015','DocSend and Harvard Business School, 2015']}
 ];
+/* 11/25 Vincent：強調格式不用照這份，想透露多少由團隊決定；創辦人頁同步這一句 */
+var DK_FREE = {zh:'格式不用照這份。想透露多少由你決定：適用的放，還不方便講的之後再談，用你自己的簡報就好。',en:"You don't need to follow this format. Share what you're comfortable sharing: include what applies, leave anything sensitive for later, and use your own deck."};
 var DK_ITEMS = [].concat.apply([],DK_GROUPS.map(function(g){return g.items}));
 function dkText(zh){
-  var o=[zh?'這份是參考，不是檢查表。適用才放，暫時不方便的之後再談。約 15 頁、10 分鐘。':'A guide, not a checklist. Include what applies; anything sensitive can wait. About 15 slides, 10 minutes.'];
+  var o=[zh?DK_FREE.zh+'約 15 頁、10 分鐘。':DK_FREE.en+' About 15 slides, 10 minutes.'];
   o.push((zh?'我們先看的三件事\n':'What we look for first\n')+DK_FOCUS.map(function(f,i){return (i+1)+'. '+(zh?f.zh:f.en)+(zh?'：':': ')+f.li.map(function(l){return zh?l[0]:l[1]}).join(zh?'；':'; ')}).join('\n'));
   var n=0;
   o.push((zh?'Pitch 的 14 個元素\n':'The 14 parts of a pitch\n')+DK_GROUPS.map(function(g){return (zh?g.zh+'（'+g.szh+'）':g.en+' ('+g.sen+')')+'\n'+g.items.map(function(t){n++;return n+'. '+(zh?t[1]+' '+t[0]+'：'+t[2]:t[1]+': '+t[3])}).join('\n')}).join('\n'));
@@ -679,10 +690,11 @@ var PRM_ZH = "請你扮演一位看過上百份早期新創簡報的投資人。
 function renderChecklist(){
   var zh=lang==='zh', e=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
   var f=document.getElementById('dkFocus'), g=document.getElementById('dkGrid');
-  if(f) f.innerHTML=DK_FOCUS.map(function(x,i){return '<div class="dk-f" style="--i:'+i+'"><div class="n">0'+(i+1)+'</div><h5>'+e(zh?x.zh:x.en)+'</h5><ul>'+x.li.map(function(l){return '<li>'+e(zh?l[0]:l[1])+'</li>'}).join('')+'</ul></div>'}).join('');
+  var fr=document.getElementById('dkFree'); if(fr) fr.textContent=zh?DK_FREE.zh:DK_FREE.en;
+  if(f) f.innerHTML=DK_FOCUS.map(function(x,i){return '<div class="dk-f dk-g'+i+'" style="--i:'+i+'"><div class="n">0'+(i+1)+'</div><h5>'+e(zh?x.zh:x.en)+'</h5><ul>'+x.li.map(function(l){return '<li>'+e(zh?l[0]:l[1])+'</li>'}).join('')+'</ul></div>'}).join('');
   var n=0,k=0;
-  if(g) g.innerHTML=DK_GROUPS.map(function(G,c){var h='<div class="dk-h" style="grid-column:'+(c+1)+'"><b>'+e(zh?G.zh:G.en)+'</b><span>'+e(zh?G.szh:G.sen)+'</span></div>';
-    h+=G.items.map(function(t){n++;k++;return '<div class="dk-it" role="listitem" style="--i:'+k+';grid-column:'+(c+1)+'"><span class="n">'+n+'</span><span class="t">'+e(zh?t[0]:t[1])+'</span>'+(zh?'<span class="e">'+e(t[1])+'</span>':'')+'<span class="d">'+e(zh?t[2]:t[3])+'</span></div>'}).join('');
+  if(g) g.innerHTML=DK_GROUPS.map(function(G,c){var h='<div class="dk-h dk-g'+c+'" style="grid-column:'+(c+1)+'"><b>'+e(zh?G.zh:G.en)+'</b><span>'+e(zh?G.szh:G.sen)+'</span></div>';
+    h+=G.items.map(function(t){n++;k++;return '<div class="dk-it dk-g'+c+'" role="listitem" style="--i:'+k+';grid-column:'+(c+1)+'"><span class="n">'+n+'</span><span class="t">'+e(zh?t[0]:t[1])+'</span>'+(zh?'<span class="e">'+e(t[1])+'</span>':'')+'<span class="d">'+e(zh?t[2]:t[3])+'</span></div>'}).join('');
     if(G.fact){k++;h+='<div class="dk-it dk-fact" style="--i:'+k+';grid-column:'+(c+1)+'"><span class="d">'+e(zh?G.fact[0]:G.fact[1])+'</span><span class="src">'+e(zh?G.fact[2]:G.fact[3])+'</span></div>'}
     return h}).join('');
 }
