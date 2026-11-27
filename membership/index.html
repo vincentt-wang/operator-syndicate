@@ -560,6 +560,7 @@ h3.mini{font-size:17px;font-weight:700;margin:6px 0 14px;color:var(--orange-3)}
 // 2026-11-16 週會：第一題三選一分流。look 先來看看（五欄）、talk 想多聊（加三題與時段，送出後才看到會費）、pay 要付費（方案、收據抬頭、條款，送出後列匯款帳戶，再用專屬連結回報後五碼）。
 // 資料先存一春自己的收件程式 /join（同一筆，回報匯款寫回同一筆），每一步都用 FormSubmit 寄 Vincent 與 Boice。
 var FORMSUBMIT_RECIPIENTS = ['quenice1215@gmail.com','boice@evoscalecapital.com','vincent@evoscalecapital.com'];   // 11/18 Vincent：Quenice 也要收到（放第一個，autoresponse 仍掛在最後一封）
+var FOLLOW_UP = ['quenice1215@gmail.com','boice@evoscalecapital.com'];   // 11/27 Vincent：同一個人先來看看、付費、回報匯款，我會收到三封。申請各步只寄跟進的 Quenice、Boice；回報匯款（真的成交）三人都收，Vincent 一人只收一封
 var WK = 'https://evoscale-forms.comicbnb.workers.dev';
 var DRAFT_KEY = 'evoscale-membership-draft-v2';
 var PAY_KEY = 'evoscale-membership-pay';
@@ -733,12 +734,12 @@ function setBusy(btnId,on){
 function payUrl(id,t){ return location.origin+'/membership/?pay='+id+'.'+t; }
 function isQA(e){ return /@qa\.invalid$/i.test(e||''); }
 // 每一步都寄 Vincent 與 Boice，各送一次。autoresponse 只掛在其中一封，申請人才不會收到兩封
-function mail(subject, rows, auto){
-  var sends=FORMSUBMIT_RECIPIENTS.map(function(to,i){
+function mail(subject, rows, auto, only){
+  var LIST=only||FORMSUBMIT_RECIPIENTS; var sends=LIST.map(function(to,i){
     var fd=new FormData();
     fd.append('_subject', subject); fd.append('_template','table'); fd.append('_captcha','false');
     Object.keys(rows).forEach(function(k){ fd.append(k, rows[k]==null?'':String(rows[k])); });
-    if(auto && i===FORMSUBMIT_RECIPIENTS.length-1) fd.append('_autoresponse', auto);
+    if(auto && i===LIST.length-1) fd.append('_autoresponse', auto);
     return fetch('https://formsubmit.co/ajax/'+encodeURIComponent(to),{method:'POST',keepalive:true,headers:{Accept:'application/json'},body:fd})
       .then(function(res){return res.json().then(function(j){return res.ok&&(j.success===true||j.success==='true');},function(){return false;});},function(){return false;});
   });
@@ -774,7 +775,7 @@ async function submitApplication(){
   if(PATH==='pay' && j && j.bank){
     auto=fields.name+' 你好：\n\n一春資本的入會申請收到了。\n\n方案：'+(j.plan_zh||'')+'\n應付金額：'+money(j.amount)+'\n戶名：'+j.bank.name+'\n'+j.bank.bank+'\n帳號：'+j.bank.account+'\n\n匯款後，在這個連結回報帳號後五碼：\n'+payUrl(j.id,j.t)+'\n\n一春資本 EvoScale Capital';
   }
-  var mailed = isQA(fields.email) ? Promise.resolve([true]) : mail(subj, rows, auto);
+  var mailed = isQA(fields.email) ? Promise.resolve([true]) : mail(subj, rows, auto, FOLLOW_UP);
   if(!j){
     var rs=await mailed;
     if(rs.indexOf(true)<0){ setBusy('btnNext',false); setErr('errSubmit',L('送出失敗，請稍後再試，或來信 vincent@evoscalecapital.com。你的草稿已保留。','Submission failed. Please try again shortly, or email vincent@evoscalecapital.com. Your draft is kept.')); return; }
