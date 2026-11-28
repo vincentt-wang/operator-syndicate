@@ -751,8 +751,18 @@ function mailRows(a){
   var r={'路線':PATH_LABEL[PATH][0]};
   if(PATH==='pay'){ var p=PLAN_INFO[a.plan]; r['方案']=p?p.zh+' '+money(p.amount):''; r['收據抬頭']=invType()==='3'?'要（抬頭與統編見下方）':'不需要'; }
   Object.keys(FIELD_ZH).forEach(function(k){ if(a[k]) r[FIELD_ZH[k]]=a[k]; });
+  /* 條款同意紀錄：版本、時間、全文都寫進信裡，信件本身就是同意證明 */
+  var now=new Date(), tpe; try{ tpe=now.toLocaleString('zh-TW',{timeZone:'Asia/Taipei',hour12:false}); }catch(e){ tpe=''; }
+  if(PATH==='pay'){
+    r['條款同意']=a.consent_terms?'是，申請人本人勾選「我已詳閱並完全同意上述一春資本會員服務條款與保密約定」':'未勾選';
+    r['條款版本']=TERMS_VER;
+    r['同意時間']=tpe+'（台北）／'+now.toISOString();
+    var te=document.querySelector('.qpage[data-page="terms"] .terms'); r['條款全文']=te?te.innerText.trim():'';
+  }
+  if(a.consent_membership) r['資料使用同意']='是，同意只用於評估入會（'+tpe+' 台北）';
   return r;
 }
+var TERMS_VER='2026-11-28 版（沿用 Boice Tally 表原文）';
 async function submitApplication(){
   setErr('errSubmit','');
   var a=collectAnswers(); if(a._honey) return;
